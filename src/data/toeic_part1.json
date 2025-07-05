@@ -1038,6 +1038,236 @@
         "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728868/stcqgm6821qs7jg4zpk0.mp3"
       }
     ],
+    "level2": [
+      {
+        "questionNumber": 1,
+        "imageDescription": "A black-and-white photo shows a laptop and a cup sitting on a table near a window. The cup is to the right of the laptop. The table is clean and there are no other items present.",
+        "choices": {
+          "A": "A laptop is under the table.",
+          "B": "The cup is behind the chair.",
+          "C": "The cup is next to the laptop."
+        },
+        "choicesVi": {
+          "A": "Một máy tính xách tay ở dưới bàn.",
+          "B": "Cái cốc ở phía sau ghế.",
+          "C": "Cái cốc ở cạnh máy tính xách tay."
+        },
+        "correctAnswer": "C",
+        "explanation": "C đúng vị trí và vật thể. A là bẫy sai vị trí, B là bẫy sai địa điểm.",
+        "audioScript": "Look at the picture number 1. A. A laptop is under the table. B. The cup is behind the chair. C. The cup is next to the laptop.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729299/ixneildmqlck9nesm2r0.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729398/atricpua53zg1upm1lst.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "imageDescription": "A grayscale image shows a closed book lying on top of some papers on a wooden desk. There is a pen to the left of the book, and nothing else on the desk.",
+        "choices": {
+          "A": "The book is under the papers.",
+          "B": "The pen is to the left of the book.",
+          "C": "The pen is on the chair."
+        },
+        "choicesVi": {
+          "A": "Quyển sách ở dưới các tờ giấy.",
+          "B": "Cây bút ở bên trái quyển sách.",
+          "C": "Cây bút ở trên ghế."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng vị trí. A là bẫy đảo vị trí, C là bẫy sai vật thể và vị trí.",
+        "audioScript": "Look at the picture number 2. A. The book is under the papers. B. The pen is to the left of the book. C. The pen is on the chair.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729308/wrvxv5gqvawsfvdasgkh.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729401/m2556enpl5ycxvbfmwfo.mp3"
+      },
+      {
+        "questionNumber": 3,
+        "imageDescription": "A black-and-white photo shows a lamp standing between two chairs in a small waiting room. There is a small table in front of the chairs, but nothing else in the scene.",
+        "choices": {
+          "A": "A lamp is under the table.",
+          "B": "The chairs are on the table.",
+          "C": "A lamp is between the chairs."
+        },
+        "choicesVi": {
+          "A": "Một cái đèn ở dưới bàn.",
+          "B": "Những cái ghế ở trên bàn.",
+          "C": "Một cái đèn ở giữa hai cái ghế."
+        },
+        "correctAnswer": "C",
+        "explanation": "C mô tả đúng vật thể và vị trí. A là bẫy sai vị trí, B là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 3. A. A lamp is under the table. B. The chairs are on the table. C. A lamp is between the chairs.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729317/cuzdlmzcopfoklw9c2ps.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729404/ebwz5rqhlyyouqkhez9s.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "imageDescription": "A grayscale image shows a calendar hanging above a desk. There is a single pen lying on the desk. The wall behind the desk is blank.",
+        "choices": {
+          "A": "The calendar is on the desk.",
+          "B": "The pen is under the calendar.",
+          "C": "The calendar is above the desk."
+        },
+        "choicesVi": {
+          "A": "Lịch ở trên bàn làm việc.",
+          "B": "Cây bút ở dưới lịch.",
+          "C": "Lịch ở trên bàn."
+        },
+        "correctAnswer": "C",
+        "explanation": "C mô tả đúng vị trí. A là bẫy sai vị trí, B là distractor đúng logic nhưng không đủ chi tiết.",
+        "audioScript": "Look at the picture number 4. A. The calendar is on the desk. B. The pen is under the calendar. C. The calendar is above the desk.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729325/wm7pyj9nauyg0ajckw2p.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729407/vcfyahntxbqlaum2m40l.mp3"
+      },
+      {
+        "questionNumber": 5,
+        "imageDescription": "A black-and-white photo shows a single notebook placed between two smartphones on a clean table. No other objects are visible.",
+        "choices": {
+          "A": "The smartphones are on the floor.",
+          "B": "A pen is next to the notebook.",
+          "C": "The notebook is between the smartphones."
+        },
+        "choicesVi": {
+          "A": "Những chiếc điện thoại ở trên sàn.",
+          "B": "Một cây bút ở cạnh quyển vở.",
+          "C": "Quyển vở ở giữa hai điện thoại."
+        },
+        "correctAnswer": "C",
+        "explanation": "C đúng vị trí. B là bẫy sai vật thể, A là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 5. A. The smartphones are on the floor. B. A pen is next to the notebook. C. The notebook is between the smartphones.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729334/rdjwyorv6wafztxk9rsu.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729409/bvk8cx4pnocqbbbbaqpq.mp3"
+      },
+      {
+        "questionNumber": 6,
+        "imageDescription": "A grayscale image shows a cup placed under a shelf. The shelf is empty. There are no books or other objects in the scene.",
+        "choices": {
+          "A": "The shelf is under the cup.",
+          "B": "A cup is under the shelf.",
+          "C": "A book is on the shelf."
+        },
+        "choicesVi": {
+          "A": "Cái kệ ở dưới cái cốc.",
+          "B": "Một cái cốc ở dưới kệ.",
+          "C": "Một quyển sách ở trên kệ."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng. A là bẫy đảo vị trí, C là bẫy sai vật thể.",
+        "audioScript": "Look at the picture number 6. A. The shelf is under the cup. B. A cup is under the shelf. C. A book is on the shelf.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729342/dzytsjfxnaae6spdvgml.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729411/bdonx1arwi9gajuokpo4.mp3"
+      },
+      {
+        "questionNumber": 7,
+        "imageDescription": "A black-and-white photo shows a chair placed to the left of a large window in a room. There is a small rug under the chair. No other furniture is visible.",
+        "choices": {
+          "A": "A lamp is under the chair.",
+          "B": "The chair is on the table.",
+          "C": "The chair is to the left of the window."
+        },
+        "choicesVi": {
+          "A": "Một cái đèn ở dưới ghế.",
+          "B": "Cái ghế ở trên bàn.",
+          "C": "Cái ghế ở bên trái cửa sổ."
+        },
+        "correctAnswer": "C",
+        "explanation": "C mô tả đúng vị trí. B là bẫy sai vị trí, A là bẫy sai vật thể.",
+        "audioScript": "Look at the picture number 1. A. A lamp is under the chair. B. The chair is on the table. C. The chair is to the left of the window.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729352/qdq2fqda69pxz2fnls7i.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729414/xjv5jarblsbcpsnw1gx1.mp3"
+      },
+      {
+        "questionNumber": 8,
+        "imageDescription": "A grayscale image shows a table with a clock sitting on the right side. Next to the clock is a single book. The table is empty except for these objects.",
+        "choices": {
+          "A": "The clock is above the book.",
+          "B": "A book is next to the clock.",
+          "C": "The clock is under the table."
+        },
+        "choicesVi": {
+          "A": "Cái đồng hồ ở trên quyển sách.",
+          "B": "Một quyển sách ở cạnh cái đồng hồ.",
+          "C": "Cái đồng hồ ở dưới bàn."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng vị trí. A là bẫy sai quan hệ, C là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 2. A. The clock is above the book. B. A book is next to the clock. C. The clock is under the table.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729361/jly8vu6mu8zmg9go6wxp.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729417/qivh9f2uh0pllejnqoem.mp3"
+      },
+      {
+        "questionNumber": 9,
+        "imageDescription": "A black-and-white photo shows a desk with a single computer mouse to the right of a keyboard. There is a notebook above the keyboard. No other items are present.",
+        "choices": {
+          "A": "A pen is on the mouse.",
+          "B": "The mouse is to the right of the keyboard.",
+          "C": "The notebook is under the keyboard."
+        },
+        "choicesVi": {
+          "A": "Một cây bút ở trên chuột.",
+          "B": "Chuột ở bên phải bàn phím.",
+          "C": "Quyển vở ở dưới bàn phím."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng. A là bẫy sai vật thể, C là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 3. A. A pen is on the mouse. B. The mouse is to the right of the keyboard. C. The notebook is under the keyboard.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729369/i1qhtbd3a92dzxfsh8mu.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729419/fqso34vicuqqfjeyvvu1.mp3"
+      },
+      {
+        "questionNumber": 10,
+        "imageDescription": "A grayscale image shows a wall with a single picture frame hanging above a table. There is a vase on the table and nothing else.",
+        "choices": {
+          "A": "A picture frame is above the table.",
+          "B": "The vase is under the chair.",
+          "C": "A clock is beside the vase."
+        },
+        "choicesVi": {
+          "A": "Khung ảnh ở trên bàn.",
+          "B": "Lọ hoa ở dưới ghế.",
+          "C": "Một cái đồng hồ ở cạnh lọ hoa."
+        },
+        "correctAnswer": "A",
+        "explanation": "A đúng vị trí, B là bẫy sai vị trí, C là bẫy sai vật thể.",
+        "audioScript": "Look at the picture number 4. A. A picture frame is above the table. B. The vase is under the chair. C. A clock is beside the vase.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729377/oy1zbitvk5aalhrayzlb.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729422/fsru21cee6cuupviyebs.mp3"
+      },
+      {
+        "questionNumber": 11,
+        "imageDescription": "A black-and-white photo shows two books stacked on top of each other on a table. There is a pencil placed beside the books.",
+        "choices": {
+          "A": "The pencil is on the books.",
+          "B": "The books are under the table.",
+          "C": "The books are on top of each other."
+        },
+        "choicesVi": {
+          "A": "Cây bút chì ở trên những quyển sách.",
+          "B": "Những quyển sách ở dưới bàn.",
+          "C": "Hai quyển sách xếp chồng lên nhau."
+        },
+        "correctAnswer": "C",
+        "explanation": "C mô tả đúng. B là bẫy sai vị trí, A là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 5. A. The pencil is on the books. B. The books are under the table. C. The books are on top of each other.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729386/ko3fgevc82zxf8gobnsy.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729425/peztpajdbp5dxxmaxugt.mp3"
+      },
+      {
+        "questionNumber": 12,
+        "imageDescription": "A grayscale image shows a shelf with a row of books. At the end of the row is a small clock. Nothing else is on the shelf.",
+        "choices": {
+          "A": "A lamp is between the books.",
+          "B": "A clock is at the end of the row of books.",
+          "C": "Books are under the shelf."
+        },
+        "choicesVi": {
+          "A": "Một cái đèn ở giữa các quyển sách.",
+          "B": "Một cái đồng hồ ở cuối hàng sách.",
+          "C": "Những quyển sách ở dưới kệ."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng. A là bẫy sai vật thể/vị trí, C là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 6. A. A lamp is between the books. B. A clock is at the end of the row of books. C. Books are under the shelf.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729393/rsbc0nbsskpho3epm4ar.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729429/o2jdvwtnztf4v5lgrqay.mp3"
+      }
+    ],
     "level3": [
       {
         "questionNumber": 1,
