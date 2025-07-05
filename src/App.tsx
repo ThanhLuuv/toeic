@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Home/Header';
+import Home from './pages/Home';
+import Part1 from './pages/Part1';
+import TestPart1 from './pages/TestPart1';
+import NotFound from './components/NotFound';
+import Footer from './components/Home/Footer';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/test-part1"
+          element={<TestPart1 />}
+        />
+        <Route
+          path="*"
+          element={
+            <div className="bg-gray-50 min-h-screen">
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/part1" element={<Part1 />} />
+                <Route path="/part2" element={<NotFound />} />
+                <Route path="/part3" element={<NotFound />} />
+                <Route path="/part4" element={<NotFound />} />
+                <Route path="/part5" element={<NotFound />} />
+                <Route path="/part6" element={<NotFound />} />
+                <Route path="/part7" element={<NotFound />} />
+              </Routes>
+              <Footer />
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
