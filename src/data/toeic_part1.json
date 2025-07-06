@@ -1,922 +1,1380 @@
 {
   "people": 
   {
-    "level1 ": [
+    "level1 ":[
       {
         "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows a man is sitting on a chair. There is nothing else in the background.",
+        "imageDescription": "A black-and-white photo shows a man standing alone in front of a whiteboard in an empty classroom. He is looking at the whiteboard. There are no other people or objects except the man and the board.",
         "choices": {
-          "A": "A woman is sitting on a chair.",
-          "B": "A man is standing on the chair.",
-          "C": "A man is sitting on a chair."
+          "A": "A man is looking at the whiteboard.",
+          "B": "A woman is writing on the board.",
+          "C": "Two men are sitting at a desk."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang ngồi trên ghế.",
-          "B": "Một người đàn ông đang đứng trên ghế.",
-          "C": "Một người đàn ông đang ngồi trên ghế."
+          "A": "Một người đàn ông đang nhìn vào bảng trắng.",
+          "B": "Một người phụ nữ đang viết lên bảng.",
+          "C": "Hai người đàn ông đang ngồi ở bàn."
         },
-        "correctAnswer": "C",
-        "explanation": "C đúng vì chỉ có một người đàn ông đang ngồi trên ghế. B sai hành động, A sai giới tính.",
-        "audioScript": "Look at the picture number 1.\nA. A woman is sitting on a chair.\nB. A man is standing on the chair.\nC. A man is sitting on a chair.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707275/fmpqlqfborwljrqkbpka.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707378/u5kzj56bcs9rggmwqjfu.mp3"
+        "correctAnswer": "A",
+        "explanation": "A đúng số lượng, chủ thể và hành động. B là bẫy sai giới tính, C là bẫy sai số lượng.",
+        "audioScript": "Look at the picture number 1. A. A man is looking at the whiteboard. B. A woman is writing on the board. C. Two men are sitting at a desk.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767155/ovxzkr5ymgoukuolpqrm.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773255/edmr2qxtj3b4v81ccb76.mp3"
       },
       {
         "questionNumber": 2,
-        "imageDescription": "A black-and-white photo shows a woman is writing on a piece of paper at a desk. There is no one else in the picture.",
+        "imageDescription": "A grayscale photo shows a woman sitting alone on a chair near a window. She is holding a book. The room is empty except for her and the chair.",
         "choices": {
-          "A": "A man is writing on a piece of paper.",
-          "B": "A woman is sleeping at the desk.",
-          "C": "A woman is writing on a piece of paper."
+          "A": "A woman is holding a book.",
+          "B": "A man is reading a newspaper.",
+          "C": "Two women are talking together."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang viết lên tờ giấy.",
-          "B": "Một người phụ nữ đang ngủ trên bàn.",
-          "C": "Một người phụ nữ đang viết lên tờ giấy."
+          "A": "Một người phụ nữ đang cầm một quyển sách.",
+          "B": "Một người đàn ông đang đọc báo.",
+          "C": "Hai người phụ nữ đang nói chuyện với nhau."
         },
-        "correctAnswer": "C",
-        "explanation": "C đúng với hình. A sai giới tính, B sai hành động.",
-        "audioScript": "Look at the picture number 2.\nA. A man is writing on a piece of paper.\nB. A woman is sleeping at the desk.\nC. A woman is writing on a piece of paper.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707286/y8rhd6sasninhmerhjn4.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707381/vl9zxhe54dwooijowvim.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng hành động và số lượng. B là bẫy sai giới tính và vật thể, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 2. A. A woman is holding a book. B. A man is reading a newspaper. C. Two women are talking together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767171/fi7npyscwm3lmoqjswiy.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773257/nlpd1i5pxj5lzpr2vtw3.mp3"
       },
       {
         "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows a man is drinking from a cup. He is alone and nothing else is visible.",
+        "imageDescription": "A black-and-white photo shows a man sitting alone at a table. He is writing something on a piece of paper. There are no other people or objects in the scene.",
         "choices": {
-          "A": "A woman is drinking from a cup.",
-          "B": "A man is drinking from a cup.",
-          "C": "A man is eating an apple."
+          "A": "A man is writing at the table.",
+          "B": "A man is standing by the window.",
+          "C": "A woman is using a computer."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang uống từ cái cốc.",
-          "B": "Một người đàn ông đang uống từ cái cốc.",
-          "C": "Một người đàn ông đang ăn một quả táo."
+          "A": "Một người đàn ông đang viết ở bàn.",
+          "B": "Một người đàn ông đang đứng cạnh cửa sổ.",
+          "C": "Một người phụ nữ đang sử dụng máy tính."
         },
-        "correctAnswer": "B",
-        "explanation": "B đúng, mô tả đúng người và hành động. C sai hành động, A sai giới tính.",
-        "audioScript": "Look at the picture number 3.\nA. A woman is drinking from a cup.\nB. A man is drinking from a cup.\nC. A man is eating an apple.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707295/nymuwqq6zr3odrgkui3w.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707383/an0l9woocrmqvf3kkk4l.mp3"
+        "correctAnswer": "A",
+        "explanation": "A đúng chủ thể, hành động, vị trí. B là bẫy sai hành động, C là bẫy sai giới tính và vật thể.",
+        "audioScript": "Look at the picture number 3. A. A man is writing at the table. B. A man is standing by the window. C. A woman is using a computer.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767182/b92rhbky26hwnns82skn.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773260/slmkseqzqwdguw0wmsnq.mp3"
       },
       {
         "questionNumber": 4,
-        "imageDescription": "A black-and-white photo shows a woman is reading a book. She is sitting alone in a simple room.",
+        "imageDescription": "A grayscale image shows a woman standing alone in a kitchen. She is holding a cup. There are no other people or objects in the picture.",
         "choices": {
-          "A": "A man is reading a book.",
-          "B": "A woman is writing a book.",
-          "C": "A woman is reading a book."
+          "A": "A man is cooking.",
+          "B": "A woman is holding a cup.",
+          "C": "A woman is talking on the phone."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang đọc sách.",
-          "B": "Một người phụ nữ đang viết sách.",
-          "C": "Một người phụ nữ đang đọc sách."
+          "A": "Một người đàn ông đang nấu ăn.",
+          "B": "Một người phụ nữ đang cầm một cái cốc.",
+          "C": "Một người phụ nữ đang nói chuyện điện thoại."
         },
-        "correctAnswer": "C",
-        "explanation": "C là đúng. A sai giới tính, B sai hành động.",
-        "audioScript": "Look at the picture number 4.\nA. A man is reading a book.\nB. A woman is writing a book.\nC. A woman is reading a book.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707305/a9jwo9mlzwjkb8zwx5gy.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707385/pk0urth89vduhkrkcujc.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng chủ thể và hành động. A là bẫy sai giới tính và hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 4. A. A man is cooking. B. A woman is holding a cup. C. A woman is talking on the phone.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767191/nm0hda9p76e97mfh5ylw.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773262/b7vltmbubdt4chmpetga.mp3"
       },
       {
         "questionNumber": 5,
-        "imageDescription": "A black-and-white photo shows a man is talking on the phone. He is standing with a smile.",
+        "imageDescription": "A black-and-white photo shows a man standing next to a desk in an empty office. He is holding a pen. There are no other people in the room.",
         "choices": {
-          "A": "A man is talking on the phone.",
-          "B": "A woman is talking on the phone.",
-          "C": "A man is listening to music."
+          "A": "A man is holding a pen.",
+          "B": "A woman is sitting at the desk.",
+          "C": "Two men are standing by the window."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang nói chuyện điện thoại.",
-          "B": "Một người phụ nữ đang nói chuyện điện thoại.",
-          "C": "Một người đàn ông đang nghe nhạc."
+          "A": "Một người đàn ông đang cầm một cây bút.",
+          "B": "Một người phụ nữ đang ngồi ở bàn.",
+          "C": "Hai người đàn ông đang đứng cạnh cửa sổ."
         },
         "correctAnswer": "A",
-        "explanation": "A mô tả đúng. C sai hành động, B sai giới tính.",
-        "audioScript": "Look at the picture number 5.\nA. A man is talking on the phone.\nB. A woman is talking on the phone.\nC. A man is listening to music.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707314/j4mbemoek5iv3poog7tg.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707387/g5lszq71mvraloe91owq.mp3"
+        "explanation": "A đúng số lượng, hành động, chủ thể. B là bẫy sai giới tính, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 5. A. A man is holding a pen. B. A woman is sitting at the desk. C. Two men are standing by the window.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767200/jo0g8heuy6c8waxtbzb5.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773265/lmwquk0zrfk4v2kywi0e.mp3"
       },
       {
         "questionNumber": 6,
-        "imageDescription": "A black-and-white photo shows a woman is standing and smiling. She is alone, facing the camera.",
+        "imageDescription": "A grayscale image shows a woman sitting on a bench in a park. She is looking at her phone. No one else is present.",
         "choices": {
-          "A": "A woman is sitting and smiling.",
-          "B": "A man is standing and smiling.",
-          "C": "A woman is standing and smiling."
+          "A": "A woman is looking at her phone.",
+          "B": "A man is reading a book.",
+          "C": "Two women are walking together."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang ngồi và mỉm cười.",
-          "B": "Một người đàn ông đang đứng và mỉm cười.",
-          "C": "Một người phụ nữ đang đứng và mỉm cười."
+          "A": "Một người phụ nữ đang nhìn vào điện thoại.",
+          "B": "Một người đàn ông đang đọc sách.",
+          "C": "Hai người phụ nữ đang đi bộ cùng nhau."
         },
-        "correctAnswer": "C",
-        "explanation": "C đúng hoàn toàn. A sai tư thế, B sai giới tính.",
-        "audioScript": "Look at the picture number 6.\nA. A woman is sitting and smiling.\nB. A man is standing and smiling.\nC. A woman is standing and smiling.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707322/e5kzx2v0vc1fyay6lnkb.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707389/xzow5zankx2wux2gepzt.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chủ thể, hành động, số lượng. B là bẫy sai giới tính, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 6. A. A woman is looking at her phone. B. A man is reading a book. C. Two women are walking together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767211/tae6uipa0bxfibsrngg5.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773267/mbozx69nun41ponp9lki.mp3"
       },
       {
         "questionNumber": 7,
-        "imageDescription": "A black-and-white photo shows a man is walking outside. There are no other people or objects in the scene.",
+        "imageDescription": "A black-and-white photo shows a man sitting alone at a bus stop. He is waiting for the bus. There are no other people or vehicles.",
         "choices": {
-          "A": "A man is running outside.",
-          "B": "A woman is walking outside.",
-          "C": "A man is walking outside."
+          "A": "A man is waiting at the bus stop.",
+          "B": "A woman is driving a car.",
+          "C": "Two men are talking at the bus stop."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang chạy ngoài trời.",
-          "B": "Một người phụ nữ đang đi bộ ngoài trời.",
-          "C": "Một người đàn ông đang đi bộ ngoài trời."
+          "A": "Một người đàn ông đang đợi ở trạm xe buýt.",
+          "B": "Một người phụ nữ đang lái xe.",
+          "C": "Hai người đàn ông đang nói chuyện ở trạm xe buýt."
         },
-        "correctAnswer": "C",
-        "explanation": "C đúng. B sai giới tính, A sai hành động.",
-        "audioScript": "Look at the picture number 7.\nA. A man is running outside.\nB. A woman is walking outside.\nC. A man is walking outside.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707331/sfcvlhzyn8tlw0oikprm.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707391/nfgsmjrymykbyi9i1bx4.mp3"
+        "correctAnswer": "A",
+        "explanation": "A đúng chủ thể và hành động. B là bẫy sai giới tính và hành động, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 1. A. A man is waiting at the bus stop. B. A woman is driving a car. C. Two men are talking at the bus stop.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767219/uqcy9bf6wrvgvwzyoq05.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773270/yxtk2e77ynjnnarje66a.mp3"
       },
       {
         "questionNumber": 8,
-        "imageDescription": "A black-and-white photo shows a woman is laughing. She is standing alone in front of a plain background.",
+        "imageDescription": "A grayscale photo shows a woman standing alone in front of a shop window. She is looking at the display inside the shop.",
         "choices": {
-          "A": "A woman is laughing.",
-          "B": "A man is laughing.",
-          "C": "A woman is crying."
+          "A": "A man is cleaning the window.",
+          "B": "A woman is looking at the shop window.",
+          "C": "Two women are opening the door."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang cười.",
-          "B": "Một người đàn ông đang cười.",
-          "C": "Một người phụ nữ đang khóc."
+          "A": "Một người đàn ông đang lau cửa sổ.",
+          "B": "Một người phụ nữ đang nhìn vào cửa sổ cửa hàng.",
+          "C": "Hai người phụ nữ đang mở cửa."
         },
-        "correctAnswer": "A",
-        "explanation": "A đúng, B sai giới tính, C sai cảm xúc.",
-        "audioScript": "Look at the picture number 8.\nA. A woman is laughing.\nB. A man is laughing.\nC. A woman is crying.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707339/cngiuqxemyaekym7hioy.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707394/ewttcefecunfpiknv9ya.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng chủ thể và hành động. A là bẫy sai giới tính và hành động, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 2. A. A man is cleaning the window. B. A woman is looking at the shop window. C. Two women are opening the door.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767228/f8ypni7iehbxlpbnd6k2.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773272/qjeofzgixh1d2zffcefw.mp3"
       },
       {
         "questionNumber": 9,
-        "imageDescription": "A black-and-white photo shows a man is reading a newspaper. He is sitting at a desk.",
+        "imageDescription": "A black-and-white photo shows a man sitting on a bench in a hallway. He is tying his shoes. There is no one else in the picture.",
         "choices": {
-          "A": "A woman is reading a newspaper.",
-          "B": "A man is writing a newspaper.",
-          "C": "A man is reading a newspaper."
+          "A": "A man is tying his shoes.",
+          "B": "A woman is waiting in the hallway.",
+          "C": "Two men are talking in the hallway."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đọc báo.",
-          "B": "Một người đàn ông đang viết báo.",
-          "C": "Một người đàn ông đang đọc báo."
+          "A": "Một người đàn ông đang buộc dây giày.",
+          "B": "Một người phụ nữ đang đợi ở hành lang.",
+          "C": "Hai người đàn ông đang nói chuyện ở hành lang."
         },
-        "correctAnswer": "C",
-        "explanation": "C đúng. A sai giới tính, B sai hành động.",
-        "audioScript": "Look at the picture number 9.\nA. A woman is reading a newspaper.\nB. A man is writing a newspaper.\nC. A man is reading a newspaper.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707348/hhbcpnmon5hd25yyqsmu.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707396/vujd4qmkzs8zctasllea.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng. B là bẫy sai giới tính, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 3. A. A man is tying his shoes. B. A woman is waiting in the hallway. C. Two men are talking in the hallway.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767238/axuenaqzqk2cve9c4y9c.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773275/oadrdje20mqqbf8tnxk7.mp3"
       },
       {
         "questionNumber": 10,
-        "imageDescription": "A black-and-white photo shows a woman is typing on a laptop. She is sitting at a table by herself.",
+        "imageDescription": "A grayscale image shows a woman sitting alone at a table in a cafe. She is drinking from a cup. The table is empty except for her cup.",
         "choices": {
-          "A": "A woman is reading a book.",
-          "B": "A woman is typing on a laptop.",
-          "C": "A man is typing on a laptop."
+          "A": "A man is eating lunch.",
+          "B": "A woman is drinking from a cup.",
+          "C": "Two women are eating together."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đọc sách.",
-          "B": "Một người phụ nữ đang gõ máy tính xách tay.",
-          "C": "Một người đàn ông đang gõ máy tính xách tay."
+          "A": "Một người đàn ông đang ăn trưa.",
+          "B": "Một người phụ nữ đang uống nước từ cái cốc.",
+          "C": "Hai người phụ nữ đang ăn cùng nhau."
         },
         "correctAnswer": "B",
-        "explanation": "B đúng với hình. A sai hành động, C sai giới tính.",
-        "audioScript": "Look at the picture number 10.\nA. A woman is reading a book.\nB. A woman is typing on a laptop.\nC. A man is typing on a laptop.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707357/wtvlzjhjfhoolo9ujr6l.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707398/qorzdhi3kus8bmr3wd64.mp3"
+        "explanation": "B mô tả đúng chủ thể và hành động. A là bẫy sai giới tính và hành động, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 4. A. A man is eating lunch. B. A woman is drinking from a cup. C. Two women are eating together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767246/caqzo2nwvugg1uey5t84.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773277/rzr31kqt4ghse9obi9oc.mp3"
       },
       {
         "questionNumber": 11,
-        "imageDescription": "A black-and-white photo shows a man is smiling and holding a pen. He is looking at the camera.",
+        "imageDescription": "A black-and-white photo shows a man standing alone on a sidewalk. He is talking on his phone. No other people are visible.",
         "choices": {
-          "A": "A man is holding a pen.",
-          "B": "A woman is holding a pen.",
-          "C": "A man is holding a phone."
+          "A": "A man is talking on his phone.",
+          "B": "A woman is holding a bag.",
+          "C": "Two men are looking at a map."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang cầm bút.",
-          "B": "Một người phụ nữ đang cầm bút.",
-          "C": "Một người đàn ông đang cầm điện thoại."
+          "A": "Một người đàn ông đang nói chuyện điện thoại.",
+          "B": "Một người phụ nữ đang cầm túi.",
+          "C": "Hai người đàn ông đang xem bản đồ."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng mô tả hình ảnh. B sai giới tính, C sai vật thể.",
-        "audioScript": "Look at the picture number 11.\nA. A man is holding a pen.\nB. A woman is holding a pen.\nC. A man is holding a phone.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707365/flxhnv7wa8jffqqnbk2g.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707400/yvc01btmhvvj9uvu7ihg.mp3"
+        "explanation": "A mô tả đúng chủ thể và hành động. B là bẫy sai giới tính, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 5. A. A man is talking on his phone. B. A woman is holding a bag. C. Two men are looking at a map.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767254/lpjikamkxyoptva48fnf.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773279/zksem6u57qa3clxulec8.mp3"
       },
       {
         "questionNumber": 12,
-        "imageDescription": "A black-and-white photo shows a woman is looking out the window. She is standing quietly.",
+        "imageDescription": "A grayscale photo shows a woman standing alone at a bus stop. She is looking at a timetable. The street is empty.",
         "choices": {
-          "A": "A man is looking out the window.",
-          "B": "A woman is closing the window.",
-          "C": "A woman is looking out the window."
+          "A": "A man is buying a ticket.",
+          "B": "A woman is looking at a timetable.",
+          "C": "Two women are waiting at the bus stop."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang nhìn ra cửa sổ.",
-          "B": "Một người phụ nữ đang đóng cửa sổ.",
-          "C": "Một người phụ nữ đang nhìn ra cửa sổ."
+          "A": "Một người đàn ông đang mua vé.",
+          "B": "Một người phụ nữ đang nhìn vào bảng giờ.",
+          "C": "Hai người phụ nữ đang đợi ở trạm xe buýt."
         },
-        "correctAnswer": "C",
-        "explanation": "C mô tả đúng hình. A sai giới tính, B sai hành động.",
-        "audioScript": "Look at the picture number 12.\nA. A man is looking out the window.\nB. A woman is closing the window.\nC. A woman is looking out the window.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751707373/ojvhfsxpllxpfwoztlej.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751707403/ftsedesmgwkkii5ydrde.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng chủ thể và hành động. A là bẫy sai giới tính và hành động, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 6. A. A man is buying a ticket. B. A woman is looking at a timetable. C. Two women are waiting at the bus stop.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767263/zkp1jvgglf6ytkhbbueu.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773282/wdgbjuoerxxyspxwlpie.mp3"
+      },
+      {
+        "questionNumber": 13,
+        "imageDescription": "A black-and-white photo shows a man sitting alone on the stairs. He is holding a smartphone. The background is empty.",
+        "choices": {
+          "A": "A man is holding a smartphone.",
+          "B": "A woman is climbing the stairs.",
+          "C": "Two men are carrying a box."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang cầm điện thoại.",
+          "B": "Một người phụ nữ đang leo cầu thang.",
+          "C": "Hai người đàn ông đang khiêng một cái hộp."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chủ thể và hành động. B là bẫy sai giới tính và hành động, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 1. A. A man is holding a smartphone. B. A woman is climbing the stairs. C. Two men are carrying a box.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767271/brrv5vqdpyioemxiaifa.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773284/lmhwvgfd8led6rqjp7sf.mp3"
+      },
+      {
+        "questionNumber": 14,
+        "imageDescription": "A grayscale image shows a woman sitting on a sofa at home. She is watching television. There are no other people.",
+        "choices": {
+          "A": "A man is reading a magazine.",
+          "B": "A woman is watching television.",
+          "C": "Two women are playing chess."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang đọc tạp chí.",
+          "B": "Một người phụ nữ đang xem tivi.",
+          "C": "Hai người phụ nữ đang chơi cờ."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng chủ thể và hành động. A là bẫy sai giới tính, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 2. A. A man is reading a magazine. B. A woman is watching television. C. Two women are playing chess.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767280/i3456aneg5xgwug4pec4.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773287/km90if3qasezkyohobhe.mp3"
+      },
+      {
+        "questionNumber": 15,
+        "imageDescription": "A black-and-white photo shows a man standing alone in a library. He is holding a book and reading. There is nobody else in the room.",
+        "choices": {
+          "A": "A man is reading a book.",
+          "B": "A woman is arranging the books.",
+          "C": "Two men are talking in the library."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang đọc sách.",
+          "B": "Một người phụ nữ đang sắp xếp sách.",
+          "C": "Hai người đàn ông đang nói chuyện trong thư viện."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chủ thể và hành động. B là bẫy sai giới tính, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 3. A. A man is reading a book. B. A woman is arranging the books. C. Two men are talking in the library.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767290/l0stayol0ebkerzqyymr.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773289/rgnlwyeyjxajeolscdgo.mp3"
+      },
+      {
+        "questionNumber": 16,
+        "imageDescription": "A grayscale photo shows a woman standing in an empty classroom. She is holding a piece of chalk.",
+        "choices": {
+          "A": "A man is erasing the board.",
+          "B": "A woman is holding a piece of chalk.",
+          "C": "Two women are cleaning the floor."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang xóa bảng.",
+          "B": "Một người phụ nữ đang cầm viên phấn.",
+          "C": "Hai người phụ nữ đang lau sàn."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng chủ thể và hành động. A là bẫy sai giới tính, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 4. A. A man is erasing the board. B. A woman is holding a piece of chalk. C. Two women are cleaning the floor.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767298/m7kwmtnz73tenaqiwqsa.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773291/mijzfvnbkhponkzstfhs.mp3"
+      },
+      {
+        "questionNumber": 17,
+        "imageDescription": "A black-and-white photo shows a man standing at a bus stop. He is looking at his watch.",
+        "choices": {
+          "A": "A man is looking at his watch.",
+          "B": "A woman is buying flowers.",
+          "C": "Two men are listening to music."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang nhìn đồng hồ.",
+          "B": "Một người phụ nữ đang mua hoa.",
+          "C": "Hai người đàn ông đang nghe nhạc."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chủ thể và hành động. B là bẫy sai giới tính và hành động, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 5. A. A man is looking at his watch. B. A woman is buying flowers. C. Two men are listening to music.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767307/vhpmylhwfurg6i7fxpab.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773293/co8kkqxksvp5jt7uj5wp.mp3"
+      },
+      {
+        "questionNumber": 18,
+        "imageDescription": "A grayscale photo shows a woman sitting at a desk in an office. She is using a laptop.",
+        "choices": {
+          "A": "A man is talking on the phone.",
+          "B": "A woman is using a laptop.",
+          "C": "Two women are having a meeting."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang nói chuyện điện thoại.",
+          "B": "Một người phụ nữ đang sử dụng máy tính xách tay.",
+          "C": "Hai người phụ nữ đang họp."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng chủ thể và hành động. A là bẫy sai giới tính và hành động, C là bẫy sai số nhiều.",
+        "audioScript": "Look at the picture number 6. A. A man is talking on the phone. B. A woman is using a laptop. C. Two women are having a meeting.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751767317/j2yyyv2bz6ay3mrzqoel.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773296/yfrkgopc83btacsckdfj.mp3"
       }
     ],
     "level2 ": [
       {
         "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows a man is holding a briefcase in front of a blank wall. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A black-and-white photo shows a woman sitting at a desk with a closed laptop in front of her. Next to her, a man is standing and pointing at a document on the desk. Only these two people appear in the scene.",
         "choices": {
-          "A": "A man is holding a briefcase.",
-          "B": "People are holding a briefcase.",
-          "C": "A woman is holding a briefcase."
+          "A": "A man is pointing at a document.",
+          "B": "A woman is opening a laptop.",
+          "C": "Two men are reading together."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang cầm một chiếc cặp.",
-          "B": "Nhiều người đang cầm một chiếc cặp.",
-          "C": "Một người phụ nữ đang cầm một chiếc cặp."
+          "A": "Một người đàn ông đang chỉ vào một tài liệu.",
+          "B": "Một người phụ nữ đang mở máy tính xách tay.",
+          "C": "Hai người đàn ông đang đọc cùng nhau."
         },
         "correctAnswer": "A",
-        "explanation": "Choice A correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 1.\nA. A man is holding a briefcase.\nB. People are holding a briefcase.\nC. A woman is holding a briefcase.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611280/qm3a2etos7wc3arhyorb.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612907/amxdibe1vo8eu3ks5jph.mp3"
+        "explanation": "A mô tả đúng hành động của nhân vật phụ (người đàn ông). B là bẫy sai hành động/vật thể, C là bẫy sai số lượng.",
+        "audioScript": "Look at the picture number 1. A. A man is pointing at a document. B. A woman is opening a laptop. C. Two men are reading together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773530/rcqc16x0ifu4h2dhdyce.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773785/mcq0ox7fsbyhrh0zcjio.mp3"
       },
       {
         "questionNumber": 2,
-        "imageDescription": "A black-and-white photo shows a man is walking alone in a minimal setting. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A grayscale image shows a woman talking on the phone near a window while a man sits quietly at a table, reading a magazine. The table has a single cup on it.",
         "choices": {
-          "A": "A woman is walking alone.",
-          "B": "A man is holding a bag",
-          "C": "A man is walking alone."
+          "A": "A woman is talking on the phone.",
+          "B": "A man is drinking coffee.",
+          "C": "A woman is cleaning the table."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đi một mình.",
-          "B": "Một người đàn ông đang cầm một cái túi.",
-          "C": "Một người đàn ông đang đi một mình."
+          "A": "Một người phụ nữ đang nói chuyện điện thoại.",
+          "B": "Một người đàn ông đang uống cà phê.",
+          "C": "Một người phụ nữ đang lau bàn."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 2.\nA. A woman is walking alone.\nB. A man is holding a bag\nC. A man is walking alone.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611290/qdtnkr1ywhq00hhwwazs.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612910/kjpiqg4yts0q57kkmymd.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chủ thể phụ (người phụ nữ). B là bẫy sai hành động, C là bẫy sai hành động/vật thể.",
+        "audioScript": "Look at the picture number 2. A. A woman is talking on the phone. B. A man is drinking coffee. C. A woman is cleaning the table.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773538/n5eo5k0jnmqycjospqco.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773789/sfklgtsr8wpd2fkca4y2.mp3"
       },
       {
         "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows a man is sitting on a bench in front of a blank wall. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A black-and-white photo shows a man standing next to a whiteboard in a meeting room. A woman is sitting at the table and writing notes. The table is clear except for her notebook.",
         "choices": {
-          "A": "A man is standing still",
-          "B": "People are sitting on a bench.",
-          "C": "A man is sitting on a bench."
+          "A": "A man is cleaning the board.",
+          "B": "A woman is writing notes at the table.",
+          "C": "A woman is speaking to the group."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang đứng im lặng.",
-          "B": "Nhiều người đang ngồi trên một chiếc ghế.",
-          "C": "Một người đàn ông đang ngồi trên một chiếc ghế."
+          "A": "Một người đàn ông đang lau bảng.",
+          "B": "Một người phụ nữ đang ghi chú ở bàn.",
+          "C": "Một người phụ nữ đang nói với nhóm."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 3.\nA. A man is standing still\nB. People are sitting on a bench.\nC. A man is sitting on a bench.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611301/p9cfyucjasbezosmnsc8.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612918/gfwfuag2fxgupxgzrlhh.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả hành động của chủ thể phụ (người phụ nữ), phù hợp ngữ cảnh. A là bẫy sai hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 3. A. A man is cleaning the board. B. A woman is writing notes at the table. C. A woman is speaking to the group.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773547/enfmhnvqnbctjbbhvjrq.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773791/c6utdjxb12novoqy1qhy.mp3"
       },
       {
         "questionNumber": 4,
-        "imageDescription": "A black-and-white photo shows a woman is reading a book in a minimal setting. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A grayscale photo shows a woman standing in the kitchen pouring water into a glass. Her son is sitting at the table, looking at her. There are two glasses on the table.",
         "choices": {
-          "A": "A man is reading a book.",
-          "B": "A woman is reading a book.",
-          "C": "People are reading a book."
+          "A": "A woman is pouring water into a glass.",
+          "B": "A boy is drinking juice.",
+          "C": "A man is cooking lunch."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang đọc một quyển sách.",
-          "B": "Một người phụ nữ đang đọc một quyển sách.",
-          "C": "Nhiều người đang đọc một quyển sách."
+          "A": "Một người phụ nữ đang rót nước vào cốc.",
+          "B": "Một cậu bé đang uống nước ép.",
+          "C": "Một người đàn ông đang nấu bữa trưa."
         },
-        "correctAnswer": "B",
-        "explanation": "Choice B correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 4.\nA. A man is reading a book.\nB. A woman is reading a book.\nC. People are reading a book.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611313/y9k3tkddhais52sevmqg.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612926/qvfzlgwowmzqc4u368vg.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chủ thể chính, hành động rõ ràng. B là bẫy nhầm hành động, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 4. A. A woman is pouring water into a glass. B. A boy is drinking juice. C. A man is cooking lunch.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773555/kjzqwuignkpwbh3c4lry.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773794/z7gb5aoy1mvmqzkocezk.mp3"
       },
       {
         "questionNumber": 5,
-        "imageDescription": "A black-and-white photo shows a man is holding a briefcase in an empty space. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A black-and-white image shows a man sitting at a computer desk, looking at the monitor. A woman stands behind him, holding a folder and smiling. There are no other people in the room.",
         "choices": {
-          "A": "A man is using a phone",
-          "B": "People are holding a briefcase.",
-          "C": "A man is holding a briefcase."
+          "A": "A woman is holding a folder.",
+          "B": "A man is repairing the computer.",
+          "C": "Two women are working together."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang sử dụng điện thoại.",
-          "B": "Nhiều người đang cầm một chiếc cặp.",
-          "C": "Một người đàn ông đang cầm một chiếc cặp."
+          "A": "Một người phụ nữ đang cầm một tập tài liệu.",
+          "B": "Một người đàn ông đang sửa máy tính.",
+          "C": "Hai người phụ nữ đang làm việc cùng nhau."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 5.\nA. A man is using a phone\nB. People are holding a briefcase.\nC. A man is holding a briefcase.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611323/dgfmp9pihcd0ozz0rwti.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612928/tbnxpkegsm1obadp6er4.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng hành động của nhân vật phụ. B là bẫy sai hành động, C là bẫy sai số lượng.",
+        "audioScript": "Look at the picture number 5. A. A woman is holding a folder. B. A man is repairing the computer. C. Two women are working together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773565/jpsuo9oblmu4vjheslb4.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773796/jjun0ccicdgonuhoexpg.mp3"
       },
       {
         "questionNumber": 6,
-        "imageDescription": "A black-and-white photo shows a man is holding a briefcase in a minimal setting. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A grayscale photo shows a young man reading a book at a table. A woman is sitting on a sofa in the background, looking at her phone.",
         "choices": {
-          "A": "A woman is holding a briefcase.",
-          "B": "A man is holding a briefcase.",
-          "C": "A man is holding a bag"
+          "A": "A man is using a laptop.",
+          "B": "A woman is looking at her phone.",
+          "C": "A boy is writing a letter."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang cầm một chiếc cặp.",
-          "B": "Một người đàn ông đang cầm một chiếc cặp.",
-          "C": "Một người đàn ông đang cầm một cái túi."
+          "A": "Một người đàn ông đang sử dụng máy tính xách tay.",
+          "B": "Một người phụ nữ đang nhìn vào điện thoại.",
+          "C": "Một cậu bé đang viết thư."
         },
         "correctAnswer": "B",
-        "explanation": "Choice B correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 6.\nA. A woman is holding a briefcase.\nB. A man is holding a briefcase.\nC. A man is holding a bag",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611334/stp45jhiz6glcabzjc0z.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612931/kjcccf0naagjoau8xflo.mp3"
+        "explanation": "B mô tả đúng hành động của chủ thể phụ (người phụ nữ). A là bẫy sai vật thể, C là bẫy sai hành động và giới tính.",
+        "audioScript": "Look at the picture number 6. A. A man is using a laptop. B. A woman is looking at her phone. C. A boy is writing a letter.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773573/ojyctkcvvlb0hvjuwez3.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773799/ieserdolihvj6oydkpij.mp3"
       },
       {
         "questionNumber": 7,
-        "imageDescription": "A black-and-white photo shows a man is tying his shoelaces with a plain background. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A black-and-white photo shows a woman talking to a man across a counter in a shop. The man is holding a credit card, and the woman is smiling.",
         "choices": {
-          "A": "A man is tying his shoelaces.",
-          "B": "A woman is tying his shoelaces.",
-          "C": "People are tying his shoelaces."
+          "A": "A man is holding a credit card.",
+          "B": "A woman is sitting on a chair.",
+          "C": "Two women are making a phone call."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang buộc dây giày.",
-          "B": "Một người phụ nữ đang buộc dây giày.",
-          "C": "Nhiều người đang buộc dây giày."
+          "A": "Một người đàn ông đang cầm thẻ tín dụng.",
+          "B": "Một người phụ nữ đang ngồi trên ghế.",
+          "C": "Hai người phụ nữ đang gọi điện thoại."
         },
         "correctAnswer": "A",
-        "explanation": "Choice A correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 1.\nA. A man is tying his shoelaces.\nB. A woman is tying his shoelaces.\nC. People are tying his shoelaces.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611414/nkjjrzwesfxnu5vivvov.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612952/dxoc9gpdts9qkfnlw05k.mp3"
+        "explanation": "A mô tả đúng hành động phụ (người đàn ông). B là bẫy sai hành động, C là bẫy sai số lượng và hành động.",
+        "audioScript": "Look at the picture number 1. A. A man is holding a credit card. B. A woman is sitting on a chair. C. Two women are making a phone call.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773582/xo8wwvhft4z7n6pp0suz.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773801/gkcm45ijh4qr9yjd9oee.mp3"
       },
       {
         "questionNumber": 8,
-        "imageDescription": "A black-and-white photo shows a man is holding a briefcase in a minimal setting. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A grayscale photo shows a teacher standing at the front of a classroom. A student is raising his hand while others are looking down at their books.",
         "choices": {
-          "A": "A man is holding a briefcase.",
-          "B": "People are holding a briefcase.",
-          "C": "A woman is holding a briefcase."
+          "A": "A student is raising his hand.",
+          "B": "A teacher is closing the window.",
+          "C": "A group of students is leaving the room."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang cầm một chiếc cặp.",
-          "B": "Nhiều người đang cầm một chiếc cặp.",
-          "C": "Một người phụ nữ đang cầm một chiếc cặp."
+          "A": "Một học sinh đang giơ tay.",
+          "B": "Một giáo viên đang đóng cửa sổ.",
+          "C": "Một nhóm học sinh đang rời phòng."
         },
         "correctAnswer": "A",
-        "explanation": "Choice A correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 2.\nA. A man is holding a briefcase.\nB. People are holding a briefcase.\nC. A woman is holding a briefcase.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611424/vlxqnw9qph8mgoeuppnz.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612955/mewpc0qsgli0ulxb22eg.mp3"
+        "explanation": "A tập trung vào hành động của chủ thể phụ (học sinh). B là bẫy sai hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 2. A. A student is raising his hand. B. A teacher is closing the window. C. A group of students is leaving the room.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773592/u5b9dlgs5s6ggimsichd.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773803/e6ikmksmi66uysybivkk.mp3"
       },
       {
         "questionNumber": 9,
-        "imageDescription": "A black-and-white photo shows a woman is writing in a notebook in an empty space. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A black-and-white image shows a man sitting at a park bench with a newspaper. A child is standing in front of him, holding an ice cream cone.",
         "choices": {
-          "A": "People are writing in a notebook.",
-          "B": "A woman is writing in a notebook.",
-          "C": "A man is writing in a notebook."
+          "A": "A child is holding an ice cream cone.",
+          "B": "A woman is reading a book.",
+          "C": "A man is riding a bicycle."
         },
         "choicesVi": {
-          "A": "Nhiều người đang viết trong một quyển vở.",
-          "B": "Một người phụ nữ đang viết trong một quyển vở.",
-          "C": "Một người đàn ông đang viết trong một quyển vở."
+          "A": "Một đứa trẻ đang cầm kem.",
+          "B": "Một người phụ nữ đang đọc sách.",
+          "C": "Một người đàn ông đang đi xe đạp."
         },
-        "correctAnswer": "B",
-        "explanation": "Choice B correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 3.\nA. People are writing in a notebook.\nB. A woman is writing in a notebook.\nC. A man is writing in a notebook.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611436/bx5qdbnwxkqd52l5ffjp.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612957/fcfeyxy8h69jtxqqeiez.mp3"
+        "correctAnswer": "A",
+        "explanation": "A là hành động của chủ thể phụ (đứa trẻ). B là bẫy sai giới tính và hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 3. A. A child is holding an ice cream cone. B. A woman is reading a book. C. A man is riding a bicycle.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773600/firqaoxoxftoeiry5jlt.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773805/elv92q7oumnixk9fqnbi.mp3"
       },
       {
         "questionNumber": 10,
-        "imageDescription": "A black-and-white photo shows a woman is writing in a notebook in an empty space. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A grayscale photo shows a man standing next to a table with a laptop. A woman is handing him a document. No one else is in the room.",
         "choices": {
-          "A": "A woman is reading a newspaper",
-          "B": "People are writing in a notebook.",
-          "C": "A woman is writing in a notebook."
+          "A": "A woman is handing a document to a man.",
+          "B": "A man is drinking coffee.",
+          "C": "Two women are working together."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đọc một tờ báo.",
-          "B": "Nhiều người đang viết trong một quyển vở.",
-          "C": "Một người phụ nữ đang viết trong một quyển vở."
+          "A": "Một người phụ nữ đang đưa tài liệu cho một người đàn ông.",
+          "B": "Một người đàn ông đang uống cà phê.",
+          "C": "Hai người phụ nữ đang làm việc cùng nhau."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 4.\nA. A woman is reading a newspaper\nB. People are writing in a notebook.\nC. A woman is writing in a notebook.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611447/yy1wqywmna5ec5notjih.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612960/syfrgovpy71fdyknowpx.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng hành động của chủ thể phụ (người phụ nữ). B là bẫy sai hành động, C là bẫy sai số lượng.",
+        "audioScript": "Look at the picture number 4. A. A woman is handing a document to a man. B. A man is drinking coffee. C. Two women are working together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773608/bcson6j0llxdforjcp8n.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773809/mv3qzsh8g3xyigvboqpq.mp3"
       },
       {
         "questionNumber": 11,
-        "imageDescription": "A black-and-white photo shows a man is walking alone with a plain background. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A black-and-white image shows a man reading a book on a sofa. His friend is standing nearby, looking out the window.",
         "choices": {
-          "A": "People are walking alone.",
-          "B": "A man is opening a door",
-          "C": "A man is walking alone."
+          "A": "A woman is drawing a picture.",
+          "B": "A man is looking out the window.",
+          "C": "Two men are having lunch."
         },
         "choicesVi": {
-          "A": "Nhiều người đang đi một mình.",
-          "B": "Một người đàn ông đang mở cửa.",
-          "C": "Một người đàn ông đang đi một mình."
+          "A": "Một người phụ nữ đang vẽ tranh.",
+          "B": "Một người đàn ông đang nhìn ra cửa sổ.",
+          "C": "Hai người đàn ông đang ăn trưa."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 5.\nA. People are walking alone.\nB. A man is opening a door\nC. A man is walking alone.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611458/ukig41khm247kqc9mzxd.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612962/ifkm9qztilael8x879ww.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng hành động của nhân vật phụ. A là bẫy sai giới tính/hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 5. A. A woman is drawing a picture. B. A man is looking out the window. C. Two men are having lunch.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773618/fgcb7cnsxodjv8esfekd.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773811/wbqujrmljvl5ce5k2ulk.mp3"
       },
       {
         "questionNumber": 12,
-        "imageDescription": "A black-and-white photo shows a man is holding a briefcase in front of a blank wall. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A grayscale photo shows a woman working on a laptop at a desk. A man is standing at the window, pulling the curtains aside.",
         "choices": {
-          "A": "People are holding a briefcase.",
-          "B": "A man is opening a door",
-          "C": "A man is holding a briefcase."
+          "A": "A woman is working on a laptop.",
+          "B": "A man is pulling the curtains.",
+          "C": "A boy is watching TV."
         },
         "choicesVi": {
-          "A": "Nhiều người đang cầm một chiếc cặp.",
-          "B": "Một người đàn ông đang mở cửa.",
-          "C": "Một người đàn ông đang cầm một chiếc cặp."
+          "A": "Một người phụ nữ đang làm việc trên máy tính xách tay.",
+          "B": "Một người đàn ông đang kéo rèm cửa.",
+          "C": "Một cậu bé đang xem tivi."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 6.\nA. People are holding a briefcase.\nB. A man is opening a door\nC. A man is holding a briefcase.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611469/vpth3rnuxqmbbkstgs9q.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612964/t2y6xubyao5k565qmuja.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng hành động của nhân vật phụ (người đàn ông). A là bẫy đúng nhưng không tập trung vào nhân vật phụ, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 6. A. A woman is working on a laptop. B. A man is pulling the curtains. C. A boy is watching TV.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773627/rlho869nonyin0ugezdv.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773813/gcb41bzrmpkne5qbkubj.mp3"
       },
       {
-        "questionNumber":   13,
-        "imageDescription": "A black-and-white photo shows a woman is standing by a wall in front of a blank wall. The background is minimal and typical of TOEIC-style test images.",
+        "questionNumber": 13,
+        "imageDescription": "A black-and-white photo shows a young woman sitting on the grass in a park. Behind her, an older man is walking a dog.",
         "choices": {
-          "A": "A woman is standing still",
-          "B": "A man is standing by a wall.",
-          "C": "A woman is standing by a wall."
+          "A": "A man is walking a dog.",
+          "B": "A woman is playing the guitar.",
+          "C": "Two men are playing soccer."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đứng im lặng.",
-          "B": "Một người đàn ông đang đứng bên tường.",
-          "C": "Một người phụ nữ đang đứng bên tường."
+          "A": "Một người đàn ông đang dắt chó đi dạo.",
+          "B": "Một người phụ nữ đang chơi guitar.",
+          "C": "Hai người đàn ông đang chơi bóng đá."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 1.\nA. A woman is standing still\nB. A man is standing by a wall.\nC. A woman is standing by a wall.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611481/fij5v3glffacqdugjgbf.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612967/jcc1cuvzwxr6rmmtj83r.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chủ thể phụ (người đàn ông phía sau). B là bẫy sai hành động, C là bẫy sai số lượng/hành động.",
+        "audioScript": "Look at the picture number 1. A. A man is walking a dog. B. A woman is playing the guitar. C. Two men are playing soccer.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773635/uvmyg9bfviwvhqsmvmuw.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773816/htuge7mihe6g3w0cidmo.mp3"
       },
       {
         "questionNumber": 14,
-        "imageDescription": "A black-and-white photo shows a man is walking alone in an empty space. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A grayscale image shows a mother reading a book at a kitchen table. Her daughter is drawing with colored pencils beside her.",
         "choices": {
-          "A": "A woman is walking alone.",
-          "B": "A man is walking alone.",
-          "C": "People are walking alone."
+          "A": "A girl is drawing with colored pencils.",
+          "B": "A woman is cooking.",
+          "C": "A man is cleaning the table."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đi một mình.",
-          "B": "Một người đàn ông đang đi một mình.",
-          "C": "Nhiều người đang đi một mình."
+          "A": "Một cô bé đang vẽ bằng bút màu.",
+          "B": "Một người phụ nữ đang nấu ăn.",
+          "C": "Một người đàn ông đang lau bàn."
         },
-        "correctAnswer": "B",
-        "explanation": "Choice B correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 2.\nA. A woman is walking alone.\nB. A man is walking alone.\nC. People are walking alone.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611491/xfujsnsqgshv3xxvlz1a.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612970/lycdktegyklh5xr2r8kd.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chủ thể phụ (cô bé). B là bẫy sai hành động, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 2. A. A girl is drawing with colored pencils. B. A woman is cooking. C. A man is cleaning the table.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773644/tcpophp0uabwcrppaumr.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773818/tivisdyhe7xyqmz4bmny.mp3"
       },
       {
         "questionNumber": 15,
-        "imageDescription": "A black-and-white photo shows a man is sitting on a bench in an empty space. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A black-and-white photo shows a man talking to a cashier at a counter. A woman is standing behind him, holding a shopping basket.",
         "choices": {
-          "A": "A man is using a phone",
-          "B": "A woman is sitting on a bench.",
-          "C": "A man is sitting on a bench."
+          "A": "A man is paying at the counter.",
+          "B": "A woman is holding a shopping basket.",
+          "C": "A boy is cleaning the floor."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang sử dụng điện thoại.",
-          "B": "Một người phụ nữ đang ngồi trên một chiếc ghế.",
-          "C": "Một người đàn ông đang ngồi trên một chiếc ghế."
+          "A": "Một người đàn ông đang thanh toán ở quầy.",
+          "B": "Một người phụ nữ đang cầm giỏ mua hàng.",
+          "C": "Một cậu bé đang lau sàn."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 3.\nA. A man is using a phone\nB. A woman is sitting on a bench.\nC. A man is sitting on a bench.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611502/xwxptlrnmdjd32qdteng.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612973/dv8cxwwudququun3tbjm.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng hành động của chủ thể phụ (người phụ nữ phía sau). A là bẫy đúng logic nhưng không tập trung vào nhân vật phụ, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 3. A. A man is paying at the counter. B. A woman is holding a shopping basket. C. A boy is cleaning the floor.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773653/idenmt8mszrnzddhd40p.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773820/ztcvefr4s6leuyxcxflo.mp3"
       },
       {
         "questionNumber": 16,
-        "imageDescription": "A black-and-white photo shows a woman is reading a book with a plain background. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A grayscale photo shows a boy sitting on a bench, looking at a dog sitting next to him. An older woman is walking on the sidewalk in the background.",
         "choices": {
-          "A": "A woman is reading a book.",
-          "B": "People are reading a book.",
-          "C": "A woman is reading a newspaper"
+          "A": "A woman is walking on the sidewalk.",
+          "B": "A boy is reading a book.",
+          "C": "A man is riding a bike."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đọc một quyển sách.",
-          "B": "Nhiều người đang đọc một quyển sách.",
-          "C": "Một người phụ nữ đang đọc một tờ báo."
+          "A": "Một người phụ nữ đang đi bộ trên vỉa hè.",
+          "B": "Một cậu bé đang đọc sách.",
+          "C": "Một người đàn ông đang đi xe đạp."
         },
         "correctAnswer": "A",
-        "explanation": "Choice A correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 4.\nA. A woman is reading a book.\nB. People are reading a book.\nC. A woman is reading a newspaper",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611514/uz1zylrg2qvesnmhpsw9.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612975/suce6eeeorchlprsgijt.mp3"
+        "explanation": "A mô tả đúng chủ thể phụ (người phụ nữ phía sau). B là bẫy sai hành động, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 4. A. A woman is walking on the sidewalk. B. A boy is reading a book. C. A man is riding a bike.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773661/au0elosp59yqf7knjgle.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773823/lbngxiljvs0qt7qxdese.mp3"
       },
       {
         "questionNumber": 17,
-        "imageDescription": "A black-and-white photo shows a woman is drinking from a bottle in front of a blank wall. The background is minimal and typical of TOEIC-style test images.",
+        "imageDescription": "A black-and-white image shows a woman standing at a bus stop. A man is sitting on the bench, tying his shoe.",
         "choices": {
-          "A": "People are drinking from a bottle.",
-          "B": "A woman is opening a door",
-          "C": "A woman is drinking from a bottle."
-        },
-        "choicesVi": {
-          "A": "Nhiều người đang uống từ một chai.",
-          "B": "Một người phụ nữ đang mở cửa.",
-          "C": "Một người phụ nữ đang uống từ một chai."
-        },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 5.\nA. People are drinking from a bottle.\nB. A woman is opening a door\nC. A woman is drinking from a bottle.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611525/olqbx56nm8enpo4lbapx.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612978/fayeexhrbhx9jguqdsdp.mp3"
-      },
-      {
-        "questionNumber": 18,
-        "imageDescription": "A black-and-white photo shows a man is talking on the phone in a minimal setting. The background is minimal and typical of TOEIC-style test images.",
-        "choices": {
-          "A": "A man is talking on the phone.",
-          "B": "A man is holding a bag",
-          "C": "People are talking on the phone."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang nói chuyện qua điện thoại.",
-          "B": "Một người đàn ông đang cầm một cái túi.",
-          "C": "Nhiều người đang nói chuyện qua điện thoại."
-        },
-        "correctAnswer": "A",
-        "explanation": "Choice A correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 6.\nA. A man is talking on the phone.\nB. A man is holding a bag\nC. People are talking on the phone.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611534/ygswrprczfqjkct1fedb.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612981/ikeu9b6zs7p1lhzkruto.mp3"
-      },
-      {
-        "questionNumber": 19,
-        "imageDescription": "A black-and-white photo shows a woman is smiling at the camera in a minimal setting. The background is minimal and typical of TOEIC-style test images.",
-        "choices": {
-          "A": "A woman is reading a newspaper",
-          "B": "People are smiling at the camera.",
-          "C": "A woman is smiling at the camera."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang đọc một tờ báo.",
-          "B": "Nhiều người đang cười với camera.",
-          "C": "Một người phụ nữ đang cười với camera."
-        },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 1.\nA. A woman is reading a newspaper\nB. People are smiling at the camera.\nC. A woman is smiling at the camera.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611544/orsvkgilkdqedaovecch.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612983/tyr07n9cyytnzu8ym1sk.mp3"
-      },
-      {
-        "questionNumber": 20,
-        "imageDescription": "A black-and-white photo shows a man is sitting on a bench in front of a blank wall. The background is minimal and typical of TOEIC-style test images.",
-        "choices": {
-          "A": "A man is sitting on a bench.",
-          "B": "A man is drinking coffee",
-          "C": "A woman is sitting on a bench."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang ngồi trên một chiếc ghế.",
-          "B": "Một người đàn ông đang uống cà phê.",
-          "C": "Một người phụ nữ đang ngồi trên một chiếc ghế."
-        },
-        "correctAnswer": "A",
-        "explanation": "Choice A correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 2.\nA. A man is sitting on a bench.\nB. A man is drinking coffee\nC. A woman is sitting on a bench.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611556/msxv7ilprbtlhf14epob.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612985/nhr3hg31yrqyvqk9fkw6.mp3"
-      },
-      {
-        "questionNumber": 21,
-        "imageDescription": "A black-and-white photo shows a man is sitting on a bench in an empty space. The background is minimal and typical of TOEIC-style test images.",
-        "choices": {
-          "A": "People are sitting on a bench.",
-          "B": "A woman is sitting on a bench.",
-          "C": "A man is sitting on a bench."
-        },
-        "choicesVi": {
-          "A": "Nhiều người đang ngồi trên một chiếc ghế.",
-          "B": "Một người phụ nữ đang ngồi trên một chiếc ghế.",
-          "C": "Một người đàn ông đang ngồi trên một chiếc ghế."
-        },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 3.\nA. People are sitting on a bench.\nB. A woman is sitting on a bench.\nC. A man is sitting on a bench.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611567/mjhjvvkn7ixc0ceryqut.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612988/ywotaqjhu7opxk9c78nl.mp3"
-      },
-      {
-        "questionNumber": 22,
-        "imageDescription": "A black-and-white photo shows a man is tying his shoelaces in an empty space. The background is minimal and typical of TOEIC-style test images.",
-        "choices": {
-          "A": "A man is tying his shoelaces.",
-          "B": "People are tying his shoelaces.",
-          "C": "A woman is tying his shoelaces."
+          "A": "A man is tying his shoe.",
+          "B": "A woman is reading a newspaper.",
+          "C": "A girl is eating ice cream."
         },
         "choicesVi": {
           "A": "Một người đàn ông đang buộc dây giày.",
-          "B": "Nhiều người đang buộc dây giày.",
-          "C": "Một người phụ nữ đang buộc dây giày."
+          "B": "Một người phụ nữ đang đọc báo.",
+          "C": "Một cô bé đang ăn kem."
         },
         "correctAnswer": "A",
-        "explanation": "Choice A correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 4.\nA. A man is tying his shoelaces.\nB. People are tying his shoelaces.\nC. A woman is tying his shoelaces.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611577/emjnhqdqahzv2kza9s9i.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612992/p2wo5q1pjjcwpedvtcyb.mp3"
+        "explanation": "A mô tả đúng hành động của nhân vật phụ. B là bẫy sai hành động, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 5. A. A man is tying his shoe. B. A woman is reading a newspaper. C. A girl is eating ice cream.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773669/py1qnmvxy5qr7glf0hl4.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773826/c9yo8j5sbgsg6ucbrlzl.mp3"
       },
       {
-        "questionNumber": 23,
-        "imageDescription": "A black-and-white photo shows a woman is writing in a notebook with a plain background. The background is minimal and typical of TOEIC-style test images.",
+        "questionNumber": 18,
+        "imageDescription": "A grayscale photo shows a man talking on his phone in a park. A woman is jogging on the path behind him.",
         "choices": {
-          "A": "A man is writing in a notebook.",
-          "B": "People are writing in a notebook.",
-          "C": "A woman is writing in a notebook."
+          "A": "A man is talking on his phone.",
+          "B": "A woman is jogging.",
+          "C": "Two children are playing soccer."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang viết trong một quyển vở.",
-          "B": "Nhiều người đang viết trong một quyển vở.",
-          "C": "Một người phụ nữ đang viết trong một quyển vở."
+          "A": "Một người đàn ông đang nói chuyện điện thoại.",
+          "B": "Một người phụ nữ đang chạy bộ.",
+          "C": "Hai đứa trẻ đang chơi bóng đá."
         },
-        "correctAnswer": "C",
-        "explanation": "Choice C correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 5.\nA. A man is writing in a notebook.\nB. People are writing in a notebook.\nC. A woman is writing in a notebook.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611588/jkd1mcirdhifahknkaqq.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612995/xl5hnczo4v0me5yjyepr.mp3"
-      },
-      {
-        "questionNumber": 24,
-        "imageDescription": "A black-and-white photo shows a woman is drinking from a bottle with a plain background. The background is minimal and typical of TOEIC-style test images.",
-        "choices": {
-          "A": "A woman is drinking from a bottle.",
-          "B": "A man is drinking from a bottle.",
-          "C": "People are drinking from a bottle."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang uống từ một chai.",
-          "B": "Một người đàn ông đang uống từ một chai.",
-          "C": "Nhiều người đang uống từ một chai."
-        },
-        "correctAnswer": "A",
-        "explanation": "Choice A correctly describes the person's action. Traps include wrong gender, plural form errors, or unrelated actions.",
-        "audioScript": "Look at the picture number 6.\nA. A woman is drinking from a bottle.\nB. A man is drinking from a bottle.\nC. People are drinking from a bottle.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751611598/d61asfsbfwwsrftde2af.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751612998/mbdua08htcy3yobcf6nm.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng chủ thể phụ (người phụ nữ chạy phía sau). A là bẫy chủ thể chính, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 6. A. A man is talking on his phone. B. A woman is jogging. C. Two children are playing soccer.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773678/emqb5lmmtasf2zkvwxaz.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773829/iqvzrvllfoz6d53zx152.mp3"
       }
     ],
     "level3 ": [
       {
         "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows two women sitting across from each other at a round table in a modern office. One woman is handing a document to the other, and both are smiling. On the table, there is only a single closed notebook and a pen. There are no laptops, cups, or other items present. The background features a plain wall and a window.",
+        "imageDescription": "A black-and-white photo shows two men sitting at a desk with laptops open. One man is pointing at the screen while the other is taking notes. There are coffee cups on the desk.",
         "choices": {
-          "A": "Two women are exchanging a document at a table.",
-          "B": "A woman is writing on a whiteboard.",
-          "C": "The women are typing on their laptops."
+          "A": "One man is pointing at the screen while the other is taking notes.",
+          "B": "Both men are using their phones.",
+          "C": "The men are drinking coffee outside."
         },
         "choicesVi": {
-          "A": "Hai người phụ nữ đang trao đổi một tài liệu tại bàn.",
-          "B": "Một người phụ nữ đang viết lên bảng trắng.",
-          "C": "Những người phụ nữ đang gõ máy tính xách tay."
+          "A": "Một người đàn ông đang chỉ vào màn hình trong khi người kia ghi chú.",
+          "B": "Cả hai người đàn ông đang dùng điện thoại.",
+          "C": "Những người đàn ông đang uống cà phê ngoài trời."
         },
         "correctAnswer": "A",
-        "explanation": "Đáp án A mô tả đúng hành động trong ảnh. B là bẫy sai địa điểm/hành động, C là bẫy sai vật thể (không có laptop).",
-        "audioScript": "Look at the picture number 1. A. Two women are exchanging a document at a table. B. A woman is writing on a whiteboard. C. The women are typing on their laptops.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727384/zg0jmivuv1etzwwkha0u.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728340/qlpfttjkfzvrssvmmm7u.mp3"
+        "explanation": "A đúng hành động và quan hệ. B là bẫy sai hành động, C là bẫy sai bối cảnh.",
+        "audioScript": "Look at the picture number 1. A. One man is pointing at the screen while the other is taking notes. B. Both men are using their phones. C. The men are drinking coffee outside.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773953/bcvxl5w2pod8xx5fgcxo.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774143/zz6ztctwuoklqtwoypt8.mp3"
       },
       {
         "questionNumber": 2,
-        "imageDescription": "A grayscale photo shows two men standing by a coffee machine in a break room. One man is pouring coffee into a cup, while the other is holding a phone and smiling. There are no chairs or tables, only the coffee machine and cups visible. The background is plain with a clock on the wall.",
+        "imageDescription": "A grayscale photo shows three women standing in a kitchen. One woman is pouring tea, another is laughing, and the third is washing dishes at the sink.",
         "choices": {
-          "A": "The men are sitting at a table.",
-          "B": "One man is pouring coffee while another is using his phone.",
-          "C": "The coffee machine is being repaired by the men."
+          "A": "One woman is pouring tea while another is washing dishes.",
+          "B": "The women are all eating lunch.",
+          "C": "A man is cooking in the kitchen."
         },
         "choicesVi": {
-          "A": "Những người đàn ông đang ngồi tại bàn.",
-          "B": "Một người đàn ông đang rót cà phê trong khi người kia đang dùng điện thoại.",
-          "C": "Cái máy pha cà phê đang được sửa bởi những người đàn ông."
+          "A": "Một người phụ nữ đang rót trà trong khi người kia đang rửa bát.",
+          "B": "Những người phụ nữ đều đang ăn trưa.",
+          "C": "Một người đàn ông đang nấu ăn trong bếp."
         },
-        "correctAnswer": "B",
-        "explanation": "B là mô tả chính xác. A là bẫy sai địa điểm (không ngồi), C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 2. A. The men are sitting at a table. B. One man is pouring coffee while another is using his phone. C. The coffee machine is being repaired by the men.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727394/rg6fva55khar3yshfguh.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728342/clkeoi9voev4e0775kfd.mp3"
+        "correctAnswer": "A",
+        "explanation": "A đúng hành động hai chủ thể. B là bẫy sai hành động, C là bẫy sai giới tính.",
+        "audioScript": "Look at the picture number 2. A. One woman is pouring tea while another is washing dishes. B. The women are all eating lunch. C. A man is cooking in the kitchen.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773961/lp0uruo7agjf4aumzszl.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774147/p3ouvz1ivh6upujnyyls.mp3"
       },
       {
         "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows two office workers standing next to a whiteboard. One man is pointing at a chart on the whiteboard, while a woman is holding a clipboard and listening attentively. There are no computers or desks in the frame, just the whiteboard and a marker.",
+        "imageDescription": "A black-and-white photo shows a man and a woman standing next to a printer in an office. The man is collecting papers from the tray, and the woman is holding a folder.",
         "choices": {
-          "A": "A man is pointing at the whiteboard while a woman takes notes.",
-          "B": "The workers are working on their computers.",
-          "C": "They are cleaning the office together."
+          "A": "The man is collecting papers while the woman is holding a folder.",
+          "B": "Both are typing on computers.",
+          "C": "They are eating lunch at their desks."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang chỉ vào bảng trắng trong khi một người phụ nữ ghi chú.",
-          "B": "Những người nhân viên đang làm việc trên máy tính của họ.",
-          "C": "Họ đang cùng nhau dọn dẹp văn phòng."
+          "A": "Người đàn ông đang lấy giấy trong khi người phụ nữ cầm tập tài liệu.",
+          "B": "Cả hai đang gõ máy tính.",
+          "C": "Họ đang ăn trưa tại bàn làm việc."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng hành động. B là bẫy sai vật thể, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 3. A. A man is pointing at the whiteboard while a woman takes notes. B. The workers are working on their computers. C. They are cleaning the office together.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727403/nxc9ffyh74v8ri3xej27.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728345/vhoceyj7sk94mptvimbi.mp3"
+        "explanation": "A đúng hai hành động phụ. B là bẫy sai hành động, C là bẫy sai ngữ cảnh.",
+        "audioScript": "Look at the picture number 3. A. The man is collecting papers while the woman is holding a folder. B. Both are typing on computers. C. They are eating lunch at their desks.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773970/pomv0khquwxwfnipzfy9.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774150/csjehy050nmmpdfy93pr.mp3"
       },
       {
         "questionNumber": 4,
-        "imageDescription": "A grayscale image shows three people, two men and one woman, sitting together at a conference table with papers spread out in front of them. The woman is writing on a document, while the men are looking at the papers. There are no laptops, coffee cups, or electronic devices visible.",
+        "imageDescription": "A grayscale image shows two students sitting at a table with textbooks. One is reading, and the other is making notes. A bottle of water is on the table.",
         "choices": {
-          "A": "The group is discussing documents at the table.",
-          "B": "A woman is giving a presentation in front of the room.",
-          "C": "They are using their smartphones during the meeting."
+          "A": "One student is reading and the other is making notes.",
+          "B": "Both students are talking on the phone.",
+          "C": "They are watching a movie."
         },
         "choicesVi": {
-          "A": "Nhóm người đang thảo luận tài liệu tại bàn.",
-          "B": "Một người phụ nữ đang thuyết trình trước phòng họp.",
-          "C": "Họ đang sử dụng điện thoại thông minh trong cuộc họp."
+          "A": "Một học sinh đang đọc còn người kia đang ghi chú.",
+          "B": "Cả hai học sinh đang nói chuyện điện thoại.",
+          "C": "Họ đang xem phim."
         },
         "correctAnswer": "A",
-        "explanation": "A mô tả đúng. B là bẫy sai vị trí, C là bẫy sai hành động/vật thể.",
-        "audioScript": "Look at the picture number 4. A. The group is discussing documents at the table. B. A woman is giving a presentation in front of the room. C. They are using their smartphones during the meeting.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727412/djbmcbmkaqgybtkn964n.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728347/sgbun4wxudooz1hf6h5m.mp3"
+        "explanation": "A đúng mô tả hoạt động từng người. B và C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 4. A. One student is reading and the other is making notes. B. Both students are talking on the phone. C. They are watching a movie.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773979/wnujqbvugt1zx8pwvvap.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774153/nzsdhzptc9v5yumxo0za.mp3"
       },
       {
         "questionNumber": 5,
-        "imageDescription": "A black-and-white photo shows two women standing at a kitchen counter, each holding a cup. One is laughing while the other is pouring water from a jug into her cup. There is nothing else on the counter except the jug and the cups. The background is a window with light coming in.",
+        "imageDescription": "A black-and-white photo shows two men and a woman sitting at a round table in a cafe. The woman is looking at a menu, one man is stirring his coffee, and the other man is talking.",
         "choices": {
-          "A": "The women are drinking together at the counter.",
-          "B": "A woman is washing dishes in the kitchen.",
-          "C": "They are preparing a meal with vegetables."
+          "A": "The woman is looking at a menu.",
+          "B": "All three are eating dessert.",
+          "C": "The men are working at computers."
         },
         "choicesVi": {
-          "A": "Những người phụ nữ đang uống nước cùng nhau tại quầy bếp.",
-          "B": "Một người phụ nữ đang rửa bát trong bếp.",
-          "C": "Họ đang chuẩn bị bữa ăn với rau củ."
+          "A": "Người phụ nữ đang nhìn thực đơn.",
+          "B": "Cả ba người đang ăn tráng miệng.",
+          "C": "Những người đàn ông đang làm việc trên máy tính."
         },
         "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động và bối cảnh. B là bẫy sai hành động, C là bẫy sai vật thể.",
-        "audioScript": "Look at the picture number 5. A. The women are drinking together at the counter. B. A woman is washing dishes in the kitchen. C. They are preparing a meal with vegetables.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727421/msai4e25wg1xfsrja9il.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728350/xov0d8ivocfg2bfknrzm.mp3"
+        "explanation": "A đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai hành động và quan hệ.",
+        "audioScript": "Look at the picture number 5. A. The woman is looking at a menu. B. All three are eating dessert. C. The men are working at computers.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773990/phsvxqfqzgqgygaifdaq.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774156/rzlsies5rxxiuy0kdp7h.mp3"
       },
       {
         "questionNumber": 6,
-        "imageDescription": "A grayscale image depicts two men in business attire shaking hands in front of an office building. Both are smiling and holding briefcases. There are no other people or objects in the background, only the glass doors of the building.",
+        "imageDescription": "A grayscale image shows two men standing by a car. One man is opening the trunk while the other is carrying a box.",
         "choices": {
-          "A": "Two men are shaking hands outside an office building.",
-          "B": "The men are sitting at a desk working.",
-          "C": "One man is opening a car door."
+          "A": "One man is opening the trunk, and the other is carrying a box.",
+          "B": "The men are sitting in the car.",
+          "C": "They are repairing the engine together."
         },
         "choicesVi": {
-          "A": "Hai người đàn ông đang bắt tay trước tòa nhà văn phòng.",
-          "B": "Những người đàn ông đang ngồi tại bàn làm việc.",
-          "C": "Một người đàn ông đang mở cửa ô tô."
+          "A": "Một người đàn ông đang mở cốp xe, người kia đang bê hộp.",
+          "B": "Những người đàn ông đang ngồi trong xe.",
+          "C": "Họ đang cùng sửa động cơ."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng, mô tả chi tiết chính xác. B là bẫy sai địa điểm, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 6. A. Two men are shaking hands outside an office building. B. The men are sitting at a desk working. C. One man is opening a car door.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727430/p6yoqoxczitlszottosv.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728353/dyjejwvppnci10vci9oh.mp3"
+        "explanation": "A đúng mô tả hai hành động. B là bẫy sai hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 6. A. One man is opening the trunk, and the other is carrying a box. B. The men are sitting in the car. C. They are repairing the engine together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773998/yipvywwdljmqupwvvivb.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774159/dky0hqcafrnu6z7wuvkg.mp3"
       },
       {
         "questionNumber": 7,
-        "imageDescription": "A black-and-white photo shows two teachers standing next to a bookshelf in a classroom. One teacher is pointing at a book while the other listens. No students are present. There are only books and a clock on the wall.",
+        "imageDescription": "A black-and-white photo shows three people walking in a park. Two women are walking together, while a man is walking behind them, talking on his phone.",
         "choices": {
-          "A": "The teachers are discussing a book in the classroom.",
-          "B": "A teacher is writing on the board.",
-          "C": "Students are reading at their desks."
+          "A": "A man is talking on his phone while walking behind two women.",
+          "B": "The three people are sitting on a bench.",
+          "C": "The women are reading newspapers."
         },
         "choicesVi": {
-          "A": "Những giáo viên đang thảo luận về một cuốn sách trong lớp học.",
-          "B": "Một giáo viên đang viết lên bảng.",
-          "C": "Học sinh đang đọc sách tại bàn của mình."
+          "A": "Một người đàn ông đang nói điện thoại trong khi đi sau hai người phụ nữ.",
+          "B": "Ba người đang ngồi trên ghế dài.",
+          "C": "Những người phụ nữ đang đọc báo."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng. B là bẫy sai hành động/người, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 1. A. The teachers are discussing a book in the classroom. B. A teacher is writing on the board. C. Students are reading at their desks.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727438/k3wruaxsbtmzygpeutgz.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728356/dhzkwrjldlqir6mn5wjl.mp3"
+        "explanation": "A đúng mô tả cả ba chủ thể và hành động phụ. B và C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 1. A. A man is talking on his phone while walking behind two women. B. The three people are sitting on a bench. C. The women are reading newspapers.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774008/ejxhe8lppsbfzp4iptyu.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774162/sedqzgibtdi1e1yju2lq.mp3"
       },
       {
         "questionNumber": 8,
-        "imageDescription": "A grayscale image shows two coworkers, a man and a woman, standing at a printer in an office. The man is retrieving printed papers from the tray while the woman waits beside him holding a folder. There are no computers, coffee cups, or phones visible.",
+        "imageDescription": "A grayscale photo shows two coworkers in an office. One woman is typing on her laptop. A man is looking out the window.",
         "choices": {
-          "A": "The man is picking up documents from the printer while the woman stands next to him.",
-          "B": "They are drinking coffee together.",
-          "C": "The woman is working at her computer."
+          "A": "A man is looking out the window.",
+          "B": "Both people are writing on the board.",
+          "C": "They are eating lunch together."
         },
         "choicesVi": {
-          "A": "Người đàn ông đang lấy tài liệu từ máy in trong khi người phụ nữ đứng cạnh.",
-          "B": "Họ đang cùng nhau uống cà phê.",
-          "C": "Người phụ nữ đang làm việc trên máy tính của mình."
+          "A": "Một người đàn ông đang nhìn ra cửa sổ.",
+          "B": "Cả hai người đang viết lên bảng.",
+          "C": "Họ đang ăn trưa cùng nhau."
         },
         "correctAnswer": "A",
-        "explanation": "A mô tả đúng. B là bẫy sai hành động, C là bẫy sai vật thể.",
-        "audioScript": "Look at the picture number 2. A. The man is picking up documents from the printer while the woman stands next to him. B. They are drinking coffee together. C. The woman is working at her computer.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727446/hsq7jauz3uznrhbqa814.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728359/layax5ae0lpdj3ekys5a.mp3"
+        "explanation": "A mô tả đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 2. A. A man is looking out the window. B. Both people are writing on the board. C. They are eating lunch together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774017/lju5pezqt7aadvd3mpmz.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774165/vfpljps4jvbfbmpseszd.mp3"
       },
       {
         "questionNumber": 9,
-        "imageDescription": "A black-and-white photo shows three chefs standing together in a kitchen. One chef is holding a tray of bread, another is arranging food on a plate, and the third is watching. The background shows a counter with utensils but no other people.",
+        "imageDescription": "A black-and-white image shows three students in a classroom. One girl is drawing on a piece of paper, while the other two are looking at her work.",
         "choices": {
-          "A": "The chefs are preparing food together in the kitchen.",
-          "B": "A chef is dining at a restaurant table.",
-          "C": "The chefs are cleaning the dining area."
+          "A": "One student is drawing while the others are watching.",
+          "B": "All the students are sleeping.",
+          "C": "A teacher is writing on the board."
         },
         "choicesVi": {
-          "A": "Các đầu bếp đang chuẩn bị thức ăn cùng nhau trong bếp.",
-          "B": "Một đầu bếp đang ăn tại bàn nhà hàng.",
-          "C": "Các đầu bếp đang dọn dẹp khu vực ăn uống."
+          "A": "Một học sinh đang vẽ trong khi những người còn lại đang quan sát.",
+          "B": "Tất cả học sinh đang ngủ.",
+          "C": "Một giáo viên đang viết lên bảng."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng. B là bẫy sai hành động, C là bẫy sai địa điểm.",
-        "audioScript": "Look at the picture number 3. A. The chefs are preparing food together in the kitchen. B. A chef is dining at a restaurant table. C. The chefs are cleaning the dining area.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727454/nidkxw4lvr0pzoqci1cn.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728362/ua38kknfuolz20wwzhng.mp3"
+        "explanation": "A đúng chi tiết từng người, có chủ thể phụ. B, C là bẫy sai hành động/chủ thể.",
+        "audioScript": "Look at the picture number 3. A. One student is drawing while the others are watching. B. All the students are sleeping. C. A teacher is writing on the board.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774025/od131pir8m9dkuakjoiy.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774168/ubpbnsfvkajodztyhj2n.mp3"
       },
       {
         "questionNumber": 10,
-        "imageDescription": "A grayscale image shows two students sitting on a bench outside. One student is reading a book, while the other is looking at the first student and smiling. There are no bags, laptops, or other objects around them, just the bench and some trees in the background.",
+        "imageDescription": "A grayscale photo shows a man and a woman shopping in a supermarket. The woman is putting fruit in a basket while the man is checking a shopping list.",
         "choices": {
-          "A": "One student is reading while another is listening.",
-          "B": "The students are using their laptops.",
-          "C": "They are walking in the park."
+          "A": "The woman is putting fruit in a basket.",
+          "B": "The man is working as a cashier.",
+          "C": "Both are reading newspapers."
         },
         "choicesVi": {
-          "A": "Một học sinh đang đọc sách trong khi người kia lắng nghe.",
-          "B": "Những học sinh đang sử dụng máy tính xách tay.",
-          "C": "Họ đang đi dạo trong công viên."
+          "A": "Người phụ nữ đang bỏ hoa quả vào giỏ.",
+          "B": "Người đàn ông đang làm thu ngân.",
+          "C": "Cả hai đang đọc báo."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng nội dung. B là bẫy sai vật thể, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 4. A. One student is reading while another is listening. B. The students are using their laptops. C. They are walking in the park.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727463/a62ksagrvbqlr5iy3okp.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728365/veljjssjdq2zjb4ws8yl.mp3"
+        "explanation": "A mô tả đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 4. A. The woman is putting fruit in a basket. B. The man is working as a cashier. C. Both are reading newspapers.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774034/tgjko5axmmocfxs4rhtq.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774171/k9qlzzvleuur7ogje9qn.mp3"
       },
       {
         "questionNumber": 11,
-        "imageDescription": "A black-and-white photo shows two doctors standing beside a hospital bed. One doctor is checking a patient's chart while the other is talking to the patient, who is not visible in the photo. No medical equipment except the bed and the chart are present.",
+        "imageDescription": "A black-and-white image shows two men and a woman walking through an office hallway. One man is carrying a stack of papers, the woman is holding a phone, and the other man is opening a door.",
         "choices": {
-          "A": "Doctors are reviewing a patient's chart next to the bed.",
-          "B": "A nurse is giving medicine to the patient.",
-          "C": "The doctors are operating in the surgery room."
+          "A": "A man is opening a door.",
+          "B": "All three are sitting at a desk.",
+          "C": "The woman is carrying a stack of books."
         },
         "choicesVi": {
-          "A": "Các bác sĩ đang xem hồ sơ bệnh án bên cạnh giường.",
-          "B": "Một y tá đang phát thuốc cho bệnh nhân.",
-          "C": "Các bác sĩ đang phẫu thuật trong phòng mổ."
+          "A": "Một người đàn ông đang mở cửa.",
+          "B": "Cả ba đang ngồi ở bàn.",
+          "C": "Người phụ nữ đang cầm chồng sách."
         },
         "correctAnswer": "A",
-        "explanation": "A là đúng, mô tả rõ hành động và bối cảnh. B là bẫy sai người, C là bẫy sai địa điểm.",
-        "audioScript": "Look at the picture number 5. A. Doctors are reviewing a patient's chart next to the bed. B. A nurse is giving medicine to the patient. C. The doctors are operating in the surgery room.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727471/xvo9b38uweifmbm3ez12.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728369/tbi8oavbskjsvrnmygrz.mp3"
+        "explanation": "A mô tả đúng chi tiết phụ. B, C là bẫy sai hành động/vật thể.",
+        "audioScript": "Look at the picture number 5. A. A man is opening a door. B. All three are sitting at a desk. C. The woman is carrying a stack of books.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774043/ahlnwl3amua3jgmsyhug.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774174/fcfnx7ufzlie7y6tieqo.mp3"
       },
       {
         "questionNumber": 12,
-        "imageDescription": "A grayscale image shows three friends standing together on a city sidewalk. One man is taking a photo of the two women, who are smiling and posing. There are no cars or other people nearby, just buildings in the background.",
+        "imageDescription": "A grayscale photo shows two women talking at a cafe table. One woman is drinking coffee, the other is looking at her phone.",
         "choices": {
-          "A": "A man is taking a picture of two women on the sidewalk.",
-          "B": "The friends are driving a car together.",
-          "C": "They are shopping in a supermarket."
+          "A": "One woman is looking at her phone.",
+          "B": "Both are standing by the window.",
+          "C": "Two men are drinking tea."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang chụp ảnh hai người phụ nữ trên vỉa hè.",
-          "B": "Những người bạn đang lái xe cùng nhau.",
-          "C": "Họ đang mua sắm trong siêu thị."
+          "A": "Một người phụ nữ đang nhìn vào điện thoại.",
+          "B": "Cả hai đang đứng cạnh cửa sổ.",
+          "C": "Hai người đàn ông đang uống trà."
         },
         "correctAnswer": "A",
-        "explanation": "A là mô tả chính xác. B là bẫy sai hành động, C là bẫy sai địa điểm.",
-        "audioScript": "Look at the picture number 6. A. A man is taking a picture of two women on the sidewalk. B. The friends are driving a car together. C. They are shopping in a supermarket.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751727480/csu7gummbla5uitpnswk.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728371/snhnatwlrjae4iezsghh.mp3"
+        "explanation": "A mô tả đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 6. A. One woman is looking at her phone. B. Both are standing by the window. C. Two men are drinking tea.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774051/r5j6pyavcgz8reefmylq.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774177/obsjord1mirrsisq9tju.mp3"
+      },
+      {
+        "questionNumber": 13,
+        "imageDescription": "A black-and-white photo shows two men playing chess at a park table. A third man is watching them and holding a coffee cup.",
+        "choices": {
+          "A": "A man is watching a chess game and holding a cup.",
+          "B": "All three men are playing chess.",
+          "C": "The men are jogging in the park."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang xem cờ vua và cầm cốc.",
+          "B": "Cả ba người đàn ông đang chơi cờ.",
+          "C": "Những người đàn ông đang chạy bộ trong công viên."
+        },
+        "correctAnswer": "A",
+        "explanation": "A tập trung vào nhân vật phụ. B là bẫy sai số lượng, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 1. A. A man is watching a chess game and holding a cup. B. All three men are playing chess. C. The men are jogging in the park.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774060/u7urjzjzbdazshsiifjg.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774180/lzfhaj4kcorencewopip.mp3"
+      },
+      {
+        "questionNumber": 14,
+        "imageDescription": "A grayscale image shows three coworkers at a meeting table. One woman is speaking, one man is writing, and another man is drinking water.",
+        "choices": {
+          "A": "One man is writing while another is drinking water.",
+          "B": "All are watching a movie.",
+          "C": "The woman is leaving the room."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang viết trong khi người kia uống nước.",
+          "B": "Tất cả đều đang xem phim.",
+          "C": "Người phụ nữ đang rời khỏi phòng."
+        },
+        "correctAnswer": "A",
+        "explanation": "A đúng hành động phụ của hai người. B, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 2. A. One man is writing while another is drinking water. B. All are watching a movie. C. The woman is leaving the room.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774069/celb7hqny6oal1f8ptzu.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774183/fvkzqxhmnqurevu6xfmy.mp3"
+      },
+      {
+        "questionNumber": 15,
+        "imageDescription": "A black-and-white photo shows a man and a woman shopping. The man is carrying two bags, and the woman is looking at clothes on a rack.",
+        "choices": {
+          "A": "The man is carrying shopping bags.",
+          "B": "Both are buying shoes.",
+          "C": "The woman is using her phone."
+        },
+        "choicesVi": {
+          "A": "Người đàn ông đang xách túi mua sắm.",
+          "B": "Cả hai đang mua giày.",
+          "C": "Người phụ nữ đang sử dụng điện thoại."
+        },
+        "correctAnswer": "A",
+        "explanation": "A đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 3. A. The man is carrying shopping bags. B. Both are buying shoes. C. The woman is using her phone.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774078/q0h7x6ebdkaopawojf2x.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774186/wugyjdiewsmypkblxtye.mp3"
+      },
+      {
+        "questionNumber": 16,
+        "imageDescription": "A grayscale photo shows three friends sitting on a sofa. One man is playing guitar, another is listening, and the woman is singing.",
+        "choices": {
+          "A": "The woman is singing while a man is playing guitar.",
+          "B": "All are watching TV.",
+          "C": "Two men are playing chess."
+        },
+        "choicesVi": {
+          "A": "Người phụ nữ đang hát trong khi một người đàn ông đang chơi guitar.",
+          "B": "Tất cả đang xem tivi.",
+          "C": "Hai người đàn ông đang chơi cờ."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng hành động từng người. B là bẫy sai hành động, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 4. A. The woman is singing while a man is playing guitar. B. All are watching TV. C. Two men are playing chess.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774087/ypipxtipc9bmcvxls4sy.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774189/c8fg0h7gcebhyltyutst.mp3"
+      },
+      {
+        "questionNumber": 17,
+        "imageDescription": "A black-and-white photo shows two men standing at a bus stop. One man is looking at his watch, and the other is reading a timetable.",
+        "choices": {
+          "A": "One man is reading a timetable.",
+          "B": "Both men are listening to music.",
+          "C": "They are boarding the bus."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang xem bảng giờ.",
+          "B": "Cả hai người đàn ông đang nghe nhạc.",
+          "C": "Họ đang lên xe buýt."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng hành động phụ. B, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 5. A. One man is reading a timetable. B. Both men are listening to music. C. They are boarding the bus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774095/zi48jk2xrqafvctytx35.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774192/pi2cpzv953pon1gn0mk9.mp3"
+      },
+      {
+        "questionNumber": 18,
+        "imageDescription": "A grayscale image shows three office workers around a table. One woman is handing a document to a man, and the other man is looking at a laptop.",
+        "choices": {
+          "A": "A woman is handing a document to a man.",
+          "B": "All are having lunch.",
+          "C": "Two men are talking on the phone."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang đưa tài liệu cho một người đàn ông.",
+          "B": "Tất cả đang ăn trưa.",
+          "C": "Hai người đàn ông đang nói chuyện điện thoại."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng hành động từng người. B là bẫy sai hành động, C là bẫy sai chủ thể.",
+        "audioScript": "Look at the picture number 6. A. A woman is handing a document to a man. B. All are having lunch. C. Two men are talking on the phone.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774103/lr0bvnssmxcxrzbvxwnx.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774194/ti8qpzb5dlallp0xcvmn.mp3"
+      }
+    ],
+    "level4": [
+      {
+        "questionNumber": 1,
+        "imageDescription": "A black-and-white photo shows four colleagues sitting around a conference table. One man is pointing at a chart on a laptop, while two women are discussing some documents. The fourth person, a man, is looking at his watch.",
+        "choices": {
+          "A": "A man is pointing at a chart while two women are discussing documents.",
+          "B": "Everyone is looking at the clock on the wall.",
+          "C": "All of them are using their phones."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang chỉ vào biểu đồ trong khi hai người phụ nữ đang thảo luận tài liệu.",
+          "B": "Tất cả mọi người đang nhìn vào đồng hồ trên tường.",
+          "C": "Tất cả họ đang sử dụng điện thoại."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng nhiều hành động phức tạp. B là bẫy sai bố cục, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 1. A. A man is pointing at a chart while two women are discussing documents. B. Everyone is looking at the clock on the wall. C. All of them are using their phones.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774309/bop0vqhz1aip5vprtnpp.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774455/x3vtsbdo1xwa7qf60bgl.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "imageDescription": "A grayscale image shows three people at a picnic table outdoors. One woman is pouring juice, a man is slicing bread, and another woman is setting plates on the table. There is food but no drinks on the table yet.",
+        "choices": {
+          "A": "A man is slicing bread while a woman is pouring juice.",
+          "B": "They are all drinking coffee together.",
+          "C": "All three are using their laptops."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang cắt bánh mì trong khi một người phụ nữ đang rót nước.",
+          "B": "Họ đều đang uống cà phê cùng nhau.",
+          "C": "Cả ba đang sử dụng máy tính xách tay."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả rõ nhiều hoạt động song song. B là bẫy sai vật thể, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 2. A. A man is slicing bread while a woman is pouring juice. B. They are all drinking coffee together. C. All three are using their laptops.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774317/u2qgeec2ymotpsb8sjv7.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774457/jjx0ylmbkqadejkby5rc.mp3"
+      },
+      {
+        "questionNumber": 3,
+        "imageDescription": "A black-and-white photo shows five office workers gathered around a desk. Two men are shaking hands, while the others are clapping and smiling. There are laptops and documents on the table.",
+        "choices": {
+          "A": "Two men are shaking hands while the others are clapping.",
+          "B": "Everyone is writing in notebooks.",
+          "C": "A woman is giving a presentation at the board."
+        },
+        "choicesVi": {
+          "A": "Hai người đàn ông đang bắt tay trong khi những người khác đang vỗ tay.",
+          "B": "Tất cả mọi người đang viết vào sổ.",
+          "C": "Một người phụ nữ đang thuyết trình ở bảng."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng bố cục nhóm, hành động phức tạp. B và C là bẫy sai bố cục/hành động.",
+        "audioScript": "Look at the picture number 3. A. Two men are shaking hands while the others are clapping. B. Everyone is writing in notebooks. C. A woman is giving a presentation at the board.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774327/gyza2cnowfzmcxisjp4v.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774459/pfsblfvcohn3aladlkvg.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "imageDescription": "A grayscale image shows three people in a library. One woman is taking a book from a shelf, another woman is sitting at a table reading, and a man is arranging books on a cart.",
+        "choices": {
+          "A": "A woman is reading at the table while another is taking a book from the shelf.",
+          "B": "All are searching for books together.",
+          "C": "A man is talking on his phone."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang đọc sách tại bàn trong khi người khác lấy sách từ kệ.",
+          "B": "Tất cả đều đang tìm sách cùng nhau.",
+          "C": "Một người đàn ông đang nói chuyện điện thoại."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả chính xác từng chủ thể và hành động phụ. B là bẫy sai trạng thái nhóm, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 4. A. A woman is reading at the table while another is taking a book from the shelf. B. All are searching for books together. C. A man is talking on his phone.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774336/utvtlbwef5rxto0lpre4.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774462/p9mzd8kb1nuftlkienea.mp3"
+      },
+      {
+        "questionNumber": 5,
+        "imageDescription": "A black-and-white photo shows four people working in a kitchen. One man is chopping vegetables, a woman is washing dishes, another man is stirring soup, and the fourth person is cleaning the counter.",
+        "choices": {
+          "A": "One man is chopping vegetables while another is stirring soup.",
+          "B": "All four are washing dishes.",
+          "C": "A woman is sitting at the table."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang cắt rau trong khi người kia đang khuấy súp.",
+          "B": "Cả bốn người đều đang rửa bát.",
+          "C": "Một người phụ nữ đang ngồi ở bàn."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng nhiều hành động, rõ ràng từng chủ thể. B là bẫy sai hành động, C là bẫy sai trạng thái.",
+        "audioScript": "Look at the picture number 5. A. One man is chopping vegetables while another is stirring soup. B. All four are washing dishes. C. A woman is sitting at the table.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774345/voi75x8ujw7drfgvcvi0.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774465/l3pdilvjkjlycnwj8bfu.mp3"
+      },
+      {
+        "questionNumber": 6,
+        "imageDescription": "A grayscale photo shows three colleagues at a round table. One woman is typing on a laptop, a man is handing her a document, and the third person is drinking water.",
+        "choices": {
+          "A": "A man is handing a document to a woman who is typing.",
+          "B": "All are looking at the laptop.",
+          "C": "They are all making phone calls."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang đưa tài liệu cho người phụ nữ đang gõ máy.",
+          "B": "Tất cả đang nhìn vào máy tính xách tay.",
+          "C": "Họ đều đang gọi điện thoại."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng phân vai, nhiều hành động song song. B là bẫy sai hành động nhóm, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 6. A. A man is handing a document to a woman who is typing. B. All are looking at the laptop. C. They are all making phone calls.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774353/qddczo7qptkqs8k0opi1.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774467/izv1cauwvi35qojcyr8j.mp3"
+      },
+      {
+        "questionNumber": 7,
+        "imageDescription": "A black-and-white photo shows five people at a restaurant table. Two men are raising glasses for a toast, a woman is laughing, and two others are talking together.",
+        "choices": {
+          "A": "Two men are toasting while others are talking and laughing.",
+          "B": "All are reading the menu.",
+          "C": "The group is standing outside the restaurant."
+        },
+        "choicesVi": {
+          "A": "Hai người đàn ông đang nâng ly trong khi những người khác đang nói chuyện và cười.",
+          "B": "Tất cả đều đang đọc thực đơn.",
+          "C": "Nhóm đang đứng ngoài nhà hàng."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả rõ bố cục nhóm và hành động phụ. B là bẫy sai trạng thái, C là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 1. A. Two men are toasting while others are talking and laughing. B. All are reading the menu. C. The group is standing outside the restaurant.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774362/yl5sotpebsyknjmxgg2s.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774469/hocva2rm5kq2dkbltnq3.mp3"
+      },
+      {
+        "questionNumber": 8,
+        "imageDescription": "A grayscale photo shows four people in a living room. One man is watching TV, a woman is playing with a child on the floor, and another man is talking on the phone.",
+        "choices": {
+          "A": "A woman is playing with a child while a man is watching TV.",
+          "B": "All of them are reading magazines.",
+          "C": "The group is outside in the garden."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang chơi với đứa trẻ trong khi một người đàn ông đang xem tivi.",
+          "B": "Tất cả đều đang đọc tạp chí.",
+          "C": "Nhóm đang ở ngoài vườn."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng bố cục phức tạp. B là bẫy sai hành động, C là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 2. A. A woman is playing with a child while a man is watching TV. B. All of them are reading magazines. C. The group is outside in the garden.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774370/xkpgqg3cykylksrn5kyh.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774472/o8e9fak4pvdywbpdlrwf.mp3"
+      },
+      {
+        "questionNumber": 9,
+        "imageDescription": "A black-and-white photo shows three coworkers standing in front of a window. One woman is opening the blinds, a man is checking his phone, and the other woman is holding a cup.",
+        "choices": {
+          "A": "A woman is opening the blinds while another is holding a cup.",
+          "B": "They are all sitting at their desks.",
+          "C": "A man is watering the plants."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang mở rèm cửa trong khi người khác cầm cốc.",
+          "B": "Họ đều đang ngồi ở bàn làm việc.",
+          "C": "Một người đàn ông đang tưới cây."
+        },
+        "correctAnswer": "A",
+        "explanation": "A đúng bố cục nhóm, nhiều hành động phụ. B và C là bẫy sai trạng thái/hành động.",
+        "audioScript": "Look at the picture number 3. A. A woman is opening the blinds while another is holding a cup. B. They are all sitting at their desks. C. A man is watering the plants.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774378/phvbdkioazcrofwlfdlz.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774474/hkxyfwi4ri5xvt3lnzfj.mp3"
+      },
+      {
+        "questionNumber": 10,
+        "imageDescription": "A grayscale photo shows four people sitting at a picnic table. One man is grilling food, a woman is serving salad, and two children are playing nearby.",
+        "choices": {
+          "A": "A woman is serving salad while a man is grilling food.",
+          "B": "All of them are eating dessert together.",
+          "C": "The group is sitting in an office."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang gắp salad trong khi một người đàn ông đang nướng đồ ăn.",
+          "B": "Tất cả đều đang ăn tráng miệng cùng nhau.",
+          "C": "Nhóm đang ngồi trong văn phòng."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng chi tiết phức tạp, nhiều chủ thể. B là bẫy sai hành động, C là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 4. A. A woman is serving salad while a man is grilling food. B. All of them are eating dessert together. C. The group is sitting in an office.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774385/caftzxw1jxiwsb748dnc.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774477/xaflm8qt5mantjdkdm5p.mp3"
+      },
+      {
+        "questionNumber": 11,
+        "imageDescription": "A black-and-white photo shows three friends playing board games at a coffee table. One is rolling the dice, another is moving a piece, and the third is watching closely.",
+        "choices": {
+          "A": "One friend is rolling the dice while another is watching.",
+          "B": "All are sleeping on the sofa.",
+          "C": "They are reading books together."
+        },
+        "choicesVi": {
+          "A": "Một người bạn đang gieo xúc xắc trong khi người khác đang quan sát.",
+          "B": "Tất cả đang ngủ trên ghế sofa.",
+          "C": "Họ đang đọc sách cùng nhau."
+        },
+        "correctAnswer": "A",
+        "explanation": "A đúng chi tiết nhóm và hành động phụ. B, C là bẫy sai trạng thái/hành động.",
+        "audioScript": "Look at the picture number 5. A. One friend is rolling the dice while another is watching. B. All are sleeping on the sofa. C. They are reading books together.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774394/pdootagt8bb0hbez1stk.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774479/lnowuwxlyty0o9ot5hhs.mp3"
+      },
+      {
+        "questionNumber": 12,
+        "imageDescription": "A grayscale image shows four coworkers at a large desk. One man is talking on the phone, a woman is typing on her computer, another woman is writing, and a man is drinking coffee.",
+        "choices": {
+          "A": "One man is talking on the phone while another is drinking coffee.",
+          "B": "All of them are attending a video meeting.",
+          "C": "The women are preparing lunch."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang nói chuyện điện thoại trong khi người kia đang uống cà phê.",
+          "B": "Tất cả đều đang tham dự cuộc họp trực tuyến.",
+          "C": "Những người phụ nữ đang chuẩn bị bữa trưa."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng phân vai. B là bẫy sai trạng thái nhóm, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 6. A. One man is talking on the phone while another is drinking coffee. B. All of them are attending a video meeting. C. The women are preparing lunch.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774402/hsqwng3tuj6xv8gkk8po.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774482/m6sap0zdyajukhtsosqt.mp3"
+      },
+      {
+        "questionNumber": 13,
+        "imageDescription": "A black-and-white photo shows five people at a park. Two women are jogging together, a man is riding a bicycle, another man is stretching, and a child is playing with a ball.",
+        "choices": {
+          "A": "Two women are jogging while a man is riding a bicycle.",
+          "B": "All are sitting on a picnic blanket.",
+          "C": "The child is reading a book."
+        },
+        "choicesVi": {
+          "A": "Hai người phụ nữ đang chạy bộ trong khi một người đàn ông đang đi xe đạp.",
+          "B": "Tất cả đang ngồi trên thảm picnic.",
+          "C": "Đứa trẻ đang đọc sách."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả nhiều hoạt động song song, đúng bố cục nhóm. B, C là bẫy sai trạng thái/hành động.",
+        "audioScript": "Look at the picture number 1. A. Two women are jogging while a man is riding a bicycle. B. All are sitting on a picnic blanket. C. The child is reading a book.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774410/z1s0t5w7vqopcl4yegzv.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774485/qw5ddmzxfx9dm0dncdoa.mp3"
+      },
+      {
+        "questionNumber": 14,
+        "imageDescription": "A grayscale image shows three employees in a meeting room. One is writing on a whiteboard, one is using a laptop, and the third is holding a cup and listening.",
+        "choices": {
+          "A": "One employee is writing on the board while another is using a laptop.",
+          "B": "All are reading newspapers.",
+          "C": "Two are making a phone call."
+        },
+        "choicesVi": {
+          "A": "Một nhân viên đang viết lên bảng trong khi người khác đang dùng máy tính xách tay.",
+          "B": "Tất cả đang đọc báo.",
+          "C": "Hai người đang gọi điện thoại."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả nhiều hành động, đúng bố cục nhóm. B, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 2. A. One employee is writing on the board while another is using a laptop. B. All are reading newspapers. C. Two are making a phone call.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774418/swiox8h2krhhtenyydfa.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774488/asxxwnat6x8x1plutfz0.mp3"
+      },
+      {
+        "questionNumber": 15,
+        "imageDescription": "A black-and-white photo shows four friends sitting together at a table. One woman is taking a selfie, two men are smiling, and the other woman is drinking water.",
+        "choices": {
+          "A": "A woman is taking a selfie while others are smiling.",
+          "B": "All are playing cards.",
+          "C": "The group is standing in the kitchen."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang chụp ảnh tự sướng trong khi những người khác đang cười.",
+          "B": "Tất cả đang chơi bài.",
+          "C": "Nhóm đang đứng trong bếp."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả rõ bố cục, đúng hành động nhóm. B là bẫy sai hành động, C là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 3. A. A woman is taking a selfie while others are smiling. B. All are playing cards. C. The group is standing in the kitchen.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774426/bedrb1p2tqka8to5bpei.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774491/jblmvwmevjprblzqtles.mp3"
+      },
+      {
+        "questionNumber": 16,
+        "imageDescription": "A grayscale photo shows five businesspeople standing together. Two are looking at a tablet, one is talking, and the others are watching them.",
+        "choices": {
+          "A": "Two people are looking at a tablet while the others are watching.",
+          "B": "All are making a presentation.",
+          "C": "They are eating in the cafeteria."
+        },
+        "choicesVi": {
+          "A": "Hai người đang nhìn vào máy tính bảng trong khi những người khác đang quan sát.",
+          "B": "Tất cả đang thuyết trình.",
+          "C": "Họ đang ăn trong căn tin."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng bố cục phức tạp. B là bẫy sai hành động nhóm, C là bẫy sai vị trí.",
+        "audioScript": "Look at the picture number 4. A. Two people are looking at a tablet while the others are watching. B. All are making a presentation. C. They are eating in the cafeteria.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774434/luspotjcluaa2wwxp3zf.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774494/n8adrpbgjtezcerlyqtk.mp3"
+      },
+      {
+        "questionNumber": 17,
+        "imageDescription": "A black-and-white photo shows three people at a bus stop. One man is reading a timetable, a woman is listening to music with headphones, and another man is eating a sandwich.",
+        "choices": {
+          "A": "A woman is listening to music with headphones.",
+          "B": "All three are boarding the bus.",
+          "C": "Two men are talking to each other."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang nghe nhạc bằng tai nghe.",
+          "B": "Cả ba đang lên xe buýt.",
+          "C": "Hai người đàn ông đang nói chuyện với nhau."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng một hành động phụ trong nhóm. B là bẫy sai trạng thái nhóm, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 5. A. A woman is listening to music with headphones. B. All three are boarding the bus. C. Two men are talking to each other.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774443/cyawx5k5ghyqn6au8pug.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774496/wkyfi0esdkynrnqbvwut.mp3"
+      },
+      {
+        "questionNumber": 18,
+        "imageDescription": "A grayscale image shows four people in a kitchen. A man is opening the fridge, two women are setting the table, and a child is drawing at the counter.",
+        "choices": {
+          "A": "A child is drawing at the counter while two women are setting the table.",
+          "B": "Everyone is cooking together.",
+          "C": "A man is eating dinner."
+        },
+        "choicesVi": {
+          "A": "Một đứa trẻ đang vẽ ở quầy trong khi hai người phụ nữ đang dọn bàn.",
+          "B": "Tất cả đang cùng nấu ăn.",
+          "C": "Một người đàn ông đang ăn tối."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả rõ các hoạt động nhóm phức tạp. B là bẫy sai trạng thái, C là bẫy sai hành động.",
+        "audioScript": "Look at the picture number 6. A. A child is drawing at the counter while two women are setting the table. B. Everyone is cooking together. C. A man is eating dinner.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774452/hbrqhglgt3elsvd9mszp.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774499/vckct17jregma7vorbzo.mp3"
       }
     ]
   },
