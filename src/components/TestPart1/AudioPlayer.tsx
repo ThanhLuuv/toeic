@@ -4,9 +4,10 @@ import { Play, Pause, Volume2 } from 'lucide-react';
 interface AudioPlayerProps {
   audioSrc: string;
   audioRef?: React.RefObject<HTMLAudioElement>;
+  forceStop?: boolean;
 }
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef }) => {
+const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef, forceStop = false }) => {
   const internalRef = useRef<HTMLAudioElement>(null);
   const ref = audioRef ?? internalRef;
   const [isPlaying, setIsPlaying] = useState(false);
@@ -24,7 +25,17 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef }) => {
 
   const handlePlayPause = () => {
     if (ref.current) {
-      isPlaying ? ref.current.pause() : ref.current.play();
+      if (isPlaying) {
+        ref.current.pause();
+      } else {
+        const playPromise = ref.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.log('Play failed:', error);
+            // Trên Safari, có thể cần user interaction
+          });
+        }
+      }
     }
   };
 
@@ -84,11 +95,48 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef }) => {
     if (ref.current) ref.current.load();
   }, [audioSrc]);
 
+  // Force stop audio when forceStop prop changes
+  useEffect(() => {
+    if (forceStop && ref.current) {
+      ref.current.pause();
+      ref.current.currentTime = 0;
+      setIsPlaying(false);
+    }
+  }, [forceStop]);
+
+  // Thêm useEffect để xử lý Safari autoplay
+  useEffect(() => {
+    const audio = ref.current;
+    if (!audio) return;
+
+    // Thêm các thuộc tính cần thiết cho Safari
+    audio.preload = 'metadata';
+    audio.muted = false;
+    
+    // Xử lý lỗi load audio
+    const handleError = (e: Event) => {
+      console.error('Audio loading error:', e);
+    };
+
+    audio.addEventListener('error', handleError);
+
+    return () => {
+      audio.removeEventListener('error', handleError);
+    };
+  }, [audioSrc]);
+
   if (!audioSrc) return null;
 
   return (
     <div className="w-full mx-auto mb-4">
-      <audio ref={ref} src={audioSrc} preload="metadata" className="hidden" />
+      <audio 
+        ref={ref} 
+        src={audioSrc} 
+        preload="metadata" 
+        className="hidden"
+        playsInline
+        webkit-playsinline="true"
+      />
       <div className="bg-white rounded-xl p-4 shadow-sm">
         <div className="flex items-center space-x-4">
           {/* Play/Pause */}

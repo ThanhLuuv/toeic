@@ -1,5 +1,5 @@
 import React from 'react';
-import { Level, levelData } from '../../data/levelData';
+import { levelData } from '../../data/levelData';
 
 interface LevelSelectionProps {
   currentLevel: number;
@@ -9,18 +9,17 @@ interface LevelSelectionProps {
 }
 
 const LevelSelection: React.FC<LevelSelectionProps> = ({ currentLevel, setCurrentLevel, totalTests, completedTests }) => {
-  const levels = [
-    { level: 1, name: 'Beginner', description: 'Mới học - Hình ảnh đơn giản', badgeColor: 'bg-green-100 text-green-800' },
-    { level: 2, name: 'Elementary', description: 'Sơ cấp - Hoạt động đa dạng', badgeColor: 'bg-blue-100 text-blue-800' },
-    { level: 3, name: 'Pre-Inter', description: 'Trung cấp thấp - Nhiều đối tượng', badgeColor: 'bg-yellow-100 text-yellow-800' },
-    { level: 4, name: 'Intermediate', description: 'Trung cấp - Tình huống phức tạp', badgeColor: 'bg-orange-100 text-orange-800' },
-    { level: 5, name: 'Advanced', description: 'Khó - Ngữ cảnh phức tạp', badgeColor: 'bg-red-100 text-red-800' },
-  ];
+  // Lấy levels động từ levelData.ts
+  const levels = Object.entries(levelData).map(([key, level]) => ({
+    level: Number(key),
+    name: level.name,
+    tests: level.tests,
+  }));
 
   const accuracy = completedTests > 0
     ? Math.round(
         Object.values(levelData).reduce((acc, level) =>
-          acc + level.tests.reduce((sum, test) => (test.completed ? sum + test.score : sum), 0), 0) / completedTests
+          acc + level.tests.reduce((sum: number, test: any) => (test.completed ? sum + test.score : sum), 0), 0) / completedTests
       )
     : 0;
 
@@ -30,8 +29,8 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({ currentLevel, setCurren
         <h3 className="text-xl font-bold text-gray-800 mb-6">Chọn cấp độ</h3>
         <div className="space-y-3">
           {levels.map((lvl) => {
-            const completedInLevel = levelData[lvl.level].tests.filter((test) => test.completed).length;
-            const totalInLevel = levelData[lvl.level].tests.length;
+            const completedInLevel = lvl.tests.filter((test: any) => test.completed).length;
+            const totalInLevel = lvl.tests.length;
             return (
               <div
                 key={lvl.level}
@@ -39,10 +38,9 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({ currentLevel, setCurren
                 onClick={() => setCurrentLevel(lvl.level)}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-semibold text-gray-800">Level {lvl.level}</h4>
-                  <span className={`text-xs ${lvl.badgeColor} px-2 py-1 rounded-full`}>{lvl.name}</span>
+                  <h4 className="font-semibold text-gray-800">{lvl.name}</h4>
+                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Level {lvl.level}</span>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">{lvl.description}</p>
                 <div className="flex items-center text-xs text-gray-500">
                   <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>

@@ -9,22 +9,25 @@ interface TestListProps {
 }
 
 const TestList: React.FC<TestListProps> = ({ tests, currentTab, setCurrentTab, startTest }) => {
-  const filteredTests = currentTab === 'mixed' ? tests : tests.filter((test) => test.category === currentTab);
+  const filteredTests = currentTab === 'all' ? tests : tests.filter((test) => test.category === currentTab);
 
   return (
     <div className="bg-white rounded-2xl p-8 shadow-lg slide-in">
       <div className="flex mb-6 border-b text-sm">
-        {['mixed', 'people', 'environment', 'object'].map((tab) => (
+        {[
+          { key: 'all', label: 'Tất cả' },
+          { key: 'people', label: 'Con người' },
+          { key: 'object', label: 'Vật thể' },
+          { key: 'environment', label: 'Môi trường' },
+          { key: 'mixed', label: 'Hỗn hợp' }
+        ].map((tab) => (
           <button
-            key={tab}
-            className={`tab-btn px-4 py-2 ${currentTab === tab ? 'active' : ''}`}
-            data-tab={tab}
-            onClick={() => setCurrentTab(tab)}
+            key={tab.key}
+            className={`tab-btn px-4 py-2 ${currentTab === tab.key ? 'active' : ''}`}
+            data-tab={tab.key}
+            onClick={() => setCurrentTab(tab.key)}
           >
-            {tab === 'mixed' ? 'Tất cả' : 
-             tab === 'people' ? 'Người và hành động' : 
-             tab === 'environment' ? 'Cảnh quan và môi trường' : 
-             'Vật thể và vị trí'}
+            {tab.label}
           </button>
         ))}
       </div>

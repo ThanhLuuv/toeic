@@ -14,18 +14,27 @@ const Part1: React.FC = () => {
   const [currentLevel, setCurrentLevel] = useState<number>(1);
   const [totalTests, setTotalTests] = useState<number>(0);
   const [completedTests, setCompletedTests] = useState<number>(0);
-  const [currentTab, setCurrentTab] = useState<string>('mixed');
+  const [currentTab, setCurrentTab] = useState<string>('all');
 
   // Hàm lấy danh sách bài test theo tab và level
   const getTestsByTabAndLevel = (tab: string, level: number) => {
-    const categories = tab === 'mixed' ? Object.keys(levelData) : [tab];
+    let categories: string[] = [];
+    
+    if (tab === 'all') {
+      // Tab "Tất cả" - hiển thị tất cả categories
+      categories = Object.keys(levelData);
+    } else {
+      // Các tab khác - hiển thị category tương ứng
+      categories = [tab];
+    }
+    
     let allTests: any[] = [];
     categories.forEach((cat) => {
       // Dữ liệu có thể có key thừa dấu cách, nên thử cả hai
       const questions = (levelData as any)[cat]?.[`level${level}`] || (levelData as any)[cat]?.[`level${level} `] || [];
       const tests = Array.from({ length: Math.ceil(questions.length / QUESTIONS_PER_TEST) }, (_, i) => ({
         id: `${cat}-level${level}-test${i + 1}`,
-        title: `Bài số ${i + 1} (${cat === 'people' ? 'Người' : cat === 'object' ? 'Vật thể' : 'Khác'})`,
+        title: `Bài số ${i + 1} (${cat === 'people' ? 'Con người' : cat === 'object' ? 'Vật thể' : cat === 'environment' ? 'Môi trường' : cat === 'mixed' ? 'Hỗn hợp' : 'Khác'})`,
         category: cat,
         level: level,
         questions: questions.slice(i * QUESTIONS_PER_TEST, (i + 1) * QUESTIONS_PER_TEST).length,

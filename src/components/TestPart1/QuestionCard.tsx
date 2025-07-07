@@ -15,6 +15,8 @@ interface QuestionCardProps {
   setPlayCount: (count: number) => void;
   showTranscript: boolean;
   setShowTranscript: React.Dispatch<React.SetStateAction<boolean>>;
+  hideImage?: boolean;
+  onShowVocabularyPanel?: () => void;
 }
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
@@ -26,6 +28,8 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   currentQuestionIndex,
   showTranscript,
   setShowTranscript,
+  hideImage = false,
+  onShowVocabularyPanel
 }) => {
   const handleOptionClick = (option: string) => {
     if (!isAnswered) {
@@ -97,12 +101,33 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     <div className="bg-white rounded-xl p-6 shadow">
       <h2 className="text-lg font-semibold mb-4">Câu hỏi {currentQuestionIndex + 1}.</h2>
       <div className="flex justify-center mb-6">
-        <div className="image-container">
+        {/* Nút bám dính cạnh phải ngoài ảnh (desktop only, floating) */}
+        {onShowVocabularyPanel && (
+            <div className="hidden lg:flex items-center absolute z-20" style={{ right: '-30px', top: '380px', transform: 'translateY(-50%)' }}>
+              <button
+                onClick={onShowVocabularyPanel}
+                className="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 shadow rounded-full hover:bg-blue-100 transition-colors"
+                title="Mở khái quát từ vựng"
+              >
+                <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M7 5l5 5-5 5" />
+                </svg>
+              </button>
+              <span
+                onClick={onShowVocabularyPanel}
+                className="ml-2 pr-2 font-medium cursor-pointer select-none animate-wiggle rounded-r-full text-gray-800"
+                style={{paddingTop: '6px', paddingBottom: '6px'}}>
+                Khái quát từ vựng
+              </span>
+            </div>
+          )}
+        <div className="image-container relative">
           <img
             src={question.image}
             alt="TOEIC Part 1 Image"
             className="w-full max-w-md rounded-md object-cover"
           />
+          
         </div>
       </div>
       <div className="space-y-4" id="optionsContainer">

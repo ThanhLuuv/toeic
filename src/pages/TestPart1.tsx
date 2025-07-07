@@ -7,12 +7,28 @@ import QuestionCard from '../components/TestPart1/QuestionCard';
 import FloatingTimer from '../components/TestPart1/FloatingTimer'; 
 import StatsBar from '../components/TestPart1/StatsBar';
 import NotesPanel from '../components/TestPart1/NotesPanel';
+import VocabularyPanel from '../components/TestPart1/VocabularyPanel';
 
 interface Answer {
   selected: string;
   correct: string;
   isCorrect: boolean;
   skipped: boolean;
+}
+
+interface VocabularyWord {
+  word: string;
+  meaning: string;
+  isCorrect: boolean;
+}
+
+interface VocabularyResult {
+  subjectSelected: string[];
+  descriptiveSelected: string[];
+  subjectCorrect: number;
+  descriptiveCorrect: number;
+  totalSubject: number;
+  totalDescriptive: number;
 }
 
 const QUESTIONS_PER_TEST = 6;
@@ -50,20 +66,32 @@ const TestPart1: React.FC = () => {
   const [shouldAutoPlay, setShouldAutoPlay] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [showTranscript, setShowTranscript] = useState(false);
+  const [vocabularyCompleted, setVocabularyCompleted] = useState(false);
+  const [vocabularyResults, setVocabularyResults] = useState<VocabularyResult[]>([]);
+  const [showVocabularyPanel, setShowVocabularyPanel] = useState(false);
+  const [forceStopAudio, setForceStopAudio] = useState(false);
+  const [vocabularyResetKey, setVocabularyResetKey] = useState(0);
 
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setTimeRemaining((prev) => {
+  //       if (prev <= 0) {
+  //         clearInterval(timer);
+  //         finishTest();
+  //         return 0;
+  //       }
+  //       return prev - 1;
+  //     });
+  //   }, 1000);
+
+  //   return () => clearInterval(timer);
+  // }, []);
+
+  // Tắt audio khi component unmount
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 0) {
-          clearInterval(timer);
-          finishTest();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
+    return () => {
+      setForceStopAudio(true);
+    };
   }, []);
 
   useEffect(() => {
@@ -76,9 +104,64 @@ const TestPart1: React.FC = () => {
     setShouldAutoPlay(true);
     setPlayCount(1);
     setShowTranscript(false);
+    setVocabularyCompleted(false);
+    setForceStopAudio(false); // Reset force stop when question changes
   }, [currentQuestionIndex]);
 
+  // Thêm useEffect để xử lý auto-play audio khi chuyển câu hỏi
+  useEffect(() => {
+    if (shouldAutoPlay && hasInteracted && vocabularyCompleted && audioRef.current && testQuestions[currentQuestionIndex]?.audio) {
+      const audio = audioRef.current;
+      
+      // Đảm bảo audio đã được load
+      if (audio.readyState >= 2) { // HAVE_CURRENT_DATA
+        audio.currentTime = 0;
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setShouldAutoPlay(false);
+            })
+            .catch((error) => {
+              console.log('Auto-play failed:', error);
+              // Trên Safari, có thể cần user interaction
+              setShouldAutoPlay(false);
+            });
+        }
+      } else {
+        // Nếu audio chưa load xong, đợi đến khi load xong
+        const handleCanPlay = () => {
+          audio.currentTime = 0;
+          const playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                setShouldAutoPlay(false);
+              })
+              .catch((error) => {
+                console.log('Auto-play failed:', error);
+                setShouldAutoPlay(false);
+              });
+          }
+          audio.removeEventListener('canplay', handleCanPlay);
+        };
+        
+        audio.addEventListener('canplay', handleCanPlay);
+        
+        return () => {
+          audio.removeEventListener('canplay', handleCanPlay);
+        };
+      }
+    }
+  }, [currentQuestionIndex, shouldAutoPlay, hasInteracted, vocabularyCompleted, testQuestions]);
+
   const checkAnswer = () => {
+    // Force stop audio when user answers
+    setForceStopAudio(true);
+    setTimeout(() => setForceStopAudio(false), 100);
+    
     const question = testQuestions[currentQuestionIndex];
     const isCorrect = selectedAnswer === question.correctAnswer;
     const newAnswers = [...answers];
@@ -95,11 +178,47 @@ const TestPart1: React.FC = () => {
     }
   };
 
+  const handleVocabularyComplete = (subjectSelected: string[], descriptiveSelected: string[]) => {
+    const currentQuestion = testQuestions[currentQuestionIndex];
+    const subjectVocabulary = currentQuestion.subjectVocabulary || [];
+    const descriptiveVocabulary = currentQuestion.descriptiveVocabulary || [];
+    
+    const subjectCorrect = subjectVocabulary.filter((_: VocabularyWord, index: number) => 
+      subjectSelected.includes(subjectVocabulary[index].word) === subjectVocabulary[index].isCorrect
+    ).length;
+    
+    const descriptiveCorrect = descriptiveVocabulary.filter((_: VocabularyWord, index: number) => 
+      descriptiveSelected.includes(descriptiveVocabulary[index].word) === descriptiveVocabulary[index].isCorrect
+    ).length;
+    
+    const newVocabularyResult: VocabularyResult = {
+      subjectSelected,
+      descriptiveSelected,
+      subjectCorrect,
+      descriptiveCorrect,
+      totalSubject: subjectVocabulary.length,
+      totalDescriptive: descriptiveVocabulary.length
+    };
+    
+    const newVocabularyResults = [...vocabularyResults];
+    newVocabularyResults[currentQuestionIndex] = newVocabularyResult;
+    setVocabularyResults(newVocabularyResults);
+    setVocabularyCompleted(true);
+  };
+
   const nextQuestion = () => {
+    // Force stop audio
+    setForceStopAudio(true);
+    setTimeout(() => setForceStopAudio(false), 100);
+    
+    // Reset vocabulary panel
+    setVocabularyResetKey(prev => prev + 1);
+    
     setCurrentQuestionIndex((prev) => prev + 1);
     setSelectedAnswer(null);
     setIsAnswered(false);
     setPlayCount(0);
+    setVocabularyCompleted(false);
     if (currentQuestionIndex + 1 >= testQuestions.length) {
       finishTest();
     }
@@ -109,7 +228,18 @@ const TestPart1: React.FC = () => {
     const correct = answers.filter((a) => a && a.isCorrect).length;
     const total = testQuestions.length;
     const score = Math.round((correct / total) * 100);
-    alert(`Test completed!\nScore: ${score}%\nCorrect: ${correct}/${total}`);
+    
+    // Calculate vocabulary score (bỏ qua phần tử undefined)
+    const validResults = vocabularyResults.filter(Boolean);
+    const totalVocabCorrect = validResults.reduce((sum, result) => 
+      sum + result.subjectCorrect + result.descriptiveCorrect, 0
+    );
+    const totalVocabQuestions = validResults.reduce((sum, result) => 
+      sum + result.totalSubject + result.totalDescriptive, 0
+    );
+    const vocabScore = totalVocabQuestions > 0 ? Math.round((totalVocabCorrect / totalVocabQuestions) * 100) : 0;
+    
+    alert(`Test completed!\nScore: ${score}%\nCorrect: ${correct}/${total}\nVocabulary Score: ${vocabScore}%\nVocabulary Correct: ${totalVocabCorrect}/${totalVocabQuestions}`);
     navigate('/');
   };
 
@@ -151,45 +281,114 @@ const TestPart1: React.FC = () => {
           </div>
         </div>
       </header>
-      <FloatingTimer timeRemaining={timeRemaining} />
+      {/* <FloatingTimer timeRemaining={timeRemaining} /> */}
       <main className="max-w-3xl mx-auto mb-6 px-4 py-6">
         {currentQuestionIndex < testQuestions.length && (
-          <>
-            {testQuestions[currentQuestionIndex]?.audio && (
-              <>
-                <audio
-                  ref={audioRef}
-                  src={testQuestions[currentQuestionIndex].audio}
-                  style={{ display: 'none' }}
-                  onLoadedData={() => {
-                    if (shouldAutoPlay && hasInteracted && audioRef.current) {
-                      audioRef.current.currentTime = 0;
-                      audioRef.current.play();
-                      setShouldAutoPlay(false);
-                    }
-                  }}
-                  onEnded={() => setPlayCount((c) => c + 1)}
+          <>            
+            {/* Question Card with sticky Vocabulary Toggle Button */}
+            <div className="relative">
+              {/* Mobile: Nút lớn trên đầu */}
+              {testQuestions[currentQuestionIndex]?.subjectVocabulary && !showVocabularyPanel && (
+                <button
+                  onClick={() => setShowVocabularyPanel(true)}
+                  className="block lg:hidden w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg mb-4 shadow"
+                  style={{letterSpacing: '0.5px'}}
+                >
+                  Khái quát từ vựng
+                </button>
+              )}
+
+              {/* Main content - Question Card (original size) */}
+              <div className="max-w-3xl mx-auto relative">
+                {testQuestions[currentQuestionIndex]?.audio && (
+                  <>
+                    <audio
+                      ref={audioRef}
+                      src={testQuestions[currentQuestionIndex].audio}
+                      style={{ display: 'none' }}
+                      onEnded={() => setPlayCount((c) => c + 1)}
+                    />
+                    <AudioPlayer
+                      audioSrc={testQuestions[currentQuestionIndex].audio}
+                      audioRef={audioRef as React.RefObject<HTMLAudioElement>}
+                      forceStop={forceStopAudio}
+                    />
+                  </>
+                )}
+                <QuestionCard
+                  question={testQuestions[currentQuestionIndex]}
+                  currentQuestionIndex={currentQuestionIndex}
+                  totalQuestions={testQuestions.length}
+                  selectedAnswer={selectedAnswer}
+                  isAnswered={isAnswered}
+                  setSelectedAnswer={setSelectedAnswer}
+                  nextQuestion={nextQuestion}
+                  playCount={playCount}
+                  maxPlays={maxPlays}
+                  setPlayCount={setPlayCount}
+                  showTranscript={showTranscript}
+                  setShowTranscript={setShowTranscript}
+                  hideImage={false}
+                  onShowVocabularyPanel={typeof window !== 'undefined' && window.innerWidth >= 1024 && !showVocabularyPanel ? () => setShowVocabularyPanel(true) : undefined}
                 />
-                <AudioPlayer
-                  audioSrc={testQuestions[currentQuestionIndex].audio}
-                  audioRef={audioRef as React.RefObject<HTMLAudioElement>}
-                />
-              </>
-            )}
-            <QuestionCard
-              question={testQuestions[currentQuestionIndex]}
-              currentQuestionIndex={currentQuestionIndex}
-              totalQuestions={testQuestions.length}
-              selectedAnswer={selectedAnswer}
-              isAnswered={isAnswered}
-              setSelectedAnswer={setSelectedAnswer}
-              nextQuestion={nextQuestion}
-              playCount={playCount}
-              maxPlays={maxPlays}
-              setPlayCount={setPlayCount}
-              showTranscript={showTranscript}
-              setShowTranscript={setShowTranscript}
-            />
+                {/* Sticky Vocabulary Toggle Button - bám cạnh phải của card (desktop only)
+                {testQuestions[currentQuestionIndex]?.subjectVocabulary && !showVocabularyPanel && (
+                  <div className="hidden lg:flex items-center absolute" style={{ right: '-10%', top: '50%', transform: 'translateY(-50%)' }}>
+                    <button
+                      onClick={() => setShowVocabularyPanel(true)}
+                      className="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 shadow rounded-full hover:bg-blue-100 transition-colors"
+                      title="Mở khái quát từ vựng"
+                    >
+                      <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M7 5l5 5-5 5" />
+                      </svg>
+                    </button>
+                    <span
+                      onClick={() => setShowVocabularyPanel(true)}
+                      className="ml-2 pr-2 font-medium cursor-pointer select-none animate-wiggle rounded-r-full text-gray-800"
+                      style={{paddingTop: '6px', paddingBottom: '6px'}}>
+                      Khái quát từ vựng
+                    </span>
+                  </div>
+                )} */}
+              </div>
+
+              {/* Vocabulary Panel - Responsive */}
+              {testQuestions[currentQuestionIndex]?.subjectVocabulary && showVocabularyPanel && (
+                <>
+                  {/* Desktop: panel bám dính cạnh phải màn hình */}
+                  <div className="hidden lg:block fixed right-10 top-2 h-screen w-60 z-40">
+                    <VocabularyPanel
+                      subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
+                      descriptiveVocabulary={testQuestions[currentQuestionIndex].descriptiveVocabulary || []}
+                      onVocabularyComplete={handleVocabularyComplete}
+                      isCompleted={vocabularyCompleted}
+                      isAnswered={isAnswered}
+                      imageUrl={testQuestions[currentQuestionIndex].image}
+                      imageDescription={testQuestions[currentQuestionIndex].imageDescription}
+                      onClose={() => setShowVocabularyPanel(false)}
+                      resetKey={vocabularyResetKey}
+                    />
+                  </div>
+                  {/* Mobile: bottom sheet */}
+                  <div className="block lg:hidden fixed bottom-0 left-0 right-0 w-full z-40">
+                    <div className="bg-white rounded-t-2xl shadow-2xl border-t border-gray-200 max-h-[80vh] overflow-y-auto p-2">
+                      <VocabularyPanel
+                        subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
+                        descriptiveVocabulary={testQuestions[currentQuestionIndex].descriptiveVocabulary || []}
+                        onVocabularyComplete={handleVocabularyComplete}
+                        isCompleted={vocabularyCompleted}
+                        isAnswered={isAnswered}
+                        imageUrl={testQuestions[currentQuestionIndex].image}
+                        imageDescription={testQuestions[currentQuestionIndex].imageDescription}
+                        onClose={() => setShowVocabularyPanel(false)}
+                        resetKey={vocabularyResetKey}
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </>
         )}
       </main>
@@ -215,6 +414,8 @@ const TestPart1: React.FC = () => {
               <button
                 className="px-4 py-2 rounded bg-red-500 hover:bg-red-600 text-white"
                 onClick={() => {
+                  // Force stop audio when exiting
+                  setForceStopAudio(true);
                   setShowExitModal(false);
                   navigate('/');
                 }}
@@ -232,6 +433,12 @@ const TestPart1: React.FC = () => {
             onClick={() => {
               setHasInteracted(true);
               setShouldAutoPlay(true);
+              // Reset vocabulary panel khi bắt đầu
+              setVocabularyResetKey(prev => prev + 1);
+              // Đảm bảo audio được load và sẵn sàng phát
+              if (audioRef.current && testQuestions[currentQuestionIndex]?.audio) {
+                audioRef.current.load();
+              }
             }}
           >
             Bắt đầu làm bài
