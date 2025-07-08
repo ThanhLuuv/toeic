@@ -71,6 +71,15 @@ const TestPart1: React.FC = () => {
   const [showVocabularyPanel, setShowVocabularyPanel] = useState(false);
   const [forceStopAudio, setForceStopAudio] = useState(false);
   const [vocabularyResetKey, setVocabularyResetKey] = useState(0);
+  const [showScoreModal, setShowScoreModal] = useState(false);
+  const [testResults, setTestResults] = useState<{
+    score: number;
+    correct: number;
+    total: number;
+    vocabScore: number;
+    vocabCorrect: number;
+    vocabTotal: number;
+  } | null>(null);
 
   // useEffect(() => {
   //   const timer = setInterval(() => {
@@ -239,8 +248,15 @@ const TestPart1: React.FC = () => {
     );
     const vocabScore = totalVocabQuestions > 0 ? Math.round((totalVocabCorrect / totalVocabQuestions) * 100) : 0;
     
-    alert(`Test completed!\nScore: ${score}%\nCorrect: ${correct}/${total}\nVocabulary Score: ${vocabScore}%\nVocabulary Correct: ${totalVocabCorrect}/${totalVocabQuestions}`);
-    navigate('/');
+    setTestResults({
+      score,
+      correct,
+      total,
+      vocabScore,
+      vocabCorrect: totalVocabCorrect,
+      vocabTotal: totalVocabQuestions
+    });
+    setShowScoreModal(true);
   };
 
   const showConfetti = () => {
@@ -443,6 +459,84 @@ const TestPart1: React.FC = () => {
           >
             Bắt đầu làm bài
           </button>
+        </div>
+      )}
+      {showScoreModal && testResults && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+            {/* Header with gradient */}
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 text-center">
+              <div className="text-4xl mb-2">🎉</div>
+              <h2 className="text-2xl font-bold mb-1">Hoàn thành!</h2>
+              <p className="text-blue-100">Bạn đã hoàn thành bài kiểm tra</p>
+            </div>
+            
+            {/* Score content */}
+            <div className="p-6">
+              {/* Main score */}
+              <div className="text-center mb-6">
+                <div className="text-5xl font-bold text-gray-800 mb-2">{testResults.score}%</div>
+                <div className="text-lg text-gray-600">Điểm số chính</div>
+                <div className="text-sm text-gray-500 mt-1">
+                  {testResults.correct}/{testResults.total} câu đúng
+                </div>
+              </div>
+              
+              {/* Vocabulary score */}
+              {testResults.vocabTotal > 0 && (
+                <div className="bg-gray-50 rounded-xl p-4 mb-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-blue-600 mb-1">{testResults.vocabScore}%</div>
+                    <div className="text-sm text-gray-600">Điểm từ vựng</div>
+                    <div className="text-xs text-gray-500 mt-1">
+                      {testResults.vocabCorrect}/{testResults.vocabTotal} từ đúng
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              {/* Performance indicator */}
+              <div className="mb-6">
+                <div className="flex items-center justify-between text-sm mb-2">
+                  <span className="text-gray-600">Hiệu suất</span>
+                  <span className="font-medium">
+                    {testResults.score >= 80 ? 'Xuất sắc' : 
+                     testResults.score >= 60 ? 'Tốt' : 
+                     testResults.score >= 40 ? 'Trung bình' : 'Cần cải thiện'}
+                  </span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div 
+                    className={`h-2 rounded-full transition-all duration-500 ${
+                      testResults.score >= 80 ? 'bg-green-500' : 
+                      testResults.score >= 60 ? 'bg-blue-500' : 
+                      testResults.score >= 40 ? 'bg-yellow-500' : 'bg-red-500'
+                    }`}
+                    style={{ width: `${testResults.score}%` }}
+                  ></div>
+                </div>
+              </div>
+              
+              {/* Action buttons */}
+              <div className="flex flex-col space-y-3">
+                <button
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors duration-200"
+                  onClick={() => {
+                    setShowScoreModal(false);
+                    navigate('/part1');
+                  }}
+                >
+                  Quay lại trang Part 1
+                </button>
+                <button
+                  className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-xl transition-colors duration-200"
+                  onClick={() => setShowScoreModal(false)}
+                >
+                  Xem lại bài làm
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

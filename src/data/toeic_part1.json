@@ -4,11 +4,81 @@
     "level1 ":[
       {
         "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows a woman sitting alone on a bench in a park, holding a cup of coffee.",
+        "level": "Basic",
+        "imageDescription": "A woman is typing on a laptop at a desk in a small office.",
         "subjectVocabulary": [
           {
             "word": "woman",
             "meaning": "người phụ nữ",
+            "isCorrect": true
+          },
+          {
+            "word": "laptop",
+            "meaning": "máy tính xách tay",
+            "isCorrect": true
+          },
+          {
+            "word": "desk",
+            "meaning": "bàn làm việc",
+            "isCorrect": true
+          },
+          {
+            "word": "bag",
+            "meaning": "cái túi",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "typing",
+            "meaning": "đang gõ",
+            "isCorrect": true
+          },
+          {
+            "word": "at",
+            "meaning": "tại",
+            "isCorrect": true
+          },
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "isCorrect": false
+          },
+          {
+            "word": "office",
+            "meaning": "văn phòng",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "A woman is standing next to a desk.",
+          "B": "A woman is typing on a laptop at a desk.",
+          "C": "A bag is placed on a chair."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang đứng cạnh bàn làm việc.",
+          "B": "Một người phụ nữ đang gõ trên máy tính xách tay tại bàn.",
+          "C": "Một cái túi được đặt trên ghế."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng chủ thể và hành động.",
+        "traps": "A: Sai hành động (đứng thay vì gõ máy). C: Sai chủ thể và vật thể (nói về túi, không có trong ảnh).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966316/clwcxgttipng7iyioqgs.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966401/sxi6rjpo37v8bchcxgt5.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "level": "Basic",
+        "imageDescription": "A man is reading a book while sitting alone on a park bench.",
+        "subjectVocabulary": [
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "isCorrect": true
+          },
+          {
+            "word": "book",
+            "meaning": "quyển sách",
             "isCorrect": true
           },
           {
@@ -17,46 +87,21 @@
             "isCorrect": true
           },
           {
-            "word": "coffee",
-            "meaning": "cà phê",
-            "isCorrect": true
-          },
-          {
-            "word": "book",
-            "meaning": "sách",
-            "isCorrect": false
-          },
-          {
-            "word": "child",
-            "meaning": "đứa trẻ",
-            "isCorrect": false
-          },
-          {
-            "word": "man",
-            "meaning": "người đàn ông",
+            "word": "bottle",
+            "meaning": "chai",
             "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
           {
+            "word": "reading",
+            "meaning": "đang đọc",
+            "isCorrect": true
+          },
+          {
             "word": "sitting",
             "meaning": "đang ngồi",
             "isCorrect": true
-          },
-          {
-            "word": "holding",
-            "meaning": "đang cầm",
-            "isCorrect": true
-          },
-          {
-            "word": "reading",
-            "meaning": "đang đọc",
-            "isCorrect": false
-          },
-          {
-            "word": "running",
-            "meaning": "đang chạy",
-            "isCorrect": false
           },
           {
             "word": "alone",
@@ -64,98 +109,31 @@
             "isCorrect": true
           },
           {
-            "word": "beside",
-            "meaning": "bên cạnh",
-            "isCorrect": false
-          }
-        ],
-        "choices": {
-          "A": "A woman is reading a book on a bench.",
-          "B": "A woman is holding a cup of coffee.",
-          "C": "A child is sitting beside a woman."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang đọc sách trên ghế dài.",
-          "B": "Một người phụ nữ đang cầm ly cà phê.",
-          "C": "Một đứa trẻ đang ngồi bên cạnh một người phụ nữ."
-        },
-        "correctAnswer": "B",
-        "explanation": "Đáp án B đúng vì mô tả đúng hành động và chủ thể. A sai về hành động, C sai về chủ thể.",
-        "trapAnalysis": "Distractor 'reading' và 'child' gây nhiễu sai chủ thể và hành động.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751871651/cqkkgeqn6ngb42b8ldvs.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751871720/htr3xvyhoibhaefauvuv.mp3"
-      },
-      {
-        "questionNumber": 2,
-        "imageDescription": "A black-and-white photo shows a man wearing glasses smiling in front of a blank whiteboard.",
-        "subjectVocabulary": [
-          {
-            "word": "man",
-            "meaning": "người đàn ông",
-            "isCorrect": true
-          },
-          {
-            "word": "glasses",
-            "meaning": "kính đeo mắt",
-            "isCorrect": true
-          },
-          {
-            "word": "whiteboard",
-            "meaning": "bảng trắng",
-            "isCorrect": true
-          },
-          {
-            "word": "students",
-            "meaning": "học sinh",
-            "isCorrect": false
-          },
-          {
-            "word": "projector",
-            "meaning": "máy chiếu",
-            "isCorrect": false
-          }
-        ],
-        "descriptiveVocabulary": [
-          {
-            "word": "smiling",
-            "meaning": "đang mỉm cười",
-            "isCorrect": true
-          },
-          {
-            "word": "teaching",
-            "meaning": "đang dạy",
-            "isCorrect": false
-          },
-          {
             "word": "standing",
             "meaning": "đang đứng",
-            "isCorrect": true
-          },
-          {
-            "word": "writing",
-            "meaning": "đang viết",
             "isCorrect": false
           }
         ],
         "choices": {
-          "A": "A man is smiling in front of a whiteboard.",
-          "B": "A man is writing on the whiteboard.",
-          "C": "A student is standing next to a man."
+          "A": "A man is reading a book on a bench.",
+          "B": "A man is standing with a water bottle.",
+          "C": "A group of men are talking together."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang mỉm cười trước bảng trắng.",
-          "B": "Một người đàn ông đang viết trên bảng trắng.",
-          "C": "Một học sinh đang đứng cạnh một người đàn ông."
+          "A": "Một người đàn ông đang đọc sách trên ghế dài.",
+          "B": "Một người đàn ông đang đứng với chai nước.",
+          "C": "Một nhóm người đàn ông đang nói chuyện với nhau."
         },
         "correctAnswer": "A",
-        "explanation": "Đáp án A đúng vì mô tả đúng hành động và bối cảnh. B sai hành động, C sai chủ thể.",
-        "trapAnalysis": "Distractor dùng 'writing' và 'student' gây nhiễu sai hành động và sai người.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751871663/s0300b0kfndnfu1x4drv.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751871724/ndymke33emm4dwsbxsug.mp3"
+        "explanation": "A đúng chủ thể và hành động.",
+        "traps": "B: Sai hành động (đứng) và sai vật thể (chai không có trong ảnh). C: Sai số lượng (chỉ có 1 người, không phải nhóm).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966326/bb5eyl7lw4ntmxznag3k.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966404/hqsca3vlorvvqgcrudlq.mp3"
       },
       {
         "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows a woman wearing an apron slicing vegetables in a bright kitchen.",
+        "level": "Basic",
+        "imageDescription": "A woman is writing in a notebook at a clean table in a quiet room.",
         "subjectVocabulary": [
           {
             "word": "woman",
@@ -163,67 +141,63 @@
             "isCorrect": true
           },
           {
-            "word": "apron",
-            "meaning": "tạp dề",
+            "word": "notebook",
+            "meaning": "sổ tay",
             "isCorrect": true
           },
           {
-            "word": "vegetables",
-            "meaning": "rau củ",
+            "word": "table",
+            "meaning": "bàn",
             "isCorrect": true
           },
           {
-            "word": "fruits",
-            "meaning": "trái cây",
-            "isCorrect": false
-          },
-          {
-            "word": "man",
-            "meaning": "người đàn ông",
+            "word": "screen",
+            "meaning": "màn hình",
             "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
           {
-            "word": "slicing",
-            "meaning": "đang cắt lát",
+            "word": "writing",
+            "meaning": "đang viết",
             "isCorrect": true
           },
           {
-            "word": "washing",
-            "meaning": "đang rửa",
+            "word": "clean",
+            "meaning": "sạch sẽ",
+            "isCorrect": true
+          },
+          {
+            "word": "watching",
+            "meaning": "đang xem",
             "isCorrect": false
           },
           {
-            "word": "cooking",
-            "meaning": "đang nấu",
-            "isCorrect": false
-          },
-          {
-            "word": "wearing",
-            "meaning": "đang mặc",
+            "word": "quiet",
+            "meaning": "yên tĩnh",
             "isCorrect": true
           }
         ],
         "choices": {
-          "A": "A woman is slicing vegetables in a kitchen.",
-          "B": "A man is cooking fruits in the kitchen.",
-          "C": "A woman is washing dishes in a kitchen."
+          "A": "A woman is watching a screen at a table.",
+          "B": "A screen is placed on the desk.",
+          "C": "A woman is writing in a notebook at a table."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang cắt rau trong bếp.",
-          "B": "Một người đàn ông đang nấu trái cây trong bếp.",
-          "C": "Một người phụ nữ đang rửa chén trong bếp."
+          "A": "Một người phụ nữ đang xem màn hình tại bàn.",
+          "B": "Một màn hình được đặt trên bàn làm việc.",
+          "C": "Một người phụ nữ đang viết vào sổ tay tại bàn."
         },
-        "correctAnswer": "A",
-        "explanation": "A đúng vì mô tả đúng người và hành động. B sai cả người lẫn vật, C sai hành động.",
-        "trapAnalysis": "Distractor dùng 'man', 'washing', 'fruits' gây nhiễu sai người và hành động.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751871675/ruek5eq0e88qasqrghse.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751871728/wiipfpjiyttvpzdzthpn.mp3"
+        "correctAnswer": "C",
+        "explanation": "C đúng hành động và vật thể trong ảnh.",
+        "traps": "A: Sai hành động (xem thay vì viết). B: Sai chủ thể và vật thể (không có màn hình nào trong ảnh).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966337/pjaotmdsq2bu7ipbdhlv.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966407/hegvake7try8ynt5rivm.mp3"
       },
       {
         "questionNumber": 4,
-        "imageDescription": "A black-and-white photo shows a man jogging alone on an empty road surrounded by trees.",
+        "level": "Basic",
+        "imageDescription": "A man is pouring coffee into a cup in the kitchen.",
         "subjectVocabulary": [
           {
             "word": "man",
@@ -231,13 +205,141 @@
             "isCorrect": true
           },
           {
-            "word": "road",
-            "meaning": "con đường",
+            "word": "coffee",
+            "meaning": "cà phê",
             "isCorrect": true
           },
           {
-            "word": "trees",
-            "meaning": "cây cối",
+            "word": "cup",
+            "meaning": "cái cốc",
+            "isCorrect": true
+          },
+          {
+            "word": "bowl",
+            "meaning": "cái bát",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "pouring",
+            "meaning": "đang rót",
+            "isCorrect": true
+          },
+          {
+            "word": "kitchen",
+            "meaning": "nhà bếp",
+            "isCorrect": true
+          },
+          {
+            "word": "drinking",
+            "meaning": "đang uống",
+            "isCorrect": false
+          },
+          {
+            "word": "into",
+            "meaning": "vào",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "A bowl is filled with soup.",
+          "B": "A man is pouring coffee into a cup.",
+          "C": "A man is drinking coffee in the kitchen."
+        },
+        "choicesVi": {
+          "A": "Một cái bát được đổ đầy súp.",
+          "B": "Một người đàn ông đang rót cà phê vào cốc.",
+          "C": "Một người đàn ông đang uống cà phê trong bếp."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng hành động rót cà phê và đúng chủ thể.",
+        "traps": "A: Sai vật thể (bát súp không tồn tại trong ảnh). C: Sai hành động (uống thay vì rót).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966349/in7oa7mqd1ixdobrjwen.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966409/fngxj8wpzbnnnmdo9beo.mp3"
+      },
+      {
+        "questionNumber": 5,
+        "level": "Basic",
+        "imageDescription": "A woman is holding a baby near a window in a quiet room.",
+        "subjectVocabulary": [
+          {
+            "word": "woman",
+            "meaning": "người phụ nữ",
+            "isCorrect": true
+          },
+          {
+            "word": "baby",
+            "meaning": "em bé",
+            "isCorrect": true
+          },
+          {
+            "word": "window",
+            "meaning": "cửa sổ",
+            "isCorrect": true
+          },
+          {
+            "word": "mirror",
+            "meaning": "gương",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "holding",
+            "meaning": "đang bế",
+            "isCorrect": true
+          },
+          {
+            "word": "near",
+            "meaning": "gần",
+            "isCorrect": true
+          },
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "isCorrect": true
+          },
+          {
+            "word": "sleeping",
+            "meaning": "đang ngủ",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A child is sleeping near a window.",
+          "B": "A woman is holding a baby near a window.",
+          "C": "A woman is standing beside a mirror."
+        },
+        "choicesVi": {
+          "A": "Một đứa trẻ đang ngủ gần cửa sổ.",
+          "B": "Một người phụ nữ đang bế em bé gần cửa sổ.",
+          "C": "Một người phụ nữ đang đứng cạnh cái gương."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng chủ thể, hành động, vị trí.",
+        "traps": "A: Sai hành động và chủ thể (trẻ con ngủ – không có hành động này). C: Sai vật thể (gương không xuất hiện trong ảnh).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966359/cdj8k3dh4ntmfx2nv2tc.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966412/ngg4zcbwp1gn1kxjs9j4.mp3"
+      },
+      {
+        "questionNumber": 6,
+        "level": "Basic",
+        "imageDescription": "A man is using a smartphone while walking down the street.",
+        "subjectVocabulary": [
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "isCorrect": true
+          },
+          {
+            "word": "smartphone",
+            "meaning": "điện thoại thông minh",
+            "isCorrect": true
+          },
+          {
+            "word": "street",
+            "meaning": "đường phố",
             "isCorrect": true
           },
           {
@@ -248,108 +350,112 @@
         ],
         "descriptiveVocabulary": [
           {
-            "word": "jogging",
-            "meaning": "đang chạy bộ",
+            "word": "using",
+            "meaning": "đang sử dụng",
             "isCorrect": true
           },
           {
             "word": "walking",
             "meaning": "đang đi bộ",
+            "isCorrect": true
+          },
+          {
+            "word": "riding",
+            "meaning": "đang lái",
             "isCorrect": false
           },
           {
-            "word": "cycling",
-            "meaning": "đang đạp xe",
-            "isCorrect": false
-          },
-          {
-            "word": "alone",
-            "meaning": "một mình",
+            "word": "down",
+            "meaning": "xuống",
             "isCorrect": true
           }
         ],
         "choices": {
-          "A": "A man is jogging on a road.",
-          "B": "A man is riding a bicycle in the park.",
-          "C": "A man is walking with another person."
+          "A": "A man is using a smartphone while walking.",
+          "B": "A man is riding a bicycle down the road.",
+          "C": "A bicycle is leaning against a wall."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang chạy bộ trên đường.",
-          "B": "Một người đàn ông đang đạp xe trong công viên.",
-          "C": "Một người đàn ông đang đi bộ với một người khác."
+          "A": "Một người đàn ông đang sử dụng điện thoại khi đi bộ.",
+          "B": "Một người đàn ông đang đi xe đạp xuống đường.",
+          "C": "Một chiếc xe đạp đang tựa vào tường."
         },
         "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động và môi trường. B sai phương tiện, C sai về số người.",
-        "trapAnalysis": "Distractor dùng 'bicycle', 'another person', 'walking' gây nhiễu hành động và số người.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751871687/kvbvrn8cow8rqwfawdoc.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751871734/xas0cu8manghuamgq9mh.mp3"
-      },
+        "explanation": "A mô tả đúng người, hành động và vị trí.",
+        "traps": "B: Sai hành động và vật thể (đi bộ, không đi xe đạp). C: Sai hoàn toàn chủ thể (không có xe đạp trong ảnh).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966369/jmgilndbeha4ujkektlo.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966414/eaegmesx38kayr9ddjij.mp3"
+      }
+    ],
+    "level2 ": [
       {
-        "questionNumber": 5,
-        "imageDescription": "A black-and-white photo shows a young woman talking on the phone while standing next to a window.",
+        "questionNumber": 1,
+        "level": "Intermediate",
+        "imageDescription": "Two women are having a discussion while standing in front of a whiteboard.",
         "subjectVocabulary": [
           {
-            "word": "woman",
-            "meaning": "người phụ nữ",
+            "word": "women",
+            "meaning": "những người phụ nữ",
             "isCorrect": true
           },
           {
-            "word": "phone",
-            "meaning": "điện thoại",
+            "word": "discussion",
+            "meaning": "cuộc thảo luận",
             "isCorrect": true
           },
           {
-            "word": "window",
-            "meaning": "cửa sổ",
+            "word": "whiteboard",
+            "meaning": "bảng trắng",
             "isCorrect": true
           },
           {
-            "word": "desk",
-            "meaning": "bàn làm việc",
+            "word": "printer",
+            "meaning": "máy in",
             "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
-          {
-            "word": "talking",
-            "meaning": "đang nói chuyện",
-            "isCorrect": true
-          },
           {
             "word": "standing",
             "meaning": "đang đứng",
             "isCorrect": true
           },
           {
-            "word": "sitting",
-            "meaning": "đang ngồi",
+            "word": "talking",
+            "meaning": "đang nói chuyện",
+            "isCorrect": true
+          },
+          {
+            "word": "writing",
+            "meaning": "đang viết",
             "isCorrect": false
           },
           {
-            "word": "typing",
-            "meaning": "đang gõ phím",
-            "isCorrect": false
+            "word": "in front of",
+            "meaning": "trước",
+            "isCorrect": true
           }
         ],
         "choices": {
-          "A": "A woman is sitting at her desk.",
-          "B": "A woman is talking on the phone by the window.",
-          "C": "A man is typing beside a desk."
+          "A": "Two women are having a discussion in front of a whiteboard.",
+          "B": "A woman is writing on a whiteboard.",
+          "C": "Two women are using a printer in the corner."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang ngồi tại bàn làm việc.",
-          "B": "Một người phụ nữ đang nói chuyện điện thoại bên cửa sổ.",
-          "C": "Một người đàn ông đang gõ bàn phím cạnh bàn."
+          "A": "Hai người phụ nữ đang thảo luận trước bảng trắng.",
+          "B": "Một người phụ nữ đang viết lên bảng trắng.",
+          "C": "Hai người phụ nữ đang sử dụng máy in trong góc."
         },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng hành động và vị trí. A sai tư thế, C sai cả người lẫn hành động.",
-        "trapAnalysis": "Distractor dùng 'sitting', 'man', 'typing' gây sai người và hành động.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751871700/osws0dpqpwrnooldqd7d.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751871738/q96x3ifn6tk1skb6rimg.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng số lượng, hành động và vị trí của hai người phụ nữ.",
+        "traps": "B: Sai số lượng (1 người thay vì 2) – bẫy singularPlural. C: Sai vật thể chính (máy in không có) – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966522/sdkej4plkilhvus4enee.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966590/jlmz502hewxfpqzwbji1.mp3"
       },
       {
-        "questionNumber": 6,
-        "imageDescription": "A black-and-white photo shows a man sitting at a table, writing something on a notepad.",
+        "questionNumber": 2,
+        "level": "Intermediate",
+        "imageDescription": "A man and a woman are shaking hands in an office lobby.",
         "subjectVocabulary": [
           {
             "word": "man",
@@ -357,25 +463,30 @@
             "isCorrect": true
           },
           {
-            "word": "table",
-            "meaning": "cái bàn",
+            "word": "woman",
+            "meaning": "người phụ nữ",
             "isCorrect": true
           },
           {
-            "word": "notepad",
-            "meaning": "sổ ghi chú",
+            "word": "handshake",
+            "meaning": "bắt tay",
             "isCorrect": true
           },
           {
-            "word": "computer",
-            "meaning": "máy tính",
+            "word": "document",
+            "meaning": "tài liệu",
             "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
           {
-            "word": "writing",
-            "meaning": "đang viết",
+            "word": "shaking",
+            "meaning": "đang bắt",
+            "isCorrect": true
+          },
+          {
+            "word": "lobby",
+            "meaning": "sảnh",
             "isCorrect": true
           },
           {
@@ -384,719 +495,668 @@
             "isCorrect": false
           },
           {
+            "word": "office",
+            "meaning": "văn phòng",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "A woman is reading a document at a desk.",
+          "B": "A man and a woman are shaking hands in the office lobby.",
+          "C": "Two men are sitting and talking in the lobby."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang đọc tài liệu tại bàn.",
+          "B": "Một người đàn ông và một người phụ nữ đang bắt tay trong sảnh văn phòng.",
+          "C": "Hai người đàn ông đang ngồi và nói chuyện trong sảnh."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng về hành động, vị trí và số lượng.",
+        "traps": "A: Sai hành động và chủ thể – bẫy keywordMisuse. C: Sai giới tính (hai người đàn ông thay vì nam và nữ) – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966532/u8fh2ysc7v2fmjicco4n.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966593/sfc2pgc80ofmndw0a7lp.mp3"
+      },
+      {
+        "questionNumber": 3,
+        "level": "Intermediate",
+        "imageDescription": "Three people are looking at a tablet together at a conference table.",
+        "subjectVocabulary": [
+          {
+            "word": "people",
+            "meaning": "người",
+            "isCorrect": true
+          },
+          {
+            "word": "tablet",
+            "meaning": "máy tính bảng",
+            "isCorrect": true
+          },
+          {
+            "word": "conference table",
+            "meaning": "bàn họp",
+            "isCorrect": true
+          },
+          {
+            "word": "camera",
+            "meaning": "máy ảnh",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "looking",
+            "meaning": "đang nhìn",
+            "isCorrect": true
+          },
+          {
+            "word": "together",
+            "meaning": "cùng nhau",
+            "isCorrect": true
+          },
+          {
+            "word": "taking",
+            "meaning": "đang chụp",
+            "isCorrect": false
+          },
+          {
+            "word": "at",
+            "meaning": "vào",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "Three people are taking pictures with a camera.",
+          "B": "Three people are looking at a tablet together.",
+          "C": "Two people are writing on a whiteboard."
+        },
+        "choicesVi": {
+          "A": "Ba người đang chụp ảnh bằng máy ảnh.",
+          "B": "Ba người đang cùng nhau nhìn vào máy tính bảng.",
+          "C": "Hai người đang viết lên bảng trắng."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng số lượng, hành động và vật thể.",
+        "traps": "A: Sai hành động và vật thể (không có máy ảnh) – bẫy keywordMisuse. C: Sai số lượng – bẫy singularPlural.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966542/pc1wdrbwpqqxrx3rldd1.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966595/uslkylsdrn8wuaigt7hq.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "level": "Intermediate",
+        "imageDescription": "A group of people is sitting in a waiting area, looking at their phones.",
+        "subjectVocabulary": [
+          {
+            "word": "group",
+            "meaning": "nhóm",
+            "isCorrect": true
+          },
+          {
+            "word": "phones",
+            "meaning": "điện thoại",
+            "isCorrect": true
+          },
+          {
+            "word": "waiting area",
+            "meaning": "khu vực chờ",
+            "isCorrect": true
+          },
+          {
+            "word": "laptop",
+            "meaning": "máy tính xách tay",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
             "word": "sitting",
             "meaning": "đang ngồi",
             "isCorrect": true
           },
           {
+            "word": "looking",
+            "meaning": "đang nhìn",
+            "isCorrect": true
+          },
+          {
             "word": "typing",
-            "meaning": "đang gõ phím",
+            "meaning": "đang gõ",
             "isCorrect": false
+          },
+          {
+            "word": "area",
+            "meaning": "khu vực",
+            "isCorrect": true
           }
         ],
         "choices": {
-          "A": "A man is writing something on a notepad.",
-          "B": "A man is reading a book on a table.",
-          "C": "A woman is typing on a computer."
+          "A": "People are typing on laptops in the waiting area.",
+          "B": "A man is standing alone near the waiting room.",
+          "C": "A group of people is sitting and looking at their phones."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang viết gì đó trên sổ ghi chú.",
-          "B": "Một người đàn ông đang đọc sách trên bàn.",
-          "C": "Một người phụ nữ đang gõ phím trên máy tính."
+          "A": "Mọi người đang gõ trên máy tính xách tay trong khu vực chờ.",
+          "B": "Một người đàn ông đang đứng một mình gần phòng chờ.",
+          "C": "Một nhóm người đang ngồi và nhìn vào điện thoại của họ."
         },
-        "correctAnswer": "A",
-        "explanation": "A đúng vì hành động và vật thể khớp hoàn toàn. B sai hành động, C sai giới tính và vật.",
-        "trapAnalysis": "Distractor dùng 'reading', 'woman', 'computer' gây nhiễu chủ thể và hành động.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751871713/cj2tnau9yylwidgebeie.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751871744/jarzc5adrxvdx00zzroi.mp3"
-      }
-    ],
-    "level2 ": [
-      {
-        "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows a woman sitting at a desk with a closed laptop in front of her. Next to her, a man is standing and pointing at a document on the desk. Only these two people appear in the scene.",
-        "choices": {
-          "A": "A man is pointing at a document.",
-          "B": "A woman is opening a laptop.",
-          "C": "Two men are reading together."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang chỉ vào một tài liệu.",
-          "B": "Một người phụ nữ đang mở máy tính xách tay.",
-          "C": "Hai người đàn ông đang đọc cùng nhau."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động của nhân vật phụ (người đàn ông). B là bẫy sai hành động/vật thể, C là bẫy sai số lượng.",
-        "audioScript": "Look at the picture number 1. A. A man is pointing at a document. B. A woman is opening a laptop. C. Two men are reading together.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773530/rcqc16x0ifu4h2dhdyce.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773785/mcq0ox7fsbyhrh0zcjio.mp3"
-      },
-      {
-        "questionNumber": 2,
-        "imageDescription": "A grayscale image shows a woman talking on the phone near a window while a man sits quietly at a table, reading a magazine. The table has a single cup on it.",
-        "choices": {
-          "A": "A woman is talking on the phone.",
-          "B": "A man is drinking coffee.",
-          "C": "A woman is cleaning the table."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang nói chuyện điện thoại.",
-          "B": "Một người đàn ông đang uống cà phê.",
-          "C": "Một người phụ nữ đang lau bàn."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng chủ thể phụ (người phụ nữ). B là bẫy sai hành động, C là bẫy sai hành động/vật thể.",
-        "audioScript": "Look at the picture number 2. A. A woman is talking on the phone. B. A man is drinking coffee. C. A woman is cleaning the table.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773538/n5eo5k0jnmqycjospqco.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773789/sfklgtsr8wpd2fkca4y2.mp3"
-      },
-      {
-        "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows a man standing next to a whiteboard in a meeting room. A woman is sitting at the table and writing notes. The table is clear except for her notebook.",
-        "choices": {
-          "A": "A man is cleaning the board.",
-          "B": "A woman is writing notes at the table.",
-          "C": "A woman is speaking to the group."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang lau bảng.",
-          "B": "Một người phụ nữ đang ghi chú ở bàn.",
-          "C": "Một người phụ nữ đang nói với nhóm."
-        },
-        "correctAnswer": "B",
-        "explanation": "B mô tả hành động của chủ thể phụ (người phụ nữ), phù hợp ngữ cảnh. A là bẫy sai hành động, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 3. A. A man is cleaning the board. B. A woman is writing notes at the table. C. A woman is speaking to the group.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773547/enfmhnvqnbctjbbhvjrq.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773791/c6utdjxb12novoqy1qhy.mp3"
-      },
-      {
-        "questionNumber": 4,
-        "imageDescription": "A grayscale photo shows a woman standing in the kitchen pouring water into a glass. Her son is sitting at the table, looking at her. There are two glasses on the table.",
-        "choices": {
-          "A": "A woman is pouring water into a glass.",
-          "B": "A boy is drinking juice.",
-          "C": "A man is cooking lunch."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang rót nước vào cốc.",
-          "B": "Một cậu bé đang uống nước ép.",
-          "C": "Một người đàn ông đang nấu bữa trưa."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng chủ thể chính, hành động rõ ràng. B là bẫy nhầm hành động, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 4. A. A woman is pouring water into a glass. B. A boy is drinking juice. C. A man is cooking lunch.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773555/kjzqwuignkpwbh3c4lry.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773794/z7gb5aoy1mvmqzkocezk.mp3"
+        "correctAnswer": "C",
+        "explanation": "C đúng về số lượng, hành động và vị trí.",
+        "traps": "A: Sai hành động và vật thể – bẫy keywordMisuse. B: Sai số lượng và không đúng nội dung chính – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966554/w5vrmaxpq3cokiijumfw.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966599/gjb5jzud9hm1v0qtfzhd.mp3"
       },
       {
         "questionNumber": 5,
-        "imageDescription": "A black-and-white image shows a man sitting at a computer desk, looking at the monitor. A woman stands behind him, holding a folder and smiling. There are no other people in the room.",
+        "level": "Intermediate",
+        "imageDescription": "Two men are pointing at a computer screen in a modern office.",
+        "subjectVocabulary": [
+          {
+            "word": "men",
+            "meaning": "những người đàn ông",
+            "isCorrect": true
+          },
+          {
+            "word": "computer",
+            "meaning": "máy tính",
+            "isCorrect": true
+          },
+          {
+            "word": "screen",
+            "meaning": "màn hình",
+            "isCorrect": true
+          },
+          {
+            "word": "projector",
+            "meaning": "máy chiếu",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "pointing",
+            "meaning": "đang chỉ",
+            "isCorrect": true
+          },
+          {
+            "word": "modern",
+            "meaning": "hiện đại",
+            "isCorrect": true
+          },
+          {
+            "word": "projecting",
+            "meaning": "đang chiếu",
+            "isCorrect": false
+          },
+          {
+            "word": "office",
+            "meaning": "văn phòng",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A woman is holding a folder.",
-          "B": "A man is repairing the computer.",
-          "C": "Two women are working together."
+          "A": "Two men are projecting slides in a conference room.",
+          "B": "Two men are pointing at a computer screen.",
+          "C": "One man is working at a desk."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang cầm một tập tài liệu.",
-          "B": "Một người đàn ông đang sửa máy tính.",
-          "C": "Hai người phụ nữ đang làm việc cùng nhau."
+          "A": "Hai người đàn ông đang chiếu bản trình chiếu trong phòng họp.",
+          "B": "Hai người đàn ông đang chỉ vào màn hình máy tính.",
+          "C": "Một người đàn ông đang làm việc tại bàn."
         },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động của nhân vật phụ. B là bẫy sai hành động, C là bẫy sai số lượng.",
-        "audioScript": "Look at the picture number 5. A. A woman is holding a folder. B. A man is repairing the computer. C. Two women are working together.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773565/jpsuo9oblmu4vjheslb4.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773796/jjun0ccicdgonuhoexpg.mp3"
+        "correctAnswer": "B",
+        "explanation": "B đúng hành động, chủ thể và vị trí.",
+        "traps": "A: Sai hành động (chiếu vs chỉ) – bẫy keywordMisuse. C: Sai số lượng – bẫy singularPlural.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966565/ke6tmok7gtbhpvcycser.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966601/lzpelgplfqfcfklcmkhj.mp3"
       },
       {
         "questionNumber": 6,
-        "imageDescription": "A grayscale photo shows a young man reading a book at a table. A woman is sitting on a sofa in the background, looking at her phone.",
+        "level": "Intermediate",
+        "imageDescription": "Four people are standing in a circle, having a conversation outside a building.",
+        "subjectVocabulary": [
+          {
+            "word": "people",
+            "meaning": "người",
+            "isCorrect": true
+          },
+          {
+            "word": "conversation",
+            "meaning": "cuộc trò chuyện",
+            "isCorrect": true
+          },
+          {
+            "word": "building",
+            "meaning": "tòa nhà",
+            "isCorrect": true
+          },
+          {
+            "word": "elevator",
+            "meaning": "thang máy",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "isCorrect": true
+          },
+          {
+            "word": "talking",
+            "meaning": "đang nói chuyện",
+            "isCorrect": true
+          },
+          {
+            "word": "waiting",
+            "meaning": "đang chờ",
+            "isCorrect": false
+          },
+          {
+            "word": "outside",
+            "meaning": "bên ngoài",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A man is using a laptop.",
-          "B": "A woman is looking at her phone.",
-          "C": "A boy is writing a letter."
+          "A": "Several people are waiting for an elevator inside a building.",
+          "B": "Four people are talking outside a building.",
+          "C": "A group is sitting around a table inside."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang sử dụng máy tính xách tay.",
-          "B": "Một người phụ nữ đang nhìn vào điện thoại.",
-          "C": "Một cậu bé đang viết thư."
+          "A": "Một vài người đang chờ thang máy bên trong tòa nhà.",
+          "B": "Bốn người đang nói chuyện bên ngoài tòa nhà.",
+          "C": "Một nhóm người đang ngồi quanh bàn bên trong."
         },
         "correctAnswer": "B",
-        "explanation": "B mô tả đúng hành động của chủ thể phụ (người phụ nữ). A là bẫy sai vật thể, C là bẫy sai hành động và giới tính.",
-        "audioScript": "Look at the picture number 6. A. A man is using a laptop. B. A woman is looking at her phone. C. A boy is writing a letter.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773573/ojyctkcvvlb0hvjuwez3.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773799/ieserdolihvj6oydkpij.mp3"
-      },
-      {
-        "questionNumber": 7,
-        "imageDescription": "A black-and-white photo shows a woman talking to a man across a counter in a shop. The man is holding a credit card, and the woman is smiling.",
-        "choices": {
-          "A": "A man is holding a credit card.",
-          "B": "A woman is sitting on a chair.",
-          "C": "Two women are making a phone call."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang cầm thẻ tín dụng.",
-          "B": "Một người phụ nữ đang ngồi trên ghế.",
-          "C": "Hai người phụ nữ đang gọi điện thoại."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động phụ (người đàn ông). B là bẫy sai hành động, C là bẫy sai số lượng và hành động.",
-        "audioScript": "Look at the picture number 1. A. A man is holding a credit card. B. A woman is sitting on a chair. C. Two women are making a phone call.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773582/xo8wwvhft4z7n6pp0suz.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773801/gkcm45ijh4qr9yjd9oee.mp3"
-      },
-      {
-        "questionNumber": 8,
-        "imageDescription": "A grayscale photo shows a teacher standing at the front of a classroom. A student is raising his hand while others are looking down at their books.",
-        "choices": {
-          "A": "A student is raising his hand.",
-          "B": "A teacher is closing the window.",
-          "C": "A group of students is leaving the room."
-        },
-        "choicesVi": {
-          "A": "Một học sinh đang giơ tay.",
-          "B": "Một giáo viên đang đóng cửa sổ.",
-          "C": "Một nhóm học sinh đang rời phòng."
-        },
-        "correctAnswer": "A",
-        "explanation": "A tập trung vào hành động của chủ thể phụ (học sinh). B là bẫy sai hành động, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 2. A. A student is raising his hand. B. A teacher is closing the window. C. A group of students is leaving the room.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773592/u5b9dlgs5s6ggimsichd.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773803/e6ikmksmi66uysybivkk.mp3"
-      },
-      {
-        "questionNumber": 9,
-        "imageDescription": "A black-and-white image shows a man sitting at a park bench with a newspaper. A child is standing in front of him, holding an ice cream cone.",
-        "choices": {
-          "A": "A child is holding an ice cream cone.",
-          "B": "A woman is reading a book.",
-          "C": "A man is riding a bicycle."
-        },
-        "choicesVi": {
-          "A": "Một đứa trẻ đang cầm kem.",
-          "B": "Một người phụ nữ đang đọc sách.",
-          "C": "Một người đàn ông đang đi xe đạp."
-        },
-        "correctAnswer": "A",
-        "explanation": "A là hành động của chủ thể phụ (đứa trẻ). B là bẫy sai giới tính và hành động, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 3. A. A child is holding an ice cream cone. B. A woman is reading a book. C. A man is riding a bicycle.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773600/firqaoxoxftoeiry5jlt.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773805/elv92q7oumnixk9fqnbi.mp3"
-      },
-      {
-        "questionNumber": 10,
-        "imageDescription": "A grayscale photo shows a man standing next to a table with a laptop. A woman is handing him a document. No one else is in the room.",
-        "choices": {
-          "A": "A woman is handing a document to a man.",
-          "B": "A man is drinking coffee.",
-          "C": "Two women are working together."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang đưa tài liệu cho một người đàn ông.",
-          "B": "Một người đàn ông đang uống cà phê.",
-          "C": "Hai người phụ nữ đang làm việc cùng nhau."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động của chủ thể phụ (người phụ nữ). B là bẫy sai hành động, C là bẫy sai số lượng.",
-        "audioScript": "Look at the picture number 4. A. A woman is handing a document to a man. B. A man is drinking coffee. C. Two women are working together.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773608/bcson6j0llxdforjcp8n.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773809/mv3qzsh8g3xyigvboqpq.mp3"
-      },
-      {
-        "questionNumber": 11,
-        "imageDescription": "A black-and-white image shows a man reading a book on a sofa. His friend is standing nearby, looking out the window.",
-        "choices": {
-          "A": "A woman is drawing a picture.",
-          "B": "A man is looking out the window.",
-          "C": "Two men are having lunch."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang vẽ tranh.",
-          "B": "Một người đàn ông đang nhìn ra cửa sổ.",
-          "C": "Hai người đàn ông đang ăn trưa."
-        },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng hành động của nhân vật phụ. A là bẫy sai giới tính/hành động, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 5. A. A woman is drawing a picture. B. A man is looking out the window. C. Two men are having lunch.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773618/fgcb7cnsxodjv8esfekd.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773811/wbqujrmljvl5ce5k2ulk.mp3"
-      },
-      {
-        "questionNumber": 12,
-        "imageDescription": "A grayscale photo shows a woman working on a laptop at a desk. A man is standing at the window, pulling the curtains aside.",
-        "choices": {
-          "A": "A woman is working on a laptop.",
-          "B": "A man is pulling the curtains.",
-          "C": "A boy is watching TV."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang làm việc trên máy tính xách tay.",
-          "B": "Một người đàn ông đang kéo rèm cửa.",
-          "C": "Một cậu bé đang xem tivi."
-        },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng hành động của nhân vật phụ (người đàn ông). A là bẫy đúng nhưng không tập trung vào nhân vật phụ, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 6. A. A woman is working on a laptop. B. A man is pulling the curtains. C. A boy is watching TV.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773627/rlho869nonyin0ugezdv.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773813/gcb41bzrmpkne5qbkubj.mp3"
-      },
-      {
-        "questionNumber": 13,
-        "imageDescription": "A black-and-white photo shows a young woman sitting on the grass in a park. Behind her, an older man is walking a dog.",
-        "choices": {
-          "A": "A man is walking a dog.",
-          "B": "A woman is playing the guitar.",
-          "C": "Two men are playing soccer."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang dắt chó đi dạo.",
-          "B": "Một người phụ nữ đang chơi guitar.",
-          "C": "Hai người đàn ông đang chơi bóng đá."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng chủ thể phụ (người đàn ông phía sau). B là bẫy sai hành động, C là bẫy sai số lượng/hành động.",
-        "audioScript": "Look at the picture number 1. A. A man is walking a dog. B. A woman is playing the guitar. C. Two men are playing soccer.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773635/uvmyg9bfviwvhqsmvmuw.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773816/htuge7mihe6g3w0cidmo.mp3"
-      },
-      {
-        "questionNumber": 14,
-        "imageDescription": "A grayscale image shows a mother reading a book at a kitchen table. Her daughter is drawing with colored pencils beside her.",
-        "choices": {
-          "A": "A girl is drawing with colored pencils.",
-          "B": "A woman is cooking.",
-          "C": "A man is cleaning the table."
-        },
-        "choicesVi": {
-          "A": "Một cô bé đang vẽ bằng bút màu.",
-          "B": "Một người phụ nữ đang nấu ăn.",
-          "C": "Một người đàn ông đang lau bàn."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng chủ thể phụ (cô bé). B là bẫy sai hành động, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 2. A. A girl is drawing with colored pencils. B. A woman is cooking. C. A man is cleaning the table.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773644/tcpophp0uabwcrppaumr.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773818/tivisdyhe7xyqmz4bmny.mp3"
-      },
-      {
-        "questionNumber": 15,
-        "imageDescription": "A black-and-white photo shows a man talking to a cashier at a counter. A woman is standing behind him, holding a shopping basket.",
-        "choices": {
-          "A": "A man is paying at the counter.",
-          "B": "A woman is holding a shopping basket.",
-          "C": "A boy is cleaning the floor."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang thanh toán ở quầy.",
-          "B": "Một người phụ nữ đang cầm giỏ mua hàng.",
-          "C": "Một cậu bé đang lau sàn."
-        },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng hành động của chủ thể phụ (người phụ nữ phía sau). A là bẫy đúng logic nhưng không tập trung vào nhân vật phụ, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 3. A. A man is paying at the counter. B. A woman is holding a shopping basket. C. A boy is cleaning the floor.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773653/idenmt8mszrnzddhd40p.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773820/ztcvefr4s6leuyxcxflo.mp3"
-      },
-      {
-        "questionNumber": 16,
-        "imageDescription": "A grayscale photo shows a boy sitting on a bench, looking at a dog sitting next to him. An older woman is walking on the sidewalk in the background.",
-        "choices": {
-          "A": "A woman is walking on the sidewalk.",
-          "B": "A boy is reading a book.",
-          "C": "A man is riding a bike."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang đi bộ trên vỉa hè.",
-          "B": "Một cậu bé đang đọc sách.",
-          "C": "Một người đàn ông đang đi xe đạp."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng chủ thể phụ (người phụ nữ phía sau). B là bẫy sai hành động, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 4. A. A woman is walking on the sidewalk. B. A boy is reading a book. C. A man is riding a bike.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773661/au0elosp59yqf7knjgle.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773823/lbngxiljvs0qt7qxdese.mp3"
-      },
-      {
-        "questionNumber": 17,
-        "imageDescription": "A black-and-white image shows a woman standing at a bus stop. A man is sitting on the bench, tying his shoe.",
-        "choices": {
-          "A": "A man is tying his shoe.",
-          "B": "A woman is reading a newspaper.",
-          "C": "A girl is eating ice cream."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang buộc dây giày.",
-          "B": "Một người phụ nữ đang đọc báo.",
-          "C": "Một cô bé đang ăn kem."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động của nhân vật phụ. B là bẫy sai hành động, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 5. A. A man is tying his shoe. B. A woman is reading a newspaper. C. A girl is eating ice cream.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773669/py1qnmvxy5qr7glf0hl4.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773826/c9yo8j5sbgsg6ucbrlzl.mp3"
-      },
-      {
-        "questionNumber": 18,
-        "imageDescription": "A grayscale photo shows a man talking on his phone in a park. A woman is jogging on the path behind him.",
-        "choices": {
-          "A": "A man is talking on his phone.",
-          "B": "A woman is jogging.",
-          "C": "Two children are playing soccer."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang nói chuyện điện thoại.",
-          "B": "Một người phụ nữ đang chạy bộ.",
-          "C": "Hai đứa trẻ đang chơi bóng đá."
-        },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng chủ thể phụ (người phụ nữ chạy phía sau). A là bẫy chủ thể chính, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 6. A. A man is talking on his phone. B. A woman is jogging. C. Two children are playing soccer.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773678/emqb5lmmtasf2zkvwxaz.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751773829/iqvzrvllfoz6d53zx152.mp3"
+        "explanation": "B đúng chủ thể, hành động và vị trí mô tả.",
+        "traps": "A: Sai hành động và vị trí – bẫy keywordMisuse. C: Sai hành động và vị trí – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966578/ecxh03ecp8bnbpsrvu0v.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966604/wkuj6aehmek5znahfxt5.mp3"
       }
     ],
     "level3 ": [
       {
         "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows two men sitting at a desk with laptops open. One man is pointing at the screen while the other is taking notes. There are coffee cups on the desk.",
+        "level": "Advanced",
+        "imageDescription": "Several employees are collaborating in an open-plan office while one person is presenting at a large screen.",
+        "subjectVocabulary": [
+          {
+            "word": "employees",
+            "meaning": "nhân viên",
+            "isCorrect": true
+          },
+          {
+            "word": "screen",
+            "meaning": "màn hình",
+            "isCorrect": true
+          },
+          {
+            "word": "office",
+            "meaning": "văn phòng",
+            "isCorrect": true
+          },
+          {
+            "word": "stage",
+            "meaning": "sân khấu",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "collaborating",
+            "meaning": "đang cộng tác",
+            "isCorrect": true
+          },
+          {
+            "word": "presenting",
+            "meaning": "đang trình bày",
+            "isCorrect": true
+          },
+          {
+            "word": "sitting",
+            "meaning": "đang ngồi",
+            "isCorrect": true
+          },
+          {
+            "word": "watching",
+            "meaning": "đang quan sát",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "One man is pointing at the screen while the other is taking notes.",
-          "B": "Both men are using their phones.",
-          "C": "The men are drinking coffee outside."
+          "A": "One employee is presenting while others are collaborating.",
+          "B": "People are performing on stage with a microphone.",
+          "C": "An employee is standing alone in an empty hallway."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang chỉ vào màn hình trong khi người kia ghi chú.",
-          "B": "Cả hai người đàn ông đang dùng điện thoại.",
-          "C": "Những người đàn ông đang uống cà phê ngoài trời."
+          "A": "Một nhân viên đang trình bày trong khi những người khác đang cộng tác.",
+          "B": "Mọi người đang biểu diễn trên sân khấu với micro.",
+          "C": "Một nhân viên đang đứng một mình trong hành lang trống."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng hành động và quan hệ. B là bẫy sai hành động, C là bẫy sai bối cảnh.",
-        "audioScript": "Look at the picture number 1. A. One man is pointing at the screen while the other is taking notes. B. Both men are using their phones. C. The men are drinking coffee outside.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773953/bcvxl5w2pod8xx5fgcxo.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774143/zz6ztctwuoklqtwoypt8.mp3"
+        "explanation": "A mô tả đầy đủ và chính xác các hành động song song trong ảnh.",
+        "traps": "B: Sai ngữ cảnh và địa điểm – bẫy keywordMisuse. C: Sai số lượng và hành động – bẫy assumption.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966798/v9wfbdfp4utwulprc4cv.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966869/mx6stwbfzukr2xibmhts.mp3"
       },
       {
         "questionNumber": 2,
-        "imageDescription": "A grayscale photo shows three women standing in a kitchen. One woman is pouring tea, another is laughing, and the third is washing dishes at the sink.",
+        "level": "Advanced",
+        "imageDescription": "Three doctors are examining X-ray images while two nurses are writing notes at a nearby desk.",
+        "subjectVocabulary": [
+          {
+            "word": "doctors",
+            "meaning": "bác sĩ",
+            "isCorrect": true
+          },
+          {
+            "word": "nurses",
+            "meaning": "y tá",
+            "isCorrect": true
+          },
+          {
+            "word": "X-ray",
+            "meaning": "X-quang",
+            "isCorrect": true
+          },
+          {
+            "word": "microscope",
+            "meaning": "kính hiển vi",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "examining",
+            "meaning": "đang xem xét",
+            "isCorrect": true
+          },
+          {
+            "word": "writing",
+            "meaning": "đang viết",
+            "isCorrect": true
+          },
+          {
+            "word": "testing",
+            "meaning": "đang thử nghiệm",
+            "isCorrect": false
+          },
+          {
+            "word": "nearby",
+            "meaning": "gần đó",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "One woman is pouring tea while another is washing dishes.",
-          "B": "The women are all eating lunch.",
-          "C": "A man is cooking in the kitchen."
+          "A": "Two doctors are writing prescriptions.",
+          "B": "Three doctors are checking X-rays while nurses are taking notes.",
+          "C": "People are testing samples under a microscope."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang rót trà trong khi người kia đang rửa bát.",
-          "B": "Những người phụ nữ đều đang ăn trưa.",
-          "C": "Một người đàn ông đang nấu ăn trong bếp."
+          "A": "Hai bác sĩ đang viết đơn thuốc.",
+          "B": "Ba bác sĩ đang kiểm tra phim X-quang trong khi y tá ghi chép.",
+          "C": "Mọi người đang kiểm tra mẫu dưới kính hiển vi."
         },
-        "correctAnswer": "A",
-        "explanation": "A đúng hành động hai chủ thể. B là bẫy sai hành động, C là bẫy sai giới tính.",
-        "audioScript": "Look at the picture number 2. A. One woman is pouring tea while another is washing dishes. B. The women are all eating lunch. C. A man is cooking in the kitchen.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773961/lp0uruo7agjf4aumzszl.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774147/p3ouvz1ivh6upujnyyls.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đầy đủ số lượng, hành động, và mối quan hệ không gian.",
+        "traps": "A: Sai số lượng và hành động – bẫy singularPlural + keywordMisuse. C: Sai vật thể và ngữ cảnh – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751967590/l0ktrlo6zarvhvrhkomp.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966872/vy7ngqzkniuuwpgzrb8z.mp3"
       },
       {
         "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows a man and a woman standing next to a printer in an office. The man is collecting papers from the tray, and the woman is holding a folder.",
+        "level": "Advanced",
+        "imageDescription": "Five people are standing around a barbecue grill in a backyard, some holding plates, others serving food.",
+        "subjectVocabulary": [
+          {
+            "word": "grill",
+            "meaning": "vỉ nướng",
+            "isCorrect": true
+          },
+          {
+            "word": "plates",
+            "meaning": "đĩa",
+            "isCorrect": true
+          },
+          {
+            "word": "serving",
+            "meaning": "phục vụ",
+            "isCorrect": true
+          },
+          {
+            "word": "chilling",
+            "meaning": "thư giãn (slang)",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "isCorrect": true
+          },
+          {
+            "word": "serving",
+            "meaning": "đang phục vụ",
+            "isCorrect": true
+          },
+          {
+            "word": "holding",
+            "meaning": "đang cầm",
+            "isCorrect": true
+          },
+          {
+            "word": "grilling",
+            "meaning": "đang nướng",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "The man is collecting papers while the woman is holding a folder.",
-          "B": "Both are typing on computers.",
-          "C": "They are eating lunch at their desks."
+          "A": "People are chilling beside a pool.",
+          "B": "Several people are serving food around a barbecue grill.",
+          "C": "A man is grilling meat alone in the kitchen."
         },
         "choicesVi": {
-          "A": "Người đàn ông đang lấy giấy trong khi người phụ nữ cầm tập tài liệu.",
-          "B": "Cả hai đang gõ máy tính.",
-          "C": "Họ đang ăn trưa tại bàn làm việc."
+          "A": "Mọi người đang thư giãn cạnh hồ bơi.",
+          "B": "Vài người đang phục vụ đồ ăn quanh bếp nướng.",
+          "C": "Một người đàn ông đang nướng thịt một mình trong bếp."
         },
-        "correctAnswer": "A",
-        "explanation": "A đúng hai hành động phụ. B là bẫy sai hành động, C là bẫy sai ngữ cảnh.",
-        "audioScript": "Look at the picture number 3. A. The man is collecting papers while the woman is holding a folder. B. Both are typing on computers. C. They are eating lunch at their desks.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773970/pomv0khquwxwfnipzfy9.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774150/csjehy050nmmpdfy93pr.mp3"
+        "correctAnswer": "B",
+        "explanation": "B đúng số lượng, vị trí, hành động chính trong ảnh.",
+        "traps": "A: Sai hành động và vị trí – bẫy assumption + keywordMisuse. C: Sai số lượng và địa điểm – bẫy singularPlural + misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966820/firvd9tgetvtjehrkhqg.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966874/y4fzg6vlxlcs1jlqkki1.mp3"
       },
       {
         "questionNumber": 4,
-        "imageDescription": "A grayscale image shows two students sitting at a table with textbooks. One is reading, and the other is making notes. A bottle of water is on the table.",
+        "level": "Advanced",
+        "imageDescription": "Two chefs are preparing meals in a busy kitchen while a waiter is delivering dishes to a table.",
+        "subjectVocabulary": [
+          {
+            "word": "chefs",
+            "meaning": "đầu bếp",
+            "isCorrect": true
+          },
+          {
+            "word": "waiter",
+            "meaning": "bồi bàn",
+            "isCorrect": true
+          },
+          {
+            "word": "dishes",
+            "meaning": "món ăn",
+            "isCorrect": true
+          },
+          {
+            "word": "cashier",
+            "meaning": "thu ngân",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "preparing",
+            "meaning": "đang chuẩn bị",
+            "isCorrect": true
+          },
+          {
+            "word": "delivering",
+            "meaning": "đang giao",
+            "isCorrect": true
+          },
+          {
+            "word": "cleaning",
+            "meaning": "đang lau dọn",
+            "isCorrect": false
+          },
+          {
+            "word": "table",
+            "meaning": "bàn",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "One student is reading and the other is making notes.",
-          "B": "Both students are talking on the phone.",
-          "C": "They are watching a movie."
+          "A": "Two chefs are preparing food while a waiter serves dishes.",
+          "B": "A cashier is cleaning a table in the dining area.",
+          "C": "Two men are eating in a restaurant."
         },
         "choicesVi": {
-          "A": "Một học sinh đang đọc còn người kia đang ghi chú.",
-          "B": "Cả hai học sinh đang nói chuyện điện thoại.",
-          "C": "Họ đang xem phim."
+          "A": "Hai đầu bếp đang chuẩn bị món ăn trong khi một bồi bàn phục vụ món ăn.",
+          "B": "Một thu ngân đang lau bàn trong khu ăn uống.",
+          "C": "Hai người đàn ông đang ăn trong nhà hàng."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng mô tả hoạt động từng người. B và C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 4. A. One student is reading and the other is making notes. B. Both students are talking on the phone. C. They are watching a movie.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773979/wnujqbvugt1zx8pwvvap.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774153/nzsdhzptc9v5yumxo0za.mp3"
+        "explanation": "A đúng chủ thể, hành động, và phân vai trong bối cảnh nhà hàng.",
+        "traps": "B: Sai chủ thể (thu ngân không có) – bẫy keywordMisuse. C: Sai hành động và vai trò – bẫy misfocus + assumption.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966831/cqrciiqdgmatnwzszci8.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966877/k84n3k6fivdj93vwjtwk.mp3"
       },
       {
         "questionNumber": 5,
-        "imageDescription": "A black-and-white photo shows two men and a woman sitting at a round table in a cafe. The woman is looking at a menu, one man is stirring his coffee, and the other man is talking.",
+        "level": "Advanced",
+        "imageDescription": "Multiple musicians are playing different instruments on a street corner as pedestrians walk by.",
+        "subjectVocabulary": [
+          {
+            "word": "musicians",
+            "meaning": "nhạc công",
+            "isCorrect": true
+          },
+          {
+            "word": "instruments",
+            "meaning": "nhạc cụ",
+            "isCorrect": true
+          },
+          {
+            "word": "pedestrians",
+            "meaning": "người đi bộ",
+            "isCorrect": true
+          },
+          {
+            "word": "magicians",
+            "meaning": "ảo thuật gia",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "playing",
+            "meaning": "đang chơi",
+            "isCorrect": true
+          },
+          {
+            "word": "walking",
+            "meaning": "đang đi bộ",
+            "isCorrect": true
+          },
+          {
+            "word": "dancing",
+            "meaning": "đang nhảy",
+            "isCorrect": false
+          },
+          {
+            "word": "corner",
+            "meaning": "góc phố",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "The woman is looking at a menu.",
-          "B": "All three are eating dessert.",
-          "C": "The men are working at computers."
+          "A": "Several magicians are performing tricks on the sidewalk.",
+          "B": "Musicians are playing instruments on a street corner.",
+          "C": "Pedestrians are dancing in front of a music store."
         },
         "choicesVi": {
-          "A": "Người phụ nữ đang nhìn thực đơn.",
-          "B": "Cả ba người đang ăn tráng miệng.",
-          "C": "Những người đàn ông đang làm việc trên máy tính."
+          "A": "Một vài ảo thuật gia đang biểu diễn trên vỉa hè.",
+          "B": "Các nhạc công đang chơi nhạc cụ ở góc phố.",
+          "C": "Người đi bộ đang nhảy trước cửa hàng nhạc cụ."
         },
-        "correctAnswer": "A",
-        "explanation": "A đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai hành động và quan hệ.",
-        "audioScript": "Look at the picture number 5. A. The woman is looking at a menu. B. All three are eating dessert. C. The men are working at computers.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773990/phsvxqfqzgqgygaifdaq.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774156/rzlsies5rxxiuy0kdp7h.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng hoạt động và nhóm người trong ảnh.",
+        "traps": "A: Nhầm từ đồng âm (musicians vs magicians) – bẫy homophone. C: Sai hành động (dancing không có) – bẫy assumption.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966844/blrpwirbct82dtzj7ay8.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966879/miiko858403if9vzyygq.mp3"
       },
       {
         "questionNumber": 6,
-        "imageDescription": "A grayscale image shows two men standing by a car. One man is opening the trunk while the other is carrying a box.",
+        "level": "Advanced",
+        "imageDescription": "Employees are standing near desks while a manager is giving instructions with a hand gesture.",
+        "subjectVocabulary": [
+          {
+            "word": "employees",
+            "meaning": "nhân viên",
+            "isCorrect": true
+          },
+          {
+            "word": "manager",
+            "meaning": "quản lý",
+            "isCorrect": true
+          },
+          {
+            "word": "instructions",
+            "meaning": "chỉ dẫn",
+            "isCorrect": true
+          },
+          {
+            "word": "construction",
+            "meaning": "xây dựng",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "isCorrect": true
+          },
+          {
+            "word": "giving",
+            "meaning": "đang đưa ra",
+            "isCorrect": true
+          },
+          {
+            "word": "fixing",
+            "meaning": "đang sửa chữa",
+            "isCorrect": false
+          },
+          {
+            "word": "gesture",
+            "meaning": "cử chỉ",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "One man is opening the trunk, and the other is carrying a box.",
-          "B": "The men are sitting in the car.",
-          "C": "They are repairing the engine together."
+          "A": "The manager is giving instructions to employees near desks.",
+          "B": "Construction workers are fixing desks in the hallway.",
+          "C": "The manager is guessing employee names at random."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang mở cốp xe, người kia đang bê hộp.",
-          "B": "Những người đàn ông đang ngồi trong xe.",
-          "C": "Họ đang cùng sửa động cơ."
+          "A": "Người quản lý đang đưa ra chỉ dẫn cho nhân viên gần bàn làm việc.",
+          "B": "Công nhân xây dựng đang sửa bàn trong hành lang.",
+          "C": "Người quản lý đang đoán tên nhân viên một cách ngẫu nhiên."
         },
         "correctAnswer": "A",
-        "explanation": "A đúng mô tả hai hành động. B là bẫy sai hành động, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 6. A. One man is opening the trunk, and the other is carrying a box. B. The men are sitting in the car. C. They are repairing the engine together.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751773998/yipvywwdljmqupwvvivb.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774159/dky0hqcafrnu6z7wuvkg.mp3"
-      },
-      {
-        "questionNumber": 7,
-        "imageDescription": "A black-and-white photo shows three people walking in a park. Two women are walking together, while a man is walking behind them, talking on his phone.",
-        "choices": {
-          "A": "A man is talking on his phone while walking behind two women.",
-          "B": "The three people are sitting on a bench.",
-          "C": "The women are reading newspapers."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang nói điện thoại trong khi đi sau hai người phụ nữ.",
-          "B": "Ba người đang ngồi trên ghế dài.",
-          "C": "Những người phụ nữ đang đọc báo."
-        },
-        "correctAnswer": "A",
-        "explanation": "A đúng mô tả cả ba chủ thể và hành động phụ. B và C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 1. A. A man is talking on his phone while walking behind two women. B. The three people are sitting on a bench. C. The women are reading newspapers.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774008/ejxhe8lppsbfzp4iptyu.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774162/sedqzgibtdi1e1yju2lq.mp3"
-      },
-      {
-        "questionNumber": 8,
-        "imageDescription": "A grayscale photo shows two coworkers in an office. One woman is typing on her laptop. A man is looking out the window.",
-        "choices": {
-          "A": "A man is looking out the window.",
-          "B": "Both people are writing on the board.",
-          "C": "They are eating lunch together."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang nhìn ra cửa sổ.",
-          "B": "Cả hai người đang viết lên bảng.",
-          "C": "Họ đang ăn trưa cùng nhau."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 2. A. A man is looking out the window. B. Both people are writing on the board. C. They are eating lunch together.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774017/lju5pezqt7aadvd3mpmz.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774165/vfpljps4jvbfbmpseszd.mp3"
-      },
-      {
-        "questionNumber": 9,
-        "imageDescription": "A black-and-white image shows three students in a classroom. One girl is drawing on a piece of paper, while the other two are looking at her work.",
-        "choices": {
-          "A": "One student is drawing while the others are watching.",
-          "B": "All the students are sleeping.",
-          "C": "A teacher is writing on the board."
-        },
-        "choicesVi": {
-          "A": "Một học sinh đang vẽ trong khi những người còn lại đang quan sát.",
-          "B": "Tất cả học sinh đang ngủ.",
-          "C": "Một giáo viên đang viết lên bảng."
-        },
-        "correctAnswer": "A",
-        "explanation": "A đúng chi tiết từng người, có chủ thể phụ. B, C là bẫy sai hành động/chủ thể.",
-        "audioScript": "Look at the picture number 3. A. One student is drawing while the others are watching. B. All the students are sleeping. C. A teacher is writing on the board.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774025/od131pir8m9dkuakjoiy.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774168/ubpbnsfvkajodztyhj2n.mp3"
-      },
-      {
-        "questionNumber": 10,
-        "imageDescription": "A grayscale photo shows a man and a woman shopping in a supermarket. The woman is putting fruit in a basket while the man is checking a shopping list.",
-        "choices": {
-          "A": "The woman is putting fruit in a basket.",
-          "B": "The man is working as a cashier.",
-          "C": "Both are reading newspapers."
-        },
-        "choicesVi": {
-          "A": "Người phụ nữ đang bỏ hoa quả vào giỏ.",
-          "B": "Người đàn ông đang làm thu ngân.",
-          "C": "Cả hai đang đọc báo."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 4. A. The woman is putting fruit in a basket. B. The man is working as a cashier. C. Both are reading newspapers.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774034/tgjko5axmmocfxs4rhtq.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774171/k9qlzzvleuur7ogje9qn.mp3"
-      },
-      {
-        "questionNumber": 11,
-        "imageDescription": "A black-and-white image shows two men and a woman walking through an office hallway. One man is carrying a stack of papers, the woman is holding a phone, and the other man is opening a door.",
-        "choices": {
-          "A": "A man is opening a door.",
-          "B": "All three are sitting at a desk.",
-          "C": "The woman is carrying a stack of books."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang mở cửa.",
-          "B": "Cả ba đang ngồi ở bàn.",
-          "C": "Người phụ nữ đang cầm chồng sách."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng chi tiết phụ. B, C là bẫy sai hành động/vật thể.",
-        "audioScript": "Look at the picture number 5. A. A man is opening a door. B. All three are sitting at a desk. C. The woman is carrying a stack of books.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774043/ahlnwl3amua3jgmsyhug.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774174/fcfnx7ufzlie7y6tieqo.mp3"
-      },
-      {
-        "questionNumber": 12,
-        "imageDescription": "A grayscale photo shows two women talking at a cafe table. One woman is drinking coffee, the other is looking at her phone.",
-        "choices": {
-          "A": "One woman is looking at her phone.",
-          "B": "Both are standing by the window.",
-          "C": "Two men are drinking tea."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang nhìn vào điện thoại.",
-          "B": "Cả hai đang đứng cạnh cửa sổ.",
-          "C": "Hai người đàn ông đang uống trà."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 6. A. One woman is looking at her phone. B. Both are standing by the window. C. Two men are drinking tea.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774051/r5j6pyavcgz8reefmylq.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774177/obsjord1mirrsisq9tju.mp3"
-      },
-      {
-        "questionNumber": 13,
-        "imageDescription": "A black-and-white photo shows two men playing chess at a park table. A third man is watching them and holding a coffee cup.",
-        "choices": {
-          "A": "A man is watching a chess game and holding a cup.",
-          "B": "All three men are playing chess.",
-          "C": "The men are jogging in the park."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang xem cờ vua và cầm cốc.",
-          "B": "Cả ba người đàn ông đang chơi cờ.",
-          "C": "Những người đàn ông đang chạy bộ trong công viên."
-        },
-        "correctAnswer": "A",
-        "explanation": "A tập trung vào nhân vật phụ. B là bẫy sai số lượng, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 1. A. A man is watching a chess game and holding a cup. B. All three men are playing chess. C. The men are jogging in the park.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774060/u7urjzjzbdazshsiifjg.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774180/lzfhaj4kcorencewopip.mp3"
-      },
-      {
-        "questionNumber": 14,
-        "imageDescription": "A grayscale image shows three coworkers at a meeting table. One woman is speaking, one man is writing, and another man is drinking water.",
-        "choices": {
-          "A": "One man is writing while another is drinking water.",
-          "B": "All are watching a movie.",
-          "C": "The woman is leaving the room."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang viết trong khi người kia uống nước.",
-          "B": "Tất cả đều đang xem phim.",
-          "C": "Người phụ nữ đang rời khỏi phòng."
-        },
-        "correctAnswer": "A",
-        "explanation": "A đúng hành động phụ của hai người. B, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 2. A. One man is writing while another is drinking water. B. All are watching a movie. C. The woman is leaving the room.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774069/celb7hqny6oal1f8ptzu.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774183/fvkzqxhmnqurevu6xfmy.mp3"
-      },
-      {
-        "questionNumber": 15,
-        "imageDescription": "A black-and-white photo shows a man and a woman shopping. The man is carrying two bags, and the woman is looking at clothes on a rack.",
-        "choices": {
-          "A": "The man is carrying shopping bags.",
-          "B": "Both are buying shoes.",
-          "C": "The woman is using her phone."
-        },
-        "choicesVi": {
-          "A": "Người đàn ông đang xách túi mua sắm.",
-          "B": "Cả hai đang mua giày.",
-          "C": "Người phụ nữ đang sử dụng điện thoại."
-        },
-        "correctAnswer": "A",
-        "explanation": "A đúng hành động phụ. B là bẫy sai hành động, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 3. A. The man is carrying shopping bags. B. Both are buying shoes. C. The woman is using her phone.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774078/q0h7x6ebdkaopawojf2x.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774186/wugyjdiewsmypkblxtye.mp3"
-      },
-      {
-        "questionNumber": 16,
-        "imageDescription": "A grayscale photo shows three friends sitting on a sofa. One man is playing guitar, another is listening, and the woman is singing.",
-        "choices": {
-          "A": "The woman is singing while a man is playing guitar.",
-          "B": "All are watching TV.",
-          "C": "Two men are playing chess."
-        },
-        "choicesVi": {
-          "A": "Người phụ nữ đang hát trong khi một người đàn ông đang chơi guitar.",
-          "B": "Tất cả đang xem tivi.",
-          "C": "Hai người đàn ông đang chơi cờ."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động từng người. B là bẫy sai hành động, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 4. A. The woman is singing while a man is playing guitar. B. All are watching TV. C. Two men are playing chess.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774087/ypipxtipc9bmcvxls4sy.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774189/c8fg0h7gcebhyltyutst.mp3"
-      },
-      {
-        "questionNumber": 17,
-        "imageDescription": "A black-and-white photo shows two men standing at a bus stop. One man is looking at his watch, and the other is reading a timetable.",
-        "choices": {
-          "A": "One man is reading a timetable.",
-          "B": "Both men are listening to music.",
-          "C": "They are boarding the bus."
-        },
-        "choicesVi": {
-          "A": "Một người đàn ông đang xem bảng giờ.",
-          "B": "Cả hai người đàn ông đang nghe nhạc.",
-          "C": "Họ đang lên xe buýt."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động phụ. B, C là bẫy sai hành động.",
-        "audioScript": "Look at the picture number 5. A. One man is reading a timetable. B. Both men are listening to music. C. They are boarding the bus.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774095/zi48jk2xrqafvctytx35.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774192/pi2cpzv953pon1gn0mk9.mp3"
-      },
-      {
-        "questionNumber": 18,
-        "imageDescription": "A grayscale image shows three office workers around a table. One woman is handing a document to a man, and the other man is looking at a laptop.",
-        "choices": {
-          "A": "A woman is handing a document to a man.",
-          "B": "All are having lunch.",
-          "C": "Two men are talking on the phone."
-        },
-        "choicesVi": {
-          "A": "Một người phụ nữ đang đưa tài liệu cho một người đàn ông.",
-          "B": "Tất cả đang ăn trưa.",
-          "C": "Hai người đàn ông đang nói chuyện điện thoại."
-        },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng hành động từng người. B là bẫy sai hành động, C là bẫy sai chủ thể.",
-        "audioScript": "Look at the picture number 6. A. A woman is handing a document to a man. B. All are having lunch. C. Two men are talking on the phone.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751774103/lr0bvnssmxcxrzbvxwnx.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751774194/ti8qpzb5dlallp0xcvmn.mp3"
+        "explanation": "A đúng về hành động chính và mối quan hệ giữa các chủ thể.",
+        "traps": "B: Nhầm từ phát âm giống (instruction vs construction) – bẫy similarSound. C: Sai hành động hoàn toàn – bẫy assumption.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966856/cl4ysziv0oaeu45lgckn.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966882/duss3aozpn6jep2f22yb.mp3"
       }
     ]
   },
@@ -1105,347 +1165,773 @@
     "level1": [
       {
         "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows a single chair placed next to a desk in an empty room. There are no other objects in the scene. The floor and walls are plain.",
+        "level": "Basic",
+        "imageDescription": "A lamp is placed on a small table next to a couch.",
+        "subjectVocabulary": [
+          {
+            "word": "lamp",
+            "meaning": "đèn",
+            "isCorrect": true
+          },
+          {
+            "word": "table",
+            "meaning": "bàn",
+            "isCorrect": true
+          },
+          {
+            "word": "couch",
+            "meaning": "ghế sofa",
+            "isCorrect": true
+          },
+          {
+            "word": "television",
+            "meaning": "tivi",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "placed",
+            "meaning": "được đặt",
+            "isCorrect": true
+          },
+          {
+            "word": "next to",
+            "meaning": "bên cạnh",
+            "isCorrect": true
+          },
+          {
+            "word": "under",
+            "meaning": "dưới",
+            "isCorrect": false
+          },
+          {
+            "word": "on",
+            "meaning": "trên",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "Chairs are under the desk.",
-          "B": "A table is in front of the chair.",
-          "C": "A chair is next to the desk."
+          "A": "A lamp is placed on a table beside a couch.",
+          "B": "A television is sitting on a cabinet.",
+          "C": "A lamp is lying under a table."
         },
         "choicesVi": {
-          "A": "Nhiều cái ghế ở dưới bàn.",
-          "B": "Một cái bàn ở trước ghế.",
-          "C": "Một cái ghế ở cạnh bàn."
+          "A": "Một cái đèn được đặt trên bàn cạnh ghế sofa.",
+          "B": "Một cái tivi nằm trên tủ.",
+          "C": "Một cái đèn nằm dưới bàn."
         },
-        "correctAnswer": "C",
-        "explanation": "C mô tả đúng vị trí và số lượng. A là bẫy số nhiều và sai vị trí, B là bẫy sai vật thể.",
-        "audioScript": "Look at the picture number 1. A. Chairs are under the desk. B. A table is in front of the chair. C. A chair is next to the desk.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751728524/undrw6eoponarus7pebo.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728855/hviuajfsoujqzql9vg2i.mp3"
+        "correctAnswer": "A",
+        "explanation": "A đúng về vật thể, vị trí và số lượng.",
+        "traps": "B: Sai vật thể chính – bẫy keywordMisuse. C: Sai vị trí – đèn không nằm dưới bàn – bẫy assumption.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751967950/uqlaki7grxr1jrlju8do.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968014/ovlm9hhewiaa5zek3bdo.mp3"
       },
       {
         "questionNumber": 2,
-        "imageDescription": "A grayscale image shows a single book lying on top of a closed laptop on a plain table. There are no other objects or decorations visible.",
+        "level": "Basic",
+        "imageDescription": "A book is open on a wooden desk next to a pen.",
+        "subjectVocabulary": [
+          {
+            "word": "book",
+            "meaning": "quyển sách",
+            "isCorrect": true
+          },
+          {
+            "word": "desk",
+            "meaning": "bàn",
+            "isCorrect": true
+          },
+          {
+            "word": "pen",
+            "meaning": "bút",
+            "isCorrect": true
+          },
+          {
+            "word": "bag",
+            "meaning": "cái túi",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "open",
+            "meaning": "mở",
+            "isCorrect": true
+          },
+          {
+            "word": "next to",
+            "meaning": "bên cạnh",
+            "isCorrect": true
+          },
+          {
+            "word": "inside",
+            "meaning": "bên trong",
+            "isCorrect": false
+          },
+          {
+            "word": "wooden",
+            "meaning": "bằng gỗ",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A pen is next to the laptop.",
-          "B": "A book is on the laptop.",
-          "C": "Books are under the laptop."
+          "A": "A bag is inside a drawer.",
+          "B": "A book is open on a wooden desk beside a pen.",
+          "C": "A book is closed and placed on a chair."
         },
         "choicesVi": {
-          "A": "Một cây bút ở cạnh máy tính xách tay.",
-          "B": "Một quyển sách ở trên máy tính xách tay.",
-          "C": "Nhiều quyển sách ở dưới máy tính xách tay."
+          "A": "Một cái túi nằm trong ngăn kéo.",
+          "B": "Một quyển sách mở nằm trên bàn gỗ cạnh cây bút.",
+          "C": "Một quyển sách đóng được đặt trên ghế."
         },
         "correctAnswer": "B",
-        "explanation": "B mô tả đúng vật thể và vị trí. A là bẫy sai vật thể, C là bẫy số nhiều và sai vị trí.",
-        "audioScript": "Look at the picture number 2. A. A pen is next to the laptop. B. A book is on the laptop. C. Books are under the laptop.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751728533/y6y9qnpk41ptsvaoxyf1.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728857/ue9hnx8xgobd98ioertu.mp3"
+        "explanation": "B đúng vật thể, trạng thái (mở), và vị trí.",
+        "traps": "A: Sai vật thể chính – bẫy misfocus. C: Sai trạng thái của sách – bẫy assumption.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751967961/b33ze3heydfkp8xx4n4x.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968017/axr2cyf2sl64rf1utdre.mp3"
       },
       {
         "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows a single cup placed under a shelf. There are no books, dishes, or any other objects in the scene.",
+        "level": "Basic",
+        "imageDescription": "A pair of shoes is placed neatly on the floor by the door.",
+        "subjectVocabulary": [
+          {
+            "word": "shoes",
+            "meaning": "giày",
+            "isCorrect": true
+          },
+          {
+            "word": "floor",
+            "meaning": "sàn",
+            "isCorrect": true
+          },
+          {
+            "word": "door",
+            "meaning": "cửa",
+            "isCorrect": true
+          },
+          {
+            "word": "hat",
+            "meaning": "nón",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "placed",
+            "meaning": "được đặt",
+            "isCorrect": true
+          },
+          {
+            "word": "neatly",
+            "meaning": "ngăn nắp",
+            "isCorrect": true
+          },
+          {
+            "word": "hanging",
+            "meaning": "treo",
+            "isCorrect": false
+          },
+          {
+            "word": "by",
+            "meaning": "bên cạnh",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A shelf is on the cup.",
-          "B": "Cups are on the table.",
-          "C": "A cup is under the shelf."
+          "A": "A pair of shoes is hanging on the wall.",
+          "B": "A hat is sitting on a chair.",
+          "C": "A pair of shoes is placed neatly by the door."
         },
         "choicesVi": {
-          "A": "Một cái kệ ở trên cốc.",
-          "B": "Nhiều cái cốc ở trên bàn.",
-          "C": "Một cái cốc ở dưới kệ."
+          "A": "Một đôi giày được treo trên tường.",
+          "B": "Một cái nón nằm trên ghế.",
+          "C": "Một đôi giày được đặt ngăn nắp cạnh cửa."
         },
         "correctAnswer": "C",
-        "explanation": "C mô tả đúng vị trí. A là bẫy sai quan hệ vị trí, B là bẫy sai số lượng và vị trí.",
-        "audioScript": "Look at the picture number 3. A. A shelf is on the cup. B. Cups are on the table. C. A cup is under the shelf.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751728543/pwhghadhiycuoxflakf4.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728860/gscmgnsxnbqe0qwjpawj.mp3"
+        "explanation": "C đúng vật thể, vị trí và trạng thái.",
+        "traps": "A: Sai hành động (giày không thể treo) – bẫy assumption. B: Sai vật thể chính – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751967972/eq3ptvvqgf1zvid6cr8u.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968020/ei6nlzaiaammtxq84m7t.mp3"
       },
       {
         "questionNumber": 4,
-        "imageDescription": "A grayscale image shows a single clock hanging above a whiteboard on a plain classroom wall. There are no students or teachers in the scene, just the clock and the whiteboard.",
+        "level": "Basic",
+        "imageDescription": "A pencil and an eraser are lying next to each other on a notebook.",
+        "subjectVocabulary": [
+          {
+            "word": "pencil",
+            "meaning": "bút chì",
+            "isCorrect": true
+          },
+          {
+            "word": "eraser",
+            "meaning": "cục tẩy",
+            "isCorrect": true
+          },
+          {
+            "word": "notebook",
+            "meaning": "sổ tay",
+            "isCorrect": true
+          },
+          {
+            "word": "stapler",
+            "meaning": "dập ghim",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "lying",
+            "meaning": "nằm",
+            "isCorrect": true
+          },
+          {
+            "word": "next to",
+            "meaning": "bên cạnh",
+            "isCorrect": true
+          },
+          {
+            "word": "above",
+            "meaning": "ở phía trên",
+            "isCorrect": false
+          },
+          {
+            "word": "on",
+            "meaning": "trên",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A clock is above the whiteboard.",
-          "B": "A board is under the desk.",
-          "C": "Clocks are next to the chairs."
+          "A": "A stapler is sitting on a shelf.",
+          "B": "A pencil and an eraser are lying next to each other on a notebook.",
+          "C": "A notebook is under a stack of folders."
         },
         "choicesVi": {
-          "A": "Một cái đồng hồ ở trên bảng trắng.",
-          "B": "Một cái bảng ở dưới bàn.",
-          "C": "Nhiều cái đồng hồ ở cạnh ghế."
+          "A": "Một cái dập ghim nằm trên kệ.",
+          "B": "Một cây bút chì và một cục tẩy đang nằm cạnh nhau trên quyển sổ.",
+          "C": "Một cuốn sổ tay nằm dưới chồng bìa hồ sơ."
         },
-        "correctAnswer": "A",
-        "explanation": "A mô tả đúng vị trí và vật thể. B là bẫy sai vật thể và vị trí, C là bẫy sai số lượng và vị trí.",
-        "audioScript": "Look at the picture number 4. A. A clock is above the whiteboard. B. A board is under the desk. C. Clocks are next to the chairs.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751728553/slrg8igfkreoyfvv6ibw.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728863/hvpk6i4kf7ur6p5terg1.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng đầy đủ 2 vật thể và vị trí.",
+        "traps": "A: Sai vật thể chính – bẫy misfocus. C: Sai vị trí của notebook – bẫy assumption.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751967983/awy3u8npeugloshyegth.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968023/ighzuou6zdvbukj8zhnc.mp3"
       },
       {
         "questionNumber": 5,
-        "imageDescription": "A black-and-white photo shows a single pen lying beside a notebook on a clean table. There are no other items, and the table is otherwise empty.",
+        "level": "Basic",
+        "imageDescription": "A water bottle is standing upright on a kitchen counter.",
+        "subjectVocabulary": [
+          {
+            "word": "bottle",
+            "meaning": "chai",
+            "isCorrect": true
+          },
+          {
+            "word": "counter",
+            "meaning": "quầy bếp",
+            "isCorrect": true
+          },
+          {
+            "word": "kitchen",
+            "meaning": "nhà bếp",
+            "isCorrect": true
+          },
+          {
+            "word": "cupboard",
+            "meaning": "tủ chén",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "standing",
+            "meaning": "đứng",
+            "isCorrect": true
+          },
+          {
+            "word": "upright",
+            "meaning": "thẳng đứng",
+            "isCorrect": true
+          },
+          {
+            "word": "leaning",
+            "meaning": "nghiêng",
+            "isCorrect": false
+          },
+          {
+            "word": "on",
+            "meaning": "trên",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A notebook is under the pen.",
-          "B": "A pen is beside the notebook.",
-          "C": "Pens are on the table."
+          "A": "A water bottle is leaning against a cupboard.",
+          "B": "A cupboard is open above the counter.",
+          "C": "A water bottle is standing upright on a kitchen counter."
         },
         "choicesVi": {
-          "A": "Một quyển vở ở dưới cây bút.",
-          "B": "Một cây bút ở cạnh quyển vở.",
-          "C": "Nhiều cây bút ở trên bàn."
+          "A": "Một chai nước đang dựa vào tủ chén.",
+          "B": "Một tủ chén đang mở phía trên quầy.",
+          "C": "Một chai nước đang đứng thẳng trên quầy bếp."
         },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng vật thể và vị trí. A là bẫy đảo ngược vị trí, C là bẫy sai số lượng.",
-        "audioScript": "Look at the picture number 5. A. A notebook is under the pen. B. A pen is beside the notebook. C. Pens are on the table.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751728562/sjfuwa4xeknqxaibtfkl.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728865/smm9htufyjvnezceww11.mp3"
+        "correctAnswer": "C",
+        "explanation": "C đúng vật thể, vị trí và trạng thái.",
+        "traps": "A: Sai vị trí và trạng thái (dựa vào tủ là không đúng) – bẫy assumption. B: Sai vật thể chính – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751967993/te8y0fvcjuk76h3uuslq.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968025/dq1ryfjfw5mkwbekii1g.mp3"
       },
       {
         "questionNumber": 6,
-        "imageDescription": "A grayscale image shows a single lamp standing on the left side of a small table in an empty room. There is nothing else on or around the table.",
+        "level": "Basic",
+        "imageDescription": "A clock is hanging on a wall above a whiteboard.",
+        "subjectVocabulary": [
+          {
+            "word": "clock",
+            "meaning": "đồng hồ",
+            "isCorrect": true
+          },
+          {
+            "word": "wall",
+            "meaning": "tường",
+            "isCorrect": true
+          },
+          {
+            "word": "whiteboard",
+            "meaning": "bảng trắng",
+            "isCorrect": true
+          },
+          {
+            "word": "mirror",
+            "meaning": "gương",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "hanging",
+            "meaning": "treo",
+            "isCorrect": true
+          },
+          {
+            "word": "above",
+            "meaning": "phía trên",
+            "isCorrect": true
+          },
+          {
+            "word": "behind",
+            "meaning": "phía sau",
+            "isCorrect": false
+          },
+          {
+            "word": "on",
+            "meaning": "trên",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "Lamps are on the right side of the table.",
-          "B": "A lamp is on the left side of the table.",
-          "C": "A lamp is under the chair."
+          "A": "A mirror is placed behind a whiteboard.",
+          "B": "A clock is hanging on a wall above a whiteboard.",
+          "C": "A clock is sitting on a table next to a mirror."
         },
         "choicesVi": {
-          "A": "Nhiều cái đèn ở bên phải bàn.",
-          "B": "Một cái đèn ở bên trái bàn.",
-          "C": "Một cái đèn ở dưới ghế."
+          "A": "Một cái gương được đặt sau bảng trắng.",
+          "B": "Một cái đồng hồ được treo trên tường phía trên bảng trắng.",
+          "C": "Một cái đồng hồ nằm trên bàn cạnh cái gương."
         },
         "correctAnswer": "B",
-        "explanation": "B mô tả đúng vị trí và số lượng. A là bẫy sai số lượng và vị trí, C là bẫy sai vị trí.",
-        "audioScript": "Look at the picture number 6. A. Lamps are on the right side of the table. B. A lamp is on the left side of the table. C. A lamp is under the chair.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751728571/cwbldaotcqfvcaa1pnrt.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751728868/stcqgm6821qs7jg4zpk0.mp3"
+        "explanation": "B mô tả đúng vật thể, vị trí, hành động.",
+        "traps": "A: Sai vật thể chính – bẫy misfocus. C: Sai vị trí (đồng hồ không nằm trên bàn) – bẫy assumption.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968004/epvmym0nddyu4jcxbip3.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968029/qzpuosmeeuuijryeu1dy.mp3"
       }
     ],
     "level2": [
       {
         "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows a laptop and a cup sitting on a table near a window. The cup is to the right of the laptop. The table is clean and there are no other items present.",
+        "level": "Intermediate",
+        "imageDescription": "Several chairs are lined up neatly behind a long conference table in a meeting room.",
+        "subjectVocabulary": [
+          {
+            "word": "chairs",
+            "meaning": "những cái ghế",
+            "isCorrect": true
+          },
+          {
+            "word": "table",
+            "meaning": "cái bàn",
+            "isCorrect": true
+          },
+          {
+            "word": "room",
+            "meaning": "phòng",
+            "isCorrect": true
+          },
+          {
+            "word": "bench",
+            "meaning": "ghế dài",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "lined up",
+            "meaning": "xếp thành hàng",
+            "isCorrect": true
+          },
+          {
+            "word": "behind",
+            "meaning": "phía sau",
+            "isCorrect": true
+          },
+          {
+            "word": "under",
+            "meaning": "bên dưới",
+            "isCorrect": false
+          },
+          {
+            "word": "conference",
+            "meaning": "hội nghị",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A laptop is under the table.",
-          "B": "The cup is behind the chair.",
-          "C": "The cup is next to the laptop."
+          "A": "Several benches are under the table.",
+          "B": "Several chairs are lined up behind a conference table.",
+          "C": "A chair is placed in front of a desk."
         },
         "choicesVi": {
-          "A": "Một máy tính xách tay ở dưới bàn.",
-          "B": "Cái cốc ở phía sau ghế.",
-          "C": "Cái cốc ở cạnh máy tính xách tay."
+          "A": "Một vài ghế dài nằm dưới bàn.",
+          "B": "Một vài cái ghế được xếp hàng sau bàn họp.",
+          "C": "Một cái ghế được đặt phía trước bàn làm việc."
         },
-        "correctAnswer": "C",
-        "explanation": "C đúng vị trí và vật thể. A là bẫy sai vị trí, B là bẫy sai địa điểm.",
-        "audioScript": "Look at the picture number 1. A. A laptop is under the table. B. The cup is behind the chair. C. The cup is next to the laptop.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729299/ixneildmqlck9nesm2r0.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729398/atricpua53zg1upm1lst.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả chính xác số lượng, vật thể và vị trí.",
+        "traps": "A: Sai vật thể (benches thay vì chairs) – bẫy keywordMisuse. C: Sai số lượng – bẫy singularPlural.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968355/xecywiibqacjyvnje7e9.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968416/lb98da4sulrmspcigbjc.mp3"
       },
       {
         "questionNumber": 2,
-        "imageDescription": "A grayscale image shows a closed book lying on top of some papers on a wooden desk. There is a pen to the left of the book, and nothing else on the desk.",
+        "level": "Intermediate",
+        "imageDescription": "A stack of books is placed beside a laptop on a cluttered desk.",
+        "subjectVocabulary": [
+          {
+            "word": "books",
+            "meaning": "những quyển sách",
+            "isCorrect": true
+          },
+          {
+            "word": "laptop",
+            "meaning": "máy tính xách tay",
+            "isCorrect": true
+          },
+          {
+            "word": "desk",
+            "meaning": "bàn làm việc",
+            "isCorrect": true
+          },
+          {
+            "word": "monitor",
+            "meaning": "màn hình máy tính",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "stack",
+            "meaning": "chồng",
+            "isCorrect": true
+          },
+          {
+            "word": "beside",
+            "meaning": "bên cạnh",
+            "isCorrect": true
+          },
+          {
+            "word": "under",
+            "meaning": "dưới",
+            "isCorrect": false
+          },
+          {
+            "word": "cluttered",
+            "meaning": "bừa bộn",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "The book is under the papers.",
-          "B": "The pen is to the left of the book.",
-          "C": "The pen is on the chair."
+          "A": "A stack of books is beside a laptop on the desk.",
+          "B": "A monitor is under a neat desk.",
+          "C": "Books are hanging from the ceiling."
         },
         "choicesVi": {
-          "A": "Quyển sách ở dưới các tờ giấy.",
-          "B": "Cây bút ở bên trái quyển sách.",
-          "C": "Cây bút ở trên ghế."
+          "A": "Một chồng sách nằm bên cạnh máy tính xách tay trên bàn.",
+          "B": "Một màn hình nằm dưới bàn gọn gàng.",
+          "C": "Sách đang treo từ trần nhà xuống."
         },
-        "correctAnswer": "B",
-        "explanation": "B đúng vị trí. A là bẫy đảo vị trí, C là bẫy sai vật thể và vị trí.",
-        "audioScript": "Look at the picture number 2. A. The book is under the papers. B. The pen is to the left of the book. C. The pen is on the chair.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729308/wrvxv5gqvawsfvdasgkh.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729401/m2556enpl5ycxvbfmwfo.mp3"
+        "correctAnswer": "A",
+        "explanation": "A đúng về vật thể, trạng thái, và vị trí.",
+        "traps": "B: Sai vật thể chính – bẫy misfocus. C: Sai hành động không thực tế – bẫy keywordMisuse.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968367/vmmus4i4tsucluwjpytb.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968419/qyrtqtdr5bzyremfgc5v.mp3"
       },
       {
         "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows a lamp standing between two chairs in a small waiting room. There is a small table in front of the chairs, but nothing else in the scene.",
+        "level": "Intermediate",
+        "imageDescription": "Two coffee cups and a teapot are arranged on a tray on the kitchen counter.",
+        "subjectVocabulary": [
+          {
+            "word": "cups",
+            "meaning": "những cái cốc",
+            "isCorrect": true
+          },
+          {
+            "word": "teapot",
+            "meaning": "ấm trà",
+            "isCorrect": true
+          },
+          {
+            "word": "tray",
+            "meaning": "khay",
+            "isCorrect": true
+          },
+          {
+            "word": "fridge",
+            "meaning": "tủ lạnh",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "arranged",
+            "meaning": "được sắp xếp",
+            "isCorrect": true
+          },
+          {
+            "word": "on",
+            "meaning": "trên",
+            "isCorrect": true
+          },
+          {
+            "word": "in",
+            "meaning": "trong",
+            "isCorrect": false
+          },
+          {
+            "word": "counter",
+            "meaning": "quầy bếp",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A lamp is under the table.",
-          "B": "The chairs are on the table.",
-          "C": "A lamp is between the chairs."
+          "A": "A single cup is placed inside the fridge.",
+          "B": "Two cups and a teapot are arranged on a tray.",
+          "C": "A teapot is sitting alone on the table."
         },
         "choicesVi": {
-          "A": "Một cái đèn ở dưới bàn.",
-          "B": "Những cái ghế ở trên bàn.",
-          "C": "Một cái đèn ở giữa hai cái ghế."
+          "A": "Một cái cốc được đặt trong tủ lạnh.",
+          "B": "Hai cái cốc và một ấm trà được sắp xếp trên khay.",
+          "C": "Một ấm trà nằm một mình trên bàn."
         },
-        "correctAnswer": "C",
-        "explanation": "C mô tả đúng vật thể và vị trí. A là bẫy sai vị trí, B là bẫy sai vị trí.",
-        "audioScript": "Look at the picture number 3. A. A lamp is under the table. B. The chairs are on the table. C. A lamp is between the chairs.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729317/cuzdlmzcopfoklw9c2ps.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729404/ebwz5rqhlyyouqkhez9s.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đầy đủ số lượng, vật thể và vị trí.",
+        "traps": "A: Sai số lượng và vị trí – bẫy singularPlural + keywordMisuse. C: Sai số lượng – bẫy singularPlural.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968378/lk71sovtjhggdzls7mzb.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968421/zrwsii3kcrjbxcxo3s8p.mp3"
       },
       {
         "questionNumber": 4,
-        "imageDescription": "A grayscale image shows a calendar hanging above a desk. There is a single pen lying on the desk. The wall behind the desk is blank.",
+        "level": "Intermediate",
+        "imageDescription": "A filing cabinet is placed next to a water dispenser in a hallway.",
+        "subjectVocabulary": [
+          {
+            "word": "filing cabinet",
+            "meaning": "tủ hồ sơ",
+            "isCorrect": true
+          },
+          {
+            "word": "dispenser",
+            "meaning": "máy nước",
+            "isCorrect": true
+          },
+          {
+            "word": "hallway",
+            "meaning": "hành lang",
+            "isCorrect": true
+          },
+          {
+            "word": "chair",
+            "meaning": "ghế",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "placed",
+            "meaning": "được đặt",
+            "isCorrect": true
+          },
+          {
+            "word": "next to",
+            "meaning": "bên cạnh",
+            "isCorrect": true
+          },
+          {
+            "word": "inside",
+            "meaning": "bên trong",
+            "isCorrect": false
+          },
+          {
+            "word": "hallway",
+            "meaning": "hành lang",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "The calendar is on the desk.",
-          "B": "The pen is under the calendar.",
-          "C": "The calendar is above the desk."
+          "A": "A chair is sitting in the middle of a hallway.",
+          "B": "A filing cabinet is placed next to a water dispenser.",
+          "C": "A filing cabinet is placed inside a locker."
         },
         "choicesVi": {
-          "A": "Lịch ở trên bàn làm việc.",
-          "B": "Cây bút ở dưới lịch.",
-          "C": "Lịch ở trên bàn."
+          "A": "Một cái ghế nằm giữa hành lang.",
+          "B": "Một tủ hồ sơ được đặt cạnh máy nước.",
+          "C": "Một tủ hồ sơ được đặt bên trong tủ khóa."
         },
-        "correctAnswer": "C",
-        "explanation": "C mô tả đúng vị trí. A là bẫy sai vị trí, B là distractor đúng logic nhưng không đủ chi tiết.",
-        "audioScript": "Look at the picture number 4. A. The calendar is on the desk. B. The pen is under the calendar. C. The calendar is above the desk.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729325/wm7pyj9nauyg0ajckw2p.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729407/vcfyahntxbqlaum2m40l.mp3"
+        "correctAnswer": "B",
+        "explanation": "B đúng vị trí, vật thể, trạng thái.",
+        "traps": "A: Sai vật thể chính – bẫy misfocus. C: Sai vị trí không thực tế – bẫy keywordMisuse.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968390/wlubju0plr6x49fchwya.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968425/wibgnzbknue93qmkug0h.mp3"
       },
       {
         "questionNumber": 5,
-        "imageDescription": "A black-and-white photo shows a single notebook placed between two smartphones on a clean table. No other objects are visible.",
+        "level": "Intermediate",
+        "imageDescription": "Multiple keyboards are stacked on a metal shelf.",
+        "subjectVocabulary": [
+          {
+            "word": "keyboards",
+            "meaning": "bàn phím",
+            "isCorrect": true
+          },
+          {
+            "word": "shelf",
+            "meaning": "kệ",
+            "isCorrect": true
+          },
+          {
+            "word": "metal",
+            "meaning": "kim loại",
+            "isCorrect": true
+          },
+          {
+            "word": "mouse",
+            "meaning": "chuột",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "stacked",
+            "meaning": "xếp chồng",
+            "isCorrect": true
+          },
+          {
+            "word": "on",
+            "meaning": "trên",
+            "isCorrect": true
+          },
+          {
+            "word": "beside",
+            "meaning": "bên cạnh",
+            "isCorrect": false
+          },
+          {
+            "word": "multiple",
+            "meaning": "nhiều",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "The smartphones are on the floor.",
-          "B": "A pen is next to the notebook.",
-          "C": "The notebook is between the smartphones."
+          "A": "A mouse is placed beside a wooden shelf.",
+          "B": "A single keyboard is placed on a desk.",
+          "C": "Multiple keyboards are stacked on a metal shelf."
         },
         "choicesVi": {
-          "A": "Những chiếc điện thoại ở trên sàn.",
-          "B": "Một cây bút ở cạnh quyển vở.",
-          "C": "Quyển vở ở giữa hai điện thoại."
+          "A": "Một con chuột được đặt cạnh kệ gỗ.",
+          "B": "Một bàn phím được đặt trên bàn.",
+          "C": "Nhiều bàn phím được xếp chồng trên kệ kim loại."
         },
         "correctAnswer": "C",
-        "explanation": "C đúng vị trí. B là bẫy sai vật thể, A là bẫy sai vị trí.",
-        "audioScript": "Look at the picture number 5. A. The smartphones are on the floor. B. A pen is next to the notebook. C. The notebook is between the smartphones.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729334/rdjwyorv6wafztxk9rsu.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729409/bvk8cx4pnocqbbbbaqpq.mp3"
+        "explanation": "C đúng số lượng, vị trí và vật thể.",
+        "traps": "A: Sai vật thể chính – bẫy misfocus. B: Sai số lượng – bẫy singularPlural.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968400/rhmarnyvoys8fsrueult.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968428/gjjuzf69zpvwgfpmjaix.mp3"
       },
       {
         "questionNumber": 6,
-        "imageDescription": "A grayscale image shows a cup placed under a shelf. The shelf is empty. There are no books or other objects in the scene.",
+        "level": "Intermediate",
+        "imageDescription": "Two identical clocks are mounted on a wall above a doorway.",
+        "subjectVocabulary": [
+          {
+            "word": "clocks",
+            "meaning": "đồng hồ",
+            "isCorrect": true
+          },
+          {
+            "word": "wall",
+            "meaning": "tường",
+            "isCorrect": true
+          },
+          {
+            "word": "doorway",
+            "meaning": "lối cửa",
+            "isCorrect": true
+          },
+          {
+            "word": "calendar",
+            "meaning": "lịch",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "mounted",
+            "meaning": "gắn",
+            "isCorrect": true
+          },
+          {
+            "word": "above",
+            "meaning": "phía trên",
+            "isCorrect": true
+          },
+          {
+            "word": "behind",
+            "meaning": "phía sau",
+            "isCorrect": false
+          },
+          {
+            "word": "identical",
+            "meaning": "giống hệt",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "The shelf is under the cup.",
-          "B": "A cup is under the shelf.",
-          "C": "A book is on the shelf."
+          "A": "A calendar is hanging behind the door.",
+          "B": "Two clocks are mounted on a wall above a doorway.",
+          "C": "One clock is placed on a desk under the door."
         },
         "choicesVi": {
-          "A": "Cái kệ ở dưới cái cốc.",
-          "B": "Một cái cốc ở dưới kệ.",
-          "C": "Một quyển sách ở trên kệ."
+          "A": "Một cuốn lịch đang treo phía sau cánh cửa.",
+          "B": "Hai cái đồng hồ được gắn trên tường phía trên lối cửa.",
+          "C": "Một cái đồng hồ được đặt trên bàn dưới cửa."
         },
         "correctAnswer": "B",
-        "explanation": "B mô tả đúng. A là bẫy đảo vị trí, C là bẫy sai vật thể.",
-        "audioScript": "Look at the picture number 6. A. The shelf is under the cup. B. A cup is under the shelf. C. A book is on the shelf.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729342/dzytsjfxnaae6spdvgml.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729411/bdonx1arwi9gajuokpo4.mp3"
-      },
-      {
-        "questionNumber": 7,
-        "imageDescription": "A black-and-white photo shows a chair placed to the left of a large window in a room. There is a small rug under the chair. No other furniture is visible.",
-        "choices": {
-          "A": "A lamp is under the chair.",
-          "B": "The chair is on the table.",
-          "C": "The chair is to the left of the window."
-        },
-        "choicesVi": {
-          "A": "Một cái đèn ở dưới ghế.",
-          "B": "Cái ghế ở trên bàn.",
-          "C": "Cái ghế ở bên trái cửa sổ."
-        },
-        "correctAnswer": "C",
-        "explanation": "C mô tả đúng vị trí. B là bẫy sai vị trí, A là bẫy sai vật thể.",
-        "audioScript": "Look at the picture number 1. A. A lamp is under the chair. B. The chair is on the table. C. The chair is to the left of the window.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729352/qdq2fqda69pxz2fnls7i.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729414/xjv5jarblsbcpsnw1gx1.mp3"
-      },
-      {
-        "questionNumber": 8,
-        "imageDescription": "A grayscale image shows a table with a clock sitting on the right side. Next to the clock is a single book. The table is empty except for these objects.",
-        "choices": {
-          "A": "The clock is above the book.",
-          "B": "A book is next to the clock.",
-          "C": "The clock is under the table."
-        },
-        "choicesVi": {
-          "A": "Cái đồng hồ ở trên quyển sách.",
-          "B": "Một quyển sách ở cạnh cái đồng hồ.",
-          "C": "Cái đồng hồ ở dưới bàn."
-        },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng vị trí. A là bẫy sai quan hệ, C là bẫy sai vị trí.",
-        "audioScript": "Look at the picture number 2. A. The clock is above the book. B. A book is next to the clock. C. The clock is under the table.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729361/jly8vu6mu8zmg9go6wxp.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729417/qivh9f2uh0pllejnqoem.mp3"
-      },
-      {
-        "questionNumber": 9,
-        "imageDescription": "A black-and-white photo shows a desk with a single computer mouse to the right of a keyboard. There is a notebook above the keyboard. No other items are present.",
-        "choices": {
-          "A": "A pen is on the mouse.",
-          "B": "The mouse is to the right of the keyboard.",
-          "C": "The notebook is under the keyboard."
-        },
-        "choicesVi": {
-          "A": "Một cây bút ở trên chuột.",
-          "B": "Chuột ở bên phải bàn phím.",
-          "C": "Quyển vở ở dưới bàn phím."
-        },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng. A là bẫy sai vật thể, C là bẫy sai vị trí.",
-        "audioScript": "Look at the picture number 3. A. A pen is on the mouse. B. The mouse is to the right of the keyboard. C. The notebook is under the keyboard.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729369/i1qhtbd3a92dzxfsh8mu.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729419/fqso34vicuqqfjeyvvu1.mp3"
-      },
-      {
-        "questionNumber": 10,
-        "imageDescription": "A grayscale image shows a wall with a single picture frame hanging above a table. There is a vase on the table and nothing else.",
-        "choices": {
-          "A": "A picture frame is above the table.",
-          "B": "The vase is under the chair.",
-          "C": "A clock is beside the vase."
-        },
-        "choicesVi": {
-          "A": "Khung ảnh ở trên bàn.",
-          "B": "Lọ hoa ở dưới ghế.",
-          "C": "Một cái đồng hồ ở cạnh lọ hoa."
-        },
-        "correctAnswer": "A",
-        "explanation": "A đúng vị trí, B là bẫy sai vị trí, C là bẫy sai vật thể.",
-        "audioScript": "Look at the picture number 4. A. A picture frame is above the table. B. The vase is under the chair. C. A clock is beside the vase.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729377/oy1zbitvk5aalhrayzlb.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729422/fsru21cee6cuupviyebs.mp3"
-      },
-      {
-        "questionNumber": 11,
-        "imageDescription": "A black-and-white photo shows two books stacked on top of each other on a table. There is a pencil placed beside the books.",
-        "choices": {
-          "A": "The pencil is on the books.",
-          "B": "The books are under the table.",
-          "C": "The books are on top of each other."
-        },
-        "choicesVi": {
-          "A": "Cây bút chì ở trên những quyển sách.",
-          "B": "Những quyển sách ở dưới bàn.",
-          "C": "Hai quyển sách xếp chồng lên nhau."
-        },
-        "correctAnswer": "C",
-        "explanation": "C mô tả đúng. B là bẫy sai vị trí, A là bẫy sai vị trí.",
-        "audioScript": "Look at the picture number 5. A. The pencil is on the books. B. The books are under the table. C. The books are on top of each other.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729386/ko3fgevc82zxf8gobnsy.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729425/peztpajdbp5dxxmaxugt.mp3"
-      },
-      {
-        "questionNumber": 12,
-        "imageDescription": "A grayscale image shows a shelf with a row of books. At the end of the row is a small clock. Nothing else is on the shelf.",
-        "choices": {
-          "A": "A lamp is between the books.",
-          "B": "A clock is at the end of the row of books.",
-          "C": "Books are under the shelf."
-        },
-        "choicesVi": {
-          "A": "Một cái đèn ở giữa các quyển sách.",
-          "B": "Một cái đồng hồ ở cuối hàng sách.",
-          "C": "Những quyển sách ở dưới kệ."
-        },
-        "correctAnswer": "B",
-        "explanation": "B mô tả đúng. A là bẫy sai vật thể/vị trí, C là bẫy sai vị trí.",
-        "audioScript": "Look at the picture number 6. A. A lamp is between the books. B. A clock is at the end of the row of books. C. Books are under the shelf.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751729393/rsbc0nbsskpho3epm4ar.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751729429/o2jdvwtnztf4v5lgrqay.mp3"
+        "explanation": "B đúng về số lượng, vị trí, trạng thái.",
+        "traps": "A: Sai vật thể chính – bẫy misfocus. C: Sai vị trí không hợp lý – bẫy keywordMisuse.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968410/ykyfvsybnz0qc5xnrwoj.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968431/ib853lhfwxi7ec4lugck.mp3"
       }
     ],
     "level3": [
