@@ -387,7 +387,7 @@ const TestPart1: React.FC = () => {
                     />
                   </div>
                   {/* Mobile: bottom sheet */}
-                  <div className="block lg:hidden fixed bottom-0 left-0 right-0 w-full z-100 mt-2">
+                  <div className="block lg:hidden fixed bottom-0 left-0 right-0 w-full z-50 mt-2">
                     <div className="bg-white rounded-t-2xl shadow-2xl border-t border-gray-200 max-h-[80vh] overflow-y-auto p-2">
                       <VocabularyPanel
                         subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
