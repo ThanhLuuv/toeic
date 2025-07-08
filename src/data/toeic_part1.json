@@ -1934,120 +1934,390 @@
         "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968431/ib853lhfwxi7ec4lugck.mp3"
       }
     ],
-    "level3": [
+    "level3":[
       {
         "questionNumber": 1,
-        "imageDescription": "A black-and-white photo shows a woman placing two folders on the middle shelf of a tall bookshelf. The shelves above and below are completely empty, and there are no books or items anywhere else in the image. The area under the bookshelf is also empty and clean.",
+        "level": "Advanced",
+        "imageDescription": "Several cardboard boxes and wooden crates are stacked beside a forklift in a large warehouse.",
+        "subjectVocabulary": [
+          {
+            "word": "boxes",
+            "meaning": "những cái hộp",
+            "isCorrect": true
+          },
+          {
+            "word": "crates",
+            "meaning": "thùng gỗ",
+            "isCorrect": true
+          },
+          {
+            "word": "forklift",
+            "meaning": "xe nâng",
+            "isCorrect": true
+          },
+          {
+            "word": "elevator",
+            "meaning": "thang máy",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "stacked",
+            "meaning": "xếp chồng",
+            "isCorrect": true
+          },
+          {
+            "word": "beside",
+            "meaning": "bên cạnh",
+            "isCorrect": true
+          },
+          {
+            "word": "warehouse",
+            "meaning": "nhà kho",
+            "isCorrect": true
+          },
+          {
+            "word": "cracked",
+            "meaning": "nứt vỡ",
+            "isCorrect": false
+          }
+        ],
         "choices": {
-          "A": "A woman is placing folders on a desk.",
-          "B": "Two folders are being placed on the shelf.",
-          "C": "Books are being put under the shelf."
+          "A": "Several elevators are stacked near a truck.",
+          "B": "Boxes and crates are stacked beside a forklift in a warehouse.",
+          "C": "A single crate is broken on the floor."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đặt các tập tài liệu lên bàn.",
-          "B": "Hai tập tài liệu đang được đặt lên giá sách.",
-          "C": "Những quyển sách đang được đặt dưới giá sách."
+          "A": "Nhiều thang máy được xếp gần một chiếc xe tải.",
+          "B": "Các hộp và thùng gỗ được xếp cạnh xe nâng trong nhà kho.",
+          "C": "Một cái thùng bị vỡ nằm trên sàn."
         },
         "correctAnswer": "B",
-        "explanation": "Chỉ có hai tập tài liệu trên một kệ, không có quyển sách nào dưới kệ, trên bàn hay ở đâu khác. Đáp án đúng là B.",
-        "audioScript": "Look at the picture number 1.\nA. A woman is placing folders on a desk.\nB. Two folders are being placed on the shelf.\nC. Books are being put under the shelf.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751708537/ChatGPT_Image_Jul_5_2025_04_42_04_PM_js57mj.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751708433/daah9mpsujxffv3hvwp3.mp3"
+        "explanation": "B đúng với tất cả vật thể và vị trí được mô tả trong ảnh.",
+        "traps": "A: Sai vật thể (elevator không có trong ảnh) – bẫy keywordMisuse. C: Sai số lượng và hành động (1 crate, broken) – bẫy assumption + singularPlural.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968908/u31fvpxnu5wkuaenru4d.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968989/wx5ulpyhdsflgnzondjn.mp3"
       },
       {
         "questionNumber": 2,
-        "imageDescription": "A black-and-white photo shows a man holding a single document while standing beside a closed laptop on a plain table. The table surface is empty except for the document and the laptop. There are no cups or other objects above, below, or around the table.",
+        "level": "Advanced",
+        "imageDescription": "Three laptops and a projector are placed on a round table in a meeting room.",
+        "subjectVocabulary": [
+          {
+            "word": "laptops",
+            "meaning": "máy tính xách tay",
+            "isCorrect": true
+          },
+          {
+            "word": "projector",
+            "meaning": "máy chiếu",
+            "isCorrect": true
+          },
+          {
+            "word": "table",
+            "meaning": "bàn",
+            "isCorrect": true
+          },
+          {
+            "word": "microwave",
+            "meaning": "lò vi sóng",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "placed",
+            "meaning": "đặt",
+            "isCorrect": true
+          },
+          {
+            "word": "round",
+            "meaning": "tròn",
+            "isCorrect": true
+          },
+          {
+            "word": "meeting room",
+            "meaning": "phòng họp",
+            "isCorrect": true
+          },
+          {
+            "word": "cooking",
+            "meaning": "nấu ăn",
+            "isCorrect": false
+          }
+        ],
         "choices": {
-          "A": "A document is being typed on the computer.",
-          "B": "A cup is under the table.",
-          "C": "A man is holding a document next to a laptop."
+          "A": "A microwave is placed on a kitchen counter.",
+          "B": "A single laptop is open beside a whiteboard.",
+          "C": "Three laptops and a projector are on a round table."
         },
         "choicesVi": {
-          "A": "Một tài liệu đang được đánh máy trên máy tính.",
-          "B": "Một cái cốc ở dưới cái bàn.",
-          "C": "Một người đàn ông đang cầm một tài liệu bên cạnh máy tính xách tay."
+          "A": "Một lò vi sóng được đặt trên quầy bếp.",
+          "B": "Một máy tính xách tay được mở bên cạnh bảng trắng.",
+          "C": "Ba máy tính xách tay và một máy chiếu đặt trên bàn tròn."
         },
         "correctAnswer": "C",
-        "explanation": "Chỉ có người đàn ông, một tài liệu và một laptop trên bàn. Không có cốc nào dưới bàn và không ai đánh máy trên máy tính.",
-        "audioScript": "Look at the picture number 2.\nA. A document is being typed on the computer.\nB. A cup is under the table.\nC. A man is holding a document next to a laptop.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751708392/sqi7ibszm2mjpysjjfvo.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751708437/uinlqb2ogtgpdnlxlz5d.mp3"
+        "explanation": "C đúng về số lượng, vật thể và vị trí.",
+        "traps": "A: Sai vật thể, sai bối cảnh – bẫy misfocus + keywordMisuse. B: Sai số lượng – bẫy singularPlural.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968919/b5lexiraynnqvsp39iww.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968991/dazf1uquz2ae03ju9ift.mp3"
       },
       {
         "questionNumber": 3,
-        "imageDescription": "A black-and-white photo shows two women standing at a small table. Several envelopes are scattered on the table surface, and one woman is holding an envelope. There are no boxes or men in the image, and nothing is under or around the table.",
+        "level": "Advanced",
+        "imageDescription": "An open toolbox with various tools like pliers, wrenches, and a tape measure is lying on the floor next to a ladder.",
+        "subjectVocabulary": [
+          {
+            "word": "toolbox",
+            "meaning": "hộp dụng cụ",
+            "isCorrect": true
+          },
+          {
+            "word": "pliers",
+            "meaning": "kềm",
+            "isCorrect": true
+          },
+          {
+            "word": "wrenches",
+            "meaning": "cờ lê",
+            "isCorrect": true
+          },
+          {
+            "word": "vacuum",
+            "meaning": "máy hút bụi",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "open",
+            "meaning": "mở",
+            "isCorrect": true
+          },
+          {
+            "word": "lying",
+            "meaning": "nằm",
+            "isCorrect": true
+          },
+          {
+            "word": "floor",
+            "meaning": "sàn",
+            "isCorrect": true
+          },
+          {
+            "word": "ladder",
+            "meaning": "thang",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A man is writing on an envelope at the table.",
-          "B": "All the envelopes are inside a box.",
-          "C": "Two women are standing at a table covered with envelopes."
+          "A": "An open toolbox is lying next to a ladder.",
+          "B": "A vacuum is placed near a bookshelf.",
+          "C": "Wrenches are hanging on the wall above a desk."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang viết lên một chiếc phong bì ở bàn.",
-          "B": "Tất cả các phong bì đều ở trong hộp.",
-          "C": "Hai người phụ nữ đang đứng cạnh một cái bàn phủ đầy phong bì."
+          "A": "Một hộp dụng cụ mở nằm cạnh cái thang.",
+          "B": "Một máy hút bụi được đặt gần kệ sách.",
+          "C": "Các cờ lê đang treo trên tường phía trên bàn."
         },
-        "correctAnswer": "C",
-        "explanation": "Chỉ có hai phụ nữ và các phong bì trên bàn, không có hộp, không có đàn ông. Đáp án C là đúng.",
-        "audioScript": "Look at the picture number 3.\nA. A man is writing on an envelope at the table.\nB. All the envelopes are inside a box.\nC. Two women are standing at a table covered with envelopes.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751708402/rnak139krnooqolpdjat.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751708440/vmxftnw8ozc8i86iw4eg.mp3"
+        "correctAnswer": "A",
+        "explanation": "A mô tả đúng vật thể, hành động và vị trí trong ảnh.",
+        "traps": "B: Sai vật thể + bối cảnh không liên quan – bẫy misfocus. C: Sai hành động – treo thay vì nằm – bẫy keywordMisuse.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968930/gwkxvupm49hih8mr3nhw.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968993/rtlugtxcg3dulei463iz.mp3"
       },
       {
         "questionNumber": 4,
-        "imageDescription": "A black-and-white photo shows three chairs positioned around a small round table. Several pieces of paper are on the tabletop. There are no chairs or papers on top of, under, or away from the table except as described.",
+        "level": "Advanced",
+        "imageDescription": "Several kitchen utensils such as a whisk, ladle, and spatula are hanging above a stove in a professional kitchen.",
+        "subjectVocabulary": [
+          {
+            "word": "whisk",
+            "meaning": "cây đánh trứng",
+            "isCorrect": true
+          },
+          {
+            "word": "ladle",
+            "meaning": "muôi",
+            "isCorrect": true
+          },
+          {
+            "word": "spatula",
+            "meaning": "xẻng lật",
+            "isCorrect": true
+          },
+          {
+            "word": "toaster",
+            "meaning": "máy nướng bánh",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "hanging",
+            "meaning": "treo",
+            "isCorrect": true
+          },
+          {
+            "word": "above",
+            "meaning": "phía trên",
+            "isCorrect": true
+          },
+          {
+            "word": "stove",
+            "meaning": "bếp",
+            "isCorrect": true
+          },
+          {
+            "word": "professional",
+            "meaning": "chuyên nghiệp",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "Three chairs are stacked on the table.",
-          "B": "Three chairs are arranged around the table.",
-          "C": "Papers are under the table."
+          "A": "A toaster is on the counter in a small kitchen.",
+          "B": "Utensils are hanging above a stove in a professional kitchen.",
+          "C": "A ladle is being used to stir soup in a pot."
         },
         "choicesVi": {
-          "A": "Ba cái ghế được xếp chồng lên cái bàn.",
-          "B": "Ba cái ghế được sắp xếp xung quanh cái bàn.",
-          "C": "Các tờ giấy ở dưới cái bàn."
+          "A": "Một máy nướng bánh nằm trên quầy bếp trong căn bếp nhỏ.",
+          "B": "Các dụng cụ nhà bếp đang treo phía trên bếp trong căn bếp chuyên nghiệp.",
+          "C": "Một cái muôi đang được dùng để khuấy súp trong nồi."
         },
         "correctAnswer": "B",
-        "explanation": "Chỉ có ba cái ghế quanh bàn và giấy trên mặt bàn. Không có ghế xếp trên bàn hay giấy dưới bàn.",
-        "audioScript": "Look at the picture number 4.\nA. Three chairs are stacked on the table.\nB. Three chairs are arranged around the table.\nC. Papers are under the table.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751708411/eix7equntzelfwzb5qw6.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751708443/erjaidzoj7vlj0ohrgdx.mp3"
+        "explanation": "B mô tả đúng các vật thể và vị trí như trong ảnh.",
+        "traps": "A: Sai vật thể và bối cảnh – bẫy keywordMisuse + misfocus. C: Sai hành động – assumption (không có ai dùng muôi).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968942/v4tsd4mi5sjixbdd4k1h.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968996/bzcibwftddko2jrjirhw.mp3"
       },
       {
         "questionNumber": 5,
-        "imageDescription": "A black-and-white photo shows two cups and one plate sitting close together on a bare kitchen counter. The counter is empty except for these items. There are no cups under the counter or in the sink.",
+        "level": "Advanced",
+        "imageDescription": "Stacks of books, folders, and notepads are organized on shelves in a library reading area.",
+        "subjectVocabulary": [
+          {
+            "word": "books",
+            "meaning": "sách",
+            "isCorrect": true
+          },
+          {
+            "word": "folders",
+            "meaning": "bìa hồ sơ",
+            "isCorrect": true
+          },
+          {
+            "word": "notepads",
+            "meaning": "sổ tay",
+            "isCorrect": true
+          },
+          {
+            "word": "chairs",
+            "meaning": "ghế",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "organized",
+            "meaning": "được sắp xếp",
+            "isCorrect": true
+          },
+          {
+            "word": "shelves",
+            "meaning": "kệ sách",
+            "isCorrect": true
+          },
+          {
+            "word": "library",
+            "meaning": "thư viện",
+            "isCorrect": true
+          },
+          {
+            "word": "reading",
+            "meaning": "đọc",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "Two cups are under the counter.",
-          "B": "A plate is being washed in the sink.",
-          "C": "Two cups and a plate are on the counter."
+          "A": "Chairs are scattered across a classroom.",
+          "B": "A single folder is open on a desk.",
+          "C": "Books and folders are neatly organized on library shelves."
         },
         "choicesVi": {
-          "A": "Hai cái cốc ở dưới kệ bếp.",
-          "B": "Một cái đĩa đang được rửa trong bồn rửa.",
-          "C": "Hai cái cốc và một cái đĩa ở trên kệ bếp."
+          "A": "Ghế được sắp ngẫu nhiên trong một lớp học.",
+          "B": "Một bìa hồ sơ được mở trên bàn.",
+          "C": "Sách và bìa hồ sơ được sắp xếp gọn gàng trên kệ thư viện."
         },
         "correctAnswer": "C",
-        "explanation": "Chỉ có hai cốc và một đĩa ở trên mặt kệ bếp, không có vật nào ở dưới kệ hay trong bồn rửa.",
-        "audioScript": "Look at the picture number 5.\nA. Two cups are under the counter.\nB. A plate is being washed in the sink.\nC. Two cups and a plate are on the counter.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751708420/z4aig8kq1t92ojykoarf.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751708446/cbz2rhukzs16epizpnuy.mp3"
+        "explanation": "C đúng về vật thể, vị trí và hành động trong ảnh.",
+        "traps": "A: Sai chủ thể và bối cảnh – bẫy misfocus. B: Sai số lượng – bẫy singularPlural.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968955/azlpzyh865bv8ppaaaz3.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968999/jtv1fogm1iny8vyfxhmf.mp3"
       },
       {
         "questionNumber": 6,
-        "imageDescription": "A black-and-white photo shows a woman standing near a window. A notebook and a cup are on the windowsill beside her. There are no tables, and nothing else is on or near the window.",
+        "level": "Advanced",
+        "imageDescription": "Multiple trash bins and recycling containers are lined up along a brick wall outside a commercial building.",
+        "subjectVocabulary": [
+          {
+            "word": "trash bins",
+            "meaning": "thùng rác",
+            "isCorrect": true
+          },
+          {
+            "word": "recycling containers",
+            "meaning": "thùng tái chế",
+            "isCorrect": true
+          },
+          {
+            "word": "wall",
+            "meaning": "bức tường",
+            "isCorrect": true
+          },
+          {
+            "word": "mailboxes",
+            "meaning": "hộp thư",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "lined up",
+            "meaning": "xếp hàng",
+            "isCorrect": true
+          },
+          {
+            "word": "brick",
+            "meaning": "gạch",
+            "isCorrect": true
+          },
+          {
+            "word": "outside",
+            "meaning": "bên ngoài",
+            "isCorrect": true
+          },
+          {
+            "word": "commercial",
+            "meaning": "thương mại",
+            "isCorrect": true
+          }
+        ],
         "choices": {
-          "A": "A notebook is being placed under the cup.",
-          "B": "A woman is standing near a window with a notebook and a cup.",
-          "C": "A cup is on a table far from the window."
+          "A": "Mailboxes are attached to an interior wall.",
+          "B": "A single recycling bin is near a wooden fence.",
+          "C": "Trash bins and recycling containers are lined up outside a brick wall."
         },
         "choicesVi": {
-          "A": "Một quyển sổ đang được đặt dưới cái cốc.",
-          "B": "Một người phụ nữ đứng gần cửa sổ với một quyển sổ và một cái cốc.",
-          "C": "Một cái cốc ở trên một cái bàn xa cửa sổ."
+          "A": "Hộp thư được gắn vào một bức tường bên trong.",
+          "B": "Một thùng tái chế nằm gần hàng rào gỗ.",
+          "C": "Thùng rác và thùng tái chế được xếp hàng bên ngoài tường gạch."
         },
-        "correctAnswer": "B",
-        "explanation": "Chỉ có người phụ nữ, một quyển sổ và một cái cốc trên bậu cửa sổ. Không có bàn hay vật nào khác ở gần cửa sổ.",
-        "audioScript": "Look at the picture number 6.\nA. A notebook is being placed under the cup.\nB. A woman is standing near a window with a notebook and a cup.\nC. A cup is on a table far from the window.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751708428/yjhvgrihd53hefka8pk8.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751708448/gv6cbplgqfiv1ijbzkmc.mp3"
+        "correctAnswer": "C",
+        "explanation": "C đúng về vật thể, vị trí và số lượng mô tả trong ảnh.",
+        "traps": "A: Sai vật thể và vị trí – bẫy keywordMisuse + assumption. B: Sai số lượng và vật phụ – bẫy singularPlural + misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968966/mxn7g9sqxgxj81ih4ez5.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751969002/pz4enish6vppdonjgn1r.mp3"
       }
     ]
   },
