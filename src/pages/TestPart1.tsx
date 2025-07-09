@@ -317,19 +317,11 @@ const TestPart1: React.FC = () => {
               {/* Main content - Question Card (original size) */}
               <div className="max-w-3xl mx-auto relative">
                 {testQuestions[currentQuestionIndex]?.audio && (
-                  <>
-                    <audio
-                      ref={audioRef}
-                      src={testQuestions[currentQuestionIndex].audio}
-                      style={{ display: 'none' }}
-                      onEnded={() => setPlayCount((c) => c + 1)}
-                    />
-                    <AudioPlayer
-                      audioSrc={testQuestions[currentQuestionIndex].audio}
-                      audioRef={audioRef as React.RefObject<HTMLAudioElement>}
-                      forceStop={forceStopAudio}
-                    />
-                  </>
+                  <AudioPlayer
+                    audioSrc={testQuestions[currentQuestionIndex].audio}
+                    audioRef={audioRef as React.RefObject<HTMLAudioElement>}
+                    forceStop={forceStopAudio}
+                  />
                 )}
                 <QuestionCard
                   question={testQuestions[currentQuestionIndex]}

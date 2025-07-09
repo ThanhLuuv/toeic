@@ -3707,341 +3707,270 @@
     "level1":[
       {
         "questionNumber": 1,
-        "level": 2,
-        "imageDescription": "A black-and-white photo shows a lighthouse standing alone on a rocky cliff beside the ocean. The sky is cloudy but calm.",
+        "level": "Basic",
+        "imageDescription": "A peaceful lake is surrounded by tall pine trees with no people in sight.",
+        "subjectVocabulary": [
+          {
+            "word": "lake",
+            "meaning": "hồ",
+            "isCorrect": true
+          },
+          {
+            "word": "trees",
+            "meaning": "cây",
+            "isCorrect": true
+          },
+          {
+            "word": "forest",
+            "meaning": "khu rừng",
+            "isCorrect": false
+          },
+          {
+            "word": "boat",
+            "meaning": "thuyền",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "peaceful",
+            "meaning": "yên bình",
+            "isCorrect": true
+          },
+          {
+            "word": "surrounded",
+            "meaning": "bao quanh",
+            "isCorrect": true
+          },
+          {
+            "word": "tall",
+            "meaning": "cao",
+            "isCorrect": true
+          },
+          {
+            "word": "sight",
+            "meaning": "tầm nhìn",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "A peaceful lake is surrounded by pine trees.",
+          "B": "A boat is floating on a river in a city.",
+          "C": "Several people are walking along a beach."
+        },
+        "choicesVi": {
+          "A": "Một hồ nước yên bình được bao quanh bởi cây thông.",
+          "B": "Một chiếc thuyền đang trôi trên sông trong thành phố.",
+          "C": "Một số người đang đi dạo dọc theo bãi biển."
+        },
+        "correctAnswer": "A",
+        "explanation": "A đúng vì mô tả đúng địa điểm, vật thể và không có người như trong ảnh.",
+        "traps": "B: Sai bối cảnh – thành phố thay vì rừng; C: Sai chủ thể – có người trong khi ảnh không có người.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752023783/ivge4fadtetwtxwfxk8d.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752023887/rlninppudsjk5qyebyg8.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "level": "Basic",
+        "imageDescription": "A white lighthouse stands alone on a rocky coastline under a cloudy sky.",
         "subjectVocabulary": [
           {
             "word": "lighthouse",
-            "meaning": "ngọn hải đăng",
+            "meaning": "hải đăng",
             "isCorrect": true
           },
           {
-            "word": "cliff",
-            "meaning": "vách đá",
+            "word": "coastline",
+            "meaning": "đường bờ biển",
             "isCorrect": true
           },
           {
-            "word": "ocean",
-            "meaning": "đại dương",
+            "word": "rocks",
+            "meaning": "đá",
             "isCorrect": true
           },
           {
             "word": "bridge",
             "meaning": "cây cầu",
             "isCorrect": false
-          },
-          {
-            "word": "tree",
-            "meaning": "cái cây",
-            "isCorrect": false
-          },
-          {
-            "word": "sky",
-            "meaning": "bầu trời",
-            "isCorrect": true
           }
         ],
         "descriptiveVocabulary": [
           {
-            "word": "standing",
-            "meaning": "đang đứng",
+            "word": "alone",
+            "meaning": "một mình",
             "isCorrect": true
-          },
-          {
-            "word": "beside",
-            "meaning": "bên cạnh",
-            "isCorrect": true
-          },
-          {
-            "word": "crossing",
-            "meaning": "đang băng qua",
-            "isCorrect": false
           },
           {
             "word": "cloudy",
             "meaning": "nhiều mây",
             "isCorrect": true
-          }
-        ],
-        "choices": {
-          "A": "A lighthouse is standing on a cliff by the ocean.",
-          "B": "A tree is standing in front of the bridge.",
-          "C": "A ship is crossing under a bridge."
-        },
-        "choicesVi": {
-          "A": "Một ngọn hải đăng đang đứng trên vách đá bên bờ đại dương.",
-          "B": "Một cái cây đang đứng trước cây cầu.",
-          "C": "Một con tàu đang đi dưới cây cầu."
-        },
-        "correctAnswer": "A",
-        "audioScript": "Look at picture number 1. A. A lighthouse is standing on a cliff by the ocean. B. A tree is standing in front of the bridge. C. A ship is crossing under a bridge.",
-        "explanation": "A đúng vì mô tả chính xác các yếu tố trong ảnh. B sai về vật và vị trí, C sai hoàn toàn – không có cầu hoặc tàu.",
-        "trapAnalysis": {
-          "singularPlural": false,
-          "keywordMisuse": true,
-          "assumption": false,
-          "similarSound": false,
-          "homophone": false,
-          "misfocus": true,
-          "details": "Distractors gài hình ảnh sai như bridge, tree để gây bẫy keyword và misfocus."
-        },
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751868433/uaycmp2wl1olawbyapd9.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751868520/rr3ulylrebjg1ahggdo0.mp3"
-      },
-      {
-        "questionNumber": 2,
-        "level": 2,
-        "imageDescription": "A pathway runs through a quiet forest with tall trees on both sides. The ground is covered with fallen leaves.",
-        "subjectVocabulary": [
+          },
           {
-            "word": "pathway",
-            "meaning": "lối đi",
+            "word": "stands",
+            "meaning": "đứng",
             "isCorrect": true
           },
           {
-            "word": "forest",
-            "meaning": "khu rừng",
-            "isCorrect": true
-          },
-          {
-            "word": "trees",
-            "meaning": "những cái cây",
-            "isCorrect": true
-          },
-          {
-            "word": "lake",
-            "meaning": "hồ nước",
-            "isCorrect": false
-          },
-          {
-            "word": "flower",
-            "meaning": "bông hoa",
-            "isCorrect": false
-          },
-          {
-            "word": "leaves",
-            "meaning": "lá cây",
-            "isCorrect": true
-          }
-        ],
-        "descriptiveVocabulary": [
-          {
-            "word": "covered",
-            "meaning": "bao phủ",
-            "isCorrect": true
-          },
-          {
-            "word": "running",
-            "meaning": "chạy dọc",
-            "isCorrect": true
-          },
-          {
-            "word": "floating",
-            "meaning": "nổi",
-            "isCorrect": false
-          },
-          {
-            "word": "tall",
-            "meaning": "cao",
+            "word": "under",
+            "meaning": "bên dưới",
             "isCorrect": true
           }
         ],
         "choices": {
-          "A": "A flower is floating on a lake.",
-          "B": "A pathway runs through a forest of tall trees.",
-          "C": "Leaves are hanging from the trees."
+          "A": "A bridge crosses over a wide river.",
+          "B": "People are walking along the rocky coast.",
+          "C": "A lighthouse stands alone under a cloudy sky."
         },
         "choicesVi": {
-          "A": "Một bông hoa đang nổi trên mặt hồ.",
-          "B": "Một lối đi chạy xuyên qua khu rừng với những cây cao.",
-          "C": "Những chiếc lá đang treo trên cây."
+          "A": "Một cây cầu bắc qua một con sông rộng.",
+          "B": "Người đi bộ dọc theo bờ biển đá.",
+          "C": "Một ngọn hải đăng đứng một mình dưới bầu trời nhiều mây."
         },
-        "correctAnswer": "B",
-        "audioScript": "Look at picture number 2. A. A flower is floating on a lake. B. A pathway runs through a forest of tall trees. C. Leaves are hanging from the trees.",
-        "explanation": "B đúng vì mô tả lối đi và rừng. A sai chủ thể, C sai về vị trí – lá nằm trên đất chứ không treo.",
-        "trapAnalysis": {
-          "singularPlural": true,
-          "keywordMisuse": true,
-          "assumption": false,
-          "similarSound": false,
-          "homophone": false,
-          "misfocus": true,
-          "details": "Distractor C sử dụng hình ảnh đúng (lá) nhưng sai vị trí – bẫy keywordMisuse."
-        },
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751868445/negck5lcbvrxy5aozvat.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751868522/n0qu6mneh2p0ksxatjoh.mp3"
+        "correctAnswer": "C",
+        "explanation": "C đúng vì đúng toàn bộ chi tiết cảnh vật trong ảnh.",
+        "traps": "A: Sai địa điểm – không có cầu và sông; B: Sai chủ thể – có người nhưng ảnh không có.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752023799/rqwulj76nw55g885ze5x.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752023891/lotlrut2ogmmvirmkw86.mp3"
       },
       {
         "questionNumber": 3,
-        "level": 2,
-        "imageDescription": "A large fountain is spraying water in the middle of a public square. Buildings surround the square and there are benches along the sides.",
+        "level": "Basic",
+        "imageDescription": "A snow-covered field stretches out with a single tree in the center.",
         "subjectVocabulary": [
-          {
-            "word": "fountain",
-            "meaning": "đài phun nước",
-            "isCorrect": true
-          },
-          {
-            "word": "square",
-            "meaning": "quảng trường",
-            "isCorrect": true
-          },
-          {
-            "word": "bench",
-            "meaning": "ghế dài",
-            "isCorrect": true
-          },
-          {
-            "word": "bridge",
-            "meaning": "cầu",
-            "isCorrect": false
-          },
-          {
-            "word": "pool",
-            "meaning": "hồ bơi",
-            "isCorrect": false
-          },
-          {
-            "word": "building",
-            "meaning": "tòa nhà",
-            "isCorrect": true
-          }
-        ],
-        "descriptiveVocabulary": [
-          {
-            "word": "spraying",
-            "meaning": "phun",
-            "isCorrect": true
-          },
-          {
-            "word": "surrounded",
-            "meaning": "bao quanh",
-            "isCorrect": true
-          },
-          {
-            "word": "crossing",
-            "meaning": "băng qua",
-            "isCorrect": false
-          },
-          {
-            "word": "floating",
-            "meaning": "trôi nổi",
-            "isCorrect": false
-          }
-        ],
-        "choices": {
-          "A": "A bridge is crossing a river near the square.",
-          "B": "A fountain is spraying water in a public square.",
-          "C": "People are floating in a swimming pool."
-        },
-        "choicesVi": {
-          "A": "Một cây cầu băng qua sông gần quảng trường.",
-          "B": "Một đài phun nước đang phun nước trong quảng trường.",
-          "C": "Mọi người đang nổi trong hồ bơi."
-        },
-        "correctAnswer": "B",
-        "audioScript": "Look at picture number 3. A. A bridge is crossing a river near the square. B. A fountain is spraying water in a public square. C. People are floating in a swimming pool.",
-        "explanation": "B đúng vì phản ánh đúng chi tiết trung tâm bức ảnh. A và C đều mô tả sai cảnh vật.",
-        "trapAnalysis": {
-          "singularPlural": false,
-          "keywordMisuse": true,
-          "assumption": false,
-          "similarSound": false,
-          "homophone": false,
-          "misfocus": true,
-          "details": "Distractors sử dụng hình ảnh không tồn tại – ví dụ bridge, swimming pool – để bẫy keyword."
-        },
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751868461/vgnpwmvg76tjgjezke0w.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751868525/mn5sskk8vwennn7yrqel.mp3"
-      },
-      {
-        "questionNumber": 4,
-        "level": 2,
-        "imageDescription": "A mountain range is visible in the distance with snow covering the peaks. In the foreground, there is a wooden fence and an open grassy field.",
-        "subjectVocabulary": [
-          {
-            "word": "mountains",
-            "meaning": "những ngọn núi",
-            "isCorrect": true
-          },
           {
             "word": "snow",
             "meaning": "tuyết",
             "isCorrect": true
           },
           {
-            "word": "fence",
-            "meaning": "hàng rào",
+            "word": "tree",
+            "meaning": "cái cây",
             "isCorrect": true
-          },
-          {
-            "word": "forest",
-            "meaning": "khu rừng",
-            "isCorrect": false
-          },
-          {
-            "word": "river",
-            "meaning": "con sông",
-            "isCorrect": false
           },
           {
             "word": "field",
             "meaning": "cánh đồng",
             "isCorrect": true
+          },
+          {
+            "word": "bench",
+            "meaning": "ghế dài",
+            "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
           {
             "word": "covered",
-            "meaning": "phủ đầy",
+            "meaning": "phủ",
             "isCorrect": true
           },
           {
-            "word": "open",
-            "meaning": "trống, mở",
+            "word": "stretches",
+            "meaning": "kéo dài",
             "isCorrect": true
           },
           {
-            "word": "flowing",
-            "meaning": "đang chảy",
-            "isCorrect": false
+            "word": "center",
+            "meaning": "trung tâm",
+            "isCorrect": true
           },
           {
-            "word": "surrounded",
-            "meaning": "bao quanh",
+            "word": "sunny",
+            "meaning": "nắng",
             "isCorrect": false
           }
         ],
         "choices": {
-          "A": "A forest surrounds the river and mountains.",
-          "B": "Snow is covering the mountain peaks.",
-          "C": "A boat is sailing through the field."
+          "A": "A bench is placed near a lake in the sun.",
+          "B": "A tree stands alone in a snow-covered field.",
+          "C": "People are sitting on benches under the sun."
         },
         "choicesVi": {
-          "A": "Một khu rừng bao quanh con sông và các ngọn núi.",
-          "B": "Tuyết đang phủ lên đỉnh núi.",
-          "C": "Một chiếc thuyền đang đi qua cánh đồng."
+          "A": "Một chiếc ghế dài được đặt gần hồ dưới ánh nắng.",
+          "B": "Một cái cây đứng một mình trên cánh đồng phủ tuyết.",
+          "C": "Mọi người đang ngồi trên ghế dưới ánh nắng."
         },
         "correctAnswer": "B",
-        "audioScript": "Look at picture number 4. A. A forest surrounds the river and mountains. B. Snow is covering the mountain peaks. C. A boat is sailing through the field.",
-        "explanation": "B đúng vì mô tả chính xác chi tiết tuyết trên đỉnh núi. A sai vì không có rừng hay sông, C hoàn toàn không phù hợp.",
-        "trapAnalysis": {
-          "singularPlural": true,
-          "keywordMisuse": true,
-          "assumption": false,
-          "similarSound": false,
-          "homophone": false,
-          "misfocus": true,
-          "details": "Distractor C vô lý (boat–field), A dùng từ có vẻ đúng (mountains) nhưng sai toàn cảnh – gây misfocus."
+        "explanation": "B đúng với hình ảnh cánh đồng tuyết và một cái cây duy nhất.",
+        "traps": "A: Sai vật thể – không có ghế dài; C: Sai số lượng và có người – ảnh không có người.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752023812/lfxrx6u2q8x42begwpjq.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752023894/nndy5a2sosujpb79weq3.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "level": "Basic",
+        "imageDescription": "A winding dirt path leads through a grassy meadow with mountains in the background.",
+        "subjectVocabulary": [
+          {
+            "word": "path",
+            "meaning": "con đường",
+            "isCorrect": true
+          },
+          {
+            "word": "meadow",
+            "meaning": "đồng cỏ",
+            "isCorrect": true
+          },
+          {
+            "word": "mountains",
+            "meaning": "núi",
+            "isCorrect": true
+          },
+          {
+            "word": "fence",
+            "meaning": "hàng rào",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "winding",
+            "meaning": "uốn khúc",
+            "isCorrect": true
+          },
+          {
+            "word": "grassy",
+            "meaning": "cỏ",
+            "isCorrect": true
+          },
+          {
+            "word": "background",
+            "meaning": "phía sau",
+            "isCorrect": true
+          },
+          {
+            "word": "leads",
+            "meaning": "dẫn tới",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "A wooden fence separates two houses.",
+          "B": "A dirt path runs through a meadow with mountains behind it.",
+          "C": "A person is walking across a bridge in a forest."
         },
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751868477/gzhoxgs5ncjrb8fo4md7.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751868527/zee5hvpxbbo3ckiussmx.mp3"
+        "choicesVi": {
+          "A": "Một hàng rào gỗ ngăn cách hai ngôi nhà.",
+          "B": "Một con đường đất chạy qua đồng cỏ với núi phía sau.",
+          "C": "Một người đang đi qua cầu trong rừng."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng với cảnh vật có đường, đồng cỏ và núi, không có người.",
+        "traps": "A: Sai vật thể – không có hàng rào hay nhà; C: Có người – ảnh không có người.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752023826/ciebvywmt0vqrnnf6sqn.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752023897/zbvin9wtfbnjprk60n8d.mp3"
       },
       {
         "questionNumber": 5,
-        "level": 2,
-        "imageDescription": "An empty beach stretches along the coastline with gentle waves reaching the shore. There are no people or boats in sight.",
+        "level": "Basic",
+        "imageDescription": "Palm trees line a quiet beach with gentle waves and no visible people.",
         "subjectVocabulary": [
+          {
+            "word": "palm trees",
+            "meaning": "cây dừa",
+            "isCorrect": true
+          },
           {
             "word": "beach",
             "meaning": "bãi biển",
@@ -4053,155 +3982,112 @@
             "isCorrect": true
           },
           {
-            "word": "coastline",
-            "meaning": "đường bờ biển",
-            "isCorrect": true
-          },
-          {
-            "word": "boat",
-            "meaning": "thuyền",
-            "isCorrect": false
-          },
-          {
-            "word": "umbrella",
-            "meaning": "cái ô",
-            "isCorrect": false
-          },
-          {
-            "word": "rocks",
-            "meaning": "những tảng đá",
+            "word": "road",
+            "meaning": "con đường",
             "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
           {
-            "word": "stretching",
-            "meaning": "kéo dài",
+            "word": "quiet",
+            "meaning": "yên tĩnh",
+            "isCorrect": true
+          },
+          {
+            "word": "line",
+            "meaning": "xếp dọc",
             "isCorrect": true
           },
           {
             "word": "gentle",
-            "meaning": "êm dịu",
+            "meaning": "nhẹ nhàng",
             "isCorrect": true
           },
           {
-            "word": "crowded",
-            "meaning": "đông đúc",
-            "isCorrect": false
-          },
-          {
-            "word": "parked",
-            "meaning": "đậu",
-            "isCorrect": false
+            "word": "visible",
+            "meaning": "có thể nhìn thấy",
+            "isCorrect": true
           }
         ],
         "choices": {
-          "A": "A beach is crowded with umbrellas and people.",
-          "B": "Boats are parked near the shore.",
-          "C": "Waves are gently reaching the empty beach."
+          "A": "Cars are parked beside a busy road.",
+          "B": "People are playing volleyball on a crowded beach.",
+          "C": "Palm trees line a quiet beach with gentle waves."
         },
         "choicesVi": {
-          "A": "Bãi biển đông đúc với ô và người.",
-          "B": "Thuyền đang đậu gần bờ biển.",
-          "C": "Những con sóng đang nhẹ nhàng vỗ vào bãi biển vắng."
+          "A": "Ô tô đậu cạnh một con đường đông đúc.",
+          "B": "Mọi người đang chơi bóng chuyền trên bãi biển đông đúc.",
+          "C": "Cây dừa xếp dọc bãi biển yên tĩnh với sóng nhẹ."
         },
         "correctAnswer": "C",
-        "audioScript": "Look at picture number 5. A. A beach is crowded with umbrellas and people. B. Boats are parked near the shore. C. Waves are gently reaching the empty beach.",
-        "explanation": "C đúng vì mô tả đúng toàn cảnh. A và B đều sai vì ảnh không có người, ô hay thuyền.",
-        "trapAnalysis": {
-          "singularPlural": false,
-          "keywordMisuse": true,
-          "assumption": false,
-          "similarSound": false,
-          "homophone": false,
-          "misfocus": true,
-          "details": "Distractors cố tình tạo cảnh thường thấy để đánh lừa người học, nhưng ảnh thật rất vắng – bẫy keyword và misfocus."
-        },
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751868491/aacyzx2jq6wxgntzuaag.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751868534/ygnysda4mkkzw3h2enjg.mp3"
+        "explanation": "C đúng vì mô tả đầy đủ và chính xác toàn cảnh biển vắng và không người.",
+        "traps": "A, B: Sai địa điểm và sai chủ thể – có người hoặc xe trong khi ảnh không có.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752023839/xgnoebq1efg2dbjh5lry.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752023900/vtijgzh3ctd94qn2fmjs.mp3"
       },
       {
         "questionNumber": 6,
-        "level": 2,
-        "imageDescription": "A city skyline with several tall buildings under a partly cloudy sky. There are no visible vehicles or people in the image.",
+        "level": "Basic",
+        "imageDescription": "A wide desert with sand dunes stretches to the horizon without any vegetation or people.",
         "subjectVocabulary": [
           {
-            "word": "skyline",
-            "meaning": "đường chân trời",
+            "word": "desert",
+            "meaning": "sa mạc",
             "isCorrect": true
           },
           {
-            "word": "buildings",
-            "meaning": "những tòa nhà",
+            "word": "dunes",
+            "meaning": "cồn cát",
             "isCorrect": true
           },
           {
-            "word": "sky",
-            "meaning": "bầu trời",
+            "word": "sand",
+            "meaning": "cát",
             "isCorrect": true
           },
           {
-            "word": "car",
-            "meaning": "xe hơi",
-            "isCorrect": false
-          },
-          {
-            "word": "crowd",
-            "meaning": "đám đông",
-            "isCorrect": false
-          },
-          {
-            "word": "street",
-            "meaning": "đường phố",
+            "word": "grass",
+            "meaning": "cỏ",
             "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
           {
-            "word": "tall",
-            "meaning": "cao",
+            "word": "wide",
+            "meaning": "rộng",
             "isCorrect": true
           },
           {
-            "word": "cloudy",
-            "meaning": "nhiều mây",
+            "word": "stretches",
+            "meaning": "kéo dài",
             "isCorrect": true
           },
           {
-            "word": "moving",
-            "meaning": "di chuyển",
-            "isCorrect": false
+            "word": "horizon",
+            "meaning": "chân trời",
+            "isCorrect": true
           },
           {
-            "word": "crowded",
-            "meaning": "đông đúc",
-            "isCorrect": false
+            "word": "vegetation",
+            "meaning": "thảm thực vật",
+            "isCorrect": true
           }
         ],
         "choices": {
-          "A": "The buildings are tall under a cloudy sky.",
-          "B": "Cars are moving through the crowded street.",
-          "C": "People are walking in front of the buildings."
+          "A": "A grassy hill overlooks a river valley.",
+          "B": "People are climbing rocks in a forested area.",
+          "C": "Sand dunes stretch across a wide desert to the horizon."
         },
         "choicesVi": {
-          "A": "Những tòa nhà cao dưới bầu trời nhiều mây.",
-          "B": "Những chiếc xe đang di chuyển qua con đường đông đúc.",
-          "C": "Mọi người đang đi bộ trước các tòa nhà."
+          "A": "Một ngọn đồi có cỏ nhìn xuống thung lũng sông.",
+          "B": "Người đang leo đá trong khu vực có rừng.",
+          "C": "Cồn cát trải dài khắp sa mạc rộng tới tận chân trời."
         },
-        "correctAnswer": "A",
-        "audioScript": "Look at picture number 6. A. The buildings are tall under a cloudy sky. B. Cars are moving through the crowded street. C. People are walking in front of the buildings.",
-        "explanation": "A đúng vì mô tả chính xác. B và C sai vì không có người hay phương tiện nào xuất hiện.",
-        "trapAnalysis": {
-          "singularPlural": true,
-          "keywordMisuse": true,
-          "assumption": false,
-          "similarSound": false,
-          "homophone": false,
-          "misfocus": true,
-          "details": "Distractor B và C gài nội dung quen thuộc nhưng không có thật – gây hiểu sai về cảnh đô thị bận rộn."
-        },
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751868507/zyvqtg2tjpx5tkabufl3.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751868537/igouwkpm0phamkfifeke.mp3"
+        "correctAnswer": "C",
+        "explanation": "C mô tả đúng hoàn toàn bối cảnh sa mạc không có cây cối hay người.",
+        "traps": "A: Sai vật thể – có cỏ và sông; B: Có người, sai địa hình – bẫy assumption và misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752023851/v80jg3dumfj8v6nt82dj.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752023902/hobnradywfgk6x5aiiyo.mp3"
       }
     ]
   }

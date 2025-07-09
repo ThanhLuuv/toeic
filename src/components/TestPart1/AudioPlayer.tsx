@@ -92,7 +92,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef, forceStop
   }, [isDragging]);
 
   useEffect(() => {
-    if (ref.current) ref.current.load();
+    if (ref.current) {
+      ref.current.load();
+      setIsPlaying(false);
+      setCurrentTime(0);
+    }
   }, [audioSrc]);
 
   // Force stop audio when forceStop prop changes
