@@ -10,21 +10,25 @@
           {
             "word": "woman",
             "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊmən/",
             "isCorrect": true
           },
           {
             "word": "laptop",
             "meaning": "máy tính xách tay",
+            "pronunciation": "/ˈlæptɒp/",
             "isCorrect": true
           },
           {
             "word": "desk",
             "meaning": "bàn làm việc",
+            "pronunciation": "/desk/",
             "isCorrect": true
           },
           {
             "word": "bag",
             "meaning": "cái túi",
+            "pronunciation": "/bæɡ/",
             "isCorrect": false
           }
         ],
@@ -32,21 +36,25 @@
           {
             "word": "typing",
             "meaning": "đang gõ",
+            "pronunciation": "/ˈtaɪpɪŋ/",
             "isCorrect": true
           },
           {
             "word": "at",
             "meaning": "tại",
+            "pronunciation": "/æt/",
             "isCorrect": true
           },
           {
             "word": "standing",
             "meaning": "đang đứng",
+            "pronunciation": "/ˈstændɪŋ/",
             "isCorrect": false
           },
           {
             "word": "office",
             "meaning": "văn phòng",
+            "pronunciation": "/ˈɒfɪs/",
             "isCorrect": true
           }
         ],
@@ -74,21 +82,25 @@
           {
             "word": "man",
             "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
             "isCorrect": true
           },
           {
             "word": "book",
             "meaning": "quyển sách",
+            "pronunciation": "/bʊk/",
             "isCorrect": true
           },
           {
             "word": "bench",
             "meaning": "ghế dài",
+            "pronunciation": "/bentʃ/",
             "isCorrect": true
           },
           {
             "word": "bottle",
             "meaning": "chai",
+            "pronunciation": "/ˈbɒtl/",
             "isCorrect": false
           }
         ],
@@ -96,21 +108,25 @@
           {
             "word": "reading",
             "meaning": "đang đọc",
+            "pronunciation": "/ˈriːdɪŋ/",
             "isCorrect": true
           },
           {
             "word": "sitting",
             "meaning": "đang ngồi",
+            "pronunciation": "/ˈsɪtɪŋ/",
             "isCorrect": true
           },
           {
             "word": "alone",
             "meaning": "một mình",
+            "pronunciation": "/əˈləʊn/",
             "isCorrect": true
           },
           {
             "word": "standing",
             "meaning": "đang đứng",
+            "pronunciation": "/ˈstændɪŋ/",
             "isCorrect": false
           }
         ],
@@ -138,21 +154,25 @@
           {
             "word": "woman",
             "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊmən/",
             "isCorrect": true
           },
           {
             "word": "notebook",
             "meaning": "sổ tay",
+            "pronunciation": "/ˈnəʊtbʊk/",
             "isCorrect": true
           },
           {
             "word": "table",
             "meaning": "bàn",
+            "pronunciation": "/ˈteɪbl/",
             "isCorrect": true
           },
           {
             "word": "screen",
             "meaning": "màn hình",
+            "pronunciation": "/skriːn/",
             "isCorrect": false
           }
         ],
@@ -160,21 +180,25 @@
           {
             "word": "writing",
             "meaning": "đang viết",
+            "pronunciation": "/ˈraɪtɪŋ/",
             "isCorrect": true
           },
           {
             "word": "clean",
             "meaning": "sạch sẽ",
+            "pronunciation": "/kliːn/",
             "isCorrect": true
           },
           {
             "word": "watching",
             "meaning": "đang xem",
+            "pronunciation": "/ˈwɒtʃɪŋ/",
             "isCorrect": false
           },
           {
             "word": "quiet",
             "meaning": "yên tĩnh",
+            "pronunciation": "/ˈkwaɪət/",
             "isCorrect": true
           }
         ],
@@ -202,21 +226,25 @@
           {
             "word": "man",
             "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
             "isCorrect": true
           },
           {
             "word": "coffee",
             "meaning": "cà phê",
+            "pronunciation": "/ˈkɒfi/",
             "isCorrect": true
           },
           {
             "word": "cup",
             "meaning": "cái cốc",
+            "pronunciation": "/kʌp/",
             "isCorrect": true
           },
           {
             "word": "bowl",
             "meaning": "cái bát",
+            "pronunciation": "/bəʊl/",
             "isCorrect": false
           }
         ],
@@ -224,21 +252,25 @@
           {
             "word": "pouring",
             "meaning": "đang rót",
+            "pronunciation": "/ˈpɔːrɪŋ/",
             "isCorrect": true
           },
           {
             "word": "kitchen",
             "meaning": "nhà bếp",
+            "pronunciation": "/ˈkɪtʃɪn/",
             "isCorrect": true
           },
           {
             "word": "drinking",
             "meaning": "đang uống",
+            "pronunciation": "/ˈdrɪŋkɪŋ/",
             "isCorrect": false
           },
           {
             "word": "into",
             "meaning": "vào",
+            "pronunciation": "/ˈɪntuː/",
             "isCorrect": true
           }
         ],
@@ -266,21 +298,25 @@
           {
             "word": "woman",
             "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊmən/",
             "isCorrect": true
           },
           {
             "word": "baby",
             "meaning": "em bé",
+            "pronunciation": "/ˈbeɪbi/",
             "isCorrect": true
           },
           {
             "word": "window",
             "meaning": "cửa sổ",
+            "pronunciation": "/ˈwɪndəʊ/",
             "isCorrect": true
           },
           {
             "word": "mirror",
             "meaning": "gương",
+            "pronunciation": "/ˈmɪrə/",
             "isCorrect": false
           }
         ],
@@ -288,21 +324,25 @@
           {
             "word": "holding",
             "meaning": "đang bế",
+            "pronunciation": "/ˈhəʊldɪŋ/",
             "isCorrect": true
           },
           {
             "word": "near",
             "meaning": "gần",
+            "pronunciation": "/nɪə/",
             "isCorrect": true
           },
           {
             "word": "standing",
             "meaning": "đang đứng",
+            "pronunciation": "/ˈstændɪŋ/",
             "isCorrect": true
           },
           {
             "word": "sleeping",
             "meaning": "đang ngủ",
+            "pronunciation": "/ˈsliːpɪŋ/",
             "isCorrect": false
           }
         ],
@@ -330,21 +370,25 @@
           {
             "word": "man",
             "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
             "isCorrect": true
           },
           {
             "word": "smartphone",
             "meaning": "điện thoại thông minh",
+            "pronunciation": "/ˈsmɑːtfəʊn/",
             "isCorrect": true
           },
           {
             "word": "street",
             "meaning": "đường phố",
+            "pronunciation": "/striːt/",
             "isCorrect": true
           },
           {
             "word": "bicycle",
             "meaning": "xe đạp",
+            "pronunciation": "/ˈbaɪsɪkl/",
             "isCorrect": false
           }
         ],
@@ -352,21 +396,25 @@
           {
             "word": "using",
             "meaning": "đang sử dụng",
+            "pronunciation": "/ˈjuːzɪŋ/",
             "isCorrect": true
           },
           {
             "word": "walking",
             "meaning": "đang đi bộ",
+            "pronunciation": "/ˈwɔːkɪŋ/",
             "isCorrect": true
           },
           {
             "word": "riding",
             "meaning": "đang lái",
+            "pronunciation": "/ˈraɪdɪŋ/",
             "isCorrect": false
           },
           {
             "word": "down",
             "meaning": "xuống",
+            "pronunciation": "/daʊn/",
             "isCorrect": true
           }
         ],
@@ -385,6 +433,437 @@
         "traps": "B: Sai hành động và vật thể (đi bộ, không đi xe đạp). C: Sai hoàn toàn chủ thể (không có xe đạp trong ảnh).",
         "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966369/jmgilndbeha4ujkektlo.png",
         "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966414/eaegmesx38kayr9ddjij.mp3"
+      },{
+        "questionNumber": 1,
+        "level": "Basic",
+        "imageDescription": "A man is reading a newspaper while sitting on a bench.",
+        "subjectVocabulary": [
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
+            "isCorrect": true
+          },
+          {
+            "word": "newspaper",
+            "meaning": "báo",
+            "pronunciation": "/ˈnuːzˌpeɪ.pɚ/",
+            "isCorrect": true
+          },
+          {
+            "word": "bench",
+            "meaning": "ghế dài",
+            "pronunciation": "/bentʃ/",
+            "isCorrect": true
+          },
+          {
+            "word": "book",
+            "meaning": "sách",
+            "pronunciation": "/bʊk/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "reading",
+            "meaning": "đang đọc",
+            "pronunciation": "/ˈriː.dɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "sitting",
+            "meaning": "đang ngồi",
+            "pronunciation": "/ˈsɪt.ɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "pronunciation": "/ˈstæn.dɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "walking",
+            "meaning": "đang đi bộ",
+            "pronunciation": "/ˈwɑː.kɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A man is standing near a bench.",
+          "B": "A man is reading a book on the grass.",
+          "C": "A man is reading a newspaper while sitting on a bench."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang đứng gần ghế dài.",
+          "B": "Một người đàn ông đang đọc sách trên bãi cỏ.",
+          "C": "Một người đàn ông đang đọc báo trong khi ngồi trên ghế dài."
+        },
+        "correctAnswer": "C",
+        "explanation": "Câu C đúng vì mô tả chính xác hành động và vị trí của người đàn ông. A sai vì người đàn ông không đứng. B sai về vật thể đang đọc (book thay vì newspaper).",
+        "traps": "assumption: mô tả hành động không tồn tại (đứng); keywordMisuse: dùng từ đúng (book) nhưng sai vật thể",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752042664/eme8rb5ied8awny41dx0.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752042724/orhz36qctirbehpiyckj.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "level": "Basic",
+        "imageDescription": "A woman is talking on the phone in an office.",
+        "subjectVocabulary": [
+          {
+            "word": "woman",
+            "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊm.ən/",
+            "isCorrect": true
+          },
+          {
+            "word": "phone",
+            "meaning": "điện thoại",
+            "pronunciation": "/foʊn/",
+            "isCorrect": true
+          },
+          {
+            "word": "office",
+            "meaning": "văn phòng",
+            "pronunciation": "/ˈɑː.fɪs/",
+            "isCorrect": true
+          },
+          {
+            "word": "computer",
+            "meaning": "máy tính",
+            "pronunciation": "/kəmˈpjuː.t̬ɚ/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "talking",
+            "meaning": "đang nói",
+            "pronunciation": "/ˈtɑː.kɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "on the phone",
+            "meaning": "trên điện thoại",
+            "pronunciation": "/ɑːn ðə foʊn/",
+            "isCorrect": true
+          },
+          {
+            "word": "typing",
+            "meaning": "đang gõ phím",
+            "pronunciation": "/ˈtaɪ.pɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "writing",
+            "meaning": "đang viết",
+            "pronunciation": "/ˈraɪ.t̬ɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A woman is talking on the phone in an office.",
+          "B": "A woman is typing on a computer.",
+          "C": "A woman is writing on a notepad."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang nói chuyện điện thoại trong văn phòng.",
+          "B": "Một người phụ nữ đang gõ phím trên máy tính.",
+          "C": "Một người phụ nữ đang viết vào sổ ghi chú."
+        },
+        "correctAnswer": "A",
+        "explanation": "Câu A đúng vì đúng hành động và địa điểm. B sai vì người phụ nữ không gõ phím. C sai vì người phụ nữ không viết.",
+        "traps": "keywordMisuse: dùng sai hành động mặc dù đúng chủ thể (typing, writing)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752042675/j0pndijzrjdxrep2zmwm.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752042727/vwk3ibhbfszg3rkijikp.mp3"
+      },
+      {
+        "questionNumber": 3,
+        "level": "Basic",
+        "imageDescription": "A woman is playing the guitar on a chair.",
+        "subjectVocabulary": [
+          {
+            "word": "woman",
+            "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊm.ən/",
+            "isCorrect": true
+          },
+          {
+            "word": "guitar",
+            "meaning": "đàn guitar",
+            "pronunciation": "/ɡɪˈtɑːr/",
+            "isCorrect": true
+          },
+          {
+            "word": "chair",
+            "meaning": "ghế",
+            "pronunciation": "/tʃer/",
+            "isCorrect": true
+          },
+          {
+            "word": "piano",
+            "meaning": "đàn piano",
+            "pronunciation": "/piˈæn.oʊ/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "playing",
+            "meaning": "đang chơi",
+            "pronunciation": "/ˈpleɪ.ɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "on a chair",
+            "meaning": "trên ghế",
+            "pronunciation": "/ɑːn ə tʃer/",
+            "isCorrect": true
+          },
+          {
+            "word": "standing",
+            "meaning": "đứng",
+            "pronunciation": "/ˈstæn.dɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "sleeping",
+            "meaning": "ngủ",
+            "pronunciation": "/ˈsliː.pɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A woman is playing the piano.",
+          "B": "A woman is playing the guitar on a chair.",
+          "C": "A woman is standing next to a guitar."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang chơi đàn piano.",
+          "B": "Một người phụ nữ đang chơi đàn guitar trên ghế.",
+          "C": "Một người phụ nữ đang đứng cạnh đàn guitar."
+        },
+        "correctAnswer": "B",
+        "explanation": "B là đúng vì đúng hành động và vị trí. A sai nhạc cụ. C sai hành động, không phải đứng mà là chơi.",
+        "traps": "keywordMisuse: dùng sai nhạc cụ (piano); assumption: giả định hành động không có (standing)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752042686/va9uph3tsydo35z1fsvd.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752042729/xgzyryzwawiwpeyihyhj.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "level": "Basic",
+        "imageDescription": "A man is drinking water from a bottle.",
+        "subjectVocabulary": [
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
+            "isCorrect": true
+          },
+          {
+            "word": "bottle",
+            "meaning": "chai",
+            "pronunciation": "/ˈbɑː.t̬əl/",
+            "isCorrect": true
+          },
+          {
+            "word": "water",
+            "meaning": "nước",
+            "pronunciation": "/ˈwɑː.t̬ɚ/",
+            "isCorrect": true
+          },
+          {
+            "word": "cup",
+            "meaning": "cốc",
+            "pronunciation": "/kʌp/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "drinking",
+            "meaning": "đang uống",
+            "pronunciation": "/ˈdrɪŋ.kɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "from",
+            "meaning": "từ",
+            "pronunciation": "/frəm/",
+            "isCorrect": true
+          },
+          {
+            "word": "pouring",
+            "meaning": "đang rót",
+            "pronunciation": "/ˈpɔː.rɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "washing",
+            "meaning": "đang rửa",
+            "pronunciation": "/ˈwɑː.ʃɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A man is pouring water into a glass.",
+          "B": "A man is drinking water from a bottle.",
+          "C": "A man is washing a bottle."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang rót nước vào ly.",
+          "B": "Một người đàn ông đang uống nước từ chai.",
+          "C": "Một người đàn ông đang rửa một cái chai."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng vì hành động đang uống và từ chai. A sai hành động (pouring). C sai hành động (washing).",
+        "traps": "keywordMisuse: hành động sai mặc dù đúng vật thể (pouring); assumption: giả định hành động không tồn tại (washing)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752042699/ropmupztx11vveebqarm.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752042732/wovlztginaadl34mdthp.mp3"
+      },
+      {
+        "questionNumber": 5,
+        "level": "Basic",
+        "imageDescription": "A man is tying his shoelaces.",
+        "subjectVocabulary": [
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
+            "isCorrect": true
+          },
+          {
+            "word": "shoelaces",
+            "meaning": "dây giày",
+            "pronunciation": "/ˈʃuː.leɪsɪz/",
+            "isCorrect": true
+          },
+          {
+            "word": "shoes",
+            "meaning": "giày",
+            "pronunciation": "/ʃuːz/",
+            "isCorrect": true
+          },
+          {
+            "word": "socks",
+            "meaning": "tất",
+            "pronunciation": "/sɑːks/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "tying",
+            "meaning": "đang buộc",
+            "pronunciation": "/ˈtaɪ.ɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "his",
+            "meaning": "của anh ấy",
+            "pronunciation": "/hɪz/",
+            "isCorrect": true
+          },
+          {
+            "word": "removing",
+            "meaning": "đang tháo",
+            "pronunciation": "/rɪˈmuː.vɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "cleaning",
+            "meaning": "đang lau",
+            "pronunciation": "/ˈkliː.nɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A man is cleaning his shoes.",
+          "B": "A man is tying his shoelaces.",
+          "C": "A man is taking off his socks."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang lau giày.",
+          "B": "Một người đàn ông đang buộc dây giày.",
+          "C": "Một người đàn ông đang tháo tất."
+        },
+        "correctAnswer": "B",
+        "explanation": "B là đúng vì mô tả chính xác hành động buộc dây giày. A và C sai hành động và vật thể.",
+        "traps": "keywordMisuse: cleaning không đúng với hành động thực tế; assumption: giả định người đó tháo tất",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752042709/yrcorr1zntriag3m7c1j.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752042734/rb0pkko6shtbgggynpwf.mp3"
+      },
+      {
+        "questionNumber": 6,
+        "level": "Basic",
+        "imageDescription": "A woman is brushing her hair in front of a mirror.",
+        "subjectVocabulary": [
+          {
+            "word": "woman",
+            "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊm.ən/",
+            "isCorrect": true
+          },
+          {
+            "word": "hair",
+            "meaning": "tóc",
+            "pronunciation": "/her/",
+            "isCorrect": true
+          },
+          {
+            "word": "mirror",
+            "meaning": "gương",
+            "pronunciation": "/ˈmɪr.ɚ/",
+            "isCorrect": true
+          },
+          {
+            "word": "hat",
+            "meaning": "mũ",
+            "pronunciation": "/hæt/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "brushing",
+            "meaning": "chải",
+            "pronunciation": "/ˈbrʌʃ.ɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "in front of",
+            "meaning": "trước",
+            "pronunciation": "/ɪn frʌnt ʌv/",
+            "isCorrect": true
+          },
+          {
+            "word": "wearing",
+            "meaning": "đang đội",
+            "pronunciation": "/ˈwer.ɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "washing",
+            "meaning": "đang rửa",
+            "pronunciation": "/ˈwɑː.ʃɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A woman is wearing a hat.",
+          "B": "A woman is brushing her hair in front of a mirror.",
+          "C": "A woman is washing her hands."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang đội mũ.",
+          "B": "Một người phụ nữ đang chải tóc trước gương.",
+          "C": "Một người phụ nữ đang rửa tay."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng vì mô tả đúng hành động chải tóc trước gương. A sai về vật thể (hat). C sai hành động.",
+        "traps": "keywordMisuse: dùng sai vật thể (hat); misfocus: tập trung sai vào tay thay vì tóc",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752042720/sqd662wpmqdrhc4imxix.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752042737/shhsnanvzlueyhofet8l.mp3"
       }
     ],
     "level2 ": [
@@ -4088,6 +4567,392 @@
         "traps": "A: Sai vật thể – có cỏ và sông; B: Có người, sai địa hình – bẫy assumption và misfocus.",
         "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752023851/v80jg3dumfj8v6nt82dj.png",
         "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752023902/hobnradywfgk6x5aiiyo.mp3"
+      }
+    ],
+    "level2": [
+      {
+        "questionNumber": 1,
+        "level": "Intermediate",
+        "imageDescription": "A group of hikers is walking along a trail beside a mountain stream with trees on both sides.",
+        "subjectVocabulary": [
+          {
+            "word": "hikers",
+            "meaning": "người đi bộ đường dài",
+            "isCorrect": true
+          },
+          {
+            "word": "trail",
+            "meaning": "đường mòn",
+            "isCorrect": true
+          },
+          {
+            "word": "stream",
+            "meaning": "dòng suối",
+            "isCorrect": true
+          },
+          {
+            "word": "road",
+            "meaning": "con đường",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "walking",
+            "meaning": "đang đi bộ",
+            "isCorrect": true
+          },
+          {
+            "word": "beside",
+            "meaning": "bên cạnh",
+            "isCorrect": true
+          },
+          {
+            "word": "trees",
+            "meaning": "cây",
+            "isCorrect": true
+          },
+          {
+            "word": "crossing",
+            "meaning": "đi qua",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A single hiker is crossing a road in the forest.",
+          "B": "Hikers are walking beside a stream with trees around.",
+          "C": "Cars are parked near a city sidewalk."
+        },
+        "choicesVi": {
+          "A": "Một người đi bộ đang băng qua con đường trong rừng.",
+          "B": "Những người đi bộ đang đi cạnh dòng suối với cây cối xung quanh.",
+          "C": "Xe hơi đang đậu gần lề đường thành phố."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng với tất cả chi tiết trong ảnh: nhiều người, dòng suối, cây cối, đường mòn.",
+        "traps": "A: Sai số lượng (1 người thay vì nhóm) và hành động sai (crossing thay vì walking) – bẫy singularPlural + keywordMisuse. C: Sai bối cảnh hoàn toàn – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752041141/berenxce8rkadndgiuvl.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752041199/jvp1hiyrtqfalu27lewx.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "level": "Intermediate",
+        "imageDescription": "Two campers are setting up a tent on grassy ground with a lake and hills in the background.",
+        "subjectVocabulary": [
+          {
+            "word": "campers",
+            "meaning": "người cắm trại",
+            "isCorrect": true
+          },
+          {
+            "word": "tent",
+            "meaning": "lều",
+            "isCorrect": true
+          },
+          {
+            "word": "lake",
+            "meaning": "hồ",
+            "isCorrect": true
+          },
+          {
+            "word": "cabin",
+            "meaning": "nhà gỗ",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "setting up",
+            "meaning": "dựng lên",
+            "isCorrect": true
+          },
+          {
+            "word": "grassy",
+            "meaning": "cỏ",
+            "isCorrect": true
+          },
+          {
+            "word": "background",
+            "meaning": "nền phía sau",
+            "isCorrect": true
+          },
+          {
+            "word": "floating",
+            "meaning": "trôi",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A wooden cabin is floating on a river.",
+          "B": "Campers are setting up a tent near a lake with hills behind.",
+          "C": "Boats are being tied to a dock."
+        },
+        "choicesVi": {
+          "A": "Một căn nhà gỗ đang trôi trên sông.",
+          "B": "Những người cắm trại đang dựng lều gần hồ với đồi phía sau.",
+          "C": "Những chiếc thuyền đang được buộc vào cầu tàu."
+        },
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng người, hành động, và khung cảnh đồi – hồ.",
+        "traps": "A: Sai vật thể (cabin thay vì tent), hành động không hợp lý – bẫy keywordMisuse. C: Sai chủ thể hoàn toàn – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752041152/afxigamubjjgvlazbsjs.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752041203/gkksrbg4gxrrug5ozggt.mp3"
+      },
+      {
+        "questionNumber": 3,
+        "level": "Intermediate",
+        "imageDescription": "A couple is sitting on a bench at the edge of a forest clearing, looking at the sunset.",
+        "subjectVocabulary": [
+          {
+            "word": "couple",
+            "meaning": "cặp đôi",
+            "isCorrect": true
+          },
+          {
+            "word": "bench",
+            "meaning": "ghế dài",
+            "isCorrect": true
+          },
+          {
+            "word": "forest",
+            "meaning": "khu rừng",
+            "isCorrect": true
+          },
+          {
+            "word": "tent",
+            "meaning": "lều",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "sitting",
+            "meaning": "đang ngồi",
+            "isCorrect": true
+          },
+          {
+            "word": "clearing",
+            "meaning": "khoảng rừng trống",
+            "isCorrect": true
+          },
+          {
+            "word": "sunset",
+            "meaning": "hoàng hôn",
+            "isCorrect": true
+          },
+          {
+            "word": "pitching",
+            "meaning": "dựng (lều)",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A couple is sitting on a bench near a forest clearing.",
+          "B": "Campers are pitching a tent near the ocean.",
+          "C": "Children are swimming in a pool."
+        },
+        "choicesVi": {
+          "A": "Một cặp đôi đang ngồi trên ghế dài gần khoảng rừng trống.",
+          "B": "Người cắm trại đang dựng lều gần đại dương.",
+          "C": "Trẻ em đang bơi trong hồ bơi."
+        },
+        "correctAnswer": "A",
+        "explanation": "A mô tả chính xác chủ thể, hành động, và khung cảnh rừng hoàng hôn.",
+        "traps": "B: Sai hành động và bối cảnh – bẫy keywordMisuse. C: Sai chủ thể hoàn toàn – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752041163/gdmfk3o9wzbuw73vt2ew.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752041206/rhmpfu6txarykzi4rrin.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "level": "Intermediate",
+        "imageDescription": "Four people are standing on a rocky cliff overlooking the sea on a cloudy day.",
+        "subjectVocabulary": [
+          {
+            "word": "cliff",
+            "meaning": "vách đá",
+            "isCorrect": true
+          },
+          {
+            "word": "sea",
+            "meaning": "biển",
+            "isCorrect": true
+          },
+          {
+            "word": "people",
+            "meaning": "người",
+            "isCorrect": true
+          },
+          {
+            "word": "bridge",
+            "meaning": "cầu",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "isCorrect": true
+          },
+          {
+            "word": "rocky",
+            "meaning": "đá",
+            "isCorrect": true
+          },
+          {
+            "word": "overlooking",
+            "meaning": "nhìn ra",
+            "isCorrect": true
+          },
+          {
+            "word": "cloudy",
+            "meaning": "nhiều mây",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "A bridge stretches across a sunny bay.",
+          "B": "People are standing on a cliff overlooking the sea.",
+          "C": "Fishermen are pulling nets on a dock."
+        },
+        "choicesVi": {
+          "A": "Một cây cầu bắc qua vịnh nắng.",
+          "B": "Mọi người đang đứng trên vách đá nhìn ra biển.",
+          "C": "Ngư dân đang kéo lưới trên bến tàu."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng với hình ảnh có người đứng trên vách đá, biển và mây.",
+        "traps": "A: Sai vật thể và thời tiết – bẫy keywordMisuse. C: Sai hành động – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752041171/gendmb5a7nf2vshbfd35.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752041209/lrauyrxpzqi6wvczunwd.mp3"
+      },
+      {
+        "questionNumber": 5,
+        "level": "Intermediate",
+        "imageDescription": "Several hot air balloons are floating above a field during sunrise with mountains in the distance.",
+        "subjectVocabulary": [
+          {
+            "word": "hot air balloons",
+            "meaning": "khinh khí cầu",
+            "isCorrect": true
+          },
+          {
+            "word": "field",
+            "meaning": "cánh đồng",
+            "isCorrect": true
+          },
+          {
+            "word": "mountains",
+            "meaning": "núi",
+            "isCorrect": true
+          },
+          {
+            "word": "planes",
+            "meaning": "máy bay",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "floating",
+            "meaning": "bay lơ lửng",
+            "isCorrect": true
+          },
+          {
+            "word": "above",
+            "meaning": "trên",
+            "isCorrect": true
+          },
+          {
+            "word": "sunrise",
+            "meaning": "bình minh",
+            "isCorrect": true
+          },
+          {
+            "word": "distance",
+            "meaning": "xa xa",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "Planes are taking off from an airport.",
+          "B": "People are walking in a forest trail.",
+          "C": "Hot air balloons are floating over a field with mountains behind."
+        },
+        "choicesVi": {
+          "A": "Máy bay đang cất cánh từ sân bay.",
+          "B": "Người đang đi bộ trong đường mòn rừng.",
+          "C": "Khinh khí cầu bay lơ lửng trên cánh đồng với núi phía sau."
+        },
+        "correctAnswer": "C",
+        "explanation": "C đúng về vật thể, vị trí, thời điểm trong ngày và cảnh nền.",
+        "traps": "A: Sai vật thể hoàn toàn – bẫy keywordMisuse. B: Không đúng hành động và vị trí – bẫy misfocus.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752041180/r45tdbq9oio7v71o16e4.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752041213/m2sykk5jkx8ublawbdtu.mp3"
+      },
+      {
+        "questionNumber": 6,
+        "level": "Intermediate",
+        "imageDescription": "A man and a woman are walking across a wooden bridge in a nature reserve surrounded by trees and fog.",
+        "subjectVocabulary": [
+          {
+            "word": "bridge",
+            "meaning": "cây cầu",
+            "isCorrect": true
+          },
+          {
+            "word": "trees",
+            "meaning": "cây",
+            "isCorrect": true
+          },
+          {
+            "word": "fog",
+            "meaning": "sương mù",
+            "isCorrect": true
+          },
+          {
+            "word": "boat",
+            "meaning": "thuyền",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "walking",
+            "meaning": "đang đi bộ",
+            "isCorrect": true
+          },
+          {
+            "word": "wooden",
+            "meaning": "bằng gỗ",
+            "isCorrect": true
+          },
+          {
+            "word": "reserve",
+            "meaning": "khu bảo tồn",
+            "isCorrect": true
+          },
+          {
+            "word": "surrounded",
+            "meaning": "bao quanh",
+            "isCorrect": true
+          }
+        ],
+        "choices": {
+          "A": "Two people are walking on a bridge in a foggy nature reserve.",
+          "B": "A boat is floating in the middle of a lake.",
+          "C": "A man is running along a beach path."
+        },
+        "choicesVi": {
+          "A": "Hai người đang đi bộ trên cây cầu trong khu bảo tồn tự nhiên có sương mù.",
+          "B": "Một chiếc thuyền đang trôi giữa hồ.",
+          "C": "Một người đàn ông đang chạy dọc theo đường bờ biển."
+        },
+        "correctAnswer": "A",
+        "explanation": "A đúng về số lượng người, hành động, vật thể và bối cảnh sương mù.",
+        "traps": "B: Sai chủ thể và hành động – bẫy misfocus. C: Sai địa điểm và hành động – bẫy keywordMisuse.",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752041189/qbwty7gjkop7u8rc1tug.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752041216/plhdqzm5joasvghv98ee.mp3"
       }
     ]
   }

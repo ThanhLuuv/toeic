@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 interface VocabularyWord {
   word: string;
   meaning: string;
+  pronunciation?: string;
   isCorrect: boolean;
 }
 
@@ -10,6 +11,7 @@ interface VocabularyPanelProps {
   subjectVocabulary: VocabularyWord[];
   descriptiveVocabulary: VocabularyWord[];
   onVocabularyComplete: (subjectSelected: string[], descriptiveSelected: string[]) => void;
+  onVocabularySelection?: (subjectSelected: string[], descriptiveSelected: string[]) => void;
   isCompleted: boolean;
   isAnswered: boolean;
   imageUrl?: string;
@@ -22,6 +24,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   subjectVocabulary,
   descriptiveVocabulary,
   onVocabularyComplete,
+  onVocabularySelection,
   isCompleted,
   isAnswered,
   imageUrl,
@@ -43,18 +46,24 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   const toggleWord = (word: string, type: 'subject' | 'descriptive') => {
     if (isCompleted) return;
     
+    let newSelectedSubjectWords = selectedSubjectWords;
+    let newSelectedDescriptiveWords = selectedDescriptiveWords;
+    
     if (type === 'subject') {
-      setSelectedSubjectWords(prev => 
-        prev.includes(word) 
-          ? prev.filter(w => w !== word)
-          : [...prev, word]
-      );
+      newSelectedSubjectWords = selectedSubjectWords.includes(word) 
+        ? selectedSubjectWords.filter(w => w !== word)
+        : [...selectedSubjectWords, word];
+      setSelectedSubjectWords(newSelectedSubjectWords);
     } else {
-      setSelectedDescriptiveWords(prev => 
-        prev.includes(word) 
-          ? prev.filter(w => w !== word)
-          : [...prev, word]
-      );
+      newSelectedDescriptiveWords = selectedDescriptiveWords.includes(word) 
+        ? selectedDescriptiveWords.filter(w => w !== word)
+        : [...selectedDescriptiveWords, word];
+      setSelectedDescriptiveWords(newSelectedDescriptiveWords);
+    }
+    
+    // Gọi callback để cập nhật selection theo thời gian thực (chỉ cho thống kê)
+    if (onVocabularySelection) {
+      onVocabularySelection(newSelectedSubjectWords, newSelectedDescriptiveWords);
     }
   };
 
@@ -70,7 +79,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(word);
       utterance.lang = 'en-US';
-      utterance.rate = 0.8;
+      utterance.rate = 0.7;
       window.speechSynthesis.speak(utterance);
     }
   };
@@ -88,7 +97,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
     <div className="mb-4">
       <h3 className="text-sm font-semibold text-gray-800 mb-2">{title}</h3>
       <div className="grid grid-cols-2 lg:grid-cols-1 gap-1">
-        {vocabulary.map(({ word, meaning, isCorrect }) => {
+        {vocabulary.map(({ word, meaning, pronunciation, isCorrect }) => {
           const isSelected = selectedWords.includes(word);
           const isCorrectSelection = isSelected === isCorrect;
           
@@ -118,7 +127,14 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
                 onClick={() => toggleWord(word, type)}
               >
                 <div className="flex items-center justify-between">
-                  <span className="truncate">{word}</span>
+                  <div className="flex-1">
+                    <div className="truncate">{word}</div>
+                    {pronunciation && (
+                      <div className="text-xs text-gray-500 font-normal mt-0.5">
+                        {pronunciation}
+                      </div>
+                    )}
+                  </div>
                   <div className="flex gap-1 ml-1">
                     <button
                       type="button"
@@ -176,11 +192,8 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
         <div className="flex items-center justify-between mb-4">
           <div className="text-center flex-1">
             <h2 className="text-lg font-bold text-gray-800 mb-1">
-              Chọn từ vựng
+              Bạn thấy gì trong ảnh này ?
             </h2>
-            <p className="text-xs text-gray-600">
-              Chọn từ vựng trong ảnh
-            </p>
           </div>
           {onClose && (
             <button
@@ -203,7 +216,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
           'Từ vựng chủ thể'
         )}
 
-        {renderVocabularySection(
+                {renderVocabularySection(
           descriptiveVocabulary, 
           selectedDescriptiveWords, 
           'descriptive',

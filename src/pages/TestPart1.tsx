@@ -8,6 +8,7 @@ import FloatingTimer from '../components/TestPart1/FloatingTimer';
 import StatsBar from '../components/TestPart1/StatsBar';
 import NotesPanel from '../components/TestPart1/NotesPanel';
 import VocabularyPanel from '../components/TestPart1/VocabularyPanel';
+import TestResults from '../components/TestPart1/TestResults';
 
 interface Answer {
   selected: string;
@@ -68,10 +69,22 @@ const TestPart1: React.FC = () => {
   const [showTranscript, setShowTranscript] = useState(false);
   const [vocabularyCompleted, setVocabularyCompleted] = useState(false);
   const [vocabularyResults, setVocabularyResults] = useState<VocabularyResult[]>([]);
+  const [currentVocabularySelection, setCurrentVocabularySelection] = useState<{
+    subjectSelected: string[];
+    descriptiveSelected: string[];
+  }>({ subjectSelected: [], descriptiveSelected: [] });
+  
+  const [allVocabularySelections, setAllVocabularySelections] = useState<{
+    [questionIndex: number]: {
+      subjectSelected: string[];
+      descriptiveSelected: string[];
+    };
+  }>({});
   const [showVocabularyPanel, setShowVocabularyPanel] = useState(false);
   const [forceStopAudio, setForceStopAudio] = useState(false);
   const [vocabularyResetKey, setVocabularyResetKey] = useState(0);
   const [showScoreModal, setShowScoreModal] = useState(false);
+  const [showDetailedResults, setShowDetailedResults] = useState(false);
   const [testResults, setTestResults] = useState<{
     score: number;
     correct: number;
@@ -109,13 +122,52 @@ const TestPart1: React.FC = () => {
     }
   }, [selectedAnswer]);
 
+  // Scroll to explanation when answer is shown
+  useEffect(() => {
+    if (isAnswered) {
+      setTimeout(() => {
+        const explanationSection = document.querySelector('.bg-green-50.border.border-green-200.rounded-lg');
+        if (explanationSection) {
+          explanationSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          });
+        }
+      }, 300); // Giảm delay còn 300ms cho mượt
+    }
+  }, [isAnswered]);
+
+  // Scroll to transcript when it's shown
+  useEffect(() => {
+    if (showTranscript && !isAnswered) {
+      setTimeout(() => {
+        const transcriptSection = document.querySelector('.bg-yellow-50.border.border-yellow-200.rounded-lg');
+        if (transcriptSection) {
+          transcriptSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          });
+        }
+      }, 300);
+    }
+  }, [showTranscript, isAnswered]);
+
   useEffect(() => {
     setShouldAutoPlay(true);
     setPlayCount(1);
     setShowTranscript(false);
     setVocabularyCompleted(false);
+    
+    // Khôi phục selection đã lưu cho câu hỏi hiện tại
+    const savedSelection = allVocabularySelections[currentQuestionIndex];
+    setCurrentVocabularySelection(savedSelection || { subjectSelected: [], descriptiveSelected: [] });
+    
     setForceStopAudio(false); // Reset force stop when question changes
-  }, [currentQuestionIndex]);
+  }, [currentQuestionIndex, allVocabularySelections]);
+
+
 
   // Thêm useEffect để xử lý auto-play audio khi chuyển câu hỏi
   useEffect(() => {
@@ -185,6 +237,7 @@ const TestPart1: React.FC = () => {
     if (isCorrect) {
       showConfetti();
     }
+    // ĐÃ LOẠI BỎ scroll đến card câu hỏi ở đây
   };
 
   const handleVocabularyComplete = (subjectSelected: string[], descriptiveSelected: string[]) => {
@@ -215,7 +268,28 @@ const TestPart1: React.FC = () => {
     setVocabularyCompleted(true);
   };
 
+  const handleVocabularySelection = (subjectSelected: string[], descriptiveSelected: string[]) => {
+    setCurrentVocabularySelection({ subjectSelected, descriptiveSelected });
+    
+    // Lưu selection cho câu hỏi hiện tại
+    setAllVocabularySelections(prev => ({
+      ...prev,
+      [currentQuestionIndex]: { subjectSelected, descriptiveSelected }
+    }));
+  };
+
   const nextQuestion = () => {
+    // Lưu selection hiện tại trước khi chuyển câu hỏi
+    if (currentVocabularySelection.subjectSelected.length > 0 || currentVocabularySelection.descriptiveSelected.length > 0) {
+      setAllVocabularySelections(prev => ({
+        ...prev,
+        [currentQuestionIndex]: { 
+          subjectSelected: currentVocabularySelection.subjectSelected, 
+          descriptiveSelected: currentVocabularySelection.descriptiveSelected 
+        }
+      }));
+    }
+    
     // Force stop audio
     setForceStopAudio(true);
     setTimeout(() => setForceStopAudio(false), 100);
@@ -238,14 +312,62 @@ const TestPart1: React.FC = () => {
     const total = testQuestions.length;
     const score = Math.round((correct / total) * 100);
     
-    // Calculate vocabulary score (bỏ qua phần tử undefined)
-    const validResults = vocabularyResults.filter(Boolean);
-    const totalVocabCorrect = validResults.reduce((sum, result) => 
-      sum + result.subjectCorrect + result.descriptiveCorrect, 0
-    );
-    const totalVocabQuestions = validResults.reduce((sum, result) => 
-      sum + result.totalSubject + result.totalDescriptive, 0
-    );
+    // Calculate vocabulary score chỉ từ allVocabularySelections
+    let totalVocabCorrect = 0;
+    let totalVocabQuestions = 0;
+    
+    // Tính từ allVocabularySelections (tất cả selection của người dùng)
+    Object.keys(allVocabularySelections).forEach(questionIndexStr => {
+      const questionIndex = parseInt(questionIndexStr);
+      const selection = allVocabularySelections[questionIndex];
+      const question = testQuestions[questionIndex];
+      
+      const subjectVocabulary = question.subjectVocabulary || [];
+      const descriptiveVocabulary = question.descriptiveVocabulary || [];
+      
+      // Tính số từ đúng cho subject vocabulary
+      const subjectCorrect = subjectVocabulary.filter((word: VocabularyWord) => 
+        selection.subjectSelected.includes(word.word) && word.isCorrect
+      ).length;
+      
+      // Tính số từ đúng cho descriptive vocabulary
+      const descriptiveCorrect = descriptiveVocabulary.filter((word: VocabularyWord) => 
+        selection.descriptiveSelected.includes(word.word) && word.isCorrect
+      ).length;
+      
+      totalVocabCorrect += subjectCorrect + descriptiveCorrect;
+      totalVocabQuestions += subjectVocabulary.length + descriptiveVocabulary.length;
+    });
+    
+    // Tính từ currentVocabularySelection (câu hiện tại)
+    if (currentVocabularySelection.subjectSelected.length > 0 || currentVocabularySelection.descriptiveSelected.length > 0) {
+      const currentQuestion = testQuestions[currentQuestionIndex];
+      const subjectVocabulary = currentQuestion.subjectVocabulary || [];
+      const descriptiveVocabulary = currentQuestion.descriptiveVocabulary || [];
+      
+      // Tính số từ đúng cho subject vocabulary
+      const subjectCorrect = subjectVocabulary.filter((word: VocabularyWord) => 
+        currentVocabularySelection.subjectSelected.includes(word.word) && word.isCorrect
+      ).length;
+      
+      // Tính số từ đúng cho descriptive vocabulary
+      const descriptiveCorrect = descriptiveVocabulary.filter((word: VocabularyWord) => 
+        currentVocabularySelection.descriptiveSelected.includes(word.word) && word.isCorrect
+      ).length;
+      
+      totalVocabCorrect += subjectCorrect + descriptiveCorrect;
+      totalVocabQuestions += subjectVocabulary.length + descriptiveVocabulary.length;
+      
+      // Lưu selection hiện tại vào allVocabularySelections để TestResults có thể sử dụng
+      setAllVocabularySelections(prev => ({
+        ...prev,
+        [currentQuestionIndex]: { 
+          subjectSelected: currentVocabularySelection.subjectSelected, 
+          descriptiveSelected: currentVocabularySelection.descriptiveSelected 
+        }
+      }));
+    }
+    
     const vocabScore = totalVocabQuestions > 0 ? Math.round((totalVocabCorrect / totalVocabQuestions) * 100) : 0;
     
     setTestResults({
@@ -256,7 +378,11 @@ const TestPart1: React.FC = () => {
       vocabCorrect: totalVocabCorrect,
       vocabTotal: totalVocabQuestions
     });
-    setShowScoreModal(true);
+    
+    // Delay nhỏ để đảm bảo allVocabularySelections được cập nhật
+    setTimeout(() => {
+      setShowScoreModal(true);
+    }, 100);
   };
 
   const showConfetti = () => {
@@ -370,6 +496,7 @@ const TestPart1: React.FC = () => {
                       subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
                       descriptiveVocabulary={testQuestions[currentQuestionIndex].descriptiveVocabulary || []}
                       onVocabularyComplete={handleVocabularyComplete}
+                      onVocabularySelection={handleVocabularySelection}
                       isCompleted={vocabularyCompleted}
                       isAnswered={isAnswered}
                       imageUrl={testQuestions[currentQuestionIndex].image}
@@ -385,6 +512,7 @@ const TestPart1: React.FC = () => {
                         subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
                         descriptiveVocabulary={testQuestions[currentQuestionIndex].descriptiveVocabulary || []}
                         onVocabularyComplete={handleVocabularyComplete}
+                        onVocabularySelection={handleVocabularySelection}
                         isCompleted={vocabularyCompleted}
                         isAnswered={isAnswered}
                         imageUrl={testQuestions[currentQuestionIndex].image}
@@ -422,6 +550,16 @@ const TestPart1: React.FC = () => {
               <button
                 className="px-4 py-2 rounded bg-red-500 hover:bg-red-600 text-white"
                 onClick={() => {
+                  // Lưu selection hiện tại trước khi thoát
+                  if (currentVocabularySelection.subjectSelected.length > 0 || currentVocabularySelection.descriptiveSelected.length > 0) {
+                    setAllVocabularySelections(prev => ({
+                      ...prev,
+                      [currentQuestionIndex]: { 
+                        subjectSelected: currentVocabularySelection.subjectSelected, 
+                        descriptiveSelected: currentVocabularySelection.descriptiveSelected 
+                      }
+                    }));
+                  }
                   // Force stop audio when exiting
                   setForceStopAudio(true);
                   setShowExitModal(false);
@@ -515,21 +653,40 @@ const TestPart1: React.FC = () => {
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors duration-200"
                   onClick={() => {
                     setShowScoreModal(false);
+                    setShowDetailedResults(true);
+                  }}
+                >
+                  Xem kết quả chi tiết
+                </button>
+                <button
+                  className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-xl transition-colors duration-200"
+                  onClick={() => {
+                    setShowScoreModal(false);
                     navigate('/part1');
                   }}
                 >
                   Quay lại trang Part 1
                 </button>
-                <button
-                  className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-xl transition-colors duration-200"
-                  onClick={() => setShowScoreModal(false)}
-                >
-                  Xem lại bài làm
-                </button>
               </div>
             </div>
           </div>
         </div>
+      )}
+
+      {/* Detailed Results */}
+      {showDetailedResults && testResults && (
+        <TestResults
+          questions={testQuestions}
+          answers={answers}
+          vocabularyResults={vocabularyResults}
+          currentVocabularySelection={currentVocabularySelection}
+          allVocabularySelections={allVocabularySelections}
+          testResults={testResults}
+          onClose={() => {
+            setShowDetailedResults(false);
+            navigate('/part1');
+          }}
+        />
       )}
     </div>
   );

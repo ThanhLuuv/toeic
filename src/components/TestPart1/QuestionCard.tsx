@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Question, wordTranslations } from '../../data/questions_part1';
+import { Question } from '../../data/questions_part1';
 import AudioPlayer from './AudioPlayer';
 
 interface QuestionCardProps {
@@ -38,10 +38,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     }
   };
 
-  const toggleTranscript = () => {
-    setShowTranscript((prev) => !prev);
-  };
-
   const handleTranslateOption = (key: keyof typeof question.choices, optionText: HTMLSpanElement, button: HTMLButtonElement) => {
     const originalText = question.choices[key];
     const translatedText = (question as any).choicesVi ? (question as any).choicesVi[key] : originalText;
@@ -53,49 +49,6 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       button.textContent = 'Dịch';
     }
   };
-
-  const wrapWordsInTranscript = (element: HTMLSpanElement) => {
-    const text = element.textContent || '';
-    const words = text.split(/\s+/).filter((word) => word.length > 0);
-    let wrappedHtml = '';
-    words.forEach((word) => {
-      const cleanWord = word.replace(/[^a-zA-ZÀ-ỹ]/g, '').toLowerCase();
-      const originalWord = word;
-      wrappedHtml += `<span class="transcript-word" data-original="${originalWord}" data-clean="${cleanWord}">${originalWord}<span class="translation-tooltip"></span></span> `;
-    });
-    element.innerHTML = wrappedHtml.trim();
-
-    element.querySelectorAll('.transcript-word').forEach((wordSpan) => {
-      wordSpan.addEventListener('dblclick', (event) => {
-        const target = event.currentTarget as HTMLSpanElement;
-        const cleanWord = target.dataset.clean || '';
-        const tooltip = target.querySelector('.translation-tooltip') as HTMLSpanElement;
-        if (wordTranslations[cleanWord]) {
-          tooltip.textContent = wordTranslations[cleanWord];
-          tooltip.style.visibility = 'visible';
-          tooltip.style.opacity = '1';
-          setTimeout(() => {
-            tooltip.style.visibility = 'hidden';
-            tooltip.style.opacity = '0';
-          }, 2000);
-        } else {
-          tooltip.textContent = 'Không tìm thấy dịch';
-          tooltip.style.visibility = 'visible';
-          tooltip.style.opacity = '1';
-          setTimeout(() => {
-            tooltip.style.visibility = 'hidden';
-            tooltip.style.opacity = '0';
-          }, 1500);
-        }
-      });
-    });
-  };
-
-  useEffect(() => {
-    if (showTranscript) {
-      document.querySelectorAll('.option-text').forEach(el => wrapWordsInTranscript(el as HTMLSpanElement));
-    }
-  }, [showTranscript]);
 
   return (
     <div className="bg-white rounded-xl p-6 shadow">
@@ -175,6 +128,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
             <h4 className="font-semibold text-green-800 mb-2">Explanation:</h4>
             <div className="text-sm text-green-900">
               {question.explanation}
+            </div>
+            <h4 className="font-semibold text-green-800 mb-2">Traps:</h4>
+            <div className="text-sm text-green-900">
+              {question.traps}
             </div>
           </div>
           
