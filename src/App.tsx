@@ -6,6 +6,8 @@ import Part1 from './pages/Part1';
 import TestPart1 from './pages/TestPart1';
 import NotFound from './components/NotFound';
 import Footer from './components/Home/Footer';
+import Part2 from './pages/Part2';
+import TestPart2 from './pages/TestPart2';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +18,10 @@ const App: React.FC = () => {
           element={<TestPart1 />}
         />
         <Route
+          path="/test-part2"
+          element={<TestPart2 />}
+        />
+        <Route
           path="*"
           element={
             <div className="bg-gray-50 min-h-screen">
@@ -23,7 +29,7 @@ const App: React.FC = () => {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/part1" element={<Part1 />} />
-                <Route path="/part2" element={<NotFound />} />
+                <Route path="/part2" element={<Part2 />} />
                 <Route path="/part3" element={<NotFound />} />
                 <Route path="/part4" element={<NotFound />} />
                 <Route path="/part5" element={<NotFound />} />
