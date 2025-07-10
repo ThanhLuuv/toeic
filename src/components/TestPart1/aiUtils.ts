@@ -1,6 +1,6 @@
 // Hàm gọi OpenAI API
 export async function analyzeWithAI(logText: string): Promise<any> {
-  const apiKey = "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";
+  const apiKey = process.env.REACT_APP_API_KEY_OPENAI;
   const endpoint = "https://api.openai.com/v1/chat/completions";
 
   const messages = [
@@ -147,7 +147,7 @@ export async function analyzeWithAI(logText: string): Promise<any> {
 
 // Hàm tạo ảnh base64 từ Gemini
 export async function generateImageBase64(imageDescription: string): Promise<string> {
-  const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY || 'AIzaSyBhEX-SGF9m-xfmjfwkaWCoysypwhnlsKE';
+  const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
   console.log(imageDescription);
   const prompt = `${imageDescription}. IMPORTANT: Create a black and white photograph (monochrome, grayscale, no color), realistic and professional quality, suitable for TOEIC test, documentary style. The photo should always depict a Western setting, specifically in England or the USA. The image must look natural and unposed, similar to scenes used in standardized English exams. Do not include any color. The setting, people, and objects should clearly reflect either British or American environments.`;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${GEMINI_API_KEY}`, {
