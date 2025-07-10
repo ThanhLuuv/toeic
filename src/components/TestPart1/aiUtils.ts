@@ -1,6 +1,6 @@
 // Hàm gọi OpenAI API
 export async function analyzeWithAI(logText: string): Promise<any> {
-  const apiKey = "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";
+  const apiKey = "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";
   const endpoint = "https://api.openai.com/v1/chat/completions";
 
   const messages = [
@@ -21,7 +21,7 @@ export async function analyzeWithAI(logText: string): Promise<any> {
                         - solutions: mảng gồm 2–3 giải pháp rõ ràng, đơn giản để cải thiện
 
                         2. Sinh một câu luyện tập mới tương tự (giống cấu trúc đề TOEIC Part 1) với level tương tự, gồm:
-                        - imageDescription: mô tả ảnh chi tiết
+                        - imageDescription: mô tả ảnh chi tiết bằng tiếng anh
                         - choices: A/B/C là câu mô tả ảnh (chỉ 1 câu đúng)
                         - choicesVi: bản dịch tiếng Việt cho mỗi câu
                         - correctAnswer: "A" / "B" / "C"
@@ -76,7 +76,7 @@ export async function analyzeWithAI(logText: string): Promise<any> {
                         + Sai về số lượng
                         + Sai về thời gian
                         - Đáp án sai tránh sử dụng các từ đồng nghĩa hoặc có nghĩa hao hao giống mô tả ví dụ "Viết trên quyển số" và "Viết lên giấy"
-                        - Không được đưa các đáp án sai có tính không chắn chắc, ví dụ như Ảnh mô tả là "một con dao đặt cạnh một giỏ hoa quả", thì không nên ghi đáp án sai là "Con dao được dùng thái hoa quả"
+                        - Không được đưa các đáp án sai có tính không chắn chắn, ví dụ như Ảnh mô tả là "một con dao đặt cạnh một giỏ hoa quả", thì không nên ghi đáp án sai là "Con dao được dùng thái hoa quả"
                         - Không nên đưa các đáp án sai có tính chung chung dẫn đến đáp án sai bị đúng, ví dụ như Mô tả ảnh là "Trên bàn được bày sổ, máy tính, nút" đáp án sai lại ghi là "Bàn được bày các dụng cụ văn phòng" dẫn đến đáp án sai lại thành đúng
 
                         == EXAMPLE ==
@@ -135,6 +135,9 @@ export async function analyzeWithAI(logText: string): Promise<any> {
   });
 
   if (!response.ok) {
+    if (response.status === 401) {
+      throw new Error("OpenAI API key is invalid or expired. Please check your REACT_APP_OPENAI_API_KEY environment variable.");
+    }
     throw new Error("OpenAI API error: " + response.statusText);
   }
 
@@ -144,7 +147,8 @@ export async function analyzeWithAI(logText: string): Promise<any> {
 
 // Hàm tạo ảnh base64 từ Gemini
 export async function generateImageBase64(imageDescription: string): Promise<string> {
-  const GEMINI_API_KEY = 'AIzaSyBhEX-SGF9m-xfmjfwkaWCoysypwhnlsKE';
+  const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY || 'AIzaSyBhEX-SGF9m-xfmjfwkaWCoysypwhnlsKE';
+  console.log(imageDescription);
   const prompt = `${imageDescription}. IMPORTANT: Create a black and white photograph (monochrome, grayscale, no color), realistic and professional quality, suitable for TOEIC test, documentary style. The photo should always depict a Western setting, specifically in England or the USA. The image must look natural and unposed, similar to scenes used in standardized English exams. Do not include any color. The setting, people, and objects should clearly reflect either British or American environments.`;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${GEMINI_API_KEY}`, {
     method: 'POST',
@@ -163,7 +167,7 @@ export async function generateImageBase64(imageDescription: string): Promise<str
 
 // Hàm tạo audio base64 từ Google TTS
 export async function generateAudioBase64(practiceQuestion: any): Promise<string> {
-  const GOOGLE_TTS_KEY = 'AIzaSyAqO6_hgidkr_qandEMZUJlBcAhF3xOsUk';
+  const GOOGLE_TTS_KEY = process.env.REACT_APP_GOOGLE_TTS_KEY || 'AIzaSyAqO6_hgidkr_qandEMZUJlBcAhF3xOsUk';
   function fixPronunciation(text: string) {
     let fixedText = text;
     fixedText = fixedText.replace(/\ba man\b/gi, '<phoneme alphabet="ipa" ph="ə mæn">a man</phoneme>');

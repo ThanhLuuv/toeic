@@ -1,0 +1,845 @@
+{
+  "level1 ":[
+    {
+      "id": 1,
+      "type": "WH-question",
+      "question": "What time does the meeting start?",
+      "choices": {
+        "A": "In the large conference room.",
+        "B": "At 9 a.m. sharp.",
+        "C": "We discussed the project."
+      },
+      "correctAnswer": "B",
+      "explanation": "The question asks about time, so the answer must give a specific time.",
+      "tips": "Listen for time-related phrases like 'at 9', 'this afternoon', etc.",
+      "audio": {
+        "male": "What time does the meeting start?",
+        "female": "What time does the meeting start?"
+      },
+      "responses": {
+        "A": "In the large conference room.",
+        "B": "At 9 a.m. sharp.",
+        "C": "We discussed the project."
+      },
+      "traps": ["#1: Trả lời sai từ để hỏi (A là nơi, không phải thời gian)", "#2: Trả lời không trực tiếp (C nói về hành động khác)"]
+    },
+    {
+      "id": 2,
+      "type": "Yes/No",
+      "question": "Did you finish the report?",
+      "choices": {
+        "A": "No, I'm still working on it.",
+        "B": "Next to the printer.",
+        "C": "A very detailed one."
+      },
+      "correctAnswer": "A",
+      "explanation": "Yes/No questions require a confirmation or denial. Only A does this.",
+      "tips": "Look for 'Yes' or 'No' or similar direct responses to Yes/No questions.",
+      "audio": {
+        "male": "Did you finish the report?",
+        "female": "Did you finish the report?"
+      },
+      "responses": {
+        "A": "No, I'm still working on it.",
+        "B": "Next to the printer.",
+        "C": "A very detailed one."
+      },
+      "traps": ["#1: Trả lời sai từ để hỏi (B là địa điểm)", "#2: Trả lời không trực tiếp (C mô tả nhưng không xác nhận)"]
+    },
+    {
+      "id": 3,
+      "type": "Statement-Response",
+      "question": "The delivery should arrive this afternoon.",
+      "choices": {
+        "A": "Yes, I ordered it yesterday.",
+        "B": "No, I haven’t seen her yet.",
+        "C": "To the main entrance, please."
+      },
+      "correctAnswer": "A",
+      "explanation": "A is the only response that logically acknowledges and connects to the delivery statement.",
+      "tips": "When hearing a statement, look for logical continuations, confirmations, or related info.",
+      "audio": {
+        "male": "The delivery should arrive this afternoon.",
+        "female": "The delivery should arrive this afternoon."
+      },
+      "responses": {
+        "A": "Yes, I ordered it yesterday.",
+        "B": "No, I haven’t seen her yet.",
+        "C": "To the main entrance, please."
+      },
+      "traps": ["#5: Cùng chủ đề nhưng không liên quan (C nói về vị trí giao hàng)", "#2: Trả lời không trực tiếp (B không liên quan gì đến delivery)"]
+    }
+  ],
+  "level2 ": [
+    {
+      "questionNumber": 1,
+      "level": "Intermediate",
+      "imageDescription": "Two women are having a discussion while standing in front of a whiteboard.",
+      "subjectVocabulary": [
+        {
+          "word": "women",
+          "meaning": "những người phụ nữ",
+          "isCorrect": true
+        },
+        {
+          "word": "discussion",
+          "meaning": "cuộc thảo luận",
+          "isCorrect": true
+        },
+        {
+          "word": "whiteboard",
+          "meaning": "bảng trắng",
+          "isCorrect": true
+        },
+        {
+          "word": "printer",
+          "meaning": "máy in",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "standing",
+          "meaning": "đang đứng",
+          "isCorrect": true
+        },
+        {
+          "word": "talking",
+          "meaning": "đang nói chuyện",
+          "isCorrect": true
+        },
+        {
+          "word": "writing",
+          "meaning": "đang viết",
+          "isCorrect": false
+        },
+        {
+          "word": "in front of",
+          "meaning": "trước",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "Two women are having a discussion in front of a whiteboard.",
+        "B": "A woman is writing on a whiteboard.",
+        "C": "Two women are using a printer in the corner."
+      },
+      "choicesVi": {
+        "A": "Hai người phụ nữ đang thảo luận trước bảng trắng.",
+        "B": "Một người phụ nữ đang viết lên bảng trắng.",
+        "C": "Hai người phụ nữ đang sử dụng máy in trong góc."
+      },
+      "correctAnswer": "A",
+      "explanation": "A mô tả đúng số lượng, hành động và vị trí của hai người phụ nữ.",
+      "traps": "B: Sai số lượng (1 người thay vì 2) – bẫy singularPlural. C: Sai vật thể chính (máy in không có) – bẫy misfocus.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966522/sdkej4plkilhvus4enee.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966590/jlmz502hewxfpqzwbji1.mp3"
+    },
+    {
+      "questionNumber": 2,
+      "level": "Intermediate",
+      "imageDescription": "A man and a woman are shaking hands in an office lobby.",
+      "subjectVocabulary": [
+        {
+          "word": "man",
+          "meaning": "người đàn ông",
+          "isCorrect": true
+        },
+        {
+          "word": "woman",
+          "meaning": "người phụ nữ",
+          "isCorrect": true
+        },
+        {
+          "word": "handshake",
+          "meaning": "bắt tay",
+          "isCorrect": true
+        },
+        {
+          "word": "document",
+          "meaning": "tài liệu",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "shaking",
+          "meaning": "đang bắt",
+          "isCorrect": true
+        },
+        {
+          "word": "lobby",
+          "meaning": "sảnh",
+          "isCorrect": true
+        },
+        {
+          "word": "reading",
+          "meaning": "đang đọc",
+          "isCorrect": false
+        },
+        {
+          "word": "office",
+          "meaning": "văn phòng",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "A woman is reading a document at a desk.",
+        "B": "A man and a woman are shaking hands in the office lobby.",
+        "C": "Two men are sitting and talking in the lobby."
+      },
+      "choicesVi": {
+        "A": "Một người phụ nữ đang đọc tài liệu tại bàn.",
+        "B": "Một người đàn ông và một người phụ nữ đang bắt tay trong sảnh văn phòng.",
+        "C": "Hai người đàn ông đang ngồi và nói chuyện trong sảnh."
+      },
+      "correctAnswer": "B",
+      "explanation": "B đúng về hành động, vị trí và số lượng.",
+      "traps": "A: Sai hành động và chủ thể – bẫy keywordMisuse. C: Sai giới tính (hai người đàn ông thay vì nam và nữ) – bẫy misfocus.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966532/u8fh2ysc7v2fmjicco4n.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966593/sfc2pgc80ofmndw0a7lp.mp3"
+    },
+    {
+      "questionNumber": 3,
+      "level": "Intermediate",
+      "imageDescription": "Three people are looking at a tablet together at a conference table.",
+      "subjectVocabulary": [
+        {
+          "word": "people",
+          "meaning": "người",
+          "isCorrect": true
+        },
+        {
+          "word": "tablet",
+          "meaning": "máy tính bảng",
+          "isCorrect": true
+        },
+        {
+          "word": "conference table",
+          "meaning": "bàn họp",
+          "isCorrect": true
+        },
+        {
+          "word": "camera",
+          "meaning": "máy ảnh",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "looking",
+          "meaning": "đang nhìn",
+          "isCorrect": true
+        },
+        {
+          "word": "together",
+          "meaning": "cùng nhau",
+          "isCorrect": true
+        },
+        {
+          "word": "taking",
+          "meaning": "đang chụp",
+          "isCorrect": false
+        },
+        {
+          "word": "at",
+          "meaning": "vào",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "Three people are taking pictures with a camera.",
+        "B": "Three people are looking at a tablet together.",
+        "C": "Two people are writing on a whiteboard."
+      },
+      "choicesVi": {
+        "A": "Ba người đang chụp ảnh bằng máy ảnh.",
+        "B": "Ba người đang cùng nhau nhìn vào máy tính bảng.",
+        "C": "Hai người đang viết lên bảng trắng."
+      },
+      "correctAnswer": "B",
+      "explanation": "B mô tả đúng số lượng, hành động và vật thể.",
+      "traps": "A: Sai hành động và vật thể (không có máy ảnh) – bẫy keywordMisuse. C: Sai số lượng – bẫy singularPlural.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966542/pc1wdrbwpqqxrx3rldd1.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966595/uslkylsdrn8wuaigt7hq.mp3"
+    },
+    {
+      "questionNumber": 4,
+      "level": "Intermediate",
+      "imageDescription": "A group of people is sitting in a waiting area, looking at their phones.",
+      "subjectVocabulary": [
+        {
+          "word": "group",
+          "meaning": "nhóm",
+          "isCorrect": true
+        },
+        {
+          "word": "phones",
+          "meaning": "điện thoại",
+          "isCorrect": true
+        },
+        {
+          "word": "waiting area",
+          "meaning": "khu vực chờ",
+          "isCorrect": true
+        },
+        {
+          "word": "laptop",
+          "meaning": "máy tính xách tay",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "sitting",
+          "meaning": "đang ngồi",
+          "isCorrect": true
+        },
+        {
+          "word": "looking",
+          "meaning": "đang nhìn",
+          "isCorrect": true
+        },
+        {
+          "word": "typing",
+          "meaning": "đang gõ",
+          "isCorrect": false
+        },
+        {
+          "word": "area",
+          "meaning": "khu vực",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "People are typing on laptops in the waiting area.",
+        "B": "A man is standing alone near the waiting room.",
+        "C": "A group of people is sitting and looking at their phones."
+      },
+      "choicesVi": {
+        "A": "Mọi người đang gõ trên máy tính xách tay trong khu vực chờ.",
+        "B": "Một người đàn ông đang đứng một mình gần phòng chờ.",
+        "C": "Một nhóm người đang ngồi và nhìn vào điện thoại của họ."
+      },
+      "correctAnswer": "C",
+      "explanation": "C đúng về số lượng, hành động và vị trí.",
+      "traps": "A: Sai hành động và vật thể – bẫy keywordMisuse. B: Sai số lượng và không đúng nội dung chính – bẫy misfocus.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966554/w5vrmaxpq3cokiijumfw.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966599/gjb5jzud9hm1v0qtfzhd.mp3"
+    },
+    {
+      "questionNumber": 5,
+      "level": "Intermediate",
+      "imageDescription": "Two men are pointing at a computer screen in a modern office.",
+      "subjectVocabulary": [
+        {
+          "word": "men",
+          "meaning": "những người đàn ông",
+          "isCorrect": true
+        },
+        {
+          "word": "computer",
+          "meaning": "máy tính",
+          "isCorrect": true
+        },
+        {
+          "word": "screen",
+          "meaning": "màn hình",
+          "isCorrect": true
+        },
+        {
+          "word": "projector",
+          "meaning": "máy chiếu",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "pointing",
+          "meaning": "đang chỉ",
+          "isCorrect": true
+        },
+        {
+          "word": "modern",
+          "meaning": "hiện đại",
+          "isCorrect": true
+        },
+        {
+          "word": "projecting",
+          "meaning": "đang chiếu",
+          "isCorrect": false
+        },
+        {
+          "word": "office",
+          "meaning": "văn phòng",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "Two men are projecting slides in a conference room.",
+        "B": "Two men are pointing at a computer screen.",
+        "C": "One man is working at a desk."
+      },
+      "choicesVi": {
+        "A": "Hai người đàn ông đang chiếu bản trình chiếu trong phòng họp.",
+        "B": "Hai người đàn ông đang chỉ vào màn hình máy tính.",
+        "C": "Một người đàn ông đang làm việc tại bàn."
+      },
+      "correctAnswer": "B",
+      "explanation": "B đúng hành động, chủ thể và vị trí.",
+      "traps": "A: Sai hành động (chiếu vs chỉ) – bẫy keywordMisuse. C: Sai số lượng – bẫy singularPlural.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966565/ke6tmok7gtbhpvcycser.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966601/lzpelgplfqfcfklcmkhj.mp3"
+    },
+    {
+      "questionNumber": 6,
+      "level": "Intermediate",
+      "imageDescription": "Four people are standing in a circle, having a conversation outside a building.",
+      "subjectVocabulary": [
+        {
+          "word": "people",
+          "meaning": "người",
+          "isCorrect": true
+        },
+        {
+          "word": "conversation",
+          "meaning": "cuộc trò chuyện",
+          "isCorrect": true
+        },
+        {
+          "word": "building",
+          "meaning": "tòa nhà",
+          "isCorrect": true
+        },
+        {
+          "word": "elevator",
+          "meaning": "thang máy",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "standing",
+          "meaning": "đang đứng",
+          "isCorrect": true
+        },
+        {
+          "word": "talking",
+          "meaning": "đang nói chuyện",
+          "isCorrect": true
+        },
+        {
+          "word": "waiting",
+          "meaning": "đang chờ",
+          "isCorrect": false
+        },
+        {
+          "word": "outside",
+          "meaning": "bên ngoài",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "Several people are waiting for an elevator inside a building.",
+        "B": "Four people are talking outside a building.",
+        "C": "A group is sitting around a table inside."
+      },
+      "choicesVi": {
+        "A": "Một vài người đang chờ thang máy bên trong tòa nhà.",
+        "B": "Bốn người đang nói chuyện bên ngoài tòa nhà.",
+        "C": "Một nhóm người đang ngồi quanh bàn bên trong."
+      },
+      "correctAnswer": "B",
+      "explanation": "B đúng chủ thể, hành động và vị trí mô tả.",
+      "traps": "A: Sai hành động và vị trí – bẫy keywordMisuse. C: Sai hành động và vị trí – bẫy misfocus.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966578/ecxh03ecp8bnbpsrvu0v.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966604/wkuj6aehmek5znahfxt5.mp3"
+    }
+  ],
+  "level3 ": [
+    {
+      "questionNumber": 1,
+      "level": "Advanced",
+      "imageDescription": "Several employees are collaborating in an open-plan office while one person is presenting at a large screen.",
+      "subjectVocabulary": [
+        {
+          "word": "employees",
+          "meaning": "nhân viên",
+          "isCorrect": true
+        },
+        {
+          "word": "screen",
+          "meaning": "màn hình",
+          "isCorrect": true
+        },
+        {
+          "word": "office",
+          "meaning": "văn phòng",
+          "isCorrect": true
+        },
+        {
+          "word": "stage",
+          "meaning": "sân khấu",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "collaborating",
+          "meaning": "đang cộng tác",
+          "isCorrect": true
+        },
+        {
+          "word": "presenting",
+          "meaning": "đang trình bày",
+          "isCorrect": true
+        },
+        {
+          "word": "sitting",
+          "meaning": "đang ngồi",
+          "isCorrect": true
+        },
+        {
+          "word": "watching",
+          "meaning": "đang quan sát",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "One employee is presenting while others are collaborating.",
+        "B": "People are performing on stage with a microphone.",
+        "C": "An employee is standing alone in an empty hallway."
+      },
+      "choicesVi": {
+        "A": "Một nhân viên đang trình bày trong khi những người khác đang cộng tác.",
+        "B": "Mọi người đang biểu diễn trên sân khấu với micro.",
+        "C": "Một nhân viên đang đứng một mình trong hành lang trống."
+      },
+      "correctAnswer": "A",
+      "explanation": "A mô tả đầy đủ và chính xác các hành động song song trong ảnh.",
+      "traps": "B: Sai ngữ cảnh và địa điểm – bẫy keywordMisuse. C: Sai số lượng và hành động – bẫy assumption.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966798/v9wfbdfp4utwulprc4cv.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966869/mx6stwbfzukr2xibmhts.mp3"
+    },
+    {
+      "questionNumber": 2,
+      "level": "Advanced",
+      "imageDescription": "Three doctors are examining X-ray images while two nurses are writing notes at a nearby desk.",
+      "subjectVocabulary": [
+        {
+          "word": "doctors",
+          "meaning": "bác sĩ",
+          "isCorrect": true
+        },
+        {
+          "word": "nurses",
+          "meaning": "y tá",
+          "isCorrect": true
+        },
+        {
+          "word": "X-ray",
+          "meaning": "X-quang",
+          "isCorrect": true
+        },
+        {
+          "word": "microscope",
+          "meaning": "kính hiển vi",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "examining",
+          "meaning": "đang xem xét",
+          "isCorrect": true
+        },
+        {
+          "word": "writing",
+          "meaning": "đang viết",
+          "isCorrect": true
+        },
+        {
+          "word": "testing",
+          "meaning": "đang thử nghiệm",
+          "isCorrect": false
+        },
+        {
+          "word": "nearby",
+          "meaning": "gần đó",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "Two doctors are writing prescriptions.",
+        "B": "Three doctors are checking X-rays while nurses are taking notes.",
+        "C": "People are testing samples under a microscope."
+      },
+      "choicesVi": {
+        "A": "Hai bác sĩ đang viết đơn thuốc.",
+        "B": "Ba bác sĩ đang kiểm tra phim X-quang trong khi y tá ghi chép.",
+        "C": "Mọi người đang kiểm tra mẫu dưới kính hiển vi."
+      },
+      "correctAnswer": "B",
+      "explanation": "B mô tả đầy đủ số lượng, hành động, và mối quan hệ không gian.",
+      "traps": "A: Sai số lượng và hành động – bẫy singularPlural + keywordMisuse. C: Sai vật thể và ngữ cảnh – bẫy misfocus.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751967590/l0ktrlo6zarvhvrhkomp.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966872/vy7ngqzkniuuwpgzrb8z.mp3"
+    },
+    {
+      "questionNumber": 3,
+      "level": "Advanced",
+      "imageDescription": "Five people are standing around a barbecue grill in a backyard, some holding plates, others serving food.",
+      "subjectVocabulary": [
+        {
+          "word": "grill",
+          "meaning": "vỉ nướng",
+          "isCorrect": true
+        },
+        {
+          "word": "plates",
+          "meaning": "đĩa",
+          "isCorrect": true
+        },
+        {
+          "word": "serving",
+          "meaning": "phục vụ",
+          "isCorrect": true
+        },
+        {
+          "word": "chilling",
+          "meaning": "thư giãn (slang)",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "standing",
+          "meaning": "đang đứng",
+          "isCorrect": true
+        },
+        {
+          "word": "serving",
+          "meaning": "đang phục vụ",
+          "isCorrect": true
+        },
+        {
+          "word": "holding",
+          "meaning": "đang cầm",
+          "isCorrect": true
+        },
+        {
+          "word": "grilling",
+          "meaning": "đang nướng",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "People are chilling beside a pool.",
+        "B": "Several people are serving food around a barbecue grill.",
+        "C": "A man is grilling meat alone in the kitchen."
+      },
+      "choicesVi": {
+        "A": "Mọi người đang thư giãn cạnh hồ bơi.",
+        "B": "Vài người đang phục vụ đồ ăn quanh bếp nướng.",
+        "C": "Một người đàn ông đang nướng thịt một mình trong bếp."
+      },
+      "correctAnswer": "B",
+      "explanation": "B đúng số lượng, vị trí, hành động chính trong ảnh.",
+      "traps": "A: Sai hành động và vị trí – bẫy assumption + keywordMisuse. C: Sai số lượng và địa điểm – bẫy singularPlural + misfocus.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966820/firvd9tgetvtjehrkhqg.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966874/y4fzg6vlxlcs1jlqkki1.mp3"
+    },
+    {
+      "questionNumber": 4,
+      "level": "Advanced",
+      "imageDescription": "Two chefs are preparing meals in a busy kitchen while a waiter is delivering dishes to a table.",
+      "subjectVocabulary": [
+        {
+          "word": "chefs",
+          "meaning": "đầu bếp",
+          "isCorrect": true
+        },
+        {
+          "word": "waiter",
+          "meaning": "bồi bàn",
+          "isCorrect": true
+        },
+        {
+          "word": "dishes",
+          "meaning": "món ăn",
+          "isCorrect": true
+        },
+        {
+          "word": "cashier",
+          "meaning": "thu ngân",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "preparing",
+          "meaning": "đang chuẩn bị",
+          "isCorrect": true
+        },
+        {
+          "word": "delivering",
+          "meaning": "đang giao",
+          "isCorrect": true
+        },
+        {
+          "word": "cleaning",
+          "meaning": "đang lau dọn",
+          "isCorrect": false
+        },
+        {
+          "word": "table",
+          "meaning": "bàn",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "Two chefs are preparing food while a waiter serves dishes.",
+        "B": "A cashier is cleaning a table in the dining area.",
+        "C": "Two men are eating in a restaurant."
+      },
+      "choicesVi": {
+        "A": "Hai đầu bếp đang chuẩn bị món ăn trong khi một bồi bàn phục vụ món ăn.",
+        "B": "Một thu ngân đang lau bàn trong khu ăn uống.",
+        "C": "Hai người đàn ông đang ăn trong nhà hàng."
+      },
+      "correctAnswer": "A",
+      "explanation": "A đúng chủ thể, hành động, và phân vai trong bối cảnh nhà hàng.",
+      "traps": "B: Sai chủ thể (thu ngân không có) – bẫy keywordMisuse. C: Sai hành động và vai trò – bẫy misfocus + assumption.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966831/cqrciiqdgmatnwzszci8.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966877/k84n3k6fivdj93vwjtwk.mp3"
+    },
+    {
+      "questionNumber": 5,
+      "level": "Advanced",
+      "imageDescription": "Multiple musicians are playing different instruments on a street corner as pedestrians walk by.",
+      "subjectVocabulary": [
+        {
+          "word": "musicians",
+          "meaning": "nhạc công",
+          "isCorrect": true
+        },
+        {
+          "word": "instruments",
+          "meaning": "nhạc cụ",
+          "isCorrect": true
+        },
+        {
+          "word": "pedestrians",
+          "meaning": "người đi bộ",
+          "isCorrect": true
+        },
+        {
+          "word": "magicians",
+          "meaning": "ảo thuật gia",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "playing",
+          "meaning": "đang chơi",
+          "isCorrect": true
+        },
+        {
+          "word": "walking",
+          "meaning": "đang đi bộ",
+          "isCorrect": true
+        },
+        {
+          "word": "dancing",
+          "meaning": "đang nhảy",
+          "isCorrect": false
+        },
+        {
+          "word": "corner",
+          "meaning": "góc phố",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "Several magicians are performing tricks on the sidewalk.",
+        "B": "Musicians are playing instruments on a street corner.",
+        "C": "Pedestrians are dancing in front of a music store."
+      },
+      "choicesVi": {
+        "A": "Một vài ảo thuật gia đang biểu diễn trên vỉa hè.",
+        "B": "Các nhạc công đang chơi nhạc cụ ở góc phố.",
+        "C": "Người đi bộ đang nhảy trước cửa hàng nhạc cụ."
+      },
+      "correctAnswer": "B",
+      "explanation": "B mô tả đúng hoạt động và nhóm người trong ảnh.",
+      "traps": "A: Nhầm từ đồng âm (musicians vs magicians) – bẫy homophone. C: Sai hành động (dancing không có) – bẫy assumption.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966844/blrpwirbct82dtzj7ay8.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966879/miiko858403if9vzyygq.mp3"
+    },
+    {
+      "questionNumber": 6,
+      "level": "Advanced",
+      "imageDescription": "Employees are standing near desks while a manager is giving instructions with a hand gesture.",
+      "subjectVocabulary": [
+        {
+          "word": "employees",
+          "meaning": "nhân viên",
+          "isCorrect": true
+        },
+        {
+          "word": "manager",
+          "meaning": "quản lý",
+          "isCorrect": true
+        },
+        {
+          "word": "instructions",
+          "meaning": "chỉ dẫn",
+          "isCorrect": true
+        },
+        {
+          "word": "construction",
+          "meaning": "xây dựng",
+          "isCorrect": false
+        }
+      ],
+      "descriptiveVocabulary": [
+        {
+          "word": "standing",
+          "meaning": "đang đứng",
+          "isCorrect": true
+        },
+        {
+          "word": "giving",
+          "meaning": "đang đưa ra",
+          "isCorrect": true
+        },
+        {
+          "word": "fixing",
+          "meaning": "đang sửa chữa",
+          "isCorrect": false
+        },
+        {
+          "word": "gesture",
+          "meaning": "cử chỉ",
+          "isCorrect": true
+        }
+      ],
+      "choices": {
+        "A": "The manager is giving instructions to employees near desks.",
+        "B": "Construction workers are fixing desks in the hallway.",
+        "C": "The manager is guessing employee names at random."
+      },
+      "choicesVi": {
+        "A": "Người quản lý đang đưa ra chỉ dẫn cho nhân viên gần bàn làm việc.",
+        "B": "Công nhân xây dựng đang sửa bàn trong hành lang.",
+        "C": "Người quản lý đang đoán tên nhân viên một cách ngẫu nhiên."
+      },
+      "correctAnswer": "A",
+      "explanation": "A đúng về hành động chính và mối quan hệ giữa các chủ thể.",
+      "traps": "B: Nhầm từ phát âm giống (instruction vs construction) – bẫy similarSound. C: Sai hành động hoàn toàn – bẫy assumption.",
+      "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966856/cl4ysziv0oaeu45lgckn.png",
+      "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966882/duss3aozpn6jep2f22yb.mp3"
+    }
+  ]
+} 
