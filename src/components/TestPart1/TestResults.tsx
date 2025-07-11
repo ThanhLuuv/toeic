@@ -120,6 +120,8 @@ const TestResults: React.FC<TestResultsProps> = ({
   const [userChoice, setUserChoice] = useState<{ [idx: number]: string }>({});
   const [loadingAI, setLoadingAI] = useState<{ [idx: number]: boolean }>({});
   const [showTranscript, setShowTranscript] = useState<{ [idx: number]: boolean }>({});
+  // Ref cho từng nút AI của mỗi câu
+  const aiButtonRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
 
   const toggleQuestionExpansion = (questionIndex: number) => {
     setExpandedQuestions(prev => 
@@ -178,6 +180,7 @@ const TestResults: React.FC<TestResultsProps> = ({
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-4xl mx-auto px-4">
+          
           {/* Header */}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-6">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 text-center">
@@ -225,6 +228,26 @@ const TestResults: React.FC<TestResultsProps> = ({
                     }`}
                     style={{ width: `${testResults.score}%` }}
                   ></div>
+                </div>
+                {/* Nút phân tích cùng AI */}
+                <div className="flex justify-center mt-4">
+                  <button
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:scale-105 transition-transform"
+                    onClick={() => {
+                      // Tìm index câu sai đầu tiên
+                      const firstWrongIdx = answers.findIndex(a => a && !a.isCorrect);
+                      if (firstWrongIdx !== -1) {
+                        // Expand câu đó nếu chưa expand
+                        setExpandedQuestions(prev => prev.includes(firstWrongIdx) ? prev : [...prev, firstWrongIdx]);
+                        // Delay nhỏ để đảm bảo expand xong mới scroll
+                        setTimeout(() => {
+                          aiButtonRefs.current[firstWrongIdx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 400);
+                      }
+                    }}
+                  >
+                    Phân tích cùng AI
+                  </button>
                 </div>
               </div>
             </div>
@@ -520,6 +543,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                       {isWrong && (
                         <div className="mt-4">
                           <button
+                            ref={el => { aiButtonRefs.current[index] = el; }}
                             onClick={async () => {
                               setUserChoice(u => ({ ...u, [index]: '' }));
                               setLoadingAI(l => ({ ...l, [index]: true }));
