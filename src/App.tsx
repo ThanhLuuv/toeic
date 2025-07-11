@@ -8,6 +8,7 @@ import NotFound from './components/NotFound';
 import Footer from './components/Home/Footer';
 import Part2 from './pages/Part2';
 import TestPart2 from './pages/TestPart2';
+import FloatingFeedback from './components/FloatingFeedback';
 
 const App: React.FC = () => {
   return (
@@ -37,10 +38,12 @@ const App: React.FC = () => {
                 <Route path="/part7" element={<NotFound />} />
               </Routes>
               <Footer />
+              <FloatingFeedback />
             </div>
           }
         />
       </Routes>
+      <FloatingFeedback />
     </Router>
   );
 };
