@@ -96,7 +96,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   ) => (
     <div className="mb-4">
       <h3 className="text-sm font-semibold text-gray-800 mb-2">{title}</h3>
-      <div className="grid grid-cols-2 lg:grid-cols-1 gap-1">
+      <div className="grid grid-cols-2 gap-1">
         {vocabulary.map(({ word, meaning, pronunciation, isCorrect }) => {
           const isSelected = selectedWords.includes(word);
           const isCorrectSelection = isSelected === isCorrect;
@@ -179,16 +179,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   return (
     <div className="w-full bg-white rounded-lg shadow-lg border border-gray-200 max-h-[calc(100vh-6rem)] overflow-y-auto">
       <div className="p-4">
-        {/* Ảnh ở đầu panel, chỉ hiển thị trên mobile */}
-        {imageUrl && (
-          <div className="mb-4 flex justify-center block lg:hidden">
-            <img
-              src={imageUrl}
-              alt="TOEIC"
-              className="w-full max-w-xs rounded-lg shadow"
-            />
-          </div>
-        )}
+    
         <div className="flex items-center justify-between mb-4">
           <div className="text-center flex-1">
             <h2 className="text-lg font-bold text-gray-800 mb-1">

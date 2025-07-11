@@ -10,17 +10,17 @@ import NotesPanel from '../components/TestPart1/NotesPanel';
 import VocabularyPanel from '../components/TestPart1/VocabularyPanel';
 import TestResults from '../components/TestPart1/TestResults';
 
+interface VocabularyWord {
+  word: string;
+  meaning: string;
+  isCorrect: boolean;
+}
+
 interface Answer {
   selected: string;
   correct: string;
   isCorrect: boolean;
   skipped: boolean;
-}
-
-interface VocabularyWord {
-  word: string;
-  meaning: string;
-  isCorrect: boolean;
 }
 
 interface VocabularyResult {
@@ -426,102 +426,101 @@ const TestPart1: React.FC = () => {
       {/* <FloatingTimer timeRemaining={timeRemaining} /> */}
       <main className="max-w-3xl mx-auto mb-6 px-4 py-6">
         {currentQuestionIndex < testQuestions.length && (
-          <>            
-            {/* Question Card with sticky Vocabulary Toggle Button */}
+          <>
             <div className="relative">
-              {/* Mobile: Nút lớn trên đầu */}
-              {testQuestions[currentQuestionIndex]?.subjectVocabulary && !showVocabularyPanel && (
-                <button
-                  onClick={() => setShowVocabularyPanel(true)}
-                  className="block lg:hidden w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg mb-4 shadow"
-                  style={{letterSpacing: '0.5px'}}
-                >
-                  Khái quát từ vựng
-                </button>
-              )}
-
-              {/* Main content - Question Card (original size) */}
-              <div className="max-w-3xl mx-auto relative">
-                {testQuestions[currentQuestionIndex]?.audio && (
-                  <AudioPlayer
-                    audioSrc={testQuestions[currentQuestionIndex].audio}
-                    audioRef={audioRef as React.RefObject<HTMLAudioElement>}
-                    forceStop={forceStopAudio}
-                  />
-                )}
-                <QuestionCard
-                  question={testQuestions[currentQuestionIndex]}
-                  currentQuestionIndex={currentQuestionIndex}
-                  totalQuestions={testQuestions.length}
-                  selectedAnswer={selectedAnswer}
-                  isAnswered={isAnswered}
-                  setSelectedAnswer={setSelectedAnswer}
-                  nextQuestion={nextQuestion}
-                  playCount={playCount}
-                  maxPlays={maxPlays}
-                  setPlayCount={setPlayCount}
-                  showTranscript={showTranscript}
-                  setShowTranscript={setShowTranscript}
-                  hideImage={false}
-                  onShowVocabularyPanel={typeof window !== 'undefined' && window.innerWidth >= 1024 && !showVocabularyPanel ? () => setShowVocabularyPanel(true) : undefined}
-                />
-                {/* Sticky Vocabulary Toggle Button - bám cạnh phải của card (desktop only)
-                {testQuestions[currentQuestionIndex]?.subjectVocabulary && !showVocabularyPanel && (
-                  <div className="hidden lg:flex items-center absolute" style={{ right: '-10%', top: '50%', transform: 'translateY(-50%)' }}>
-                    <button
-                      onClick={() => setShowVocabularyPanel(true)}
-                      className="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 shadow rounded-full hover:bg-blue-100 transition-colors"
-                      title="Mở khái quát từ vựng"
-                    >
-                      <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M7 5l5 5-5 5" />
-                      </svg>
-                    </button>
-                    <span
-                      onClick={() => setShowVocabularyPanel(true)}
-                      className="ml-2 pr-2 font-medium cursor-pointer select-none animate-wiggle rounded-r-full text-gray-800"
-                      style={{paddingTop: '6px', paddingBottom: '6px'}}>
-                      Khái quát từ vựng
-                    </span>
-                  </div>
-                )} */}
-              </div>
-
-              {/* Vocabulary Panel - Responsive */}
-              {testQuestions[currentQuestionIndex]?.subjectVocabulary && showVocabularyPanel && (
-                <>
-                  {/* Desktop: panel bám dính cạnh phải màn hình */}
-                  <div className="hidden lg:block fixed right-10 top-2 h-screen w-60 z-40">
-                    <VocabularyPanel
-                      subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
-                      descriptiveVocabulary={testQuestions[currentQuestionIndex].descriptiveVocabulary || []}
-                      onVocabularyComplete={handleVocabularyComplete}
-                      onVocabularySelection={handleVocabularySelection}
-                      isCompleted={vocabularyCompleted}
-                      isAnswered={isAnswered}
-                      imageUrl={testQuestions[currentQuestionIndex].image}
-                      imageDescription={testQuestions[currentQuestionIndex].imageDescription}
-                      onClose={() => setShowVocabularyPanel(false)}
-                      resetKey={vocabularyResetKey}
-                    />
-                  </div>
-                  {/* Mobile: bottom sheet */}
-                  <div className="block lg:hidden fixed bottom-0 left-0 right-0 w-full z-50 mt-2">
-                    <div className="bg-white rounded-t-2xl shadow-2xl border-t border-gray-200 max-h-[80vh] overflow-y-auto p-2">
-                      <VocabularyPanel
-                        subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
-                        descriptiveVocabulary={testQuestions[currentQuestionIndex].descriptiveVocabulary || []}
-                        onVocabularyComplete={handleVocabularyComplete}
-                        onVocabularySelection={handleVocabularySelection}
-                        isCompleted={vocabularyCompleted}
-                        isAnswered={isAnswered}
-                        imageUrl={testQuestions[currentQuestionIndex].image}
-                        imageDescription={testQuestions[currentQuestionIndex].imageDescription}
-                        onClose={() => setShowVocabularyPanel(false)}
-                        resetKey={vocabularyResetKey}
+              {/* Nếu chưa hoàn thành từ vựng, chỉ hiện ảnh (nếu có) và VocabularyPanel ngay dưới ảnh */}
+              {testQuestions[currentQuestionIndex]?.subjectVocabulary && !vocabularyCompleted && (
+                <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+                  {/* Ảnh nếu có */}
+                  {testQuestions[currentQuestionIndex]?.image && (
+                    <div className="flex justify-center mb-4">
+                      <img
+                        src={testQuestions[currentQuestionIndex].image}
+                        alt={testQuestions[currentQuestionIndex].imageDescription || 'Question image'}
+                        className="max-h-96 w-full rounded-xl object-contain"
                       />
                     </div>
-                  </div>
+                  )}
+                  {/* VocabularyPanel nằm ngay dưới ảnh */}
+                  <VocabularyPanel
+                    subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
+                    descriptiveVocabulary={testQuestions[currentQuestionIndex].descriptiveVocabulary || []}
+                    onVocabularyComplete={handleVocabularyComplete}
+                    onVocabularySelection={handleVocabularySelection}
+                    isCompleted={vocabularyCompleted}
+                    isAnswered={isAnswered}
+                    imageUrl={testQuestions[currentQuestionIndex].image}
+                    imageDescription={testQuestions[currentQuestionIndex].imageDescription}
+                    resetKey={vocabularyResetKey}
+                  />
+                </div>
+              )}
+              {/* Khi đã hoàn thành từ vựng, mới hiện QuestionCard và AudioPlayer */}
+              {vocabularyCompleted && (
+                <>
+                  {testQuestions[currentQuestionIndex]?.audio && (
+                    <AudioPlayer
+                      audioSrc={testQuestions[currentQuestionIndex].audio}
+                      audioRef={audioRef as React.RefObject<HTMLAudioElement>}
+                      forceStop={forceStopAudio}
+                    />
+                  )}
+                  <QuestionCard
+                    question={testQuestions[currentQuestionIndex]}
+                    currentQuestionIndex={currentQuestionIndex}
+                    totalQuestions={testQuestions.length}
+                    selectedAnswer={selectedAnswer}
+                    isAnswered={isAnswered}
+                    setSelectedAnswer={setSelectedAnswer}
+                    nextQuestion={nextQuestion}
+                    playCount={playCount}
+                    maxPlays={maxPlays}
+                    setPlayCount={setPlayCount}
+                    showTranscript={showTranscript}
+                    setShowTranscript={setShowTranscript}
+                    hideImage={false}
+                    onShowVocabularyPanel={undefined}
+                  />
+                  {/* Hiển thị bảng kết quả từ vựng sau khi đã trả lời xong */}
+                  {isAnswered && (
+                    <div className="mt-6">
+                      <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                        <h4 className="font-semibold text-blue-800 mb-2">Kết quả chọn từ vựng</h4>
+                        {/* Chủ ngữ */}
+                        <div className="mb-2">
+                          <span className="font-semibold text-gray-700">Chủ ngữ:</span>
+                          <ul className="list-none flex flex-wrap gap-2 mt-1">
+                            {testQuestions[currentQuestionIndex].subjectVocabulary?.map((word: VocabularyWord, idx: number) => {
+                              const selected = (allVocabularySelections[currentQuestionIndex]?.subjectSelected || []).includes(word.word);
+                              const correct = word.isCorrect;
+                              return (
+                                <li key={word.word} className={`px-3 py-1 rounded-lg text-sm font-medium border ${selected ? (correct ? 'bg-green-100 border-green-400 text-green-800' : 'bg-red-100 border-red-400 text-red-800') : 'bg-gray-100 border-gray-300 text-gray-500'}`}>
+                                  {word.word} {selected ? (correct ? '✔️' : '❌') : ''}
+                                  <span className="ml-1 text-xs text-gray-400">({word.meaning})</span>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                        {/* Bổ nghĩa */}
+                        <div>
+                          <span className="font-semibold text-gray-700">Bổ nghĩa:</span>
+                          <ul className="list-none flex flex-wrap gap-2 mt-1">
+                            {testQuestions[currentQuestionIndex].descriptiveVocabulary?.map((word: VocabularyWord, idx: number) => {
+                              const selected = (allVocabularySelections[currentQuestionIndex]?.descriptiveSelected || []).includes(word.word);
+                              const correct = word.isCorrect;
+                              return (
+                                <li key={word.word} className={`px-3 py-1 rounded-lg text-sm font-medium border ${selected ? (correct ? 'bg-green-100 border-green-400 text-green-800' : 'bg-red-100 border-red-400 text-red-800') : 'bg-gray-100 border-gray-300 text-gray-500'}`}>
+                                  {word.word} {selected ? (correct ? '✔️' : '❌') : ''}
+                                  <span className="ml-1 text-xs text-gray-400">({word.meaning})</span>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </>
               )}
             </div>

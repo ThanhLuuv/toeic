@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     navigate(-1);
   };
 
-  const isPart1Page = location.pathname === '/part1';
+  const isPart1Page = location.pathname === '/part1' || location.pathname === '/part2';
 
   return (
     <header className="gradient-bg shadow-lg">

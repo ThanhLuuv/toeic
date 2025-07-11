@@ -15,8 +15,24 @@ const Part2: React.FC = () => {
 
   // Lấy danh sách bài test theo level (không phân chủ đề)
   const getTestsByLevel = (level: number) => {
-    // Dữ liệu có thể có key thừa dấu cách
-    const questions = (part2Data as any)[`level${level}`] || (part2Data as any)[`level${level} `] || [];
+    console.log('Getting tests for level:', level);
+    
+    // Tìm key đúng trong JSON (có thể có dấu cách)
+    const allKeys = Object.keys(part2Data);
+    console.log('All keys in part2Data:', allKeys);
+    
+    const levelKey = `level${level}`;
+    const foundKey = allKeys.find(k => k.trim() === levelKey);
+    console.log('Looking for key:', levelKey, 'Found:', foundKey);
+    
+    if (!foundKey) {
+      console.log('No data found for level:', level);
+      return [];
+    }
+    
+    const questions = (part2Data as any)[foundKey] || [];
+    console.log('Questions found for level:', level, 'Count:', questions.length);
+    
     const tests = Array.from({ length: Math.ceil(questions.length / QUESTIONS_PER_TEST) }, (_, i) => ({
       id: `part2-level${level}-test${i + 1}`,
       title: `Bài số ${i + 1}`,
@@ -26,6 +42,8 @@ const Part2: React.FC = () => {
       completed: false,
       score: 0,
     }));
+    
+    console.log('Created tests:', tests);
     return tests;
   };
 
@@ -37,8 +55,7 @@ const Part2: React.FC = () => {
   }, [currentLevel, tests.length]);
 
   const startTest = (testId: string) => {
-    const [_, level, testNumber] = testId.split('-');
-    navigate('/test-part2', { state: { testId, level } });
+    navigate(`/test-part2/${testId}`);
   };
 
   return (

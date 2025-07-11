@@ -18,7 +18,7 @@ const App: React.FC = () => {
           element={<TestPart1 />}
         />
         <Route
-          path="/test-part2"
+          path="/test-part2/:testId"
           element={<TestPart2 />}
         />
         <Route

@@ -15,6 +15,7 @@
           "C": "Cô ấy sẽ đi sớm."
         },
         "correctAnswer": "A",
+        "answerType": "location",
         "explanation": "Câu hỏi hỏi về địa điểm nên đáp án phải là vị trí.",
         "tips": "Lắng nghe cụm từ chỉ nơi chốn như 'next to', 'on the left', v.v.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153001/gessfub70xtpimphmsb6.mp3"    
@@ -34,6 +35,7 @@
           "C": "Ở góc phố."
         },
         "correctAnswer": "A",
+        "answerType": "solution",
         "explanation": "Phản hồi tự nhiên là hỏi thêm thông tin sau câu phát biểu.",
         "tips": "Chọn phản hồi phù hợp với ngữ cảnh câu nói.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153005/kgi4wyx72ac9rnspo2uq.mp3"    
@@ -53,6 +55,7 @@
           "C": "Nó ở trên kệ."
         },
         "correctAnswer": "A",
+        "answerType": "yes_no",
         "explanation": "Câu hỏi Yes/No, nên đáp án là Yes/No + thông tin.",
         "tips": "Nghe từ 'did' và chọn đáp án có Yes/No.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153009/ttxzekomxhdcc5pqjr2q.mp3"    
@@ -72,6 +75,7 @@
           "C": "Cô ấy sẽ tham gia."
         },
         "correctAnswer": "B",
+        "answerType": "time",
         "explanation": "Câu hỏi hỏi về thời gian, phù hợp với đáp án B.",
         "tips": "Chú ý cụm từ thời gian như 'at 3'.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153013/clkw8qolibgvukhadf5s.mp3"    
@@ -91,6 +95,7 @@
           "C": "Chiều nay."
         },
         "correctAnswer": "B",
+        "answerType": "agreement",
         "explanation": "Phản hồi tự nhiên là chấp nhận lời nói.",
         "tips": "Chọn câu thể hiện phản hồi phù hợp.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153017/fym8ufitjuevhvfjxrod.mp3"    
@@ -110,6 +115,7 @@
           "C": "Trong phòng họp."
         },
         "correctAnswer": "A",
+        "answerType": "person",
         "explanation": "Câu hỏi hỏi về người, đáp án phải là tên.",
         "tips": "Nghe từ 'who' và chọn tên người.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153020/xdtgkoj86yr7ptgxby1s.mp3"    
@@ -129,6 +135,7 @@
           "C": "Tại văn phòng của bạn."
         },
         "correctAnswer": "A",
+        "answerType": "yes_no",
         "explanation": "Yes/No question nên đáp là Yes/No.",
         "tips": "Lắng nghe Yes hoặc No đầu câu trả lời.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153025/i7atdc0y49mwszixy3a1.mp3"    
@@ -148,6 +155,7 @@
           "C": "Nó ở trong túi của tôi."
         },
         "correctAnswer": "B",
+        "answerType": "solution",
         "explanation": "Phản hồi hợp lý là đưa chìa khóa dự phòng.",
         "tips": "Chọn câu giúp giải quyết vấn đề trong statement.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153028/byv4pccx1vgxmr6k2kbj.mp3"    
@@ -167,6 +175,7 @@
           "C": "Trong nhà bếp."
         },
         "correctAnswer": "A",
+        "answerType": "choice",
         "explanation": "Người hỏi đưa 2 lựa chọn, đáp án chọn một.",
         "tips": "Tìm 'tea' hoặc 'coffee'.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153032/jqfsnoocje3nebftxfoz.mp3"    
@@ -186,6 +195,7 @@
           "C": "Tuần tới."
         },
         "correctAnswer": "A",
+        "answerType": "reason",
         "explanation": "Câu hỏi 'why' cần lý do.",
         "tips": "Chú ý cụm 'why' và lý do trả lời.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153035/bhjxnj3ue0nln54i8ien.mp3"    
@@ -205,6 +215,7 @@
           "C": "Sáng mai."
         },
         "correctAnswer": "A",
+        "answerType": "yes_no",
         "explanation": "Yes/No question nên trả lời Yes/No + thông tin.",
         "tips": "Nghe Yes/No đầu câu.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153038/qn2tdskvdx5pfbruscrh.mp3"    
@@ -224,6 +235,7 @@
           "C": "Vâng, bạn có thể."
         },
         "correctAnswer": "A",
+        "answerType": "agreement",
         "explanation": "Phản hồi lịch sự thể hiện sự hiểu biết.",
         "tips": "Chọn câu bày tỏ cảm thông.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153041/wjdjm96ac6rw3k8x28n2.mp3"    
@@ -243,6 +255,7 @@
           "C": "Mỗi 15 phút."
         },
         "correctAnswer": "A",
+        "answerType": "choice",
         "explanation": "Câu hỏi hỏi 'which', đáp án là lựa chọn cụ thể.",
         "tips": "Tìm số xe, tên phương tiện.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153045/qi5waeb4qzpi2rwvcn7h.mp3"    
@@ -262,6 +275,7 @@
           "C": "Thứ Hai tới."
         },
         "correctAnswer": "A",
+        "answerType": "yes_no",
         "explanation": "Yes/No question nên chọn Yes/No.",
         "tips": "Chú ý từ 'is' đầu câu.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153047/arhdemvbieal74moxnnj.mp3"    
@@ -281,6 +295,7 @@
           "C": "Trong tủ quần áo."
         },
         "correctAnswer": "A",
+        "answerType": "choice",
         "explanation": "Người hỏi đưa 2 lựa chọn, trả lời 1 màu.",
         "tips": "Chọn đúng lựa chọn được hỏi.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153050/s8w5djxsbct9dyubnz21.mp3"    
@@ -300,6 +315,7 @@
           "C": "Trong hai giờ."
         },
         "correctAnswer": "A",
+        "answerType": "time",
         "explanation": "Câu hỏi hỏi thời gian cụ thể.",
         "tips": "Chú ý 'when' và từ chỉ thời gian.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153054/ijsxqb76mzd3thjocuuw.mp3"    
@@ -319,6 +335,7 @@
           "C": "Vâng, làm ơn."
         },
         "correctAnswer": "A",
+        "answerType": "solution",
         "explanation": "Phản hồi việc đưa chữ ký là truyền tài liệu.",
         "tips": "Chọn đáp án hợp lý với ngữ cảnh.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153057/cbl141mpkrmyosgtu0cw.mp3"    
@@ -338,6 +355,7 @@
           "C": "Sáng mai."
         },
         "correctAnswer": "A",
+        "answerType": "yes_no",
         "explanation": "Yes/No + lời cam kết là phù hợp.",
         "tips": "Chọn câu bắt đầu bằng Yes/No.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153061/oh4mqwnfest73ch6lxav.mp3"    
@@ -357,6 +375,7 @@
           "C": "Trong cửa hàng."
         },
         "correctAnswer": "A",
+        "answerType": "choice",
         "explanation": "Câu hỏi về giá, đáp án là số tiền.",
         "tips": "Chú ý 'how much'.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153063/jrmglxb4zggomjts8hyg.mp3"    
@@ -376,6 +395,7 @@
           "C": "Vâng, mệt."
         },
         "correctAnswer": "A",
+        "answerType": "agreement",
         "explanation": "Phản hồi tự nhiên là đề nghị nghỉ ngơi.",
         "tips": "Chọn phản hồi hợp lý.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153066/xt0j2ndb7uilucjqzad8.mp3"    
@@ -395,6 +415,7 @@
           "C": "Trong nhà bếp."
         },
         "correctAnswer": "A",
+        "answerType": "yes_no",
         "explanation": "Yes/No question, nên đáp Yes.",
         "tips": "Chọn dạng trả lời Yes/No.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153068/fqmlap81utnshxh2jply.mp3"    
@@ -414,6 +435,7 @@
           "C": "Tuần tới."
         },
         "correctAnswer": "A",
+        "answerType": "location",
         "explanation": "Câu hỏi hỏi phương hướng, đáp án chỉ hướng.",
         "tips": "Chú ý 'which way', chọn hướng đi.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153071/rg2pac0b3f2n5klwzuwe.mp3"    
@@ -433,6 +455,7 @@
           "C": "Vâng, bạn đúng vậy."
         },
         "correctAnswer": "A",
+        "answerType": "solution",
         "explanation": "Phản hồi hợp lý là đảm bảo thức ăn không có peanuts.",
         "tips": "Chọn câu thể hiện sự quan tâm.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153073/hdikqzu6xciyoyp1d0ng.mp3"    
@@ -452,6 +475,7 @@
           "C": "Trên bàn."
         },
         "correctAnswer": "A",
+        "answerType": "choice",
         "explanation": "Chọn một trong hai: water hoặc soda.",
         "tips": "Lắng nghe lựa chọn cụ thể.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153074/qcssfetalvfxnn5uurq1.mp3"    
@@ -471,11 +495,388 @@
           "C": "Vâng, tôi đã để."
         },
         "correctAnswer": "A",
+        "answerType": "location",
         "explanation": "Câu hỏi hỏi nơi chốn, đáp án là vị trí cụ thể.",
         "tips": "Chú ý 'where' và vị trí.",
         "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752153076/a8yt2ye4zqwslum5mmvx.mp3"    
       }
     ],
-  "level2 ": [],
+  "level2 ": [
+    {
+      "id": 1,
+      "type": "WH-question",
+      "question": "Where can I find the updated schedule?",
+      "choices": {
+        "A": "I sent it by email.",
+        "B": "It's posted on the notice board.",
+        "C": "At 10 a.m. tomorrow."
+      },
+      "correctAnswer": "B",
+      "answerType": "location",
+      "explanation": "Câu hỏi hỏi về địa điểm, đáp án đúng là nơi lịch trình được dán.",
+      "tips": "Tập trung vào các cụm chỉ địa điểm như 'on the wall', 'in the file'...",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214143/kqiodtl3cxm0pfpsdwaq.mp3"
+    },
+    {
+      "id": 2,
+      "type": "Yes/No question",
+      "question": "Did you send the invoice already?",
+      "choices": {
+        "A": "Yes, just a moment ago.",
+        "B": "By this Friday.",
+        "C": "To the finance department."
+      },
+      "correctAnswer": "A",
+      "answerType": "yes_no",
+      "explanation": "Câu hỏi Yes/No nên cần xác nhận rõ ràng.",
+      "tips": "Tìm các câu bắt đầu bằng Yes hoặc No.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214146/pqtm4hj8ulnmet3pzebt.mp3"
+    },
+    {
+      "id": 3,
+      "type": "Statement-Response",
+      "question": "The office printer isn’t working again.",
+      "choices": {
+        "A": "It’s under the desk.",
+        "B": "Yes, it’s in color.",
+        "C": "I'll report it to maintenance."
+      },
+      "correctAnswer": "C",
+      "answerType": "solution",
+      "explanation": "Câu phản hồi hành động khắc phục là hợp lý nhất.",
+      "tips": "Nghe các cụm như 'I'll check', 'call support'...",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214147/krzpblhish8bdkmcqq3p.mp3"
+    },
+    {
+      "id": 4,
+      "type": "WH-question",
+      "question": "Which floor is the legal department on?",
+      "choices": {
+        "A": "They handle contracts.",
+        "B": "Around 3 o'clock.",
+        "C": "On the 5th floor, next to HR."
+      },
+      "correctAnswer": "C",
+      "answerType": "location",
+      "explanation": "Câu hỏi 'Which floor' → cần trả lời cụ thể tầng.",
+      "tips": "Lắng nghe chỉ dẫn vị trí cụ thể.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214149/tyigwixuzlwsjnn9xm4a.mp3"
+    },
+    {
+      "id": 5,
+      "type": "Yes/No question",
+      "question": "Have you reviewed the proposal?",
+      "choices": {
+        "A": "I wrote the introduction.",
+        "B": "Yes, I finished it yesterday.",
+        "C": "Next week, maybe."
+      },
+      "correctAnswer": "B",
+      "answerType": "yes_no",
+      "explanation": "Xác nhận rõ ràng với Yes là phù hợp nhất.",
+      "tips": "Nghe từ khóa xác nhận như 'Yes', 'No'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214152/yyce5weww51cvaikuaab.mp3"
+    },
+    {
+      "id": 6,
+      "type": "WH-question",
+      "question": "When will the new policy be implemented?",
+      "choices": {
+        "A": "To improve efficiency.",
+        "B": "By the legal team.",
+        "C": "Starting next Monday."
+      },
+      "correctAnswer": "C",
+      "answerType": "time",
+      "explanation": "Câu hỏi về thời gian, đáp án là ngày bắt đầu áp dụng.",
+      "tips": "Chú ý cụm chỉ thời gian như 'starting', 'from', 'on'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214154/uqctzie7ixx7mccibozt.mp3"
+    },
+    {
+      "id": 7,
+      "type": "Statement-Response",
+      "question": "I forgot to lock the storage room.",
+      "choices": {
+        "A": "Yes, it's very secure.",
+        "B": "Don't worry, I'll check it now.",
+        "C": "It's in the basement."
+      },
+      "correctAnswer": "B",
+      "answerType": "solution",
+      "explanation": "Phản hồi hành động hợp lý nhất là kiểm tra lại.",
+      "tips": "Tập trung vào phản ứng chủ động.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214156/kiic46r7uvvfpvfifniv.mp3"
+    },
+    {
+      "id": 8,
+      "type": "Choice question",
+      "question": "Would you prefer to meet on Thursday or Friday?",
+      "choices": {
+        "A": "At 2 p.m.",
+        "B": "Yes, that works.",
+        "C": "Friday is better for me."
+      },
+      "correctAnswer": "C",
+      "answerType": "choice",
+      "explanation": "Câu hỏi lựa chọn cần đưa ra ngày được chọn.",
+      "tips": "Chú ý các từ như 'prefer', 'better'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214158/uei8gf9wwmcjvncie9kc.mp3"
+    },
+    {
+      "id": 9,
+      "type": "WH-question",
+      "question": "Who authorized this payment?",
+      "choices": {
+        "A": "Before the deadline.",
+        "B": "Ms. Lee from accounting.",
+        "C": "In the finance folder."
+      },
+      "correctAnswer": "B",
+      "answerType": "person",
+      "explanation": "Câu hỏi về người, cần nêu tên cụ thể.",
+      "tips": "Nghe tên người/ chức danh rõ ràng.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214160/qxxozkiptzkyk3vmyxju.mp3"
+    },
+    {
+      "id": 10,
+      "type": "Statement-Response",
+      "question": "I just received the client feedback.",
+      "choices": {
+        "A": "Great, let’s review it together.",
+        "B": "From Mr. Brown.",
+        "C": "On the document."
+      },
+      "correctAnswer": "A",
+      "answerType": "agreement",
+      "explanation": "Phản hồi phù hợp nhất là đề nghị hành động tiếp theo.",
+      "tips": "Tìm phản ứng mang tính tiếp nối.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214162/yp2fzbcayomska2mwxvb.mp3"
+    },
+    {
+      "id": 11,
+      "type": "Yes/No question",
+      "question": "Are you familiar with this software?",
+      "choices": {
+        "A": "It's for data entry.",
+        "B": "Yes, I used it at my last job.",
+        "C": "After the training session."
+      },
+      "correctAnswer": "B",
+      "answerType": "yes_no",
+      "explanation": "Câu hỏi cần xác nhận quen thuộc, câu B trả lời trực tiếp.",
+      "tips": "Nghe các mẫu xác nhận như 'Yes, I have', 'No, I’m not'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214164/eytzdps3eiztikdezg1u.mp3"
+    },
+    {
+      "id": 12,
+      "type": "Statement-Response",
+      "question": "I think we’re missing one signature.",
+      "choices": {
+        "A": "Yes, she signed it.",
+        "B": "Let me double-check the form.",
+        "C": "Next to the logo."
+      },
+      "correctAnswer": "B",
+      "answerType": "solution",
+      "explanation": "Câu B là phản hồi hợp lý để kiểm tra lại.",
+      "tips": "Tìm câu thể hiện hành động cụ thể tiếp theo.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214165/wocoosctprqylxqvcd9x.mp3"
+    },
+    {
+      "id": 13,
+      "type": "WH-question",
+      "question": "Why was the meeting postponed?",
+      "choices": {
+        "A": "In Conference Room B.",
+        "B": "Yes, it was delayed.",
+        "C": "Because the manager was sick."
+      },
+      "correctAnswer": "C",
+      "answerType": "reason",
+      "explanation": "Câu hỏi lý do, chỉ C trả lời lý do rõ ràng.",
+      "tips": "Lắng nghe 'because', 'due to'...",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214167/e6pdyonjo7nddo6xfc7k.mp3"
+    },
+    {
+      "id": 14,
+      "type": "WH-question",
+      "question": "Who’s responsible for updating the database?",
+      "choices": {
+        "A": "No, it’s not necessary.",
+        "B": "Mr. Tan from the IT department.",
+        "C": "Tomorrow afternoon."
+      },
+      "correctAnswer": "B",
+      "answerType": "person",
+      "explanation": "Hỏi người phụ trách → B trả lời người cụ thể.",
+      "tips": "Nghe tên người, chức danh.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214169/ufewtjvnab2krrsct6kt.mp3"
+    },
+    {
+      "id": 15,
+      "type": "Yes/No question",
+      "question": "Did the supplier confirm the shipment date?",
+      "choices": {
+        "A": "Yes, they’ll ship next Monday.",
+        "B": "The warehouse is closed.",
+        "C": "In the delivery note."
+      },
+      "correctAnswer": "A",
+      "answerType": "yes_no",
+      "explanation": "Yes → khẳng định, có ngày cụ thể phù hợp.",
+      "tips": "Tập trung vào câu có 'Yes' kèm chi tiết.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214171/xedbzu7sa4ya6usdiiel.mp3"
+    },
+    {
+      "id": 16,
+      "type": "Choice question",
+      "question": "Would you like to pay in cash or by card?",
+      "choices": {
+        "A": "Cash will be fine.",
+        "B": "It’s $45.",
+        "C": "No, I haven’t."
+      },
+      "correctAnswer": "A",
+      "answerType": "choice",
+      "explanation": "A chọn 1 trong 2 tùy chọn phù hợp.",
+      "tips": "Tập trung vào câu trả lời chọn rõ ràng.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214174/mklqnbpzbs0vflcdjyby.mp3"
+    },
+    {
+      "id": 17,
+      "type": "WH-question",
+      "question": "When is the next company outing?",
+      "choices": {
+        "A": "It's optional.",
+        "B": "On the first weekend of June.",
+        "C": "To the countryside."
+      },
+      "correctAnswer": "B",
+      "answerType": "time",
+      "explanation": "Câu hỏi về thời gian, B đưa ra thời điểm cụ thể.",
+      "tips": "Tìm 'on...', 'next week', 'in May'...",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214176/y5jsuyiqiwo0dc1cqk7z.mp3"
+    },
+    {
+      "id": 18,
+      "type": "Statement-Response",
+      "question": "I’ll be late to the team briefing.",
+      "choices": {
+        "A": "That’s alright, I’ll take notes for you.",
+        "B": "In the small meeting room.",
+        "C": "It starts soon."
+      },
+      "correctAnswer": "A",
+      "answerType": "agreement",
+      "explanation": "A là phản hồi giúp đỡ hợp lý khi người kia đến trễ.",
+      "tips": "Nghe câu thể hiện hỗ trợ.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214178/tydpva1yzyagzjoe08kz.mp3"
+    },
+    {
+      "id": 19,
+      "type": "Yes/No question",
+      "question": "Have you spoken to the new intern yet?",
+      "choices": {
+        "A": "Yes, she seems very capable.",
+        "B": "In the training room.",
+        "C": "At 3 o’clock today."
+      },
+      "correctAnswer": "A",
+      "answerType": "yes_no",
+      "explanation": "Yes → xác nhận + thêm thông tin.",
+      "tips": "Câu trả lời cần bắt đầu Yes/No và hợp ngữ cảnh.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214180/jitg8sjwjojtvry6mt8j.mp3"
+    },
+    {
+      "id": 20,
+      "type": "WH-question",
+      "question": "Where should I submit the application?",
+      "choices": {
+        "A": "Yes, I have it here.",
+        "B": "It’s due today.",
+        "C": "To the front desk on the first floor."
+      },
+      "correctAnswer": "C",
+      "answerType": "location",
+      "explanation": "Câu hỏi 'Where', đáp án đúng phải chỉ địa điểm.",
+      "tips": "Lắng nghe các cụm như 'to...', 'at the counter'...",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214182/tmexztwiedtrrpgx1yw5.mp3"
+    },
+    {
+      "id": 21,
+      "type": "Choice question",
+      "question": "Do you want to work remotely or from the office?",
+      "choices": {
+        "A": "Only part-time.",
+        "B": "At the front desk.",
+        "C": "I prefer working remotely."
+      },
+      "correctAnswer": "C",
+      "answerType": "choice",
+      "explanation": "Câu hỏi chọn lựa giữa 2 tùy chọn, C là chọn rõ ràng.",
+      "tips": "Chú ý các cụm như 'I prefer...'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214185/bpnokcu1raqgjuvulxkb.mp3"
+    },
+    {
+      "id": 22,
+      "type": "WH-question",
+      "question": "Which document do I need to complete first?",
+      "choices": {
+        "A": "The onboarding checklist.",
+        "B": "I saw it earlier.",
+        "C": "Yes, it’s required."
+      },
+      "correctAnswer": "A",
+      "answerType": "choice",
+      "explanation": "Hỏi tài liệu nào, nên A là tên tài liệu cụ thể.",
+      "tips": "Tập trung vào tên tài liệu.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214187/b3917hbme50jfuwoauvi.mp3"
+    },
+    {
+      "id": 23,
+      "type": "Yes/No question",
+      "question": "Is the client arriving by train or taxi?",
+      "choices": {
+        "A": "In about 30 minutes.",
+        "B": "At the station entrance.",
+        "C": "By taxi, according to her message."
+      },
+      "correctAnswer": "C",
+      "answerType": "choice",
+      "explanation": "Câu hỏi có dạng lựa chọn, nhưng thuộc Yes/No, nên cần trả lời đúng phương tiện.",
+      "tips": "Lắng nghe phần chỉ rõ phương tiện.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214189/risddlcwfwzhqlbnuakt.mp3"
+    },
+    {
+      "id": 24,
+      "type": "WH-question",
+      "question": "Why is the shipment delayed?",
+      "choices": {
+        "A": "No, it hasn’t.",
+        "B": "At the loading dock.",
+        "C": "Because of customs inspection."
+      },
+      "correctAnswer": "C",
+      "answerType": "reason",
+      "explanation": "Câu hỏi 'Why' → cần lý do cụ thể.",
+      "tips": "Tìm cụm 'because of', 'due to'...",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214192/yaxpujhlzfqinxylhgzk.mp3"
+    },
+    {
+      "id": 25,
+      "type": "Statement-Response",
+      "question": "I can’t find the file on my computer.",
+      "choices": {
+        "A": "Try checking the shared folder.",
+        "B": "It’s a large file.",
+        "C": "Yes, it’s urgent."
+      },
+      "correctAnswer": "A",
+      "answerType": "solution",
+      "explanation": "Câu A đưa ra hành động hợp lý để giải quyết vấn đề.",
+      "tips": "Tìm câu mang tính gợi ý, hướng dẫn.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214193/dpjzg7o061srluzto0pg.mp3"
+    }
+  ],
   "level3 ": []
 } 
