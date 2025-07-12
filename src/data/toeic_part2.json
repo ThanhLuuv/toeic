@@ -5,11 +5,17 @@
       "type": "WH-question",
       "question": "Why did they cancel the meeting?",
       "choices": {
-        "A": "There wasn’t a projector available in the room.",
+        "A": "There wasn't a projector available in the room.",
         "B": "Because the conference room was double-booked.",
         "C": "Yes, the meeting was quite long."
       },
+      "choicesVi": {
+        "A": "Không có máy chiếu trong phòng.",
+        "B": "Vì phòng họp đã bị đặt trùng lịch.",
+        "C": "Vâng, cuộc họp khá dài."
+      },
       "correctAnswer": "B",
+      "answerType": "reason",
       "explanation": "Chỉ có B cung cấp lý do trực tiếp đúng logic hỏi 'Why'.",
       "tips": "Tập trung vào các câu chứa 'because', 'due to'.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285618/c9zwkhfgf8l2dopbqtzc.mp3"
@@ -23,7 +29,13 @@
         "B": "From platform seven, right beside the cafe.",
         "C": "Yes, it goes to Chicago."
       },
+      "choicesVi": {
+        "A": "Tôi nghĩ nó khởi hành sau khi tàu tốc hành đến, có lẽ khoảng 4:45.",
+        "B": "Từ sân ga số bảy, ngay cạnh quán cà phê.",
+        "C": "Vâng, nó đi Chicago."
+      },
       "correctAnswer": "A",
+      "answerType": "time",
       "explanation": "A trả lời giờ gián tiếp, người nghe cần suy luận.",
       "tips": "Tìm dấu hiệu về thời gian kể cả khi không nói trực tiếp.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285620/xhiwbnatd01k3vxkfnow.mp3"
@@ -34,10 +46,16 @@
       "question": "How did the technician fix the copier?",
       "choices": {
         "A": "He said it took longer than expected.",
-        "B": "By replacing a part that wasn’t functioning properly.",
+        "B": "By replacing a part that wasn't functioning properly.",
         "C": "Yes, it's working fine now."
       },
+      "choicesVi": {
+        "A": "Anh ấy nói mất nhiều thời gian hơn dự kiến.",
+        "B": "Bằng cách thay thế một bộ phận bị hỏng.",
+        "C": "Vâng, bây giờ nó hoạt động tốt."
+      },
       "correctAnswer": "B",
+      "answerType": "solution",
       "explanation": "B mô tả cách sửa, phù hợp với câu hỏi 'How'.",
       "tips": "Lắng nghe chi tiết về hành động cụ thể hoặc quá trình.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285623/xqwqqknyq0mn8qu9dg79.mp3"
@@ -49,9 +67,15 @@
       "choices": {
         "A": "Because I needed to double-check the amounts.",
         "B": "Right where we usually keep urgent documents — under the phone.",
-        "C": "I’ll send it again if needed."
+        "C": "I'll send it again if needed."
+      },
+      "choicesVi": {
+        "A": "Bởi vì tôi cần kiểm tra lại số lượng.",
+        "B": "Ngay chỗ chúng ta thường để tài liệu gấp — dưới điện thoại.",
+        "C": "Tôi sẽ gửi lại nếu cần."
       },
       "correctAnswer": "B",
+      "answerType": "location",
       "explanation": "B cung cấp vị trí nhưng được nói vòng, khiến người nghe cần hình dung.",
       "tips": "Tập trung vào cụm chỉ nơi, ngay cả khi bị chen các chi tiết phụ.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285625/lijkxybqblu2i1xj0qtx.mp3"
@@ -63,9 +87,15 @@
       "choices": {
         "A": "Hopefully before the director leaves for the airport tomorrow.",
         "B": "In the marketing department.",
-        "C": "Because it’s important to be on time."
+        "C": "Because it's important to be on time."
+      },
+      "choicesVi": {
+        "A": "Hy vọng trước khi giám đốc ra sân bay vào ngày mai.",
+        "B": "Ở phòng marketing.",
+        "C": "Bởi vì việc đúng giờ rất quan trọng."
       },
       "correctAnswer": "A",
+      "answerType": "time",
       "explanation": "A nói thời gian gián tiếp dựa vào ngữ cảnh, cần suy luận.",
       "tips": "Tìm mốc thời gian lồng trong các điều kiện hoặc tình huống.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285628/hcsjs53nat6ujo2ghdht.mp3"
@@ -79,7 +109,13 @@
         "B": "It will take about two hours.",
         "C": "Yes, they found it useful."
       },
+      "choicesVi": {
+        "A": "Để giúp các thành viên mới làm quen với công cụ cập nhật.",
+        "B": "Sẽ mất khoảng hai tiếng.",
+        "C": "Vâng, họ thấy nó hữu ích."
+      },
       "correctAnswer": "A",
+      "answerType": "reason",
       "explanation": "A đưa ra mục đích rõ ràng, mặc dù hơi dài dòng.",
       "tips": "Lắng nghe cụm 'to + verb', mục đích dài dòng vẫn là đáp án chính.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285632/znjxnajlhh6mthara5uw.mp3"
@@ -93,7 +129,13 @@
         "B": "Mr. Jenkins said he signed it off personally.",
         "C": "Because it exceeded expectations."
       },
+      "choicesVi": {
+        "A": "Tôi nghe nói nó đã được hoàn tất vào thứ Năm tuần trước.",
+        "B": "Ông Jenkins nói ông ấy đã tự ký duyệt.",
+        "C": "Bởi vì nó vượt quá mong đợi."
+      },
       "correctAnswer": "B",
+      "answerType": "person",
       "explanation": "B trả lời gián tiếp tên người, cần nghe kỹ.",
       "tips": "Chú ý các câu chứa động từ như 'said', 'mentioned', gắn với người.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285635/z3mx8snhmawuvo0ogvfg.mp3"
@@ -105,9 +147,15 @@
       "choices": {
         "A": "That would be the customer service team on the second floor.",
         "B": "Yes, I already submitted a complaint.",
-        "C": "They’re being handled now."
+        "C": "They're being handled now."
+      },
+      "choicesVi": {
+        "A": "Đó là đội chăm sóc khách hàng ở tầng hai.",
+        "B": "Vâng, tôi đã gửi khiếu nại rồi.",
+        "C": "Chúng đang được xử lý."
       },
       "correctAnswer": "A",
+      "answerType": "choice",
       "explanation": "A đưa thông tin đúng với dạng chọn lựa, dù có thêm thông tin phụ.",
       "tips": "Tìm các câu có chứa chủ thể xác định — team, department, group.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285638/kcx4nmfrp1g6xvcffdtw.mp3"
@@ -121,7 +169,13 @@
         "B": "It's on his desk already.",
         "C": "Yes, I sent it right after the team finalized the edits."
       },
+      "choicesVi": {
+        "A": "Ông ấy đã yêu cầu trước buổi trưa.",
+        "B": "Nó đã ở trên bàn ông ấy rồi.",
+        "C": "Vâng, tôi đã gửi ngay sau khi nhóm hoàn thành chỉnh sửa."
+      },
       "correctAnswer": "C",
+      "answerType": "yes_no",
       "explanation": "C xác nhận hành động đã thực hiện đúng câu hỏi.",
       "tips": "Nghe kỹ thời điểm hoặc trạng thái hoàn tất để xác định Yes/No.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285640/hhulmfbxkllf5znktf3y.mp3"
@@ -131,11 +185,17 @@
       "type": "Yes/No",
       "question": "Have the invoices been verified yet?",
       "choices": {
-        "A": "They’re stored in the cabinet now.",
-        "B": "Not yet — we’re still matching them with the delivery notes.",
+        "A": "They're stored in the cabinet now.",
+        "B": "Not yet — we're still matching them with the delivery notes.",
         "C": "Yes, we have the originals too."
       },
+      "choicesVi": {
+        "A": "Chúng đang được lưu trong tủ hồ sơ.",
+        "B": "Chưa — chúng tôi vẫn đang đối chiếu với phiếu giao hàng.",
+        "C": "Vâng, chúng tôi cũng có bản gốc."
+      },
       "correctAnswer": "B",
+      "answerType": "yes_no",
       "explanation": "B trả lời gián tiếp nhưng hợp lý với tình trạng chưa xác nhận.",
       "tips": "Lắng nghe các dấu hiệu như 'not yet', 'still working on'.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285642/njc3qqoa57478df1ot7m.mp3"
@@ -149,7 +209,13 @@
         "B": "No, the one with the red header is the correct version.",
         "C": "I printed several for you."
       },
+      "choicesVi": {
+        "A": "Tôi đã để nó trên bàn bạn sáng nay.",
+        "B": "Không, bản có tiêu đề màu đỏ mới là bản đúng.",
+        "C": "Tôi đã in cho bạn vài bản."
+      },
       "correctAnswer": "B",
+      "answerType": "yes_no",
       "explanation": "B phủ định rõ ràng và đưa đặc điểm đúng file mong muốn.",
       "tips": "Tập trung vào 'No, but...' hoặc mô tả đúng đối tượng.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285645/yyiaon0e9ou8avynx1jw.mp3"
@@ -161,9 +227,15 @@
       "choices": {
         "A": "Yes, unless he calls to reschedule again.",
         "B": "In the conference room on the second floor.",
-        "C": "I haven’t received the agenda yet."
+        "C": "I haven't received the agenda yet."
+      },
+      "choicesVi": {
+        "A": "Vâng, trừ khi anh ấy gọi dời lịch lần nữa.",
+        "B": "Ở phòng họp tầng hai.",
+        "C": "Tôi chưa nhận được chương trình họp."
       },
       "correctAnswer": "A",
+      "answerType": "yes_no",
       "explanation": "A khẳng định có nhưng kèm điều kiện, phù hợp với Level 3.",
       "tips": "Nghe kỹ những câu xác nhận kèm ngoại lệ, giả định.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285648/wqblgbfxusentdmtuuds.mp3"
@@ -171,13 +243,19 @@
     {
       "id": 13,
       "type": "Yes/No",
-      "question": "Wasn’t the shipment supposed to arrive this morning?",
+      "question": "Wasn't the shipment supposed to arrive this morning?",
       "choices": {
         "A": "They left the warehouse on time.",
         "B": "Yes, but it got delayed due to customs inspection.",
-        "C": "No, it’s going to the downtown branch."
+        "C": "No, it's going to the downtown branch."
+      },
+      "choicesVi": {
+        "A": "Họ đã rời kho đúng giờ.",
+        "B": "Vâng, nhưng bị trễ do kiểm tra hải quan.",
+        "C": "Không, nó sẽ đến chi nhánh trung tâm."
       },
       "correctAnswer": "B",
+      "answerType": "yes_no",
       "explanation": "B xác nhận đúng lịch và đưa lý do chậm, phù hợp logic.",
       "tips": "Câu hỏi phủ định → đáp án có thể bắt đầu bằng 'Yes, but...'.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285651/nwjbbxg0gearnrbrypk4.mp3"
@@ -188,10 +266,16 @@
       "question": "Do you think the client will approve this layout?",
       "choices": {
         "A": "The client meeting is at 3 p.m.",
-        "B": "That’s what the last designer assumed too.",
+        "B": "That's what the last designer assumed too.",
         "C": "It depends — she liked the previous version better, though."
       },
+      "choicesVi": {
+        "A": "Cuộc họp với khách hàng là lúc 3 giờ chiều.",
+        "B": "Nhà thiết kế trước cũng nghĩ vậy.",
+        "C": "Còn tùy — cô ấy thích bản trước hơn."
+      },
       "correctAnswer": "C",
+      "answerType": "yes_no",
       "explanation": "C trả lời đúng ý kiến nhưng kèm điều kiện, thể hiện phân vân.",
       "tips": "Nghe cụm như 'it depends', 'I guess so', đặc biệt là ý kiến không dứt khoát.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285654/qq9uv7jj6d7oauvfv7od.mp3"
@@ -201,11 +285,17 @@
       "type": "Choice",
       "question": "Would you prefer the meeting be on Monday or Wednesday?",
       "choices": {
-        "A": "Monday would be better since I’m out on Wednesday.",
-        "B": "Yes, I’ll bring the documents.",
-        "C": "No, it’s not confirmed yet."
+        "A": "Monday would be better since I'm out on Wednesday.",
+        "B": "Yes, I'll bring the documents.",
+        "C": "No, it's not confirmed yet."
+      },
+      "choicesVi": {
+        "A": "Thứ Hai sẽ tốt hơn vì tôi bận thứ Tư.",
+        "B": "Vâng, tôi sẽ mang tài liệu.",
+        "C": "Không, vẫn chưa xác"
       },
       "correctAnswer": "A",
+      "answerType": "choice",
       "explanation": "A đưa ra lựa chọn rõ ràng kèm lý do, đúng yêu cầu.",
       "tips": "Nghe cụm chỉ lựa chọn và lý do như 'because', 'since'.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285658/trq9223qggu3asebjomt.mp3"
@@ -217,9 +307,15 @@
       "choices": {
         "A": "Color — it makes the visuals much more impactful.",
         "B": "That depends on the number of pages.",
-        "C": "It’s with the design team now."
+        "C": "It's with the design team now."
+      },
+      "choicesVi": {
+        "A": "Màu sắc — nó làm cho hình ảnh trực quan hơn nhiều.",
+        "B": "Điều đó phụ thuộc vào số trang.",
+        "C": "Nó đang được đội thiết kế."
       },
       "correctAnswer": "A",
+      "answerType": "choice",
       "explanation": "A lựa chọn rõ ràng, mặc dù thêm nhận xét.",
       "tips": "Tập trung lựa chọn rõ giữa 2 phương án, kể cả khi câu có đánh giá thêm.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285661/irmnyk8ldcnayn00ks1h.mp3"
@@ -229,11 +325,17 @@
       "type": "Choice",
       "question": "Do you want to take the stairs or use the elevator?",
       "choices": {
-        "A": "I’ve never been to this building before.",
-        "B": "Let’s take the stairs — it's just one floor up.",
+        "A": "I've never been to this building before.",
+        "B": "Let's take the stairs — it's just one floor up.",
         "C": "Yes, the elevator is down the hall."
       },
+      "choicesVi": {
+        "A": "Tôi chưa từng đến tòa nhà này trước đây.",
+        "B": "Hãy đi thang máy — chỉ là một tầng lên.",
+        "C": "Vâng, thang máy ở phía cuối hành lang."
+      },
       "correctAnswer": "B",
+      "answerType": "choice",
       "explanation": "B thể hiện lựa chọn cụ thể cùng lý do logic.",
       "tips": "Lắng nghe chủ thể chọn rõ phương án trong câu hỏi.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285664/ft5w71fodvqyhaz2v8zw.mp3"
@@ -245,9 +347,15 @@
       "choices": {
         "A": "I brought my own mug today.",
         "B": "The coffee machine was fixed yesterday.",
-        "C": "Just water, please — I’m cutting down on caffeine."
+        "C": "Just water, please — I'm cutting down on caffeine."
+      },
+      "choicesVi": {
+        "A": "Tôi đã mang cốc của mình hôm nay.",
+        "B": "Máy pha cà phê đã được sửa hôm qua.",
+        "C": "Chỉ nước, vui lòng — tôi đang giảm lượng cafe."
       },
       "correctAnswer": "C",
+      "answerType": "choice",
       "explanation": "C chọn phương án và đưa lý do, phù hợp ngữ cảnh.",
       "tips": "Tìm các cụm chỉ chọn một trong các mục được hỏi.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285668/xgccwkceeeqswzyq9oav.mp3"
@@ -255,13 +363,19 @@
     {
       "id": 19,
       "type": "Statement-Response",
-      "question": "The supplier hasn’t confirmed the shipment yet.",
+      "question": "The supplier hasn't confirmed the shipment yet.",
       "choices": {
         "A": "We should probably follow up with them again this afternoon.",
         "B": "Yes, the shipment was damaged.",
-        "C": "No, it hasn’t arrived either."
+        "C": "No, it hasn't arrived either."
+      },
+      "choicesVi": {
+        "A": "Chúng ta nên theo dõi lại họ ngay buổi chiều này.",
+        "B": "Vâng, hàng hóa bị hư hại.",
+        "C": "Không, nó vẫn chưa đến."
       },
       "correctAnswer": "A",
+      "answerType": "solution",
       "explanation": "A đưa ra hành động phản hồi phù hợp với lo ngại được nêu.",
       "tips": "Tìm đáp án thể hiện đề xuất hành động, phản ứng logic.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285671/w7dwzwf3zggibj08r45r.mp3"
@@ -271,11 +385,17 @@
       "type": "Statement-Response",
       "question": "I thought you were going to review the draft before lunch.",
       "choices": {
-        "A": "No, it’s not due until Friday.",
+        "A": "No, it's not due until Friday.",
         "B": "Yes, I had lunch already.",
-        "C": "I got pulled into another meeting, but I’ll look at it next."
+        "C": "I got pulled into another meeting, but I'll look at it next."
+      },
+      "choicesVi": {
+        "A": "Không, nó không đến hạn cho đến thứ Sáu.",
+        "B": "Vâng, tôi đã ăn trưa rồi.",
+        "C": "Tôi bị kéo vào một cuộc họp khác, nhưng tôi sẽ xem nó vào lần sau."
       },
       "correctAnswer": "C",
+      "answerType": "solution",
       "explanation": "C giải thích hợp lý cho việc chưa hoàn thành như mong đợi.",
       "tips": "Nghe các lý do gián tiếp hoặc hành động tiếp theo.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285675/gf69lqrutt227kkra1cv.mp3"
@@ -283,13 +403,19 @@
     {
       "id": 21,
       "type": "Statement-Response",
-      "question": "The printer’s been making strange noises all morning.",
+      "question": "The printer's been making strange noises all morning.",
       "choices": {
-        "A": "It’s next to the water cooler.",
-        "B": "I’ll call maintenance to check it out.",
+        "A": "It's next to the water cooler.",
+        "B": "I'll call maintenance to check it out.",
         "C": "Yes, I printed the schedule already."
       },
+      "choicesVi": {
+        "A": "Nó ở bên bàn làm mát nước.",
+        "B": "Tôi sẽ gọi bảo trì để kiểm tra nó.",
+        "C": "Vâng, tôi đã in lịch trình rồi."
+      },
       "correctAnswer": "B",
+      "answerType": "solution",
       "explanation": "B phản hồi hành động phù hợp với tình trạng bất thường.",
       "tips": "Tìm câu thể hiện hành động xử lý hoặc khắc phục.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285679/uz0lpjc2hueqbabvpqbl.mp3"
@@ -297,13 +423,19 @@
     {
       "id": 22,
       "type": "Statement-Response",
-      "question": "We’re out of sticky notes again.",
+      "question": "We're out of sticky notes again.",
       "choices": {
-        "A": "I’ll grab some more from the storage room.",
+        "A": "I'll grab some more from the storage room.",
         "B": "Yes, I used a yellow one last.",
         "C": "I usually keep mine on my desk."
       },
+      "choicesVi": {
+        "A": "Tôi sẽ lấy thêm một số từ phòng lưu trữ.",
+        "B": "Vâng, tôi đã dùng một cái vàng cuối cùng.",
+        "C": "Tôi thường giữ nó trên bàn của mình."
+      },
       "correctAnswer": "A",
+      "answerType": "solution",
       "explanation": "A đưa ra hành động giải quyết thiếu hụt vật dụng.",
       "tips": "Tìm hành động thay vì mô tả vật dụng.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285683/qwzlkfwqujiaqcc8etpx.mp3"
@@ -311,13 +443,19 @@
     {
       "id": 23,
       "type": "Statement-Response",
-      "question": "I couldn’t find the monthly report in the system.",
+      "question": "I couldn't find the monthly report in the system.",
       "choices": {
         "A": "Let me resend the link — it was just uploaded.",
-        "B": "It’s usually stored under the finance folder.",
-        "C": "Yes, it’s about last month’s performance."
+        "B": "It's usually stored under the finance folder.",
+        "C": "Yes, it's about last month's performance."
+      },
+      "choicesVi": {
+        "A": "Hãy để tôi gửi lại liên kết — nó vừa được tải lên.",
+        "B": "Nó thường được lưu trữ dưới thư mục tài chính.",
+        "C": "Vâng, đó là hiệu suất của tháng trước."
       },
       "correctAnswer": "A",
+      "answerType": "solution",
       "explanation": "A phản hồi hỗ trợ cụ thể — hành động khắc phục.",
       "tips": "Chú ý phản hồi giúp đỡ thay vì mô tả.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285685/pl80i4dgh31r4pzwfmgl.mp3"
@@ -329,9 +467,15 @@
       "choices": {
         "A": "Yes, the janitor cleaned it this morning.",
         "B": "We need a bigger one next quarter.",
-        "C": "That’s odd — I restocked it yesterday afternoon."
+        "C": "That's odd — I restocked it yesterday afternoon."
+      },
+      "choicesVi": {
+        "A": "Vâng, bảo trì đã làm sạch nó hôm nay.",
+        "B": "Chúng ta cần một cái lớn hơn quý sau.",
+        "C": "Điều đó lạ — tôi đã bổ sung nó chiều hôm qua buổi trưa."
       },
       "correctAnswer": "C",
+      "answerType": "agreement",
       "explanation": "C thể hiện ngạc nhiên có cơ sở thời gian, đúng phản ứng tự nhiên.",
       "tips": "Lắng nghe phản hồi ngạc nhiên, đối chiếu với hành động trước đó.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285688/vcz3jlawzgalrrsb2znd.mp3"
@@ -339,13 +483,19 @@
     {
       "id": 25,
       "type": "Statement-Response",
-      "question": "I’m heading to the post office — need anything?",
+      "question": "I'm heading to the post office — need anything?",
       "choices": {
         "A": "It closes at 5 p.m. today.",
         "B": "Actually, could you mail this package for me?",
         "C": "No, I got back from there already."
       },
+      "choicesVi": {
+        "A": "Nó đóng cửa lúc 5 giờ chiều hôm nay.",
+        "B": "Thực ra, bạn có thể gửi bưu kiện này cho tôi không?",
+        "C": "Không, tôi đã trở về đó rồi."
+      },
       "correctAnswer": "B",
+      "answerType": "agreement",
       "explanation": "B trả lời đúng dạng — phản hồi lời đề nghị bằng một yêu cầu nhỏ.",
       "tips": "Tìm câu có 'could you', 'would you mind', v.v.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285691/mqsmaeokpcnqb82xu70g.mp3"
@@ -360,6 +510,11 @@
         "A": "I sent it by email.",
         "B": "It's posted on the notice board.",
         "C": "At 10 a.m. tomorrow."
+      },
+      "choicesVi": {
+        "A": "Tôi đã gửi qua email.",
+        "B": "Nó được dán trên bảng thông báo.",
+        "C": "Lúc 10 giờ sáng ngày mai."
       },
       "correctAnswer": "B",
       "answerType": "location",
@@ -376,6 +531,11 @@
         "B": "By this Friday.",
         "C": "To the finance department."
       },
+      "choicesVi": {
+        "A": "Vâng, vừa mới đây.",
+        "B": "Trước thứ Sáu này.",
+        "C": "Đến phòng tài chính."
+      },
       "correctAnswer": "A",
       "answerType": "yes_no",
       "explanation": "Câu hỏi Yes/No nên cần xác nhận rõ ràng.",
@@ -385,11 +545,16 @@
     {
       "id": 3,
       "type": "Statement-Response",
-      "question": "The office printer isn’t working again.",
+      "question": "The office printer isn't working again.",
       "choices": {
-        "A": "It’s under the desk.",
-        "B": "Yes, it’s in color.",
+        "A": "It's under the desk.",
+        "B": "Yes, it's in color.",
         "C": "I'll report it to maintenance."
+      },
+      "choicesVi": {
+        "A": "Nó ở dưới bàn.",
+        "B": "Vâng, nó có màu.",
+        "C": "Tôi sẽ báo cáo cho bảo trì."
       },
       "correctAnswer": "C",
       "answerType": "solution",
@@ -406,6 +571,11 @@
         "B": "Around 3 o'clock.",
         "C": "On the 5th floor, next to HR."
       },
+      "choicesVi": {
+        "A": "Họ xử lý hợp đồng.",
+        "B": "Khoảng 3 giờ.",
+        "C": "Ở tầng 5, bên cạnh HR."
+      },
       "correctAnswer": "C",
       "answerType": "location",
       "explanation": "Câu hỏi 'Which floor' → cần trả lời cụ thể tầng.",
@@ -420,6 +590,11 @@
         "A": "I wrote the introduction.",
         "B": "Yes, I finished it yesterday.",
         "C": "Next week, maybe."
+      },
+      "choicesVi": {
+        "A": "Tôi đã viết phần giới thiệu.",
+        "B": "Vâng, tôi đã hoàn thành hôm qua.",
+        "C": "Tuần sau, có lẽ."
       },
       "correctAnswer": "B",
       "answerType": "yes_no",
@@ -436,6 +611,11 @@
         "B": "By the legal team.",
         "C": "Starting next Monday."
       },
+      "choicesVi": {
+        "A": "Để cải thiện hiệu quả.",
+        "B": "Bởi đội pháp lý.",
+        "C": "Bắt đầu từ thứ Hai tới."
+      },
       "correctAnswer": "C",
       "answerType": "time",
       "explanation": "Câu hỏi về thời gian, đáp án là ngày bắt đầu áp dụng.",
@@ -450,6 +630,11 @@
         "A": "Yes, it's very secure.",
         "B": "Don't worry, I'll check it now.",
         "C": "It's in the basement."
+      },
+      "choicesVi": {
+        "A": "Vâng, nó rất an toàn.",
+        "B": "Đừng lo, tôi sẽ kiểm tra ngay.",
+        "C": "Nó ở tầng hầm."
       },
       "correctAnswer": "B",
       "answerType": "solution",
@@ -466,6 +651,11 @@
         "B": "Yes, that works.",
         "C": "Friday is better for me."
       },
+      "choicesVi": {
+        "A": "Lúc 2 giờ chiều.",
+        "B": "Vâng, điều đó ổn.",
+        "C": "Thứ Sáu tốt hơn cho tôi."
+      },
       "correctAnswer": "C",
       "answerType": "choice",
       "explanation": "Câu hỏi lựa chọn cần đưa ra ngày được chọn.",
@@ -481,6 +671,11 @@
         "B": "Ms. Lee from accounting.",
         "C": "In the finance folder."
       },
+      "choicesVi": {
+        "A": "Trước thời hạn.",
+        "B": "Cô Lee từ kế toán.",
+        "C": "Trong thư mục tài chính."
+      },
       "correctAnswer": "B",
       "answerType": "person",
       "explanation": "Câu hỏi về người, cần nêu tên cụ thể.",
@@ -492,9 +687,14 @@
       "type": "Statement-Response",
       "question": "I just received the client feedback.",
       "choices": {
-        "A": "Great, let’s review it together.",
+        "A": "Great, let's review it together.",
         "B": "From Mr. Brown.",
         "C": "On the document."
+      },
+      "choicesVi": {
+        "A": "Tuyệt, hãy xem xét cùng nhau.",
+        "B": "Từ ông Brown.",
+        "C": "Trên tài liệu."
       },
       "correctAnswer": "A",
       "answerType": "agreement",
@@ -511,20 +711,30 @@
         "B": "Yes, I used it at my last job.",
         "C": "After the training session."
       },
+      "choicesVi": {
+        "A": "Nó dành cho nhập liệu.",
+        "B": "Vâng, tôi đã sử dụng ở công việc trước.",
+        "C": "Sau buổi đào tạo."
+      },
       "correctAnswer": "B",
       "answerType": "yes_no",
       "explanation": "Câu hỏi cần xác nhận quen thuộc, câu B trả lời trực tiếp.",
-      "tips": "Nghe các mẫu xác nhận như 'Yes, I have', 'No, I’m not'.",
+      "tips": "Nghe các mẫu xác nhận như 'Yes, I have', 'No, I'm not'.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214164/eytzdps3eiztikdezg1u.mp3"
     },
     {
       "id": 12,
       "type": "Statement-Response",
-      "question": "I think we’re missing one signature.",
+      "question": "I think we're missing one signature.",
       "choices": {
         "A": "Yes, she signed it.",
         "B": "Let me double-check the form.",
         "C": "Next to the logo."
+      },
+      "choicesVi": {
+        "A": "Vâng, cô ấy đã ký.",
+        "B": "Hãy để tôi kiểm tra lại biểu mẫu.",
+        "C": "Bên cạnh logo."
       },
       "correctAnswer": "B",
       "answerType": "solution",
@@ -541,6 +751,11 @@
         "B": "Yes, it was delayed.",
         "C": "Because the manager was sick."
       },
+      "choicesVi": {
+        "A": "Ở Phòng họp B.",
+        "B": "Vâng, nó bị trễ.",
+        "C": "Bởi vì quản lý bị ốm."
+      },
       "correctAnswer": "C",
       "answerType": "reason",
       "explanation": "Câu hỏi lý do, chỉ C trả lời lý do rõ ràng.",
@@ -550,11 +765,16 @@
     {
       "id": 14,
       "type": "WH-question",
-      "question": "Who’s responsible for updating the database?",
+      "question": "Who's responsible for updating the database?",
       "choices": {
-        "A": "No, it’s not necessary.",
+        "A": "No, it's not necessary.",
         "B": "Mr. Tan from the IT department.",
         "C": "Tomorrow afternoon."
+      },
+      "choicesVi": {
+        "A": "Không, không cần thiết.",
+        "B": "Ông Tan từ phòng IT.",
+        "C": "Chiều mai."
       },
       "correctAnswer": "B",
       "answerType": "person",
@@ -567,9 +787,14 @@
       "type": "Yes/No question",
       "question": "Did the supplier confirm the shipment date?",
       "choices": {
-        "A": "Yes, they’ll ship next Monday.",
+        "A": "Yes, they'll ship next Monday.",
         "B": "The warehouse is closed.",
         "C": "In the delivery note."
+      },
+      "choicesVi": {
+        "A": "Vâng, họ sẽ gửi hàng thứ Hai tới.",
+        "B": "Kho đóng cửa.",
+        "C": "Trong phiếu giao hàng."
       },
       "correctAnswer": "A",
       "answerType": "yes_no",
@@ -583,8 +808,13 @@
       "question": "Would you like to pay in cash or by card?",
       "choices": {
         "A": "Cash will be fine.",
-        "B": "It’s $45.",
-        "C": "No, I haven’t."
+        "B": "It's $45.",
+        "C": "No, I haven't."
+      },
+      "choicesVi": {
+        "A": "Tiền mặt sẽ ổn.",
+        "B": "Nó là 45 đô la.",
+        "C": "Không, tôi chưa."
       },
       "correctAnswer": "A",
       "answerType": "choice",
@@ -601,6 +831,11 @@
         "B": "On the first weekend of June.",
         "C": "To the countryside."
       },
+      "choicesVi": {
+        "A": "Nó tùy chọn.",
+        "B": "Vào cuối tuần đầu tiên của tháng Sáu.",
+        "C": "Đến vùng nông thôn."
+      },
       "correctAnswer": "B",
       "answerType": "time",
       "explanation": "Câu hỏi về thời gian, B đưa ra thời điểm cụ thể.",
@@ -610,11 +845,16 @@
     {
       "id": 18,
       "type": "Statement-Response",
-      "question": "I’ll be late to the team briefing.",
+      "question": "I'll be late to the team briefing.",
       "choices": {
-        "A": "That’s alright, I’ll take notes for you.",
+        "A": "That's alright, I'll take notes for you.",
         "B": "In the small meeting room.",
         "C": "It starts soon."
+      },
+      "choicesVi": {
+        "A": "Không sao, tôi sẽ ghi chú cho bạn.",
+        "B": "Trong phòng họp nhỏ.",
+        "C": "Nó bắt đầu sớm."
       },
       "correctAnswer": "A",
       "answerType": "agreement",
@@ -629,7 +869,12 @@
       "choices": {
         "A": "Yes, she seems very capable.",
         "B": "In the training room.",
-        "C": "At 3 o’clock today."
+        "C": "At 3 o'clock today."
+      },
+      "choicesVi": {
+        "A": "Vâng, cô ấy có vẻ rất có năng lực.",
+        "B": "Trong phòng đào tạo.",
+        "C": "Lúc 3 giờ chiều hôm nay."
       },
       "correctAnswer": "A",
       "answerType": "yes_no",
@@ -643,8 +888,13 @@
       "question": "Where should I submit the application?",
       "choices": {
         "A": "Yes, I have it here.",
-        "B": "It’s due today.",
+        "B": "It's due today.",
         "C": "To the front desk on the first floor."
+      },
+      "choicesVi": {
+        "A": "Vâng, tôi có nó ở đây.",
+        "B": "Nó đến hạn hôm nay.",
+        "C": "Đến quầy lễ tân tầng một."
       },
       "correctAnswer": "C",
       "answerType": "location",
@@ -661,6 +911,11 @@
         "B": "At the front desk.",
         "C": "I prefer working remotely."
       },
+      "choicesVi": {
+        "A": "Chỉ bán thời gian.",
+        "B": "Ở quầy lễ tân.",
+        "C": "Tôi thích làm việc từ xa."
+      },
       "correctAnswer": "C",
       "answerType": "choice",
       "explanation": "Câu hỏi chọn lựa giữa 2 tùy chọn, C là chọn rõ ràng.",
@@ -674,7 +929,12 @@
       "choices": {
         "A": "The onboarding checklist.",
         "B": "I saw it earlier.",
-        "C": "Yes, it’s required."
+        "C": "Yes, it's required."
+      },
+      "choicesVi": {
+        "A": "Danh sách kiểm tra onboarding.",
+        "B": "Tôi đã thấy nó trước đó.",
+        "C": "Vâng, nó bắt buộc."
       },
       "correctAnswer": "A",
       "answerType": "choice",
@@ -691,6 +951,11 @@
         "B": "At the station entrance.",
         "C": "By taxi, according to her message."
       },
+      "choicesVi": {
+        "A": "Khoảng 30 phút nữa.",
+        "B": "Ở lối vào ga.",
+        "C": "Bằng taxi, theo tin nhắn của cô ấy."
+      },
       "correctAnswer": "C",
       "answerType": "choice",
       "explanation": "Câu hỏi có dạng lựa chọn, nhưng thuộc Yes/No, nên cần trả lời đúng phương tiện.",
@@ -702,9 +967,14 @@
       "type": "WH-question",
       "question": "Why is the shipment delayed?",
       "choices": {
-        "A": "No, it hasn’t.",
+        "A": "No, it hasn't.",
         "B": "At the loading dock.",
         "C": "Because of customs inspection."
+      },
+      "choicesVi": {
+        "A": "Không, nó chưa.",
+        "B": "Ở bến bốc hàng.",
+        "C": "Bởi vì kiểm tra hải quan."
       },
       "correctAnswer": "C",
       "answerType": "reason",
@@ -715,11 +985,16 @@
     {
       "id": 25,
       "type": "Statement-Response",
-      "question": "I can’t find the file on my computer.",
+      "question": "I can't find the file on my computer.",
       "choices": {
         "A": "Try checking the shared folder.",
-        "B": "It’s a large file.",
-        "C": "Yes, it’s urgent."
+        "B": "It's a large file.",
+        "C": "Yes, it's urgent."
+      },
+      "choicesVi": {
+        "A": "Thử kiểm tra thư mục chia sẻ.",
+        "B": "Nó là một file lớn.",
+        "C": "Vâng, nó khẩn cấp."
       },
       "correctAnswer": "A",
       "answerType": "solution",
@@ -734,9 +1009,14 @@
       "type": "WH-question",
       "question": "Why did they cancel the meeting?",
       "choices": {
-        "A": "There wasn’t a projector available in the room.",
+        "A": "There wasn't a projector available in the room.",
         "B": "Because the conference room was double-booked.",
         "C": "Yes, the meeting was quite long."
+      },
+      "choicesVi": {
+        "A": "Không có máy chiếu trong phòng.",
+        "B": "Vì phòng họp đã bị đặt trùng lịch.",
+        "C": "Vâng, cuộc họp khá dài."
       },
       "correctAnswer": "B",
       "explanation": "Chỉ có B cung cấp lý do trực tiếp đúng logic hỏi 'Why'.",
@@ -752,6 +1032,11 @@
         "B": "From platform seven, right beside the cafe.",
         "C": "Yes, it goes to Chicago."
       },
+      "choicesVi": {
+        "A": "Tôi nghĩ nó khởi hành sau khi tàu tốc hành đến, có lẽ khoảng 4:45.",
+        "B": "Từ sân ga số bảy, ngay cạnh quán cà phê.",
+        "C": "Vâng, nó đi Chicago."
+      },
       "correctAnswer": "A",
       "explanation": "A trả lời giờ gián tiếp, người nghe cần suy luận.",
       "tips": "Tìm dấu hiệu về thời gian kể cả khi không nói trực tiếp.",
@@ -763,8 +1048,13 @@
       "question": "How did the technician fix the copier?",
       "choices": {
         "A": "He said it took longer than expected.",
-        "B": "By replacing a part that wasn’t functioning properly.",
+        "B": "By replacing a part that wasn't functioning properly.",
         "C": "Yes, it's working fine now."
+      },
+      "choicesVi": {
+        "A": "Anh ấy nói mất nhiều thời gian hơn dự kiến.",
+        "B": "Bằng cách thay thế một bộ phận bị hỏng.",
+        "C": "Vâng, bây giờ nó hoạt động tốt."
       },
       "correctAnswer": "B",
       "explanation": "B mô tả cách sửa, phù hợp với câu hỏi 'How'.",
@@ -778,7 +1068,12 @@
       "choices": {
         "A": "Because I needed to double-check the amounts.",
         "B": "Right where we usually keep urgent documents — under the phone.",
-        "C": "I’ll send it again if needed."
+        "C": "I'll send it again if needed."
+      },
+      "choicesVi": {
+        "A": "Bởi vì tôi cần kiểm tra lại số lượng.",
+        "B": "Ngay chỗ chúng ta thường để tài liệu gấp — dưới điện thoại.",
+        "C": "Tôi sẽ gửi lại nếu cần."
       },
       "correctAnswer": "B",
       "explanation": "B cung cấp vị trí nhưng được nói vòng, khiến người nghe cần hình dung.",
@@ -792,7 +1087,12 @@
       "choices": {
         "A": "Hopefully before the director leaves for the airport tomorrow.",
         "B": "In the marketing department.",
-        "C": "Because it’s important to be on time."
+        "C": "Because it's important to be on time."
+      },
+      "choicesVi": {
+        "A": "Hy vọng trước khi giám đốc ra sân bay vào ngày mai.",
+        "B": "Ở phòng marketing.",
+        "C": "Bởi vì việc đúng giờ rất quan trọng."
       },
       "correctAnswer": "A",
       "explanation": "A nói thời gian gián tiếp dựa vào ngữ cảnh, cần suy luận.",
@@ -808,6 +1108,11 @@
         "B": "It will take about two hours.",
         "C": "Yes, they found it useful."
       },
+      "choicesVi": {
+        "A": "Để giúp các thành viên mới làm quen với công cụ cập nhật.",
+        "B": "Sẽ mất khoảng hai tiếng.",
+        "C": "Vâng, họ thấy nó hữu ích."
+      },
       "correctAnswer": "A",
       "explanation": "A đưa ra mục đích rõ ràng, mặc dù hơi dài dòng.",
       "tips": "Lắng nghe cụm 'to + verb', mục đích dài dòng vẫn là đáp án chính.",
@@ -822,6 +1127,11 @@
         "B": "Mr. Jenkins said he signed it off personally.",
         "C": "Because it exceeded expectations."
       },
+      "choicesVi": {
+        "A": "Tôi nghe nói nó đã được hoàn tất vào thứ Năm tuần trước.",
+        "B": "Ông Jenkins nói ông ấy đã tự ký duyệt.",
+        "C": "Bởi vì nó vượt quá mong đợi."
+      },
       "correctAnswer": "B",
       "explanation": "B trả lời gián tiếp tên người, cần nghe kỹ.",
       "tips": "Chú ý các câu chứa động từ như 'said', 'mentioned', gắn với người.",
@@ -834,7 +1144,12 @@
       "choices": {
         "A": "That would be the customer service team on the second floor.",
         "B": "Yes, I already submitted a complaint.",
-        "C": "They’re being handled now."
+        "C": "They're being handled now."
+      },
+      "choicesVi": {
+        "A": "Đó là đội chăm sóc khách hàng ở tầng hai.",
+        "B": "Vâng, tôi đã gửi khiếu nại rồi.",
+        "C": "Chúng đang được xử lý."
       },
       "correctAnswer": "A",
       "explanation": "A đưa thông tin đúng với dạng chọn lựa, dù có thêm thông tin phụ.",
@@ -850,6 +1165,11 @@
         "B": "It's on his desk already.",
         "C": "Yes, I sent it right after the team finalized the edits."
       },
+      "choicesVi": {
+        "A": "Ông ấy đã yêu cầu trước buổi trưa.",
+        "B": "Nó đã ở trên bàn ông ấy rồi.",
+        "C": "Vâng, tôi đã gửi ngay sau khi nhóm hoàn thành chỉnh sửa."
+      },
       "correctAnswer": "C",
       "explanation": "C xác nhận hành động đã thực hiện đúng câu hỏi.",
       "tips": "Nghe kỹ thời điểm hoặc trạng thái hoàn tất để xác định Yes/No.",
@@ -860,9 +1180,14 @@
       "type": "Yes/No",
       "question": "Have the invoices been verified yet?",
       "choices": {
-        "A": "They’re stored in the cabinet now.",
-        "B": "Not yet — we’re still matching them with the delivery notes.",
+        "A": "They're stored in the cabinet now.",
+        "B": "Not yet — we're still matching them with the delivery notes.",
         "C": "Yes, we have the originals too."
+      },
+      "choicesVi": {
+        "A": "Chúng đang được lưu trong tủ hồ sơ.",
+        "B": "Chưa — chúng tôi vẫn đang đối chiếu với phiếu giao hàng.",
+        "C": "Vâng, chúng tôi cũng có bản gốc."
       },
       "correctAnswer": "B",
       "explanation": "B trả lời gián tiếp nhưng hợp lý với tình trạng chưa xác nhận.",
@@ -878,6 +1203,11 @@
         "B": "No, the one with the red header is the correct version.",
         "C": "I printed several for you."
       },
+      "choicesVi": {
+        "A": "Tôi đã để nó trên bàn anh sáng nay.",
+        "B": "Không, cái có tiêu đề đỏ mới là phiên bản đúng.",
+        "C": "Tôi đã in nhiều bản cho anh."
+      },
       "correctAnswer": "B",
       "explanation": "B phủ định rõ ràng và đưa đặc điểm đúng file mong muốn.",
       "tips": "Tập trung vào 'No, but...' hoặc mô tả đúng đối tượng.",
@@ -890,7 +1220,12 @@
       "choices": {
         "A": "Yes, unless he calls to reschedule again.",
         "B": "In the conference room on the second floor.",
-        "C": "I haven’t received the agenda yet."
+        "C": "I haven't received the agenda yet."
+      },
+      "choicesVi": {
+        "A": "Vâng, trừ khi anh ấy gọi để đổi lịch lại.",
+        "B": "Ở phòng họp tầng hai.",
+        "C": "Tôi chưa nhận được chương trình họp."
       },
       "correctAnswer": "A",
       "explanation": "A khẳng định có nhưng kèm điều kiện, phù hợp với Level 3.",
@@ -900,11 +1235,16 @@
     {
       "id": 13,
       "type": "Yes/No",
-      "question": "Wasn’t the shipment supposed to arrive this morning?",
+      "question": "Wasn't the shipment supposed to arrive this morning?",
       "choices": {
         "A": "They left the warehouse on time.",
         "B": "Yes, but it got delayed due to customs inspection.",
-        "C": "No, it’s going to the downtown branch."
+        "C": "No, it's going to the downtown branch."
+      },
+      "choicesVi": {
+        "A": "Chúng đã rời kho đúng giờ.",
+        "B": "Vâng, nhưng nó bị chậm do kiểm tra hải quan.",
+        "C": "Không, nó đang đi đến chi nhánh trung tâm."
       },
       "correctAnswer": "B",
       "explanation": "B xác nhận đúng lịch và đưa lý do chậm, phù hợp logic.",
@@ -917,8 +1257,13 @@
       "question": "Do you think the client will approve this layout?",
       "choices": {
         "A": "The client meeting is at 3 p.m.",
-        "B": "That’s what the last designer assumed too.",
+        "B": "That's what the last designer assumed too.",
         "C": "It depends — she liked the previous version better, though."
+      },
+      "choicesVi": {
+        "A": "Cuộc họp với khách hàng lúc 3 giờ chiều.",
+        "B": "Đó là điều mà nhà thiết kế trước cũng nghĩ.",
+        "C": "Tùy thôi — cô ấy thích phiên bản trước hơn."
       },
       "correctAnswer": "C",
       "explanation": "C trả lời đúng ý kiến nhưng kèm điều kiện, thể hiện phân vân.",
@@ -930,9 +1275,14 @@
       "type": "Choice",
       "question": "Would you prefer the meeting be on Monday or Wednesday?",
       "choices": {
-        "A": "Monday would be better since I’m out on Wednesday.",
-        "B": "Yes, I’ll bring the documents.",
-        "C": "No, it’s not confirmed yet."
+        "A": "Monday would be better since I'm out on Wednesday.",
+        "B": "Yes, I'll bring the documents.",
+        "C": "No, it's not confirmed yet."
+      },
+      "choicesVi": {
+        "A": "Thứ Hai sẽ tốt hơn vì tôi vắng mặt vào thứ Tư.",
+        "B": "Vâng, tôi sẽ mang tài liệu.",
+        "C": "Không, nó chưa được xác nhận."
       },
       "correctAnswer": "A",
       "explanation": "A đưa ra lựa chọn rõ ràng kèm lý do, đúng yêu cầu.",
@@ -946,7 +1296,12 @@
       "choices": {
         "A": "Color — it makes the visuals much more impactful.",
         "B": "That depends on the number of pages.",
-        "C": "It’s with the design team now."
+        "C": "It's with the design team now."
+      },
+      "choicesVi": {
+        "A": "Màu — nó làm cho hình ảnh ấn tượng hơn nhiều.",
+        "B": "Điều đó tùy thuộc vào số trang.",
+        "C": "Nó đang ở với đội thiết kế."
       },
       "correctAnswer": "A",
       "explanation": "A lựa chọn rõ ràng, mặc dù thêm nhận xét.",
@@ -958,9 +1313,14 @@
       "type": "Choice",
       "question": "Do you want to take the stairs or use the elevator?",
       "choices": {
-        "A": "I’ve never been to this building before.",
-        "B": "Let’s take the stairs — it's just one floor up.",
+        "A": "I've never been to this building before.",
+        "B": "Let's take the stairs — it's just one floor up.",
         "C": "Yes, the elevator is down the hall."
+      },
+      "choicesVi": {
+        "A": "Tôi chưa từng đến tòa nhà này trước đây.",
+        "B": "Hãy đi cầu thang — chỉ lên một tầng thôi.",
+        "C": "Vâng, thang máy ở cuối hành lang."
       },
       "correctAnswer": "B",
       "explanation": "B thể hiện lựa chọn cụ thể cùng lý do logic.",
@@ -974,7 +1334,12 @@
       "choices": {
         "A": "I brought my own mug today.",
         "B": "The coffee machine was fixed yesterday.",
-        "C": "Just water, please — I’m cutting down on caffeine."
+        "C": "Just water, please — I'm cutting down on caffeine."
+      },
+      "choicesVi": {
+        "A": "Tôi đã mang cốc riêng hôm nay.",
+        "B": "Máy cà phê đã được sửa hôm qua.",
+        "C": "Chỉ nước thôi — tôi đang giảm caffeine."
       },
       "correctAnswer": "C",
       "explanation": "C chọn phương án và đưa lý do, phù hợp ngữ cảnh.",
@@ -984,11 +1349,16 @@
     {
       "id": 19,
       "type": "Statement-Response",
-      "question": "The supplier hasn’t confirmed the shipment yet.",
+      "question": "The supplier hasn't confirmed the shipment yet.",
       "choices": {
         "A": "We should probably follow up with them again this afternoon.",
         "B": "Yes, the shipment was damaged.",
-        "C": "No, it hasn’t arrived either."
+        "C": "No, it hasn't arrived either."
+      },
+      "choicesVi": {
+        "A": "Chúng ta nên liên hệ lại với họ vào chiều nay.",
+        "B": "Vâng, lô hàng bị hư hỏng.",
+        "C": "Không, nó cũng chưa đến."
       },
       "correctAnswer": "A",
       "explanation": "A đưa ra hành động phản hồi phù hợp với lo ngại được nêu.",
@@ -1000,9 +1370,14 @@
       "type": "Statement-Response",
       "question": "I thought you were going to review the draft before lunch.",
       "choices": {
-        "A": "No, it’s not due until Friday.",
+        "A": "No, it's not due until Friday.",
         "B": "Yes, I had lunch already.",
-        "C": "I got pulled into another meeting, but I’ll look at it next."
+        "C": "I got pulled into another meeting, but I'll look at it next."
+      },
+      "choicesVi": {
+        "A": "Không, nó chưa đến hạn cho đến thứ Sáu.",
+        "B": "Vâng, tôi đã ăn trưa rồi.",
+        "C": "Tôi bị kéo vào cuộc họp khác, nhưng tôi sẽ xem nó tiếp theo."
       },
       "correctAnswer": "C",
       "explanation": "C giải thích hợp lý cho việc chưa hoàn thành như mong đợi.",
@@ -1012,11 +1387,16 @@
     {
       "id": 21,
       "type": "Statement-Response",
-      "question": "The printer’s been making strange noises all morning.",
+      "question": "The printer's been making strange noises all morning.",
       "choices": {
-        "A": "It’s next to the water cooler.",
-        "B": "I’ll call maintenance to check it out.",
+        "A": "It's next to the water cooler.",
+        "B": "I'll call maintenance to check it out.",
         "C": "Yes, I printed the schedule already."
+      },
+      "choicesVi": {
+        "A": "Nó ở cạnh máy làm mát nước.",
+        "B": "Tôi sẽ gọi bảo trì để kiểm tra.",
+        "C": "Vâng, tôi đã in lịch trình rồi."
       },
       "correctAnswer": "B",
       "explanation": "B phản hồi hành động phù hợp với tình trạng bất thường.",
@@ -1026,11 +1406,16 @@
     {
       "id": 22,
       "type": "Statement-Response",
-      "question": "We’re out of sticky notes again.",
+      "question": "We're out of sticky notes again.",
       "choices": {
-        "A": "I’ll grab some more from the storage room.",
+        "A": "I'll grab some more from the storage room.",
         "B": "Yes, I used a yellow one last.",
         "C": "I usually keep mine on my desk."
+      },
+      "choicesVi": {
+        "A": "Tôi sẽ lấy thêm từ phòng kho.",
+        "B": "Vâng, tôi đã dùng cái màu vàng cuối cùng.",
+        "C": "Tôi thường để của tôi trên bàn."
       },
       "correctAnswer": "A",
       "explanation": "A đưa ra hành động giải quyết thiếu hụt vật dụng.",
@@ -1040,11 +1425,16 @@
     {
       "id": 23,
       "type": "Statement-Response",
-      "question": "I couldn’t find the monthly report in the system.",
+      "question": "I couldn't find the monthly report in the system.",
       "choices": {
         "A": "Let me resend the link — it was just uploaded.",
-        "B": "It’s usually stored under the finance folder.",
-        "C": "Yes, it’s about last month’s performance."
+        "B": "It's usually stored under the finance folder.",
+        "C": "Yes, it's about last month's performance."
+      },
+      "choicesVi": {
+        "A": "Để tôi gửi lại đường link — nó vừa được tải lên.",
+        "B": "Nó thường được lưu trong thư mục tài chính.",
+        "C": "Vâng, nó về hiệu suất tháng trước."
       },
       "correctAnswer": "A",
       "explanation": "A phản hồi hỗ trợ cụ thể — hành động khắc phục.",
@@ -1058,7 +1448,12 @@
       "choices": {
         "A": "Yes, the janitor cleaned it this morning.",
         "B": "We need a bigger one next quarter.",
-        "C": "That’s odd — I restocked it yesterday afternoon."
+        "C": "That's odd — I restocked it yesterday afternoon."
+      },
+      "choicesVi": {
+        "A": "Vâng, người dọn dẹp đã lau sạch nó sáng nay.",
+        "B": "Chúng ta cần một cái lớn hơn vào quý tới.",
+        "C": "Thật lạ — tôi đã bổ sung nó chiều hôm qua."
       },
       "correctAnswer": "C",
       "explanation": "C thể hiện ngạc nhiên có cơ sở thời gian, đúng phản ứng tự nhiên.",
@@ -1068,11 +1463,16 @@
     {
       "id": 25,
       "type": "Statement-Response",
-      "question": "I’m heading to the post office — need anything?",
+      "question": "I'm heading to the post office — need anything?",
       "choices": {
         "A": "It closes at 5 p.m. today.",
         "B": "Actually, could you mail this package for me?",
         "C": "No, I got back from there already."
+      },
+      "choicesVi": {
+        "A": "Nó đóng cửa lúc 5 giờ chiều hôm nay.",
+        "B": "Thực ra, anh có thể gửi gói hàng này cho tôi không?",
+        "C": "Không, tôi đã trở về từ đó rồi."
       },
       "correctAnswer": "B",
       "explanation": "B trả lời đúng dạng — phản hồi lời đề nghị bằng một yêu cầu nhỏ.",

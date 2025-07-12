@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import AudioPlayer from '../components/TestPart1/AudioPlayer';
 import FloatingTimer from '../components/TestPart1/FloatingTimer';
+import TestResults from '../components/TestPart2/TestResults';
 import part2Data from '../data/toeic_part2.json';
 
 interface Question {
@@ -25,62 +26,7 @@ interface Question {
   answerType: string; // Added answerType to the interface
 }
 
-const TestResultsPart2: React.FC<{
-  questions: Question[];
-  userAnswers: { [key: number]: string };
-  score: number;
-  onRetry: () => void;
-  onBackToPart: () => void;
-}> = ({ questions, userAnswers, score, onRetry, onBackToPart }) => {
-  const correctAnswers = questions.filter(q => userAnswers[q.id] === q.correctAnswer).length;
-  const incorrectAnswers = questions.filter(q => userAnswers[q.id] && userAnswers[q.id] !== q.correctAnswer).length;
-  const skippedAnswers = questions.length - Object.keys(userAnswers).length;
 
-  return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="bg-white rounded-2xl p-8 shadow-lg max-w-2xl w-full mx-4">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Test Results</h1>
-        
-        <div className="space-y-6">
-          <div className="text-center">
-            <div className="text-6xl font-bold text-blue-600 mb-2">{score}%</div>
-            <div className="text-gray-600">Your Score</div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4">
-            <div className="text-center p-4 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-600">{correctAnswers}</div>
-              <div className="text-sm text-green-700">Correct</div>
-            </div>
-            <div className="text-center p-4 bg-red-50 rounded-lg">
-              <div className="text-2xl font-bold text-red-600">{incorrectAnswers}</div>
-              <div className="text-sm text-red-700">Incorrect</div>
-            </div>
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <div className="text-2xl font-bold text-gray-600">{skippedAnswers}</div>
-              <div className="text-sm text-gray-700">Skipped</div>
-            </div>
-          </div>
-
-          <div className="flex space-x-4">
-            <button
-              onClick={onRetry}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
-            >
-              Retry Test
-            </button>
-            <button
-              onClick={onBackToPart}
-              className="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
-            >
-              Back to Part 2
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const TestPart2: React.FC = () => {
   const { testId } = useParams<{ testId: string }>();
@@ -101,9 +47,9 @@ const TestPart2: React.FC = () => {
   // Các type câu hỏi và đáp án có sẵn (tiếng Anh)
   const questionTypes = [
     { key: 'WH-question', label: 'WH-question (What, Where, When, Who, Why, How)' },
-    { key: 'Yes/No question', label: 'Yes/No question' },
+    { key: 'Yes/No', label: 'Yes/No question' },
     { key: 'Statement-Response', label: 'Statement-Response' },
-    { key: 'Choice question', label: 'Choice question' },
+    { key: 'Choice', label: 'Choice question' },
   ];
 
   const answerTypes = [
@@ -274,7 +220,7 @@ const TestPart2: React.FC = () => {
 
   if (showResults) {
     return (
-      <TestResultsPart2
+      <TestResults
         questions={questions}
         userAnswers={userAnswers}
         score={calculateScore()}
