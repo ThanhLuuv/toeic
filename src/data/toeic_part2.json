@@ -878,5 +878,356 @@
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752214193/dpjzg7o061srluzto0pg.mp3"
     }
   ],
-  "level3 ": []
+  "level3 ": [
+    {
+      "id": 1,
+      "type": "WH-question",
+      "question": "Why did they cancel the meeting?",
+      "choices": {
+        "A": "There wasn’t a projector available in the room.",
+        "B": "Because the conference room was double-booked.",
+        "C": "Yes, the meeting was quite long."
+      },
+      "correctAnswer": "B",
+      "explanation": "Chỉ có B cung cấp lý do trực tiếp đúng logic hỏi 'Why'.",
+      "tips": "Tập trung vào các câu chứa 'because', 'due to'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285094/d0wkr1zqns8u4hwsscwo.mp3"
+    },
+    {
+      "id": 2,
+      "type": "WH-question",
+      "question": "What time does the next train to Chicago leave?",
+      "choices": {
+        "A": "I think it departs after the express line gets in, so probably around 4:45.",
+        "B": "From platform seven, right beside the cafe.",
+        "C": "Yes, it goes to Chicago."
+      },
+      "correctAnswer": "A",
+      "explanation": "A trả lời giờ gián tiếp, người nghe cần suy luận.",
+      "tips": "Tìm dấu hiệu về thời gian kể cả khi không nói trực tiếp.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285097/i8m4ppnhlwf5ymbhbpip.mp3"
+    },
+    {
+      "id": 3,
+      "type": "WH-question",
+      "question": "How did the technician fix the copier?",
+      "choices": {
+        "A": "He said it took longer than expected.",
+        "B": "By replacing a part that wasn’t functioning properly.",
+        "C": "Yes, it's working fine now."
+      },
+      "correctAnswer": "B",
+      "explanation": "B mô tả cách sửa, phù hợp với câu hỏi 'How'.",
+      "tips": "Lắng nghe chi tiết về hành động cụ thể hoặc quá trình.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285099/hws5rlzvpmay2bzxeidn.mp3"
+    },
+    {
+      "id": 4,
+      "type": "WH-question",
+      "question": "Where did you leave the delivery invoice?",
+      "choices": {
+        "A": "Because I needed to double-check the amounts.",
+        "B": "Right where we usually keep urgent documents — under the phone.",
+        "C": "I’ll send it again if needed."
+      },
+      "correctAnswer": "B",
+      "explanation": "B cung cấp vị trí nhưng được nói vòng, khiến người nghe cần hình dung.",
+      "tips": "Tập trung vào cụm chỉ nơi, ngay cả khi bị chen các chi tiết phụ.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285101/zbalvmgk8myppvypr8dd.mp3"
+    },
+    {
+      "id": 5,
+      "type": "WH-question",
+      "question": "When will the final draft be submitted?",
+      "choices": {
+        "A": "Hopefully before the director leaves for the airport tomorrow.",
+        "B": "In the marketing department.",
+        "C": "Because it’s important to be on time."
+      },
+      "correctAnswer": "A",
+      "explanation": "A nói thời gian gián tiếp dựa vào ngữ cảnh, cần suy luận.",
+      "tips": "Tìm mốc thời gian lồng trong các điều kiện hoặc tình huống.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285103/cizyaucsaynrwoa6bagw.mp3"
+    },
+    {
+      "id": 6,
+      "type": "WH-question",
+      "question": "What is the purpose of this training session?",
+      "choices": {
+        "A": "To help the new team members get familiar with the updated tools.",
+        "B": "It will take about two hours.",
+        "C": "Yes, they found it useful."
+      },
+      "correctAnswer": "A",
+      "explanation": "A đưa ra mục đích rõ ràng, mặc dù hơi dài dòng.",
+      "tips": "Lắng nghe cụm 'to + verb', mục đích dài dòng vẫn là đáp án chính.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285106/jnv3i5vfvpakpjyhucna.mp3"
+    },
+    {
+      "id": 7,
+      "type": "WH-question",
+      "question": "Who approved the marketing budget?",
+      "choices": {
+        "A": "I heard it was finalized last Thursday.",
+        "B": "Mr. Jenkins said he signed it off personally.",
+        "C": "Because it exceeded expectations."
+      },
+      "correctAnswer": "B",
+      "explanation": "B trả lời gián tiếp tên người, cần nghe kỹ.",
+      "tips": "Chú ý các câu chứa động từ như 'said', 'mentioned', gắn với người.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285109/pm5hb0sihgepsfesampr.mp3"
+    },
+    {
+      "id": 8,
+      "type": "WH-question",
+      "question": "Which department handles client complaints?",
+      "choices": {
+        "A": "That would be the customer service team on the second floor.",
+        "B": "Yes, I already submitted a complaint.",
+        "C": "They’re being handled now."
+      },
+      "correctAnswer": "A",
+      "explanation": "A đưa thông tin đúng với dạng chọn lựa, dù có thêm thông tin phụ.",
+      "tips": "Tìm các câu có chứa chủ thể xác định — team, department, group.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285111/xalnd0yfsol05wzwanhy.mp3"
+    },
+    {
+      "id": 9,
+      "type": "Yes/No",
+      "question": "Did you already email the revised proposal to Mr. Liang?",
+      "choices": {
+        "A": "He asked for it before noon.",
+        "B": "It's on his desk already.",
+        "C": "Yes, I sent it right after the team finalized the edits."
+      },
+      "correctAnswer": "C",
+      "explanation": "C xác nhận hành động đã thực hiện đúng câu hỏi.",
+      "tips": "Nghe kỹ thời điểm hoặc trạng thái hoàn tất để xác định Yes/No.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285114/jjsx4sgfirxfnush1zx7.mp3"
+    },
+    {
+      "id": 10,
+      "type": "Yes/No",
+      "question": "Have the invoices been verified yet?",
+      "choices": {
+        "A": "They’re stored in the cabinet now.",
+        "B": "Not yet — we’re still matching them with the delivery notes.",
+        "C": "Yes, we have the originals too."
+      },
+      "correctAnswer": "B",
+      "explanation": "B trả lời gián tiếp nhưng hợp lý với tình trạng chưa xác nhận.",
+      "tips": "Lắng nghe các dấu hiệu như 'not yet', 'still working on'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285117/my0piqx4v6ls5iyo2r9f.mp3"
+    },
+    {
+      "id": 11,
+      "type": "Yes/No",
+      "question": "Is this the file you wanted me to edit?",
+      "choices": {
+        "A": "I left it on your desk this morning.",
+        "B": "No, the one with the red header is the correct version.",
+        "C": "I printed several for you."
+      },
+      "correctAnswer": "B",
+      "explanation": "B phủ định rõ ràng và đưa đặc điểm đúng file mong muốn.",
+      "tips": "Tập trung vào 'No, but...' hoặc mô tả đúng đối tượng.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285121/xe7srcspv9olv7minxa4.mp3"
+    },
+    {
+      "id": 12,
+      "type": "Yes/No",
+      "question": "Are we still meeting with the contractor this afternoon?",
+      "choices": {
+        "A": "Yes, unless he calls to reschedule again.",
+        "B": "In the conference room on the second floor.",
+        "C": "I haven’t received the agenda yet."
+      },
+      "correctAnswer": "A",
+      "explanation": "A khẳng định có nhưng kèm điều kiện, phù hợp với Level 3.",
+      "tips": "Nghe kỹ những câu xác nhận kèm ngoại lệ, giả định.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285123/kgzdwoukh6wdqdyowuzo.mp3"
+    },
+    {
+      "id": 13,
+      "type": "Yes/No",
+      "question": "Wasn’t the shipment supposed to arrive this morning?",
+      "choices": {
+        "A": "They left the warehouse on time.",
+        "B": "Yes, but it got delayed due to customs inspection.",
+        "C": "No, it’s going to the downtown branch."
+      },
+      "correctAnswer": "B",
+      "explanation": "B xác nhận đúng lịch và đưa lý do chậm, phù hợp logic.",
+      "tips": "Câu hỏi phủ định → đáp án có thể bắt đầu bằng 'Yes, but...'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285125/uyac2anoxb4vggqtzi11.mp3"
+    },
+    {
+      "id": 14,
+      "type": "Yes/No",
+      "question": "Do you think the client will approve this layout?",
+      "choices": {
+        "A": "The client meeting is at 3 p.m.",
+        "B": "That’s what the last designer assumed too.",
+        "C": "It depends — she liked the previous version better, though."
+      },
+      "correctAnswer": "C",
+      "explanation": "C trả lời đúng ý kiến nhưng kèm điều kiện, thể hiện phân vân.",
+      "tips": "Nghe cụm như 'it depends', 'I guess so', đặc biệt là ý kiến không dứt khoát.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285127/hhabyvww5t9q9gixxu3n.mp3"
+    },
+    {
+      "id": 15,
+      "type": "Choice",
+      "question": "Would you prefer the meeting be on Monday or Wednesday?",
+      "choices": {
+        "A": "Monday would be better since I’m out on Wednesday.",
+        "B": "Yes, I’ll bring the documents.",
+        "C": "No, it’s not confirmed yet."
+      },
+      "correctAnswer": "A",
+      "explanation": "A đưa ra lựa chọn rõ ràng kèm lý do, đúng yêu cầu.",
+      "tips": "Nghe cụm chỉ lựa chọn và lý do như 'because', 'since'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285130/xh7eiswsogzkqabqqqwo.mp3"
+    },
+    {
+      "id": 16,
+      "type": "Choice",
+      "question": "Should we print the brochure in color or black and white?",
+      "choices": {
+        "A": "Color — it makes the visuals much more impactful.",
+        "B": "That depends on the number of pages.",
+        "C": "It’s with the design team now."
+      },
+      "correctAnswer": "A",
+      "explanation": "A lựa chọn rõ ràng, mặc dù thêm nhận xét.",
+      "tips": "Tập trung lựa chọn rõ giữa 2 phương án, kể cả khi câu có đánh giá thêm.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285132/o56u1voj7r18hrir1qn4.mp3"
+    },
+    {
+      "id": 17,
+      "type": "Choice",
+      "question": "Do you want to take the stairs or use the elevator?",
+      "choices": {
+        "A": "I’ve never been to this building before.",
+        "B": "Let’s take the stairs — it's just one floor up.",
+        "C": "Yes, the elevator is down the hall."
+      },
+      "correctAnswer": "B",
+      "explanation": "B thể hiện lựa chọn cụ thể cùng lý do logic.",
+      "tips": "Lắng nghe chủ thể chọn rõ phương án trong câu hỏi.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285134/sacp6xjbkuv6nef07tn9.mp3"
+    },
+    {
+      "id": 18,
+      "type": "Choice",
+      "question": "Would you like coffee, tea, or just water?",
+      "choices": {
+        "A": "I brought my own mug today.",
+        "B": "The coffee machine was fixed yesterday.",
+        "C": "Just water, please — I’m cutting down on caffeine."
+      },
+      "correctAnswer": "C",
+      "explanation": "C chọn phương án và đưa lý do, phù hợp ngữ cảnh.",
+      "tips": "Tìm các cụm chỉ chọn một trong các mục được hỏi.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285137/knsieqvsuu6ncwytydr3.mp3"
+    },
+    {
+      "id": 19,
+      "type": "Statement-Response",
+      "question": "The supplier hasn’t confirmed the shipment yet.",
+      "choices": {
+        "A": "We should probably follow up with them again this afternoon.",
+        "B": "Yes, the shipment was damaged.",
+        "C": "No, it hasn’t arrived either."
+      },
+      "correctAnswer": "A",
+      "explanation": "A đưa ra hành động phản hồi phù hợp với lo ngại được nêu.",
+      "tips": "Tìm đáp án thể hiện đề xuất hành động, phản ứng logic.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285139/lxszpawgessjh4hbjzdl.mp3"
+    },
+    {
+      "id": 20,
+      "type": "Statement-Response",
+      "question": "I thought you were going to review the draft before lunch.",
+      "choices": {
+        "A": "No, it’s not due until Friday.",
+        "B": "Yes, I had lunch already.",
+        "C": "I got pulled into another meeting, but I’ll look at it next."
+      },
+      "correctAnswer": "C",
+      "explanation": "C giải thích hợp lý cho việc chưa hoàn thành như mong đợi.",
+      "tips": "Nghe các lý do gián tiếp hoặc hành động tiếp theo.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285142/k9az7g61ywc3bl7qaysh.mp3"
+    },
+    {
+      "id": 21,
+      "type": "Statement-Response",
+      "question": "The printer’s been making strange noises all morning.",
+      "choices": {
+        "A": "It’s next to the water cooler.",
+        "B": "I’ll call maintenance to check it out.",
+        "C": "Yes, I printed the schedule already."
+      },
+      "correctAnswer": "B",
+      "explanation": "B phản hồi hành động phù hợp với tình trạng bất thường.",
+      "tips": "Tìm câu thể hiện hành động xử lý hoặc khắc phục.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285144/ozstwetanipkesh6vnkc.mp3"
+    },
+    {
+      "id": 22,
+      "type": "Statement-Response",
+      "question": "We’re out of sticky notes again.",
+      "choices": {
+        "A": "I’ll grab some more from the storage room.",
+        "B": "Yes, I used a yellow one last.",
+        "C": "I usually keep mine on my desk."
+      },
+      "correctAnswer": "A",
+      "explanation": "A đưa ra hành động giải quyết thiếu hụt vật dụng.",
+      "tips": "Tìm hành động thay vì mô tả vật dụng.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285147/mwd0m8ci6papaclkq9td.mp3"
+    },
+    {
+      "id": 23,
+      "type": "Statement-Response",
+      "question": "I couldn’t find the monthly report in the system.",
+      "choices": {
+        "A": "Let me resend the link — it was just uploaded.",
+        "B": "It’s usually stored under the finance folder.",
+        "C": "Yes, it’s about last month’s performance."
+      },
+      "correctAnswer": "A",
+      "explanation": "A phản hồi hỗ trợ cụ thể — hành động khắc phục.",
+      "tips": "Chú ý phản hồi giúp đỡ thay vì mô tả.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285150/nqsj0z7vzp0jdlzx2rw7.mp3"
+    },
+    {
+      "id": 24,
+      "type": "Statement-Response",
+      "question": "The break room fridge is completely empty.",
+      "choices": {
+        "A": "Yes, the janitor cleaned it this morning.",
+        "B": "We need a bigger one next quarter.",
+        "C": "That’s odd — I restocked it yesterday afternoon."
+      },
+      "correctAnswer": "C",
+      "explanation": "C thể hiện ngạc nhiên có cơ sở thời gian, đúng phản ứng tự nhiên.",
+      "tips": "Lắng nghe phản hồi ngạc nhiên, đối chiếu với hành động trước đó.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285153/rqdhaajk5fkxszezwweq.mp3"
+    },
+    {
+      "id": 25,
+      "type": "Statement-Response",
+      "question": "I’m heading to the post office — need anything?",
+      "choices": {
+        "A": "It closes at 5 p.m. today.",
+        "B": "Actually, could you mail this package for me?",
+        "C": "No, I got back from there already."
+      },
+      "correctAnswer": "B",
+      "explanation": "B trả lời đúng dạng — phản hồi lời đề nghị bằng một yêu cầu nhỏ.",
+      "tips": "Tìm câu có 'could you', 'would you mind', v.v.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752285155/hq4i5jeovu3ybfgbmldf.mp3"
+    }
+  ]
 } 
