@@ -1401,83 +1401,808 @@
       "explanation": "Câu hỏi lựa chọn cần phản hồi rõ giữa hai phương án, B là lựa chọn hợp lý.",
       "tips": "Loại bỏ những đáp án không trực tiếp trả lời về lựa chọn được đưa ra.",
       "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752468259/fefdif7bc5yzubr1g3nh.mp3"
+  },
+    {
+      "id": 1,
+      "type": "WH-question",
+      "question": "What's the main topic of tomorrow's presentation?",
+      "choices": {
+        "A": "Yes, the presenter is ready.",
+        "B": "The quarterly marketing results.",
+        "C": "It starts at 9 a.m."
+      },
+      "choicesVi": {
+        "A": "Vâng, người thuyết trình đã sẵn sàng.",
+        "B": "Kết quả marketing quý vừa rồi.",
+        "C": "Nó bắt đầu lúc 9 giờ sáng."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "other",
+      "explanation": "Câu hỏi hỏi 'What' về nội dung, chỉ B cung cấp đúng thông tin yêu cầu.",
+      "tips": "Tập trung vào nội dung thông tin khi gặp câu hỏi về chủ đề.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477309/izdo8d4hppopj67lmzmk.mp3"
+    },
+    {
+      "id": 2,
+      "type": "Statement-Response",
+      "question": "We still haven't received the final contract draft.",
+      "choices": {
+        "A": "Yes, we reviewed it last week.",
+        "B": "It was delivered by courier.",
+        "C": "I'll follow up with the legal team right away."
+      },
+      "choicesVi": {
+        "A": "Vâng, chúng tôi đã xem lại tuần trước.",
+        "B": "Nó được giao bằng chuyển phát nhanh.",
+        "C": "Tôi sẽ liên hệ với bộ phận pháp lý ngay."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "solution",
+      "explanation": "C đưa ra phản ứng xử lý cụ thể cho vấn đề đã nêu.",
+      "tips": "Khi câu đưa ra tình huống tiêu cực, hãy chọn câu thể hiện hành động phù hợp.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477311/nmmyb1swookaztxdvoaw.mp3"
+    },
+    {
+      "id": 3,
+      "type": "WH-question",
+      "question": "How do we access the internal employee portal?",
+      "choices": {
+        "A": "On the third floor.",
+        "B": "Yes, it's updated regularly.",
+        "C": "You need to log in with your company ID."
+      },
+      "choicesVi": {
+        "A": "Ở tầng ba.",
+        "B": "Vâng, nó được cập nhật thường xuyên.",
+        "C": "Bạn cần đăng nhập bằng mã nhân viên."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "other",
+      "explanation": "Câu hỏi 'How' yêu cầu cách thức thực hiện. C trả lời đúng trọng tâm.",
+      "tips": "Tránh chọn câu chỉ địa điểm hoặc xác nhận chung với câu hỏi 'How'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477313/rgrcxlb6xfmyu87lky80.mp3"
+    },
+    {
+      "id": 4,
+      "type": "Yes/No-question",
+      "question": "Did you update the customer contact list?",
+      "choices": {
+        "A": "It's stored in the shared folder.",
+        "B": "No, I haven't had time yet.",
+        "C": "Yes, they contacted us this morning."
+      },
+      "choicesVi": {
+        "A": "Nó được lưu trong thư mục chung.",
+        "B": "Chưa, tôi vẫn chưa có thời gian.",
+        "C": "Vâng, họ đã liên lạc với chúng tôi sáng nay."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "yes_no",
+      "explanation": "B là câu trả lời Yes/No đúng với ngữ cảnh và hành động cụ thể.",
+      "tips": "Với câu hỏi xác nhận, chọn câu phản hồi trực tiếp về hành động được nêu.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477315/tujdvsm6n7kr5rqvbhne.mp3"
+    },
+    {
+      "id": 5,
+      "type": "Choice",
+      "question": "Do you want to meet in the lounge or the cafeteria?",
+      "choices": {
+        "A": "It's open until 6 p.m.",
+        "B": "Let's meet in the cafeteria—it's quieter.",
+        "C": "Yes, I can meet you there."
+      },
+      "choicesVi": {
+        "A": "Nó mở cửa đến 6 giờ tối.",
+        "B": "Gặp ở căng tin nhé – chỗ đó yên tĩnh hơn.",
+        "C": "Vâng, tôi có thể gặp bạn ở đó."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "choice",
+      "explanation": "B đưa ra lựa chọn rõ ràng giữa hai địa điểm được hỏi.",
+      "tips": "Với câu hỏi lựa chọn, cần chọn phương án có yếu tố so sánh và quyết định rõ ràng.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477317/lycugb8pnvqqzcdpiie4.mp3"
+    },
+    {
+      "id": 6,
+      "type": "WH-question",
+      "question": "Who approved the new office layout?",
+      "choices": {
+        "A": "No, it hasn't been finalized.",
+        "B": "In the main office area.",
+        "C": "The operations manager signed off on it."
+      },
+      "choicesVi": {
+        "A": "Không, nó chưa được chốt.",
+        "B": "Ở khu vực văn phòng chính.",
+        "C": "Quản lý vận hành đã phê duyệt."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "person",
+      "explanation": "Câu hỏi 'Who' yêu cầu thông tin về người thực hiện hành động. C là đáp án đúng.",
+      "tips": "Tập trung vào đáp án có tên người hoặc chức vụ để trả lời 'Who'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477319/f7dq9pckrorcob0rkq7z.mp3"
+    },
+    {
+      "id": 7,
+      "type": "Statement-Response",
+      "question": "The vendor hasn't confirmed the shipment date yet.",
+      "choices": {
+        "A": "They offer fast shipping options.",
+        "B": "Should I send them a reminder?",
+        "C": "Yes, it was confirmed last week."
+      },
+      "choicesVi": {
+        "A": "Họ có dịch vụ giao hàng nhanh.",
+        "B": "Tôi có nên gửi lời nhắc cho họ không?",
+        "C": "Vâng, nó được xác nhận tuần trước."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "solution",
+      "explanation": "B là phản hồi hợp lý khi đối mặt với sự chậm trễ.",
+      "tips": "Khi vấn đề chưa có kết quả, chọn câu đề xuất hành động tiếp theo.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477321/vli1uc8s0urbtmq3ewga.mp3"
+    },
+    {
+      "id": 8,
+      "type": "Yes/No-question",
+      "question": "Is this the most recent version of the document?",
+      "choices": {
+        "A": "Yes, it was written last year.",
+        "B": "No, the latest one is in the shared drive.",
+        "C": "It's in the second folder."
+      },
+      "choicesVi": {
+        "A": "Vâng, nó được viết từ năm ngoái.",
+        "B": "Không, bản mới nhất nằm trong thư mục chia sẻ.",
+        "C": "Nó nằm trong thư mục thứ hai."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "yes_no",
+      "explanation": "B trả lời trực tiếp và cung cấp vị trí bản mới nhất.",
+      "tips": "Khi hỏi về sự cập nhật, chọn câu khẳng định có thông tin cụ thể.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477324/n8ieax70ik54owua4acm.mp3"
+    },
+    {
+      "id": 9,
+      "type": "WH-question",
+      "question": "Why did the client reject the proposal?",
+      "choices": {
+        "A": "Yes, we're working on a revision.",
+        "B": "In their office last week.",
+        "C": "They wanted a lower price."
+      },
+      "choicesVi": {
+        "A": "Vâng, chúng tôi đang chỉnh sửa lại.",
+        "B": "Tại văn phòng của họ tuần trước.",
+        "C": "Họ muốn giá thấp hơn."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "reason",
+      "explanation": "Câu hỏi 'Why' yêu cầu lý do, C là đáp án duy nhất thỏa mãn.",
+      "tips": "Tìm từ khóa thể hiện mục tiêu, mong muốn hay sự thiếu sót để trả lời lý do.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477325/bosgdwzjpg8vpzx1delv.mp3"
+    },
+    {
+      "id": 10,
+      "type": "Choice",
+      "question": "Should we use a shared calendar or send email reminders?",
+      "choices": {
+        "A": "At 10 a.m. tomorrow.",
+        "B": "Yes, I already sent the emails.",
+        "C": "Using a shared calendar would be more efficient."
+      },
+      "choicesVi": {
+        "A": "Lúc 10 giờ sáng mai.",
+        "B": "Vâng, tôi đã gửi email rồi.",
+        "C": "Dùng lịch chia sẻ sẽ hiệu quả hơn."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "choice",
+      "explanation": "C đưa ra lựa chọn cụ thể và đánh giá ưu điểm của phương án.",
+      "tips": "Đáp án nên thể hiện quan điểm rõ ràng về lựa chọn giữa các phương án được hỏi.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477328/fopsdsbz4za4drztctrg.mp3"
+    },
+    {
+      "id": 1,
+      "type": "WH-question",
+      "question": "When will the new software be installed?",
+      "choices": {
+        "A": "In the server room.",
+        "B": "Yes, the IT team is ready.",
+        "C": "By the end of this week."
+      },
+      "choicesVi": {
+        "A": "Trong phòng máy chủ.",
+        "B": "Vâng, nhóm IT đã sẵn sàng.",
+        "C": "Vào cuối tuần này."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "time",
+      "explanation": "Câu hỏi hỏi thời gian, chỉ C cung cấp mốc thời gian cụ thể.",
+      "tips": "Với 'When', chọn đáp án chứa thông tin về thời điểm.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477551/mr0obzbxkxn25df2eqsk.mp3"
+    },
+    {
+      "id": 2,
+      "type": "Yes/No-question",
+      "question": "Have you received feedback from the client yet?",
+      "choices": {
+        "A": "It's about the product launch.",
+        "B": "Not yet, but they promised to send it today.",
+        "C": "Next to the manager's desk."
+      },
+      "choicesVi": {
+        "A": "Nó liên quan đến buổi ra mắt sản phẩm.",
+        "B": "Chưa, nhưng họ hứa sẽ gửi hôm nay.",
+        "C": "Bên cạnh bàn của quản lý."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "yes_no",
+      "explanation": "B trả lời đúng vào trọng tâm câu hỏi Yes/No.",
+      "tips": "Đừng chọn câu nói về vị trí hay chủ đề nếu câu hỏi yêu cầu xác nhận hành động.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477554/f8qcfktqniohrj4ap6vv.mp3"
+    },
+    {
+      "id": 3,
+      "type": "Statement-Response",
+      "question": "The presentation took longer than we planned.",
+      "choices": {
+        "A": "It starts in ten minutes.",
+        "B": "We might need to shorten the next one.",
+        "C": "No, I didn't receive the slides."
+      },
+      "choicesVi": {
+        "A": "Nó bắt đầu trong 10 phút.",
+        "B": "Chúng ta có lẽ nên rút ngắn bài tiếp theo.",
+        "C": "Không, tôi chưa nhận được slide."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "solution",
+      "explanation": "B là giải pháp hợp lý với nhận xét về việc mất quá nhiều thời gian.",
+      "tips": "Chọn câu phản hồi đưa ra hành động cải thiện hoặc khắc phục.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477556/eshdjn96mfhx3xtsjoxw.mp3"
+    },
+    {
+      "id": 4,
+      "type": "WH-question",
+      "question": "What caused the delay in shipping the order?",
+      "choices": {
+        "A": "Yes, it was delayed.",
+        "B": "A problem at the warehouse.",
+        "C": "Next to the shipping department."
+      },
+      "choicesVi": {
+        "A": "Vâng, nó đã bị trễ.",
+        "B": "Sự cố tại kho hàng.",
+        "C": "Bên cạnh bộ phận vận chuyển."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "reason",
+      "explanation": "Câu hỏi hỏi nguyên nhân, B cung cấp lý do rõ ràng nhất.",
+      "tips": "Với câu hỏi 'What caused', chọn câu có nguyên nhân cụ thể.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477558/wphxbsdee1juqx3pebmn.mp3"
+    },
+    {
+      "id": 5,
+      "type": "Choice",
+      "question": "Would you like the report in PDF or Excel format?",
+      "choices": {
+        "A": "It was finished last night.",
+        "B": "Yes, I'll read it later.",
+        "C": "PDF would be easier to share."
+      },
+      "choicesVi": {
+        "A": "Nó đã được hoàn thành tối qua.",
+        "B": "Vâng, tôi sẽ đọc sau.",
+        "C": "PDF sẽ dễ chia sẻ hơn."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "choice",
+      "explanation": "C là phản hồi rõ ràng về sự lựa chọn, đúng trọng tâm câu hỏi.",
+      "tips": "Đừng chọn câu khẳng định chung hoặc thời gian nếu câu hỏi là lựa chọn.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477561/a4ujfzqswuaivgey11og.mp3"
+    },
+    {
+      "id": 6,
+      "type": "WH-question",
+      "question": "How will the team handle the extra workload?",
+      "choices": {
+        "A": "Yes, we're expecting more orders.",
+        "B": "It's a very large team.",
+        "C": "They'll divide the tasks equally."
+      },
+      "choicesVi": {
+        "A": "Vâng, chúng tôi đang mong thêm đơn hàng.",
+        "B": "Đó là một nhóm rất lớn.",
+        "C": "Họ sẽ chia đều công việc."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "solution",
+      "explanation": "Câu hỏi 'How' yêu cầu cách thức giải quyết, C cung cấp thông tin phù hợp.",
+      "tips": "Với 'How', hãy tìm câu mô tả cách làm cụ thể.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477563/z77vpropihj5e85lz6vr.mp3"
+    },
+    {
+      "id": 7,
+      "type": "Statement-Response",
+      "question": "The customer support line is extremely busy today.",
+      "choices": {
+        "A": "It's available 24/7.",
+        "B": "Yes, I called them yesterday.",
+        "C": "Let's assign more agents to it."
+      },
+      "choicesVi": {
+        "A": "Nó hoạt động 24/7.",
+        "B": "Vâng, tôi đã gọi cho họ hôm qua.",
+        "C": "Hãy phân thêm nhân viên vào đó."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "solution",
+      "explanation": "C đề xuất hành động phù hợp khi có tình trạng quá tải.",
+      "tips": "Với tình huống nêu vấn đề, nên chọn phản hồi có tính cải thiện.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477565/esokd8uwmdwlot7ib63e.mp3"
+    },
+    {
+      "id": 8,
+      "type": "Yes/No-question",
+      "question": "Is the training session mandatory for all employees?",
+      "choices": {
+        "A": "Because it's part of onboarding.",
+        "B": "At the training center downtown.",
+        "C": "Yes, attendance is required."
+      },
+      "choicesVi": {
+        "A": "Vì nó là một phần của quá trình đào tạo đầu vào.",
+        "B": "Tại trung tâm đào tạo ở trung tâm thành phố.",
+        "C": "Vâng, bắt buộc phải tham gia."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "yes_no",
+      "explanation": "C xác nhận trực tiếp với yêu cầu bắt buộc, phù hợp Yes/No question.",
+      "tips": "Tìm câu trả lời có xác nhận dứt khoát với nội dung rõ ràng.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477568/pdzbbfjglbv5jmyuzsdt.mp3"
+    },
+    {
+      "id": 9,
+      "type": "WH-question",
+      "question": "Where should I upload the final version of the brochure?",
+      "choices": {
+        "A": "Yes, it looks great now.",
+        "B": "Because it's the final version.",
+        "C": "To the marketing team's shared folder."
+      },
+      "choicesVi": {
+        "A": "Vâng, bây giờ trông nó rất ổn.",
+        "B": "Vì đó là phiên bản cuối cùng.",
+        "C": "Vào thư mục chia sẻ của nhóm marketing."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "location",
+      "explanation": "Câu hỏi 'Where' yêu cầu địa điểm, C cung cấp vị trí cụ thể.",
+      "tips": "Với câu hỏi về địa điểm, tránh chọn câu nói về lý do hoặc cảm xúc.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477571/kuhzkqvcebnymjy6zlfu.mp3"
+    },
+    {
+      "id": 10,
+      "type": "Choice",
+      "question": "Should we schedule the meeting for Tuesday or Wednesday?",
+      "choices": {
+        "A": "Yes, everyone confirmed their availability.",
+        "B": "Wednesday works better for everyone.",
+        "C": "In the main conference room."
+      },
+      "choicesVi": {
+        "A": "Vâng, mọi người đã xác nhận lịch trống.",
+        "B": "Thứ Tư sẽ phù hợp hơn với mọi người.",
+        "C": "Ở phòng họp chính."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "choice",
+      "explanation": "B đưa ra lựa chọn rõ ràng giữa hai ngày được hỏi.",
+      "tips": "Với câu hỏi lựa chọn thời gian, chọn đáp án chỉ rõ ngày cụ thể.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477576/n6mofpxmkaqqv3ckuq0x.mp3"
     }
   ],
   "level3 ":[
     {
-      "id": 31,
+      "id": 1,
       "type": "WH-question",
-      "question": "How long will the presentation take?",
+      "question": "Why didn't the sales team join the briefing?",
       "choices": {
-        "A": "About 45 minutes including Q&A.",
-        "B": "Because we have a lot to cover.",
-        "C": "In the main auditorium."
+        "A": "Yes, the sales target was achieved.",
+        "B": "They were finalizing the quarterly report.",
+        "C": "In the boardroom on the second floor."
       },
-      "correctAnswer": "A",
-      "typeAnswer": "time",
-      "explanation": "A cung cấp thời gian cụ thể, đúng với câu hỏi 'How long'.",
-      "tips": "Tìm câu có khoảng thời gian cụ thể.",
-      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457165/ag4pbqqy4izhods6valn.mp3"
+      "choicesVi": {
+        "A": "Vâng, mục tiêu doanh số đã đạt được.",
+        "B": "Họ đang hoàn tất báo cáo quý.",
+        "C": "Ở phòng họp tầng hai."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "reason",
+      "explanation": "Câu hỏi hỏi lý do, B tuy không bắt đầu bằng 'because' nhưng mang nghĩa nguyên nhân.",
+      "tips": "Cẩn thận với bẫy: câu trả lời có vẻ liên quan nhưng không giải thích lý do.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477830/vf1afatwjsfrpibzq4d0.mp3"
     },
     {
-      "id": 32,
+      "id": 2,
       "type": "Yes/No-question",
-      "question": "Do you think we should hire more staff?",
+      "question": "Did you send the invitation to all the stakeholders?",
       "choices": {
-        "A": "Yes, we're really busy these days.",
-        "B": "Because the workload is increasing.",
-        "C": "In the HR department."
+        "A": "In the attached document.",
+        "B": "Yes, the meeting is scheduled.",
+        "C": "Only the ones confirmed for attendance."
+      },
+      "choicesVi": {
+        "A": "Trong tài liệu đính kèm.",
+        "B": "Vâng, cuộc họp đã được lên lịch.",
+        "C": "Chỉ những người xác nhận sẽ tham dự."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "yes_no",
+      "explanation": "Câu trả lời C là một dạng 'Yes, but...', xác nhận gián tiếp.",
+      "tips": "Ở level này, nhiều đáp án không dùng trực tiếp 'Yes' hoặc 'No' mà vẫn thể hiện rõ câu trả lời.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477832/cpcloa98vyzkltr7gtv6.mp3"
+    },
+    {
+      "id": 3,
+      "type": "WH-question",
+      "question": "Who will present the findings at the conference?",
+      "choices": {
+        "A": "They'll arrive before noon.",
+        "B": "I heard Ms. Yamada volunteered for it.",
+        "C": "Yes, the findings were surprising."
+      },
+      "choicesVi": {
+        "A": "Họ sẽ đến trước buổi trưa.",
+        "B": "Tôi nghe nói cô Yamada đã xung phong.",
+        "C": "Vâng, những phát hiện khá bất ngờ."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "person",
+      "explanation": "Câu trả lời gián tiếp nhưng chỉ rõ người được đề cập.",
+      "tips": "Đừng bị đánh lừa bởi các câu trả lời có vẻ chắc chắn, câu đúng có thể là câu dựa vào suy đoán hợp lý.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477835/nk0wpancikdbelc3n2yq.mp3"
+    },
+    {
+      "id": 4,
+      "type": "Choice",
+      "question": "Would you rather postpone the launch or go ahead as planned?",
+      "choices": {
+        "A": "We discussed the timeline last week.",
+        "B": "Proceeding now might be risky.",
+        "C": "Yes, it's a tight schedule."
+      },
+      "choicesVi": {
+        "A": "Chúng tôi đã bàn về thời gian biểu tuần trước.",
+        "B": "Tiến hành bây giờ có thể rủi ro.",
+        "C": "Vâng, lịch trình khá gấp."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "choice",
+      "explanation": "B gián tiếp thể hiện mong muốn hoãn, trong khi A và C không trả lời lựa chọn.",
+      "tips": "Ở cấp độ nâng cao, lựa chọn thường được thể hiện thông qua nhận định chứ không trực tiếp 'I choose...'",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477837/hx0edh8jofulvwyidd1a.mp3"
+    },
+    {
+      "id": 5,
+      "type": "Statement-Response",
+      "question": "The contract draft still has several errors.",
+      "choices": {
+        "A": "Yes, I received it this morning.",
+        "B": "We've already sent the invoice.",
+        "C": "I'll let the legal team know right away."
+      },
+      "choicesVi": {
+        "A": "Vâng, tôi đã nhận được nó sáng nay.",
+        "B": "Chúng tôi đã gửi hóa đơn rồi.",
+        "C": "Tôi sẽ báo cho bộ phận pháp lý ngay."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "solution",
+      "explanation": "C là phản ứng logic, trong khi A và B là bẫy không liên quan.",
+      "tips": "Cẩn trọng với distractor: có thể đúng về mặt thông tin nhưng không liên quan tới vấn đề chính.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477839/sfqxcepymfsvzcoekr32.mp3"
+    },
+    {
+      "id": 6,
+      "type": "WH-question",
+      "question": "Where can I check the updated budget figures?",
+      "choices": {
+        "A": "Because the original version was outdated.",
+        "B": "Yes, the figures have been reviewed.",
+        "C": "They were uploaded to the finance portal yesterday."
+      },
+      "choicesVi": {
+        "A": "Vì phiên bản gốc đã lỗi thời.",
+        "B": "Vâng, số liệu đã được kiểm tra.",
+        "C": "Chúng đã được tải lên cổng tài chính hôm qua."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "location",
+      "explanation": "C trả lời câu hỏi 'Where' bằng thông tin về nơi đăng tải.",
+      "tips": "Câu trả lời đúng có thể không bắt đầu bằng giới từ chỉ nơi, nhưng vẫn chứa thông tin vị trí.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477841/lf23t8hrqr4mxssymyou.mp3"
+    },
+    {
+      "id": 7,
+      "type": "Yes/No-question",
+      "question": "Is the new intern joining the meeting today?",
+      "choices": {
+        "A": "Actually, she started working remotely this week.",
+        "B": "The meeting was rescheduled.",
+        "C": "Yes, I emailed the team yesterday."
+      },
+      "choicesVi": {
+        "A": "Thực ra cô ấy đã bắt đầu làm việc từ xa tuần này.",
+        "B": "Cuộc họp đã bị dời lại.",
+        "C": "Vâng, tôi đã gửi email cho nhóm hôm qua."
       },
       "correctAnswer": "A",
       "typeAnswer": "yes_no",
-      "explanation": "A là câu trả lời rõ ràng cho câu hỏi Yes/No.",
-      "tips": "Chọn câu bắt đầu bằng 'Yes' hoặc 'No'.",
-      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457167/kqzerfkvngxhe0vujoml.mp3"
+      "explanation": "A không nói thẳng Yes/No nhưng ngụ ý 'không tham gia cuộc họp'.",
+      "tips": "Ở level nâng cao, học cách suy luận từ ngữ cảnh thay vì tìm từ khoá trực tiếp.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477844/k5vn6k3jvspvewvflpsp.mp3"
     },
     {
-      "id": 33,
-      "type": "Statement-Response",
-      "question": "The budget for this quarter looks tight.",
+      "id": 8,
+      "type": "WH-question",
+      "question": "How did the team manage to meet the deadline?",
       "choices": {
-        "A": "We might need to cut some expenses.",
-        "B": "Yes, it's a concern.",
-        "C": "Because sales were lower than expected."
+        "A": "Yes, it was submitted yesterday.",
+        "B": "Because the deadline was important.",
+        "C": "They worked overtime for three days."
       },
-      "correctAnswer": "A",
-      "typeAnswer": "solution",
-      "explanation": "A đưa ra giải pháp cụ thể cho vấn đề ngân sách.",
-      "tips": "Tìm câu có đề xuất hành động để xử lý tình huống.",
-      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457169/ahvg7bj08z4i0fm3c7qc.mp3"
+      "choicesVi": {
+        "A": "Vâng, nó đã được nộp hôm qua.",
+        "B": "Vì thời hạn rất quan trọng.",
+        "C": "Họ làm thêm giờ trong ba ngày."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "other",
+      "explanation": "C trả lời đúng câu hỏi 'How', trong khi A là xác nhận sai hướng và B là lý do.",
+      "tips": "Đừng nhầm giữa 'How' và 'Why', dù đôi khi câu trả lời có thể dễ bị đánh lừa.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477847/ny2ci2n9ef2qyqtpim80.mp3"
     },
     {
-      "id": 34,
-      "type": "Choice",
-      "question": "Should we focus on domestic or international markets?",
+      "id": 9,
+      "type": "Statement-Response",
+      "question": "I heard the new policy takes effect next month.",
       "choices": {
-        "A": "I think we should start with domestic markets first.",
-        "B": "Because international markets are risky.",
-        "C": "Yes, that's a good strategy."
+        "A": "No, I haven't heard about it.",
+        "B": "That gives us time to prepare.",
+        "C": "In the policy handbook."
+      },
+      "choicesVi": {
+        "A": "Không, tôi chưa nghe nói gì.",
+        "B": "Vậy thì chúng ta có thời gian chuẩn bị.",
+        "C": "Trong sổ tay chính sách."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "agreement",
+      "explanation": "B là phản ứng tự nhiên phù hợp, A là từ chối nghe, C là bẫy 'địa điểm'.",
+      "tips": "Câu phản hồi tốt thường thể hiện thái độ hoặc hành động phù hợp với phát biểu.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477850/hw8tsawiamwgkizngmse.mp3"
+    },
+    {
+      "id": 10,
+      "type": "Choice",
+      "question": "Do you want to review the data now or after lunch?",
+      "choices": {
+        "A": "Let's wait until after lunch—my mind's clearer then.",
+        "B": "We've been reviewing it since this morning.",
+        "C": "Yes, the report is on my desk."
+      },
+      "choicesVi": {
+        "A": "Chờ sau bữa trưa đi – lúc đó đầu óc tỉnh táo hơn.",
+        "B": "Chúng tôi đã xem nó từ sáng rồi.",
+        "C": "Vâng, bản báo cáo ở trên bàn tôi."
       },
       "correctAnswer": "A",
       "typeAnswer": "choice",
-      "explanation": "A thể hiện lựa chọn rõ ràng với lý do cụ thể.",
-      "tips": "Chọn câu có thiên hướng về một trong hai lựa chọn.",
-      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457171/yjqrq34km0adymx65ms7.mp3"
+      "explanation": "A thể hiện sự lựa chọn rõ ràng, B và C nói lan man, đánh lạc hướng.",
+      "tips": "Cẩn thận với những đáp án nói về dữ liệu nhưng không thật sự trả lời câu hỏi lựa chọn.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752477854/bjxb9w1xiocailmpwvdq.mp3"
     },
     {
-      "id": 35,
+      "id": 1,
       "type": "WH-question",
-      "question": "What caused the delay in production?",
+      "question": "Why hasn't the shipment been processed yet?",
       "choices": {
-        "A": "The supplier was late with the materials.",
-        "B": "Because we need to finish on time.",
-        "C": "In the manufacturing plant."
+        "A": "There was a system update overnight.",
+        "B": "It was shipped to Hong Kong.",
+        "C": "Yes, the tracking code is active."
       },
-      "correctAnswer": "A",
+      "choicesVi": {
+        "A": "Có cập nhật hệ thống trong đêm.",
+        "B": "Nó đã được gửi đến Hồng Kông.",
+        "C": "Vâng, mã theo dõi đã hoạt động."
+      },
+      "correctAnswer": "B",
       "typeAnswer": "reason",
-      "explanation": "A đưa ra lý do cụ thể cho sự chậm trễ.",
-      "tips": "Tìm câu có lý do cụ thể cho vấn đề được hỏi.",
-      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457173/d5z9hql1emd6k3ymkpol.mp3"
+      "explanation": "B là lý do gián tiếp hợp lý. A và C là bẫy về hành động đã xảy ra.",
+      "tips": "Chú ý những lý do được diễn đạt gián tiếp thông qua tình huống.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752482986/bsh6ztdiyya4ubaa7qvr.mp3"
+    },
+    {
+      "id": 2,
+      "type": "Yes/No-question",
+      "question": "Has the IT department resolved the issue yet?",
+      "choices": {
+        "A": "They're still running diagnostics.",
+        "B": "Yes, it was about the server.",
+        "C": "It affected several departments."
+      },
+      "choicesVi": {
+        "A": "Họ vẫn đang chạy kiểm tra hệ thống.",
+        "B": "Vâng, nó liên quan đến máy chủ.",
+        "C": "Nó ảnh hưởng đến vài phòng ban."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "yes_no",
+      "explanation": "C cho thấy vẫn chưa giải quyết – là cách nói gián tiếp 'No'.",
+      "tips": "Không phải lúc nào câu trả lời đúng cũng chứa từ 'Yes' hoặc 'No'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752482988/vvqckulkwo2zznhwidcu.mp3"
+    },
+    {
+      "id": 3,
+      "type": "Statement-Response",
+      "question": "They pushed the project deadline back a week.",
+      "choices": {
+        "A": "That gives us more time to test the system.",
+        "B": "It's due by Friday.",
+        "C": "The software team is ahead of schedule."
+      },
+      "choicesVi": {
+        "A": "Vậy thì chúng ta có thêm thời gian để kiểm thử hệ thống.",
+        "B": "Nó đến hạn vào thứ Sáu.",
+        "C": "Nhóm phần mềm đang làm trước tiến độ."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "agreement",
+      "explanation": "B là phản hồi đúng mạch thông tin – diễn giải hệ quả tích cực.",
+      "tips": "Tìm câu thể hiện phản ứng hợp lý với tin tức đã nêu.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752482990/o5bfyjkersgovl3aodhg.mp3"
+    },
+    {
+      "id": 4,
+      "type": "WH-question",
+      "question": "Who's coordinating the team-building activity?",
+      "choices": {
+        "A": "I believe it's under Michelle's responsibility.",
+        "B": "In the second half of the schedule.",
+        "C": "Yes, it was very engaging."
+      },
+      "choicesVi": {
+        "A": "Tôi nghĩ là do Michelle phụ trách.",
+        "B": "Trong nửa sau của lịch trình.",
+        "C": "Vâng, nó rất thú vị."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "person",
+      "explanation": "C là câu trả lời gián tiếp với cách nói mơ hồ nhưng đúng người.",
+      "tips": "Với câu hỏi 'Who', chú ý các cấu trúc như 'I believe', 'I think' hoặc 'probably'.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752482993/wqrjnietc6wxciocvile.mp3"
+    },
+    {
+      "id": 5,
+      "type": "Choice",
+      "question": "Would you rather send the summary now or wait until the report is ready?",
+      "choices": {
+        "A": "Let's hold off until we have the full report.",
+        "B": "It's being printed now.",
+        "C": "Yes, I already reviewed it."
+      },
+      "choicesVi": {
+        "A": "Chờ đến khi có bản đầy đủ đi.",
+        "B": "Nó đang được in.",
+        "C": "Vâng, tôi đã xem qua rồi."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "choice",
+      "explanation": "C thể hiện lựa chọn gián tiếp bằng cách đề xuất hành động cụ thể.",
+      "tips": "Không cần nhắc lại toàn bộ câu hỏi để thể hiện lựa chọn – nội dung ngầm hiểu là đủ.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752482996/jzvbvllbnbi04o7z3gn4.mp3"
+    },
+    {
+      "id": 6,
+      "type": "Yes/No-question",
+      "question": "Is the final review scheduled for tomorrow morning?",
+      "choices": {
+        "A": "Actually, it's been moved to Thursday afternoon.",
+        "B": "Yes, the manager approved it.",
+        "C": "In the review document."
+      },
+      "choicesVi": {
+        "A": "Thực ra, nó đã được dời sang chiều thứ Năm.",
+        "B": "Vâng, quản lý đã phê duyệt.",
+        "C": "Trong tài liệu đánh giá."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "yes_no",
+      "explanation": "B là cách từ chối gián tiếp – xác nhận thông tin mới mâu thuẫn với câu hỏi.",
+      "tips": "Cẩn trọng với thông tin mâu thuẫn so với câu hỏi – đó chính là câu trả lời gián tiếp.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752482998/kzhdifz9ep7nka29mkcl.mp3"
+    },
+    {
+      "id": 7,
+      "type": "WH-question",
+      "question": "How often are the safety checks conducted?",
+      "choices": {
+        "A": "Twice a quarter, unless there's an incident.",
+        "B": "Yes, they are very thorough.",
+        "C": "They use a standardized checklist."
+      },
+      "choicesVi": {
+        "A": "Hai lần mỗi quý, trừ khi có sự cố.",
+        "B": "Vâng, họ kiểm tra rất kỹ.",
+        "C": "Họ dùng một bảng kiểm chuẩn hóa."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "other",
+      "explanation": "C trả lời tần suất một cách rõ ràng nhưng có điều kiện ngoại lệ.",
+      "tips": "Câu trả lời đúng có thể dài và phức tạp hơn câu hỏi – đừng để điều đó đánh lừa.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752483001/ncteqpmeciqe9ep9w8fm.mp3"
+    },
+    {
+      "id": 8,
+      "type": "Statement-Response",
+      "question": "The event registration numbers are lower than expected.",
+      "choices": {
+        "A": "We might need to extend the deadline.",
+        "B": "They'll print the name tags today.",
+        "C": "Yes, the venue has been booked."
+      },
+      "choicesVi": {
+        "A": "Có lẽ ta nên gia hạn hạn chót.",
+        "B": "Họ sẽ in bảng tên hôm nay.",
+        "C": "Vâng, địa điểm đã được đặt."
+      },
+      "correctAnswer": "C",
+      "typeAnswer": "solution",
+      "explanation": "C là giải pháp phù hợp với vấn đề được nêu ra.",
+      "tips": "Bẫy thường là câu không sai nhưng không liên quan logic với vấn đề chính.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752483004/v56aa57dgh3kriacubiy.mp3"
+    },
+    {
+      "id": 9,
+      "type": "WH-question",
+      "question": "Where will the new branch office be located?",
+      "choices": {
+        "A": "We're considering a spot near the train station.",
+        "B": "Yes, the lease has been signed.",
+        "C": "It should be more accessible."
+      },
+      "choicesVi": {
+        "A": "Chúng tôi đang cân nhắc một vị trí gần ga tàu.",
+        "B": "Vâng, hợp đồng thuê đã được ký.",
+        "C": "Nó sẽ thuận tiện hơn."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "location",
+      "explanation": "B là câu trả lời mang tính dự đoán – không chắc chắn nhưng đúng chủ đề.",
+      "tips": "Chấp nhận các đáp án mang tính suy đoán hợp lý với câu hỏi ở dạng thảo luận kế hoạch.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752483006/qztw8t2lwkzm2wyjc3xg.mp3"
+    },
+    {
+      "id": 10,
+      "type": "Choice",
+      "question": "Should we invest in digital ads or print marketing?",
+      "choices": {
+        "A": "Digital might give us better ROI at this stage.",
+        "B": "Yes, that's the current campaign focus.",
+        "C": "They're analyzing the market data."
+      },
+      "choicesVi": {
+        "A": "Hiện tại đầu tư vào kỹ thuật số có thể cho hiệu quả cao hơn.",
+        "B": "Vâng, đó là trọng tâm chiến dịch hiện tại.",
+        "C": "Họ đang phân tích dữ liệu thị trường."
+      },
+      "correctAnswer": "B",
+      "typeAnswer": "choice",
+      "explanation": "B là lựa chọn có phân tích hợp lý và gián tiếp thể hiện ưu tiên.",
+      "tips": "Trong câu hỏi yêu cầu lựa chọn, nên tìm câu có tính phân tích hoặc đánh giá rõ ràng.",
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752483009/xremb1awhb9tcgnkbczm.mp3"
     }
   ]
 } 

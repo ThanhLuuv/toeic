@@ -123,36 +123,20 @@ const TestPart1: React.FC = () => {
   }, [selectedAnswer]);
 
   // Scroll to explanation when answer is shown
-  useEffect(() => {
-    if (isAnswered) {
-      setTimeout(() => {
-        const explanationSection = document.querySelector('.bg-green-50.border.border-green-200.rounded-lg');
-        if (explanationSection) {
-          explanationSection.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center',
-            inline: 'nearest'
-          });
-        }
-      }, 300); // Giảm delay còn 300ms cho mượt
-    }
-  }, [isAnswered]);
-
-  // Scroll to transcript when it's shown
-  useEffect(() => {
-    if (showTranscript && !isAnswered) {
-      setTimeout(() => {
-        const transcriptSection = document.querySelector('.bg-yellow-50.border.border-yellow-200.rounded-lg');
-        if (transcriptSection) {
-          transcriptSection.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center',
-            inline: 'nearest'
-          });
-        }
-      }, 300);
-    }
-  }, [showTranscript, isAnswered]);
+  // useEffect(() => {
+  //   if (isAnswered) {
+  //     setTimeout(() => {
+  //       const explanationSection = document.querySelector('.bg-green-50.border.border-green-200.rounded-lg');
+  //       if (explanationSection) {
+  //         explanationSection.scrollIntoView({ 
+  //           behavior: 'smooth', 
+  //           block: 'center',
+  //           inline: 'nearest'
+  //         });
+  //       }
+  //     }, 300); // Giảm delay còn 300ms cho mượt
+  //   }
+  // }, [isAnswered]);
 
   useEffect(() => {
     setShouldAutoPlay(true);

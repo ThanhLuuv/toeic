@@ -263,7 +263,7 @@ const TestResults: React.FC<TestResultsProps> = ({
               </div>
 
               {/* Performance Bar */}
-              <div className="mb-8">
+              <div className="">
                 <div className="flex items-center justify-between text-sm mb-2">
                   <span className="text-gray-600">Hiệu suất tổng thể</span>
                   <span className="font-medium">
@@ -283,45 +283,33 @@ const TestResults: React.FC<TestResultsProps> = ({
                   ></div>
                 </div>
                 {/* Nút phân tích cùng AI */}
-                <div className="flex justify-center mt-4">
-                  <button
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:scale-105 transition-transform"
-                    onClick={() => {
-                      // Tìm index câu sai đầu tiên
-                      const firstWrongIdx = questions.findIndex((q, idx) => {
-                        const userAnswer = userAnswers[q.id];
-                        return userAnswer && userAnswer !== q.correctAnswer;
-                      });
-                      if (firstWrongIdx !== -1) {
-                        // Expand câu đó nếu chưa expand
-                        setExpandedQuestions(prev => prev.includes(firstWrongIdx) ? prev : [...prev, firstWrongIdx]);
-                        // Delay nhỏ để đảm bảo expand xong mới scroll
-                        setTimeout(() => {
-                          aiButtonRefs.current[firstWrongIdx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }, 400);
-                      }
-                    }}
-                  >
-                    Phân tích cùng AI
-                  </button>
-                </div>
+                {questions.some((q) => userAnswers[q.id] && userAnswers[q.id] !== q.correctAnswer) && (
+                  <div className="flex justify-center mt-4">
+                    <button
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:scale-105 transition-transform"
+                      onClick={() => {
+                        // Tìm index câu sai đầu tiên
+                        const firstWrongIdx = questions.findIndex((q, idx) => {
+                          const userAnswer = userAnswers[q.id];
+                          return userAnswer && userAnswer !== q.correctAnswer;
+                        });
+                        if (firstWrongIdx !== -1) {
+                          // Expand câu đó nếu chưa expand
+                          setExpandedQuestions(prev => prev.includes(firstWrongIdx) ? prev : [...prev, firstWrongIdx]);
+                          // Delay nhỏ để đảm bảo expand xong mới scroll
+                          setTimeout(() => {
+                            aiButtonRefs.current[firstWrongIdx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          }, 400);
+                        }
+                      }}
+                    >
+                      Phân tích cùng AI
+                    </button>
+                  </div>
+                )}
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex space-x-4 mb-8">
-                <button
-                  onClick={onRetry}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
-                >
-                  Làm lại bài test
-                </button>
-                <button
-                  onClick={onBackToPart}
-                  className="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
-                >
-                  Về Part 2
-                </button>
-              </div>
+              
             </div>
           </div>
 
@@ -692,6 +680,21 @@ const TestResults: React.FC<TestResultsProps> = ({
                 </div>
               );
             })}
+          </div>
+          {/* Action Buttons */}
+          <div className="flex space-x-4 mt-6">
+            <button
+              onClick={onRetry}
+              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
+            >
+              Làm lại bài test
+            </button>
+            <button
+              onClick={onBackToPart}
+              className="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
+            >
+              Về Part 2
+            </button>
           </div>
         </div>
       </div>

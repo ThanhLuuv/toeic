@@ -120,6 +120,7 @@ const TestResults: React.FC<TestResultsProps> = ({
   const [userChoice, setUserChoice] = useState<{ [idx: number]: string }>({});
   const [loadingAI, setLoadingAI] = useState<{ [idx: number]: boolean }>({});
   const [showTranscript, setShowTranscript] = useState<{ [idx: number]: boolean }>({});
+  const [showTranscriptVi, setShowTranscriptVi] = useState<{ [qIdx: number]: { [choice: string]: boolean } }>({});
   // Ref cho từng nút AI của mỗi câu
   const aiButtonRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -129,6 +130,16 @@ const TestResults: React.FC<TestResultsProps> = ({
         ? prev.filter(q => q !== questionIndex)
         : [...prev, questionIndex]
     );
+  };
+
+  const toggleTranscriptVi = (qIdx: number, choice: string) => {
+    setShowTranscriptVi(prev => ({
+      ...prev,
+      [qIdx]: {
+        ...prev[qIdx],
+        [choice]: !(prev[qIdx]?.[choice] || false)
+      }
+    }));
   };
 
   const getVocabularyStats = (questionIndex: number) => {
@@ -230,25 +241,27 @@ const TestResults: React.FC<TestResultsProps> = ({
                   ></div>
                 </div>
                 {/* Nút phân tích cùng AI */}
-                <div className="flex justify-center mt-4">
-                  <button
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:scale-105 transition-transform"
-                    onClick={() => {
-                      // Tìm index câu sai đầu tiên
-                      const firstWrongIdx = answers.findIndex(a => a && !a.isCorrect);
-                      if (firstWrongIdx !== -1) {
-                        // Expand câu đó nếu chưa expand
-                        setExpandedQuestions(prev => prev.includes(firstWrongIdx) ? prev : [...prev, firstWrongIdx]);
-                        // Delay nhỏ để đảm bảo expand xong mới scroll
-                        setTimeout(() => {
-                          aiButtonRefs.current[firstWrongIdx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }, 400);
-                      }
-                    }}
-                  >
-                    Phân tích cùng AI
-                  </button>
-                </div>
+                {answers.some(a => a && !a.isCorrect) && (
+                  <div className="flex justify-center mt-4">
+                    <button
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:scale-105 transition-transform"
+                      onClick={() => {
+                        // Tìm index câu sai đầu tiên
+                        const firstWrongIdx = answers.findIndex(a => a && !a.isCorrect);
+                        if (firstWrongIdx !== -1) {
+                          // Expand câu đó nếu chưa expand
+                          setExpandedQuestions(prev => prev.includes(firstWrongIdx) ? prev : [...prev, firstWrongIdx]);
+                          // Delay nhỏ để đảm bảo expand xong mới scroll
+                          // setTimeout(() => {
+                          //   aiButtonRefs.current[firstWrongIdx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          // }, 400);
+                        }
+                      }}
+                    >
+                      Phân tích cùng AI
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -541,11 +554,23 @@ const TestResults: React.FC<TestResultsProps> = ({
                       </div>
                       {/* Nút AI cho câu sai */}
                       {isWrong && (
-                        <div className="mt-4">
+                        <div className="border-t border-gray-200 pt-4">
                           <button
                             ref={el => { aiButtonRefs.current[index] = el; }}
                             onClick={async () => {
+                              // Reset lại đáp án và loading khi nhấn lại nút phân tích
                               setUserChoice(u => ({ ...u, [index]: '' }));
+                              setPracticeData(d => ({ ...d, [index]: undefined }));
+                              setPracticeImage(img => {
+                                const newImg = { ...img };
+                                delete newImg[index];
+                                return newImg;
+                              });
+                              setPracticeAudio(aud => {
+                                const newAud = { ...aud };
+                                delete newAud[index];
+                                return newAud;
+                              });
                               setLoadingAI(l => ({ ...l, [index]: true }));
                               try {
                                 setAiResults(r => ({ ...r, [index]: 'Đang phân tích...' }));
@@ -566,109 +591,156 @@ const TestResults: React.FC<TestResultsProps> = ({
                               }
                             }}
                             disabled={loadingAI[index]}
-                            style={{
-                              padding: '8px 16px',
-                              background: loadingAI[index] ? '#aaa' : '#2563eb',
-                              color: 'white',
-                              borderRadius: 4,
-                              border: 'none',
-                              cursor: loadingAI[index] ? 'not-allowed' : 'pointer',
-                              opacity: loadingAI[index] ? 0.6 : 1,
-                              position: 'relative'
-                            }}
+                            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-medium transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                           >
                             {loadingAI[index] ? (
-                              <>
-                                <span style={{
-                                  display: 'inline-block',
-                                  width: 16, height: 16,
-                                  border: '2px solid #fff', borderTop: '2px solid #2563eb',
-                                  borderRadius: '50%', marginRight: 8,
-                                  animation: 'spin 1s linear infinite', verticalAlign: 'middle'
-                                }} />
-                                Đang tạo...
-                                <style>{`@keyframes spin {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}`}</style>
-                              </>
-                            ) : 'Phân tích & Tạo đề tương tự bằng AI'}
+                              <div className="flex items-center justify-center">
+                                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Đang phân tích...
+                              </div>
+                            ) : (
+                              '🤖 Phân tích cùng AI'
+                            )}
                           </button>
-                          {/* {aiResults[index] && (
-                            <pre style={{ background: '#f3f4f6', marginTop: 12, padding: 12, borderRadius: 6, whiteSpace: 'pre-wrap' }}>{aiResults[index]}</pre>
-                          )} */}
                         </div>
                       )}
+                      {/* Kết quả AI */}
                       {practiceData[index] && (
-                        <div style={{marginTop: 24, background: '#f9fafb', borderRadius: 8, padding: 16}}>
-                          <h3 style={{color: '#2563eb'}}>Phân tích lỗi</h3>
-                          <div><b>Lỗi chính:</b> {practiceData[index].analysis.mainError}</div>
-                          <div><b>Nguyên nhân:</b>
-                            <ul>
+                        <div className="border-t border-gray-200 pt-4 space-y-4">
+                          <h4 className="font-semibold text-gray-700">📊 Phân tích lỗi:</h4>
+                          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                            <h5 className="font-medium text-red-800 mb-2">❌ Lỗi chính:</h5>
+                            <p className="text-red-700">{practiceData[index].analysis.mainError}</p>
+                          </div>
+                          <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                            <h5 className="font-medium text-orange-800 mb-2">🔍 Nguyên nhân:</h5>
+                            <ul className="list-disc list-inside text-orange-700 space-y-1">
                               {practiceData[index].analysis.reasons.map((r: string, i: number) => <li key={i}>{r}</li>)}
                             </ul>
                           </div>
-                          <div><b>Giải pháp:</b>
-                            <ul>
+                          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <h5 className="font-medium text-green-800 mb-2">💡 Giải pháp:</h5>
+                            <ul className="list-disc list-inside text-green-700 space-y-1">
                               {practiceData[index].analysis.solutions.map((s: string, i: number) => <li key={i}>{s}</li>)}
                             </ul>
                           </div>
-                          <h3 style={{color: '#2563eb', marginTop: 20}}>Luyện tập tương tự</h3>
-                          {(!practiceImage[index] || !practiceAudio[index]) && (
-                            <div style={{color: '#888', margin: '12px 0'}}>Đang tải ảnh và audio...</div>
-                          )}
-                          {practiceImage[index] && <img src={practiceImage[index]} alt="practice" style={{maxWidth: 300, margin: '12px 0', borderRadius: 8}} />}
-                          {practiceAudio[index] && <audio controls src={practiceAudio[index]} style={{marginBottom: 12}} />}
-                          <div style={{margin: '12px 0'}}>
-                            <b>Chọn đáp án:</b><br/>
-                            {['A','B','C'].map(opt => {
-                              let btnBg = '#eee';
-                              let btnColor = '#222';
-                              if (userChoice[index] === opt) {
-                                if (userChoice[index] === practiceData[index].practiceQuestion.correctAnswer) {
-                                  btnBg = '#22c55e'; // xanh lá
-                                  btnColor = 'white';
+                          <h4 className="font-semibold text-gray-700">🎯 Bài luyện tập tương tự:</h4>
+                          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            {practiceImage[index] && <img src={practiceImage[index]} alt="practice" className="max-w-xs rounded-lg mb-3" />}
+                            {practiceAudio[index] && <audio controls className="w-full mb-3" src={practiceAudio[index]} />}
+                            {/* Loading indicator khi chưa có ảnh hoặc audio */}
+                            {(!practiceImage[index] || !practiceAudio[index]) && (
+                              <div className="flex items-center justify-center py-4">
+                                <svg className="animate-spin h-6 w-6 text-blue-600 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span className="text-blue-700 font-medium">Đang tải ảnh và audio luyện tập...</span>
+                              </div>
+                            )}
+                            <div className="space-y-2">
+                              {['A','B','C'].map(opt => {
+                                const isSelected = userChoice[index] === opt;
+                                const isCorrect = opt === practiceData[index].practiceQuestion.correctAnswer;
+                                const showResult = userChoice[index] !== undefined && userChoice[index] !== '';
+                                let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                                if (isSelected) {
+                                  if (isCorrect) {
+                                    choiceClass += "border-green-500 bg-green-50";
+                                  } else {
+                                    choiceClass += "border-red-500 bg-red-50";
+                                  }
+                                } else if (showResult && isCorrect) {
+                                  choiceClass += "border-green-500 bg-green-50";
                                 } else {
-                                  btnBg = '#ef4444'; // đỏ
-                                  btnColor = 'white';
+                                  choiceClass += "border-gray-200 hover:border-gray-300";
                                 }
-                              }
-                              return (
-                                <button
-                                  key={opt}
-                                  onClick={() => setUserChoice(u => ({...u, [index]: opt}))}
-                                  style={{
-                                    margin: 4,
-                                    background: btnBg,
-                                    color: btnColor,
-                                    padding: '6px 16px',
-                                    border: 'none',
-                                    borderRadius: 4,
-                                    cursor: (!practiceImage[index] || !practiceAudio[index]) ? 'not-allowed' : 'pointer',
-                                    opacity: (!practiceImage[index] || !practiceAudio[index]) ? 0.5 : 1
-                                  }}
-                                  disabled={!practiceImage[index] || !practiceAudio[index]}
-                                >
-                                  {opt}
-                                </button>
-                              );
-                            })}
-                          </div>
-                          {userChoice[index] !== '' && (
-                            <div style={{marginTop: 8}}>
-                              <div style={{marginTop: 10, background: '#f3f4f6', borderRadius: 6, padding: 10}}>
-                                <div><b>Transcript:</b></div>
-                                <div>A: {practiceData[index].practiceQuestion.choices.A}</div>
-                                <div>B: {practiceData[index].practiceQuestion.choices.B}</div>
-                                <div>C: {practiceData[index].practiceQuestion.choices.C}</div>
-                              </div>
-                              <div>
-                                {userChoice[index] === practiceData[index].practiceQuestion.correctAnswer
-                                  ? <span style={{color: 'green'}}>Chính xác!</span>
-                                  : <span style={{color: 'red'}}>Sai. Đáp án đúng: {practiceData[index].practiceQuestion.correctAnswer}</span>
-                                }
-                              </div>
-                              <div><b>Giải thích:</b> {practiceData[index].practiceQuestion.explanation}</div>
-                              <div><b>Bẫy:</b> {practiceData[index].practiceQuestion.traps}</div>
+                                // Disable nếu chưa load xong ảnh hoặc audio
+                                const disabled = !practiceImage[index] || !practiceAudio[index] || showResult;
+                                return (
+                                  <button
+                                    key={opt}
+                                    className={choiceClass}
+                                    onClick={() => setUserChoice(u => ({...u, [index]: opt}))}
+                                    disabled={disabled}
+                                  >
+                                    <div className="flex items-center space-x-2">
+                                      <span className="font-semibold text-gray-600">{opt}.</span>
+                                      {/* Không hiển thị text đáp án */}
+                                      {showResult && isCorrect && (
+                                        <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                      )}
+                                      {isSelected && !isCorrect && (
+                                        <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                      )}
+                                    </div>
+                                  </button>
+                                );
+                              })}
                             </div>
-                          )}
+                            {userChoice[index] !== '' && (
+                              <div className="mt-4 space-y-4">
+                                <div className="p-3 rounded-lg bg-blue-50 border border-blue-200">
+                                  <h6 className="font-medium text-blue-800 mb-2">📝 Transcript:</h6>
+                                  <div className="text-gray-700 text-sm mb-2">{practiceData[index].practiceQuestion.question}</div>
+                                  <div className="space-y-1 text-sm">
+                                    {Object.entries(practiceData[index].practiceQuestion.choices).map(([key, value]) => {
+                                      const isCorrect = key === practiceData[index].practiceQuestion.correctAnswer;
+                                      const isSelected = userChoice[index] === key;
+                                      return (
+                                        <div key={key} className={`$${
+                                          isCorrect ? 'text-green-700' : isSelected && !isCorrect ? 'text-red-700' : 'text-blue-700'
+                                        }`}>
+                                          <div className="flex items-start justify-between">
+                                            <div className="flex items-start space-x-2">
+                                              <span className="font-semibold min-w-[20px]">{key}.</span>
+                                              <span className="practice-option-text">
+                                                {showTranscriptVi[index]?.[key] && practiceData[index].practiceQuestion.choicesVi && practiceData[index].practiceQuestion.choicesVi[key]
+                                                  ? practiceData[index].practiceQuestion.choicesVi[key]
+                                                  : value as string}
+                                              </span>
+                                              {isCorrect && (
+                                                <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                              )}
+                                              {isSelected && !isCorrect && (
+                                                <svg className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                              )}
+                                            </div>
+                                            {/* Nút dịch cho từng đáp án trong transcript */}
+                                            <button
+                                              onClick={() => toggleTranscriptVi(index, key)}
+                                              className="text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 px-2 py-1 rounded transition-colors"
+                                            >
+                                              {showTranscriptVi[index]?.[key] ? 'English' : 'Dịch'}
+                                            </button>
+                                          </div>
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                                <div className="p-3 rounded-lg bg-gray-50">
+                                  <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
+                                  <p className="text-gray-700 text-sm">{practiceData[index].practiceQuestion.explanation}</p>
+                                  <div className="mt-2">
+                                    <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
+                                    <p className="text-gray-700 text-sm">{practiceData[index].practiceQuestion.traps}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       )}
                     </div>
