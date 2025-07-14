@@ -170,8 +170,25 @@ const TestResults: React.FC<TestResultsProps> = ({
       const aiResponse = await analyzeWithAI(logText);
       const parsedResponse = JSON.parse(aiResponse);
       
+      // Debug: log response để kiểm tra cấu trúc
+      console.log('AI Response:', parsedResponse);
+      
       setAiResults(prev => ({ ...prev, [questionIndex]: parsedResponse.analysis }));
-      setPracticeData(prev => ({ ...prev, [questionIndex]: parsedResponse.practiceQuestion }));
+      
+      // Đảm bảo có choicesVi, nếu không thì tạo fallback
+      const practiceQuestion = parsedResponse.practiceQuestion;
+      if (!practiceQuestion.choicesVi) {
+        console.warn('AI không trả về choicesVi, tạo fallback');
+        practiceQuestion.choicesVi = {
+          A: `[Bản dịch] ${practiceQuestion.choices.A}`,
+          B: `[Bản dịch] ${practiceQuestion.choices.B}`,
+          C: `[Bản dịch] ${practiceQuestion.choices.C}`
+        };
+      } else {
+        console.log('AI đã trả về choicesVi:', practiceQuestion.choicesVi);
+      }
+      
+      setPracticeData(prev => ({ ...prev, [questionIndex]: practiceQuestion }));
       
       // Tạo audio cho câu luyện tập
       try {
@@ -590,6 +607,7 @@ const TestResults: React.FC<TestResultsProps> = ({
 
                              {getPracticeResult(index) && (
                                <div className="mt-4 space-y-4">
+                                 
                                  {/* Transcript của các đáp án */}
                                  <div className="p-3 rounded-lg bg-blue-50 border border-blue-200">
                                    <h6 className="font-medium text-blue-800 mb-2">📝 Transcript:</h6>
@@ -606,7 +624,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                                            <div className="flex items-start justify-between">
                                              <div className="flex items-start space-x-2">
                                                <span className="font-semibold min-w-[20px]">{key}.</span>
-                                               <span>{value as string}</span>
+                                               <span className="practice-option-text">{value as string}</span>
                                                {isCorrect && (
                                                  <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -618,22 +636,37 @@ const TestResults: React.FC<TestResultsProps> = ({
                                                  </svg>
                                                )}
                                              </div>
-                                             {/* Nút dịch cho từng đáp án */}
-                                             {question.choicesVi && question.choicesVi[key as keyof typeof question.choicesVi] && (
+                                             {/* Nút dịch cho từng đáp án trong transcript */}
+                                             {practiceData[index] && (
                                                <button
-                                                 onClick={() => toggleTranslation(index, key)}
+                                                 onClick={(e) => {
+                                                   const optionText = e.currentTarget.previousElementSibling?.querySelector('.practice-option-text') as HTMLSpanElement;
+                                                   const button = e.currentTarget as HTMLButtonElement;
+                                                   const currentButtonText = button.textContent;
+
+                                                   if (currentButtonText === 'Dịch') {
+                                                     // Hiển thị bản dịch tiếng Việt
+                                                     const vietnameseText = practiceData[index].choicesVi?.[key];
+                                                     if (vietnameseText) {
+                                                       optionText.textContent = vietnameseText;
+                                                       button.textContent = 'English';
+                                                     } else {
+                                                       // Fallback nếu không có bản dịch
+                                                       optionText.textContent = `[Bản dịch] ${value as string}`;
+                                                       button.textContent = 'English';
+                                                     }
+                                                   } else {
+                                                     // Quay lại tiếng Anh
+                                                     optionText.textContent = value as string;
+                                                     button.textContent = 'Dịch';
+                                                   }
+                                                 }}
                                                  className="text-xs bg-blue-100 hover:bg-blue-200 text-blue-700 px-2 py-1 rounded transition-colors"
                                                >
-                                                 {showTranslation[index]?.[key] ? 'Ẩn dịch' : 'Dịch'}
+                                                 Dịch
                                                </button>
                                              )}
                                            </div>
-                                           {/* Dịch tiếng Việt */}
-                                           {showTranslation[index]?.[key] && question.choicesVi && question.choicesVi[key as keyof typeof question.choicesVi] && (
-                                             <div className="ml-6 mt-1 text-xs text-gray-600 italic">
-                                               → {question.choicesVi[key as keyof typeof question.choicesVi]}
-                                             </div>
-                                           )}
                                          </div>
                                        );
                                      })}

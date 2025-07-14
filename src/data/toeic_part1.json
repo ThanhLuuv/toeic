@@ -433,7 +433,8 @@
         "traps": "B: Sai hành động và vật thể (đi bộ, không đi xe đạp). C: Sai hoàn toàn chủ thể (không có xe đạp trong ảnh).",
         "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966369/jmgilndbeha4ujkektlo.png",
         "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966414/eaegmesx38kayr9ddjij.mp3"
-      },{
+      },
+      {
         "questionNumber": 1,
         "level": "Basic",
         "imageDescription": "A man is reading a newspaper while sitting on a bench.",
@@ -864,6 +865,438 @@
         "traps": "keywordMisuse: dùng sai vật thể (hat); misfocus: tập trung sai vào tay thay vì tóc",
         "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752042720/sqd662wpmqdrhc4imxix.png",
         "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752042737/shhsnanvzlueyhofet8l.mp3"
+      },
+      {
+        "questionNumber": 1,
+        "level": "Basic",
+        "imageDescription": "A man is speaking into a microphone on a podium.",
+        "subjectVocabulary": [
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
+            "isCorrect": true
+          },
+          {
+            "word": "microphone",
+            "meaning": "micro",
+            "pronunciation": "/ˈmaɪ.krəˌfoʊn/",
+            "isCorrect": true
+          },
+          {
+            "word": "podium",
+            "meaning": "bục phát biểu",
+            "pronunciation": "/ˈpoʊ.di.əm/",
+            "isCorrect": true
+          },
+          {
+            "word": "camera",
+            "meaning": "máy ảnh",
+            "pronunciation": "/ˈkæm.rə/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "speaking",
+            "meaning": "đang nói",
+            "pronunciation": "/ˈspiː.kɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "into",
+            "meaning": "vào trong",
+            "pronunciation": "/ˈɪn.tuː/",
+            "isCorrect": true
+          },
+          {
+            "word": "holding",
+            "meaning": "đang cầm",
+            "pronunciation": "/ˈhoʊl.dɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "sitting",
+            "meaning": "đang ngồi",
+            "pronunciation": "/ˈsɪt̬.ɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A man is speaking into a microphone on a podium.",
+          "B": "A man is sitting on a chair.",
+          "C": "A man is holding a camera."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang nói vào micro trên bục phát biểu.",
+          "B": "Một người đàn ông đang ngồi trên ghế.",
+          "C": "Một người đàn ông đang cầm một chiếc máy ảnh."
+        },
+        "correctAnswer": "A",
+        "explanation": "Đáp án A đúng vì mô tả chính xác hành động và vị trí của người đàn ông. B sai về hành động, C sai về vật thể.",
+        "traps": "B sai hành động (sitting thay vì speaking), C sai về vật thể (camera thay vì microphone)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752459287/d4i7unwbaedj85knxaow.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752459382/viazuv3gl1ocmlkupxd4.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "level": "Basic",
+        "imageDescription": "A woman is typing on a keyboard in front of a monitor.",
+        "subjectVocabulary": [
+          {
+            "word": "woman",
+            "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊm.ən/",
+            "isCorrect": true
+          },
+          {
+            "word": "keyboard",
+            "meaning": "bàn phím",
+            "pronunciation": "/ˈkiː.bɔːrd/",
+            "isCorrect": true
+          },
+          {
+            "word": "monitor",
+            "meaning": "màn hình",
+            "pronunciation": "/ˈmɑː.nə.t̬ɚ/",
+            "isCorrect": true
+          },
+          {
+            "word": "printer",
+            "meaning": "máy in",
+            "pronunciation": "/ˈprɪn.t̬ɚ/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "typing",
+            "meaning": "đang gõ",
+            "pronunciation": "/ˈtaɪ.pɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "in front of",
+            "meaning": "ở phía trước",
+            "pronunciation": "/ɪn frʌnt ʌv/",
+            "isCorrect": true
+          },
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "pronunciation": "/ˈstæn.dɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "fixing",
+            "meaning": "đang sửa",
+            "pronunciation": "/ˈfɪk.sɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A woman is fixing a printer.",
+          "B": "A woman is standing near a window.",
+          "C": "A woman is typing on a keyboard in front of a monitor."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang sửa máy in.",
+          "B": "Một người phụ nữ đang đứng gần cửa sổ.",
+          "C": "Một người phụ nữ đang gõ bàn phím trước màn hình."
+        },
+        "correctAnswer": "C",
+        "explanation": "C đúng vì mô tả đúng hành động (typing) và đúng vật thể (keyboard, monitor). A sai về hành động và vật, B sai về hành động và vị trí.",
+        "traps": "A dùng từ đúng (printer) nhưng sai hành động, B mô tả sai hành động (standing) và vị trí không có (window)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752459297/gjez7bosc7mz0xs9sxpk.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752459384/ejksxrfufumwn2jvh7mb.mp3"
+      },
+      {
+        "questionNumber": 3,
+        "level": "Basic",
+        "imageDescription": "A man is reading a newspaper on a bench.",
+        "subjectVocabulary": [
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
+            "isCorrect": true
+          },
+          {
+            "word": "newspaper",
+            "meaning": "báo",
+            "pronunciation": "/ˈnuːzˌpeɪ.pɚ/",
+            "isCorrect": true
+          },
+          {
+            "word": "bench",
+            "meaning": "ghế dài",
+            "pronunciation": "/bentʃ/",
+            "isCorrect": true
+          },
+          {
+            "word": "magazine",
+            "meaning": "tạp chí",
+            "pronunciation": "/ˌmæɡ.əˈziːn/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "reading",
+            "meaning": "đang đọc",
+            "pronunciation": "/ˈriː.dɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "on",
+            "meaning": "trên",
+            "pronunciation": "/ɑːn/",
+            "isCorrect": true
+          },
+          {
+            "word": "writing",
+            "meaning": "đang viết",
+            "pronunciation": "/ˈraɪ.t̬ɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "under",
+            "meaning": "dưới",
+            "pronunciation": "/ˈʌn.dɚ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A man is writing a magazine.",
+          "B": "A man is reading a newspaper on a bench.",
+          "C": "A man is sitting under a tree."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang viết tạp chí.",
+          "B": "Một người đàn ông đang đọc báo trên ghế dài.",
+          "C": "Một người đàn ông đang ngồi dưới gốc cây."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng vì mô tả đúng hành động và vị trí. A sai hành động và vật thể, C sai vị trí.",
+        "traps": "A sai hành động (writing thay vì reading), sai vật thể (magazine thay vì newspaper), C mô tả vị trí không đúng với ảnh",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752459309/pxtfdvut7jjxcxlctxoo.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752459387/j6bxfujmmicsmtbyrmnv.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "level": "Basic",
+        "imageDescription": "A woman is placing a folder on a shelf.",
+        "subjectVocabulary": [
+          {
+            "word": "woman",
+            "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊm.ən/",
+            "isCorrect": true
+          },
+          {
+            "word": "folder",
+            "meaning": "bìa tài liệu",
+            "pronunciation": "/ˈfoʊl.dɚ/",
+            "isCorrect": true
+          },
+          {
+            "word": "shelf",
+            "meaning": "kệ",
+            "pronunciation": "/ʃelf/",
+            "isCorrect": true
+          },
+          {
+            "word": "box",
+            "meaning": "cái hộp",
+            "pronunciation": "/bɑːks/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "placing",
+            "meaning": "đặt",
+            "pronunciation": "/ˈpleɪ.sɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "on",
+            "meaning": "trên",
+            "pronunciation": "/ɑːn/",
+            "isCorrect": true
+          },
+          {
+            "word": "carrying",
+            "meaning": "mang",
+            "pronunciation": "/ˈker.i.ɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "behind",
+            "meaning": "phía sau",
+            "pronunciation": "/bɪˈhaɪnd/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A woman is placing a folder on a shelf.",
+          "B": "A woman is carrying a box.",
+          "C": "A woman is standing behind a door."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang đặt bìa tài liệu lên kệ.",
+          "B": "Một người phụ nữ đang mang một cái hộp.",
+          "C": "Một người phụ nữ đang đứng sau cánh cửa."
+        },
+        "correctAnswer": "A",
+        "explanation": "A đúng vì mô tả hành động rõ ràng và đúng vật thể. B sai vật thể, C sai hành động và vị trí.",
+        "traps": "B dùng sai vật thể (box thay vì folder), C sai hành động (standing) và mô tả không tồn tại trong ảnh",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752459319/sdcptaxahsqpyjcdlkbn.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752459389/nsdsb0brogolpzmjkb3c.mp3"
+      },
+      {
+        "questionNumber": 5,
+        "level": "Basic",
+        "imageDescription": "A man is opening a drawer in an office.",
+        "subjectVocabulary": [
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
+            "isCorrect": true
+          },
+          {
+            "word": "drawer",
+            "meaning": "ngăn kéo",
+            "pronunciation": "/drɔːr/",
+            "isCorrect": true
+          },
+          {
+            "word": "office",
+            "meaning": "văn phòng",
+            "pronunciation": "/ˈɑː.fɪs/",
+            "isCorrect": true
+          },
+          {
+            "word": "cabinet",
+            "meaning": "tủ",
+            "pronunciation": "/ˈkæb.ɪ.nət/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "opening",
+            "meaning": "đang mở",
+            "pronunciation": "/ˈoʊ.pən.ɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "in",
+            "meaning": "trong",
+            "pronunciation": "/ɪn/",
+            "isCorrect": true
+          },
+          {
+            "word": "closing",
+            "meaning": "đang đóng",
+            "pronunciation": "/ˈkloʊ.zɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "under",
+            "meaning": "dưới",
+            "pronunciation": "/ˈʌn.dɚ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A man is closing a cabinet under the table.",
+          "B": "A man is opening a drawer in an office.",
+          "C": "A man is standing near the door."
+        },
+        "choicesVi": {
+          "A": "Một người đàn ông đang đóng tủ dưới bàn.",
+          "B": "Một người đàn ông đang mở ngăn kéo trong văn phòng.",
+          "C": "Một người đàn ông đang đứng gần cửa ra vào."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng vì đúng hành động (opening), đúng vật thể (drawer) và vị trí (in an office). A và C đều mô tả sai hành động và vật.",
+        "traps": "A dùng sai hành động (closing) và vật thể (cabinet), C không mô tả hành động chính, sai trọng tâm",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752459329/pgri0onpa1cpifhwvf4n.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752459391/admuqp3gbqoal9bozqwf.mp3"
+      },
+      {
+        "questionNumber": 6,
+        "level": "Basic",
+        "imageDescription": "A woman is drinking from a paper cup.",
+        "subjectVocabulary": [
+          {
+            "word": "woman",
+            "meaning": "người phụ nữ",
+            "pronunciation": "/ˈwʊm.ən/",
+            "isCorrect": true
+          },
+          {
+            "word": "cup",
+            "meaning": "cốc",
+            "pronunciation": "/kʌp/",
+            "isCorrect": true
+          },
+          {
+            "word": "paper cup",
+            "meaning": "cốc giấy",
+            "pronunciation": "/ˈpeɪ.pɚ kʌp/",
+            "isCorrect": true
+          },
+          {
+            "word": "glass",
+            "meaning": "cốc thủy tinh",
+            "pronunciation": "/ɡlæs/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "drinking",
+            "meaning": "đang uống",
+            "pronunciation": "/ˈdrɪŋ.kɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "from",
+            "meaning": "từ",
+            "pronunciation": "/frʌm/",
+            "isCorrect": true
+          },
+          {
+            "word": "pouring",
+            "meaning": "đang rót",
+            "pronunciation": "/ˈpɔːr.ɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "broken",
+            "meaning": "bị vỡ",
+            "pronunciation": "/ˈbroʊ.kən/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A woman is pouring water into a glass.",
+          "B": "A woman is drinking from a paper cup.",
+          "C": "A woman is holding a broken umbrella."
+        },
+        "choicesVi": {
+          "A": "Một người phụ nữ đang rót nước vào cốc thủy tinh.",
+          "B": "Một người phụ nữ đang uống từ một chiếc cốc giấy.",
+          "C": "Một người phụ nữ đang cầm một chiếc ô bị vỡ."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng vì mô tả đúng hành động (drinking) và vật thể (paper cup). A sai hành động và vật, C sai hoàn toàn nội dung.",
+        "traps": "A dùng sai vật thể (glass thay vì paper cup), C mô tả sai hoàn toàn, gây nhiễu bằng hình ảnh không liên quan",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752459340/i8jkwky53qsi9uxl7fex.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752459394/zsaqhezumnjzc4i4qm0y.mp3"
       }
     ],
     "level2 ": [

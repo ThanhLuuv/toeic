@@ -23,6 +23,7 @@ export async function analyzeWithAI(logText: string): Promise<any> {
                         2. Sinh một câu luyện tập mới tương tự (giống cấu trúc đề TOEIC Part 2) với level tương tự, gồm:
                         - question: câu hỏi bằng tiếng Anh
                         - choices: A/B/C là các câu trả lời (chỉ 1 câu đúng)
+                        - choicesVi: A/B/C là các câu trả lời bằng tiếng Việt
                         - correctAnswer: "A" / "B" / "C"
                         - explanation: giải thích vì sao đáp án đúng
                         - tips: mẹo làm bài tương tự
@@ -163,6 +164,7 @@ export async function analyzeWithAI(logText: string): Promise<any> {
   }
 
   const data = await response.json();
+  console.log(data.choices[0].message.content);
   return data.choices[0].message.content;
 }
 

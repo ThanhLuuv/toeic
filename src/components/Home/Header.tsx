@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   };
 
   const goBack = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   const isPart1Page = location.pathname === '/part1' || location.pathname === '/part2';
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
               </>
             ) : (
               <div className="text-white/90 text-sm">
-                <span className="font-semibold">Lưu Văn Thành</span>
+                <span className="font-semibold">Xin chào</span>
               </div>
             )}
             <div className="w-10 h-10 bg-white/theory/20 rounded-full flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all">

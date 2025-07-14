@@ -14,7 +14,7 @@ interface Question {
     B: string;
     C: string;
   };
-  choicesVi: {
+  choicesVi?: {
     A: string;
     B: string;
     C: string;
@@ -23,7 +23,7 @@ interface Question {
   explanation: string;
   tips: string;
   audio: string;
-  answerType: string; // Added answerType to the interface
+  typeAnswer: string; // Correct field name from JSON data
 }
 
 
@@ -43,11 +43,13 @@ const TestPart2: React.FC = () => {
   const [showAnswerChoices, setShowAnswerChoices] = useState(false);
   const [questionTypeCorrect, setQuestionTypeCorrect] = useState<boolean | null>(null);
   const [answerTypeCorrect, setAnswerTypeCorrect] = useState<boolean | null>(null);
+  const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
+  const [showAutoPlayNotification, setShowAutoPlayNotification] = useState(false);
 
   // Các type câu hỏi và đáp án có sẵn (tiếng Anh)
   const questionTypes = [
     { key: 'WH-question', label: 'WH-question (What, Where, When, Who, Why, How)' },
-    { key: 'Yes/No', label: 'Yes/No question' },
+    { key: 'Yes/No-question', label: 'Yes/No question' },
     { key: 'Statement-Response', label: 'Statement-Response' },
     { key: 'Choice', label: 'Choice question' },
   ];
@@ -68,36 +70,19 @@ const TestPart2: React.FC = () => {
 
   // Hàm xác định loại đáp án đúng dựa vào câu hỏi và đáp án đúng
   const handleAnswerTypeSelect = (typeKey: string) => {
-    const correctAnswerType = currentQuestion.answerType;
+    const correctAnswerType = currentQuestion.typeAnswer;
     const isCorrect = typeKey === correctAnswerType;
     console.log('handleAnswerTypeSelect - Selected type:', typeKey);
     console.log('handleAnswerTypeSelect - Correct type:', correctAnswerType);
     console.log('handleAnswerTypeSelect - Is correct:', isCorrect);
     setAnswerTypeSelected(typeKey);
     setAnswerTypeCorrect(isCorrect);
-    
-    if (!isCorrect) {
-      // Phát lại audio khi chọn sai
-      const audioElement = document.querySelector('audio') as HTMLAudioElement;
-      if (audioElement) {
-        audioElement.currentTime = 0;
-        audioElement.play();
-      }
-    }
   };
 
   const handleQuestionTypeSelect = (typeKey: string) => {
     const isCorrect = typeKey === currentQuestion.type;
     setQuestionTypeSelected(typeKey);
     setQuestionTypeCorrect(isCorrect);
-    if (!isCorrect) {
-      // Phát lại audio khi chọn sai
-      const audioElement = document.querySelector('audio') as HTMLAudioElement;
-      if (audioElement) {
-        audioElement.currentTime = 0;
-        audioElement.play();
-      }
-    }
   };
 
   const handleTypeSelection = () => {
@@ -128,9 +113,18 @@ const TestPart2: React.FC = () => {
     const currentButtonText = button.textContent;
 
     if (currentButtonText === 'Dịch') {
-      optionText.textContent = currentQuestion.choicesVi[choice as keyof typeof currentQuestion.choicesVi];
-      button.textContent = 'English';
+      // Kiểm tra xem có bản dịch không
+      if (currentQuestion.choicesVi && currentQuestion.choicesVi[choice as keyof typeof currentQuestion.choicesVi]) {
+        optionText.textContent = currentQuestion.choicesVi[choice as keyof typeof currentQuestion.choicesVi];
+        button.textContent = 'English';
+      } else {
+        // Fallback: hiển thị bản dịch giả
+        const englishText = currentQuestion.choices[choice as keyof typeof currentQuestion.choices];
+        optionText.textContent = `[Bản dịch] ${englishText}`;
+        button.textContent = 'English';
+      }
     } else {
+      // Quay lại tiếng Anh
       optionText.textContent = currentQuestion.choices[choice as keyof typeof currentQuestion.choices];
       button.textContent = 'Dịch';
     }
@@ -159,6 +153,30 @@ const TestPart2: React.FC = () => {
     setCurrentQuestionIndex(prev => Math.max(0, prev - 1));
     resetTypeSelection();
   };
+
+  // Tự động phát audio khi chuyển câu hỏi
+  useEffect(() => {
+    if (currentQuestion && isTestStarted && autoPlayEnabled) {
+      // Delay nhỏ để đảm bảo audio element đã được render
+      const timer = setTimeout(() => {
+        const audioElement = document.querySelector('audio') as HTMLAudioElement;
+        if (audioElement) {
+          // Reset audio về đầu
+          audioElement.currentTime = 0;
+          // Phát audio
+          audioElement.play().then(() => {
+            // Hiển thị thông báo khi audio bắt đầu phát
+            setShowAutoPlayNotification(true);
+            setTimeout(() => setShowAutoPlayNotification(false), 2000);
+          }).catch(error => {
+            console.log('Auto-play failed:', error);
+          });
+        }
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentQuestionIndex, currentQuestion, isTestStarted, autoPlayEnabled]);
 
   useEffect(() => {
     console.log('TestPart2 useEffect - testId:', testId);
@@ -200,7 +218,7 @@ const TestPart2: React.FC = () => {
     const allQuestions = (part2Data as any)[foundKey] || [];
     console.log('All questions for level:', allQuestions.length);
     
-    const QUESTIONS_PER_TEST = 25;
+    const QUESTIONS_PER_TEST = 10; // Giảm xuống 10 câu mỗi bài test
     const startIndex = testIndex * QUESTIONS_PER_TEST;
     const endIndex = (testIndex + 1) * QUESTIONS_PER_TEST;
     console.log('Start index:', startIndex, 'End index:', endIndex);
@@ -271,6 +289,18 @@ const TestPart2: React.FC = () => {
                 
                 {/* Audio Player */}
                 <div className="mb-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-medium text-gray-800">Audio</h3>
+                    <button
+                      onClick={() => setAutoPlayEnabled(!autoPlayEnabled)}
+                      className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
+                        autoPlayEnabled 
+                          ? 'bg-green-100 text-green-700 hover:bg-green-200' 
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                    </button>
+                  </div>
                   <AudioPlayer audioSrc={currentQuestion.audio} />
                 </div>
 
@@ -542,13 +572,8 @@ const TestPart2: React.FC = () => {
                 </div>
 
                 <button
-                  className={`w-full py-3 px-4 rounded-lg font-medium transition-all ${
-                    Object.keys(userAnswers).length === questions.length
-                      ? 'bg-green-500 text-white hover:bg-green-600'
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  }`}
+                  className="w-full py-3 px-4 rounded-lg font-medium transition-all bg-green-500 text-white hover:bg-green-600"
                   onClick={handleFinishTest}
-                  disabled={Object.keys(userAnswers).length !== questions.length}
                 >
                   Finish Test
                 </button>

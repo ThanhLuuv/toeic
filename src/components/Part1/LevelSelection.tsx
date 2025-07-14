@@ -1,40 +1,62 @@
 import React from 'react';
-import { levelData } from '../../data/levelData';
+
+interface Test {
+  id: string | number;
+  title: string;
+  category: string;
+  level?: number;
+  questions: number;
+  completed: boolean;
+  score: number;
+}
+
+interface Level {
+  name: string;
+  tests: Test[];
+}
 
 interface LevelSelectionProps {
   currentLevel: number;
   setCurrentLevel: (level: number) => void;
   totalTests: number;
   completedTests: number;
+  levels?: { level: number; name: string; tests: Test[] }[];
 }
 
-const LevelSelection: React.FC<LevelSelectionProps> = ({ currentLevel, setCurrentLevel, totalTests, completedTests }) => {
-  // Lấy levels động từ levelData.ts
-  const levels = Object.entries(levelData).map(([key, level]) => ({
-    level: Number(key),
-    name: level.name,
-    tests: level.tests,
-  }));
+const LevelSelection: React.FC<LevelSelectionProps> = ({ 
+  currentLevel, 
+  setCurrentLevel, 
+  totalTests, 
+  completedTests,
+  levels = []
+}) => {
+  // Nếu không có levels từ props, sử dụng dữ liệu mặc định cho Part 2
+  const defaultLevels = [
+    { level: 1, name: 'Level 1 - Basic', tests: [] },
+    { level: 2, name: 'Level 2 - Intermediate', tests: [] },
+    { level: 3, name: 'Level 3 - Advanced', tests: [] }
+  ];
 
-  const accuracy = completedTests > 0
-    ? Math.round(
-        Object.values(levelData).reduce((acc, level) =>
-          acc + level.tests.reduce((sum: number, test: any) => (test.completed ? sum + test.score : sum), 0), 0) / completedTests
-      )
-    : 0;
+  const displayLevels = levels.length > 0 ? levels : defaultLevels;
+
+  const accuracy = completedTests > 0 ? Math.round((completedTests / totalTests) * 100) : 0;
 
   return (
     <div className="w-80">
       <div className="bg-white rounded-2xl p-6 shadow-lg sticky top-8">
         <h3 className="text-xl font-bold text-gray-800 mb-6">Chọn cấp độ</h3>
         <div className="space-y-3">
-          {levels.map((lvl) => {
+          {displayLevels.map((lvl) => {
             const completedInLevel = lvl.tests.filter((test: any) => test.completed).length;
             const totalInLevel = lvl.tests.length;
             return (
               <div
                 key={lvl.level}
-                className={`level-card bg-white rounded-xl p-4 cursor-pointer ${currentLevel === lvl.level ? 'active' : ''}`}
+                className={`level-card bg-white rounded-xl p-4 cursor-pointer transition-all ${
+                  currentLevel === lvl.level 
+                    ? 'ring-2 ring-blue-500 bg-blue-50' 
+                    : 'hover:bg-gray-50'
+                }`}
                 onClick={() => setCurrentLevel(lvl.level)}
               >
                 <div className="flex items-center justify-between mb-2">
