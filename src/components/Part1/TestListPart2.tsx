@@ -33,7 +33,7 @@ const TestListPart2: React.FC<TestListPart2Props> = ({ tests, startTest }) => {
             </div>
             <div className="mt-auto">
               <button
-                className={`w-full text-xs py-2.5 px-4 rounded-md font-medium ${test.completed ? 'retry-btn text-gray-600 hover:text-gray-800 border border-gray-200' : 'start-btn text-white'}`}
+                className={`w-full text-xs py-2.5 px-4 rounded-md font-medium ${test.completed ? 'retry-btn text-gray-600 hover:text-gray-800 border border-gray-200' : 'start-btn'}`}
                 onClick={() => startTest(String(test.id))}
               >
                 {test.completed ? (
