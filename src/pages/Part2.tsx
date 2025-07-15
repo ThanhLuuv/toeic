@@ -42,7 +42,7 @@ const Part2: React.FC = () => {
     
     const tests = Array.from({ length: Math.ceil(questions.length / QUESTIONS_PER_TEST) }, (_, i) => ({
       id: `part2-level${level}-test${i + 1}`,
-      title: `Bài số ${i + 1}`,
+      title: `# ${i + 1}`,
       category: 'part2',
       level: level,
       questions: questions.slice(i * QUESTIONS_PER_TEST, (i + 1) * QUESTIONS_PER_TEST).length,

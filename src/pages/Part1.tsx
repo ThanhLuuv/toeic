@@ -35,7 +35,7 @@ const Part1: React.FC = () => {
       console.log(`Category: ${cat}, Level: ${level}, Questions: ${questions.length}`);
       const tests = Array.from({ length: Math.ceil(questions.length / QUESTIONS_PER_TEST) }, (_, i) => ({
         id: `${cat}-level${level}-test${i + 1}`,
-        title: `Bài số ${i + 1} (${cat === 'people' ? 'Con người' : cat === 'object' ? 'Vật thể' : cat === 'environment' ? 'Môi trường' : 'Khác'})`,
+        title: `# ${i + 1} (${cat === 'people' ? 'Con người' : cat === 'object' ? 'Vật thể' : cat === 'environment' ? 'Môi trường' : 'Khác'})`,
         category: cat,
         level: level,
         questions: questions.slice(i * QUESTIONS_PER_TEST, (i + 1) * QUESTIONS_PER_TEST).length,
