@@ -192,7 +192,7 @@ const TestResults: React.FC<TestResultsProps> = ({
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-4xl mx-auto px-4">
           
-          {/* Header */}
+          {/* Header okkk*/}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-6">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 text-center">
               <div className="text-5xl mb-4">📊</div>
