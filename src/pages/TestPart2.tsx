@@ -551,7 +551,10 @@ const TestPart2: React.FC = () => {
                         ? 'bg-red-100 text-red-700'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
-                    onClick={() => setCurrentQuestionIndex(index)}
+                    onClick={() => {
+                      setCurrentQuestionIndex(index);
+                      resetTypeSelection();
+                    }}
                   >
                     {index + 1}
                   </button>
