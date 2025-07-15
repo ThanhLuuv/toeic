@@ -484,9 +484,32 @@ const TestPart1: React.FC = () => {
                             {testQuestions[currentQuestionIndex].subjectVocabulary?.map((word: VocabularyWord, idx: number) => {
                               const selected = (allVocabularySelections[currentQuestionIndex]?.subjectSelected || []).includes(word.word);
                               const correct = word.isCorrect;
+                              
+                              // Determine styling based on selection and correctness
+                              let styling = '';
+                              let icon = '';
+                              
+                              if (selected && correct) {
+                                // User selected correctly
+                                styling = 'bg-green-100 border-green-400 text-green-800';
+                                icon = '✔️';
+                              } else if (selected && !correct) {
+                                // User selected incorrectly
+                                styling = 'bg-red-100 border-red-400 text-red-800';
+                                icon = '❌';
+                              } else if (!selected && correct) {
+                                // User missed (should have selected but didn't)
+                                styling = 'bg-yellow-100 border-yellow-400 text-yellow-800';
+                                icon = '⚠️';
+                              } else {
+                                // User correctly didn't select
+                                styling = 'bg-gray-100 border-gray-300 text-gray-500';
+                                icon = '';
+                              }
+                              
                               return (
-                                <li key={word.word} className={`px-3 py-1 rounded-lg text-sm font-medium border ${selected ? (correct ? 'bg-green-100 border-green-400 text-green-800' : 'bg-red-100 border-red-400 text-red-800') : 'bg-gray-100 border-gray-300 text-gray-500'}`}>
-                                  {word.word} {selected ? (correct ? '✔️' : '❌') : ''}
+                                <li key={word.word} className={`px-3 py-1 rounded-lg text-sm font-medium border ${styling}`}>
+                                  {word.word} {icon}
                                   <span className="ml-1 text-xs text-gray-400">({word.meaning})</span>
                                 </li>
                               );
@@ -500,9 +523,32 @@ const TestPart1: React.FC = () => {
                             {testQuestions[currentQuestionIndex].descriptiveVocabulary?.map((word: VocabularyWord, idx: number) => {
                               const selected = (allVocabularySelections[currentQuestionIndex]?.descriptiveSelected || []).includes(word.word);
                               const correct = word.isCorrect;
+                              
+                              // Determine styling based on selection and correctness
+                              let styling = '';
+                              let icon = '';
+                              
+                              if (selected && correct) {
+                                // User selected correctly
+                                styling = 'bg-green-100 border-green-400 text-green-800';
+                                icon = '✔️';
+                              } else if (selected && !correct) {
+                                // User selected incorrectly
+                                styling = 'bg-red-100 border-red-400 text-red-800';
+                                icon = '❌';
+                              } else if (!selected && correct) {
+                                // User missed (should have selected but didn't)
+                                styling = 'bg-yellow-100 border-yellow-400 text-yellow-800';
+                                icon = '⚠️';
+                              } else {
+                                // User correctly didn't select
+                                styling = 'bg-gray-100 border-gray-300 text-gray-500';
+                                icon = '';
+                              }
+                              
                               return (
-                                <li key={word.word} className={`px-3 py-1 rounded-lg text-sm font-medium border ${selected ? (correct ? 'bg-green-100 border-green-400 text-green-800' : 'bg-red-100 border-red-400 text-red-800') : 'bg-gray-100 border-gray-300 text-gray-500'}`}>
-                                  {word.word} {selected ? (correct ? '✔️' : '❌') : ''}
+                                <li key={word.word} className={`px-3 py-1 rounded-lg text-sm font-medium border ${styling}`}>
+                                  {word.word} {icon}
                                   <span className="ml-1 text-xs text-gray-400">({word.meaning})</span>
                                 </li>
                               );
