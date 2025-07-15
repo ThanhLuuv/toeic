@@ -77,10 +77,46 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   const speakWord = (word: string) => {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
+      
       const utterance = new SpeechSynthesisUtterance(word);
+      
+      // Set language to English explicitly
       utterance.lang = 'en-US';
       utterance.rate = 0.7;
-      window.speechSynthesis.speak(utterance);
+      utterance.pitch = 1;
+      utterance.volume = 1;
+      
+      // For Safari compatibility, try to find an English voice
+      const voices = window.speechSynthesis.getVoices();
+      const englishVoice = voices.find(voice => 
+        voice.lang.startsWith('en-') || 
+        voice.lang.startsWith('en_') ||
+        voice.name.toLowerCase().includes('english')
+      );
+      
+      if (englishVoice) {
+        utterance.voice = englishVoice;
+      }
+      
+      // Additional Safari fix: ensure voices are loaded
+      if (voices.length === 0) {
+        window.speechSynthesis.onvoiceschanged = () => {
+          const newVoices = window.speechSynthesis.getVoices();
+          const newEnglishVoice = newVoices.find(voice => 
+            voice.lang.startsWith('en-') || 
+            voice.lang.startsWith('en_') ||
+            voice.name.toLowerCase().includes('english')
+          );
+          
+          if (newEnglishVoice) {
+            utterance.voice = newEnglishVoice;
+          }
+          
+          window.speechSynthesis.speak(utterance);
+        };
+      } else {
+        window.speechSynthesis.speak(utterance);
+      }
     }
   };
 
