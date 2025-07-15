@@ -137,8 +137,9 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-.level-card.active {
-    border-color: #667eea;
+
+.active-level {
+    border-color: #477196;
     background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
 }
 

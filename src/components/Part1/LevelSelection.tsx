@@ -54,7 +54,7 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({
                 key={lvl.level}
                 className={`level-card bg-white rounded-xl p-4 cursor-pointer transition-all ${
                   currentLevel === lvl.level 
-                    ? 'ring-2 ring-blue-500 bg-blue-50' 
+                    ? 'active-level' 
                     : 'hover:bg-gray-50'
                 }`}
                 onClick={() => setCurrentLevel(lvl.level)}
