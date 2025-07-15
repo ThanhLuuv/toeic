@@ -280,18 +280,19 @@ body {
 .start-btn {
     background-color: white;
     color: #477196; /* Màu chữ tím đậm */
-    border: 2px solid #477196;
+    border: 1px solid #477196;
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     font-weight: 500;
     transition: all 0.2s ease;
     cursor: pointer;
-}
+  }
   
-.start-btn:hover {
+  .start-btn:hover {
     background-color: #f0f0ff; /* Màu nhạt để hover dễ nhìn */
     transform: scale(1.02);
- }
+  }
+
   
 
 .retry-btn {
