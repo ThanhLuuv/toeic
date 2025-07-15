@@ -55,16 +55,16 @@ const TestPart2: React.FC = () => {
   ];
 
   const answerTypes = [
-    { key: 'location', label: 'Location' },
-    { key: 'time', label: 'Time' },
-    { key: 'person', label: 'Person' },
-    { key: 'reason', label: 'Reason' },
-    { key: 'yes_no', label: 'Yes/No response' },
-    { key: 'agreement', label: 'Agreement/Disagreement' },
-    { key: 'solution', label: 'Solution/Suggestion' },
-    { key: 'choice', label: 'Choice' },
-    { key: 'other', label: 'Other' },
-  ];
+    { key: 'location', label: 'Location (office, store, at, in)' },
+    { key: 'time', label: 'Time (next week, at 3 p.m., tomorrow, last year)' },
+    { key: 'person', label: 'Person (Mr., Mrs., Ms., manager, customer, receptionist, he, she,...)' },
+    { key: 'reason', label: 'Reason (because, due to, the reason is...)' },
+    { key: 'yes_no', label: 'Yes/No response (Yes, I did. / No, I haven’t./ Not yet)' },
+    { key: 'agreement', label: 'Agreement/Disagreement (I agree, Sure, I don’t think so)' },
+    { key: 'solution', label: 'Solution/Suggestion (Let’s..., Why don’t we..., How about...)' },
+    { key: 'choice', label: 'Choice (A or B? / I’ll take the first one / I prefer...)' },
+    { key: 'other', label: 'Other (General information not fitting above categories)' },
+  ];  
 
   const currentQuestion = questions[currentQuestionIndex];
 

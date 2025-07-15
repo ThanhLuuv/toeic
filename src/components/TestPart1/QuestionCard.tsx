@@ -26,6 +26,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   setSelectedAnswer,
   nextQuestion,
   currentQuestionIndex,
+  totalQuestions,
   showTranscript,
   setShowTranscript,
   hideImage = false,
@@ -111,13 +112,28 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       {isAnswered && (
         <div className="mt-6 flex justify-end">
           <button
-            className={`flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 text-white px-5 py-2.5 rounded-full font-medium transition-colors shadow-md`}
+            className={`flex items-center space-x-2 ${
+              currentQuestionIndex + 1 >= totalQuestions 
+                ? 'bg-green-500 hover:bg-green-600' 
+                : 'bg-blue-500 hover:bg-blue-600'
+            } text-white px-5 py-2.5 rounded-full font-medium transition-colors shadow-md`}
             onClick={nextQuestion}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-            <span>Next Question</span>
+            {currentQuestionIndex + 1 >= totalQuestions ? (
+              <>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Finish</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Next Question</span>
+              </>
+            )}
           </button>
         </div>
       )}

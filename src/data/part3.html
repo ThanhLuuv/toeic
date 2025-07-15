@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC Part 3 - Audio Generator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus, .input-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            background: #f8f9fa;
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .file-input-wrapper:hover {
+            background: #e9ecef;
+            border-color: #495057;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #6c757d, #495057);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #28a745, #20c997);
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #dc3545, #e83e8c);
+        }
+
+        .progress-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .conversations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .conversation-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .conversation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .conversation-title {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .conversation-level {
+            background: #667eea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .audio-script {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e1e5e9;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .audio-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border: 1px solid #e1e5e9;
+        }
+
+        .audio-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .questions-summary {
+            margin-top: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e1e5e9;
+        }
+
+        .question-item {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .conversations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .audio-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .audio-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-headphones"></i> TOEIC Part 3 Audio Generator</h1>
+        </div>
+
+        <div class="stats" id="statsContainer" style="display: none;">
+            <div class="stat-card">
+                <div class="stat-number" id="totalConversations">0</div>
+                <div class="stat-label">Đoạn hội thoại</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalQuestions">0</div>
+                <div class="stat-label">Câu hỏi</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="audioGenerated">0</div>
+                <div class="stat-label">Audio hội thoại</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="uploadedToCloudinary">0</div>
+                <div class="stat-label">Upload Cloudinary</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="input-section">
+                <h2><i class="fas fa-upload"></i> Tải dữ liệu</h2>
+                
+
+
+                <div class="input-group">
+                    <label>Tải dữ liệu JSON</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="jsonFile" accept=".json">
+                        <i class="fas fa-cloud-upload-alt" style="font-size: 2em; color: #667eea; margin-bottom: 10px;"></i>
+                        <div>Chọn file JSON hoặc kéo thả vào đây</div>
+                        <small style="color: #6c757d;">Hỗ trợ file .json</small>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="jsonInput">Hoặc dán JSON trực tiếp</label>
+                    <textarea id="jsonInput" rows="8" placeholder="Dán nội dung JSON vào đây..."></textarea>
+                </div>
+
+                <div>
+                    <button class="btn" onclick="loadData()">
+                        <i class="fas fa-upload"></i> Tải dữ liệu
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearData()">
+                        <i class="fas fa-trash"></i> Xóa dữ liệu
+                    </button>
+                </div>
+            </div>
+
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Đang xử lý...</div>
+            </div>
+
+            <div id="alertContainer"></div>
+        </div>
+
+        <div class="card" id="conversationsContainer" style="display: none;">
+            <div style="display: flex; justify-content: space-between; flex-direction: column;align-items: center; margin-bottom: 20px;">
+                <h2><i class="fas fa-comments"></i> Danh sách đoạn hội thoại</h2>
+                <div>
+                    <button class="btn btn-success" onclick="generateAllAudio()" id="generateAllBtn">
+                        <i class="fas fa-play"></i> Tạo tất cả Audio (Hội thoại + Câu hỏi)
+                    </button>
+                    <button class="btn btn-secondary" onclick="downloadAllAudio()" id="downloadAllBtn" disabled>
+                        <i class="fas fa-download"></i> Tải MP3 tất cả
+                    </button>
+                    <button class="btn btn-danger" onclick="clearAllAudio()" id="clearAudioBtn">
+                        <i class="fas fa-trash"></i> Xóa tất cả Audio
+                    </button>
+                </div>
+                
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #e1e5e9;">
+                    <h3><i class="fas fa-cloud-upload-alt"></i> Batch Processing - Upload tất cả lên Cloudinary</h3>
+                    <p style="color: #6c757d; margin-bottom: 15px;">
+                        <small>💡 Để xử lý hàng loạt: Upload tất cả audio lên Cloudinary và tạo một file JSON chứa tất cả items<br>
+                        📌 Khác biệt: Nút "Tải JSON" ở mỗi đoạn sẽ tự động upload + tạo JSON cho từng item riêng lẻ</small>
+                    </p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn" onclick="uploadAllAudioToCloudinary()" id="uploadCloudinaryBtn" disabled>
+                            <i class="fas fa-cloud-upload-alt"></i> Batch Upload tất cả lên Cloudinary
+                        </button>
+                        <button class="btn btn-success" onclick="downloadJsonWithCloudinaryUrls()" id="downloadJsonBtn" disabled>
+                            <i class="fas fa-download"></i> Tải JSON Array (tất cả items)
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <div class="conversations-grid" id="conversationsList"></div>
+        </div>
+    </div>
+
+    <script>
+        // Biến toàn cục
+        let GOOGLE_TTS_KEY = 'AIzaSyAqO6_hgidkr_qandEMZUJlBcAhF3xOsUk';
+        let generatedConversations = [];
+        let generatedAudio = [];
+        let cloudinaryAudioUrls = [];
+        let audioGeneratedCount = 0;
+        let uploadedToCloudinaryCount = 0;
+
+        // Cloudinary config
+        const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dlysxsbkj/auto/upload';
+        const CLOUDINARY_UPLOAD_PRESET = 'toeic_part3';
+
+        // Khởi tạo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Xử lý drag & drop
+            const fileWrapper = document.querySelector('.file-input-wrapper');
+            
+            fileWrapper.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#495057';
+                this.style.background = '#e9ecef';
+            });
+            
+            fileWrapper.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#667eea';
+                this.style.background = '#f8f9fa';
+            });
+            
+            fileWrapper.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#667eea';
+                this.style.background = '#f8f9fa';
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    document.getElementById('jsonFile').files = files;
+                    handleFileSelect(files[0]);
+                }
+            });
+
+            // Xử lý chọn file
+            document.getElementById('jsonFile').addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    handleFileSelect(e.target.files[0]);
+                }
+            });
+        });
+
+        // Xử lý file được chọn
+        function handleFileSelect(file) {
+            if (file.type !== 'application/json') {
+                showAlert('error', 'Vui lòng chọn file JSON hợp lệ!');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('jsonInput').value = e.target.result;
+                showAlert('success', `Đã tải file: ${file.name}`);
+            };
+            reader.readAsText(file);
+        }
+
+        // Tải và xử lý dữ liệu
+        function loadData() {
+            const jsonInput = document.getElementById('jsonInput').value.trim();
+
+            if (!jsonInput) {
+                showAlert('error', 'Vui lòng nhập hoặc tải dữ liệu JSON!');
+                return;
+            }
+
+            try {
+                const data = JSON.parse(jsonInput);
+                
+                // Kiểm tra dữ liệu có phải là array không
+                if (Array.isArray(data)) {
+                    generatedConversations = data;
+                } else {
+                    generatedConversations = [data];
+                }
+
+                // Validate dữ liệu
+                if (!validateData(generatedConversations)) {
+                    return;
+                }
+
+                generatedAudio = new Array(generatedConversations.length).fill(null);
+                cloudinaryAudioUrls = new Array(generatedConversations.length).fill(null);
+                audioGeneratedCount = 0;
+                uploadedToCloudinaryCount = 0;
+
+                displayConversations();
+                updateStats();
+                showAlert('success', `Đã tải thành công ${generatedConversations.length} đoạn hội thoại! 🎵 Tạo Audio → 📄 Tải JSON (tự động upload Cloudinary + tạo JSON với audio URL)`);
+                
+            } catch (error) {
+                showAlert('error', 'Dữ liệu JSON không hợp lệ: ' + error.message);
+            }
+        }
+
+        // Validate dữ liệu
+        function validateData(data) {
+            for (let i = 0; i < data.length; i++) {
+                const item = data[i];
+                if (!item.audioScript || !item.questions) {
+                    showAlert('error', `Dữ liệu không hợp lệ tại item ${i + 1}: thiếu audioScript hoặc questions`);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Hiển thị danh sách đoạn hội thoại
+        function displayConversations() {
+            const container = document.getElementById('conversationsList');
+            container.innerHTML = '';
+
+            generatedConversations.forEach((conv, index) => {
+                const card = createConversationCard(conv, index);
+                container.appendChild(card);
+            });
+
+            document.getElementById('conversationsContainer').style.display = 'block';
+            document.getElementById('statsContainer').style.display = 'grid';
+        }
+
+        // Tạo card đoạn hội thoại
+        function createConversationCard(conv, index) {
+            const card = document.createElement('div');
+            card.className = 'conversation-card';
+            card.innerHTML = `
+                <div class="conversation-header">
+                    <div class="conversation-title">Đoạn ${index + 1} ${conv.id ? `(ID: ${conv.id})` : ''}</div>
+                    <div class="conversation-level">${conv.level || 'N/A'}</div>
+                </div>
+                
+                <div class="audio-script">${formatAudioScript(conv.audioScript)}</div>
+                
+                <div class="audio-controls">
+                    <audio class="audio-player" id="audio-${index}" controls style="display: none;">
+                        <source type="audio/mpeg">
+                        Trình duyệt không hỗ trợ audio.
+                    </audio>
+                    <div class="audio-buttons">
+                        <button class="btn" onclick="generateSingleAudio(${index})" id="btn-${index}">
+                            <i class="fas fa-play"></i> Tạo Audio (Hội thoại + Câu hỏi)
+                        </button>
+                        <button class="btn btn-secondary" onclick="downloadSingleAudio(${index})" id="download-${index}" disabled>
+                            <i class="fas fa-download"></i> Tải JSON
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="questions-summary">
+                    <strong>Câu hỏi (${conv.questions.length}):</strong>
+                    ${conv.questions.map((q, i) => `
+                        <div class="question-item">
+                            <strong>Q${i + 1}:</strong> ${q.question.substring(0, 80)}${q.question.length > 80 ? '...' : ''}
+                        </div>
+                    `).join('')}
+                    <hr style="margin: 10px 0; border: none; border-top: 1px solid #e1e5e9;">
+                    
+                </div>
+            `;
+            return card;
+        }
+
+        // Format audio script cho hiển thị
+        function formatAudioScript(script) {
+            return script.split('\n').map(line => {
+                if (line.match(/^([A-Z0-9]+):\s(.+)$/)) {
+                    const [, speaker, text] = line.match(/^([A-Z0-9]+):\s(.+)$/);
+                    return `<strong style="color: #667eea;">${speaker}:</strong> ${text}`;
+                }
+                return line;
+            }).join('<br>');
+        }
+
+        // Cập nhật thống kê
+        function updateStats() {
+            document.getElementById('totalConversations').textContent = generatedConversations.length;
+            document.getElementById('totalQuestions').textContent = 
+                generatedConversations.reduce((sum, conv) => sum + conv.questions.length, 0);
+            document.getElementById('audioGenerated').textContent = audioGeneratedCount;
+            document.getElementById('uploadedToCloudinary').textContent = uploadedToCloudinaryCount;
+        }
+
+        // Cập nhật progress
+        function updateProgress(percent, message) {
+            const progressContainer = document.getElementById('progressContainer');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            progressContainer.style.display = 'block';
+            progressFill.style.width = percent + '%';
+            progressText.textContent = message;
+            
+            if (percent >= 100) {
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                }, 2000);
+            }
+        }
+
+        // Hàm tạo audio cho Part 3 (từ người dùng)
+        async function generateAudioForPart3() {
+            updateProgress(55, "Đang tạo audio cho các đoạn hội thoại Part 3...");
+            generatedAudio = [];
+
+            for (let i = 0; i < generatedConversations.length; i++) {
+                try {
+                    updateProgress(55 + (i * 3), `Tạo audio đoạn ${i + 1}/${generatedConversations.length}...`);
+
+                    const conv = generatedConversations[i];
+                    const lines = conv.audioScript.split("\n");
+
+                    // Mapping nhân vật -> voice
+                    const voiceMap = {
+                        "M": "en-US-Wavenet-D",  // Nam
+                        "M1": "en-US-Wavenet-D",
+                        "M2": "en-US-Wavenet-B", // Nam phụ khác giọng
+                        "W": "en-US-Wavenet-F",  // Nữ
+                        "W1": "en-US-Wavenet-F",
+                        "W2": "en-US-Wavenet-E"
+                    };
+
+                    // Tạo SSML script cho đoạn hội thoại
+                    let ssmlContent = `<speak><prosody rate="slow">Conversation ${i + 1}.</prosody><break time="1s"/>`;
+
+                    for (const line of lines) {
+                        const match = line.match(/^([A-Z0-9]+):\s(.+)$/);
+                        if (!match) continue;
+
+                        const speaker = match[1];
+                        const text = match[2];
+                        const voice = voiceMap[speaker] || "en-US-Wavenet-D";
+
+                        ssmlContent += `
+                            <voice name="${voice}">
+                                <prosody rate="medium">${text}</prosody>
+                            </voice>
+                            <break time="0.6s"/>
+                        `;
+                    }
+
+                    // Thêm phần đọc câu hỏi
+                    ssmlContent += `<break time="3s"/><voice name="en-US-Wavenet-D"><prosody rate="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2s"/>`;
+                    
+                    conv.questions.forEach((question, qIndex) => {
+                        // Đọc số câu hỏi với giọng cố định
+                        ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">Question ${qIndex + 1}.</prosody></voice><break time="1s"/>`;
+                        
+                        // Đọc câu hỏi với giọng cố định
+                        ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">${question.question}</prosody></voice>`;
+                        
+                        // Nghỉ 4 giây giữa các câu hỏi
+                        if (qIndex < conv.questions.length - 1) {
+                            ssmlContent += `<break time="4s"/>`;
+                        } else {
+                            ssmlContent += `<break time="2s"/>`;
+                        }
+                    });
+
+                    ssmlContent += `</speak>`;
+
+                    const response = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${GOOGLE_TTS_KEY}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            input: { ssml: ssmlContent },
+                            voice: { languageCode: 'en-US' },
+                            audioConfig: {
+                                audioEncoding: 'MP3',
+                                speakingRate: 0.85,
+                                pitch: 0.0
+                            }
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.audioContent) {
+                        generatedAudio.push(`data:audio/mp3;base64,${result.audioContent}`);
+                        audioGeneratedCount++;
+                        updateAudioPlayer(i, `data:audio/mp3;base64,${result.audioContent}`);
+                    } else {
+                        console.error(`❌ Không tạo được audio cho đoạn ${i + 1}:`, result);
+                        generatedAudio.push(null);
+                        showAlert('error', `Không tạo được audio cho đoạn ${i + 1}: ${result.error?.message || 'Unknown error'}`);
+                    }
+
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                } catch (error) {
+                    console.error(`❌ Lỗi khi tạo audio đoạn ${i + 1}:`, error);
+                    generatedAudio.push(null);
+                    showAlert('error', `Lỗi khi tạo audio đoạn ${i + 1}: ${error.message}`);
+                }
+            }
+
+            updateProgress(100, "Hoàn tất tạo audio Part 3! Sẵn sàng luyện nghe. (Hội thoại + Câu hỏi, không bao gồm đáp án)");
+            updateStats();
+            document.getElementById('downloadAllBtn').disabled = audioGeneratedCount === 0;
+            document.getElementById('uploadCloudinaryBtn').disabled = audioGeneratedCount === 0;
+            return true;
+        }
+
+        // Tạo audio cho một đoạn cụ thể
+        async function generateSingleAudio(index) {
+            const btn = document.getElementById(`btn-${index}`);
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang tạo...';
+
+            try {
+                const conv = generatedConversations[index];
+                const lines = conv.audioScript.split("\n");
+
+                const voiceMap = {
+                    "M": "en-US-Wavenet-D",
+                    "M1": "en-US-Wavenet-D",
+                    "M2": "en-US-Wavenet-B",
+                    "W": "en-US-Wavenet-F",
+                    "W1": "en-US-Wavenet-F",
+                    "W2": "en-US-Wavenet-E"
+                };
+
+                let ssmlContent = `<speak><prosody rate="slow">Conversation ${index + 1}.</prosody><break time="1s"/>`;
+
+                for (const line of lines) {
+                    const match = line.match(/^([A-Z0-9]+):\s(.+)$/);
+                    if (!match) continue;
+
+                    const speaker = match[1];
+                    const text = match[2];
+                    const voice = voiceMap[speaker] || "en-US-Wavenet-D";
+
+                    ssmlContent += `
+                        <voice name="${voice}">
+                            <prosody rate="medium">${text}</prosody>
+                        </voice>
+                        <break time="0.6s"/>
+                    `;
+                }
+
+                // Thêm phần đọc câu hỏi
+                ssmlContent += `<break time="3s"/><voice name="en-US-Wavenet-D"><prosody rate="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2s"/>`;
+                
+                conv.questions.forEach((question, qIndex) => {
+                    // Đọc số câu hỏi với giọng cố định
+                    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">Question ${qIndex + 1}.</prosody></voice><break time="1s"/>`;
+                    
+                    // Đọc câu hỏi với giọng cố định
+                    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">${question.question}</prosody></voice>`;
+                    
+                    // Nghỉ 4 giây giữa các câu hỏi
+                    if (qIndex < conv.questions.length - 1) {
+                        ssmlContent += `<break time="4s"/>`;
+                    } else {
+                        ssmlContent += `<break time="2s"/>`;
+                    }
+                });
+
+                ssmlContent += `</speak>`;
+
+                const response = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${GOOGLE_TTS_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        input: { ssml: ssmlContent },
+                        voice: { languageCode: 'en-US' },
+                        audioConfig: {
+                            audioEncoding: 'MP3',
+                            speakingRate: 0.85,
+                            pitch: 0.0
+                        }
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.audioContent) {
+                    const audioData = `data:audio/mp3;base64,${result.audioContent}`;
+                    generatedAudio[index] = audioData;
+                    updateAudioPlayer(index, audioData);
+                    
+                    if (!generatedAudio.slice(0, index).includes(audioData)) {
+                        audioGeneratedCount++;
+                    }
+                    
+                    updateStats();
+                    btn.innerHTML = '<i class="fas fa-check"></i> Đã tạo';
+                    btn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+                    showAlert('success', `Tạo audio thành công cho đoạn ${index + 1}! (Hội thoại + Câu hỏi, không bao gồm đáp án)`);
+                } else {
+                    throw new Error(result.error?.message || 'Unknown error');
+                }
+
+            } catch (error) {
+                showAlert('error', `Lỗi khi tạo audio: ${error.message}`);
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Lỗi';
+                btn.style.background = 'linear-gradient(45deg, #dc3545, #e83e8c)';
+            }
+
+            btn.disabled = false;
+        }
+
+        // Cập nhật audio player
+        function updateAudioPlayer(index, audioData) {
+            const audioPlayer = document.getElementById(`audio-${index}`);
+            const downloadBtn = document.getElementById(`download-${index}`);
+            
+            audioPlayer.src = audioData;
+            audioPlayer.style.display = 'block';
+            audioPlayer.style.width = '100%';
+            audioPlayer.style.marginBottom = '10px';
+            downloadBtn.disabled = false;
+        }
+
+        // Tạo tất cả audio
+        async function generateAllAudio() {
+            if (generatedConversations.length === 0) {
+                showAlert('error', 'Vui lòng tải dữ liệu trước!');
+                return;
+            }
+
+            const btn = document.getElementById('generateAllBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang tạo...';
+
+            try {
+                await generateAudioForPart3();
+                btn.innerHTML = '<i class="fas fa-check"></i> Hoàn thành';
+                btn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+                document.getElementById('uploadCloudinaryBtn').disabled = false;
+            } catch (error) {
+                showAlert('error', 'Có lỗi xảy ra khi tạo audio: ' + error.message);
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Có lỗi';
+                btn.style.background = 'linear-gradient(45deg, #dc3545, #e83e8c)';
+            }
+
+            btn.disabled = false;
+        }
+
+        // Upload một audio lên Cloudinary
+        async function uploadSingleAudioToCloudinary(index) {
+            if (!generatedAudio[index]) {
+                showAlert('error', 'Chưa có audio cho đoạn này!');
+                return null;
+            }
+
+            try {
+                const audioBlob = base64ToBlob(generatedAudio[index]);
+                const filename = `toeic_part3_conversation_${index + 1}_${Date.now()}.mp3`;
+                
+                const cloudinaryUrl = await uploadAudioToCloudinary(audioBlob, filename);
+                cloudinaryAudioUrls[index] = cloudinaryUrl;
+                
+                return cloudinaryUrl;
+            } catch (error) {
+                console.error(`Error uploading audio ${index + 1}:`, error);
+                throw error;
+            }
+        }
+
+        // Tải JSON cho một đoạn cụ thể
+        async function downloadSingleAudio(index) {
+            const downloadBtn = document.getElementById(`download-${index}`);
+            
+            if (!generatedAudio[index]) {
+                showAlert('error', 'Chưa có audio cho đoạn này!');
+                return;
+            }
+
+            // Disable button và show loading
+            downloadBtn.disabled = true;
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
+
+            try {
+                // Nếu chưa upload lên Cloudinary thì upload trước
+                if (!cloudinaryAudioUrls[index]) {
+                    showAlert('info', `Đang upload audio ${index + 1} lên Cloudinary...`);
+                    await uploadSingleAudioToCloudinary(index);
+                    uploadedToCloudinaryCount++;
+                    updateStats();
+                }
+
+                const conv = generatedConversations[index];
+                
+                // Tạo JSON theo format yêu cầu
+                const jsonItem = {
+                    id: conv.id || (500 + index + 1),
+                    level: conv.level || `Level ${Math.floor(index / 10) + 1}`,
+                    audio: cloudinaryAudioUrls[index],
+                    questions: conv.questions.map(q => ({
+                        question: q.question,
+                        choices: q.choices,
+                        correctAnswer: q.correctAnswer,
+                        answerType: q.answerType || "other",
+                        explanation: q.explanation || ""
+                    }))
+                };
+
+                // Tạo và tải xuống file JSON
+                const jsonString = JSON.stringify(jsonItem, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `toeic_part3_item_${index + 1}_${Date.now()}.json`;
+                link.click();
+                
+                URL.revokeObjectURL(url);
+                
+                downloadBtn.innerHTML = '<i class="fas fa-check"></i> Đã tải JSON';
+                downloadBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+                showAlert('success', `Đã tải JSON cho đoạn ${index + 1} với audio Cloudinary!`);
+                
+            } catch (error) {
+                showAlert('error', `Lỗi khi xử lý đoạn ${index + 1}: ${error.message}`);
+                downloadBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Lỗi';
+                downloadBtn.style.background = 'linear-gradient(45deg, #dc3545, #e83e8c)';
+            }
+
+            downloadBtn.disabled = false;
+        }
+
+        // Tải xuống tất cả audio
+        function downloadAllAudio() {
+            const validAudio = generatedAudio.filter(audio => audio !== null);
+            
+            if (validAudio.length === 0) {
+                showAlert('error', 'Chưa có audio nào được tạo!');
+                return;
+            }
+
+            validAudio.forEach((audio, i) => {
+                if (audio) {
+                    setTimeout(() => {
+                        const link = document.createElement('a');
+                        link.href = audio;
+                        link.download = `conversation_${i + 1}.mp3`;
+                        link.click();
+                    }, i * 500);
+                }
+            });
+
+            showAlert('success', `Đang tải xuống ${validAudio.length} file audio...`);
+        }
+
+        // Upload audio lên Cloudinary
+        async function uploadAudioToCloudinary(audioBlob, filename) {
+            try {
+                const formData = new FormData();
+                formData.append('file', audioBlob, filename);
+                formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+                formData.append('resource_type', 'auto');
+                formData.append('folder', 'toeic_part3');
+
+                const response = await fetch(CLOUDINARY_UPLOAD_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                
+                if (result.secure_url) {
+                    return result.secure_url;
+                } else {
+                    throw new Error(result.error?.message || 'Upload failed');
+                }
+            } catch (error) {
+                console.error('Cloudinary upload error:', error);
+                throw error;
+            }
+        }
+
+        // Convert base64 to Blob
+        function base64ToBlob(base64Data, contentType = 'audio/mp3') {
+            const base64 = base64Data.split(',')[1];
+            const byteCharacters = atob(base64);
+            const byteNumbers = new Array(byteCharacters.length);
+            
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            
+            const byteArray = new Uint8Array(byteNumbers);
+            return new Blob([byteArray], { type: contentType });
+        }
+
+        // Upload tất cả audio lên Cloudinary
+        async function uploadAllAudioToCloudinary() {
+            if (audioGeneratedCount === 0) {
+                showAlert('error', 'Chưa có audio nào được tạo!');
+                return;
+            }
+
+            const btn = document.getElementById('uploadCloudinaryBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang upload...';
+
+            try {
+                cloudinaryAudioUrls = [];
+                
+                for (let i = 0; i < generatedAudio.length; i++) {
+                    if (generatedAudio[i]) {
+                        updateProgress(10 + (i * 80 / generatedAudio.length), `Upload audio ${i + 1}/${generatedAudio.length} lên Cloudinary...`);
+                        
+                        const audioBlob = base64ToBlob(generatedAudio[i]);
+                        const filename = `toeic_part3_conversation_${i + 1}_${Date.now()}.mp3`;
+                        
+                        const cloudinaryUrl = await uploadAudioToCloudinary(audioBlob, filename);
+                        cloudinaryAudioUrls[i] = cloudinaryUrl;
+                        
+                        console.log(`✅ Uploaded ${i + 1}: ${cloudinaryUrl}`);
+                        await new Promise(resolve => setTimeout(resolve, 500)); // Delay để tránh rate limit
+                    } else {
+                        cloudinaryAudioUrls[i] = null;
+                    }
+                }
+
+                uploadedToCloudinaryCount = cloudinaryAudioUrls.filter(url => url !== null).length;
+                updateStats();
+                updateProgress(100, `Hoàn tất upload ${uploadedToCloudinaryCount} audio lên Cloudinary!`);
+                
+                btn.innerHTML = '<i class="fas fa-check"></i> Upload hoàn tất';
+                btn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+                
+                document.getElementById('downloadJsonBtn').disabled = false;
+                showAlert('success', `Đã upload thành công ${uploadedToCloudinaryCount} audio lên Cloudinary!`);
+                
+            } catch (error) {
+                showAlert('error', 'Có lỗi khi upload lên Cloudinary: ' + error.message);
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Lỗi';
+                btn.style.background = 'linear-gradient(45deg, #dc3545, #e83e8c)';
+            }
+
+            btn.disabled = false;
+        }
+
+        // Tạo và tải xuống JSON với format mới
+        function downloadJsonWithCloudinaryUrls() {
+            if (uploadedToCloudinaryCount === 0) {
+                showAlert('error', 'Chưa upload audio lên Cloudinary!');
+                return;
+            }
+
+            const jsonData = [];
+            
+            generatedConversations.forEach((conv, index) => {
+                if (cloudinaryAudioUrls[index]) {
+                    const jsonItem = {
+                        id: conv.id || (500 + index + 1),
+                        level: conv.level || `Level ${Math.floor(index / 10) + 1}`,
+                        audio: cloudinaryAudioUrls[index],
+                        questions: conv.questions.map(q => ({
+                            question: q.question,
+                            choices: q.choices,
+                            correctAnswer: q.correctAnswer,
+                            answerType: q.answerType || "other",
+                            explanation: q.explanation || ""
+                        }))
+                    };
+                    
+                    jsonData.push(jsonItem);
+                }
+            });
+
+            // Tạo file JSON và tải xuống
+            const jsonString = JSON.stringify(jsonData, null, 2);
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `toeic_part3_with_cloudinary_audio_${Date.now()}.json`;
+            link.click();
+            
+            URL.revokeObjectURL(url);
+            showAlert('success', `Đã tải xuống JSON với ${jsonData.length} items có audio Cloudinary!`);
+        }
+
+        // Xóa tất cả audio
+        function clearAllAudio() {
+            if (confirm('Bạn có chắc muốn xóa tất cả audio đã tạo?')) {
+                generatedAudio = new Array(generatedConversations.length).fill(null);
+                cloudinaryAudioUrls = new Array(generatedConversations.length).fill(null);
+                audioGeneratedCount = 0;
+                uploadedToCloudinaryCount = 0;
+                
+                // Reset tất cả audio players
+                for (let i = 0; i < generatedConversations.length; i++) {
+                    const audioPlayer = document.getElementById(`audio-${i}`);
+                    const downloadBtn = document.getElementById(`download-${i}`);
+                    const generateBtn = document.getElementById(`btn-${i}`);
+                    
+                    if (audioPlayer) {
+                        audioPlayer.style.display = 'none';
+                        audioPlayer.src = '';
+                    }
+                    if (downloadBtn) {
+                        downloadBtn.disabled = true;
+                        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Tải JSON';
+                        downloadBtn.style.background = 'linear-gradient(45deg, #6c757d, #495057)';
+                    }
+                    if (generateBtn) {
+                        generateBtn.innerHTML = '<i class="fas fa-play"></i> Tạo Audio (Hội thoại + Câu hỏi)';
+                        generateBtn.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                        generateBtn.disabled = false;
+                    }
+                }
+                
+                updateStats();
+                document.getElementById('downloadAllBtn').disabled = true;
+                document.getElementById('uploadCloudinaryBtn').disabled = true;
+                document.getElementById('downloadJsonBtn').disabled = true;
+                
+                // Reset nút upload Cloudinary
+                const uploadBtn = document.getElementById('uploadCloudinaryBtn');
+                uploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Batch Upload tất cả lên Cloudinary';
+                uploadBtn.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                
+                showAlert('success', 'Đã xóa tất cả audio! Hãy tạo lại để có audio mới (hội thoại + câu hỏi, không bao gồm đáp án).');
+            }
+        }
+
+        // Xóa dữ liệu
+        function clearData() {
+            if (confirm('Bạn có chắc muốn xóa tất cả dữ liệu?')) {
+                generatedConversations = [];
+                generatedAudio = [];
+                cloudinaryAudioUrls = [];
+                audioGeneratedCount = 0;
+                uploadedToCloudinaryCount = 0;
+                
+                document.getElementById('jsonInput').value = '';
+                document.getElementById('jsonFile').value = '';
+                document.getElementById('conversationsContainer').style.display = 'none';
+                document.getElementById('statsContainer').style.display = 'none';
+                document.getElementById('alertContainer').innerHTML = '';
+                
+                showAlert('success', 'Đã xóa tất cả dữ liệu!');
+            }
+        }
+
+        // Hiển thị thông báo
+        function showAlert(type, message) {
+            const container = document.getElementById('alertContainer');
+            let alertClass, icon;
+            
+            switch(type) {
+                case 'error':
+                    alertClass = 'alert-error';
+                    icon = 'exclamation-triangle';
+                    break;
+                case 'success':
+                    alertClass = 'alert-success';
+                    icon = 'check-circle';
+                    break;
+                case 'info':
+                    alertClass = 'alert-info';
+                    icon = 'info-circle';
+                    break;
+                default:
+                    alertClass = 'alert-info';
+                    icon = 'info-circle';
+            }
+            
+            const alert = document.createElement('div');
+            alert.className = `alert ${alertClass}`;
+            alert.innerHTML = `
+                <i class="fas fa-${icon}"></i>
+                ${message}
+            `;
+            
+            container.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

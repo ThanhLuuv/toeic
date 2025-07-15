@@ -2844,6 +2844,504 @@
         "traps": "A: Sai vật thể chính – bẫy misfocus. C: Sai vị trí không hợp lý – bẫy keywordMisuse.",
         "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751968410/ykyfvsybnz0qc5xnrwoj.png",
         "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751968431/ib853lhfwxi7ec4lugck.mp3"
+      },
+      {
+        "questionNumber": 1,
+        "imageDescription": "Several chairs are arranged around a rectangular table in a meeting room.",
+        "subjectVocabulary": [
+          {
+            "word": "chairs",
+            "meaning": "những cái ghế",
+            "pronunciation": "/tʃeəz/",
+            "isCorrect": true
+          },
+          {
+            "word": "table",
+            "meaning": "cái bàn",
+            "pronunciation": "/ˈteɪ.bəl/",
+            "isCorrect": true
+          },
+          {
+            "word": "meeting room",
+            "meaning": "phòng họp",
+            "pronunciation": "/ˈmiː.tɪŋ ruːm/",
+            "isCorrect": true
+          },
+          {
+            "word": "laptop",
+            "meaning": "máy tính xách tay",
+            "pronunciation": "/ˈlæp.tɒp/",
+            "isCorrect": false
+          },
+          {
+            "word": "cup",
+            "meaning": "cái cốc",
+            "pronunciation": "/kʌp/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "arranged",
+            "meaning": "được sắp xếp",
+            "pronunciation": "/əˈreɪndʒd/",
+            "isCorrect": true
+          },
+          {
+            "word": "around",
+            "meaning": "xung quanh",
+            "pronunciation": "/əˈraʊnd/",
+            "isCorrect": true
+          },
+          {
+            "word": "placed",
+            "meaning": "được đặt",
+            "pronunciation": "/pleɪst/",
+            "isCorrect": true
+          },
+          {
+            "word": "stacked",
+            "meaning": "xếp chồng",
+            "pronunciation": "/stækt/",
+            "isCorrect": false
+          },
+          {
+            "word": "folded",
+            "meaning": "được gấp lại",
+            "pronunciation": "/ˈfəʊl.dɪd/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "Several chairs are arranged around a table.",
+          "B": "The chairs are folded and stacked in the corner.",
+          "C": "A laptop is open on the table."
+        },
+        "choicesVi": {
+          "A": "Nhiều cái ghế được sắp xếp xung quanh một cái bàn.",
+          "B": "Những cái ghế được gấp lại và xếp chồng trong góc.",
+          "C": "Một chiếc máy tính xách tay đang mở trên bàn."
+        },
+        "correctAnswer": "A",
+        "explanation": "Đáp án A đúng vì mô tả đúng số lượng và vị trí các ghế. B sai vì ghế không được gấp và xếp chồng. C sai vì không có laptop trong ảnh.",
+        "traps": "assumption: mô tả hành động không tồn tại (folded and stacked); misfocus: tập trung sai vào laptop không có trong ảnh",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752544675/ryoddfxcnz6ftfpvr8td.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752544731/xvrv1qaextfmlgt2e6mt.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "imageDescription": "A stack of books is placed next to a potted plant on a shelf.",
+        "subjectVocabulary": [
+          {
+            "word": "books",
+            "meaning": "những quyển sách",
+            "pronunciation": "/bʊks/",
+            "isCorrect": true
+          },
+          {
+            "word": "plant",
+            "meaning": "cái cây",
+            "pronunciation": "/plænt/",
+            "isCorrect": true
+          },
+          {
+            "word": "shelf",
+            "meaning": "giá sách",
+            "pronunciation": "/ʃɛlf/",
+            "isCorrect": true
+          },
+          {
+            "word": "clock",
+            "meaning": "đồng hồ",
+            "pronunciation": "/klɒk/",
+            "isCorrect": false
+          },
+          {
+            "word": "box",
+            "meaning": "cái hộp",
+            "pronunciation": "/bɒks/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "stack",
+            "meaning": "chồng lên",
+            "pronunciation": "/stæk/",
+            "isCorrect": true
+          },
+          {
+            "word": "placed",
+            "meaning": "được đặt",
+            "pronunciation": "/pleɪst/",
+            "isCorrect": true
+          },
+          {
+            "word": "next to",
+            "meaning": "bên cạnh",
+            "pronunciation": "/nekst tuː/",
+            "isCorrect": true
+          },
+          {
+            "word": "leaning",
+            "meaning": "nghiêng vào",
+            "pronunciation": "/ˈliː.nɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "floating",
+            "meaning": "lơ lửng",
+            "pronunciation": "/ˈfləʊ.tɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A clock is hanging above the books.",
+          "B": "Some boxes are floating next to a plant.",
+          "C": "A stack of books is placed next to a potted plant."
+        },
+        "choicesVi": {
+          "A": "Một chiếc đồng hồ đang treo phía trên những quyển sách.",
+          "B": "Một vài cái hộp đang lơ lửng bên cạnh một cái cây.",
+          "C": "Một chồng sách được đặt bên cạnh một chậu cây."
+        },
+        "correctAnswer": "C",
+        "explanation": "C đúng vì mô tả đúng vật và vị trí. A sai vì không có đồng hồ. B sai vì không có hộp và hành động lơ lửng không đúng.",
+        "traps": "assumption: mô tả vật không tồn tại (clock, boxes); keywordMisuse: dùng từ đúng (plant) nhưng hành động sai (floating)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752544684/xpfvbwyrfbnbwpsgwn3m.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752544734/ydc6ohzwtpitgdzsm9nu.mp3"
+      },
+      {
+        "questionNumber": 3,
+        "imageDescription": "Two suitcases are standing upright near a doorway.",
+        "subjectVocabulary": [
+          {
+            "word": "suitcases",
+            "meaning": "những chiếc va-li",
+            "pronunciation": "/ˈsuːt.keɪsɪz/",
+            "isCorrect": true
+          },
+          {
+            "word": "doorway",
+            "meaning": "lối vào",
+            "pronunciation": "/ˈdɔː.weɪ/",
+            "isCorrect": true
+          },
+          {
+            "word": "carpet",
+            "meaning": "tấm thảm",
+            "pronunciation": "/ˈkɑː.pɪt/",
+            "isCorrect": false
+          },
+          {
+            "word": "cabinet",
+            "meaning": "tủ",
+            "pronunciation": "/ˈkæb.ɪ.nət/",
+            "isCorrect": false
+          },
+          {
+            "word": "mirror",
+            "meaning": "gương",
+            "pronunciation": "/ˈmɪr.ər/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "standing",
+            "meaning": "đang đứng",
+            "pronunciation": "/ˈstæn.dɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "upright",
+            "meaning": "thẳng đứng",
+            "pronunciation": "/ˈʌp.raɪt/",
+            "isCorrect": true
+          },
+          {
+            "word": "near",
+            "meaning": "gần",
+            "pronunciation": "/nɪər/",
+            "isCorrect": true
+          },
+          {
+            "word": "lying",
+            "meaning": "nằm",
+            "pronunciation": "/ˈlaɪ.ɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "hanging",
+            "meaning": "treo",
+            "pronunciation": "/ˈhæŋ.ɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "Two suitcases are lying flat under a bed.",
+          "B": "Two suitcases are standing upright near a doorway.",
+          "C": "A mirror is hanging near the doorway."
+        },
+        "choicesVi": {
+          "A": "Hai chiếc va-li đang nằm phẳng dưới gầm giường.",
+          "B": "Hai chiếc va-li đang đứng thẳng gần lối vào.",
+          "C": "Một chiếc gương đang treo gần lối vào."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng vì mô tả đúng số lượng, hành động và vị trí. A sai vì vị trí sai và hành động sai. C sai vì gương không có trong ảnh.",
+        "traps": "assumption: mô tả vật không có (mirror); keywordMisuse: dùng từ đúng (suitcase) nhưng hành động sai (lying); singularPlural: mirror thay vì suitcases",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752544694/rcxd9nd4fuqrh9jjgl3z.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752544736/eqf84epnrwxgeg540o9t.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "imageDescription": "Several mugs are placed upside down on a drying rack beside the sink.",
+        "subjectVocabulary": [
+          {
+            "word": "mugs",
+            "meaning": "những cái cốc",
+            "pronunciation": "/mʌɡz/",
+            "isCorrect": true
+          },
+          {
+            "word": "rack",
+            "meaning": "giá đỡ",
+            "pronunciation": "/ræk/",
+            "isCorrect": true
+          },
+          {
+            "word": "sink",
+            "meaning": "bồn rửa",
+            "pronunciation": "/sɪŋk/",
+            "isCorrect": true
+          },
+          {
+            "word": "spoon",
+            "meaning": "muỗng",
+            "pronunciation": "/spuːn/",
+            "isCorrect": false
+          },
+          {
+            "word": "bottle",
+            "meaning": "chai",
+            "pronunciation": "/ˈbɒt.əl/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "placed",
+            "meaning": "được đặt",
+            "pronunciation": "/pleɪst/",
+            "isCorrect": true
+          },
+          {
+            "word": "upside down",
+            "meaning": "lộn ngược",
+            "pronunciation": "/ˌʌp.saɪd ˈdaʊn/",
+            "isCorrect": true
+          },
+          {
+            "word": "beside",
+            "meaning": "bên cạnh",
+            "pronunciation": "/bɪˈsaɪd/",
+            "isCorrect": true
+          },
+          {
+            "word": "floating",
+            "meaning": "lơ lửng",
+            "pronunciation": "/ˈfləʊ.tɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "leaking",
+            "meaning": "rò rỉ",
+            "pronunciation": "/ˈliː.kɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "The mugs are floating in the sink.",
+          "B": "Several mugs are placed upside down on a rack.",
+          "C": "Some bottles are leaking beside the mugs."
+        },
+        "choicesVi": {
+          "A": "Những cái cốc đang lơ lửng trong bồn rửa.",
+          "B": "Một vài cái cốc được đặt lộn ngược trên giá.",
+          "C": "Một vài chai đang bị rò rỉ bên cạnh những cái cốc."
+        },
+        "correctAnswer": "B",
+        "explanation": "B đúng vì mô tả đúng vị trí và hành động. A sai vì không có cốc nào lơ lửng. C sai vì không có chai và hành động không đúng.",
+        "traps": "assumption: hành động không tồn tại (floating, leaking); misfocus: mô tả sai vật chính (bottle thay vì mugs)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752544706/joltedg3ylh9kxrdqvri.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752544739/f5afgdfvuthl2cv41slf.mp3"
+      },
+      {
+        "questionNumber": 5,
+        "imageDescription": "A single umbrella is leaning against a wall near the entrance.",
+        "subjectVocabulary": [
+          {
+            "word": "umbrella",
+            "meaning": "cái ô",
+            "pronunciation": "/ʌmˈbrel.ə/",
+            "isCorrect": true
+          },
+          {
+            "word": "wall",
+            "meaning": "bức tường",
+            "pronunciation": "/wɔːl/",
+            "isCorrect": true
+          },
+          {
+            "word": "entrance",
+            "meaning": "lối vào",
+            "pronunciation": "/ˈen.trəns/",
+            "isCorrect": true
+          },
+          {
+            "word": "chair",
+            "meaning": "cái ghế",
+            "pronunciation": "/tʃeə/",
+            "isCorrect": false
+          },
+          {
+            "word": "jacket",
+            "meaning": "áo khoác",
+            "pronunciation": "/ˈdʒæk.ɪt/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "leaning",
+            "meaning": "tựa vào",
+            "pronunciation": "/ˈliː.nɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "against",
+            "meaning": "tựa vào",
+            "pronunciation": "/əˈɡenst/",
+            "isCorrect": true
+          },
+          {
+            "word": "near",
+            "meaning": "gần",
+            "pronunciation": "/nɪər/",
+            "isCorrect": true
+          },
+          {
+            "word": "standing",
+            "meaning": "đứng",
+            "pronunciation": "/ˈstæn.dɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "floating",
+            "meaning": "lơ lửng",
+            "pronunciation": "/ˈfləʊ.tɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "An umbrella is floating near a chair.",
+          "B": "A jacket is lying near the wall.",
+          "C": "An umbrella is leaning against the wall near the entrance."
+        },
+        "choicesVi": {
+          "A": "Một cái ô đang lơ lửng gần cái ghế.",
+          "B": "Một chiếc áo khoác đang nằm gần bức tường.",
+          "C": "Một cái ô đang tựa vào tường gần lối vào."
+        },
+        "correctAnswer": "C",
+        "explanation": "C đúng vì mô tả đúng hành động và vị trí. A sai vì hành động không thật và nhầm vật. B sai vì mô tả vật không tồn tại.",
+        "traps": "assumption: mô tả hành động không có thật (floating); misfocus: mô tả vật không đúng (jacket thay vì umbrella)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752544715/is2feforobamnfyzkbof.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752544742/om4hrg4ceer4lkxwg76i.mp3"
+      },
+      {
+        "questionNumber": 6,
+        "imageDescription": "Some envelopes are scattered across a wooden desk.",
+        "subjectVocabulary": [
+          {
+            "word": "envelopes",
+            "meaning": "phong bì",
+            "pronunciation": "/ˈen.və.ləʊps/",
+            "isCorrect": true
+          },
+          {
+            "word": "desk",
+            "meaning": "bàn làm việc",
+            "pronunciation": "/desk/",
+            "isCorrect": true
+          },
+          {
+            "word": "paper",
+            "meaning": "giấy",
+            "pronunciation": "/ˈpeɪ.pər/",
+            "isCorrect": false
+          },
+          {
+            "word": "box",
+            "meaning": "cái hộp",
+            "pronunciation": "/bɒks/",
+            "isCorrect": false
+          },
+          {
+            "word": "phone",
+            "meaning": "điện thoại",
+            "pronunciation": "/fəʊn/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "scattered",
+            "meaning": "bị rải",
+            "pronunciation": "/ˈskæt.əd/",
+            "isCorrect": true
+          },
+          {
+            "word": "across",
+            "meaning": "trên khắp",
+            "pronunciation": "/əˈkrɒs/",
+            "isCorrect": true
+          },
+          {
+            "word": "wooden",
+            "meaning": "bằng gỗ",
+            "pronunciation": "/ˈwʊd.ən/",
+            "isCorrect": true
+          },
+          {
+            "word": "stacked",
+            "meaning": "xếp chồng",
+            "pronunciation": "/stækt/",
+            "isCorrect": false
+          },
+          {
+            "word": "hanging",
+            "meaning": "treo",
+            "pronunciation": "/ˈhæŋ.ɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "Some boxes are stacked under the desk.",
+          "B": "Envelopes are hanging on the wall.",
+          "C": "Some envelopes are scattered across a desk."
+        },
+        "choicesVi": {
+          "A": "Một vài cái hộp được xếp dưới bàn.",
+          "B": "Các phong bì đang được treo trên tường.",
+          "C": "Một vài phong bì bị rải trên bàn làm việc."
+        },
+        "correctAnswer": "C",
+        "explanation": "C đúng vì mô tả đúng hành động và vị trí. A sai vì mô tả sai vật. B sai vì hành động treo không đúng.",
+        "traps": "keywordMisuse: sai hành động (stacked, hanging); misfocus: tập trung vào vật sai (boxes)",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752544725/jkuzleg1kgey6lmuywts.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752544744/ikekhof1kth81eliwoqi.mp3"
       }
     ],
     "level3":[
@@ -5000,6 +5498,504 @@
         "traps": "A: Sai vật thể – có cỏ và sông; B: Có người, sai địa hình – bẫy assumption và misfocus.",
         "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752023851/v80jg3dumfj8v6nt82dj.png",
         "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752023902/hobnradywfgk6x5aiiyo.mp3"
+      },
+      {
+        "questionNumber": 1,
+        "imageDescription": "Several sailboats are anchored near the shore of a calm lake.",
+        "subjectVocabulary": [
+          {
+            "word": "sailboat",
+            "meaning": "thuyền buồm",
+            "pronunciation": "/ˈseɪl.boʊt/",
+            "isCorrect": true
+          },
+          {
+            "word": "lake",
+            "meaning": "hồ",
+            "pronunciation": "/leɪk/",
+            "isCorrect": true
+          },
+          {
+            "word": "shore",
+            "meaning": "bờ",
+            "pronunciation": "/ʃɔːr/",
+            "isCorrect": true
+          },
+          {
+            "word": "mountain",
+            "meaning": "núi",
+            "pronunciation": "/ˈmaʊn.tən/",
+            "isCorrect": false
+          },
+          {
+            "word": "fence",
+            "meaning": "hàng rào",
+            "pronunciation": "/fens/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "anchored",
+            "meaning": "neo đậu",
+            "pronunciation": "/ˈæŋ.kərd/",
+            "isCorrect": true
+          },
+          {
+            "word": "calm",
+            "meaning": "yên tĩnh",
+            "pronunciation": "/kɑːm/",
+            "isCorrect": true
+          },
+          {
+            "word": "near",
+            "meaning": "gần",
+            "pronunciation": "/nɪr/",
+            "isCorrect": true
+          },
+          {
+            "word": "flying",
+            "meaning": "đang bay",
+            "pronunciation": "/ˈflaɪ.ɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "climbing",
+            "meaning": "leo",
+            "pronunciation": "/ˈklaɪ.mɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A mountain is visible in the background.",
+          "B": "A boat is floating on a river.",
+          "C": "Some sailboats are anchored near the shore."
+        },
+        "choicesVi": {
+          "A": "Một ngọn núi có thể nhìn thấy ở phía sau.",
+          "B": "Một chiếc thuyền đang nổi trên sông.",
+          "C": "Một vài chiếc thuyền buồm đang neo gần bờ."
+        },
+        "correctAnswer": "C",
+        "explanation": "Đáp án C đúng vì mô tả chính xác số lượng (nhiều), vật thể (sailboats), hành động (anchored) và vị trí (near the shore). B sai số lượng (a boat) số ít, A sai về vật thể (không có mountain).",
+        "traps": "keywordMisuse: dùng từ đúng (boat) nhưng sai số lượng; assumption: đề cập mountain trong khi ảnh không có",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752545913/wr3b6vqsbv8aub2mjbpu.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752545917/l6eerkobey06xutng1yt.mp3"
+      },
+      {
+        "questionNumber": 2,
+        "imageDescription": "A winding path goes through a forest filled with tall trees.",
+        "subjectVocabulary": [
+          {
+            "word": "path",
+            "meaning": "con đường mòn",
+            "pronunciation": "/pæθ/",
+            "isCorrect": true
+          },
+          {
+            "word": "forest",
+            "meaning": "khu rừng",
+            "pronunciation": "/ˈfɔː.rɪst/",
+            "isCorrect": true
+          },
+          {
+            "word": "tree",
+            "meaning": "cái cây",
+            "pronunciation": "/triː/",
+            "isCorrect": true
+          },
+          {
+            "word": "river",
+            "meaning": "con sông",
+            "pronunciation": "/ˈrɪv.ər/",
+            "isCorrect": false
+          },
+          {
+            "word": "house",
+            "meaning": "ngôi nhà",
+            "pronunciation": "/haʊs/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "winding",
+            "meaning": "uốn lượn",
+            "pronunciation": "/ˈwaɪn.dɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "goes through",
+            "meaning": "đi xuyên qua",
+            "pronunciation": "/ɡoʊz θruː/",
+            "isCorrect": true
+          },
+          {
+            "word": "filled with",
+            "meaning": "đầy với",
+            "pronunciation": "/fɪld wɪð/",
+            "isCorrect": true
+          },
+          {
+            "word": "dry",
+            "meaning": "khô",
+            "pronunciation": "/draɪ/",
+            "isCorrect": false
+          },
+          {
+            "word": "flying over",
+            "meaning": "bay qua",
+            "pronunciation": "/ˈflaɪ.ɪŋ ˈoʊ.vɚ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A house is built near a river.",
+          "B": "A dry road crosses a desert.",
+          "C": "A winding path goes through a forest."
+        },
+        "choicesVi": {
+          "A": "Một ngôi nhà được xây gần con sông.",
+          "B": "Một con đường khô cắt ngang sa mạc.",
+          "C": "Một con đường mòn uốn lượn đi xuyên qua khu rừng."
+        },
+        "correctAnswer": "C",
+        "explanation": "Đáp án C đúng vì mô tả đúng về cảnh vật: con đường uốn lượn trong rừng với cây cao. B sai hoàn toàn cảnh, A đề cập vật không có trong ảnh.",
+        "traps": "keywordMisuse: dùng từ 'road' thay vì 'path'; assumption: nói có house và river trong khi ảnh không có",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752545412/yavuwd86fzpqkfjcf6xo.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752545532/foqn9x4u2pwqi8t6s5eq.mp3"
+      },
+      {
+        "questionNumber": 3,
+        "imageDescription": "Waves are crashing onto rocks along a seaside cliff.",
+        "subjectVocabulary": [
+          {
+            "word": "wave",
+            "meaning": "sóng",
+            "pronunciation": "/weɪv/",
+            "isCorrect": true
+          },
+          {
+            "word": "rock",
+            "meaning": "đá",
+            "pronunciation": "/rɑːk/",
+            "isCorrect": true
+          },
+          {
+            "word": "cliff",
+            "meaning": "vách đá",
+            "pronunciation": "/klɪf/",
+            "isCorrect": true
+          },
+          {
+            "word": "boat",
+            "meaning": "thuyền",
+            "pronunciation": "/boʊt/",
+            "isCorrect": false
+          },
+          {
+            "word": "bridge",
+            "meaning": "cây cầu",
+            "pronunciation": "/brɪdʒ/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "crashing",
+            "meaning": "đập vào",
+            "pronunciation": "/ˈkræʃ.ɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "onto",
+            "meaning": "vào",
+            "pronunciation": "/ˈɑːn.tuː/",
+            "isCorrect": true
+          },
+          {
+            "word": "along",
+            "meaning": "dọc theo",
+            "pronunciation": "/əˈlɔːŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "floating",
+            "meaning": "nổi",
+            "pronunciation": "/ˈfloʊ.tɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "crossing",
+            "meaning": "băng qua",
+            "pronunciation": "/ˈkrɑː.sɪŋ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A bridge is stretching across a river.",
+          "B": "Waves are crashing onto rocks near a cliff.",
+          "C": "A boat is floating near a pier."
+        },
+        "choicesVi": {
+          "A": "Một cây cầu đang vắt qua con sông.",
+          "B": "Những con sóng đang đập vào đá gần một vách đá.",
+          "C": "Một chiếc thuyền đang nổi gần một bến tàu."
+        },
+        "correctAnswer": "B",
+        "explanation": "Đáp án B đúng vì mô tả đúng hành động (crashing), chủ thể (waves, rocks, cliff). A và C nói đến vật không xuất hiện trong ảnh.",
+        "traps": "assumption: đưa thuyền hoặc cầu vào dù không có trong ảnh; misfocus: tập trung vào chi tiết phụ không tồn tại",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752545421/bgzlje0hbqhdeva5zvqz.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752545535/tylkc0mvdqjijqfifklk.mp3"
+      },
+      {
+        "questionNumber": 4,
+        "imageDescription": "A snowy mountain stands behind a frozen lake.",
+        "subjectVocabulary": [
+          {
+            "word": "mountain",
+            "meaning": "núi",
+            "pronunciation": "/ˈmaʊn.tən/",
+            "isCorrect": true
+          },
+          {
+            "word": "lake",
+            "meaning": "hồ",
+            "pronunciation": "/leɪk/",
+            "isCorrect": true
+          },
+          {
+            "word": "snow",
+            "meaning": "tuyết",
+            "pronunciation": "/snoʊ/",
+            "isCorrect": true
+          },
+          {
+            "word": "road",
+            "meaning": "con đường",
+            "pronunciation": "/roʊd/",
+            "isCorrect": false
+          },
+          {
+            "word": "tree",
+            "meaning": "cái cây",
+            "pronunciation": "/triː/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "snowy",
+            "meaning": "phủ tuyết",
+            "pronunciation": "/ˈsnoʊ.i/",
+            "isCorrect": true
+          },
+          {
+            "word": "frozen",
+            "meaning": "bị đóng băng",
+            "pronunciation": "/ˈfroʊ.zən/",
+            "isCorrect": true
+          },
+          {
+            "word": "behind",
+            "meaning": "đằng sau",
+            "pronunciation": "/bɪˈhaɪnd/",
+            "isCorrect": true
+          },
+          {
+            "word": "melting",
+            "meaning": "đang tan",
+            "pronunciation": "/ˈmel.tɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "next to",
+            "meaning": "bên cạnh",
+            "pronunciation": "/nekst tuː/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "Trees are blooming around a river.",
+          "B": "A snowy mountain stands behind a frozen lake.",
+          "C": "A road runs through a forest."
+        },
+        "choicesVi": {
+          "A": "Những cái cây đang nở hoa quanh con sông.",
+          "B": "Một ngọn núi phủ tuyết đứng sau một hồ đóng băng.",
+          "C": "Một con đường chạy xuyên qua khu rừng."
+        },
+        "correctAnswer": "B",
+        "explanation": "Đáp án B đúng vì mô tả cảnh quan trong ảnh chính xác. A và C nhắc đến cảnh không có thật trong ảnh.",
+        "traps": "assumption: đưa cảnh rừng và sông vào không có thật; misfocus: tập trung sai vào chủ thể phụ như cây",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752545433/abaobu8jei7oerbcr1nz.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752545537/zrjtp0seeeyp1o93biga.mp3"
+      },
+      {
+        "questionNumber": 5,
+        "imageDescription": "A long pier stretches out into the ocean under a cloudy sky.",
+        "subjectVocabulary": [
+          {
+            "word": "pier",
+            "meaning": "bến tàu",
+            "pronunciation": "/pɪr/",
+            "isCorrect": true
+          },
+          {
+            "word": "ocean",
+            "meaning": "đại dương",
+            "pronunciation": "/ˈoʊ.ʃən/",
+            "isCorrect": true
+          },
+          {
+            "word": "sky",
+            "meaning": "bầu trời",
+            "pronunciation": "/skaɪ/",
+            "isCorrect": true
+          },
+          {
+            "word": "car",
+            "meaning": "xe hơi",
+            "pronunciation": "/kɑːr/",
+            "isCorrect": false
+          },
+          {
+            "word": "hill",
+            "meaning": "đồi",
+            "pronunciation": "/hɪl/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "stretches",
+            "meaning": "kéo dài",
+            "pronunciation": "/stretʃɪz/",
+            "isCorrect": true
+          },
+          {
+            "word": "into",
+            "meaning": "vào trong",
+            "pronunciation": "/ˈɪn.tuː/",
+            "isCorrect": true
+          },
+          {
+            "word": "cloudy",
+            "meaning": "nhiều mây",
+            "pronunciation": "/ˈklaʊ.di/",
+            "isCorrect": true
+          },
+          {
+            "word": "sunny",
+            "meaning": "nắng",
+            "pronunciation": "/ˈsʌn.i/",
+            "isCorrect": false
+          },
+          {
+            "word": "dry",
+            "meaning": "khô",
+            "pronunciation": "/draɪ/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "The sun is shining in a clear sky.",
+          "B": "A car is parked on a hill.",
+          "C": "A pier is stretching into the ocean."
+        },
+        "choicesVi": {
+          "A": "Mặt trời đang chiếu sáng trong bầu trời quang đãng.",
+          "B": "Một chiếc xe hơi đang đỗ trên đồi.",
+          "C": "Một bến tàu đang kéo dài ra đại dương."
+        },
+        "correctAnswer": "C",
+        "explanation": "C đúng vì mô tả chính xác vị trí và vật thể. A và B sai vì đề cập đến chủ thể không có hoặc điều kiện thời tiết không đúng.",
+        "traps": "assumption: nói về xe hơi và đồi không xuất hiện; keywordMisuse: trời quang đãng thay vì nhiều mây",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752545443/t9blionv9xprgmwrk33r.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752545541/lkqoil3arlqfzmdckdo9.mp3"
+      },
+      {
+        "questionNumber": 6,
+        "imageDescription": "A fountain is spraying water in the middle of a city square.",
+        "subjectVocabulary": [
+          {
+            "word": "fountain",
+            "meaning": "đài phun nước",
+            "pronunciation": "/ˈfaʊn.tɪn/",
+            "isCorrect": true
+          },
+          {
+            "word": "water",
+            "meaning": "nước",
+            "pronunciation": "/ˈwɑː.t̬ɚ/",
+            "isCorrect": true
+          },
+          {
+            "word": "square",
+            "meaning": "quảng trường",
+            "pronunciation": "/skwer/",
+            "isCorrect": true
+          },
+          {
+            "word": "statue",
+            "meaning": "tượng",
+            "pronunciation": "/ˈstætʃ.uː/",
+            "isCorrect": false
+          },
+          {
+            "word": "road",
+            "meaning": "con đường",
+            "pronunciation": "/roʊd/",
+            "isCorrect": false
+          }
+        ],
+        "descriptiveVocabulary": [
+          {
+            "word": "spraying",
+            "meaning": "phun",
+            "pronunciation": "/ˈspreɪ.ɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "in the middle",
+            "meaning": "ở giữa",
+            "pronunciation": "/ɪn ðə ˈmɪd.əl/",
+            "isCorrect": true
+          },
+          {
+            "word": "city",
+            "meaning": "thành phố",
+            "pronunciation": "/ˈsɪt̬.i/",
+            "isCorrect": true
+          },
+          {
+            "word": "overflowing",
+            "meaning": "tràn",
+            "pronunciation": "/ˌoʊ.vɚˈfloʊ.ɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "broken",
+            "meaning": "bị hỏng",
+            "pronunciation": "/ˈbroʊ.kən/",
+            "isCorrect": false
+          }
+        ],
+        "choices": {
+          "A": "A street is filled with parked cars.",
+          "B": "A statue is standing next to a road.",
+          "C": "A fountain is spraying water in a city square."
+        },
+        "choicesVi": {
+          "A": "Một con đường đầy xe hơi đỗ.",
+          "B": "Một bức tượng đang đứng cạnh con đường.",
+          "C": "Một đài phun nước đang phun nước trong quảng trường thành phố."
+        },
+        "correctAnswer": "C",
+        "explanation": "C mô tả đúng đài phun nước đang hoạt động trong quảng trường. A và B nhắc đến vật thể không có.",
+        "traps": "assumption: đưa statue và cars vào không có thật; misfocus: nói về đường thay vì quảng trường trung tâm",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1752545455/n0mj8jlgcld1gow8xd7u.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1752545544/ccraisozsx9dnpwme3bv.mp3"
       }
     ],
     "level2": [

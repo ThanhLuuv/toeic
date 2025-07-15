@@ -411,6 +411,13 @@ const TestPart1: React.FC = () => {
       <main className="max-w-3xl mx-auto mb-6 px-4 py-6">
         {currentQuestionIndex < testQuestions.length && (
           <>
+            {/* Question Number Header */}
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold text-gray-800 text-center">
+                Câu {currentQuestionIndex + 1} / {testQuestions.length}
+              </h2>
+            </div>
+            
             <div className="relative">
               {/* Nếu chưa hoàn thành từ vựng, chỉ hiện ảnh (nếu có) và VocabularyPanel ngay dưới ảnh */}
               {testQuestions[currentQuestionIndex]?.subjectVocabulary && !vocabularyCompleted && (
