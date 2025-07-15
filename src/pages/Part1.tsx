@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import levelData from '../data/toeic_part1.json';
-import PartInfo from '../components/Part1/PartInfo';
-import TestList from '../components/Part1/TestList';
-import LevelSelection from '../components/Part1/LevelSelection';
+import PartInfo from '../components/PartSession/PartInfo';
+import TestList from '../components/PartSession/TestList';
+import LevelSelection from '../components/PartSession/LevelSelection';
 
 const QUESTIONS_PER_TEST = 6;
 

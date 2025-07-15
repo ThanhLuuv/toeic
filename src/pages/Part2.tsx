@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import part2Data from '../data/toeic_part2.json';
-import PartInfo from '../components/Part1/PartInfo';
-import TestListPart2 from '../components/Part1/TestListPart2';
-import LevelSelection from '../components/Part1/LevelSelection';
+import PartInfo from '../components/PartSession/PartInfo';
+import TestListPart2 from '../components/PartSession/TestListPart2';
+import LevelSelection from '../components/PartSession/LevelSelection';
 
 const QUESTIONS_PER_TEST = 10; // Giảm xuống 10 câu mỗi bài test
 

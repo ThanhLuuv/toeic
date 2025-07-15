@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 // @ts-ignore
 import levelData from '../data/toeic_part1.json';
-import AudioPlayer from '../components/TestPart1/AudioPlayer';
+import AudioPlayer from '../components/AudioPlayer';
 import QuestionCard from '../components/TestPart1/QuestionCard';
 import FloatingTimer from '../components/TestPart1/FloatingTimer'; 
 import StatsBar from '../components/TestPart1/StatsBar';
-import NotesPanel from '../components/TestPart1/NotesPanel';
+import NotesPanel from '../components/NotesPanel';
 import VocabularyPanel from '../components/TestPart1/VocabularyPanel';
 import TestResults from '../components/TestPart1/TestResults';
 

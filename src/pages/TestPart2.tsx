@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import AudioPlayer from '../components/TestPart1/AudioPlayer';
+import AudioPlayer from '../components/AudioPlayer';
 import FloatingTimer from '../components/TestPart1/FloatingTimer';
 import TestResults from '../components/TestPart2/TestResults';
 import part2Data from '../data/toeic_part2.json';

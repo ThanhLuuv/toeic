@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Question } from '../../data/questions_part1';
-import AudioPlayer from './AudioPlayer';
+import AudioPlayer from '../AudioPlayer';
 
 interface QuestionCardProps {
   question: Question;
