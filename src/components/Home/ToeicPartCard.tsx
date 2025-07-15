@@ -20,17 +20,17 @@ const ToeicPartCard: React.FC<ToeicPartCardProps> = ({ part, title, description,
   };
 
   return (
-    <div className={`part-card card-hover rounded-2xl p-6 text-white relative overflow-hidden ${className}`} onClick={handleClick}>
-      <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
+    <div className={`part-card card-hover rounded-2xl border-2 border-gray-200 p-6 text-black relative overflow-hidden ${className}`} onClick={handleClick}>
+      <div className="absolute top-0 right-0 w-20 h-20 part-circle rounded-full -mr-10 -mt-10"></div>
       <div className="relative z-10">
-        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
+        <div className="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center mb-4">
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
             <path d={svgPath}></path>
           </svg>
         </div>
         <h3 className="text-xl font-bold mb-2">{part}</h3>
-        <p className="text-white/90 text-sm mb-4">{title}</p>
-        <p className="text-white/80 text-xs">{count}</p>
+        <p className="text-black/90 text-sm mb-4">{title}</p>
+        <p className="text-black/80 text-xs">{count}</p>
       </div>
     </div>
   );

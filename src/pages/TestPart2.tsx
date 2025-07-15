@@ -45,6 +45,8 @@ const TestPart2: React.FC = () => {
   const [answerTypeCorrect, setAnswerTypeCorrect] = useState<boolean | null>(null);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
   const [showAutoPlayNotification, setShowAutoPlayNotification] = useState(false);
+  const [hasUserInteracted, setHasUserInteracted] = useState(true);
+  const [showStartModal, setShowStartModal] = useState(false);
 
   // Các type câu hỏi và đáp án có sẵn (tiếng Anh)
   const questionTypes = [
@@ -156,7 +158,7 @@ const TestPart2: React.FC = () => {
 
   // Tự động phát audio khi chuyển câu hỏi
   useEffect(() => {
-    if (currentQuestion && isTestStarted && autoPlayEnabled) {
+    if (currentQuestion && isTestStarted && autoPlayEnabled && hasUserInteracted) {
       // Delay nhỏ để đảm bảo audio element đã được render
       const timer = setTimeout(() => {
         const audioElement = document.querySelector('audio') as HTMLAudioElement;
@@ -170,13 +172,17 @@ const TestPart2: React.FC = () => {
             setTimeout(() => setShowAutoPlayNotification(false), 2000);
           }).catch(error => {
             console.log('Auto-play failed:', error);
+            // Disable auto-play if it fails
+            setAutoPlayEnabled(false);
           });
         }
       }, 100);
 
       return () => clearTimeout(timer);
     }
-  }, [currentQuestionIndex, currentQuestion, isTestStarted, autoPlayEnabled]);
+  }, [currentQuestionIndex, currentQuestion, isTestStarted, autoPlayEnabled, hasUserInteracted]);
+
+
 
   useEffect(() => {
     console.log('TestPart2 useEffect - testId:', testId);
@@ -264,6 +270,8 @@ const TestPart2: React.FC = () => {
     return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
   }
 
+
+
   const correctAnswers = questions.filter(q => userAnswers[q.id] === q.correctAnswer).length;
   const incorrectAnswers = questions.filter(q => userAnswers[q.id] && userAnswers[q.id] !== q.correctAnswer).length;
   const skippedAnswers = questions.length - Object.keys(userAnswers).length;
@@ -294,11 +302,12 @@ const TestPart2: React.FC = () => {
                     <button
                       onClick={() => setAutoPlayEnabled(!autoPlayEnabled)}
                       className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                        autoPlayEnabled 
+                        autoPlayEnabled
                           ? 'bg-green-100 text-green-700 hover:bg-green-200' 
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
+                      {autoPlayEnabled ? 'Auto-play ON' : 'Auto-play OFF'}
                     </button>
                   </div>
                   <AudioPlayer audioSrc={currentQuestion.audio} />
@@ -544,7 +553,7 @@ const TestPart2: React.FC = () => {
                     key={question.id}
                     className={`w-10 h-10 rounded-lg text-sm font-medium transition-all ${
                       index === currentQuestionIndex
-                        ? 'bg-blue-500 text-white'
+                        ? 'bg-blue-400 text-white'
                         : getQuestionStatus(question.id) === 'correct'
                         ? 'bg-green-100 text-green-700'
                         : getQuestionStatus(question.id) === 'incorrect'
@@ -575,7 +584,7 @@ const TestPart2: React.FC = () => {
                 </div>
 
                 <button
-                  className="w-full py-3 px-4 rounded-lg font-medium transition-all bg-green-500 text-white hover:bg-green-600"
+                  className="w-full py-3 px-4 rounded-lg font-medium transition-all bg-green-600 text-white hover:bg-green-600"
                   onClick={handleFinishTest}
                 >
                   Finish Test

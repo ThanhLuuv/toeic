@@ -611,20 +611,22 @@ const TestPart1: React.FC = () => {
       {!hasInteracted && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
           <button
-            className="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg"
-            onClick={() => {
-              setHasInteracted(true);
-              setShouldAutoPlay(true);
-              // Reset vocabulary panel khi bắt đầu
-              setVocabularyResetKey(prev => prev + 1);
-              // Đảm bảo audio được load và sẵn sàng phát
-              if (audioRef.current && testQuestions[currentQuestionIndex]?.audio) {
-                audioRef.current.load();
-              }
-            }}
-          >
-            Bắt đầu làm bài
-          </button>
+  className="flex items-center gap-2 px-6 py-3 rounded-lg text-base font-medium text-indigo-600 border border-indigo-300 bg-white hover:bg-indigo-50 transition-all duration-200"
+  onClick={() => {
+    setHasInteracted(true);
+    setShouldAutoPlay(true);
+    setVocabularyResetKey(prev => prev + 1);
+    if (audioRef.current && testQuestions[currentQuestionIndex]?.audio) {
+      audioRef.current.load();
+    }
+  }}
+>
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-4.586-2.65A1 1 0 009 9.36v5.28a1 1 0 001.166.982l4.586-2.65a1 1 0 000-1.764z" />
+  </svg>
+  Bắt đầu làm bài
+</button>
+
         </div>
       )}
       {showScoreModal && testResults && (

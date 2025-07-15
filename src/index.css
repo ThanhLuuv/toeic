@@ -5,7 +5,8 @@ body {
 }
 
 .gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #477196;
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
 }
 
 .card-hover {
@@ -39,10 +40,20 @@ body {
     border-radius: 2px;
 }
 
+
 .part-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ffff;
 }
 
+.part-card .part-circle {
+    background: #4caf7c2c;
+}
+
+
+/* .part-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+} */
+/* 
 .part-card:nth-child(2) {
     background: linear-gradient(135deg, #434343 0%, #635959 100%);
 }
@@ -65,7 +76,7 @@ body {
 
 .part-card:nth-child(7) {
     background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
-}
+} */
 
 .floating-animation {
     animation: floating 3s ease-in-out infinite;
@@ -87,7 +98,7 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 .gradient-bg-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #477196;
 }
 
 .level-badge {
@@ -170,10 +181,10 @@ body {
 }
 
 .gradient-bg {
-    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    background: #5589b6;
 }
 .level-badge {
-    background: linear-gradient(to right, #3b82f6, #9333ea);
+    background: #477196;
 }
 .difficulty-dot {
     width: 8px;

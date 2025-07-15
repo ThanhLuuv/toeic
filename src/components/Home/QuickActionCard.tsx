@@ -7,8 +7,6 @@ interface QuickActionCardProps {
   svgPath: string;
   bgColor: string;
   textColor: string;
-  buttonBgColor: string;
-  buttonHoverBgColor: string;
   animationDelay?: string;
   onClick: () => void;
 }
@@ -20,8 +18,6 @@ const QuickActionCard: React.FC<QuickActionCardProps> = ({
   svgPath,
   bgColor,
   textColor,
-  buttonBgColor,
-  buttonHoverBgColor,
   animationDelay,
   onClick,
 }) => {
@@ -34,7 +30,7 @@ const QuickActionCard: React.FC<QuickActionCardProps> = ({
       </div>
       <h3 className="text-xl font-semibold text-gray-800 mb-3">{title}</h3>
       <p className="text-gray-600 mb-6">{description}</p>
-      <button className={`${buttonBgColor} text-white px-6 py-3 rounded-xl hover:${buttonHoverBgColor} transition-all font-medium`} onClick={onClick}>
+      <button className={`bg-gray-200 text-black px-6 py-3 rounded-lg hover:bg-gray-300 transition-all font-medium`} onClick={onClick}>
         {buttonText}
       </button>
     </div>

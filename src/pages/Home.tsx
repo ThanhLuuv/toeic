@@ -59,8 +59,6 @@ const Home: React.FC = () => {
       svgPath: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
       bgColor: 'bg-indigo-100',
       textColor: 'text-indigo-600',
-      buttonBgColor: 'bg-indigo-600',
-      buttonHoverBgColor: 'bg-indigo-700',
       animationDelay: '0s',
       onClick: () => alert('Chuyển đến trang luyện đề nhanh!'),
     },
@@ -71,8 +69,6 @@ const Home: React.FC = () => {
       svgPath: 'M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z',
       bgColor: 'bg-green-100',
       textColor: 'text-green-600',
-      buttonBgColor: 'bg-green-600',
-      buttonHoverBgColor: 'bg-green-700',
       animationDelay: '0.5s',
       onClick: () => alert('Chuyển đến trang thi thử đầy đủ!'),
     },
@@ -83,8 +79,6 @@ const Home: React.FC = () => {
       svgPath: 'M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z',
       bgColor: 'bg-purple-100',
       textColor: 'text-purple-600',
-      buttonBgColor: 'bg-purple-600',
-      buttonHoverBgColor: 'bg-purple-700',
       animationDelay: '1s',
       onClick: () => alert('Chuyển đến trang chat với AI!'),
     },
@@ -118,8 +112,6 @@ const Home: React.FC = () => {
               svgPath={action.svgPath}
               bgColor={action.bgColor}
               textColor={action.textColor}
-              buttonBgColor={action.buttonBgColor}
-              buttonHoverBgColor={action.buttonHoverBgColor}
               animationDelay={action.animationDelay}
               onClick={action.onClick}
             />
