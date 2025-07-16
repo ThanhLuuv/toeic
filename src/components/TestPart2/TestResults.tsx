@@ -226,9 +226,8 @@ const TestResults: React.FC<TestResultsProps> = ({
         <div className="max-w-4xl mx-auto px-4">
           
           {/* Header */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-6">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-4">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 text-center">
-              <div className="text-5xl mb-4">📊</div>
               <h1 className="text-3xl font-bold mb-2">Kết quả chi tiết</h1>
               <p className="text-blue-100">Thống kê toàn bộ bài kiểm tra Part 2</p>
             </div>
