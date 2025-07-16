@@ -46,7 +46,6 @@ const TestResults: React.FC<TestResultsProps> = ({
   const [practiceAudio, setPracticeAudio] = useState<{ [idx: number]: string }>({});
   const [userChoice, setUserChoice] = useState<{ [idx: number]: string }>({});
   const [loadingAI, setLoadingAI] = useState<{ [idx: number]: boolean }>({});
-  const [loadingPractice, setLoadingPractice] = useState<{ [idx: number]: boolean }>({});
   const [showTranscript, setShowTranscript] = useState<{ [idx: number]: boolean }>({});
   const [showTranslation, setShowTranslation] = useState<{ [idx: number]: { [choice: string]: boolean } }>({});
   const aiButtonRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
@@ -156,7 +155,6 @@ const TestResults: React.FC<TestResultsProps> = ({
     // Reset state trước khi tạo mới
     resetPracticeState(questionIndex);
     setLoadingAI(prev => ({ ...prev, [questionIndex]: true }));
-    setLoadingPractice(prev => ({ ...prev, [questionIndex]: true }));
 
     try {
       const logText = `Câu ${questionIndex + 1} SAI:
@@ -203,7 +201,6 @@ const TestResults: React.FC<TestResultsProps> = ({
       alert('Phân tích AI thất bại. Vui lòng thử lại!');
     } finally {
       setLoadingAI(prev => ({ ...prev, [questionIndex]: false }));
-      setLoadingPractice(prev => ({ ...prev, [questionIndex]: false }));
     }
   };
 
@@ -469,7 +466,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                  </svg>
-                                 Đang phân tích...
+                                 Đang phân tích và tạo câu hỏi...
                                </div>
                              ) : (
                                '🤖 Phân tích cùng AI'
@@ -479,19 +476,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                        )}
 
                        {/* AI Analysis Results */}
-                       {loadingAI[index] ? (
-                         <div className="border-t border-gray-200 pt-4">
-                           <div className="flex items-center justify-center py-8">
-                             <div className="text-center">
-                               <svg className="animate-spin h-8 w-8 text-blue-600 mx-auto mb-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                               </svg>
-                               <p className="text-gray-600 font-medium">Đang phân tích lỗi...</p>
-                             </div>
-                           </div>
-                         </div>
-                       ) : aiResults[index] && (
+                       {aiResults[index] && (
                          <div className="border-t border-gray-200 pt-4 space-y-4">
                            <h4 className="font-semibold text-gray-700">📊 Phân tích lỗi:</h4>
                            
@@ -521,19 +506,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                        )}
 
                        {/* Practice Question */}
-                       {loadingPractice[index] ? (
-                         <div className="border-t border-gray-200 pt-4">
-                           <div className="flex items-center justify-center py-8">
-                             <div className="text-center">
-                               <svg className="animate-spin h-8 w-8 text-purple-600 mx-auto mb-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                               </svg>
-                               <p className="text-gray-600 font-medium">Đang tạo câu hỏi luyện tập...</p>
-                             </div>
-                           </div>
-                         </div>
-                       ) : practiceData[index] && (
+                       {practiceData[index] && (
                          <div className="border-t border-gray-200 pt-4 space-y-4">
                            <h4 className="font-semibold text-gray-700">🎯 Bài luyện tập tương tự:</h4>
                            
