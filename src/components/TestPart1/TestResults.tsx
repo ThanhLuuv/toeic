@@ -220,7 +220,7 @@ const TestResults: React.FC<TestResultsProps> = ({
               </div>
 
               {/* Performance Bar */}
-              <div className="mb-8">
+              <div className="">
                 <div className="flex items-center justify-between text-sm mb-2">
                   <span className="text-gray-600">Hiệu suất tổng thể</span>
                   <span className="font-medium">

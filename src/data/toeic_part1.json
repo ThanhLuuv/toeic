@@ -1302,67 +1302,86 @@
     "level2 ": [
       {
         "questionNumber": 1,
-        "level": "Intermediate",
-        "imageDescription": "Two women are having a discussion while standing in front of a whiteboard.",
+        "imageDescription": "Two workers are carrying a wooden ladder near a construction site. One is holding the front end while the other supports the back end. There are bricks and a cement mixer nearby.",
         "subjectVocabulary": [
           {
-            "word": "women",
-            "meaning": "những người phụ nữ",
+            "word": "worker",
+            "meaning": "công nhân",
+            "pronunciation": "/ˈwɜː.kər/",
             "isCorrect": true
           },
           {
-            "word": "discussion",
-            "meaning": "cuộc thảo luận",
+            "word": "ladder",
+            "meaning": "cái thang",
+            "pronunciation": "/ˈlæd.ər/",
             "isCorrect": true
           },
           {
-            "word": "whiteboard",
-            "meaning": "bảng trắng",
+            "word": "brick",
+            "meaning": "viên gạch",
+            "pronunciation": "/brɪk/",
             "isCorrect": true
           },
           {
-            "word": "printer",
-            "meaning": "máy in",
+            "word": "wheelbarrow",
+            "meaning": "xe cút kít",
+            "pronunciation": "/ˈwiːlˌbær.əʊ/",
             "isCorrect": false
+          },
+          {
+            "word": "helmet",
+            "meaning": "mũ bảo hộ",
+            "pronunciation": "/ˈhel.mət/",
+            "isCorrect": true
           }
         ],
         "descriptiveVocabulary": [
           {
-            "word": "standing",
-            "meaning": "đang đứng",
+            "word": "carrying",
+            "meaning": "đang mang",
+            "pronunciation": "/ˈkær.i.ɪŋ/",
             "isCorrect": true
           },
           {
-            "word": "talking",
-            "meaning": "đang nói chuyện",
-            "isCorrect": true
-          },
-          {
-            "word": "writing",
-            "meaning": "đang viết",
+            "word": "building",
+            "meaning": "đang xây dựng",
+            "pronunciation": "/ˈbɪl.dɪŋ/",
             "isCorrect": false
           },
           {
-            "word": "in front of",
-            "meaning": "trước",
+            "word": "supporting",
+            "meaning": "đang đỡ",
+            "pronunciation": "/səˈpɔː.tɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "digging",
+            "meaning": "đang đào",
+            "pronunciation": "/ˈdɪɡ.ɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "walking",
+            "meaning": "đang đi bộ",
+            "pronunciation": "/ˈwɔː.kɪŋ/",
             "isCorrect": true
           }
         ],
         "choices": {
-          "A": "Two women are having a discussion in front of a whiteboard.",
-          "B": "A woman is writing on a whiteboard.",
-          "C": "Two women are using a printer in the corner."
+          "A": "Two workers are carrying a ladder together.",
+          "B": "The workers are digging near the ladder.",
+          "C": "A man is climbing up a ladder."
         },
         "choicesVi": {
-          "A": "Hai người phụ nữ đang thảo luận trước bảng trắng.",
-          "B": "Một người phụ nữ đang viết lên bảng trắng.",
-          "C": "Hai người phụ nữ đang sử dụng máy in trong góc."
+          "A": "Hai công nhân đang cùng nhau mang một cái thang.",
+          "B": "Các công nhân đang đào gần cái thang.",
+          "C": "Một người đàn ông đang trèo lên thang."
         },
         "correctAnswer": "A",
-        "explanation": "A mô tả đúng số lượng, hành động và vị trí của hai người phụ nữ.",
-        "traps": "B: Sai số lượng (1 người thay vì 2) – bẫy singularPlural. C: Sai vật thể chính (máy in không có) – bẫy misfocus.",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966522/sdkej4plkilhvus4enee.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966590/jlmz502hewxfpqzwbji1.mp3"
+        "explanation": "Đáp án A đúng vì cả hai công nhân đang mang một cái thang. B sai vì không có ai đang đào. C sai vì không có ai trèo lên thang.",
+        "traps": "B sai hành động (digging) không diễn ra. C sai hành động và giả định sai (climbing) không có trong ảnh.",
+        "image": "https://res.cloudinary.com/dlysxsbkj/image/upload/v1752647259/toeic_part1_images/hqzxcpzavu22t1wkm4cs.png",
+        "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752647269/toeic_part1_audio/j5aazekojez7yed2wvxl.mp3"
       },
       {
         "questionNumber": 2,
