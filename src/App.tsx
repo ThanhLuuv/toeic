@@ -36,6 +36,7 @@ const App: React.FC = () => {
                 <Route path="/part5" element={<NotFound />} />
                 <Route path="/part6" element={<NotFound />} />
                 <Route path="/part7" element={<NotFound />} />
+                <Route path="/not-found" element={<NotFound />} />
               </Routes>
               <Footer />
               <FloatingFeedback />

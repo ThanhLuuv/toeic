@@ -60,7 +60,7 @@ const Home: React.FC = () => {
       bgColor: 'bg-indigo-100',
       textColor: 'text-indigo-600',
       animationDelay: '0s',
-      onClick: () => alert('Chuyển đến trang luyện đề nhanh!'),
+      onClick: () => window.location.href = '/not-found',
     },
     {
       title: 'Thi thử đầy đủ',
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
       bgColor: 'bg-green-100',
       textColor: 'text-green-600',
       animationDelay: '0.5s',
-      onClick: () => alert('Chuyển đến trang thi thử đầy đủ!'),
+      onClick: () => window.location.href = '/not-found',
     },
     {
       title: 'AI Trợ lý',
@@ -80,7 +80,7 @@ const Home: React.FC = () => {
       bgColor: 'bg-purple-100',
       textColor: 'text-purple-600',
       animationDelay: '1s',
-      onClick: () => alert('Chuyển đến trang chat với AI!'),
+      onClick: () => window.location.href = '/not-found',
     },
   ];
 
