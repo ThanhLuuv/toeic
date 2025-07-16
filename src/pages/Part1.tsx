@@ -4,6 +4,7 @@ import levelData from '../data/toeic_part1.json';
 import PartInfo from '../components/PartSession/PartInfo';
 import TestList from '../components/PartSession/TestList';
 import LevelSelection from '../components/PartSession/LevelSelection';
+import { preloadImages, getImageUrlsFromQuestions } from '../utils/imagePreloader';
 
 const QUESTIONS_PER_TEST = 6;
 
@@ -15,6 +16,8 @@ const Part1: React.FC = () => {
   const [totalTests, setTotalTests] = useState<number>(0);
   const [completedTests, setCompletedTests] = useState<number>(0);
   const [currentTab, setCurrentTab] = useState<string>('all');
+  const [loadingTests, setLoadingTests] = useState<Set<string>>(new Set());
+  const [loadingProgress, setLoadingProgress] = useState<{[testId: string]: {loaded: number, total: number}}>({});
 
   // Hàm lấy danh sách bài test theo tab và level
   const getTestsByTabAndLevel = (tab: string, level: number) => {
@@ -78,9 +81,60 @@ const Part1: React.FC = () => {
     setCompletedTests(0);
   }, [currentTab, currentLevel, levels]);
 
-  const startTest = (testId: string) => {
+  const startTest = async (testId: string) => {
     const [category, level, testNumber] = testId.split('-');
-    navigate('/test-part1', { state: { testId, category, level } });
+    
+    // Bắt đầu loading
+    setLoadingTests(prev => new Set(prev).add(testId));
+    setLoadingProgress(prev => ({
+      ...prev,
+      [testId]: { loaded: 0, total: 0 }
+    }));
+
+    try {
+      // Lấy questions cho bài test này
+      const levelKey = `level${level.replace('level', '')}`;
+      const allQuestions = (levelData as any)[category]?.[levelKey] || (levelData as any)[category]?.[levelKey + ' '] || [];
+      const testIndex = parseInt(testNumber.replace('test', ''), 10) - 1;
+      const testQuestions = allQuestions.slice(testIndex * QUESTIONS_PER_TEST, (testIndex + 1) * QUESTIONS_PER_TEST);
+      
+      // Lấy tất cả URL ảnh
+      const imageUrls = getImageUrlsFromQuestions(testQuestions);
+      
+      if (imageUrls.length === 0) {
+        // Nếu không có ảnh nào, navigate luôn
+        navigate('/test-part1', { state: { testId, category, level } });
+        return;
+      }
+
+      // Preload tất cả ảnh
+      await preloadImages(imageUrls, (loaded, total) => {
+        setLoadingProgress(prev => ({
+          ...prev,
+          [testId]: { loaded, total }
+        }));
+      });
+
+      // Khi đã preload xong, navigate tới trang test
+      navigate('/test-part1', { state: { testId, category, level } });
+      
+    } catch (error) {
+      console.error('Error preloading images:', error);
+      // Nếu có lỗi, vẫn navigate để user có thể làm bài
+      navigate('/test-part1', { state: { testId, category, level } });
+    } finally {
+      // Cleanup loading state
+      setLoadingTests(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(testId);
+        return newSet;
+      });
+      setLoadingProgress(prev => {
+        const newProgress = { ...prev };
+        delete newProgress[testId];
+        return newProgress;
+      });
+    }
   };
 
   return (
@@ -96,6 +150,8 @@ const Part1: React.FC = () => {
           currentTab={currentTab}
           setCurrentTab={setCurrentTab}
           startTest={startTest}
+          loadingTests={loadingTests}
+          loadingProgress={loadingProgress}
         />
       </div>
       <LevelSelection
