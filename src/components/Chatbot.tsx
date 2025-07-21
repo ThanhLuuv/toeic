@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { generateToeicPracticeQuestion, generateImageBase64, generateAudioBase64 } from './TestPart1/aiUtils';
 import { generateToeicPracticeQuestionPart2, generateAudioBase64Part2 } from './TestPart2/aiUtils';
 import { generateToeicPracticeQuestionPart3, generateAudioBase64Part3 } from './TestPart3/aiUtils';
+import { analyzeImageWithAI } from './TestPart1/aiUtils';
 
 // Hàm gọi OpenAI API đơn giản cho hỏi đáp TOEIC
 async function askToeicAI(question: string, chatHistory: {role: 'user'|'bot', text: string}[] = []): Promise<string> {
@@ -83,8 +84,19 @@ function detectPartType(text: string): 'part1' | 'part2' | 'part3' {
   return 'part1'; // Mặc định là part 1
 }
 
+// Nhận diện yêu cầu phân tích ảnh
+function isImageAnalysisRequest(text: string) {
+  return /phân tích ảnh|analyze image/i.test(text);
+}
+
 // Thêm type cho message
-type ChatMessage = { role: 'user'|'bot', text: string } | { role: 'practice', data: any, answer?: string } | { role: 'confirm-practice', original: string } | { role: 'practice-loading' } | { role: 'typing' };
+type ChatMessage =
+  | { role: 'user'; text: string; image?: string }
+  | { role: 'bot'; text: string }
+  | { role: 'practice'; data: any; answer?: string }
+  | { role: 'confirm-practice'; original: string }
+  | { role: 'practice-loading' }
+  | { role: 'typing' };
 
 const Chatbot: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -101,6 +113,7 @@ const Chatbot: React.FC = () => {
   const [showTranslation, setShowTranslation] = useState<{ [msgIdx: number]: { [opt: string]: boolean } }>({});
   const [part3Answers, setPart3Answers] = useState<{ [msgIdx: number]: { [qIdx: number]: string } }>({});
   const [part3ShowTranslation, setPart3ShowTranslation] = useState<{ [msgIdx: number]: { [qIdx: number]: { [opt: string]: boolean } } }>({});
+  const [uploadingImage, setUploadingImage] = useState(false);
 
   // Toggle dịch cho từng đáp án
   const toggleTranslation = (msgIdx: number, opt: string) => {
@@ -148,6 +161,12 @@ const Chatbot: React.FC = () => {
       inputRef.current.focus();
     }
   }, [open]);
+
+  // Cho phép mở chatbot từ bên ngoài
+  React.useEffect(() => {
+    (window as any).openChatbot = () => setOpen(true);
+    return () => { delete (window as any).openChatbot; };
+  }, []);
 
   // Lưu lịch sử chat vào localStorage (giới hạn 5 câu hỏi gần nhất)
   const saveChatHistory = (newMessages: {role: 'user'|'bot', text: string}[]) => {
@@ -208,6 +227,49 @@ const Chatbot: React.FC = () => {
       setLoading(false);
       
       // Focus input sau khi xử lý xong
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      }, 100);
+      return;
+    }
+
+    // Nếu là yêu cầu phân tích ảnh
+    if (isImageAnalysisRequest(input)) {
+      // Tìm url hoặc base64 trong input
+      const urlMatch = input.match(/(https?:\/\/\S+|data:image\/[a-zA-Z]+;base64,[^\s]+)/);
+      if (!urlMatch) {
+        setMessages(msgs => [...msgs, { role: 'bot', text: 'Vui lòng nhập kèm url ảnh hoặc base64 ảnh để phân tích.' }]);
+        setLoading(false);
+        return;
+      }
+      const imageUrlOrBase64 = urlMatch[1];
+      setMessages(msgs => [...msgs, { role: 'typing' }]);
+      try {
+        const result = await analyzeImageWithAI(imageUrlOrBase64);
+        setMessages(msgs => {
+          const filteredMsgs = msgs.filter(m => m.role !== 'typing');
+          return [
+            ...filteredMsgs,
+            {
+              role: 'bot',
+              text:
+                `<b>Phân tích ảnh TOEIC:</b><br/>` +
+                (result.description ? `<b>Mô tả:</b> ${result.description}<br/>` : '') +
+                (result.objects ? `<b>Vật thể chính:</b> ${Array.isArray(result.objects) ? result.objects.join(', ') : result.objects}<br/>` : '') +
+                (result.suggestions ? `<b>Gợi ý đáp án:</b><br/>` +
+                  Object.entries(result.suggestions).map(([k,v]) => `<b>${k}:</b> ${v}`).join('<br/>') : '')
+            }
+          ];
+        });
+      } catch (e) {
+        setMessages(msgs => {
+          const filteredMsgs = msgs.filter(m => m.role !== 'typing');
+          return [...filteredMsgs, { role: 'bot', text: 'Xin lỗi, không phân tích được ảnh.' }];
+        });
+      }
+      setLoading(false);
       setTimeout(() => {
         if (inputRef.current) {
           inputRef.current.focus();
@@ -333,6 +395,45 @@ const Chatbot: React.FC = () => {
     savePracticeHistory(newSessions);
   };
 
+  // Xử lý upload ảnh
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingImage(true);
+    // Đọc file thành base64
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      const base64 = ev.target?.result as string;
+      setMessages(msgs => [...msgs, { role: 'user', text: '[Ảnh tải lên]', image: base64 }]);
+      setMessages(msgs => [...msgs, { role: 'typing' }]);
+      try {
+        const result = await analyzeImageWithAI(base64);
+        setMessages(msgs => {
+          const filteredMsgs = msgs.filter(m => m.role !== 'typing');
+          return [
+            ...filteredMsgs,
+            {
+              role: 'bot',
+              text:
+                `<b>Phân tích ảnh TOEIC:</b><br/>` +
+                (result.description ? `<b>Mô tả:</b> ${result.description}<br/>` : '') +
+                (result.objects ? `<b>Vật thể chính:</b> ${Array.isArray(result.objects) ? result.objects.join(', ') : result.objects}<br/>` : '') +
+                (result.suggestions ? `<b>Gợi ý đáp án:</b><br/>` +
+                  Object.entries(result.suggestions).map(([k,v]) => `<b>${k}:</b> ${v}`).join('<br/>') : '')
+            }
+          ];
+        });
+      } catch (e) {
+        setMessages(msgs => {
+          const filteredMsgs = msgs.filter(m => m.role !== 'typing');
+          return [...filteredMsgs, { role: 'bot', text: 'Xin lỗi, không phân tích được ảnh.' }];
+        });
+      }
+      setUploadingImage(false);
+    };
+    reader.readAsDataURL(file);
+  };
+
   React.useEffect(() => {
     if (open && chatEndRef.current) {
       chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -350,8 +451,8 @@ const Chatbot: React.FC = () => {
           onClick={() => setOpen(true)}
           style={{
             position: 'fixed',
-            bottom: 24,
-            left: 24,
+            bottom: 24, // bottom-6
+            right: 24,  // right-6
             zIndex: 1000,
             borderRadius: '50%',
             width: 56,
@@ -361,10 +462,21 @@ const Chatbot: React.FC = () => {
             border: 'none',
             boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
             fontSize: 28,
-            cursor: 'pointer'
+            cursor: 'pointer',
+            padding: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden'
           }}
           aria-label="Mở chatbot TOEIC"
-        >🤖</button>
+        >
+          <img
+            src="../img/chatbot.png"
+            alt="Chatbot Icon"
+            style={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', display: 'block' }}
+          />
+        </button>
       )}
       {/* Khung chat */}
       {open && (
@@ -372,7 +484,7 @@ const Chatbot: React.FC = () => {
           style={{
             position: 'fixed',
             bottom: 24,
-            left: 24,
+            right: 24,
             width: 340,
             maxHeight: 480,
             background: '#fff',
@@ -750,6 +862,22 @@ const Chatbot: React.FC = () => {
                   </div>
                 );
               }
+              if (msg.role === 'user' && msg.image) {
+                return (
+                  <div key={idx} style={{ margin: '8px 0', textAlign: 'right' }}>
+                    <img src={msg.image} alt="uploaded" style={{ maxWidth: 120, maxHeight: 120, borderRadius: 8, marginBottom: 4, border: '1px solid #eee' }} />
+                    <span style={{ display: 'inline-block', background: '#1976d2', color: '#fff', borderRadius: 16, padding: '8px 14px', maxWidth: '80%', fontSize: 15 }}>{msg.text}</span>
+                  </div>
+                );
+              }
+              // Render user không có image:
+              if (msg.role === 'user' && !msg.image) {
+                return (
+                  <div key={idx} style={{ margin: '8px 0', textAlign: 'right' }}>
+                    <span style={{ display: 'inline-block', background: '#1976d2', color: '#fff', borderRadius: 16, padding: '8px 14px', maxWidth: '80%', fontSize: 15 }}>{msg.text}</span>
+                  </div>
+                );
+              }
               // render user/bot như cũ
               if (msg.role === 'bot') {
                 return (
@@ -801,13 +929,48 @@ const Chatbot: React.FC = () => {
               onKeyDown={e => { if (e.key === 'Enter') handleSend(); }}
               placeholder="Nhập câu hỏi về TOEIC..."
               style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, padding: 8, borderRadius: 8, background: '#f2f4f8' }}
-              disabled={loading}
+              disabled={loading || uploadingImage}
             />
+            {/* <label style={{ marginLeft: 8, cursor: uploadingImage ? 'not-allowed' : 'pointer', opacity: uploadingImage ? 0.5 : 1 }}>
+              <input type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageUpload} disabled={uploadingImage} />
+              <svg width="22" height="22" fill="none" stroke="#1976d2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+              </svg>
+            </label> */}
             <button
               onClick={handleSend}
-              disabled={loading || !input.trim()}
-              style={{ marginLeft: 8, background: '#1976d2', color: '#fff', border: 'none', borderRadius: 8, padding: '0 18px', fontSize: 16, cursor: loading ? 'not-allowed' : 'pointer', height: 38 }}
-            >Gửi</button>
+              disabled={loading || !input.trim() || uploadingImage}
+              style={{
+                marginLeft: 8,
+                background: '#1976d2',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 8,
+                padding: '0 12px',
+                fontSize: 16,
+                cursor: loading || uploadingImage ? 'not-allowed' : 'pointer',
+                height: 38,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="m22 2-7 20-4-9-9-4Z"/>
+                <path d="M22 2 11 13"/>
+              </svg>
+            </button>
           </div>
         </div>
       )}

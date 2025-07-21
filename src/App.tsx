@@ -40,13 +40,14 @@ const App: React.FC = () => {
                 <Route path="/not-found" element={<NotFound />} />
               </Routes>
               <Footer />
+              <Chatbot />
               <FloatingFeedback />
             </div>
           }
         />
       </Routes>
-      <FloatingFeedback />
       <Chatbot />
+      <FloatingFeedback />
     </Router>
   );
 };

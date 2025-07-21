@@ -80,7 +80,7 @@ const Home: React.FC = () => {
       bgColor: 'bg-purple-100',
       textColor: 'text-purple-600',
       animationDelay: '1s',
-      onClick: () => window.location.href = '/not-found',
+      onClick: () => (window as any).openChatbot && (window as any).openChatbot(),
     },
   ];
 

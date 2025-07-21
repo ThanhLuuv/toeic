@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const navItems = ['Luyện đề', 'Làm bài thi', 'Chat với AI'];
+  const navItems = ['Luyện đề', 'Làm bài thi'];
 
   const handleNavClick = (item: string) => {
     setActiveNav(item);
@@ -54,6 +54,13 @@ const Header: React.FC = () => {
                     {item}
                   </a>
                 ))}
+                <button
+                  className="bg-purple-500 hover:bg-purple-600 text-white rounded-full px-4 py-2 font-semibold shadow-md transition-all"
+                  style={{ marginLeft: 8 }}
+                  onClick={() => (window as any).openChatbot && (window as any).openChatbot()}
+                >
+                  Chat trợ lý
+                </button>
               </>
             ) : (
               <div className="text-white/90 text-sm">

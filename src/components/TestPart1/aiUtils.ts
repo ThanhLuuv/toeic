@@ -145,6 +145,56 @@ export async function analyzeWithAI(logText: string): Promise<any> {
   return data.choices[0].message.content;
 }
 
+/**
+ * Phân tích ảnh TOEIC bằng OpenAI Vision API
+ * @param imageBase64OrUrl: base64 hoặc url ảnh
+ * @returns { description, objects, suggestions }
+ */
+export async function analyzeImageWithAI(imageBase64OrUrl: string): Promise<any> {
+  const apiKey = process.env.REACT_APP_API_KEY_OPENAI;
+  const endpoint = 'https://api.openai.com/v1/chat/completions';
+  const isUrl = imageBase64OrUrl.startsWith('http');
+  const messages = [
+    {
+      role: 'system',
+      content: 'Bạn là giáo viên TOEIC Part 1, chuyên phân tích ảnh đề thi TOEIC. Hãy mô tả chi tiết ảnh, liệt kê các vật thể chính, và gợi ý các đáp án A/B/C phù hợp cho đề TOEIC.'
+    },
+    {
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          text: 'Phân tích ảnh TOEIC sau, trả về object JSON gồm: description (mô tả chi tiết), objects (mảng vật thể chính), suggestions (gợi ý đáp án A/B/C cho đề TOEIC Part 1, mỗi đáp án là 1 câu tiếng Anh mô tả ảnh, chỉ 1 đáp án đúng, 2 đáp án sai).'
+        },
+        isUrl
+          ? { type: 'text', text: imageBase64OrUrl }
+          : { type: 'image_url', image_url: { url: imageBase64OrUrl } }
+      ]
+    }
+  ];
+
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model: 'gpt-4-vision-preview',
+      messages,
+      max_tokens: 800
+    })
+  });
+  if (!response.ok) throw new Error('OpenAI Vision API error');
+  const data = await response.json();
+  // Trích xuất JSON từ response
+  const match = data.choices?.[0]?.message?.content?.match(/\{[\s\S]*\}/);
+  if (match) {
+    return JSON.parse(match[0]);
+  }
+  return data.choices?.[0]?.message?.content;
+}
+
 // Hàm tạo ảnh base64 từ Gemini
 export async function generateImageBase64(imageDescription: string): Promise<string> {
   const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
