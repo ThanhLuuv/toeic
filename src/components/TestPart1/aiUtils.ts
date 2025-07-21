@@ -227,4 +227,39 @@ export async function generateAudioBase64(practiceQuestion: any): Promise<string
     return `data:audio/mp3;base64,${result.audioContent}`;
   }
   throw new Error('Audio generation failed');
+}
+
+// Hàm sinh 1 câu luyện tập TOEIC theo yêu cầu người dùng
+export async function generateToeicPracticeQuestion(userRequest: string): Promise<any> {
+  const apiKey = process.env.REACT_APP_API_KEY_OPENAI;
+  const endpoint = "https://api.openai.com/v1/chat/completions";
+  const messages = [
+    {
+      role: "system",
+      content: `Bạn là giáo viên TOEIC, chuyên tạo bài luyện tập TOEIC Part 1 theo yêu cầu. Hãy sinh ra 1 câu hỏi luyện tập TOEIC phù hợp với yêu cầu sau của người dùng.\n\n== YÊU CẦU NGƯỜI DÙNG ==\n${userRequest}\n\n== ĐẦU RA PHẢI LÀ OBJECT JSON DUY NHẤT, KHÔNG GIẢI THÍCH, KHÔNG MARKDOWN ==\n\nSchema:\n{\n  "practiceQuestion": {\n    "questionNumber": 1,\n    "imageDescription": "...",\n    "choices": { "A": "...", "B": "...", "C": "..." },\n    "choicesVi": { "A": "...", "B": "...", "C": "..." },\n    "correctAnswer": "A" | "B" | "C",\n    "explanation": "...", // Giải thích bằng tiếng Việt\n    "traps": "...", // Mô tả bẫy bằng tiếng Việt\n    "transcript": "..." // transcript audio\n  }
+}`
+    }
+  ];
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model: "gpt-4o",
+      messages,
+      temperature: 1.0,
+      max_tokens: 1024,
+      top_p: 1.0
+    })
+  });
+  if (!response.ok) throw new Error("OpenAI API error: " + response.statusText);
+  const data = await response.json();
+  // Trả về object JSON duy nhất
+  try {
+    return JSON.parse(data.choices[0].message.content);
+  } catch (e) {
+    throw new Error("Lỗi parse JSON từ AI: " + data.choices[0].message.content);
+  }
 } 

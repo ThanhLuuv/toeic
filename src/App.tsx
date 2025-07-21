@@ -9,6 +9,7 @@ import Footer from './components/Home/Footer';
 import Part2 from './pages/Part2';
 import TestPart2 from './pages/TestPart2';
 import FloatingFeedback from './components/FloatingFeedback';
+import Chatbot from './components/Chatbot';
 
 const App: React.FC = () => {
   return (
@@ -45,6 +46,7 @@ const App: React.FC = () => {
         />
       </Routes>
       <FloatingFeedback />
+      <Chatbot />
     </Router>
   );
 };
