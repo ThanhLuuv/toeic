@@ -233,11 +233,44 @@ export async function generateAudioBase64(practiceQuestion: any): Promise<string
 export async function generateToeicPracticeQuestion(userRequest: string): Promise<any> {
   const apiKey = process.env.REACT_APP_API_KEY_OPENAI;
   const endpoint = "https://api.openai.com/v1/chat/completions";
+  
   const messages = [
     {
       role: "system",
-      content: `Bạn là giáo viên TOEIC, chuyên tạo bài luyện tập TOEIC Part 1 theo yêu cầu. Hãy sinh ra 1 câu hỏi luyện tập TOEIC phù hợp với yêu cầu sau của người dùng.\n\n== YÊU CẦU NGƯỜI DÙNG ==\n${userRequest}\n\n== ĐẦU RA PHẢI LÀ OBJECT JSON DUY NHẤT, KHÔNG GIẢI THÍCH, KHÔNG MARKDOWN ==\n\nSchema:\n{\n  "practiceQuestion": {\n    "questionNumber": 1,\n    "imageDescription": "...",\n    "choices": { "A": "...", "B": "...", "C": "..." },\n    "choicesVi": { "A": "...", "B": "...", "C": "..." },\n    "correctAnswer": "A" | "B" | "C",\n    "explanation": "...", // Giải thích bằng tiếng Việt\n    "traps": "...", // Mô tả bẫy bằng tiếng Việt\n    "transcript": "..." // transcript audio\n  }
-}`
+      content: `Bạn là giáo viên TOEIC, chuyên tạo bài luyện tập TOEIC Part 1 theo yêu cầu. Hãy sinh ra 1 câu hỏi luyện tập TOEIC phù hợp với yêu cầu sau của người dùng.
+
+== HƯỚNG DẪN PHÂN TÍCH LEVEL ==
+Tự động nhận diện mức độ khó từ yêu cầu người dùng:
+- Level 1/Beginner: Từ khóa "dễ", "cơ bản", "đơn giản", "level 1", "beginner"
+- Level 2/Intermediate: Từ khóa "trung bình", "vừa phải", "level 2", "intermediate" hoặc không có từ khóa level
+- Level 3/Advanced: Từ khóa "khó", "nâng cao", "phức tạp", "level 3", "advanced"
+
+== YÊU CẦU NGƯỜI DÙNG ==
+${userRequest}
+
+== ĐẦU RA PHẢI LÀ OBJECT JSON DUY NHẤT, KHÔNG GIẢI THÍCH, KHÔNG MARKDOWN ==
+
+Schema:
+{
+  "practiceQuestion": {
+    "questionNumber": 1,
+    "level": "beginner|intermediate|advanced",
+    "imageDescription": "...",
+    "choices": { "A": "...", "B": "...", "C": "..." },
+    "choicesVi": { "A": "...", "B": "...", "C": "..." },
+    "correctAnswer": "A" | "B" | "C",
+    "explanation": "...", // Giải thích bằng tiếng Việt
+    "traps": "...", // Mô tả bẫy bằng tiếng Việt
+    "transcript": "..." // transcript audio
+  }
+}
+
+== QUY TẮC TẠO CÂU HỎI THEO LEVEL ==
+- Beginner: Từ vựng cơ bản, cấu trúc đơn giản, bẫy dễ nhận biết
+- Intermediate: Từ vựng phổ thông, cấu trúc vừa phải, bẫy thông minh  
+- Advanced: Từ vựng nâng cao, cấu trúc phức tạp, bẫy tinh vi
+- Mô tả ảnh phải là tiếng Anh, không dùng tiếng Việt
+- Không được ra những câu đã ra trước đó`
     }
   ];
   const response = await fetch(endpoint, {
