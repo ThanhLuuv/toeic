@@ -52,8 +52,7 @@ const TestPart3: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 mt-8">
-      <h2 className="text-xl font-bold mb-2">TOEIC Part 3: Đề {testData.id} - {testData.level}</h2>
-      <div className="mb-4 text-gray-600">Audio hội thoại:</div>
+      <h2 className="text-xl font-bold mb-2">TOEIC Part 3</h2>
       <div className="mb-4 flex items-center gap-3">
         <audio
           src={testData.audio}
