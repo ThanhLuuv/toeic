@@ -47,6 +47,8 @@ const TestPart2: React.FC = () => {
   const [showAutoPlayNotification, setShowAutoPlayNotification] = useState(false);
   const [hasUserInteracted, setHasUserInteracted] = useState(true);
   const [showStartModal, setShowStartModal] = useState(false);
+  // Thêm state cho bước chọn loại câu hỏi/đáp án
+  const [typeStep, setTypeStep] = useState<1 | 2>(1);
 
   // Các type câu hỏi và đáp án có sẵn (tiếng Anh)
   const questionTypes = [
@@ -74,9 +76,6 @@ const TestPart2: React.FC = () => {
   const handleAnswerTypeSelect = (typeKey: string) => {
     const correctAnswerType = currentQuestion.typeAnswer;
     const isCorrect = typeKey === correctAnswerType;
-    console.log('handleAnswerTypeSelect - Selected type:', typeKey);
-    console.log('handleAnswerTypeSelect - Correct type:', correctAnswerType);
-    console.log('handleAnswerTypeSelect - Is correct:', isCorrect);
     setAnswerTypeSelected(typeKey);
     setAnswerTypeCorrect(isCorrect);
   };
@@ -87,6 +86,7 @@ const TestPart2: React.FC = () => {
     setQuestionTypeCorrect(isCorrect);
   };
 
+  // Bấm Continue khi cả hai loại đều đúng
   const handleTypeSelection = () => {
     if (questionTypeCorrect && answerTypeCorrect) {
       setShowAnswerChoices(true);
@@ -315,75 +315,69 @@ const TestPart2: React.FC = () => {
 
                 {/* Type Selection Section */}
                 {!showAnswerChoices && (
-                  <div className="mb-6 space-y-6">
-                    {/* Question Type Selection */}
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">1. Choose the question type:</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {questionTypes.map((type) => {
-                          let buttonClass = "p-3 text-left rounded-lg border-2 transition-all ";
-                          if (questionTypeSelected === type.key) {
-                            if (questionTypeCorrect === true) {
-                              buttonClass += "border-green-500 bg-green-50";
-                            } else if (questionTypeCorrect === false) {
-                              buttonClass += "border-red-500 bg-red-50";
-                            } else {
-                              buttonClass += "border-blue-500 bg-blue-50";
-                            }
+                  <div className="mb-6 relative min-h-[320px]">
+                    <h3 className="text-lg font-medium text-gray-800 mb-3">1. Choose the question type:</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                      {questionTypes.map((type) => {
+                        let buttonClass = "p-3 text-left rounded-lg border-2 transition-all ";
+                        if (questionTypeSelected === type.key) {
+                          if (questionTypeCorrect === true) {
+                            buttonClass += "border-green-500 bg-green-50";
+                          } else if (questionTypeCorrect === false) {
+                            buttonClass += "border-red-500 bg-red-50";
                           } else {
-                            buttonClass += "border-gray-200 hover:border-gray-300";
+                            buttonClass += "border-blue-500 bg-blue-50";
                           }
-
-                          return (
-                            <button
-                              key={type.key}
-                              onClick={() => handleQuestionTypeSelect(type.key)}
-                              className={buttonClass}
-                            >
-                              <div className="font-medium text-gray-800">{type.label}</div>
-                            </button>
-                          );
-                        })}
-                      </div>
+                        } else {
+                          buttonClass += "border-gray-200 hover:border-gray-300";
+                        }
+                        return (
+                          <button
+                            key={type.key}
+                            onClick={() => handleQuestionTypeSelect(type.key)}
+                            className={buttonClass}
+                          >
+                            <div className="font-medium text-gray-800">{type.label}</div>
+                          </button>
+                        );
+                      })}
                     </div>
-
-                    {/* Answer Type Selection */}
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-800 mb-3">2. Choose the appropriate answer type:</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {answerTypes.map((type) => {
-                          let buttonClass = "p-3 text-left rounded-lg border-2 transition-all ";
-                          if (answerTypeSelected === type.key) {
-                            if (answerTypeCorrect === true) {
-                              buttonClass += "border-green-500 bg-green-50";
-                            } else if (answerTypeCorrect === false) {
-                              buttonClass += "border-red-500 bg-red-50";
-                            } else {
-                              buttonClass += "border-green-500 bg-green-50";
-                            }
+                    <h3 className="text-lg font-medium text-gray-800 mb-3 mt-6">2. Choose the appropriate answer type:</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-20">
+                      {answerTypes.map((type) => {
+                        let buttonClass = "p-3 text-left rounded-lg border-2 transition-all ";
+                        if (answerTypeSelected === type.key) {
+                          if (answerTypeCorrect === true) {
+                            buttonClass += "border-green-500 bg-green-50";
+                          } else if (answerTypeCorrect === false) {
+                            buttonClass += "border-red-500 bg-red-50";
                           } else {
-                            buttonClass += "border-gray-200 hover:border-gray-300";
+                            buttonClass += "border-green-500 bg-green-50";
                           }
-
-                          return (
-                            <button
-                              key={type.key}
-                              onClick={() => handleAnswerTypeSelect(type.key)}
-                              className={buttonClass}
-                            >
-                              <div className="font-medium text-gray-800">{type.label}</div>
-                            </button>
-                          );
-                        })}
-                      </div>
+                        } else {
+                          buttonClass += "border-gray-200 hover:border-gray-300";
+                        }
+                        return (
+                          <button
+                            key={type.key}
+                            onClick={() => handleAnswerTypeSelect(type.key)}
+                            className={buttonClass}
+                          >
+                            <div className="font-medium text-gray-800">{type.label}</div>
+                          </button>
+                        );
+                      })}
                     </div>
-
-                    {/* Continue Button */}
+                    {/* Có thể thêm hướng dẫn hoặc thông báo nếu chọn sai */}
+                    {answerTypeCorrect === false && (
+                      <div className="text-red-600 text-center font-medium mt-2">Incorrect answer type, please try again.</div>
+                    )}
+                    {/* Nút Continue sticky dưới card */}
                     {questionTypeCorrect && answerTypeCorrect && (
-                      <div className="flex justify-center">
+                      <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, padding: 16, background: 'linear-gradient(to top, #fff 90%, transparent)'}} className="flex justify-center">
                         <button
                           onClick={handleTypeSelection}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+                          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
                         >
                           Continue to answer selection
                         </button>
