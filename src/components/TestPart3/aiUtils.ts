@@ -44,6 +44,11 @@ Schema:
 - Câu hỏi phải đa dạng: chi tiết, ý chính, suy luận
 - Đáp án phải có vẻ hợp lý nhưng chỉ 1 đáp án đúng
 - Sử dụng từ vựng và ngữ pháp phù hợp với trình độ TOEIC
+- Mỗi đoạn hội thoại phải có ít nhất 1 nhân vật nam (M, M1, M2) và 1 nhân vật nữ (W, W1, W2) luân phiên đối thoại.
+- Trường audioScript: mỗi câu thoại một dòng, bắt đầu bằng ký hiệu nhân vật (M: hoặc W:), không gộp nhiều câu vào một dòng.
+- Ví dụ audioScript đúng:
+  M: Hello, I'd like to make a reservation for dinner tonight.\nW: Sure, how many people will be dining?\nM: There will be four of us.\nW: What time would you prefer?
+- Không được tạo lại hội thoại hoặc câu hỏi đã từng xuất hiện trong đề TOEIC hoặc các lần sinh trước đó. Nếu có thể, hãy sinh hội thoại và câu hỏi mới, chưa từng xuất hiện.
 
 == QUY TẮC TẠO CÂU HỎI THEO LEVEL ==
 - Beginner: Từ vựng cơ bản, cấu trúc đơn giản, bẫy dễ nhận biết
@@ -68,28 +73,47 @@ Schema:
   if (!response.ok) throw new Error("OpenAI API error: " + response.statusText);
   const data = await response.json();
   try {
+    console.log("data.choices[0].message.content", data.choices[0].message.content);
     return JSON.parse(data.choices[0].message.content);
   } catch (e) {
     throw new Error("Lỗi parse JSON từ AI: " + data.choices[0].message.content);
   }
 }
 
-// Hàm tạo audio base64 cho Part 3 từ Google TTS
-export async function generateAudioBase64Part3(practiceQuestion: any): Promise<string> {
-  const GOOGLE_TTS_KEY = process.env.REACT_APP_GOOGLE_TTS_KEY || 'AIzaSyAqO6_hgidkr_qandEMZUJlBcAhF3xOsUk';
+// Hàm tách audioScript thành từng dòng thoại đúng chuẩn (sửa lại)
+function splitAudioScriptToLines(audioScript: string): string[] {
+  // Đảm bảo \n thành \n thực sự trước
+  let script = audioScript.replace(/\\n/g, '\n');
   
-  function fixPronunciation(text: string) {
-    let fixedText = text;
-    fixedText = fixedText.replace(/\ba man\b/gi, '<phoneme alphabet="ipa" ph="ə mæn">a man</phoneme>');
-    fixedText = fixedText.replace(/\ba woman\b/gi, '<phoneme alphabet="ipa" ph="ə ˈwʊmən">a woman</phoneme>');
-    fixedText = fixedText.replace(/\ba person\b/gi, '<phoneme alphabet="ipa" ph="ə ˈpɜrsən">a person</phoneme>');
-    return fixedText;
+  // Nếu đã có nhiều dòng, trả về luôn
+  if (script.includes('\n')) {
+    return script.split('\n').map(line => line.trim()).filter(Boolean);
   }
   
+  // Regex: Tìm pattern nhân vật (1-2 chữ cái in hoa, có thể kèm số, kết thúc bằng dấu :)
+  // Sử dụng positive lookahead để không "ăn" ký tự
+  const regex = /(?=\s[A-Z]{1,2}[0-9]*:)/g;
+  
+  // Thêm dấu xuống dòng trước mỗi nhân vật (trừ đầu chuỗi)
+  script = script.replace(regex, '\n');
+  
+  // Loại bỏ \n đầu nếu có
+  if (script.startsWith('\n')) {
+    script = script.slice(1);
+  }
+  
+  // Split và clean up
+  return script.split('\n').map(line => line.trim()).filter(Boolean);
+}
+
+// Hàm tạo audio base64 cho Part 3 từ Google TTS (đã sửa)
+export async function generateAudioBase64Part3(practiceQuestion: any): Promise<string> {
+  const GOOGLE_TTS_KEY = process.env.REACT_APP_GOOGLE_TTS_KEY || 'AIzaSyAqO6_hgidkr_qandEMZUJlBcAhF3xOsUk';
+
   const questionNumber = practiceQuestion.questionNumber || 1;
   const audioScript = practiceQuestion.audioScript || '';
   const questions = practiceQuestion.questions || [];
-  
+
   // Mapping nhân vật -> voice
   const voiceMap: { [key: string]: string } = {
     "M": "en-US-Wavenet-D",  // Nam
@@ -103,18 +127,25 @@ export async function generateAudioBase64Part3(practiceQuestion: any): Promise<s
   // Tạo SSML script cho đoạn hội thoại
   let ssmlContent = `<speak><prosody rate="slow">Conversation ${questionNumber}.</prosody><break time="1s"/>`;
 
-  const lines = audioScript.split("\n");
+  // Sử dụng hàm tách thoại thông minh (đã sửa)
+  const lines = splitAudioScriptToLines(audioScript);
+  
+  console.log("Parsed lines:", lines); // Debug để kiểm tra
+  
   for (const line of lines) {
-    const match = line.match(/^([A-Z0-9]+):\s(.+)$/);
-    if (!match) continue;
-
+    const match = line.match(/^([A-Z0-9]+):\s*(.+)$/);
+    if (!match) {
+      console.warn("No match for line:", line);
+      continue;
+    }
+    
     const speaker = match[1];
     const text = match[2];
     const voice = voiceMap[speaker] || "en-US-Wavenet-D";
-
+    
     ssmlContent += `
       <voice name="${voice}">
-        <prosody rate="medium">${fixPronunciation(text)}</prosody>
+        <prosody rate="medium">${text}</prosody>
       </voice>
       <break time="0.6s"/>
     `;
@@ -122,14 +153,12 @@ export async function generateAudioBase64Part3(practiceQuestion: any): Promise<s
 
   // Thêm phần đọc câu hỏi
   ssmlContent += `<break time="3s"/><voice name="en-US-Wavenet-D"><prosody rate="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2s"/>`;
-  
+
   questions.forEach((question: any, qIndex: number) => {
     // Đọc số câu hỏi với giọng cố định
     ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">Question ${qIndex + 1}.</prosody></voice><break time="1s"/>`;
-    
     // Đọc câu hỏi với giọng cố định
-    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">${fixPronunciation(question.question)}</prosody></voice>`;
-    
+    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">${question.question}</prosody></voice>`;
     // Nghỉ 4 giây giữa các câu hỏi, câu cuối nghỉ 2s
     if (qIndex < questions.length - 1) {
       ssmlContent += `<break time="4s"/>`;
@@ -139,6 +168,8 @@ export async function generateAudioBase64Part3(practiceQuestion: any): Promise<s
   });
 
   ssmlContent += `</speak>`;
+
+  console.log("Final ssmlContent:", ssmlContent);
 
   const response = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${GOOGLE_TTS_KEY}`, {
     method: 'POST',
@@ -153,9 +184,10 @@ export async function generateAudioBase64Part3(practiceQuestion: any): Promise<s
       }
     })
   });
+  
   const result = await response.json();
   if (result.audioContent) {
     return `data:audio/mp3;base64,${result.audioContent}`;
   }
   throw new Error('Audio generation failed');
-} 
+}

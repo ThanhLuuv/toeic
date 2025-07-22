@@ -203,9 +203,6 @@ const TestPart1: React.FC = () => {
   }, [currentQuestionIndex, shouldAutoPlay, hasInteracted, vocabularyCompleted, testQuestions]);
 
   const checkAnswer = () => {
-    // Force stop audio when user answers
-    setForceStopAudio(true);
-    setTimeout(() => setForceStopAudio(false), 100);
     
     const question = testQuestions[currentQuestionIndex];
     const isCorrect = selectedAnswer === question.correctAnswer;

@@ -688,20 +688,28 @@
                         const text = match[2];
                         const voice = voiceMap[speaker] || "en-US-Wavenet-D";
 
-                        ssmlContent += `
-                            <voice name="${voice}">
-                                <prosody rate="medium">${text}</prosody>
-                            </voice>
-                            <break time="0.6s"/>
-                        `;
+                        // Chèn break sau mỗi câu nhỏ trong một câu thoại
+                        const sentences = text.split(/([.?!])/).reduce((acc, cur, idx, arr) => {
+                            if (cur.match(/[.?!]/) && idx > 0) {
+                                acc[acc.length - 1] += cur;
+                            } else if (cur.trim() !== '') {
+                                acc.push(cur);
+                            }
+                            return acc;
+                        }, []);
+                        const textWithBreaks = sentences.map(s => s.trim() ? `${s.trim()}<break time="0.5s"/>` : '').join(' ');
+
+                        ssmlContent += `<voice name="${voice}"><prosody rate="medium">${textWithBreaks}</prosody></voice>`;
+                        ssmlContent += `<break time="1.2s"/>`;
                     }
 
                     // Thêm phần đọc câu hỏi
-                    ssmlContent += `<break time="3s"/><voice name="en-US-Wavenet-D"><prosody rate="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2s"/>`;
+                    ssmlContent += `<break time="4s"/><voice name="en-US-Wavenet-D"><prosody rate="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2s"/>`;
                     
                     conv.questions.forEach((question, qIndex) => {
                         // Đọc số câu hỏi với giọng cố định
-                        ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">Question ${qIndex + 1}.</prosody></voice><break time="1s"/>`;
+                        ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">Question ${qIndex + 1}.</prosody></voice>`;
+                        ssmlContent += `<break time="1.2s"/>`;
                         
                         // Đọc câu hỏi với giọng cố định
                         ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">${question.question}</prosody></voice>`;
@@ -786,20 +794,28 @@
                     const text = match[2];
                     const voice = voiceMap[speaker] || "en-US-Wavenet-D";
 
-                    ssmlContent += `
-                        <voice name="${voice}">
-                            <prosody rate="medium">${text}</prosody>
-                        </voice>
-                        <break time="0.6s"/>
-                    `;
+                    // Chèn break sau mỗi câu nhỏ trong một câu thoại
+                    const sentences = text.split(/([.?!])/).reduce((acc, cur, idx, arr) => {
+                        if (cur.match(/[.?!]/) && idx > 0) {
+                            acc[acc.length - 1] += cur;
+                        } else if (cur.trim() !== '') {
+                            acc.push(cur);
+                        }
+                        return acc;
+                    }, []);
+                    const textWithBreaks = sentences.map(s => s.trim() ? `${s.trim()}<break time="0.7s"/>` : '').join(' ');
+
+                    ssmlContent += `<voice name="${voice}"><prosody rate="medium">${textWithBreaks}</prosody></voice>`;
+                    ssmlContent += `<break time="1.2s"/>`;
                 }
 
                 // Thêm phần đọc câu hỏi
-                ssmlContent += `<break time="3s"/><voice name="en-US-Wavenet-D"><prosody rate="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2s"/>`;
+                ssmlContent += `<break time="4s"/><voice name="en-US-Wavenet-D"><prosody rate="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2s"/>`;
                 
                 conv.questions.forEach((question, qIndex) => {
                     // Đọc số câu hỏi với giọng cố định
-                    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">Question ${qIndex + 1}.</prosody></voice><break time="1s"/>`;
+                    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">Question ${qIndex + 1}.</prosody></voice>`;
+                    ssmlContent += `<break time="1.2s"/>`;
                     
                     // Đọc câu hỏi với giọng cố định
                     ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">${question.question}</prosody></voice>`;

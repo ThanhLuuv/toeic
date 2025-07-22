@@ -10,6 +10,8 @@ import Part2 from './pages/Part2';
 import TestPart2 from './pages/TestPart2';
 import FloatingFeedback from './components/FloatingFeedback';
 import Chatbot from './components/Chatbot';
+import Part3 from './pages/Part3';
+import TestPart3 from './pages/TestPart3';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +26,10 @@ const App: React.FC = () => {
           element={<TestPart2 />}
         />
         <Route
+          path="/test-part3/:testId"
+          element={<TestPart3 />}
+        />
+        <Route
           path="*"
           element={
             <div className="bg-gray-50 min-h-screen">
@@ -32,7 +38,7 @@ const App: React.FC = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/part1" element={<Part1 />} />
                 <Route path="/part2" element={<Part2 />} />
-                <Route path="/part3" element={<NotFound />} />
+                <Route path="/part3" element={<Part3 />} />
                 <Route path="/part4" element={<NotFound />} />
                 <Route path="/part5" element={<NotFound />} />
                 <Route path="/part6" element={<NotFound />} />

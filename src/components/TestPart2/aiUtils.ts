@@ -389,7 +389,20 @@ export async function generateAudioBase64Part2(practiceQuestion: any): Promise<s
   const answerA = practiceQuestion.choices.A || '';
   const answerB = practiceQuestion.choices.B || '';
   const answerC = practiceQuestion.choices.C || '';
-  
+
+  // Hàm tạo SSML cho từng đáp án, tách label và nội dung
+  function renderChoiceSSML(label: string, text: string) {
+    return `
+      <voice name="en-US-Wavenet-D">
+        <prosody rate="medium" pitch="medium">${label}.</prosody>
+      </voice>
+      <break time="0.3s"/>
+      <voice name="en-US-Wavenet-D">
+        <prosody rate="medium" pitch="medium">${fixPronunciation(text)}</prosody>
+      </voice>
+    `;
+  }
+
   const ssmlContent = `
     <speak>
       <voice name="en-US-Wavenet-D">
@@ -404,25 +417,15 @@ export async function generateAudioBase64Part2(practiceQuestion: any): Promise<s
         </prosody>
       </voice>
       <break time="1.5s"/>
-      <voice name="en-US-Wavenet-D">
-        <prosody rate="medium" pitch="medium">
-          A. ${fixPronunciation(answerA)}
-        </prosody>
-      </voice>
-      <break time="0.8s"/>
-      <voice name="en-US-Wavenet-D">
-        <prosody rate="medium" pitch="medium">
-          B. ${fixPronunciation(answerB)}
-        </prosody>
-      </voice>
-      <break time="0.8s"/>
-      <voice name="en-US-Wavenet-D">
-        <prosody rate="medium" pitch="medium">
-          C. ${fixPronunciation(answerC)}
-        </prosody>
-      </voice>
+      ${renderChoiceSSML('A', answerA)}
+      <break time="1s"/>
+      ${renderChoiceSSML('B', answerB)}
+      <break time="1s"/>
+      ${renderChoiceSSML('C', answerC)}
     </speak>
   `;
+
+  console.log("ssmlContent", ssmlContent);
   
   const response = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${GOOGLE_TTS_KEY}`, {
     method: 'POST',

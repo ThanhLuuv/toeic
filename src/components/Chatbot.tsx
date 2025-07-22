@@ -68,8 +68,8 @@ function simpleMarkdownToHtml(text: string): string {
 
 // Nhận diện yêu cầu tạo bài tập TOEIC (câu hỏi luyện tập)
 function isPracticeRequest(text: string) {
-  // Chỉ nhận diện đúng mẫu “tạo cho tôi 1 câu ...” hoặc “tạo cho tôi một câu ...”
-  return /tạo cho tôi (1|một) câu.*(part ?[123]|ảnh|photograph|question ?response|hội ?thoại)/i.test(text);
+  // Nhận diện mẫu “tạo cho tôi 1 câu ...”, “tạo cho tôi một câu ...”, hoặc “tạo cho tôi câu hỏi ...”
+  return /tạo cho tôi ((1|một) câu|câu hỏi).*(part ?[123]|ảnh|photograph|question ?response|hội ?thoại)/i.test(text);
 }
 
 // Nhận diện loại part từ yêu cầu
@@ -929,7 +929,7 @@ const Chatbot: React.FC = () => {
               onKeyDown={e => { if (e.key === 'Enter') handleSend(); }}
               placeholder="Nhập câu hỏi về TOEIC..."
               style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, padding: 8, borderRadius: 8, background: '#f2f4f8' }}
-              disabled={loading || uploadingImage}
+              disabled={uploadingImage}
             />
             {/* <label style={{ marginLeft: 8, cursor: uploadingImage ? 'not-allowed' : 'pointer', opacity: uploadingImage ? 0.5 : 1 }}>
               <input type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageUpload} disabled={uploadingImage} />
@@ -941,7 +941,7 @@ const Chatbot: React.FC = () => {
             </label> */}
             <button
               onClick={handleSend}
-              disabled={loading || !input.trim() || uploadingImage}
+              disabled={loading || uploadingImage || !input.trim()}
               style={{
                 marginLeft: 8,
                 background: '#1976d2',

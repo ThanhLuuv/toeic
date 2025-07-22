@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const navItems = ['Luyện đề', 'Làm bài thi'];
+  const navItems = ['Luyện đề'];
 
   const handleNavClick = (item: string) => {
     setActiveNav(item);
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     navigate('/');
   };
 
-  const isPart1Page = location.pathname === '/part1' || location.pathname === '/part2';
+  const isPart1Page = location.pathname === '/part1' || location.pathname === '/part2' || location.pathname === '/part3';
 
   return (
     <header className="gradient-bg shadow-lg">
@@ -37,7 +37,8 @@ const Header: React.FC = () => {
               <span className="text-2xl font-bold text-indigo-600">T</span>
             </div>
             <div>
-              <span className="text-white text-xl font-bold">TOEIC Hub</span>
+
+              <a href="/" className="text-white text-xl font-bold">TOEIC Hub</a>
             </div>
           </div>
 
@@ -47,7 +48,7 @@ const Header: React.FC = () => {
                 {navItems.map((item) => (
                   <a
                     key={item}
-                    href="#"
+                    href="/"
                     className={`nav-item text-white font-medium px-4 py-2 rounded-lg hover:bg-white/10 ${activeNav === item ? 'active' : ''}`}
                     onClick={() => handleNavClick(item)}
                   >

@@ -904,16 +904,10 @@
             "isCorrect": true
           },
           {
-            "word": "into",
-            "meaning": "vào trong",
-            "pronunciation": "/ˈɪn.tuː/",
-            "isCorrect": true
-          },
-          {
             "word": "holding",
             "meaning": "đang cầm",
             "pronunciation": "/ˈhoʊl.dɪŋ/",
-            "isCorrect": false
+            "isCorrect": true
           },
           {
             "word": "sitting",
