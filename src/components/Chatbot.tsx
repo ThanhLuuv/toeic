@@ -68,12 +68,19 @@ function simpleMarkdownToHtml(text: string): string {
 
 // Nhận diện yêu cầu tạo bài tập TOEIC (câu hỏi luyện tập)
 function isPracticeRequest(text: string) {
-  // Nhận diện mẫu “tạo cho tôi 1 câu ...”, “tạo cho tôi một câu ...”, hoặc “tạo cho tôi câu hỏi ...”
-  return /tạo cho tôi ((1|một) câu|câu hỏi).*(part ?[123]|ảnh|photograph|question ?response|hội ?thoại)/i.test(text);
+  // Nhận diện mẫu cũ hoặc cú pháp @part1, @part2, @part3
+  return (
+    /tạo cho tôi ((1|một) câu|câu hỏi).*(part ?[123]|ảnh|photograph|question ?response|hội ?thoại)/i.test(text)
+    || /^@part[123]\b/i.test(text.trim())
+  );
 }
 
 // Nhận diện loại part từ yêu cầu
 function detectPartType(text: string): 'part1' | 'part2' | 'part3' {
+  const trimmed = text.trim();
+  if (/^@part1\b/i.test(trimmed)) return 'part1';
+  if (/^@part2\b/i.test(trimmed)) return 'part2';
+  if (/^@part3\b/i.test(trimmed)) return 'part3';
   if (/\bpart\s*1\b|\bphotograph|\bảnh|\bimage/i.test(text)) {
     return 'part1';
   } else if (/\bpart\s*2\b|\bquestion\s*response|\bcâu\s*hỏi\s*đáp/i.test(text)) {
@@ -222,17 +229,60 @@ const Chatbot: React.FC = () => {
     
     // Nếu là yêu cầu tạo bài tập TOEIC
     if (isPracticeRequest(input)) {
-      // Thay vì tạo luôn, thêm message xác nhận
-      setMessages(msgs => [...msgs, { role: 'confirm-practice', original: input }]);
-      setLoading(false);
-      
-      // Focus input sau khi xử lý xong
-      setTimeout(() => {
-        if (inputRef.current) {
-          inputRef.current.focus();
+      // Nếu là cú pháp @part1/@part2/@part3 thì tạo luôn, không xác nhận
+      if (/^@part[123]\b/i.test(input.trim())) {
+        // Gọi luôn handleConfirmPractice logic với confirmed=true
+        setMessages(msgs => [...msgs, { role: 'practice-loading' }]);
+        setPracticeLoading(true);
+        try {
+          const partType = detectPartType(input);
+          let result;
+          let imgBase64 = '';
+          let audioBase64 = '';
+          if (partType === 'part1') {
+            result = await generateToeicPracticeQuestion(input);
+            try { imgBase64 = await generateImageBase64(result.practiceQuestion.imageDescription); } catch {}
+            try { audioBase64 = await generateAudioBase64(result.practiceQuestion); } catch {}
+          } else if (partType === 'part2') {
+            result = await generateToeicPracticeQuestionPart2(input);
+            try { audioBase64 = await generateAudioBase64Part2(result.practiceQuestion); } catch {}
+          } else if (partType === 'part3') {
+            result = await generateToeicPracticeQuestionPart3(input);
+            try { audioBase64 = await generateAudioBase64Part3(result.practiceQuestion); } catch {}
+          }
+          const practiceMsg: ChatMessage = {
+            role: 'practice',
+            data: { ...result.practiceQuestion, image: imgBase64, audio: audioBase64, partType },
+            answer: ''
+          };
+          setMessages(msgs => msgs.map((m, i) => i === msgs.length - 1 ? practiceMsg : m));
+          setPracticeLoading(false);
+          // Lưu vào lịch sử
+          const newSessions = [...practiceSessions, { ...result.practiceQuestion, userAnswer: '', correct: null, time: Date.now() }];
+          setPracticeSessions(newSessions);
+          savePracticeHistory(newSessions);
+        } catch (e) {
+          setMessages(msgs => msgs.map((m, i) => i === msgs.length - 1 ? { role: 'bot' as 'bot', text: 'Xin lỗi, không tạo được bài luyện tập. Vui lòng thử lại.' } : m));
+          setPracticeLoading(false);
         }
-      }, 100);
-      return;
+        setLoading(false);
+        setTimeout(() => {
+          if (inputRef.current) {
+            inputRef.current.focus();
+          }
+        }, 100);
+        return;
+      } else {
+        // Cú pháp cũ: vẫn xác nhận
+        setMessages(msgs => [...msgs, { role: 'confirm-practice', original: input }]);
+        setLoading(false);
+        setTimeout(() => {
+          if (inputRef.current) {
+            inputRef.current.focus();
+          }
+        }, 100);
+        return;
+      }
     }
 
     // Nếu là yêu cầu phân tích ảnh
@@ -530,7 +580,7 @@ const Chatbot: React.FC = () => {
             </div>
           </div>
           <div className="p-2 bg-yellow-50 border-yellow-400 text-yellow-800 rounded text-xs" style={{ fontSize: 12 }}>
-            Để tạo bài luyện tập, hãy gõ: <b>tạo cho tôi 1 câu part 1/2/3 ...</b>
+            Để tạo bài luyện tập, hãy gõ: <b>@part1</b>, <b>@part2</b>, hoặc <b>@part3</b> kèm yêu cầu (ví dụ: <b>@part2 với level 2</b>)<br/>
           </div>
           <div style={{ flex: 1, padding: 12, overflowY: 'auto', background: '#f7f7f7' }}>
             {/* Nếu đang tạo bài luyện tập */}
