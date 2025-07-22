@@ -44,7 +44,9 @@ const TestList: React.FC<TestListProps> = ({
         {filteredTests.map((test) => {
           const isLoading = loadingTests.has(String(test.id));
           const progress = loadingProgress[String(test.id)];
-          const progressPercentage = progress ? Math.round((progress.loaded / progress.total) * 100) : 0;
+          const progressPercentage = progress && progress.total > 0
+            ? Math.round((progress.loaded / progress.total) * 100)
+            : 0;
           
           return (
             <div

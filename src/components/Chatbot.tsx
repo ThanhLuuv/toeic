@@ -111,7 +111,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const [practiceSessions, setPracticeSessions] = useState<any[]>([]); // Lưu các bài luyện tập đã tạo
   const [practiceLoading, setPracticeLoading] = useState(false);
   const [practiceImageLoading, setPracticeImageLoading] = useState(false);
@@ -971,15 +971,20 @@ const Chatbot: React.FC = () => {
             <div ref={chatEndRef} />
           </div>
           <div style={{ display: 'flex', borderTop: '1px solid #eee', padding: 8, background: '#fafbfc' }}>
-            <input
+            <textarea
               ref={inputRef}
-              type="text"
               value={input}
               onChange={e => setInput(e.target.value)}
-              onKeyDown={e => { if (e.key === 'Enter') handleSend(); }}
+              onKeyDown={e => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  if (!loading && !uploadingImage && input.trim()) handleSend();
+                }
+              }}
               placeholder="Nhập câu hỏi về TOEIC..."
-              style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, padding: 8, borderRadius: 8, background: '#f2f4f8' }}
+              style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, padding: 8, borderRadius: 8, background: '#f2f4f8', resize: 'none', minHeight: 38, maxHeight: 90 }}
               disabled={uploadingImage}
+              rows={1}
             />
             {/* <label style={{ marginLeft: 8, cursor: uploadingImage ? 'not-allowed' : 'pointer', opacity: uploadingImage ? 0.5 : 1 }}>
               <input type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageUpload} disabled={uploadingImage} />
