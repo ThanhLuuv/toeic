@@ -179,7 +179,7 @@ export async function generateAudioBase64Part3(practiceQuestion: any): Promise<s
       voice: { languageCode: 'en-US' },
       audioConfig: {
         audioEncoding: 'MP3',
-        speakingRate: 0.85,
+        speakingRate: 0.75,
         pitch: 0.0
       }
     })
