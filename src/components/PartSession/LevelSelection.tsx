@@ -32,9 +32,9 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({
 }) => {
   // Nếu không có levels từ props, sử dụng dữ liệu mặc định cho Part 2
   const defaultLevels = [
-    { level: 1, name: 'Level 1 - Basic', tests: [] },
-    { level: 2, name: 'Level 2 - Intermediate', tests: [] },
-    { level: 3, name: 'Level 3 - Advanced', tests: [] }
+    { level: 1, name: 'Basic sdsfsdsffsfsffsf', tests: [] },
+    { level: 2, name: 'Intermediate', tests: [] },
+    { level: 3, name: 'Advanced', tests: [] }
   ];
 
   const displayLevels = levels.length > 0 ? levels : defaultLevels;

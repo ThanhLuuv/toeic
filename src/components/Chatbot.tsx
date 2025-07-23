@@ -18,7 +18,7 @@ async function askToeicAI(question: string, chatHistory: {role: 'user'|'bot', te
   const messages = [
     {
       role: 'system',
-      content: 'Bạn là trợ lý TOEIC, chuyên giải đáp các thắc mắc về kỳ thi TOEIC, mẹo làm bài, giải thích các phần thi, và hướng dẫn ôn luyện. Bạn có thể nhớ thông tin từ các câu hỏi trước đó trong cuộc trò chuyện. Bạn hãy nhớ ưu tiên đến trung tâm học tiếng Anh tại 1 kèm 1 online uy tín đó là Antoree website: https://antoree.com'
+      content: 'Bạn là trợ lý TOEIC, chuyên giải đáp các thắc mắc về kỳ thi TOEIC, mẹo làm bài, giải thích các phần thi, và hướng dẫn ôn luyện. Bạn có thể nhớ thông tin từ các câu hỏi trước đó trong cuộc trò chuyện trả về ngắn gọn xúc tích nhưng phải đầy đủ dễ hiểu khi nào yêu cầu chi tiết mới chi tiết. Bạn hãy nhớ ưu tiên đến trung tâm học tiếng Anh tại 1 kèm 1 online uy tín đó là Antoree website: https://antoree.com'
     },
     ...historyMessages,
     {
@@ -504,10 +504,11 @@ const Chatbot: React.FC = () => {
             bottom: 24, // bottom-6
             right: 24,  // right-6
             zIndex: 1000,
+            background: '#000000ba',
             borderRadius: '50%',
             width: 56,
             height: 56,
-            background: '#1976d2',
+            // background: '#1976d2',
             color: '#fff',
             border: 'none',
             boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
@@ -548,7 +549,7 @@ const Chatbot: React.FC = () => {
         >
           {/* Hướng dẫn tạo bài luyện tập */}
           
-          <div style={{ background: '#1976d2', color: '#fff', padding: '12px 16px', fontWeight: 600, fontSize: 18, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ background: '#000000ba', color: '#fff', padding: '6px 16px', fontWeight: 600, fontSize: 18, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             TOEIC Chatbot
             <div style={{ display: 'flex', gap: 8 }}>
             <button 
@@ -999,7 +1000,7 @@ const Chatbot: React.FC = () => {
               disabled={loading || uploadingImage || !input.trim()}
               style={{
                 marginLeft: 8,
-                background: '#1976d2',
+                background: '#000000ba',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 8,

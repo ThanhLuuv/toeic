@@ -15,7 +15,7 @@ export interface Level {
 
 export const levelData: { [key: string]: Level } = {
   '1': {
-    name: 'Level 1 - Basic',
+    name: 'Basic',
     tests: [
       { id: 1, title: 'Basic Objects in a Room', category: 'objects', questions: 6, completed: true, score: 80 },
       { id: 2, title: 'Simple Actions', category: 'people', questions: 6, completed: true, score: 90 },
@@ -25,7 +25,7 @@ export const levelData: { [key: string]: Level } = {
     ],
   },
   '2': {
-    name: 'Level 2 - Intermediate',
+    name: 'Intermediate',
     tests: [
       { id: 6, title: 'Workplace Scenarios', category: 'people', questions: 6, completed: false, score: 0 },
       { id: 7, title: 'Office Objects', category: 'objects', questions: 6, completed: false, score: 0 },
@@ -37,7 +37,7 @@ export const levelData: { [key: string]: Level } = {
     ],
   },
   '3': {
-    name: 'Level 3 - Advanced',
+    name: 'Advanced',
     tests: [
       { id: 13, title: 'Complex Actions', category: 'people', questions: 6, completed: false, score: 0 },
       { id: 14, title: 'Detailed Objects', category: 'objects', questions: 6, completed: false, score: 0 },

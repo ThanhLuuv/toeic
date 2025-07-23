@@ -5,7 +5,7 @@ body {
 }
 
 .gradient-bg {
-    background: #477196;
+    background: #000000ba;
     /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
 }
 
@@ -98,7 +98,7 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 .gradient-bg-header {
-    background: #477196;
+    background: #000000ba;
 }
 
 .level-badge {
@@ -128,7 +128,7 @@ body {
 }
 
 .level-card {
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     transition: all 0.3s ease;
 }
 
@@ -182,7 +182,7 @@ body {
 }
 
 .gradient-bg {
-    background: #5589b6;
+    background: #000000ba;
 }
 .level-badge {
     background: #477196;

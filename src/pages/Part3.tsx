@@ -35,9 +35,9 @@ const Part3: React.FC = () => {
 
   // Tạo dữ liệu levels cho LevelSelection
   const levels = [
-    { level: 1, name: 'Level 1 - Basic', tests: getTestsByLevel(1) },
-    { level: 2, name: 'Level 2 - Intermediate', tests: getTestsByLevel(2) },
-    { level: 3, name: 'Level 3 - Advanced', tests: getTestsByLevel(3) }
+    { level: 1, name: 'Basic', tests: getTestsByLevel(1) },
+    { level: 2, name: 'Intermediate', tests: getTestsByLevel(2) },
+    { level: 3, name: 'Advanced', tests: getTestsByLevel(3) }
   ];
 
   useEffect(() => {

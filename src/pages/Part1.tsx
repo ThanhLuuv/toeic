@@ -57,17 +57,17 @@ const Part1: React.FC = () => {
   const levels = [
     { 
       level: 1, 
-      name: 'Level 1 - Basic', 
+      name: 'Basic', 
       tests: getTestsByTabAndLevel(currentTab, 1) 
     },
     { 
       level: 2, 
-      name: 'Level 2 - Intermediate', 
+      name: 'Intermediate', 
       tests: getTestsByTabAndLevel(currentTab, 2) 
     },
     { 
       level: 3, 
-      name: 'Level 3 - Advanced', 
+      name: 'Advanced', 
       tests: getTestsByTabAndLevel(currentTab, 3) 
     }
   ];
