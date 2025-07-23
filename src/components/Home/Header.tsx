@@ -38,7 +38,7 @@ const Header: React.FC = () => {
             </div>
             <div>
 
-              <a href="/" className="text-white text-xl font-bold">TOEIC Hub</a>
+              <a href="/" className="text-white text-xl font-bold">Thành TOEIC</a>
             </div>
           </div>
 
