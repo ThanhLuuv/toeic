@@ -77,41 +77,41 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   const speakWord = (word: string) => {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
-      
       const utterance = new SpeechSynthesisUtterance(word);
-      
-      // Set language to English explicitly
       utterance.lang = 'en-US';
       utterance.rate = 0.7;
       utterance.pitch = 1;
       utterance.volume = 1;
-      
-      // For Safari compatibility, try to find an English voice
       const voices = window.speechSynthesis.getVoices();
-      const englishVoice = voices.find(voice => 
+      // Ưu tiên Google/Microsoft voice
+      const preferredVoice = voices.find(voice =>
+        (voice.lang.startsWith('en-') || voice.lang.startsWith('en_') || voice.name.toLowerCase().includes('english')) &&
+        (voice.name.includes('Google') || voice.name.includes('Microsoft'))
+      );
+      // Nếu không có, fallback như cũ
+      const englishVoice = preferredVoice || voices.find(voice => 
         voice.lang.startsWith('en-') || 
         voice.lang.startsWith('en_') ||
         voice.name.toLowerCase().includes('english')
       );
-      
       if (englishVoice) {
         utterance.voice = englishVoice;
       }
-      
-      // Additional Safari fix: ensure voices are loaded
       if (voices.length === 0) {
         window.speechSynthesis.onvoiceschanged = () => {
           const newVoices = window.speechSynthesis.getVoices();
-          const newEnglishVoice = newVoices.find(voice => 
-            voice.lang.startsWith('en-') || 
+          const newPreferredVoice = newVoices.find(voice =>
+            (voice.lang.startsWith('en-') || voice.lang.startsWith('en_') || voice.name.toLowerCase().includes('english')) &&
+            (voice.name.includes('Google') || voice.name.includes('Microsoft'))
+          );
+          const newEnglishVoice = newPreferredVoice || newVoices.find(voice =>
+            voice.lang.startsWith('en-') ||
             voice.lang.startsWith('en_') ||
             voice.name.toLowerCase().includes('english')
           );
-          
           if (newEnglishVoice) {
             utterance.voice = newEnglishVoice;
           }
-          
           window.speechSynthesis.speak(utterance);
         };
       } else {
@@ -132,7 +132,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   ) => (
     <div className="mb-4">
       <h3 className="text-sm font-semibold text-gray-800 mb-2">{title}</h3>
-      <div className="grid grid-cols-2 gap-1">
+      <div className="flex flex-wrap gap-3">
         {vocabulary.map(({ word, meaning, pronunciation, isCorrect }) => {
           const isSelected = selectedWords.includes(word);
           const isCorrectSelection = isSelected === isCorrect;
@@ -147,7 +147,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
               }`}
             >
               <div
-                className={`px-2 py-1 rounded border text-xs font-medium transition-all duration-200 ${
+                className={`px-3 py-1 rounded-full border text-sm font-medium transition-all duration-200 ${
                   isAnswered
                     ? isSelected && isCorrect
                       ? 'bg-green-100 border-green-300 text-green-800'
@@ -160,44 +160,28 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
                     ? 'bg-blue-100 border-blue-300 text-blue-800'
                     : 'bg-white border-gray-300 text-gray-700 hover:border-blue-300'
                 }`}
-                onClick={() => toggleWord(word, type)}
+                onClick={() => { toggleWord(word, type); speakWord(word); }}
+                style={{ minWidth: 60, justifyContent: 'center', display: 'flex', alignItems: 'center' }}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <div className="truncate">{word}</div>
-                    {pronunciation && (
-                      <div className="text-xs text-gray-500 font-normal mt-0.5">
-                        {pronunciation}
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex gap-1 ml-1">
-                    <button
-                      type="button"
-                      className="text-xs p-0.5 hover:bg-gray-200 rounded"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        speakWord(word);
-                      }}
-                      title="Phát âm"
-                    >
-                      🔊
-                    </button>
-                    <button
-                      type="button"
-                      className="text-xs p-0.5 hover:bg-gray-200 rounded"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleMeaning(word);
-                      }}
-                      title="Xem nghĩa"
-                    >
-                      📖
-                    </button>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="truncate font-serif text-base">{word}</span>
+                  {pronunciation && (
+                    <span className="text-xs text-gray-500 font-normal mt-0.5">{pronunciation}</span>
+                  )}
+                  {/* Đã bỏ nút phát âm */}
+                  <button
+                    type="button"
+                    className="text-xs p-0.5 hover:bg-gray-200 rounded-full"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleMeaning(word);
+                    }}
+                    title="Xem nghĩa"
+                  >
+                    📖
+                  </button>
                 </div>
               </div>
-              
               {/* Meaning tooltip */}
               {showMeanings[word] && (
                 <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-10">

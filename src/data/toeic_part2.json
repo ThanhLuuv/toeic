@@ -3,6 +3,7 @@
     {
       "id": 1,
       "type": "WH-question",
+      "level": "Basic",
       "question": "Where will the training session be held?",
       "choices": {
         "A": "Yes, it's mandatory.",

@@ -5,6 +5,7 @@
       {
         "questionNumber": 1,
         "level": "Basic",
+        "type": "people",
         "imageDescription": "A woman is typing on a laptop at a desk in a small office.",
         "subjectVocabulary": [
           {
