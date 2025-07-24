@@ -27,8 +27,6 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   onVocabularySelection,
   isCompleted,
   isAnswered,
-  imageUrl,
-  imageDescription,
   onClose,
   resetKey
 }) => {

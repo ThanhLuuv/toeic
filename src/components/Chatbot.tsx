@@ -61,6 +61,8 @@ function simpleMarkdownToHtml(text: string): string {
     const items = match.trim().split(/\n/).map(line => line.replace(/^\s*[-*] (.*)/, '<li>$1</li>')).join('');
     return `<ul>${items}</ul>`;
   });
+  // Tự động chuyển URL thành link (không lấy dấu ) hoặc dấu câu phía sau, giữ dấu chấm trong domain)
+  html = html.replace(/(https?:\/\/[^\s<)\]\[\">,;:!\?]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#1976d2;text-decoration:underline;">$1</a>');
   // Xuống dòng đơn giản (chỉ khi không phải trong <li> hoặc heading)
   html = html.replace(/([^>])\n([^<])/g, '$1<br/>$2');
   return html;
