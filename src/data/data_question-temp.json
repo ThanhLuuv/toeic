@@ -1,0 +1,842 @@
+[
+  {
+    "word": "arrival",
+    "type": "n.",
+    "phonetic": "/əˈraɪvəl/",
+    "meaning": "sự đến",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447647/toeic_vocab/iylkuhxunviix6bmysjb.mp3"
+  },
+  {
+    "word": "attraction",
+    "type": "n.",
+    "phonetic": "/əˈtrækʃən/",
+    "meaning": "điểm tham quan",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447648/toeic_vocab/hw57kjchitd26xr2bnkv.mp3"
+  },
+  {
+    "word": "canceled",
+    "type": "adj.",
+    "phonetic": "/ˈkænsəld/",
+    "meaning": "bị huỷ",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447649/toeic_vocab/nck3zsqwyyl8uztfatn7.mp3"
+  },
+  {
+    "word": "depart",
+    "type": "v.",
+    "phonetic": "/dɪˈpɑːrt/",
+    "meaning": "khởi hành",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447650/toeic_vocab/e6gv9z77zeqsgoowuyzu.mp3"
+  },
+  {
+    "word": "expanded",
+    "type": "adj.",
+    "phonetic": "/ɪkˈspændɪd/",
+    "meaning": "(được) mở rộng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447651/toeic_vocab/y4e39ulimb5dzpg8ctmg.mp3"
+  },
+  {
+    "word": "flight",
+    "type": "n.",
+    "phonetic": "/flaɪt/",
+    "meaning": "chuyến bay",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447652/toeic_vocab/m3id7whujer9cwnsnx1r.mp3"
+  },
+  {
+    "word": "historic",
+    "type": "adj.",
+    "phonetic": "/hɪˈstɔːrɪk/",
+    "meaning": "(mang tính) lịch sử",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447653/toeic_vocab/x4lkdnbz66ivpvi8pjwb.mp3"
+  },
+  {
+    "word": "hopefully",
+    "type": "adv.",
+    "phonetic": "/ˈhoʊpfəli/",
+    "meaning": "hy vọng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447653/toeic_vocab/biilmaljyydlx9nhkl3w.mp3"
+  },
+  {
+    "word": "landmark",
+    "type": "n.",
+    "phonetic": "/ˈlændmɑːrk/",
+    "meaning": "địa điểm biểu tượng; cột mốc",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447654/toeic_vocab/lpjfy8w47zsewkistugc.mp3"
+  },
+  {
+    "word": "mechanical",
+    "type": "adj.",
+    "phonetic": "/məˈkænɪkəl/",
+    "meaning": "(thuộc về) máy móc",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447656/toeic_vocab/yjrvxxuyj2sic518i8fk.mp3"
+  },
+  {
+    "word": "regret",
+    "type": "n., v.",
+    "phonetic": "/rɪˈɡret/",
+    "meaning": "hối tiếc",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447657/toeic_vocab/z4dho6zjgwy0jnthw7f5.mp3"
+  },
+  {
+    "word": "responsible",
+    "type": "adj.",
+    "phonetic": "/rɪˈspɑːnsəbl/",
+    "meaning": "có trách nhiệm",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447657/toeic_vocab/aflfiaoya3ze7xavsizs.mp3"
+  },
+  {
+    "word": "separate",
+    "type": "adj., v.",
+    "phonetic": "/ˈsepərət/",
+    "meaning": "tách rời, riêng rẽ",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447658/toeic_vocab/nvlm2dljin0nmvafp7dr.mp3"
+  },
+  {
+    "word": "status",
+    "type": "n.",
+    "phonetic": "/ˈsteɪtəs/",
+    "meaning": "trạng thái; tình hình",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447659/toeic_vocab/puo3f1mta6wqp42ylxy8.mp3"
+  },
+  {
+    "word": "stay",
+    "type": "v., n.",
+    "phonetic": "/steɪ/",
+    "meaning": "ở lại; sự lưu trú",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447661/toeic_vocab/cwcviwgt0qupbslxxpiw.mp3"
+  },
+  {
+    "word": "verify",
+    "type": "v.",
+    "phonetic": "/ˈverɪfaɪ/",
+    "meaning": "xác nhận",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447662/toeic_vocab/smypqteo77fopk3ak9k1.mp3"
+  },
+  {
+    "word": "conductor",
+    "type": "n.",
+    "phonetic": "/kənˈdʌktər/",
+    "meaning": "người soát vé",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447663/toeic_vocab/zfoazumjg1jpvlvjargx.mp3"
+  },
+  {
+    "word": "contents",
+    "type": "n. (số nhiều)",
+    "phonetic": "/ˈkɑːntents/",
+    "meaning": "nội dung; thứ được đựng bên trong",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447664/toeic_vocab/yjxf0lcyyijxjln0tdhb.mp3"
+  },
+  {
+    "word": "delay",
+    "type": "v., n.",
+    "phonetic": "/dɪˈleɪ/",
+    "meaning": "trì hoãn",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447665/toeic_vocab/tsacb4u7vsxhdwusrejo.mp3"
+  },
+  {
+    "word": "destination",
+    "type": "n.",
+    "phonetic": "/ˌdestɪˈneɪʃən/",
+    "meaning": "điểm đến",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447667/toeic_vocab/n029izfzvlshtr8bnugc.mp3"
+  },
+  {
+    "word": "distinctive",
+    "type": "adj.",
+    "phonetic": "/dɪˈstɪŋktɪv/",
+    "meaning": "đặc biệt, nổi bật",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447668/toeic_vocab/zdxvybyr067nbv5iwjtc.mp3"
+  },
+  {
+    "word": "entire",
+    "type": "adj.",
+    "phonetic": "/ɪnˈtaɪər/",
+    "meaning": "toàn bộ",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447669/toeic_vocab/auk9nqhdtvazlddwyir1.mp3"
+  },
+  {
+    "word": "frequent",
+    "type": "adj.",
+    "phonetic": "/ˈfriːkwənt/",
+    "meaning": "thường xuyên",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447669/toeic_vocab/d0zpizhblig8viunu3wp.mp3"
+  },
+  {
+    "word": "incur",
+    "type": "v.",
+    "phonetic": "/ɪnˈkɜːr/",
+    "meaning": "chịu (phí); gặp phải",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447765/toeic_vocab/k26z6eui3j0jfnclzxqd.mp3"
+  },
+  {
+    "word": "itinerary",
+    "type": "n.",
+    "phonetic": "/aɪˈtɪnəreri/",
+    "meaning": "lịch trình",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447766/toeic_vocab/rutma5xfsjyvi5xuzweg.mp3"
+  },
+  {
+    "word": "last-minute",
+    "type": "adj.",
+    "phonetic": "/ˌlæst ˈmɪnɪt/",
+    "meaning": "vào phút chót",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447767/toeic_vocab/yztwfz8d8tn5kgbre9rc.mp3"
+  },
+  {
+    "word": "markedly",
+    "type": "adv.",
+    "phonetic": "/ˈmɑːrkɪdli/",
+    "meaning": "rõ rệt",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447768/toeic_vocab/rby5s89lftckh6xtvlhn.mp3"
+  },
+  {
+    "word": "picturesque",
+    "type": "adj.",
+    "phonetic": "/ˌpɪktʃəˈresk/",
+    "meaning": "đẹp như tranh",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447769/toeic_vocab/q3xvwelkuqr4o51fmoco.mp3"
+  },
+  {
+    "word": "proceed",
+    "type": "v.",
+    "phonetic": "/prəˈsiːd/",
+    "meaning": "tiến hành; tiếp tục",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447770/toeic_vocab/s6ohcfvfjhxok2lfuhhe.mp3"
+  },
+  {
+    "word": "registration",
+    "type": "n.",
+    "phonetic": "/ˌredʒɪˈstreɪʃən/",
+    "meaning": "sự đăng ký",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447771/toeic_vocab/ygsj5oxrwtncc7gyixhp.mp3"
+  },
+  {
+    "word": "round-trip",
+    "type": "adj., n.",
+    "phonetic": "/ˈraʊnd trɪp/",
+    "meaning": "(vé) khứ hồi",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447771/toeic_vocab/kz7ohejuv71wectbkl8s.mp3"
+  },
+  {
+    "word": "significantly",
+    "type": "adv.",
+    "phonetic": "/sɪɡˈnɪfɪkəntli/",
+    "meaning": "đáng kể",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447772/toeic_vocab/f0f0srk5d1itoifwcyes.mp3"
+  },
+  {
+    "word": "typical",
+    "type": "adj.",
+    "phonetic": "/ˈtɪpɪkəl/",
+    "meaning": "tiêu biểu",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447773/toeic_vocab/h6lcowxeesqvsr20qq3t.mp3"
+  },
+  {
+    "word": "via",
+    "type": "prep.",
+    "phonetic": "/ˈvaɪə/",
+    "meaning": "thông qua; bằng cách",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447774/toeic_vocab/p3d5fv15ska7jcjrbryl.mp3"
+  },
+  {
+    "word": "waive",
+    "type": "v.",
+    "phonetic": "/weɪv/",
+    "meaning": "từ bỏ (quyền); miễn (phí)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447775/toeic_vocab/oarmbz0zzjikipbkgbvs.mp3"
+  },
+  {
+    "word": "equip",
+    "type": "v.",
+    "phonetic": "/ɪˈkwɪp/",
+    "meaning": "trang bị",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447777/toeic_vocab/x6skeyrg8udx5hybesqd.mp3"
+  },
+  {
+    "word": "fatigue",
+    "type": "n.",
+    "phonetic": "/fəˈtiːɡ/",
+    "meaning": "tình trạng mệt mỏi (do làm việc/tập luyện)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447778/toeic_vocab/xn9e4cboaw99rfygpjqe.mp3"
+  },
+  {
+    "word": "hospitality",
+    "type": "n.",
+    "phonetic": "/ˌhɑːspɪˈtæləti/",
+    "meaning": "lòng hiếu khách",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447779/toeic_vocab/e01kgqb9l9mkk8s4srld.mp3"
+  },
+  {
+    "word": "passenger",
+    "type": "n.",
+    "phonetic": "/ˈpæsɪndʒər/",
+    "meaning": "hành khách",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447780/toeic_vocab/itf6hhhi8s8yogzghtiq.mp3"
+  },
+  {
+    "word": "vessel",
+    "type": "n.",
+    "phonetic": "/ˈvesəl/",
+    "meaning": "tàu, thuyền lớn",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447780/toeic_vocab/seklpyraerr78xeo0bbp.mp3"
+  },
+  {
+    "word": "accommodations",
+    "type": "n",
+    "phonetic": "/əˌkɑːməˈdeɪʃənz/",
+    "meaning": "chỗ ở",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432439/toeic_vocab/ooa0xp03jdu6ii7drcuq.mp3"
+  },
+  {
+    "word": "allergic",
+    "type": "adj",
+    "phonetic": "/əˈlɜːrdʒɪk/",
+    "meaning": "gây dị ứng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432439/toeic_vocab/bczdgpawc7baka4r30pb.mp3"
+  },
+  {
+    "word": "close",
+    "type": "adj/v",
+    "phonetic": "/kloʊz/",
+    "meaning": "gần; đóng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432440/toeic_vocab/sywmhf5ps4emqbqwggyl.mp3"
+  },
+  {
+    "word": "comfortably",
+    "type": "adv",
+    "phonetic": "/ˈkʌmfərtəbli/",
+    "meaning": "thoải mái",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432441/toeic_vocab/x3zrwt4fsyhq4c95doet.mp3"
+  },
+  {
+    "word": "consist",
+    "type": "v",
+    "phonetic": "/kənˈsɪst/",
+    "meaning": "gồm có",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432442/toeic_vocab/fl1hrv7hw98ffoz7itbl.mp3"
+  },
+  {
+    "word": "directions",
+    "type": "n",
+    "phonetic": "/dəˈrekʃənz/",
+    "meaning": "hướng dẫn",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432443/toeic_vocab/cccy3c7jw4oqazi6mgwo.mp3"
+  },
+  {
+    "word": "dish",
+    "type": "n",
+    "phonetic": "/dɪʃ/",
+    "meaning": "món ăn",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432443/toeic_vocab/vpfhprmf6yqgaeyvlxvk.mp3"
+  },
+  {
+    "word": "freshness",
+    "type": "n",
+    "phonetic": "/ˈfreʃnəs/",
+    "meaning": "độ tươi",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432444/toeic_vocab/xajg0gf5zufsp1o1vrgn.mp3"
+  },
+  {
+    "word": "frozen",
+    "type": "adj",
+    "phonetic": "/ˈfroʊzn/",
+    "meaning": "(thực phẩm) đông lạnh",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432445/toeic_vocab/j5qcuh0mfjb19xus7oug.mp3"
+  },
+  {
+    "word": "generate",
+    "type": "v",
+    "phonetic": "/ˈdʒenəreɪt/",
+    "meaning": "tạo ra",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432446/toeic_vocab/peaekfpgccj35muzpree.mp3"
+  },
+  {
+    "word": "in accordance with",
+    "type": "phr",
+    "phonetic": "/ɪn əˈkɔːrdəns wɪð/",
+    "meaning": "phù hợp với",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432446/toeic_vocab/oyeegskdrn7djavwkyxm.mp3"
+  },
+  {
+    "word": "laundry",
+    "type": "n",
+    "phonetic": "/ˈlɔːndri/",
+    "meaning": "giặt ủi",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432447/toeic_vocab/whg4h178rfo6unkxezvc.mp3"
+  },
+  {
+    "word": "leading",
+    "type": "adj",
+    "phonetic": "/ˈliːdɪŋ/",
+    "meaning": "hàng đầu",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432448/toeic_vocab/o49oyw3sa7fjxwxyhngq.mp3"
+  },
+  {
+    "word": "otherwise",
+    "type": "adv",
+    "phonetic": "/ˈʌðərwaɪz/",
+    "meaning": "nếu không thì",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432449/toeic_vocab/i7josdhlaqsmmb7tnweg.mp3"
+  },
+  {
+    "word": "prior to",
+    "type": "prep",
+    "phonetic": "/ˈpraɪər tu/",
+    "meaning": "trước",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432450/toeic_vocab/gpi6rkbfjgn8qrvbfv0z.mp3"
+  },
+  {
+    "word": "recipe",
+    "type": "n",
+    "phonetic": "/ˈresəpi/",
+    "meaning": "công thức nấu ăn",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432450/toeic_vocab/daboxhkm7tzmztzqz8jq.mp3"
+  },
+  {
+    "word": "reservation",
+    "type": "n",
+    "phonetic": "/ˌrezərˈveɪʃən/",
+    "meaning": "sự đặt phòng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432451/toeic_vocab/kyvcpgiusa8icsdmcw0n.mp3"
+  },
+  {
+    "word": "specify",
+    "type": "v",
+    "phonetic": "/ˈspesɪfaɪ/",
+    "meaning": "chỉ rõ",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432452/toeic_vocab/lqvytmsdip0tqmufr2ab.mp3"
+  },
+  {
+    "word": "taste",
+    "type": "n/v",
+    "phonetic": "/teɪst/",
+    "meaning": "mùi vị; nếm",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432453/toeic_vocab/nhnj0vchxl5jnpvee76i.mp3"
+  },
+  {
+    "word": "tray",
+    "type": "n",
+    "phonetic": "/treɪ/",
+    "meaning": "cái khay",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753432454/toeic_vocab/ebdmxbwbereljzruuwdc.mp3"
+  },
+  {
+    "word": "adjacent",
+    "type": "adj",
+    "phonetic": "/əˈdʒeɪsnt/",
+    "meaning": "liền kề",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447628/toeic_vocab/drmncuxgfas7v4h4ndqp.mp3"
+  },
+  {
+    "word": "atmosphere",
+    "type": "n",
+    "phonetic": "/ˈætməsfɪr/",
+    "meaning": "bầu không khí",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447629/toeic_vocab/gzm5frmdngb2abbueyja.mp3"
+  },
+  {
+    "word": "bedding",
+    "type": "n",
+    "phonetic": "/ˈbedɪŋ/",
+    "meaning": "đồ giường (chăn, gối...)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447630/toeic_vocab/lcn0bhplirv2xehdgoao.mp3"
+  },
+  {
+    "word": "broad",
+    "type": "adj",
+    "phonetic": "/brɔːd/",
+    "meaning": "rộng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447630/toeic_vocab/zznnvka6a7csxpwsnx5j.mp3"
+  },
+  {
+    "word": "concentration",
+    "type": "n",
+    "phonetic": "/ˌkɑːnsnˈtreɪʃn/",
+    "meaning": "sự tập trung",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447632/toeic_vocab/lomae5eem9mhgvho4elc.mp3"
+  },
+  {
+    "word": "courteous",
+    "type": "adj",
+    "phonetic": "/ˈkɜːrtiəs/",
+    "meaning": "lịch sự",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447633/toeic_vocab/er2wsgxhhvrofwrz5mhq.mp3"
+  },
+  {
+    "word": "cuisine",
+    "type": "n",
+    "phonetic": "/kwɪˈziːn/",
+    "meaning": "ẩm thực",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447633/toeic_vocab/tka7dgozmufc9qaugnrw.mp3"
+  },
+  {
+    "word": "dine",
+    "type": "v",
+    "phonetic": "/daɪn/",
+    "meaning": "dùng bữa",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447634/toeic_vocab/nbmroilmgskn527nrts0.mp3"
+  },
+  {
+    "word": "flavor",
+    "type": "n",
+    "phonetic": "/ˈfleɪvər/",
+    "meaning": "hương vị",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447635/toeic_vocab/gptnqrrb7kje5qnyjc0q.mp3"
+  },
+  {
+    "word": "ingredient",
+    "type": "n",
+    "phonetic": "/ɪnˈɡriːdiənt/",
+    "meaning": "thành phần (món ăn)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447636/toeic_vocab/rb2n7bnml8w96col6p0j.mp3"
+  },
+  {
+    "word": "linen",
+    "type": "n",
+    "phonetic": "/ˈlɪnɪn/",
+    "meaning": "tấm vải lanh",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447637/toeic_vocab/ry3quni0yfcwrb1flop4.mp3"
+  },
+  {
+    "word": "occupancy",
+    "type": "n",
+    "phonetic": "/ˈɑːkjəpənsi/",
+    "meaning": "sự cư ngụ; sự chiếm chỗ",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447638/toeic_vocab/hgodu0kvhihlhj102l1v.mp3"
+  },
+  {
+    "word": "refreshing",
+    "type": "adj",
+    "phonetic": "/rɪˈfreʃɪŋ/",
+    "meaning": "tươi mới",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447639/toeic_vocab/kkykbjmgwbynrnsh3nor.mp3"
+  },
+  {
+    "word": "whoever",
+    "type": "pron",
+    "phonetic": "/huˈevər/",
+    "meaning": "bất cứ ai",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447640/toeic_vocab/fqgyg8biwqcuskr68zs7.mp3"
+  },
+  {
+    "word": "assorted",
+    "type": "adj",
+    "phonetic": "/əˈsɔːrtɪd/",
+    "meaning": "đa dạng; nhiều loại",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447641/toeic_vocab/c9jqxufhdopxg66vmzni.mp3"
+  },
+  {
+    "word": "commemorate",
+    "type": "v",
+    "phonetic": "/kəˈmeməreɪt/",
+    "meaning": "kỷ niệm",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447642/toeic_vocab/w8ix8nfuza8snskfjyrj.mp3"
+  },
+  {
+    "word": "concierge",
+    "type": "n",
+    "phonetic": "/ˌkɑːnsiˈerʒ/",
+    "meaning": "nhân viên hướng dẫn (khách sạn)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447644/toeic_vocab/os5k6atxfonryaavfyrc.mp3"
+  },
+  {
+    "word": "culinary",
+    "type": "adj",
+    "phonetic": "/ˈkʌlɪneri/",
+    "meaning": "ẩm thực",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447645/toeic_vocab/t4lff1auglbtfta3lgcx.mp3"
+  },
+  {
+    "word": "perishable",
+    "type": "adj",
+    "phonetic": "/ˈperɪʃəbl/",
+    "meaning": "dễ hỏng (thực phẩm)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447645/toeic_vocab/i2hukucjbev9r3fuankx.mp3"
+  },
+  {
+    "word": "premises",
+    "type": "n",
+    "phonetic": "/ˈpremɪsɪz/",
+    "meaning": "cơ sở (kinh doanh); khuôn viên",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753447646/toeic_vocab/shuoduwjjudb2zqlxhz5.mp3"
+  },
+  {
+    "word": "public transportation",
+    "type": "n",
+    "phonetic": "/ˈpʌblɪk ˌtrænspɔːrˈteɪʃən/",
+    "meaning": "phương tiện công cộng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451410/toeic_vocab/cw1indyds5vyumftjhjn.mp3"
+  },
+  {
+    "word": "rate",
+    "type": "n",
+    "phonetic": "/reɪt/",
+    "meaning": "giá (phòng, dịch vụ,...)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451411/toeic_vocab/dqofhzrdc2fv6wk0ypcn.mp3"
+  },
+  {
+    "word": "ticket",
+    "type": "n/v",
+    "phonetic": "/ˈtɪkɪt/",
+    "meaning": "(v) vé; (v) gửi vé phạt",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451412/toeic_vocab/dmlzuk5rqxpnppe9uyxj.mp3"
+  },
+  {
+    "word": "transit",
+    "type": "n",
+    "phonetic": "/ˈtrænzɪt/",
+    "meaning": "sự vận chuyển (hàng hóa)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451413/toeic_vocab/sim1ljfshf3bknhtpyvc.mp3"
+  },
+  {
+    "word": "widening",
+    "type": "n",
+    "phonetic": "/ˈwaɪdənɪŋ/",
+    "meaning": "việc mở rộng (đường)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451414/toeic_vocab/w5q6sjmp0pfzvnrwlju0.mp3"
+  },
+  {
+    "word": "acceleration",
+    "type": "n",
+    "phonetic": "/əkˌseləˈreɪʃn/",
+    "meaning": "sự tăng tốc",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451415/toeic_vocab/ejccyhypjuytbok3v40e.mp3"
+  },
+  {
+    "word": "accessible",
+    "type": "adj",
+    "phonetic": "/əkˈsesəbl/",
+    "meaning": "có thể tiếp cận; sử dụng được",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451416/toeic_vocab/zj4p0nb2xbkd1fhy8kqo.mp3"
+  },
+  {
+    "word": "alternate",
+    "type": "adj",
+    "phonetic": "/ˈɔːltərnət/",
+    "meaning": "thay thế",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451417/toeic_vocab/yztali7lvrmrwirqxlqb.mp3"
+  },
+  {
+    "word": "block",
+    "type": "n/v",
+    "phonetic": "/blɑːk/",
+    "meaning": "dãy (nhà); ngăn cản",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451418/toeic_vocab/ixf9bigggt3oju1fyifh.mp3"
+  },
+  {
+    "word": "commuter",
+    "type": "n",
+    "phonetic": "/kəˈmjuːtər/",
+    "meaning": "người đi làm xa",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451419/toeic_vocab/xorkcl92sxegsoc7czpi.mp3"
+  },
+  {
+    "word": "defensive",
+    "type": "adj",
+    "phonetic": "/dɪˈfensɪv/",
+    "meaning": "có tính cẩn trọng, đề phòng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451420/toeic_vocab/vnckd9bcs9dc0v8vkunf.mp3"
+  },
+  {
+    "word": "distraction",
+    "type": "n",
+    "phonetic": "/dɪˈstrækʃn/",
+    "meaning": "sự phân tâm",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451420/toeic_vocab/rhn5hkokllzpeje9v9xr.mp3"
+  },
+  {
+    "word": "emission",
+    "type": "n",
+    "phonetic": "/ɪˈmɪʃn/",
+    "meaning": "sự thải ra (khí)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451421/toeic_vocab/mqfblfvyyrhbcymqbejx.mp3"
+  },
+  {
+    "word": "fuel-efficiency",
+    "type": "n",
+    "phonetic": "/ˈfjuːəl ɪˈfɪʃnsi/",
+    "meaning": "khả năng tiết kiệm nhiên liệu",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451422/toeic_vocab/pcqepdvncwtuw4wqipzv.mp3"
+  },
+  {
+    "word": "immediately",
+    "type": "adv",
+    "phonetic": "/ɪˈmiːdiətli/",
+    "meaning": "ngay",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451423/toeic_vocab/ctxrtcvv2gs1160v2ey1.mp3"
+  },
+  {
+    "word": "impose",
+    "type": "v",
+    "phonetic": "/ɪmˈpəʊz/",
+    "meaning": "áp đặt (thuế, phạt...)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451425/toeic_vocab/xm07m4xyikslpzjbjyph.mp3"
+  },
+  {
+    "word": "incline",
+    "type": "v/n",
+    "phonetic": "/ɪnˈklaɪn/",
+    "meaning": "cúi xuống; (n) dốc",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451425/toeic_vocab/oupyehntglzasa54pez9.mp3"
+  },
+  {
+    "word": "manually",
+    "type": "adv",
+    "phonetic": "/ˈmænjuəli/",
+    "meaning": "thủ công",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451426/toeic_vocab/qhofxdxhzjttui20edda.mp3"
+  },
+  {
+    "word": "official",
+    "type": "adj/n",
+    "phonetic": "/əˈfɪʃl/",
+    "meaning": "chính thức; quan chức",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451427/toeic_vocab/kvh4upeevkipv0o9c6si.mp3"
+  },
+  {
+    "word": "precisely",
+    "type": "adv",
+    "phonetic": "/prɪˈsaɪsli/",
+    "meaning": "đúng, chính xác",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451428/toeic_vocab/dtb3ad5a3jafhuvz3njc.mp3"
+  },
+  {
+    "word": "provided that",
+    "type": "conj",
+    "phonetic": "/prəˈvaɪdɪd ðæt/",
+    "meaning": "miễn là",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451429/toeic_vocab/g4cqvoxyu6evisjo0qbx.mp3"
+  },
+  {
+    "word": "rebate",
+    "type": "n/v",
+    "phonetic": "/ˈriːbeɪt/",
+    "meaning": "giảm giá",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451430/toeic_vocab/z9p8yi2mbvrznfcgxxic.mp3"
+  },
+  {
+    "word": "regardless of",
+    "type": "prep",
+    "phonetic": "/rɪˈɡɑːrdləs əv/",
+    "meaning": "bất kể",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451431/toeic_vocab/sd4qw1xm6zezsatszkop.mp3"
+  },
+  {
+    "word": "repair",
+    "type": "v/n",
+    "phonetic": "/rɪˈper/",
+    "meaning": "sửa chữa",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451432/toeic_vocab/cx7qvuc0wkebqbngnl0t.mp3"
+  },
+  {
+    "word": "reputation",
+    "type": "n",
+    "phonetic": "/ˌrepjuˈteɪʃn/",
+    "meaning": "danh tiếng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451433/toeic_vocab/dme8mgnsfenjysbifwqi.mp3"
+  },
+  {
+    "word": "revert",
+    "type": "v",
+    "phonetic": "/rɪˈvɜːrt/",
+    "meaning": "trở về (nguyên trạng)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451434/toeic_vocab/rp1f4vm9vf3x5uy8i2ca.mp3"
+  },
+  {
+    "word": "route",
+    "type": "n",
+    "phonetic": "/ruːt/",
+    "meaning": "tuyến đường",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451436/toeic_vocab/wzlyinhy7oqjbr1wqngi.mp3"
+  },
+  {
+    "word": "safety",
+    "type": "n",
+    "phonetic": "/ˈseɪfti/",
+    "meaning": "sự an toàn",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451437/toeic_vocab/ooptme5zze26gv1ebxqe.mp3"
+  },
+  {
+    "word": "securely",
+    "type": "adv",
+    "phonetic": "/sɪˈkjʊrli/",
+    "meaning": "chặt, chắc chắn; an toàn",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451438/toeic_vocab/qgoadlluvctmkniwmn0q.mp3"
+  },
+  {
+    "word": "specifically",
+    "type": "adv",
+    "phonetic": "/spəˈsɪfɪkli/",
+    "meaning": "đặc biệt",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451439/toeic_vocab/judfpvwk0dyjlkvma4uo.mp3"
+  },
+  {
+    "word": "compile",
+    "type": "v",
+    "phonetic": "/kəmˈpaɪl/",
+    "meaning": "biên soạn",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451440/toeic_vocab/zawnbzefra3w9t7uxdnt.mp3"
+  },
+  {
+    "word": "compliance",
+    "type": "n",
+    "phonetic": "/kəmˈplaɪəns/",
+    "meaning": "sự tuân thủ",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451441/toeic_vocab/qyfmhwcrhu1ob9lk5lio.mp3"
+  },
+  {
+    "word": "considerably",
+    "type": "adv",
+    "phonetic": "/kənˈsɪdərəbli/",
+    "meaning": "đáng kể",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451442/toeic_vocab/ubke49zyce4h0ff6eikf.mp3"
+  },
+  {
+    "word": "drowsiness",
+    "type": "n",
+    "phonetic": "/ˈdraʊzinəs/",
+    "meaning": "sự buồn ngủ",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451443/toeic_vocab/u95lrrhraiio5xu3s4re.mp3"
+  },
+  {
+    "word": "fleet",
+    "type": "n",
+    "phonetic": "/fliːt/",
+    "meaning": "đội (xe, máy bay,...)",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451445/toeic_vocab/zxpmvpbfgxi39qntl5xc.mp3"
+  },
+  {
+    "word": "suspend",
+    "type": "v",
+    "phonetic": "/səˈspend/",
+    "meaning": "đình chỉ",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451445/toeic_vocab/b2ywyczgrbayiy10lf2x.mp3"
+  },
+  {
+    "word": "carefully",
+    "type": "adv",
+    "phonetic": "/ˈkeəfəli/",
+    "meaning": "một cách cẩn thận",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451446/toeic_vocab/sgvfpulyr6domxzzdinj.mp3"
+  },
+  {
+    "word": "cautious",
+    "type": "adj",
+    "phonetic": "/ˈkɔːʃəs/",
+    "meaning": "cẩn trọng",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451447/toeic_vocab/qj8m9hzichnlvhknzgdu.mp3"
+  },
+  {
+    "word": "maintain",
+    "type": "v",
+    "phonetic": "/meɪnˈteɪn/",
+    "meaning": "duy trì; bảo trì",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451448/toeic_vocab/qs3zwlpafwjxof2ajott.mp3"
+  },
+  {
+    "word": "perfectly",
+    "type": "adv",
+    "phonetic": "/ˈpɜːrfɪktli/",
+    "meaning": "hoàn toàn; hoàn hảo",
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753451449/toeic_vocab/v3v5xtr9mstjksihmihw.mp3"
+  }
+]

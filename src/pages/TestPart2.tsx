@@ -193,36 +193,51 @@ const TestPart2: React.FC = () => {
       return;
     }
     
-    // Tách testId: part2-level1-test1
-    const match = testId.match(/^part2-(level[0-9]+)-test([0-9]+)$/);
+    // Tách testId: part2-test1
+    const match = testId.match(/^part2-test([0-9]+)$/);
     console.log('Match result:', match);
     
     if (!match) {
-      console.log('Invalid testId format, redirecting to /part2');
+      console.log('Invalid testId format:', testId, 'redirecting to /part2');
       navigate('/part2');
       return;
     }
     
-    const levelKey = match[1];
-    const testIndex = parseInt(match[2], 10) - 1;
-    console.log('Level key:', levelKey, 'Test index:', testIndex);
+    const testIndex = parseInt(match[1], 10) - 1;
+    console.log('Test index:', testIndex, 'Test number:', match[1]);
     
-    // Tìm key đúng trong JSON (có thể có dấu cách)
+    // Lấy tất cả questions từ tất cả levels
+    let allQuestions: any[] = [];
     const allKeys = Object.keys(part2Data);
     console.log('All keys in part2Data:', allKeys);
     
-    // Tìm key có dấu cách ở cuối (như "level1 ")
-    const foundKey = allKeys.find(k => k.trim() === levelKey);
-    console.log('Found key:', foundKey);
-    
-    if (!foundKey) {
-      console.log('Key not found, redirecting to /part2');
-      navigate('/part2');
-      return;
+    for (let level = 1; level <= 3; level++) {
+      const levelKey = `level${level}`;
+      // Tìm key có thể có dấu cách ở cuối
+      const foundKey = allKeys.find(k => k.trim() === levelKey);
+      console.log('Looking for key:', levelKey, 'Found:', foundKey);
+      
+      if (foundKey) {
+        const questions = (part2Data as any)[foundKey] || [];
+        console.log('Questions found for level:', level, 'Count:', questions.length);
+        allQuestions = allQuestions.concat(questions);
+      } else {
+        // Thử tìm key với dấu cách ở cuối
+        const foundKeyWithSpace = allKeys.find(k => k === `${levelKey} `);
+        console.log('Looking for key with space:', `${levelKey} `, 'Found:', foundKeyWithSpace);
+        
+        if (foundKeyWithSpace) {
+          const questions = (part2Data as any)[foundKeyWithSpace] || [];
+          console.log('Questions found for level:', level, 'Count:', questions.length);
+          allQuestions = allQuestions.concat(questions);
+        } else {
+          console.log('Key not found for level:', levelKey);
+          console.log('Available keys:', allKeys);
+        }
+      }
     }
     
-    const allQuestions = (part2Data as any)[foundKey] || [];
-    console.log('All questions for level:', allQuestions.length);
+    console.log('Total questions:', allQuestions.length);
     
     const QUESTIONS_PER_TEST = 10; // Giảm xuống 10 câu mỗi bài test
     const startIndex = testIndex * QUESTIONS_PER_TEST;
@@ -231,9 +246,18 @@ const TestPart2: React.FC = () => {
     
     const testQuestions = allQuestions.slice(startIndex, endIndex);
     console.log('Test questions loaded:', testQuestions.length);
+    console.log('Test questions:', testQuestions);
     
     if (testQuestions.length === 0) {
       console.log('No questions found for this test, redirecting to /part2');
+      console.log('Start index:', startIndex, 'End index:', endIndex, 'Total questions:', allQuestions.length);
+      navigate('/part2');
+      return;
+    }
+    
+    // Đảm bảo có ít nhất 1 question
+    if (testQuestions.length < 1) {
+      console.log('Not enough questions for this test, redirecting to /part2');
       navigate('/part2');
       return;
     }
@@ -265,8 +289,8 @@ const TestPart2: React.FC = () => {
   console.log('Render - currentQuestion:', currentQuestion);
   console.log('Render - questions array:', questions);
 
-  if (!currentQuestion) {
-    console.log('No currentQuestion, showing loading...');
+  if (!currentQuestion || questions.length === 0) {
+    console.log('No currentQuestion or questions, showing loading...');
     return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
   }
 

@@ -34,7 +34,7 @@ const StatisticsSection: React.FC = () => {
       <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">Thống kê học tập</h2>
       <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div className="text-center">
-          <div className="text-3xl font-bold text-indigo-600 mb-2 pulse-animation">1,250</div>
+          <div className="text-3xl font-bold text-green-600 mb-2 pulse-animation">1,250</div>
           <div className="text-gray-600">Câu hỏi đã làm</div>
         </div>
         <div className="text-center">
@@ -42,11 +42,11 @@ const StatisticsSection: React.FC = () => {
           <div className="text-gray-600">Độ chính xác</div>
         </div>
         <div className="text-center">
-          <div className="text-3xl font-bold text-orange-600 mb-2 pulse-animation">24</div>
+          <div className="text-3xl font-bold text-green-600 mb-2 pulse-animation">24</div>
           <div className="text-gray-600">Ngày liên tiếp</div>
         </div>
         <div className="text-center">
-          <div className="text-3xl font-bold text-purple-600 mb-2 pulse-animation">750</div>
+          <div className="text-3xl font-bold text-green-600 mb-2 pulse-animation">750</div>
           <div className="text-gray-600">Điểm dự đoán</div>
         </div>
       </div>

@@ -61,7 +61,7 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({
               >
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="font-semibold text-gray-800">{lvl.name}</h4>
-                  <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Level {lvl.level}</span>
+                  <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Level {lvl.level}</span>
                 </div>
                 <div className="flex items-center text-xs text-gray-500">
                   <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -73,7 +73,7 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({
             );
           })}
         </div>
-        <div className="mt-8 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl">
+        <div className="mt-8 p-4 bg-gradient-to-r from-green-50 to-green-50 rounded-xl">
           <h4 className="font-semibold text-gray-800 mb-3">📊 Thống kê nhanh</h4>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
@@ -82,11 +82,11 @@ const LevelSelection: React.FC<LevelSelectionProps> = ({
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Bài hoàn thành:</span>
-              <span className="font-semibold text-blue-600">{completedTests}/{totalTests}</span>
+              <span className="font-semibold text-green-600">{completedTests}/{totalTests}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Thời gian TB:</span>
-              <span className="font-semibold text-purple-600">{completedTests > 0 ? '12s/câu' : '0s/câu'}</span>
+              <span className="font-semibold text-green-600">{completedTests > 0 ? '12s/câu' : '0s/câu'}</span>
             </div>
           </div>
         </div>

@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import levelData from '../data/toeic_part1.json';
-import PartInfo from '../components/PartSession/PartInfo';
+
 import TestList from '../components/PartSession/TestList';
-import LevelSelection from '../components/PartSession/LevelSelection';
 import { preloadImages, getImageUrlsFromQuestions } from '../utils/imagePreloader';
 
 const QUESTIONS_PER_TEST = 6;
 
 const Part1: React.FC = () => {
   const navigate = useNavigate();
-  // State này nên được đồng bộ với tab chủ đề và LevelSelection
-  const [currentCategory, setCurrentCategory] = useState<string>('people');
-  const [currentLevel, setCurrentLevel] = useState<number>(1);
-  const [totalTests, setTotalTests] = useState<number>(0);
-  const [completedTests, setCompletedTests] = useState<number>(0);
   const [currentTab, setCurrentTab] = useState<string>('all');
   const [loadingTests, setLoadingTests] = useState<Set<string>>(new Set());
   const [loadingProgress, setLoadingProgress] = useState<{[testId: string]: {loaded: number, total: number}}>({});
 
-  // Hàm lấy danh sách bài test theo tab và level
-  const getTestsByTabAndLevel = (tab: string, level: number) => {
+  // Hàm lấy danh sách bài test theo tab (không phân level)
+  const getTestsByTab = (tab: string) => {
     let categories: string[] = [];
     
     if (tab === 'all') {
@@ -33,15 +27,20 @@ const Part1: React.FC = () => {
     
     let allTests: any[] = [];
     categories.forEach((cat) => {
-      // Dữ liệu có thể có key thừa dấu cách, nên thử cả hai
-      const questions = (levelData as any)[cat]?.[`level${level}`] || (levelData as any)[cat]?.[`level${level} `] || [];
-      console.log(`Category: ${cat}, Level: ${level}, Questions: ${questions.length}`);
-      const tests = Array.from({ length: Math.ceil(questions.length / QUESTIONS_PER_TEST) }, (_, i) => ({
-        id: `${cat}-level${level}-test${i + 1}`,
-        title: `# ${i + 1} (${cat === 'people' ? 'Con người' : cat === 'object' ? 'Vật thể' : cat === 'environment' ? 'Môi trường' : 'Khác'})`,
+      // Lấy tất cả questions từ tất cả levels
+      let allQuestions: any[] = [];
+      for (let level = 1; level <= 3; level++) {
+        const questions = (levelData as any)[cat]?.[`level${level}`] || (levelData as any)[cat]?.[`level${level} `] || [];
+        allQuestions = allQuestions.concat(questions);
+      }
+      
+      console.log(`Category: ${cat}, Total Questions: ${allQuestions.length}`);
+      const tests = Array.from({ length: Math.ceil(allQuestions.length / QUESTIONS_PER_TEST) }, (_, i) => ({
+        id: `${cat}-test${i + 1}`,
+        title: `# ${i + 1} (${cat === 'people' ? 'People' : cat === 'object' ? 'Objects' : cat === 'environment' ? 'Environment' : 'Other'})`,
         category: cat,
-        level: level,
-        questions: questions.slice(i * QUESTIONS_PER_TEST, (i + 1) * QUESTIONS_PER_TEST).length,
+        level: 1, // Chỉ dùng 1 level chung
+        questions: allQuestions.slice(i * QUESTIONS_PER_TEST, (i + 1) * QUESTIONS_PER_TEST).length,
         completed: false,
         score: 0,
       }));
@@ -50,39 +49,13 @@ const Part1: React.FC = () => {
     return allTests;
   };
 
-  // Lấy danh sách bài test theo tab và level hiện tại
-  const tests = getTestsByTabAndLevel(currentTab, currentLevel);
+  // Lấy danh sách bài test theo tab hiện tại
+  const tests = getTestsByTab(currentTab);
 
-  // Tạo dữ liệu levels cho LevelSelection
-  const levels = [
-    { 
-      level: 1, 
-      name: 'Basic', 
-      tests: getTestsByTabAndLevel(currentTab, 1) 
-    },
-    { 
-      level: 2, 
-      name: 'Intermediate', 
-      tests: getTestsByTabAndLevel(currentTab, 2) 
-    },
-    { 
-      level: 3, 
-      name: 'Advanced', 
-      tests: getTestsByTabAndLevel(currentTab, 3) 
-    }
-  ];
 
-  useEffect(() => {
-    // Tính tổng số bài test từ tất cả levels
-    const totalTestsCount = levels.reduce((sum, level) => sum + level.tests.length, 0);
-    setTotalTests(totalTestsCount);
-    
-    // Tính số bài test đã hoàn thành (hiện tại là 0 vì chưa có logic lưu trữ)
-    setCompletedTests(0);
-  }, [currentTab, currentLevel, levels]);
 
   const startTest = async (testId: string) => {
-    const [category, level, testNumber] = testId.split('-');
+    const [category, testNumber] = testId.split('-');
     
     // Bắt đầu loading
     setLoadingTests(prev => new Set(prev).add(testId));
@@ -92,9 +65,13 @@ const Part1: React.FC = () => {
     }));
 
     try {
-      // Lấy questions cho bài test này
-      const levelKey = `level${level.replace('level', '')}`;
-      const allQuestions = (levelData as any)[category]?.[levelKey] || (levelData as any)[category]?.[levelKey + ' '] || [];
+      // Lấy tất cả questions từ tất cả levels cho category này
+      let allQuestions: any[] = [];
+      for (let level = 1; level <= 3; level++) {
+        const questions = (levelData as any)[category]?.[`level${level}`] || (levelData as any)[category]?.[`level${level} `] || [];
+        allQuestions = allQuestions.concat(questions);
+      }
+      
       const testIndex = parseInt(testNumber.replace('test', ''), 10) - 1;
       const testQuestions = allQuestions.slice(testIndex * QUESTIONS_PER_TEST, (testIndex + 1) * QUESTIONS_PER_TEST);
       
@@ -103,7 +80,7 @@ const Part1: React.FC = () => {
       
       if (imageUrls.length === 0) {
         // Nếu không có ảnh nào, navigate luôn
-        navigate('/test-part1', { state: { testId, category, level } });
+        navigate('/test-part1', { state: { testId, category, level: 'level1' } });
         return;
       }
 
@@ -116,12 +93,12 @@ const Part1: React.FC = () => {
       });
 
       // Khi đã preload xong, navigate tới trang test
-      navigate('/test-part1', { state: { testId, category, level } });
+      navigate('/test-part1', { state: { testId, category, level: 'level1' } });
       
     } catch (error) {
       console.error('Error preloading images:', error);
       // Nếu có lỗi, vẫn navigate để user có thể làm bài
-      navigate('/test-part1', { state: { testId, category, level } });
+      navigate('/test-part1', { state: { testId, category, level: 'level1' } });
     } finally {
       // Cleanup loading state
       setLoadingTests(prev => {
@@ -138,28 +115,34 @@ const Part1: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto py-8 flex gap-8">
-      <div className="flex-1">
-        <PartInfo
-          partTitle="Part 1 - Photographs"
-          partDescription="6 câu hỏi - mô tả hình ảnh"
-          currentLevel={{ name: `level${currentLevel}`, tests }}
-        />
-        <TestList
-          tests={tests}
-          currentTab={currentTab}
-          setCurrentTab={setCurrentTab}
-          startTest={startTest}
-          loadingTests={loadingTests}
-          loadingProgress={loadingProgress}
-        />
+    <div className="container mx-auto py-8 max-w-6xl">
+      {/* Title Section */}
+      <div className="text-center mb-12">
+        <h1 className="text-3xl font-bold text-slate-800 mb-4">Part 1 - Photographs</h1>
+        <p className="text-slate-600 text-lg">Look at the image and choose the best description</p>
+        <div className="mt-4 flex justify-center items-center gap-4 text-sm text-slate-500">
+          <div className="flex items-center gap-2">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+            </svg>
+            <span>Image-based questions</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4z" clipRule="evenodd" />
+            </svg>
+            <span>6 questions per test</span>
+          </div>
+        </div>
       </div>
-      <LevelSelection
-        currentLevel={currentLevel}
-        setCurrentLevel={setCurrentLevel}
-        totalTests={totalTests}
-        completedTests={completedTests}
-        levels={levels}
+      
+      <TestList
+        tests={tests}
+        currentTab={currentTab}
+        setCurrentTab={setCurrentTab}
+        startTest={startTest}
+        loadingTests={loadingTests}
+        loadingProgress={loadingProgress}
       />
     </div>
   );

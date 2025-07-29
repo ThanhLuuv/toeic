@@ -1,0 +1,1512 @@
+[
+    {
+      "sentence": "She's eating in a picnic area.",
+      "sentence_translation": "Cô ấy đang ăn trong khu vực picnic.",
+      "words": [
+        {
+          "word": "eating",
+          "type": "verb",
+          "phonetic": "/ˈiːtɪŋ/",
+          "meaning": "đang ăn"
+        },
+        {
+          "word": "picnic",
+          "type": "noun",
+          "phonetic": "/ˈpɪknɪk/",
+          "meaning": "buổi dã ngoại"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610078/part1_sentences/sebp1fh3jq7wwsgcjidy.mp3"
+    },
+    {
+      "sentence": "She's waiting in line at a food truck.",
+      "sentence_translation": "Cô ấy đang chờ xếp hàng tại xe bán thức ăn.",
+      "words": [
+        {
+          "word": "waiting",
+          "type": "verb",
+          "phonetic": "/ˈweɪtɪŋ/",
+          "meaning": "đang chờ"
+        },
+        {
+          "word": "food",
+          "type": "noun",
+          "phonetic": "/fuːd/",
+          "meaning": "thức ăn"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610109/part1_sentences/fhyh4nyjw4ayj7l3rdcx.mp3"
+    },
+    {
+      "sentence": "She's wiping off a bench.",
+      "sentence_translation": "Cô ấy đang lau sạch một chiếc ghế dài.",
+      "words": [
+        {
+          "word": "wiping",
+          "type": "verb",
+          "phonetic": "/ˈwaɪpɪŋ/",
+          "meaning": "đang lau"
+        },
+        {
+          "word": "bench",
+          "type": "noun",
+          "phonetic": "/bentʃ/",
+          "meaning": "ghế dài"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610110/part1_sentences/kvzqemiked9lgmqejpaf.mp3"
+    },
+    {
+      "sentence": "She's throwing away a plate.",
+      "sentence_translation": "Cô ấy đang vứt đi một cái đĩa.",
+      "words": [
+        {
+          "word": "throwing",
+          "type": "verb",
+          "phonetic": "/ˈθroʊɪŋ/",
+          "meaning": "đang ném"
+        },
+        {
+          "word": "plate",
+          "type": "noun",
+          "phonetic": "/pleɪt/",
+          "meaning": "đĩa"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610111/part1_sentences/a9mxlvg5xopv03dli6su.mp3"
+    },
+    {
+      "sentence": "The man is brushing snow off the roof of a car.",
+      "sentence_translation": "Người đàn ông đang quét tuyết khỏi mái xe.",
+      "words": [
+        {
+          "word": "brushing",
+          "type": "verb",
+          "phonetic": "/ˈbrʌʃɪŋ/",
+          "meaning": "đang quét"
+        },
+        {
+          "word": "snow",
+          "type": "noun",
+          "phonetic": "/snoʊ/",
+          "meaning": "tuyết"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610111/part1_sentences/rgje4qfhchip2uytzwzv.mp3"
+    },
+    {
+      "sentence": "The man is standing in the snow beside a car.",
+      "sentence_translation": "Người đàn ông đang đứng trong tuyết bên cạnh một chiếc xe.",
+      "words": [
+        {
+          "word": "standing",
+          "type": "verb",
+          "phonetic": "/ˈstændɪŋ/",
+          "meaning": "đang đứng"
+        },
+        {
+          "word": "beside",
+          "type": "prep",
+          "phonetic": "/bɪˈsaɪd/",
+          "meaning": "bên cạnh"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610112/part1_sentences/nl6bkuvvitkua0jjcew1.mp3"
+    },
+    {
+      "sentence": "The man is shoveling snow from a walkway.",
+      "sentence_translation": "Người đàn ông đang xúc tuyết từ lối đi bộ.",
+      "words": [
+        {
+          "word": "shoveling",
+          "type": "verb",
+          "phonetic": "/ˈʃʌvəlɪŋ/",
+          "meaning": "đang xúc"
+        },
+        {
+          "word": "walkway",
+          "type": "noun",
+          "phonetic": "/ˈwɔːkweɪ/",
+          "meaning": "lối đi bộ"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610113/part1_sentences/iel67tluagr2rc3eh7id.mp3"
+    },
+    {
+      "sentence": "The man is running through the snow.",
+      "sentence_translation": "Người đàn ông đang chạy qua tuyết.",
+      "words": [
+        {
+          "word": "running",
+          "type": "verb",
+          "phonetic": "/ˈrʌnɪŋ/",
+          "meaning": "đang chạy"
+        },
+        {
+          "word": "through",
+          "type": "prep",
+          "phonetic": "/θruː/",
+          "meaning": "qua"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610113/part1_sentences/whqbgtdjl589uv8xyj7k.mp3"
+    },
+    {
+      "sentence": "Some workers are hanging art in a gallery.",
+      "sentence_translation": "Một số công nhân đang treo tranh nghệ thuật trong phòng trưng bày.",
+      "words": [
+        {
+          "word": "workers",
+          "type": "noun",
+          "phonetic": "/ˈwɜːrkərz/",
+          "meaning": "công nhân"
+        },
+        {
+          "word": "gallery",
+          "type": "noun",
+          "phonetic": "/ˈɡæləri/",
+          "meaning": "phòng trưng bày"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610114/part1_sentences/xvlxo3xoksxr3qmlnr4m.mp3"
+    },
+    {
+      "sentence": "Two of the people are having a conversation.",
+      "sentence_translation": "Hai trong số những người đó đang có một cuộc trò chuyện.",
+      "words": [
+        {
+          "word": "people",
+          "type": "noun",
+          "phonetic": "/ˈpiːpəl/",
+          "meaning": "người"
+        },
+        {
+          "word": "having",
+          "type": "verb",
+          "phonetic": "/ˈhævɪŋ/",
+          "meaning": "có"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753610115/part1_sentences/mernsmaju5gcw6nibhs8.mp3"
+    },
+    {
+      "sentence": "One of the men is rearranging cushions on a sofa.",
+      "sentence_translation": "Một trong những người đàn ông đang sắp xếp lại đệm trên ghế sofa.",
+      "words": [
+        {
+          "word": "rearranging",
+          "type": "verb",
+          "phonetic": "/ˌriːəˈreɪndʒɪŋ/",
+          "meaning": "sắp xếp lại"
+        },
+        {
+          "word": "cushions",
+          "type": "noun",
+          "phonetic": "/ˈkʊʃənz/",
+          "meaning": "đệm"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673128/part1_sentences/pen0zhwq31bt05s65ypu.mp3"
+    },
+    {
+      "sentence": "One of the men is painting a picture.",
+      "sentence_translation": "Một trong những người đàn ông đang vẽ một bức tranh.",
+      "words": [
+        {
+          "word": "painting",
+          "type": "verb",
+          "phonetic": "/ˈpeɪntɪŋ/",
+          "meaning": "vẽ"
+        },
+        {
+          "word": "picture",
+          "type": "noun",
+          "phonetic": "/ˈpɪktʃər/",
+          "meaning": "bức tranh"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673128/part1_sentences/uflo6tfx2y5k39nyidux.mp3"
+    },
+    {
+      "sentence": "Vehicles are entering a parking garage.",
+      "sentence_translation": "Các xe đang đi vào nhà để xe.",
+      "words": [
+        {
+          "word": "Vehicles",
+          "type": "noun",
+          "phonetic": "/ˈviːəkəlz/",
+          "meaning": "Các xe"
+        },
+        {
+          "word": "entering",
+          "type": "verb",
+          "phonetic": "/ˈentərɪŋ/",
+          "meaning": "đi vào"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673129/part1_sentences/gb7mnehuye3gkuflsmrl.mp3"
+    },
+    {
+      "sentence": "Clothes hangers are scattered on the ground.",
+      "sentence_translation": "Móc treo quần áo được rải rác trên mặt đất.",
+      "words": [
+        {
+          "word": "hangers",
+          "type": "noun",
+          "phonetic": "/ˈhæŋərz/",
+          "meaning": "móc treo"
+        },
+        {
+          "word": "scattered",
+          "type": "verb",
+          "phonetic": "/ˈskætərd/",
+          "meaning": "rải rác"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673130/part1_sentences/lgo0innin2ee1dciftzp.mp3"
+    },
+    {
+      "sentence": "Empty racks are lined up next to a building.",
+      "sentence_translation": "Các giá trống được xếp hàng bên cạnh một tòa nhà.",
+      "words": [
+        {
+          "word": "racks",
+          "type": "noun",
+          "phonetic": "/ræks/",
+          "meaning": "giá"
+        },
+        {
+          "word": "lined",
+          "type": "verb",
+          "phonetic": "/laɪnd/",
+          "meaning": "xếp hàng"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673131/part1_sentences/drrv6dfzoqjppcij1hyz.mp3"
+    },
+    {
+      "sentence": "Clothing is being displayed under a tent.",
+      "sentence_translation": "Quần áo đang được trưng bày dưới một chiếc lều.",
+      "words": [
+        {
+          "word": "Clothing",
+          "type": "noun",
+          "phonetic": "/ˈkloʊðɪŋ/",
+          "meaning": "Quần áo"
+        },
+        {
+          "word": "displayed",
+          "type": "verb",
+          "phonetic": "/dɪˈspleɪd/",
+          "meaning": "trưng bày"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673132/part1_sentences/h51wu9vygyyaehfsyaf8.mp3"
+    },
+    {
+      "sentence": "Potted plants have been suspended from a ceiling.",
+      "sentence_translation": "Các chậu cây đã được treo từ trần nhà.",
+      "words": [
+        {
+          "word": "plants",
+          "type": "noun",
+          "phonetic": "/plænts/",
+          "meaning": "cây"
+        },
+        {
+          "word": "suspended",
+          "type": "verb",
+          "phonetic": "/səˈspendɪd/",
+          "meaning": "treo"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673132/part1_sentences/txfxnwryauke5roemwe1.mp3"
+    },
+    {
+      "sentence": "Chairs have been stacked in front of an entryway.",
+      "sentence_translation": "Các chiếc ghế đã được xếp chồng trước lối vào.",
+      "words": [
+        {
+          "word": "Chairs",
+          "type": "noun",
+          "phonetic": "/tʃɛrz/",
+          "meaning": "Các chiếc ghế"
+        },
+        {
+          "word": "stacked",
+          "type": "verb",
+          "phonetic": "/stækt/",
+          "meaning": "xếp chồng"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673133/part1_sentences/fnt1ba2aqadu31sfzegp.mp3"
+    },
+    {
+      "sentence": "A computer station has been set up on a desk.",
+      "sentence_translation": "Một trạm máy tính đã được thiết lập trên bàn làm việc.",
+      "words": [
+        {
+          "word": "computer",
+          "type": "noun",
+          "phonetic": "/kəmˈpjuːtər/",
+          "meaning": "máy tính"
+        },
+        {
+          "word": "set",
+          "type": "verb",
+          "phonetic": "/sɛt/",
+          "meaning": "thiết lập"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673134/part1_sentences/p3pnuze5vqmihwvwrjyp.mp3"
+    },
+    {
+      "sentence": "A rug has been rolled up against a wall.",
+      "sentence_translation": "Một tấm thảm đã được cuộn lại dựa vào tường.",
+      "words": [
+        {
+          "word": "rug",
+          "type": "noun",
+          "phonetic": "/rʌɡ/",
+          "meaning": "tấm thảm"
+        },
+        {
+          "word": "rolled",
+          "type": "verb",
+          "phonetic": "/roʊld/",
+          "meaning": "cuộn"
+        }
+      ],
+      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753673136/part1_sentences/jbwcxy7fozohgeyrgs72.mp3"
+    },
+    {
+    "sentence": "One of the men is sweeping a patio.",
+    "sentence_translation": "Một trong những người đàn ông đang quét sân hiên.",
+    "words": [
+      {
+        "word": "sweeping",
+        "type": "verb",
+        "phonetic": "/ˈswiːpɪŋ/",
+        "meaning": "quét"
+      },
+      {
+        "word": "patio",
+        "type": "noun",
+        "phonetic": "/ˈpætioʊ/",
+        "meaning": "sân hiên"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675725/part1_sentences/tw9oaofq2zpwwdrmdwln.mp3"
+  },
+  {
+    "sentence": "One of the men is replacing some flooring.",
+    "sentence_translation": "Một trong những người đàn ông đang thay thế một số sàn nhà.",
+    "words": [
+      {
+        "word": "replacing",
+        "type": "verb",
+        "phonetic": "/rɪˈpleɪsɪŋ/",
+        "meaning": "thay thế"
+      },
+      {
+        "word": "flooring",
+        "type": "noun",
+        "phonetic": "/ˈflɔːrɪŋ/",
+        "meaning": "sàn nhà"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675726/part1_sentences/szuxhurosivgvydggus3.mp3"
+  },
+  {
+    "sentence": "A door has been taken off its frame.",
+    "sentence_translation": "Một cánh cửa đã được tháo khỏi khung của nó.",
+    "words": [
+      {
+        "word": "door",
+        "type": "noun",
+        "phonetic": "/dɔːr/",
+        "meaning": "cánh cửa"
+      },
+      {
+        "word": "frame",
+        "type": "noun",
+        "phonetic": "/freɪm/",
+        "meaning": "khung"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675727/part1_sentences/fauykeywmlsy0wqfa20a.mp3"
+  },
+  {
+    "sentence": "A light fixture has been left on the ground.",
+    "sentence_translation": "Một bộ đèn chiếu sáng đã được để lại trên mặt đất.",
+    "words": [
+      {
+        "word": "fixture",
+        "type": "noun",
+        "phonetic": "/ˈfɪkstʃər/",
+        "meaning": "bộ đèn"
+      },
+      {
+        "word": "ground",
+        "type": "noun",
+        "phonetic": "/ɡraʊnd/",
+        "meaning": "mặt đất"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675728/part1_sentences/d16ex0j2xekwnb7rkl5f.mp3"
+  },
+  {
+    "sentence": "She's inserting a cord into an outlet.",
+    "sentence_translation": "Cô ấy đang cắm dây điện vào ổ cắm.",
+    "words": [
+      {
+        "word": "inserting",
+        "type": "verb",
+        "phonetic": "/ɪnˈsɜːrtɪŋ/",
+        "meaning": "cắm vào"
+      },
+      {
+        "word": "outlet",
+        "type": "noun",
+        "phonetic": "/ˈaʊtlɛt/",
+        "meaning": "ổ cắm"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675729/part1_sentences/akwgmmzrxt7kwthqnujf.mp3"
+  },
+  {
+    "sentence": "She's pressing a button on a machine.",
+    "sentence_translation": "Cô ấy đang nhấn một nút trên máy.",
+    "words": [
+      {
+        "word": "pressing",
+        "type": "verb",
+        "phonetic": "/ˈprɛsɪŋ/",
+        "meaning": "nhấn"
+      },
+      {
+        "word": "button",
+        "type": "noun",
+        "phonetic": "/ˈbʌtən/",
+        "meaning": "nút"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675730/part1_sentences/vkplhjbhint6ep7x2ax8.mp3"
+  },
+  {
+    "sentence": "She's gripping the handle of a drawer.",
+    "sentence_translation": "Cô ấy đang nắm chặt tay cầm của ngăn kéo.",
+    "words": [
+      {
+        "word": "gripping",
+        "type": "verb",
+        "phonetic": "/ˈɡrɪpɪŋ/",
+        "meaning": "nắm chặt"
+      },
+      {
+        "word": "drawer",
+        "type": "noun",
+        "phonetic": "/drɔːr/",
+        "meaning": "ngăn kéo"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675730/part1_sentences/io4rbe1tgwq8jhuglxkl.mp3"
+  },
+  {
+    "sentence": "She's tacking a notice onto the wall.",
+    "sentence_translation": "Cô ấy đang ghim một thông báo lên tường.",
+    "words": [
+      {
+        "word": "tacking",
+        "type": "verb",
+        "phonetic": "/ˈtækɪŋ/",
+        "meaning": "ghim"
+      },
+      {
+        "word": "notice",
+        "type": "noun",
+        "phonetic": "/ˈnoʊtɪs/",
+        "meaning": "thông báo"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675731/part1_sentences/jc9ati3pedcreeuxrknp.mp3"
+  },
+  {
+    "sentence": "Some window shutters are being replaced.",
+    "sentence_translation": "Một số cửa chớp cửa sổ đang được thay thế.",
+    "words": [
+      {
+        "word": "shutters",
+        "type": "noun",
+        "phonetic": "/ˈʃʌtərz/",
+        "meaning": "cửa chớp"
+      },
+      {
+        "word": "replaced",
+        "type": "verb",
+        "phonetic": "/rɪˈpleɪst/",
+        "meaning": "thay thế"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675733/part1_sentences/oq3bno2qgrntonjkfxdx.mp3"
+  },
+  {
+    "sentence": "A pillow is being arranged on a seat.",
+    "sentence_translation": "Một chiếc gối đang được sắp xếp trên ghế ngồi.",
+    "words": [
+      {
+        "word": "pillow",
+        "type": "noun",
+        "phonetic": "/ˈpɪloʊ/",
+        "meaning": "gối"
+      },
+      {
+        "word": "arranged",
+        "type": "verb",
+        "phonetic": "/əˈreɪndʒd/",
+        "meaning": "sắp xếp"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753675733/part1_sentences/kah8uhh6hfuqlyouomv3.mp3"
+  },
+  {
+    "sentence": "An outdoor table is being cleared off.",
+    "sentence_translation": "Một chiếc bàn ngoài trời đang được dọn sạch.",
+    "words": [
+      {
+        "word": "table",
+        "type": "noun",
+        "phonetic": "/ˈteɪbəl/",
+        "meaning": "bàn"
+      },
+      {
+        "word": "cleared",
+        "type": "verb",
+        "phonetic": "/klɪrd/",
+        "meaning": "dọn sạch"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682713/part1_sentences/ubsgy0ns3cj5ij1jbu8s.mp3"
+  },
+  {
+    "sentence": "Some wooden boards are being painted.",
+    "sentence_translation": "Một số tấm ván gỗ đang được sơn.",
+    "words": [
+      {
+        "word": "boards",
+        "type": "noun",
+        "phonetic": "/bɔːrdz/",
+        "meaning": "tấm ván"
+      },
+      {
+        "word": "painted",
+        "type": "verb",
+        "phonetic": "/ˈpeɪntɪd/",
+        "meaning": "sơn"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682714/part1_sentences/tg0iqml1gjwa4ivqddqb.mp3"
+  },
+  {
+    "sentence": "Some utensils have been discarded in a bin.",
+    "sentence_translation": "Một số dụng cụ đã được vứt vào thùng rác.",
+    "words": [
+      {
+        "word": "utensils",
+        "type": "noun",
+        "phonetic": "/juːˈtensəlz/",
+        "meaning": "dụng cụ"
+      },
+      {
+        "word": "discarded",
+        "type": "verb",
+        "phonetic": "/dɪˈskɑːrdɪd/",
+        "meaning": "vứt bỏ"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682714/part1_sentences/cn9mvff3xhrj0mbsvrm7.mp3"
+  },
+  {
+    "sentence": "Some bottles are being emptied into a sink.",
+    "sentence_translation": "Một số chai đang được đổ rỗng vào bồn rửa.",
+    "words": [
+      {
+        "word": "bottles",
+        "type": "noun",
+        "phonetic": "/ˈbɑːtəlz/",
+        "meaning": "chai"
+      },
+      {
+        "word": "emptied",
+        "type": "verb",
+        "phonetic": "/ˈemptid/",
+        "meaning": "đổ rỗng"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682715/part1_sentences/sn5x87dmm5wn9y8t1s8y.mp3"
+  },
+  {
+    "sentence": "A rolling chair has been placed next to a counter.",
+    "sentence_translation": "Một chiếc ghế có bánh xe đã được đặt bên cạnh quầy.",
+    "words": [
+      {
+        "word": "chair",
+        "type": "noun",
+        "phonetic": "/tʃɛr/",
+        "meaning": "ghế"
+      },
+      {
+        "word": "placed",
+        "type": "verb",
+        "phonetic": "/pleɪst/",
+        "meaning": "đặt"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682716/part1_sentences/k5m45ogbg1t6gvitnluy.mp3"
+  },
+  {
+    "sentence": "Some drawers have been left open.",
+    "sentence_translation": "Một số ngăn kéo đã được để mở.",
+    "words": [
+      {
+        "word": "drawers",
+        "type": "noun",
+        "phonetic": "/drɔːrz/",
+        "meaning": "ngăn kéo"
+      },
+      {
+        "word": "open",
+        "type": "adj",
+        "phonetic": "/ˈoʊpən/",
+        "meaning": "mở"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682717/part1_sentences/z9ldsagq9eauoost3qcj.mp3"
+  },
+  {
+    "sentence": "A man is chopping some wood into pieces.",
+    "sentence_translation": "Một người đàn ông đang chặt gỗ thành từng miếng.",
+    "words": [
+      {
+        "word": "chopping",
+        "type": "verb",
+        "phonetic": "/ˈtʃɑːpɪŋ/",
+        "meaning": "chặt"
+      },
+      {
+        "word": "wood",
+        "type": "noun",
+        "phonetic": "/wʊd/",
+        "meaning": "gỗ"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682718/part1_sentences/ncs0t1opgv8oos7civ6t.mp3"
+  },
+  {
+    "sentence": "Leaves are scattered across the grass.",
+    "sentence_translation": "Lá cây rải rác khắp bãi cỏ.",
+    "words": [
+      {
+        "word": "leaves",
+        "type": "noun",
+        "phonetic": "/liːvz/",
+        "meaning": "lá cây"
+      },
+      {
+        "word": "scattered",
+        "type": "verb",
+        "phonetic": "/ˈskætərd/",
+        "meaning": "rải rác"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682721/part1_sentences/p3isetrbq2hmawlo0ypm.mp3"
+  },
+  {
+    "sentence": "A man is closing a window.",
+    "sentence_translation": "Một người đàn ông đang đóng cửa sổ.",
+    "words": [
+      {
+        "word": "closing",
+        "type": "verb",
+        "phonetic": "/ˈkloʊzɪŋ/",
+        "meaning": "đóng"
+      },
+      {
+        "word": "window",
+        "type": "noun",
+        "phonetic": "/ˈwɪndoʊ/",
+        "meaning": "cửa sổ"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682722/part1_sentences/yrp6qf0yu6w5pmnrbo1g.mp3"
+  },
+  {
+    "sentence": "Wood is piled near a fence.",
+    "sentence_translation": "Gỗ được chồng thành đống gần hàng rào.",
+    "words": [
+      {
+        "word": "piled",
+        "type": "verb",
+        "phonetic": "/paɪld/",
+        "meaning": "chồng thành đống"
+      },
+      {
+        "word": "fence",
+        "type": "noun",
+        "phonetic": "/fens/",
+        "meaning": "hàng rào"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753682722/part1_sentences/cf6amcormqo8dl8t1sfq.mp3"
+  },
+  {
+    "sentence": "People are standing in line in a lobby.",
+    "sentence_translation": "Mọi người đang xếp hàng trong sảnh.",
+    "words": [
+      {
+        "word": "standing",
+        "type": "verb",
+        "phonetic": "/ˈstændɪŋ/",
+        "meaning": "đứng"
+      },
+      {
+        "word": "line",
+        "type": "noun",
+        "phonetic": "/laɪn/",
+        "meaning": "hàng"
+      },
+      {
+        "word": "lobby",
+        "type": "noun",
+        "phonetic": "/ˈlɑːbi/",
+        "meaning": "sảnh"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688331/part1_sentences/g0g2x3rfwitricybsyrc.mp3"
+  },
+  {
+    "sentence": "Items are being loaded into shopping bags.",
+    "sentence_translation": "Các món đồ đang được bỏ vào túi mua sắm.",
+    "words": [
+      {
+        "word": "items",
+        "type": "noun",
+        "phonetic": "/ˈaɪtəmz/",
+        "meaning": "món đồ"
+      },
+      {
+        "word": "loaded",
+        "type": "verb",
+        "phonetic": "/ˈloʊdɪd/",
+        "meaning": "bỏ vào"
+      },
+      {
+        "word": "bags",
+        "type": "noun",
+        "phonetic": "/bæɡz/",
+        "meaning": "túi"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688331/part1_sentences/g67s4nxzzfatdyncxx3c.mp3"
+  },
+  {
+    "sentence": "Tents have been set up in a parking area.",
+    "sentence_translation": "Lều đã được dựng lên trong khu vực đậu xe.",
+    "words": [
+      {
+        "word": "tents",
+        "type": "noun",
+        "phonetic": "/tents/",
+        "meaning": "lều"
+      },
+      {
+        "word": "set",
+        "type": "verb",
+        "phonetic": "/set/",
+        "meaning": "dựng"
+      },
+      {
+        "word": "parking",
+        "type": "noun",
+        "phonetic": "/ˈpɑːrkɪŋ/",
+        "meaning": "đậu xe"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688332/part1_sentences/gwzfy9zwxfb87lkkeln0.mp3"
+  },
+  {
+    "sentence": "A worker is putting up a canopy.",
+    "sentence_translation": "Một công nhân đang dựng một mái che.",
+    "words": [
+      {
+        "word": "worker",
+        "type": "noun",
+        "phonetic": "/ˈwɜːrkər/",
+        "meaning": "công nhân"
+      },
+      {
+        "word": "putting",
+        "type": "verb",
+        "phonetic": "/ˈpʊtɪŋ/",
+        "meaning": "dựng"
+      },
+      {
+        "word": "canopy",
+        "type": "noun",
+        "phonetic": "/ˈkænəpi/",
+        "meaning": "mái che"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688333/part1_sentences/qajsjiw787nx5pjiobj6.mp3"
+  },
+  {
+    "sentence": "Some luggage is stacked next to an escalator.",
+    "sentence_translation": "Một số hành lý được xếp chồng bên cạnh thang cuốn.",
+    "words": [
+      {
+        "word": "luggage",
+        "type": "noun",
+        "phonetic": "/ˈlʌɡɪdʒ/",
+        "meaning": "hành lý"
+      },
+      {
+        "word": "stacked",
+        "type": "verb",
+        "phonetic": "/stækt/",
+        "meaning": "xếp chồng"
+      },
+      {
+        "word": "escalator",
+        "type": "noun",
+        "phonetic": "/ˈeskəleɪtər/",
+        "meaning": "thang cuốn"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688334/part1_sentences/ib1tpwignlhu2yo6pyve.mp3"
+  },
+  {
+    "sentence": "A suitcase is being lifted onto a shuttle bus.",
+    "sentence_translation": "Một chiếc vali đang được nâng lên xe buýt đưa đón.",
+    "words": [
+      {
+        "word": "suitcase",
+        "type": "noun",
+        "phonetic": "/ˈsuːtkeɪs/",
+        "meaning": "vali"
+      },
+      {
+        "word": "lifted",
+        "type": "verb",
+        "phonetic": "/ˈlɪftɪd/",
+        "meaning": "nâng lên"
+      },
+      {
+        "word": "shuttle",
+        "type": "noun",
+        "phonetic": "/ˈʃʌtəl/",
+        "meaning": "xe đưa đón"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688335/part1_sentences/ul9anibfxgonbf75xgzi.mp3"
+  },
+  {
+    "sentence": "Some suitcases are displayed in a shop window.",
+    "sentence_translation": "Một số vali được trưng bày trong cửa sổ cửa hàng.",
+    "words": [
+      {
+        "word": "suitcases",
+        "type": "noun",
+        "phonetic": "/ˈsuːtkeɪsɪz/",
+        "meaning": "vali"
+      },
+      {
+        "word": "displayed",
+        "type": "verb",
+        "phonetic": "/dɪˈspleɪd/",
+        "meaning": "trưng bày"
+      },
+      {
+        "word": "shop",
+        "type": "noun",
+        "phonetic": "/ʃɑːp/",
+        "meaning": "cửa hàng"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688335/part1_sentences/ssmk7z4psgo50jlqav1t.mp3"
+  },
+  {
+    "sentence": "A luggage rack has two levels.",
+    "sentence_translation": "Giá để hành lý có hai tầng.",
+    "words": [
+      {
+        "word": "luggage",
+        "type": "noun",
+        "phonetic": "/ˈlʌɡɪdʒ/",
+        "meaning": "hành lý"
+      },
+      {
+        "word": "rack",
+        "type": "noun",
+        "phonetic": "/ræk/",
+        "meaning": "giá để"
+      },
+      {
+        "word": "levels",
+        "type": "noun",
+        "phonetic": "/ˈlevəlz/",
+        "meaning": "tầng"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688336/part1_sentences/totqc6ttj1ukrmah2ncn.mp3"
+  },
+  {
+    "sentence": "She's cleaning an oven.",
+    "sentence_translation": "Cô ấy đang dọn dẹp lò nướng.",
+    "words": [
+      {
+        "word": "She's",
+        "type": "pron",
+        "phonetic": "/ʃiːz/",
+        "meaning": "Cô ấy"
+      },
+      {
+        "word": "cleaning",
+        "type": "verb",
+        "phonetic": "/ˈkliːnɪŋ/",
+        "meaning": "dọn dẹp"
+      },
+      {
+        "word": "oven",
+        "type": "noun",
+        "phonetic": "/ˈʌvən/",
+        "meaning": "lò nướng"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688337/part1_sentences/xdepkjgkthgb8ep8p0yw.mp3"
+  },
+  {
+    "sentence": "She's moving a pot.",
+    "sentence_translation": "Cô ấy đang di chuyển một cái nồi.",
+    "words": [
+      {
+        "word": "She's",
+        "type": "pron",
+        "phonetic": "/ʃiːz/",
+        "meaning": "Cô ấy"
+      },
+      {
+        "word": "moving",
+        "type": "verb",
+        "phonetic": "/ˈmuːvɪŋ/",
+        "meaning": "di chuyển"
+      },
+      {
+        "word": "pot",
+        "type": "noun",
+        "phonetic": "/pɑːt/",
+        "meaning": "nồi"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688338/part1_sentences/pbvbnxmnmtdqzkgdd4gv.mp3"
+  },
+  {
+    "sentence": "She's opening a cabinet.",
+    "sentence_translation": "Cô ấy đang mở tủ.",
+    "words": [
+      {
+        "word": "She's",
+        "type": "pron",
+        "phonetic": "/ʃiːz/",
+        "meaning": "Cô ấy"
+      },
+      {
+        "word": "opening",
+        "type": "verb",
+        "phonetic": "/ˈoʊpənɪŋ/",
+        "meaning": "mở"
+      },
+      {
+        "word": "cabinet",
+        "type": "noun",
+        "phonetic": "/ˈkæbɪnət/",
+        "meaning": "tủ"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688627/part1_sentences/mjrnyrqkwzozdetu3mcw.mp3"
+  },
+  {
+    "sentence": "She's holding a towel.",
+    "sentence_translation": "Cô ấy đang cầm một chiếc khăn.",
+    "words": [
+      {
+        "word": "She's",
+        "type": "pron",
+        "phonetic": "/ʃiːz/",
+        "meaning": "Cô ấy"
+      },
+      {
+        "word": "holding",
+        "type": "verb",
+        "phonetic": "/ˈhoʊldɪŋ/",
+        "meaning": "cầm"
+      },
+      {
+        "word": "towel",
+        "type": "noun",
+        "phonetic": "/ˈtaʊəl/",
+        "meaning": "khăn"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688627/part1_sentences/ksjck8jeqlcfgshyjxxp.mp3"
+  },
+  {
+    "sentence": "They're putting trash in a bag.",
+    "sentence_translation": "Họ đang bỏ rác vào túi.",
+    "words": [
+      {
+        "word": "putting",
+        "type": "verb",
+        "phonetic": "/ˈpʊtɪŋ/",
+        "meaning": "bỏ"
+      },
+      {
+        "word": "trash",
+        "type": "noun",
+        "phonetic": "/træʃ/",
+        "meaning": "rác"
+      },
+      {
+        "word": "bag",
+        "type": "noun",
+        "phonetic": "/bæɡ/",
+        "meaning": "túi"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688628/part1_sentences/ob6palhc9zbs4vilasec.mp3"
+  },
+  {
+    "sentence": "They're taking off their jackets.",
+    "sentence_translation": "Họ đang cởi áo khoác của mình.",
+    "words": [
+      {
+        "word": "taking",
+        "type": "verb",
+        "phonetic": "/ˈteɪkɪŋ/",
+        "meaning": "cởi"
+      },
+      {
+        "word": "off",
+        "type": "adv",
+        "phonetic": "/ɔːf/",
+        "meaning": "ra"
+      },
+      {
+        "word": "jackets",
+        "type": "noun",
+        "phonetic": "/ˈdʒækɪts/",
+        "meaning": "áo khoác"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688629/part1_sentences/xlyyimraeablzzmul47c.mp3"
+  },
+  {
+    "sentence": "They're facing a shelving unit.",
+    "sentence_translation": "Họ đang đối mặt với một kệ để đồ.",
+    "words": [
+      {
+        "word": "facing",
+        "type": "verb",
+        "phonetic": "/ˈfeɪsɪŋ/",
+        "meaning": "đối mặt"
+      },
+      {
+        "word": "shelving",
+        "type": "noun",
+        "phonetic": "/ˈʃelvɪŋ/",
+        "meaning": "kệ để đồ"
+      },
+      {
+        "word": "unit",
+        "type": "noun",
+        "phonetic": "/ˈjuːnɪt/",
+        "meaning": "đơn vị"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688630/part1_sentences/htnevo96z4szdr5tpbvh.mp3"
+  },
+  {
+    "sentence": "They're painting a room.",
+    "sentence_translation": "Họ đang sơn một căn phòng.",
+    "words": [
+      {
+        "word": "They're",
+        "type": "pron",
+        "phonetic": "/ðeɪr/",
+        "meaning": "Họ"
+      },
+      {
+        "word": "painting",
+        "type": "verb",
+        "phonetic": "/ˈpeɪntɪŋ/",
+        "meaning": "sơn"
+      },
+      {
+        "word": "room",
+        "type": "noun",
+        "phonetic": "/ruːm/",
+        "meaning": "phòng"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688631/part1_sentences/w8gbpczgq3oh6rb9icay.mp3"
+  },
+  {
+    "sentence": "One of the men is removing his hat.",
+    "sentence_translation": "Một trong những người đàn ông đang tháo mũ của mình.",
+    "words": [
+      {
+        "word": "men",
+        "type": "noun",
+        "phonetic": "/men/",
+        "meaning": "người đàn ông"
+      },
+      {
+        "word": "removing",
+        "type": "verb",
+        "phonetic": "/rɪˈmuːvɪŋ/",
+        "meaning": "tháo"
+      },
+      {
+        "word": "hat",
+        "type": "noun",
+        "phonetic": "/hæt/",
+        "meaning": "mũ"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688632/part1_sentences/vbjy1guxoub7itezlazx.mp3"
+  },
+  {
+    "sentence": "A line of customers extends out a door.",
+    "sentence_translation": "Một hàng khách hàng kéo dài ra ngoài cửa.",
+    "words": [
+      {
+        "word": "customers",
+        "type": "noun",
+        "phonetic": "/ˈkʌstəmərz/",
+        "meaning": "khách hàng"
+      },
+      {
+        "word": "extends",
+        "type": "verb",
+        "phonetic": "/ɪkˈstendz/",
+        "meaning": "kéo dài"
+      },
+      {
+        "word": "door",
+        "type": "noun",
+        "phonetic": "/dɔːr/",
+        "meaning": "cửa"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688633/part1_sentences/pzcwczv9dwpbjycl6fiu.mp3"
+  },
+  {
+    "sentence": "Some workers are installing a sign.",
+    "sentence_translation": "Một số công nhân đang lắp đặt một tấm biển.",
+    "words": [
+      {
+        "word": "workers",
+        "type": "noun",
+        "phonetic": "/ˈwɜːrkərz/",
+        "meaning": "công nhân"
+      },
+      {
+        "word": "installing",
+        "type": "verb",
+        "phonetic": "/ɪnˈstɔːlɪŋ/",
+        "meaning": "lắp đặt"
+      },
+      {
+        "word": "sign",
+        "type": "noun",
+        "phonetic": "/saɪn/",
+        "meaning": "tấm biển"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688633/part1_sentences/ouooqb0imwmz5daoorck.mp3"
+  },
+  {
+    "sentence": "Musicians have gathered in a circle.",
+    "sentence_translation": "Các nhạc sĩ đã tập hợp thành một vòng tròn.",
+    "words": [
+      {
+        "word": "musicians",
+        "type": "noun",
+        "phonetic": "/mjuːˈzɪʃənz/",
+        "meaning": "nhạc sĩ"
+      },
+      {
+        "word": "gathered",
+        "type": "verb",
+        "phonetic": "/ˈɡæðərd/",
+        "meaning": "tập hợp"
+      },
+      {
+        "word": "circle",
+        "type": "noun",
+        "phonetic": "/ˈsɜːrkəl/",
+        "meaning": "vòng tròn"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753688634/part1_sentences/wo1qor2w5crx83oitmn3.mp3"
+  },
+  {
+    "sentence": "Some tools have been left on a chair.",
+    "sentence_translation": "Một số dụng cụ đã được để lại trên ghế.",
+    "words": [
+      {
+        "word": "tools",
+        "type": "noun",
+        "phonetic": "/tuːlz/",
+        "meaning": "dụng cụ"
+      },
+      {
+        "word": "left",
+        "type": "verb",
+        "phonetic": "/left/",
+        "meaning": "để lại"
+      },
+      {
+        "word": "chair",
+        "type": "noun",
+        "phonetic": "/tʃɛr/",
+        "meaning": "ghế"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689159/part1_sentences/bpnpgmdwbpvsvecqf2kb.mp3"
+  },
+  {
+    "sentence": "Some tool sets have been laid out.",
+    "sentence_translation": "Một số bộ dụng cụ đã được bố trí ra.",
+    "words": [
+      {
+        "word": "tool",
+        "type": "noun",
+        "phonetic": "/tuːl/",
+        "meaning": "dụng cụ"
+      },
+      {
+        "word": "sets",
+        "type": "noun",
+        "phonetic": "/sets/",
+        "meaning": "bộ"
+      },
+      {
+        "word": "laid",
+        "type": "verb",
+        "phonetic": "/leɪd/",
+        "meaning": "bố trí"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689159/part1_sentences/ivelhjrzapgbakfkhr4d.mp3"
+  },
+  {
+    "sentence": "A cup of coffee has spilled.",
+    "sentence_translation": "Một tách cà phê đã bị đổ.",
+    "words": [
+      {
+        "word": "cup",
+        "type": "noun",
+        "phonetic": "/kʌp/",
+        "meaning": "tách"
+      },
+      {
+        "word": "coffee",
+        "type": "noun",
+        "phonetic": "/ˈkɔːfi/",
+        "meaning": "cà phê"
+      },
+      {
+        "word": "spilled",
+        "type": "verb",
+        "phonetic": "/spɪld/",
+        "meaning": "đổ"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689160/part1_sentences/a5wiqpwigixqmx7gyrkx.mp3"
+  },
+  {
+    "sentence": "A table leg is being repaired.",
+    "sentence_translation": "Một chân bàn đang được sửa chữa.",
+    "words": [
+      {
+        "word": "table",
+        "type": "noun",
+        "phonetic": "/ˈteɪbəl/",
+        "meaning": "bàn"
+      },
+      {
+        "word": "leg",
+        "type": "noun",
+        "phonetic": "/leɡ/",
+        "meaning": "chân"
+      },
+      {
+        "word": "repaired",
+        "type": "verb",
+        "phonetic": "/rɪˈpɛrd/",
+        "meaning": "sửa chữa"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689161/part1_sentences/i6vuvk69wgal1b7waooi.mp3"
+  },
+  {
+    "sentence": "A railing is being removed.",
+    "sentence_translation": "Một lan can đang được tháo bỏ.",
+    "words": [
+      {
+        "word": "railing",
+        "type": "noun",
+        "phonetic": "/ˈreɪlɪŋ/",
+        "meaning": "lan can"
+      },
+      {
+        "word": "being",
+        "type": "verb",
+        "phonetic": "/ˈbiːɪŋ/",
+        "meaning": "đang được"
+      },
+      {
+        "word": "removed",
+        "type": "verb",
+        "phonetic": "/rɪˈmuːvd/",
+        "meaning": "tháo bỏ"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689162/part1_sentences/i5iqjvgvbwn7sitkgsoy.mp3"
+  },
+  {
+    "sentence": "A roof is under construction.",
+    "sentence_translation": "Một mái nhà đang được xây dựng.",
+    "words": [
+      {
+        "word": "roof",
+        "type": "noun",
+        "phonetic": "/ruːf/",
+        "meaning": "mái nhà"
+      },
+      {
+        "word": "under",
+        "type": "prep",
+        "phonetic": "/ˈʌndər/",
+        "meaning": "đang"
+      },
+      {
+        "word": "construction",
+        "type": "noun",
+        "phonetic": "/kənˈstrʌkʃən/",
+        "meaning": "xây dựng"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689163/part1_sentences/r2khkoxp4devb07h2p1r.mp3"
+  },
+  {
+    "sentence": "Some workers are carrying a ladder.",
+    "sentence_translation": "Một số công nhân đang mang một cái thang.",
+    "words": [
+      {
+        "word": "workers",
+        "type": "noun",
+        "phonetic": "/ˈwɜːrkərz/",
+        "meaning": "công nhân"
+      },
+      {
+        "word": "carrying",
+        "type": "verb",
+        "phonetic": "/ˈkæriɪŋ/",
+        "meaning": "mang"
+      },
+      {
+        "word": "ladder",
+        "type": "noun",
+        "phonetic": "/ˈlædər/",
+        "meaning": "thang"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689163/part1_sentences/rowveedxo0g0afltgjsh.mp3"
+  },
+  {
+    "sentence": "Some workers are holding sheets of metal.",
+    "sentence_translation": "Một số công nhân đang cầm các tấm kim loại.",
+    "words": [
+      {
+        "word": "workers",
+        "type": "noun",
+        "phonetic": "/ˈwɜːrkərz/",
+        "meaning": "công nhân"
+      },
+      {
+        "word": "holding",
+        "type": "verb",
+        "phonetic": "/ˈhoʊldɪŋ/",
+        "meaning": "cầm"
+      },
+      {
+        "word": "metal",
+        "type": "noun",
+        "phonetic": "/ˈmetəl/",
+        "meaning": "kim loại"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689164/part1_sentences/hhjscnoe2n3t8rtgkzyz.mp3"
+  },
+  {
+    "sentence": "A ladder has been leaned against a tree.",
+    "sentence_translation": "Một cái thang đã được dựa vào một cái cây.",
+    "words": [
+      {
+        "word": "ladder",
+        "type": "noun",
+        "phonetic": "/ˈlædər/",
+        "meaning": "thang"
+      },
+      {
+        "word": "leaned",
+        "type": "verb",
+        "phonetic": "/liːnd/",
+        "meaning": "dựa"
+      },
+      {
+        "word": "tree",
+        "type": "noun",
+        "phonetic": "/triː/",
+        "meaning": "cây"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689165/part1_sentences/ghmscefvk46mu82e3fj8.mp3"
+  },
+  {
+    "sentence": "There are piles of tree branches discarded in a field.",
+    "sentence_translation": "Có những đống cành cây bị vứt bỏ trong cánh đồng.",
+    "words": [
+      {
+        "word": "branches",
+        "type": "noun",
+        "phonetic": "/ˈbræntʃɪz/",
+        "meaning": "cành cây"
+      },
+      {
+        "word": "discarded",
+        "type": "verb",
+        "phonetic": "/dɪˈskɑːrdɪd/",
+        "meaning": "vứt bỏ"
+      },
+      {
+        "word": "field",
+        "type": "noun",
+        "phonetic": "/fiːld/",
+        "meaning": "cánh đồng"
+      }
+    ],
+    "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753689166/part1_sentences/kpx608gdetuh1mtfzyap.mp3"
+  }
+]

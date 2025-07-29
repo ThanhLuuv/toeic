@@ -30,7 +30,7 @@ const QuickActionCard: React.FC<QuickActionCardProps> = ({
       </div>
       <h3 className="text-xl font-semibold text-gray-800 mb-3">{title}</h3>
       <p className="text-gray-600 mb-6">{description}</p>
-      <button className={`bg-gray-200 text-black px-6 py-3 rounded-lg hover:bg-gray-300 transition-all font-medium`} onClick={onClick}>
+      <button className={`bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition-all font-medium`} onClick={onClick}>
         {buttonText}
       </button>
     </div>

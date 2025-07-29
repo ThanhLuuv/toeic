@@ -8,49 +8,55 @@ interface TestListPart2Props {
 
 const TestListPart2: React.FC<TestListPart2Props> = ({ tests, startTest }) => {
   return (
-    <div className="bg-white rounded-2xl p-8 shadow-lg slide-in">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {tests.map((test) => (
-          <div
-            key={test.id}
-            className={`test-card bg-white rounded-lg p-4 shadow-sm border border-gray-100 ${test.completed ? 'completed-card' : ''}`}
-          >
-            <div className="flex items-start justify-between mb-3">
-              <div className="flex-1">
-                <h4 className="font-medium text-gray-800 text-sm line-clamp-2 leading-tight">{test.title}</h4>
-                <div className="flex items-center mt-1.5 text-xs text-gray-500">
-                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  {test.questions} câu
-                </div>
-              </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {tests.map((test) => (
+        <div
+          key={test.id}
+          className={`test-card bg-white rounded-xl p-5 shadow-lg cursor-pointer transition-all duration-300 transform hover:shadow-xl hover:scale-105 hover:-translate-y-1 ${test.completed ? 'completed-card' : ''}`}
+          onClick={() => startTest(String(test.id))}
+        >
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+              <h3 className="text-lg font-bold text-slate-800">Set {test.id}</h3>
               {test.completed && (
-                <div className="score-badge text-white text-xs font-semibold px-2 py-1 rounded-full ml-2">
-                  {test.score}%
-                </div>
+                <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full font-bold">
+                  ✓ Hoàn thành
+                </span>
               )}
             </div>
-            <div className="mt-auto">
-              <button
-                className={`w-full text-xs py-2.5 px-4 rounded-md font-medium ${test.completed ? 'retry-btn text-gray-600 hover:text-gray-800 border border-gray-200' : 'start-btn'}`}
-                onClick={() => startTest(String(test.id))}
-              >
-                {test.completed ? (
-                  <>
-                    <svg className="w-3 h-3 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                    </svg>
-                    Làm lại
-                  </>
-                ) : (
-                  'Bắt đầu kiểm tra'
-                )}
-              </button>
+
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" clipRule="evenodd" />
+                </svg>
+                <span className="text-slate-700 font-medium">Question-Response</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-slate-600">{test.questions} questions</span>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <div className="w-full bg-slate-100 rounded-full h-1">
+                <div 
+                  className={`h-1 rounded-full transition-all duration-300 ${
+                    test.completed ? 'bg-green-600 w-full' : 'bg-green-600 w-0'
+                  }`}
+                ></div>
+              </div>
+              <p className="text-xs text-slate-500 mt-1 text-center">
+                {test.completed ? 'Completed' : 'Start'}
+              </p>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };

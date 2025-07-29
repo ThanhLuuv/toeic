@@ -17,14 +17,15 @@ const TestPart3: React.FC = () => {
   const navigate = useNavigate();
   const testData = testId ? findTestById(testId) : null;
 
-  // Lấy danh sách id các đề trong cùng level
-  let testIdsInLevel: string[] = [];
-  if (testData) {
-    const tests = (toeicPart3Data as any)[testData.level] || [];
-    testIdsInLevel = tests.map((t: any) => String(t.id));
+  // Lấy danh sách id tất cả các đề từ tất cả levels
+  let allTestIds: string[] = [];
+  for (const levelKey of Object.keys(toeicPart3Data)) {
+    const tests = (toeicPart3Data as any)[levelKey] || [];
+    const testIds = tests.map((t: any) => String(t.id));
+    allTestIds = allTestIds.concat(testIds);
   }
-  const currentIndex = testIdsInLevel.findIndex(id => id === String(testId));
-  const nextTestId = currentIndex !== -1 && currentIndex < testIdsInLevel.length - 1 ? testIdsInLevel[currentIndex + 1] : null;
+  const currentIndex = allTestIds.findIndex(id => id === String(testId));
+  const nextTestId = currentIndex !== -1 && currentIndex < allTestIds.length - 1 ? allTestIds[currentIndex + 1] : null;
 
   const [answers, setAnswers] = useState<{ [idx: number]: string }>({});
   const [showResult, setShowResult] = useState(false);

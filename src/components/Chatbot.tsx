@@ -1,12 +1,16 @@
 import React, { useState, useRef } from 'react';
-import { generateToeicPracticeQuestion, generateImageBase64, generateAudioBase64 } from './TestPart1/aiUtils';
+import { generateToeicPracticeQuestion, generateImageBase64, generateAudioBase64,} from './TestPart1/aiUtils';
 import { generateToeicPracticeQuestionPart2, generateAudioBase64Part2 } from './TestPart2/aiUtils';
 import { generateToeicPracticeQuestionPart3, generateAudioBase64Part3 } from './TestPart3/aiUtils';
-import { analyzeImageWithAI } from './TestPart1/aiUtils';
 
 // Hàm gọi OpenAI API đơn giản cho hỏi đáp TOEIC
 async function askToeicAI(question: string, chatHistory: {role: 'user'|'bot', text: string}[] = []): Promise<string> {
   const apiKey = process.env.REACT_APP_API_KEY_OPENAI;
+  
+  if (!apiKey) {
+    throw new Error('API key không được cấu hình. Vui lòng thêm REACT_APP_API_KEY_OPENAI vào file .env');
+  }
+  
   const endpoint = 'https://api.openai.com/v1/chat/completions';
   
   // Chuyển đổi lịch sử chat sang format OpenAI
@@ -62,7 +66,7 @@ function simpleMarkdownToHtml(text: string): string {
     return `<ul>${items}</ul>`;
   });
   // Tự động chuyển URL thành link (không lấy dấu ) hoặc dấu câu phía sau, giữ dấu chấm trong domain)
-  html = html.replace(/(https?:\/\/[^\s<)\]\[\">,;:!\?]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#1976d2;text-decoration:underline;">$1</a>');
+          html = html.replace(/(https?:\/\/[^\s<)\]\[\">,;:!\?]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#14B24C;text-decoration:underline;">$1</a>');
   // Xuống dòng đơn giản (chỉ khi không phải trong <li> hoặc heading)
   html = html.replace(/([^>])\n([^<])/g, '$1<br/>$2');
   return html;
@@ -93,10 +97,7 @@ function detectPartType(text: string): 'part1' | 'part2' | 'part3' {
   return 'part1'; // Mặc định là part 1
 }
 
-// Nhận diện yêu cầu phân tích ảnh
-function isImageAnalysisRequest(text: string) {
-  return /phân tích ảnh|analyze image/i.test(text);
-}
+
 
 // Thêm type cho message
 type ChatMessage =
@@ -116,13 +117,11 @@ const Chatbot: React.FC = () => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [practiceSessions, setPracticeSessions] = useState<any[]>([]); // Lưu các bài luyện tập đã tạo
   const [practiceLoading, setPracticeLoading] = useState(false);
-  const [practiceImageLoading, setPracticeImageLoading] = useState(false);
-  const [practiceAudioLoading, setPracticeAudioLoading] = useState(false);
   // Thêm state cho toggle dịch từng đáp án
   const [showTranslation, setShowTranslation] = useState<{ [msgIdx: number]: { [opt: string]: boolean } }>({});
   const [part3Answers, setPart3Answers] = useState<{ [msgIdx: number]: { [qIdx: number]: string } }>({});
   const [part3ShowTranslation, setPart3ShowTranslation] = useState<{ [msgIdx: number]: { [qIdx: number]: { [opt: string]: boolean } } }>({});
-  const [uploadingImage, setUploadingImage] = useState(false);
+  const [showGuide, setShowGuide] = useState(true);
 
   // Toggle dịch cho từng đáp án
   const toggleTranslation = (msgIdx: number, opt: string) => {
@@ -190,15 +189,6 @@ const Chatbot: React.FC = () => {
     localStorage.removeItem('toeic-chatbot-history');
     setMessages([]);
     console.log('Chat history cleared');
-  };
-
-  // Quay lại chat bình thường sau khi làm bài tập
-  const backToChat = () => {
-    // setCurrentPractice(null); // Không cần nữa
-    // setPracticeAnswer(''); // Không cần nữa
-    // setPracticeResult(null); // Không cần nữa
-    // setPracticeImage(''); // Không cần nữa
-    // setPracticeAudio(''); // Không cần nữa
   };
 
   // Lưu kết quả luyện tập vào localStorage
@@ -287,48 +277,7 @@ const Chatbot: React.FC = () => {
       }
     }
 
-    // Nếu là yêu cầu phân tích ảnh
-    if (isImageAnalysisRequest(input)) {
-      // Tìm url hoặc base64 trong input
-      const urlMatch = input.match(/(https?:\/\/\S+|data:image\/[a-zA-Z]+;base64,[^\s]+)/);
-      if (!urlMatch) {
-        setMessages(msgs => [...msgs, { role: 'bot', text: 'Vui lòng nhập kèm url ảnh hoặc base64 ảnh để phân tích.' }]);
-        setLoading(false);
-        return;
-      }
-      const imageUrlOrBase64 = urlMatch[1];
-      setMessages(msgs => [...msgs, { role: 'typing' }]);
-      try {
-        const result = await analyzeImageWithAI(imageUrlOrBase64);
-        setMessages(msgs => {
-          const filteredMsgs = msgs.filter(m => m.role !== 'typing');
-          return [
-            ...filteredMsgs,
-            {
-              role: 'bot',
-              text:
-                `<b>Phân tích ảnh TOEIC:</b><br/>` +
-                (result.description ? `<b>Mô tả:</b> ${result.description}<br/>` : '') +
-                (result.objects ? `<b>Vật thể chính:</b> ${Array.isArray(result.objects) ? result.objects.join(', ') : result.objects}<br/>` : '') +
-                (result.suggestions ? `<b>Gợi ý đáp án:</b><br/>` +
-                  Object.entries(result.suggestions).map(([k,v]) => `<b>${k}:</b> ${v}`).join('<br/>') : '')
-            }
-          ];
-        });
-      } catch (e) {
-        setMessages(msgs => {
-          const filteredMsgs = msgs.filter(m => m.role !== 'typing');
-          return [...filteredMsgs, { role: 'bot', text: 'Xin lỗi, không phân tích được ảnh.' }];
-        });
-      }
-      setLoading(false);
-      setTimeout(() => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-        }
-      }, 100);
-      return;
-    }
+
     
     // Thêm trạng thái đang gõ
     setMessages(msgs => [...msgs, { role: 'typing' }]);
@@ -447,44 +396,7 @@ const Chatbot: React.FC = () => {
     savePracticeHistory(newSessions);
   };
 
-  // Xử lý upload ảnh
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setUploadingImage(true);
-    // Đọc file thành base64
-    const reader = new FileReader();
-    reader.onload = async (ev) => {
-      const base64 = ev.target?.result as string;
-      setMessages(msgs => [...msgs, { role: 'user', text: '[Ảnh tải lên]', image: base64 }]);
-      setMessages(msgs => [...msgs, { role: 'typing' }]);
-      try {
-        const result = await analyzeImageWithAI(base64);
-        setMessages(msgs => {
-          const filteredMsgs = msgs.filter(m => m.role !== 'typing');
-          return [
-            ...filteredMsgs,
-            {
-              role: 'bot',
-              text:
-                `<b>Phân tích ảnh TOEIC:</b><br/>` +
-                (result.description ? `<b>Mô tả:</b> ${result.description}<br/>` : '') +
-                (result.objects ? `<b>Vật thể chính:</b> ${Array.isArray(result.objects) ? result.objects.join(', ') : result.objects}<br/>` : '') +
-                (result.suggestions ? `<b>Gợi ý đáp án:</b><br/>` +
-                  Object.entries(result.suggestions).map(([k,v]) => `<b>${k}:</b> ${v}`).join('<br/>') : '')
-            }
-          ];
-        });
-      } catch (e) {
-        setMessages(msgs => {
-          const filteredMsgs = msgs.filter(m => m.role !== 'typing');
-          return [...filteredMsgs, { role: 'bot', text: 'Xin lỗi, không phân tích được ảnh.' }];
-        });
-      }
-      setUploadingImage(false);
-    };
-    reader.readAsDataURL(file);
-  };
+
 
   React.useEffect(() => {
     if (open && chatEndRef.current) {
@@ -505,8 +417,8 @@ const Chatbot: React.FC = () => {
             position: 'fixed',
             bottom: 24, // bottom-6
             right: 24,  // right-6
-            zIndex: 1000,
-            background: '#000000ba',
+            zIndex: 3000,
+            background: 'none',
             borderRadius: '50%',
             width: 56,
             height: 56,
@@ -525,9 +437,9 @@ const Chatbot: React.FC = () => {
           aria-label="Mở chatbot TOEIC"
         >
           <img
-            src="../img/chatbot.png"
+            src="/img/chatbot.png"
             alt="Chatbot Icon"
-            style={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', display: 'block' }}
+            style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'cover', display: 'block' }}
           />
         </button>
       )}
@@ -539,11 +451,11 @@ const Chatbot: React.FC = () => {
             bottom: 24,
             right: 24,
             width: 340,
-            maxHeight: 480,
+            height: 480,
             background: '#fff',
             borderRadius: 12,
             boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
-            zIndex: 1001,
+            zIndex: 3001,
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden'
@@ -551,9 +463,33 @@ const Chatbot: React.FC = () => {
         >
           {/* Hướng dẫn tạo bài luyện tập */}
           
-          <div style={{ background: '#000000ba', color: '#fff', padding: '6px 16px', fontWeight: 600, fontSize: 18, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ background: 'linear-gradient(135deg, #14B24C 0%, #16a34a 100%)', color: '#fff', padding: '6px 16px', fontWeight: 600, fontSize: 18, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             TOEIC Chatbot
             <div style={{ display: 'flex', gap: 8 }}>
+            {!showGuide && (
+              <button 
+                onClick={() => setShowGuide(true)}
+                style={{ 
+                  background: 'none', 
+                  border: 'none', 
+                  color: '#f59e0b', 
+                  cursor: 'pointer', 
+                  padding: '6px 8px',
+                  borderRadius: '4px',
+                  transition: 'background-color 0.2s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '16px',
+                  fontWeight: 'bold'
+                }}
+                onMouseOver={(e: any) => e.target.style.backgroundColor = 'rgba(255,255,255,0.1)'}
+                onMouseOut={(e: any) => e.target.style.backgroundColor = 'transparent'}
+                title="Hiện hướng dẫn"
+              >
+                ?
+              </button>
+            )}
             <button 
               onClick={clearChatHistory}
               style={{ 
@@ -582,18 +518,73 @@ const Chatbot: React.FC = () => {
               <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', color: '#fff', fontSize: 20, cursor: 'pointer' }}>&times;</button>
             </div>
           </div>
-          <div className="p-2 bg-yellow-50 border-yellow-400 text-yellow-800 rounded text-xs" style={{ fontSize: 12 }}>
-            Để tạo bài luyện tập, hãy gõ: <b>@part1</b>, <b>@part2</b>, hoặc <b>@part3</b> kèm yêu cầu (ví dụ: <b>@part2 với level 2</b>)<br/>
-          </div>
+          {showGuide && (
+            <div style={{
+              padding: '12px 16px',
+              background: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
+              border: '1px solid #f59e0b',
+              borderRadius: '8px',
+              margin: '8px',
+              fontSize: '13px',
+              lineHeight: '1.4',
+              color: '#92400e',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+              position: 'relative'
+            }}>
+              <div>
+                <span style={{ fontWeight: '600', color: '#78350f' }}>💡 Hướng dẫn:</span> Để tạo bài luyện tập, gõ <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part1</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part2</span>, hoặc <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part3</span> kèm yêu cầu
+                <br/>
+                <span style={{ fontSize: '11px', color: '#92400e', fontStyle: 'italic' }}>Ví dụ: @part2 với level 2, @part1 về công việc văn phòng</span>
+              </div>
+              <button 
+                onClick={() => setShowGuide(false)}
+                style={{ 
+                  position: 'absolute',
+                  top: '4px',
+                  right: '4px',
+                  background: 'none', 
+                  border: 'none', 
+                  color: '#92400e', 
+                  cursor: 'pointer', 
+                  padding: '2px 4px',
+                  borderRadius: '4px',
+                  transition: 'background-color 0.2s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  width: '20px',
+                  height: '20px'
+                }}
+                onMouseOver={(e: any) => e.target.style.backgroundColor = 'rgba(0,0,0,0.1)'}
+                onMouseOut={(e: any) => e.target.style.backgroundColor = 'transparent'}
+                title="Đóng hướng dẫn"
+              >
+                ×
+              </button>
+            </div>
+          )}
           <div style={{ flex: 1, padding: 12, overflowY: 'auto', background: '#f7f7f7' }}>
             {/* Nếu đang tạo bài luyện tập */}
             {practiceLoading && (
-              <div className="flex items-center justify-center py-4 text-blue-700 font-medium">Đang tạo bài luyện tập TOEIC...</div>
+                              <div className="flex items-center justify-center py-4 text-green-700 font-medium">Đang tạo bài luyện tập TOEIC...</div>
             )}
             {/* Chat history luôn hiển thị, render từng message */}
             {messages.length === 0 && (
-              <div style={{ color: '#888', fontSize: 15, textAlign: 'center', marginTop: 32 }}>
-                Hỏi tôi bất cứ điều gì về TOEIC!<br/>Ví dụ: "Part 1 là gì?", "Mẹo làm bài nghe?", "Tạo bài tập part 1"...
+              <div style={{ 
+                color: '#64748b', 
+                fontSize: 13, 
+                textAlign: 'center', 
+                marginTop: 32,
+                lineHeight: 1.6,
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                fontWeight: 400,
+                letterSpacing: '0.2px'
+              }}>
+                <span style={{ fontSize: 12, color: '#94a3b8', fontStyle: 'italic' }}>
+                  "Part 1 là gì?", "Mẹo làm bài nghe?", "Cấu trúc đề part 1"...
+                </span>
               </div>
             )}
             {messages.map((msg, idx) => {
@@ -606,9 +597,9 @@ const Chatbot: React.FC = () => {
                 // Part 3: render hội thoại + 3 câu hỏi riêng biệt
                 if (partType === 'part3' && practice.questions && Array.isArray(practice.questions)) {
                   return (
-                    <div key={idx} className="mb-4 p-3 rounded-lg border border-blue-200 bg-blue-50">
+                    <div key={idx} className="mb-4 p-3 rounded-lg border border-blue-200">
                       <div className="flex justify-between items-center mb-2">
-                        <div className="font-semibold text-blue-800">📝 TOEIC Practice PART 3</div>
+                        <div className="font-semibold text-green-800">📝 TOEIC Practice PART 3</div>
                       </div>
                       {/* Hiển thị audio nếu có */}
                       {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
@@ -618,8 +609,8 @@ const Chatbot: React.FC = () => {
                           const qAnswer = part3Answers[idx]?.[qIdx] || '';
                           const qShowResult = qAnswer !== '';
                           return (
-                            <div key={qIdx} className="p-3 bg-gray-50 rounded-lg border">
-                              <div className="font-semibold text-blue-900 mb-2">Câu {qIdx + 1}: {q.question}</div>
+                            <div key={qIdx} className="p-3 rounded-lg border border-gray-200">
+                              <div className="font-semibold text-green-900 mb-2">Câu {qIdx + 1}: {q.question}</div>
                               <div className="space-y-2">
                                 {['A','B','C'].map(opt => {
                                   const isSelected = qAnswer === opt;
@@ -651,7 +642,8 @@ const Chatbot: React.FC = () => {
                                     >
                                       <div className="flex items-center space-x-2">
                                         <span className="font-semibold text-gray-600">{opt}.</span>
-                                        {/* KHÔNG render text đáp án khi đã chọn */}
+                                        {/* Hiển thị text đáp án */}
+                                        <span className="text-gray-800">{q.choices?.[opt] || ''}</span>
                                         {qShowResult && isCorrect && (
                                           <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -672,8 +664,8 @@ const Chatbot: React.FC = () => {
                                 <div className="mt-4 space-y-4">
                                   {/* Transcript đáp án */}
                                   {(q.choices && q.choicesVi) && (
-                                    <div className="p-3 rounded-lg bg-blue-50 border border-blue-200">
-                                      <h6 className="font-medium text-blue-800 mb-2">📝 Transcript:</h6>
+                                    <div className="p-3 rounded-lg border border-green-200">
+                                      <h6 className="font-medium text-green-800 mb-2">📝 Transcript:</h6>
                                       <div className="space-y-2">
                                         {['A','B','C'].map(opt => (
                                           <div key={opt} className="flex items-center space-x-2">
@@ -706,7 +698,7 @@ const Chatbot: React.FC = () => {
                                     </div>
                                   )}
                                   {/* Giải thích cho từng câu hỏi */}
-                                  <div className="p-3 rounded-lg bg-gray-50">
+                                  <div className="p-3 rounded-lg border border-gray-200">
                                     <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
                                     <p className="text-gray-700 text-sm">{q.explanation}</p>
                                     {/* Bẫy */}
@@ -741,9 +733,9 @@ const Chatbot: React.FC = () => {
                   );
                 }
                 return (
-                  <div key={idx} className="mb-4 p-3 rounded-lg border border-blue-200 bg-blue-50">
+                  <div key={idx} className="mb-4 p-3 rounded-lg border border-green-200">
                     <div className="flex justify-between items-center mb-2">
-                      <div className="font-semibold text-blue-800">
+                      <div className="font-semibold text-green-800">
                         📝 TOEIC Practice {partType.toUpperCase()}
                       </div>
                     </div>
@@ -756,9 +748,6 @@ const Chatbot: React.FC = () => {
                     {/* Hiển thị audio cho tất cả parts */}
                     {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
                     
-                    {/* KHÔNG render text câu hỏi cho mọi part */}
-                    {/* KHÔNG render script hội thoại cho Part 3 */}
-                    {/* KHÔNG render text đáp án */}
                     <div className="space-y-2">
                       {['A','B','C'].map(opt => {
                         const isSelected = answer === opt;
@@ -806,11 +795,11 @@ const Chatbot: React.FC = () => {
                       <div className="mt-4 space-y-4">
                         {/* Transcript cho Part 1, 2 */}
                         {(practice.choices && practice.choicesVi) && (
-                          <div className="p-3 rounded-lg bg-blue-50 border border-blue-200">
-                            <h6 className="font-medium text-blue-800 mb-2">📝 Transcript:</h6>
+                          <div className="p-3 rounded-lg border border-green-200">
+                            <h6 className="font-medium text-green-800 mb-2">📝 Transcript:</h6>
                             {/* Nếu là Part 2, hiển thị câu hỏi tiếng Anh */}
                             {practice.partType === 'part2' && practice.question && (
-                              <div className="mb-2 font-semibold text-blue-900">{practice.question}</div>
+                              <div className="mb-2 font-semibold text-green-900">{practice.question}</div>
                             )}
                             <div className="space-y-2">
                               {['A','B','C'].map(opt => (
@@ -833,7 +822,7 @@ const Chatbot: React.FC = () => {
                           </div>
                         )}
                         {/* Giải thích cho tất cả parts */}
-                        <div className="p-3 rounded-lg bg-gray-50">
+                        <div className="p-3 rounded-lg border border-gray-200">
                           <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
                           <p className="text-gray-700 text-sm">{practice.explanation}</p>
                           {/* Bẫy cho Part 1 */}
@@ -865,11 +854,11 @@ const Chatbot: React.FC = () => {
               }
               if (msg.role === 'confirm-practice') {
                 return (
-                  <div key={idx} className="mb-4 p-3 rounded-lg border border-yellow-200 bg-yellow-50">
+                  <div key={idx} className="mb-4 p-3 rounded-lg border border-yellow-200">
                     <div className="mb-2 text-yellow-800 font-semibold">Bạn có muốn tạo một bài luyện tập TOEIC với yêu cầu này không?</div>
                     <div className="text-xs text-gray-700 mb-2">"{msg.original}"</div>
                     <div className="flex gap-2">
-                      <button onClick={() => handleConfirmPractice(idx, true)} className="px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700">Tạo bài tập</button>
+                      <button onClick={() => handleConfirmPractice(idx, true)} className="px-3 py-1 rounded bg-green-600 text-white hover:bg-green-700">Tạo bài tập</button>
                       <button onClick={() => handleConfirmPractice(idx, false)} className="px-3 py-1 rounded bg-gray-200 text-gray-700 hover:bg-gray-300">Hủy</button>
                     </div>
                   </div>
@@ -877,12 +866,12 @@ const Chatbot: React.FC = () => {
               }
               if (msg.role === 'practice-loading') {
                 return (
-                  <div key={idx} className="mb-4 p-3 rounded-lg border border-blue-200 bg-blue-50 flex items-center gap-2">
-                    <svg className="animate-spin h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <div key={idx} className="mb-4 p-3 rounded-lg border border-green-200 flex items-center gap-2">
+                    <svg className="animate-spin h-5 w-5 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    <span className="text-blue-700 font-medium">Đang tạo bài luyện tập TOEIC...</span>
+                    <span className="text-green-700 font-medium">Đang tạo bài luyện tập TOEIC...</span>
                   </div>
                 );
               }
@@ -919,7 +908,7 @@ const Chatbot: React.FC = () => {
                 return (
                   <div key={idx} style={{ margin: '8px 0', textAlign: 'right' }}>
                     <img src={msg.image} alt="uploaded" style={{ maxWidth: 120, maxHeight: 120, borderRadius: 8, marginBottom: 4, border: '1px solid #eee' }} />
-                    <span style={{ display: 'inline-block', background: '#1976d2', color: '#fff', borderRadius: 16, padding: '8px 14px', maxWidth: '80%', fontSize: 15 }}>{msg.text}</span>
+                    <span style={{ display: 'inline-block', background: '#14B24C', color: '#fff', borderRadius: 16, padding: '8px 14px', maxWidth: '80%', fontSize: 15 }}>{msg.text}</span>
                   </div>
                 );
               }
@@ -927,7 +916,7 @@ const Chatbot: React.FC = () => {
               if (msg.role === 'user' && !msg.image) {
                 return (
                   <div key={idx} style={{ margin: '8px 0', textAlign: 'right' }}>
-                    <span style={{ display: 'inline-block', background: '#1976d2', color: '#fff', borderRadius: 16, padding: '8px 14px', maxWidth: '80%', fontSize: 15 }}>{msg.text}</span>
+                    <span style={{ display: 'inline-block', background: '#14B24C', color: '#fff', borderRadius: 16, padding: '8px 14px', maxWidth: '80%', fontSize: 15 }}>{msg.text}</span>
                   </div>
                 );
               }
@@ -961,7 +950,7 @@ const Chatbot: React.FC = () => {
                 }}>
                   <span style={{
                     display: 'inline-block',
-                    background: '#1976d2',
+                    background: '#14B24C',
                     color: '#fff',
                     borderRadius: 16,
                     padding: '8px 14px',
@@ -973,7 +962,7 @@ const Chatbot: React.FC = () => {
             })}
             <div ref={chatEndRef} />
           </div>
-          <div style={{ display: 'flex', borderTop: '1px solid #eee', padding: 8, background: '#fafbfc' }}>
+          <div style={{ display: 'flex', borderTop: '1px solid #e5e7eb', padding: 8, background: '#f9fafb' }}>
             <textarea
               ref={inputRef}
               value={input}
@@ -981,34 +970,25 @@ const Chatbot: React.FC = () => {
               onKeyDown={e => {
                 if (e.key === 'Enter' && !e.shiftKey) {
                   e.preventDefault();
-                  if (!loading && !uploadingImage && input.trim()) handleSend();
+                  if (!loading && input.trim()) handleSend();
                 }
               }}
               placeholder="Nhập câu hỏi về TOEIC..."
-              style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, padding: 8, borderRadius: 8, background: '#f2f4f8', resize: 'none', minHeight: 38, maxHeight: 90 }}
-              disabled={uploadingImage}
+              style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, padding: 8, borderRadius: 8, resize: 'none', minHeight: 38, maxHeight: 90 }}
               rows={1}
             />
-            {/* <label style={{ marginLeft: 8, cursor: uploadingImage ? 'not-allowed' : 'pointer', opacity: uploadingImage ? 0.5 : 1 }}>
-              <input type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageUpload} disabled={uploadingImage} />
-              <svg width="22" height="22" fill="none" stroke="#1976d2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <path d="M21 15l-5-5L5 21"/>
-              </svg>
-            </label> */}
             <button
               onClick={handleSend}
-              disabled={loading || uploadingImage || !input.trim()}
+              disabled={loading || !input.trim()}
               style={{
                 marginLeft: 8,
-                background: '#000000ba',
+                background: 'linear-gradient(135deg, #14B24C 0%, #16a34a 100%)',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 8,
                 padding: '0 12px',
                 fontSize: 16,
-                cursor: loading || uploadingImage ? 'not-allowed' : 'pointer',
+                cursor: loading ? 'not-allowed' : 'pointer',
                 height: 38,
                 display: 'flex',
                 alignItems: 'center',
@@ -1034,6 +1014,6 @@ const Chatbot: React.FC = () => {
       )}
     </>
   );
-};
 
-export default Chatbot; 
+};
+export default Chatbot;

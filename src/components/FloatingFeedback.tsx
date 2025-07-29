@@ -48,7 +48,7 @@ const FloatingFeedback: React.FC = () => {
       {open && (
         <div className="bg-white rounded-2xl shadow-2xl p-4 w-80 animate-fade-in flex flex-col items-stretch">
           <div className="flex justify-between items-center mb-2">
-            <span className="font-bold text-blue-700">Góp ý / Feedback</span>
+                            <span className="font-bold text-green-700">Góp ý / Feedback</span>
             <button
               className="text-gray-400 hover:text-gray-600 text-xl font-bold px-2"
               onClick={() => setOpen(false)}

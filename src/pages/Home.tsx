@@ -57,8 +57,8 @@ const Home: React.FC = () => {
       description: 'Thực hành từng part một cách linh hoạt',
       buttonText: 'Bắt đầu ngay',
       svgPath: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
-      bgColor: 'bg-indigo-100',
-      textColor: 'text-indigo-600',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
       animationDelay: '0s',
       onClick: () => window.location.href = '/not-found',
     },
@@ -77,15 +77,15 @@ const Home: React.FC = () => {
       description: 'Hỏi đáp và giải thích chi tiết với AI',
       buttonText: 'Chat ngay',
       svgPath: 'M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z',
-      bgColor: 'bg-purple-100',
-      textColor: 'text-purple-600',
+      bgColor: 'bg-green-100',
+      textColor: 'text-green-600',
       animationDelay: '1s',
       onClick: () => (window as any).openChatbot && (window as any).openChatbot(),
     },
   ];
 
   return (
-    <main className="container mx-auto px-6 py-12">
+    <main className="container mx-auto px-6 py-12 max-w-6xl">
       <WelcomeSection />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {toeicParts.map((part, index) => (

@@ -46,14 +46,17 @@ const TestPart1: React.FC = () => {
   if (typeof testIdRaw === 'string' && testIdRaw.includes('-test')) {
     const parts = testIdRaw.split('-');
     category = parts[0];
-    level = parts[1];
-    testNumber = parseInt(parts[2].replace('test', ''), 10);
+    testNumber = parseInt(parts[1].replace('test', ''), 10);
   } else {
     testNumber = typeof testIdRaw === 'number' ? testIdRaw : 1;
   }
-  level = level.trim();
-  // Lấy đúng mảng câu hỏi theo chủ đề, level và testNumber
-  const allQuestions = (levelData as any)[category]?.[level] || (levelData as any)[category]?.[level + ' '] || [];
+  
+  // Lấy tất cả questions từ tất cả levels cho category này
+  let allQuestions: any[] = [];
+  for (let level = 1; level <= 3; level++) {
+    const questions = (levelData as any)[category]?.[`level${level}`] || (levelData as any)[category]?.[`level${level} `] || [];
+    allQuestions = allQuestions.concat(questions);
+  }
   const testQuestions = allQuestions.slice((testNumber - 1) * QUESTIONS_PER_TEST, testNumber * QUESTIONS_PER_TEST);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<(Answer | null)[]>(Array(testQuestions.length).fill(null));

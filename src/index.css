@@ -5,7 +5,8 @@ body {
 }
 
 .gradient-bg {
-    background: #000000ba;
+    /* background: linear-gradient(135deg, #14B24C 0%, #16a34a 100%); */
+    background: #ffffff;
     /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
 }
 
@@ -26,6 +27,7 @@ body {
 
 .nav-item:hover {
     transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-item.active::after {
@@ -36,7 +38,7 @@ body {
     transform: translateX(-50%);
     width: 30px;
     height: 3px;
-    background: #667eea;
+    background: #000000;
     border-radius: 2px;
 }
 
@@ -46,7 +48,7 @@ body {
 }
 
 .part-card .part-circle {
-    background: #4caf7c2c;
+    background: #14B24C2c;
 }
 
 
@@ -98,7 +100,8 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 .gradient-bg-header {
-    background: #000000ba;
+    /* background: linear-gradient(135deg, #14B24C 0%, #16a34a 100%); */
+    background: #ffffff;
 }
 
 .level-badge {
@@ -139,8 +142,8 @@ body {
 
 
 .active-level {
-    border-color: #477196;
-    background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+    border-color: #14B24C;
+    background: linear-gradient(135deg, #f0fdf4 0%, #f0f4ff 100%);
 }
 
 .level-card.locked {
@@ -178,14 +181,14 @@ body {
 }
 
 .difficulty-dot.active {
-    background: linear-gradient(45deg, #f59e0b, #f97316);
+    background: linear-gradient(45deg, #14B24C, #16a34a);
 }
 
 .gradient-bg {
     background: #000000ba;
 }
 .level-badge {
-    background: #477196;
+    background: #14B24C;
 }
 .difficulty-dot {
     width: 8px;
@@ -196,7 +199,7 @@ body {
     margin-right: 2px;
 }
 .difficulty-dot.active {
-    background-color: #4f46e5;
+    background-color: #14B24C;
 }
 .test-item:hover {
     transform: translateY(-2px);
@@ -224,11 +227,11 @@ body {
     transition: all 0.3s;
 }
 .tab-btn.active {
-    color: #4f46e5;
-    border-bottom: 2px solid #4f46e5;
+    color: #14B24C;
+    border-bottom: 2px solid #059669;
 }
 .tab-btn:hover {
-    color: #4f46e5;
+    color: #14B24C;
 }
 .test-card {
     transition: all 0.3s ease;
@@ -243,30 +246,13 @@ body {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-.test-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #477196;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
 
-.test-card:hover::before {
-    opacity: 1;
-}
 
 .completed-card {
     background: linear-gradient(135deg, #f0fdf4 0%, #fdfffe 100%);
 }
 
-.completed-card::before {
-    background: linear-gradient(90deg, #22c55e, #16a34a);
-    opacity: 1;
-}
+
 
 .score-badge {
     background: linear-gradient(135deg, #22c55e, #16a34a);
@@ -280,8 +266,8 @@ body {
 
 .start-btn {
     background-color: white;
-    color: #477196; /* Màu chữ tím đậm */
-    border: 1px solid #477196;
+    color: #14B24C; /* Màu chữ xanh lá */
+    border: 1px solid #14B24C;
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     font-weight: 500;
@@ -290,7 +276,7 @@ body {
   }
   
   .start-btn:hover {
-    background-color: #f0f0ff; /* Màu nhạt để hover dễ nhìn */
+    background-color: #f0fdf4; /* Màu nhạt để hover dễ nhìn */
     transform: scale(1.02);
   }
 
@@ -309,7 +295,7 @@ body {
   display: inline-block;
   width: 4px;
   height: 20px;
-  background: #3b82f6;
+  background: #14B24C;
   margin: 0 2px;
   border-radius: 2px;
   animation: wave 1.5s ease-in-out infinite;

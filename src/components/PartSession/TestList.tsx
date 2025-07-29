@@ -21,26 +21,34 @@ const TestList: React.FC<TestListProps> = ({
   const filteredTests = currentTab === 'all' ? tests : tests.filter((test) => test.category === currentTab);
 
   return (
-    <div className="bg-white rounded-2xl p-8 shadow-lg slide-in">
-      <div className="flex mb-6 border-b text-sm">
-        {[
-          { key: 'all', label: 'Tất cả' },
-          { key: 'people', label: 'Con người' },
-          { key: 'object', label: 'Vật thể' },
-          { key: 'environment', label: 'Môi trường' },
-          { key: 'mixed', label: 'Hỗn hợp' }
-        ].map((tab) => (
-          <button
-            key={tab.key}
-            className={`tab-btn px-4 py-2 ${currentTab === tab.key ? 'active' : ''}`}
-            data-tab={tab.key}
-            onClick={() => setCurrentTab(tab.key)}
+    <>
+      <div className="flex justify-start mb-8">
+        <div className="relative">
+          <select
+            value={currentTab}
+            onChange={(e) => setCurrentTab(e.target.value)}
+            className="appearance-none bg-white border border-slate-200 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 cursor-pointer"
           >
-            {tab.label}
-          </button>
-        ))}
+            {[
+              { key: 'all', label: 'All Categories' },
+              { key: 'people', label: 'People' },
+              { key: 'object', label: 'Objects' },
+              { key: 'environment', label: 'Landscapes' },
+              { key: 'mixed', label: 'Mixed' }
+            ].map((tab) => (
+              <option key={tab.key} value={tab.key}>
+                {tab.label}
+              </option>
+            ))}
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-500">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredTests.map((test) => {
           const isLoading = loadingTests.has(String(test.id));
           const progress = loadingProgress[String(test.id)];
@@ -51,78 +59,75 @@ const TestList: React.FC<TestListProps> = ({
           return (
             <div
               key={test.id}
-              className={`test-card bg-white rounded-lg p-4 shadow-sm border border-gray-100 ${test.completed ? 'completed-card' : ''}`}
+              className={`test-card bg-white rounded-xl p-5 shadow-lg cursor-pointer transition-all duration-300 transform hover:shadow-xl hover:scale-105 hover:-translate-y-1 ${test.completed ? 'completed-card' : ''}`}
+              onClick={() => startTest(String(test.id))}
             >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex-1">
-                  <h4 className="font-medium text-gray-800 text-sm line-clamp-2 leading-tight">{test.title}</h4>
-                  <div className="flex items-center mt-1.5 text-xs text-gray-500">
-                    <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                  <h3 className="text-lg font-bold text-slate-800">Set {test.id}</h3>
+                  {test.completed && (
+                    <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full font-bold">
+                      ✓ Hoàn thành
+                    </span>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
-                    {test.questions} câu
+                    <span className="text-slate-700 font-medium">
+                      {test.category === 'people' ? 'People' : 
+                       test.category === 'object' ? 'Objects' : 
+                       test.category === 'environment' ? 'Environment' : 
+                       test.category === 'mixed' ? 'Mixed' : 'Topic'}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-slate-600">{test.questions} questions</span>
                   </div>
                 </div>
-                {test.completed && (
-                  <div className="score-badge text-white text-xs font-semibold px-2 py-1 rounded-full ml-2">
-                    {test.score}%
+
+                {/* Loading progress bar */}
+                {isLoading && progress && (
+                  <div className="mb-3">
+                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                      <span>Loading images...</span>
+                      <span>{progress.loaded}/{progress.total}</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div 
+                        className="bg-green-600 h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${progressPercentage}%` }}
+                      ></div>
+                    </div>
                   </div>
                 )}
-              </div>
-              
-              {/* Loading progress bar */}
-              {isLoading && progress && (
-                <div className="mb-3">
-                  <div className="flex justify-between text-xs text-gray-500 mb-1">
-                    <span>Đang tải ảnh...</span>
-                    <span>{progress.loaded}/{progress.total}</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+
+                <div className="pt-2">
+                  <div className="w-full bg-slate-100 rounded-full h-1">
                     <div 
-                      className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${progressPercentage}%` }}
+                      className={`h-1 rounded-full transition-all duration-300 ${
+                        test.completed ? 'bg-green-600 w-full' : 'bg-green-600 w-0'
+                      }`}
                     ></div>
                   </div>
+                  <p className="text-xs text-slate-500 mt-1 text-center">
+                    {test.completed ? 'Completed' : 'Start'}
+                  </p>
                 </div>
-              )}
-              
-              <div className="mt-auto">
-                <button
-                  className={`w-full text-xs py-2.5 px-4 rounded-md font-medium transition-all ${
-                    isLoading
-                      ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                      : test.completed 
-                      ? 'retry-btn text-gray-600 hover:text-gray-800 border border-gray-200' 
-                      : 'start-btn'
-                  }`}
-                  onClick={() => startTest(String(test.id))}
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
-                      <svg className="animate-spin w-3 h-3 inline mr-1" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Đang tải... ({progressPercentage}%)
-                    </>
-                  ) : test.completed ? (
-                    <>
-                      <svg className="w-3 h-3 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                      </svg>
-                      Làm lại
-                    </>
-                  ) : (
-                    'Bắt đầu kiểm tra'
-                  )}
-                </button>
               </div>
             </div>
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 
