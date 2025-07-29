@@ -92,7 +92,8 @@
       {
         "questionNumber": 2,
         "level": "Basic",
-        "imageDescription": "A man is reading a book while sitting alone on a park bench.",
+        "type": "people",
+        "imageDescription": "A man is opening a snow-covered car door while standing in deep snow.",
         "subjectVocabulary": [
           {
             "word": "man",
@@ -101,65 +102,79 @@
             "isCorrect": true
           },
           {
-            "word": "book",
-            "meaning": "quyển sách",
-            "pronunciation": "/bʊk/",
+            "word": "car",
+            "meaning": "xe hơi",
+            "pronunciation": "/kɑːr/",
             "isCorrect": true
+          },
+          {
+            "word": "snow",
+            "meaning": "tuyết",
+            "pronunciation": "/snəʊ/",
+            "isCorrect": true
+          },
+          {
+            "word": "dog",
+            "meaning": "con chó",
+            "pronunciation": "/dɒɡ/",
+            "isCorrect": false
           },
           {
             "word": "bench",
             "meaning": "ghế dài",
-            "pronunciation": "/bentʃ/",
-            "isCorrect": true
-          },
-          {
-            "word": "bottle",
-            "meaning": "chai",
-            "pronunciation": "/ˈbɒtl/",
+            "pronunciation": "/bɛntʃ/",
             "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
           {
-            "word": "reading",
-            "meaning": "đang đọc",
-            "pronunciation": "/ˈriːdɪŋ/",
-            "isCorrect": true
-          },
-          {
-            "word": "sitting",
-            "meaning": "đang ngồi",
-            "pronunciation": "/ˈsɪtɪŋ/",
-            "isCorrect": true
-          },
-          {
-            "word": "alone",
-            "meaning": "một mình",
-            "pronunciation": "/əˈləʊn/",
-            "isCorrect": true
-          },
-          {
             "word": "standing",
             "meaning": "đang đứng",
             "pronunciation": "/ˈstændɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "opening",
+            "meaning": "đang mở",
+            "pronunciation": "/ˈəʊpənɪŋ/",
+            "isCorrect": true
+          },
+          {
+            "word": "covered",
+            "meaning": "bị bao phủ",
+            "pronunciation": "/ˈkʌvərd/",
+            "isCorrect": true
+          },
+          {
+            "word": "flying",
+            "meaning": "đang bay",
+            "pronunciation": "/ˈflaɪɪŋ/",
+            "isCorrect": false
+          },
+          {
+            "word": "painting",
+            "meaning": "đang vẽ tranh",
+            "pronunciation": "/ˈpeɪntɪŋ/",
             "isCorrect": false
           }
         ],
         "choices": {
-          "A": "A man is reading a book on a bench.",
-          "B": "A man is standing with a water bottle.",
-          "C": "A group of men are talking together."
+          "A": "The man is brushing snow off the roof of a car.",
+          "B": "The man is standing in the snow beside a car.",
+          "C": "The man is shoveling snow from a walkway.",
+          "D": "The man is running through the snow."
         },
         "choicesVi": {
-          "A": "Một người đàn ông đang đọc sách trên ghế dài.",
-          "B": "Một người đàn ông đang đứng với chai nước.",
-          "C": "Một nhóm người đàn ông đang nói chuyện với nhau."
+          "A": "Người đàn ông đang phủi tuyết khỏi nóc ô tô.",
+          "B": "Người đàn ông đang đứng trong tuyết bên cạnh ô tô.",
+          "C": "Người đàn ông đang xúc tuyết khỏi lối đi.",
+          "D": "Người đàn ông đang chạy qua tuyết."
         },
-        "correctAnswer": "A",
-        "explanation": "A đúng chủ thể và hành động.",
-        "traps": "B: Sai hành động (đứng) và sai vật thể (chai không có trong ảnh). C: Sai số lượng (chỉ có 1 người, không phải nhóm).",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966326/bb5eyl7lw4ntmxznag3k.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966404/hqsca3vlorvvqgcrudlq.mp3"
+        "correctAnswer": "B",
+        "explanation": "B mô tả đúng người đàn ông đang đứng trong tuyết bên cạnh chiếc xe phủ đầy tuyết.",
+        "traps": "A: Sai hành động (không thấy đang phủi tuyết). C: Sai hành động và địa điểm (không có xúc tuyết, không phải lối đi).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1753795518/026e72c5-16b2-4a9e-b560-5fd386b39617.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1753795758/PART_1_-_TEST_1__cut_22sec_1_ptk8he.mp3"
       },
       {
         "questionNumber": 3,

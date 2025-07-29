@@ -47,6 +47,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef, forceStop
     }
   };
 
+  const handleMouseDown = () => {
+    setIsDragging(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
@@ -68,7 +76,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef, forceStop
     if (!audio) return;
 
     const updateTime = () => {
-      if (!isDragging) setCurrentTime(audio.currentTime);
+      setCurrentTime(audio.currentTime);
     };
 
     const updateDuration = () => setDuration(audio.duration);
@@ -89,7 +97,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef, forceStop
       audio.removeEventListener('pause', handlePause);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, [isDragging]);
+  }, []);
 
   useEffect(() => {
     if (ref.current) {
@@ -159,8 +167,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, audioRef, forceStop
               max={duration || 0}
               value={currentTime}
               onChange={handleSeek}
-              onMouseDown={() => setIsDragging(true)}
-              onMouseUp={() => setIsDragging(false)}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              onTouchStart={handleMouseDown}
+              onTouchEnd={handleMouseUp}
               className="w-full h-2 bg-neutral-300 rounded-full appearance-none cursor-pointer transition-all duration-200
                 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3
                 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-black

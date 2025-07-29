@@ -174,7 +174,7 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
                       e.stopPropagation();
                       toggleMeaning(word);
                     }}
-                    title="Xem nghĩa"
+                    title="View meaning"
                   >
                     📖
                   </button>
@@ -195,20 +195,20 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
   );
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg border border-gray-200 max-h-[calc(100vh-6rem)] overflow-y-auto">
+    <div className="w-full bg-white max-h-[calc(100vh-6rem)] overflow-y-auto">
       <div className="p-4">
     
         <div className="flex items-center justify-between mb-4">
           <div className="text-center flex-1">
             <h2 className="text-lg font-bold text-gray-800 mb-1">
-              Bạn thấy gì trong ảnh này ?
+              What do you see in this image?
             </h2>
           </div>
           {onClose && (
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700 p-1"
-              title="Đóng"
+              title="Close"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -217,64 +217,64 @@ const VocabularyPanel: React.FC<VocabularyPanelProps> = ({
           )}
         </div>
 
-        {/* Từ vựng */}
+        {/* Vocabulary */}
         {renderVocabularySection(
           subjectVocabulary, 
           selectedSubjectWords, 
           'subject',
-          'Từ vựng chủ thể'
+          'Subject Vocabulary'
         )}
 
                 {renderVocabularySection(
           descriptiveVocabulary, 
           selectedDescriptiveWords, 
           'descriptive',
-          'Từ vựng mô tả'
+          'Descriptive Vocabulary'
         )}
 
         {!isCompleted && (
           <div className="text-center mt-4">
             <button
               onClick={handleComplete}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors w-full"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
             >
-              Hoàn thành
+              Continue
             </button>
           </div>
         )}
 
-        {/* Kết quả từ vựng */}
+        {/* Vocabulary Results */}
         {isAnswered && (
           <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-            <h4 className="font-semibold text-gray-800 mb-2 text-sm">Kết quả:</h4>
+            <h4 className="font-semibold text-gray-800 mb-2 text-sm">Results:</h4>
             <div className="space-y-2 text-xs">
-              {/* Chủ thể */}
+              {/* Subject */}
               <div>
-                <div className="font-medium text-gray-700">Chủ thể:</div>
+                <div className="font-medium text-gray-700">Subject:</div>
                 <div className="text-gray-600">
-                  Chọn đúng: {subjectVocabulary.filter((_, index) => 
+                  Correct: {subjectVocabulary.filter((_, index) => 
                     selectedSubjectWords.includes(subjectVocabulary[index].word) && subjectVocabulary[index].isCorrect
-                  ).length}/{selectedSubjectWords.length} từ đã chọn
+                  ).length}/{selectedSubjectWords.length} selected words
                 </div>
                 <div className="text-gray-600">
-                  Thiếu: {subjectVocabulary.filter((_, index) => 
+                  Missing: {subjectVocabulary.filter((_, index) => 
                     !selectedSubjectWords.includes(subjectVocabulary[index].word) && subjectVocabulary[index].isCorrect
-                  ).length} từ đúng chưa chọn
+                  ).length} correct words not selected
                 </div>
               </div>
               
-              {/* Mô tả */}
+              {/* Descriptive */}
               <div>
-                <div className="font-medium text-gray-700">Mô tả:</div>
+                <div className="font-medium text-gray-700">Descriptive:</div>
                 <div className="text-gray-600">
-                  Chọn đúng: {descriptiveVocabulary.filter((_, index) => 
+                  Correct: {descriptiveVocabulary.filter((_, index) => 
                     selectedDescriptiveWords.includes(descriptiveVocabulary[index].word) && descriptiveVocabulary[index].isCorrect
-                  ).length}/{selectedDescriptiveWords.length} từ đã chọn
+                  ).length}/{selectedDescriptiveWords.length} selected words
                 </div>
                 <div className="text-gray-600">
-                  Thiếu: {descriptiveVocabulary.filter((_, index) => 
+                  Missing: {descriptiveVocabulary.filter((_, index) => 
                     !selectedDescriptiveWords.includes(descriptiveVocabulary[index].word) && descriptiveVocabulary[index].isCorrect
-                  ).length} từ đúng chưa chọn
+                  ).length} correct words not selected
                 </div>
               </div>
             </div>
