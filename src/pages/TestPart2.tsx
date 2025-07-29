@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import AudioPlayer from '../components/AudioPlayer';
-import FloatingTimer from '../components/TestPart1/FloatingTimer';
 import TestResults from '../components/TestPart2/TestResults';
+import { BackButton } from '../components/common/BackButton';
 import part2Data from '../data/toeic_part2.json';
 
 interface Question {
@@ -36,19 +36,15 @@ const TestPart2: React.FC = () => {
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
   const [showResults, setShowResults] = useState(false);
   const [isTestStarted, setIsTestStarted] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState(1800); // 30 minutes
-  const [showTranscript, setShowTranscript] = useState(false);
   const [questionTypeSelected, setQuestionTypeSelected] = useState<string>('');
   const [answerTypeSelected, setAnswerTypeSelected] = useState<string>('');
   const [showAnswerChoices, setShowAnswerChoices] = useState(false);
-  const [questionTypeCorrect, setQuestionTypeCorrect] = useState<boolean | null>(null);
-  const [answerTypeCorrect, setAnswerTypeCorrect] = useState<boolean | null>(null);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
-  const [showAutoPlayNotification, setShowAutoPlayNotification] = useState(false);
   const [hasUserInteracted, setHasUserInteracted] = useState(true);
-  const [showStartModal, setShowStartModal] = useState(false);
-  // Thêm state cho bước chọn loại câu hỏi/đáp án
-  const [typeStep, setTypeStep] = useState<1 | 2>(1);
+  // State for draggable navigation position
+  const [navPosition, setNavPosition] = useState({ x: window.innerWidth - 200, y: window.innerHeight / 2 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
   // Các type câu hỏi và đáp án có sẵn (tiếng Anh)
   const questionTypes = [
@@ -74,21 +70,16 @@ const TestPart2: React.FC = () => {
 
   // Hàm xác định loại đáp án đúng dựa vào câu hỏi và đáp án đúng
   const handleAnswerTypeSelect = (typeKey: string) => {
-    const correctAnswerType = currentQuestion.typeAnswer;
-    const isCorrect = typeKey === correctAnswerType;
     setAnswerTypeSelected(typeKey);
-    setAnswerTypeCorrect(isCorrect);
   };
 
   const handleQuestionTypeSelect = (typeKey: string) => {
-    const isCorrect = typeKey === currentQuestion.type;
     setQuestionTypeSelected(typeKey);
-    setQuestionTypeCorrect(isCorrect);
   };
 
-  // Bấm Continue khi cả hai loại đều đúng
+  // Bấm Continue khi đã chọn cả hai loại
   const handleTypeSelection = () => {
-    if (questionTypeCorrect && answerTypeCorrect) {
+    if (questionTypeSelected && answerTypeSelected) {
       setShowAnswerChoices(true);
     }
   };
@@ -97,9 +88,6 @@ const TestPart2: React.FC = () => {
     setQuestionTypeSelected('');
     setAnswerTypeSelected('');
     setShowAnswerChoices(false);
-    setShowTranscript(false);
-    setQuestionTypeCorrect(null);
-    setAnswerTypeCorrect(null);
   };
 
   const handleAnswerSelect = (questionId: number, answer: string) => {
@@ -107,27 +95,31 @@ const TestPart2: React.FC = () => {
       ...prev,
       [questionId]: answer
     }));
-    setShowTranscript(true);
   };
 
   const handleTranslateOption = (choice: string, optionText: HTMLSpanElement, button: HTMLButtonElement) => {
-    const currentText = optionText.textContent;
-    const currentButtonText = button.textContent;
+    const currentButtonText = button.textContent?.trim();
+    console.log('Translate button clicked:', { choice, currentButtonText, hasChoicesVi: !!currentQuestion.choicesVi });
 
     if (currentButtonText === 'Dịch') {
       // Kiểm tra xem có bản dịch không
       if (currentQuestion.choicesVi && currentQuestion.choicesVi[choice as keyof typeof currentQuestion.choicesVi]) {
-        optionText.textContent = currentQuestion.choicesVi[choice as keyof typeof currentQuestion.choicesVi];
+        const vietnameseText = currentQuestion.choicesVi[choice as keyof typeof currentQuestion.choicesVi];
+        console.log('Switching to Vietnamese:', vietnameseText);
+        optionText.textContent = vietnameseText;
         button.textContent = 'English';
       } else {
         // Fallback: hiển thị bản dịch giả
         const englishText = currentQuestion.choices[choice as keyof typeof currentQuestion.choices];
+        console.log('No Vietnamese translation, showing fallback');
         optionText.textContent = `[Bản dịch] ${englishText}`;
         button.textContent = 'English';
       }
     } else {
       // Quay lại tiếng Anh
-      optionText.textContent = currentQuestion.choices[choice as keyof typeof currentQuestion.choices];
+      const englishText = currentQuestion.choices[choice as keyof typeof currentQuestion.choices];
+      console.log('Switching back to English:', englishText);
+      optionText.textContent = englishText;
       button.textContent = 'Dịch';
     }
   };
@@ -156,6 +148,57 @@ const TestPart2: React.FC = () => {
     resetTypeSelection();
   };
 
+  // Drag handlers for navigation
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+    setDragStart({
+      x: e.clientX - navPosition.x,
+      y: e.clientY - navPosition.y
+    });
+  }, [navPosition]);
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (isDragging) {
+      e.preventDefault();
+      
+      requestAnimationFrame(() => {
+        const newX = e.clientX - dragStart.x;
+        const newY = e.clientY - dragStart.y;
+        
+        // Keep within viewport bounds
+        const maxX = window.innerWidth - 200; // Navigation width
+        const maxY = window.innerHeight - 300; // Navigation height
+        
+        setNavPosition({
+          x: Math.max(0, Math.min(newX, maxX)),
+          y: Math.max(0, Math.min(newY, maxY))
+        });
+      });
+    }
+  }, [isDragging, dragStart]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  // Add global mouse event listeners
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove, { passive: false });
+      document.addEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = 'grabbing';
+      document.body.style.userSelect = 'none';
+      
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+      };
+    }
+  }, [isDragging, handleMouseMove, handleMouseUp]);
+
   // Tự động phát audio khi chuyển câu hỏi
   useEffect(() => {
     if (currentQuestion && isTestStarted && autoPlayEnabled && hasUserInteracted) {
@@ -166,11 +209,7 @@ const TestPart2: React.FC = () => {
           // Reset audio về đầu
           audioElement.currentTime = 0;
           // Phát audio
-          audioElement.play().then(() => {
-            // Hiển thị thông báo khi audio bắt đầu phát
-            setShowAutoPlayNotification(true);
-            setTimeout(() => setShowAutoPlayNotification(false), 2000);
-          }).catch(error => {
+          audioElement.play().catch(error => {
             console.log('Auto-play failed:', error);
             // Disable auto-play if it fails
             setAutoPlayEnabled(false);
@@ -181,6 +220,14 @@ const TestPart2: React.FC = () => {
       return () => clearTimeout(timer);
     }
   }, [currentQuestionIndex, currentQuestion, isTestStarted, autoPlayEnabled, hasUserInteracted]);
+
+  // Debug: Kiểm tra khi nào nút dịch được render
+  useEffect(() => {
+    if (userAnswers[currentQuestion?.id]) {
+      console.log('Answer selected, Dịch buttons should be visible');
+      console.log('Current question has choicesVi:', !!currentQuestion?.choicesVi);
+    }
+  }, [userAnswers, currentQuestion]);
 
 
 
@@ -276,7 +323,6 @@ const TestPart2: React.FC = () => {
           setShowResults(false);
           setUserAnswers({});
           setCurrentQuestionIndex(0);
-          setTimeRemaining(1800);
           resetTypeSelection();
         }}
         onBackToPart={() => navigate('/part2')}
@@ -296,9 +342,7 @@ const TestPart2: React.FC = () => {
 
 
 
-  const correctAnswers = questions.filter(q => userAnswers[q.id] === q.correctAnswer).length;
-  const incorrectAnswers = questions.filter(q => userAnswers[q.id] && userAnswers[q.id] !== q.correctAnswer).length;
-  const skippedAnswers = questions.length - Object.keys(userAnswers).length;
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -307,10 +351,24 @@ const TestPart2: React.FC = () => {
           <h1 className="text-2xl font-bold text-gray-800 mb-2">Part 2 - Question-Response</h1>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+        <div className="flex justify-center mb-20">
           {/* Main Content */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="w-full max-w-4xl">
+            <div className="bg-white rounded-2xl p-8 shadow-lg relative">
+              {/* Auto-play Button - Fixed to top right of card */}
+              <div className="absolute top-4 right-4 z-10">
+                <button
+                  onClick={() => setAutoPlayEnabled(!autoPlayEnabled)}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 shadow-md ${
+                    autoPlayEnabled
+                      ? 'bg-green-500 text-white hover:bg-green-600' 
+                      : 'bg-gray-500 text-white hover:bg-gray-600'
+                  }`}
+                >
+                  {autoPlayEnabled ? '🔊 Auto ON' : '🔇 Auto OFF'}
+                </button>
+              </div>
+              
               {/* Question Header */}
               <div className="mb-6">
                 <div className="flex items-center justify-between mb-4">
@@ -321,39 +379,23 @@ const TestPart2: React.FC = () => {
                 
                 {/* Audio Player */}
                 <div className="mb-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-medium text-gray-800">Audio</h3>
-                    <button
-                      onClick={() => setAutoPlayEnabled(!autoPlayEnabled)}
-                      className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                        autoPlayEnabled
-                          ? 'bg-green-100 text-green-700 hover:bg-green-200' 
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      {autoPlayEnabled ? 'Auto-play ON' : 'Auto-play OFF'}
-                    </button>
-                  </div>
                   <AudioPlayer audioSrc={currentQuestion.audio} />
                 </div>
 
                 {/* Type Selection Section */}
                 {!showAnswerChoices && (
-                  <div className="mb-6 relative min-h-[320px]">
-                    <h3 className="text-lg font-medium text-gray-800 mb-3">1. Choose the question type:</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                  <div className="mb-6 relative min-h-[320px] pb-20">
+                    <h3 className="text-base font-semibold text-gray-800 mb-3 flex items-center">
+                      <span className="bg-blue-100 text-blue-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-2">1</span>
+                      Choose the question type:
+                    </h3>
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {questionTypes.map((type) => {
-                        let buttonClass = "p-3 text-left rounded-lg border-2 transition-all ";
+                        let buttonClass = "px-3 py-1 rounded-full border transition-all duration-200 text-sm whitespace-nowrap ";
                         if (questionTypeSelected === type.key) {
-                          if (questionTypeCorrect === true) {
-                            buttonClass += "border-green-500 bg-green-50";
-                          } else if (questionTypeCorrect === false) {
-                            buttonClass += "border-red-500 bg-red-50";
-                          } else {
-                            buttonClass += "border-blue-500 bg-blue-50";
-                          }
+                          buttonClass += "border-blue-300 bg-blue-50 text-blue-600 shadow-sm";
                         } else {
-                          buttonClass += "border-gray-200 hover:border-gray-300";
+                          buttonClass += "border-gray-200 hover:border-blue-200 hover:bg-blue-50/30";
                         }
                         return (
                           <button
@@ -361,25 +403,22 @@ const TestPart2: React.FC = () => {
                             onClick={() => handleQuestionTypeSelect(type.key)}
                             className={buttonClass}
                           >
-                            <div className="font-medium text-gray-800">{type.label}</div>
+                            {type.label}
                           </button>
                         );
                       })}
                     </div>
-                    <h3 className="text-lg font-medium text-gray-800 mb-3 mt-6">2. Choose the appropriate answer type:</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-20">
+                    <h3 className="text-base font-semibold text-gray-800 mb-3 mt-6 flex items-center">
+                      <span className="bg-green-100 text-green-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-2">2</span>
+                      Choose the appropriate answer type:
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
                       {answerTypes.map((type) => {
-                        let buttonClass = "p-3 text-left rounded-lg border-2 transition-all ";
+                        let buttonClass = "px-3 py-1 rounded-full border transition-all duration-200 text-sm whitespace-nowrap ";
                         if (answerTypeSelected === type.key) {
-                          if (answerTypeCorrect === true) {
-                            buttonClass += "border-green-500 bg-green-50";
-                          } else if (answerTypeCorrect === false) {
-                            buttonClass += "border-red-500 bg-red-50";
-                          } else {
-                            buttonClass += "border-green-500 bg-green-50";
-                          }
+                          buttonClass += "border-blue-300 bg-blue-50 text-blue-600 shadow-sm";
                         } else {
-                          buttonClass += "border-gray-200 hover:border-gray-300";
+                          buttonClass += "border-gray-200 hover:border-blue-200 hover:bg-blue-50/30";
                         }
                         return (
                           <button
@@ -387,26 +426,25 @@ const TestPart2: React.FC = () => {
                             onClick={() => handleAnswerTypeSelect(type.key)}
                             className={buttonClass}
                           >
-                            <div className="font-medium text-gray-800">{type.label}</div>
+                            {type.label}
                           </button>
                         );
                       })}
                     </div>
-                    {/* Có thể thêm hướng dẫn hoặc thông báo nếu chọn sai */}
-                    {answerTypeCorrect === false && (
-                      <div className="text-red-600 text-center font-medium mt-2">Incorrect answer type, please try again.</div>
-                    )}
+
+                    
                     {/* Nút Continue sticky dưới card */}
-                    {questionTypeCorrect && answerTypeCorrect && (
-                      <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, padding: 16, background: 'linear-gradient(to top, #fff 90%, transparent)'}} className="flex justify-center">
+                    {questionTypeSelected && answerTypeSelected && (
+                      <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, padding: 16, background: 'linear-gradient(to top, #fff 95%, transparent)'}} className="flex justify-center">
                         <button
                           onClick={handleTypeSelection}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg"
+                          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 rounded-full font-medium transition-colors shadow-lg"
                         >
-                          Continue to answer selection
+                          Continue
                         </button>
                       </div>
                     )}
+
                   </div>
                 )}
 
@@ -418,26 +456,22 @@ const TestPart2: React.FC = () => {
                       const isCorrect = currentQuestion.correctAnswer === choice;
                       const showResult = userAnswers[currentQuestion.id] !== undefined;
                       
-                      let buttonClass = "w-full text-left p-4 rounded-lg border-2 transition-all ";
+                      let buttonClass = "w-full text-left px-4 py-2 rounded-lg border transition-all ";
                       if (isSelected) {
                         if (isCorrect) {
-                          buttonClass += "border-green-500 bg-green-50";
+                          buttonClass += "border-green-400 bg-green-100 text-green-800 font-semibold";
                         } else {
-                          buttonClass += "border-red-500 bg-red-50";
+                          buttonClass += "border-red-400 bg-red-100 text-red-800";
                         }
                       } else if (showResult && isCorrect) {
-                        buttonClass += "border-green-500 bg-green-50";
+                        buttonClass += "border-green-400 bg-green-100 text-green-800 font-semibold";
                       } else {
-                        buttonClass += "border-gray-200 hover:border-gray-300";
+                        buttonClass += "border-gray-200 hover:bg-blue-50";
                       }
 
                       return (
                         <div key={choice}>
-                          <button
-                            className={buttonClass}
-                            onClick={() => handleAnswerSelect(currentQuestion.id, choice)}
-                            disabled={userAnswers[currentQuestion.id] !== undefined}
-                          >
+                          <div className={buttonClass}>
                             <div className="flex items-start">
                               <span className="font-semibold text-gray-600 mr-3 min-w-[20px]">
                                 {choice}.
@@ -445,8 +479,35 @@ const TestPart2: React.FC = () => {
                               <div className="flex-1">
                                 {/* Ẩn text đáp án sau khi đã chọn, chỉ hiển thị khi chưa chọn */}
                                 {userAnswers[currentQuestion.id] === undefined ? (
-                                  <p className="text-gray-400 italic">Click để chọn đáp án</p>
-                                ) : null}
+                                  <button
+                                    className="w-full text-left"
+                                    onClick={() => handleAnswerSelect(currentQuestion.id, choice)}
+                                  >
+                                    <p className="text-gray-400 italic">Click để chọn đáp án</p>
+                                  </button>
+                                ) : (
+                                  <div className="flex items-center">
+                                    <span className="option-text">{currentQuestion.choices[choice as keyof typeof currentQuestion.choices]}</span>
+                                    <button
+                                      className="translate-option-btn bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs hover:bg-blue-200 ml-1 flex-shrink-0"
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        console.log('Dịch button clicked for choice:', choice);
+                                        console.log('Button element:', e.currentTarget);
+                                        console.log('Previous element:', e.currentTarget.previousElementSibling);
+                                        handleTranslateOption(
+                                          choice,
+                                          e.currentTarget.previousElementSibling as HTMLSpanElement,
+                                          e.currentTarget as HTMLButtonElement
+                                        );
+                                      }}
+                                      type="button"
+                                    >
+                                      Dịch
+                                    </button>
+                                  </div>
+                                )}
                               </div>
                               {/* Icon đúng/sai */}
                               {showResult && (
@@ -469,7 +530,7 @@ const TestPart2: React.FC = () => {
                                 </div>
                               )}
                             </div>
-                          </button>
+                          </div>
                         </div>
                       );
                     })}
@@ -482,7 +543,7 @@ const TestPart2: React.FC = () => {
                     <button
                       onClick={previousQuestion}
                       disabled={currentQuestionIndex === 0}
-                      className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+                      className={`px-5 py-2.5 rounded-full font-medium transition-colors ${
                         currentQuestionIndex === 0
                           ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                           : 'bg-gray-600 text-white hover:bg-gray-700'
@@ -494,7 +555,7 @@ const TestPart2: React.FC = () => {
                     <button
                       onClick={nextQuestion}
                       disabled={currentQuestionIndex === questions.length - 1}
-                      className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+                      className={`px-5 py-2.5 rounded-full font-medium transition-colors ${
                         currentQuestionIndex === questions.length - 1
                           ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                           : 'bg-blue-600 text-white hover:bg-blue-700'
@@ -505,11 +566,17 @@ const TestPart2: React.FC = () => {
                   </div>
                 )}
 
-                {/* Transcript and Translation Section */}
+                {/* Explanation Section */}
                 {userAnswers[currentQuestion.id] !== undefined && (
-                  <div className="mt-6 space-y-4">
-                    {/* Show explanation when answer is selected */}
-                    <div className="mt-3 p-4 bg-gray-50 rounded-lg">
+                  <div className="mt-6">
+                    {/* Question Transcript */}
+                    <div className="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                      <h4 className="font-semibold text-blue-800 mb-2">Question:</h4>
+                      <div className="text-sm text-blue-900">
+                        {currentQuestion.question}
+                      </div>
+                    </div>
+                    <div className="p-4 bg-gray-50 rounded-lg">
                       <div className="mb-2">
                         <span className="font-semibold text-gray-700">Explanation:</span>
                         <p className="text-gray-600 mt-1">{currentQuestion.explanation}</p>
@@ -520,56 +587,41 @@ const TestPart2: React.FC = () => {
                       </div>
                     </div>
                     
-                    {/* Question Transcript */}
-                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                      <h4 className="font-semibold text-blue-800 mb-2">Question:</h4>
-                      <div className="text-sm text-blue-900 mb-2">
-                        {currentQuestion.question}
-                      </div>
-                    </div>
-
-                    {/* Answer Options with Translation */}
-                    <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                      <h4 className="font-semibold text-yellow-800 mb-2">Answer Options:</h4>
-                      <ul className="list-none space-y-2">
-                        {['A', 'B', 'C'].map((choice) => (
-                          <li key={choice} className="transcript-line flex items-center justify-between" data-option-index={choice.charCodeAt(0) - 65}>
-                            <div className="flex items-center space-x-2">
-                              <span className="font-semibold text-blue-600">({choice})</span>
-                              <span className="option-text">{currentQuestion.choices[choice as keyof typeof currentQuestion.choices]}</span>
-                            </div>
-                            <button
-                              className="translate-option-btn bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs hover:bg-blue-200"
-                              onClick={(e) =>
-                                handleTranslateOption(
-                                  choice,
-                                  e.currentTarget.previousElementSibling?.querySelector('.option-text') as HTMLSpanElement,
-                                  e.currentTarget as HTMLButtonElement
-                                )
-                              }
-                            >
-                              Dịch
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
                   </div>
                 )}
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl p-6 shadow-lg sticky top-8">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">Question Navigation</h3>
+
+
+        {/* Back Button */}
+        <BackButton onClick={() => navigate('/part2')} text="← Back" />
+
+        {/* Question Navigation - Draggable */}
+        <div 
+          className="fixed z-50 cursor-move select-none"
+          style={{
+            left: navPosition.x,
+            top: navPosition.y,
+            transform: 'translate(-50%, -50%)'
+          }}
+        >
+          <div 
+            className="bg-white rounded-2xl p-4 shadow-lg border-2 border-gray-200 hover:border-blue-300 transition-colors"
+            onMouseDown={handleMouseDown}
+          >
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-base font-semibold text-gray-800">Question Navigation</h3>
+              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+            </div>
               
-              <div className="grid grid-cols-5 gap-2 mb-6">
+              <div className="grid grid-cols-5 gap-1 mb-4">
                 {questions.map((question, index) => (
                   <button
                     key={question.id}
-                    className={`w-10 h-10 rounded-lg text-sm font-medium transition-all ${
+                    className={`w-8 h-8 rounded-md text-xs font-medium transition-all ${
                       index === currentQuestionIndex
                         ? 'bg-blue-400 text-white'
                         : getQuestionStatus(question.id) === 'correct'
@@ -588,13 +640,13 @@ const TestPart2: React.FC = () => {
                 ))}
               </div>
 
-              <div className="space-y-4">
-                <div className="flex items-center justify-between text-sm">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-xs">
                   <span className="text-gray-600">Answered:</span>
                   <span className="font-semibold">{Object.keys(userAnswers).length}/{questions.length}</span>
                 </div>
                 
-                <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center justify-between text-xs">
                   <span className="text-gray-600">Progress:</span>
                   <span className="font-semibold">
                     {Math.round((Object.keys(userAnswers).length / questions.length) * 100)}%
@@ -602,7 +654,7 @@ const TestPart2: React.FC = () => {
                 </div>
 
                 <button
-                  className="w-full py-3 px-4 rounded-lg font-medium transition-all bg-green-600 text-white hover:bg-green-600"
+                  className="w-full py-2 px-3 rounded-lg text-sm font-medium transition-all bg-green-600 text-white hover:bg-green-700"
                   onClick={handleFinishTest}
                 >
                   Finish Test
@@ -612,11 +664,6 @@ const TestPart2: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* {isTestStarted && (
-        <FloatingTimer timeRemaining={timeRemaining} />
-      )} */}
-    </div>
   );
 };
 

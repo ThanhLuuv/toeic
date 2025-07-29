@@ -5,7 +5,7 @@ interface BackButtonProps {
   text?: string;
 }
 
-export const BackButton: React.FC<BackButtonProps> = ({ onClick, text = '← Quay lại' }) => {
+export const BackButton: React.FC<BackButtonProps> = ({ onClick, text = '← Back' }) => {
   return (
     <button
       onClick={onClick}

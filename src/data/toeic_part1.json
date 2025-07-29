@@ -6,7 +6,7 @@
         "questionNumber": 1,
         "level": "Basic",
         "type": "people",
-        "imageDescription": "A woman is typing on a laptop at a desk in a small office.",
+        "imageDescription": "A woman is eating alone at a stone picnic table near a parked car in a rest area.",
         "subjectVocabulary": [
           {
             "word": "woman",
@@ -15,65 +15,79 @@
             "isCorrect": true
           },
           {
-            "word": "laptop",
-            "meaning": "máy tính xách tay",
-            "pronunciation": "/ˈlæptɒp/",
+            "word": "table",
+            "meaning": "cái bàn",
+            "pronunciation": "/ˈteɪbl/",
             "isCorrect": true
           },
           {
-            "word": "desk",
-            "meaning": "bàn làm việc",
-            "pronunciation": "/desk/",
+            "word": "car",
+            "meaning": "xe hơi",
+            "pronunciation": "/kɑːr/",
             "isCorrect": true
           },
           {
-            "word": "bag",
-            "meaning": "cái túi",
-            "pronunciation": "/bæɡ/",
+            "word": "rabbit",
+            "meaning": "con thỏ",
+            "pronunciation": "/ˈræbɪt/",
+            "isCorrect": false
+          },
+          {
+            "word": "man",
+            "meaning": "người đàn ông",
+            "pronunciation": "/mæn/",
             "isCorrect": false
           }
         ],
         "descriptiveVocabulary": [
           {
-            "word": "typing",
-            "meaning": "đang gõ",
-            "pronunciation": "/ˈtaɪpɪŋ/",
+            "word": "eating",
+            "meaning": "đang ăn",
+            "pronunciation": "/ˈiːtɪŋ/",
             "isCorrect": true
           },
           {
-            "word": "at",
-            "meaning": "tại",
-            "pronunciation": "/æt/",
+            "word": "sitting",
+            "meaning": "đang ngồi",
+            "pronunciation": "/ˈsɪtɪŋ/",
             "isCorrect": true
           },
           {
-            "word": "standing",
-            "meaning": "đang đứng",
-            "pronunciation": "/ˈstændɪŋ/",
+            "word": "parked",
+            "meaning": "đậu (xe)",
+            "pronunciation": "/pɑːrkt/",
+            "isCorrect": true
+          },
+          {
+            "word": "barking",
+            "meaning": "sủa (chó)",
+            "pronunciation": "/ˈbɑːrkɪŋ/",
             "isCorrect": false
           },
           {
-            "word": "office",
-            "meaning": "văn phòng",
-            "pronunciation": "/ˈɒfɪs/",
-            "isCorrect": true
+            "word": "flying",
+            "meaning": "đang bay",
+            "pronunciation": "/ˈflaɪɪŋ/",
+            "isCorrect": false
           }
         ],
         "choices": {
-          "A": "A woman is standing next to a desk.",
-          "B": "A woman is typing on a laptop at a desk.",
-          "C": "A bag is placed on a chair."
+          "A": "She's eating in a picnic area.",
+          "B": "She's waiting in line at a food truck.",
+          "C": "She's wiping off a bench.",
+          "D": "She's throwing away a plate."
         },
         "choicesVi": {
-          "A": "Một người phụ nữ đang đứng cạnh bàn làm việc.",
-          "B": "Một người phụ nữ đang gõ trên máy tính xách tay tại bàn.",
-          "C": "Một cái túi được đặt trên ghế."
+          "A": "Cô ấy đang ăn trong khu vực picnic.",
+          "B": "Cô ấy đang chờ xếp hàng tại xe bán thức ăn.",
+          "C": "Cô ấy đang lau ghế.",
+          "D": "Cô ấy đang vứt một cái đĩa."
         },
-        "correctAnswer": "B",
-        "explanation": "B đúng chủ thể và hành động.",
-        "traps": "A: Sai hành động (đứng thay vì gõ máy). C: Sai chủ thể và vật thể (nói về túi, không có trong ảnh).",
-        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1751966316/clwcxgttipng7iyioqgs.png",
-        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1751966401/sxi6rjpo37v8bchcxgt5.mp3"
+        "correctAnswer": "A",
+        "explanation": "A đúng vì mô tả chính xác người phụ nữ đang ăn tại bàn picnic.",
+        "traps": "B: Sai hành động (không xếp hàng). C: Sai hành động (không vứt đĩa).",
+        "image": "https://res.cloudinary.com/deroljhou/image/upload/v1753772923/755a2e8c-6508-4162-8bb4-4afa5b6450ec.png",
+        "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1753773361/PART_1_-_TEST_1__cut_22sec_etkr57.mp3"
       },
       {
         "questionNumber": 2,

@@ -85,7 +85,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         </div>
       </div>
       <div className="space-y-4" id="optionsContainer">
-        {(['A', 'B', 'C'] as Array<keyof typeof question.choices>).map((key, i) => (
+        {(['A', 'B', 'C', 'D'] as Array<keyof typeof question.choices>).map((key, i) => (
           <label
             key={key}
             className={`flex option-btn items-center space-x-2 cursor-pointer relative py-2 px-3 rounded-lg border border-gray-200 hover:bg-gray-50 ${
@@ -104,6 +104,26 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               disabled={isAnswered}
             />
             <span className="text-gray-800 font-semibold">({key})</span>
+            {isAnswered && (
+              <>
+                <span className="option-text ml-2">{question.choices[key]}</span>
+                {(question as any).choicesVi && (
+                  <button
+                    className="translate-option-btn bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs hover:bg-blue-200 ml-auto"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleTranslateOption(
+                        key,
+                        e.currentTarget.previousElementSibling as HTMLSpanElement,
+                        e.currentTarget as HTMLButtonElement
+                      );
+                    }}
+                  >
+                    Dịch
+                  </button>
+                )}
+              </>
+            )}
             <span className="icon absolute right-2 top-1/2 transform -translate-y-1/2 hidden"></span>
           </label>
         ))}
@@ -151,64 +171,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
             </div>
           </div>
           
-          <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-            <h4 className="font-semibold text-yellow-800 mb-2">Answer Options:</h4>
-            <ul className="list-none space-y-2">
-              {(['A', 'B', 'C'] as Array<keyof typeof question.choices>).map((key, i) => (
-                <li key={key} className="transcript-line flex items-center justify-between" data-option-index={i}>
-                  <div className="flex items-center space-x-2">
-                    <span className="font-semibold text-blue-600">({key})</span>
-                    <span className="option-text">{question.choices[key]}</span>
-                  </div>
-                  {(question as any).choicesVi && (
-                    <button
-                      className="translate-option-btn bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs hover:bg-blue-200"
-                      onClick={(e) =>
-                        handleTranslateOption(
-                          key,
-                          e.currentTarget.previousElementSibling?.querySelector('.option-text') as HTMLSpanElement,
-                          e.currentTarget as HTMLButtonElement
-                        )
-                      }
-                    >
-                      Dịch
-                    </button>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
+
         </div>
       )}      
-      {!isAnswered && showTranscript && (
-        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-          <div className="grid grid-cols-1 gap-4 font-mono text-sm">
-            <div>
-              <h4 className="font-semibold mt-4 mb-1">Answer Options:</h4>
-              <ul className="list-none space-y-1">
-                {(['A', 'B', 'C'] as Array<keyof typeof question.choices>).map((key, i) => (
-                  <li key={key} className="transcript-line" data-option-index={i}>
-                    <span className="font-semibold text-blue-600">({key})</span>
-                    <span className="option-text">{question.choices[key]}</span>
-                    <button
-                      className="translate-option-btn bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs hover:bg-blue-200"
-                      onClick={(e) =>
-                        handleTranslateOption(
-                          key,
-                          e.currentTarget.previousElementSibling as HTMLSpanElement,
-                          e.currentTarget as HTMLButtonElement
-                        )
-                      }
-                    >
-                      Dịch
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      )}
+
     </div>
   );
 };
