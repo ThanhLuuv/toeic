@@ -66,7 +66,7 @@ const Part2DictationPractice: React.FC = () => {
     }
   }, []);
 
-  // Memoize handlePlayAudio to prevent unnecessary re-renders
+  // Memoize handlePlayAudio to prevent unnecessary re-renders, đảm bảo dừng audio cũ trước khi phát mới
   const handlePlayAudio = useCallback((audioUrl?: string, text?: string) => {
     stopCurrentAudio();
     originalHandlePlayAudio(audioUrl, text);
@@ -98,6 +98,7 @@ const Part2DictationPractice: React.FC = () => {
       (str || '')
         .trim()
         .normalize('NFC')
+        .replace(/[’‘`´]/g, "'") // chuyển mọi loại nháy về nháy thẳng
         .replace(/\W/g, '')
         .toLowerCase();
 
@@ -162,8 +163,8 @@ const Part2DictationPractice: React.FC = () => {
     [currentSentence]
   );
   const progress = Math.round(((currentIndex + 1) / sentences.length) * 100);
-  const allChecked = result.every(r => r !== null);
-  const allCorrect = result.every(r => r === true);
+  const allChecked = result.length > 0 && result.every(r => r !== null);
+  const allCorrect = result.length > 0 && result.every(r => r === true);
   const showNextButton = allChecked && allCorrect && currentIndex < sentences.length - 1;
   const isSetCompleted = allCorrect && currentIndex === sentences.length - 1;
 
@@ -245,7 +246,7 @@ const Part2DictationPractice: React.FC = () => {
       background: '#f7f9fb',
       position: 'relative',
     }}>
-      <BackButton onClick={() => navigate('/dictation-list/?tab=part2')} />
+      <BackButton onClick={() => navigate('/')} />
       
       <HelpPanel 
         showHelp={showHelp}
@@ -325,7 +326,8 @@ const Part2DictationPractice: React.FC = () => {
               
               for (let i = 0; i < sentenceWords.length; i++) {
                 const word = sentenceWords[i];
-                const cleanWord = word.replace(/[.,!?;:]/g, '');
+                // Loại bỏ dấu câu và hậu tố sở hữu 's hoặc ’s
+                const cleanWord = word.replace(/[.,!?;:]/g, '').replace(/(’s|'s)$/i, '');
                 
                 // Check if this word is part of a missing word (including phrasal verbs)
                 let isMissingWord = false;
@@ -410,16 +412,20 @@ const Part2DictationPractice: React.FC = () => {
                           width: wordCount > 1 ? '120px' : '80px',
                           padding: '4px 8px',
                           borderRadius: '6px',
-                          border: isChecked 
-                            ? (isCorrect ? '2px solid #059669' : '2px solid #dc2626') 
-                            : '2px solid #cbd5e1',
+                          border: result[inputIndex] === false
+                            ? '2px solid #dc2626'
+                            : result[inputIndex] === true
+                              ? '2px solid #059669'
+                              : '2px solid #cbd5e1',
                           textAlign: 'center',
                           background: isChecked 
                             ? (isCorrect ? '#f0fdf4' : '#fef2f2') 
                             : '#ffffff',
-                          color: isChecked 
-                            ? (isCorrect ? '#059669' : '#dc2626') 
-                            : '#1e293b',
+                          color: result[inputIndex] === false
+                            ? '#dc2626'
+                            : result[inputIndex] === true
+                              ? '#059669'
+                              : '#1e293b',
                           fontWeight: isChecked && isCorrect ? '600' : '500',
                           fontSize: '16px',
                           outline: 'none',
@@ -482,7 +488,7 @@ const Part2DictationPractice: React.FC = () => {
           title="Missing words:"
         />
 
-        {currentIndex === sentences.length - 1 && allCorrect && (
+        {currentIndex === sentences.length - 1 && result.length > 0 && result.every(r => r === true) && (
           <div style={{ textAlign: 'center', marginTop: 28 }}>
             {!completedSets.has(setIdx) && (
               <div style={{ 
@@ -498,7 +504,7 @@ const Part2DictationPractice: React.FC = () => {
               </div>
             )}
             <button
-              onClick={() => navigate('/dictation-list/?tab=part2')}
+              onClick={() => navigate('/')}
               style={{
                 background: '#14B24C', 
                 color: 'white', 
@@ -509,11 +515,21 @@ const Part2DictationPractice: React.FC = () => {
                 fontSize: 16, 
                 cursor: 'pointer', 
                 boxShadow: '0 2px 8px #e0e0e0', 
-                marginTop: 8
+                marginTop: 8, marginRight: 12
               }}
             >
               ← Back to List
             </button>
+            {setIdx < Math.ceil(part2Data.length / 10) - 1 && (
+              <button
+                onClick={() => navigate(`/dictation-practice/part2/${setIdx + 1}`)}
+                style={{
+                  background: '#0284c7', color: 'white', border: 'none', borderRadius: 8, padding: '10px 32px', fontWeight: 700, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #e0e0e0', marginTop: 8
+                }}
+              >
+                Next Set →
+              </button>
+            )}
           </div>
         )}
 

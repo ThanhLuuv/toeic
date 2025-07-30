@@ -1,823 +1,5446 @@
 [
-    {
-      "sentence": "How old is this building?",
-      "sentence_translation": "Tòa nhà này bao nhiêu tuổi?",
-      "words": [
-        {
-          "word": "old",
-          "type": "adjective",
-          "phonetic": "/oʊld/",
-          "meaning": "cũ, già",
-          "audio": ""
-        },
-        {
-          "word": "building",
-          "type": "noun",
-          "phonetic": "/ˈbɪldɪŋ/",
-          "meaning": "tòa nhà",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695927/part2_questions/bja4r9liakg2uheue4pe.mp3"
-    },
-    {
-      "sentence": "Can you come to my jazz performance tonight?",
-      "sentence_translation": "Bạn có thể đến buổi biểu diễn jazz của tôi tối nay không?",
-      "words": [
-        {
-          "word": "performance",
-          "type": "noun",
-          "phonetic": "/pərˈfɔːrməns/",
-          "meaning": "buổi biểu diễn",
-          "audio": ""
-        },
-        {
-          "word": "tonight",
-          "type": "adverb",
-          "phonetic": "/təˈnaɪt/",
-          "meaning": "tối nay",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695928/part2_questions/um3pvnsx7urh7ydr3ifh.mp3"
-    },
-    {
-      "sentence": "Which apartment submitted a work order?",
-      "sentence_translation": "Căn hộ nào đã nộp đơn yêu cầu sửa chữa?",
-      "words": [
-        {
-          "word": "submitted",
-          "type": "verb",
-          "phonetic": "/səbˈmɪtɪd/",
-          "meaning": "nộp, gửi",
-          "audio": ""
-        },
-        {
-          "word": "work order",
-          "type": "noun",
-          "phonetic": "/wɜːrk ˈɔːrdər/",
-          "meaning": "đơn yêu cầu sửa chữa",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695928/part2_questions/rsqe437kk1iizhjlq14f.mp3"
-    },
-    {
-      "sentence": "Will you contact the vendor about changing our delivery date?",
-      "sentence_translation": "Bạn sẽ liên hệ với nhà cung cấp về việc thay đổi ngày giao hàng của chúng ta chứ?",
-      "words": [
-        {
-          "word": "vendor",
-          "type": "noun",
-          "phonetic": "/ˈvendər/",
-          "meaning": "nhà cung cấp",
-          "audio": ""
-        },
-        {
-          "word": "delivery",
-          "type": "noun",
-          "phonetic": "/dɪˈlɪvəri/",
-          "meaning": "giao hàng",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695929/part2_questions/x4613xobdr4ekmlrbrjx.mp3"
-    },
-    {
-      "sentence": "Why was the maintenance worker here?",
-      "sentence_translation": "Tại sao công nhân bảo trì lại ở đây?",
-      "words": [
-        {
-          "word": "maintenance",
-          "type": "noun",
-          "phonetic": "/ˈmeɪntənəns/",
-          "meaning": "bảo trì",
-          "audio": ""
-        },
-        {
-          "word": "worker",
-          "type": "noun",
-          "phonetic": "/ˈwɜːrkər/",
-          "meaning": "công nhân",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695930/part2_questions/ujsd8e8ftlil3xvzsfnw.mp3"
-    },
-    {
-      "sentence": "Did management make a hiring decision yet?",
-      "sentence_translation": "Ban quản lý đã đưa ra quyết định tuyển dụng chưa?",
-      "words": [
-        {
-          "word": "management",
-          "type": "noun",
-          "phonetic": "/ˈmænɪdʒmənt/",
-          "meaning": "ban quản lý",
-          "audio": ""
-        },
-        {
-          "word": "hiring",
-          "type": "noun",
-          "phonetic": "/ˈhaɪərɪŋ/",
-          "meaning": "tuyển dụng",
-          "audio": ""
-        },
-        {
-          "word": "decision",
-          "type": "noun",
-          "phonetic": "/dɪˈsɪʒən/",
-          "meaning": "quyết định",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695931/part2_questions/ltcaqtxqkqv06rtgcwly.mp3"
-    },
-    {
-      "sentence": "Do you want to eat here in our cafeteria or go out?",
-      "sentence_translation": "Bạn muốn ăn ở căng tin của chúng ta hay đi ra ngoài?",
-      "words": [
-        {
-          "word": "cafeteria",
-          "type": "noun",
-          "phonetic": "/ˌkæfəˈtɪriə/",
-          "meaning": "căng tin",
-          "audio": ""
-        },
-        {
-          "word": "go out",
-          "type": "phrasal verb",
-          "phonetic": "/ɡoʊ aʊt/",
-          "meaning": "đi ra ngoài",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695932/part2_questions/hq17t4sradbzrlctusbu.mp3"
-    },
-    {
-      "sentence": "Didn't you email the employment contract to Mr. Patel yesterday?",
-      "sentence_translation": "Bạn đã không gửi email hợp đồng lao động cho ông Patel hôm qua sao?",
-      "words": [
-        {
-          "word": "email",
-          "type": "verb",
-          "phonetic": "/ˈiːmeɪl/",
-          "meaning": "gửi email",
-          "audio": ""
-        },
-        {
-          "word": "employment",
-          "type": "noun",
-          "phonetic": "/ɪmˈplɔɪmənt/",
-          "meaning": "việc làm",
-          "audio": ""
-        },
-        {
-          "word": "contract",
-          "type": "noun",
-          "phonetic": "/ˈkɑːntrækt/",
-          "meaning": "hợp đồng",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695932/part2_questions/o1dopxda27aazio5h9dw.mp3"
-    },
-    {
-      "sentence": "Our division's picnic is this Saturday, right?",
-      "sentence_translation": "Buổi dã ngoại của bộ phận chúng ta là thứ Bảy này, đúng không?",
-      "words": [
-        {
-          "word": "division",
-          "type": "noun",
-          "phonetic": "/dɪˈvɪʒən/",
-          "meaning": "bộ phận",
-          "audio": ""
-        },
-        {
-          "word": "picnic",
-          "type": "noun",
-          "phonetic": "/ˈpɪknɪk/",
-          "meaning": "dã ngoại",
-          "audio": ""
-        },
-        {
-          "word": "Saturday",
-          "type": "noun",
-          "phonetic": "/ˈsætərdeɪ/",
-          "meaning": "thứ Bảy",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695933/part2_questions/urouvvrpzbo7gzrqexcw.mp3"
-    },
-    {
-      "sentence": "Would you like coffee or tea?",
-      "sentence_translation": "Bạn muốn cà phê hay trà?",
-      "words": [
-        {
-          "word": "coffee",
-          "type": "noun",
-          "phonetic": "/ˈkɔːfi/",
-          "meaning": "cà phê",
-          "audio": ""
-        },
-        {
-          "word": "tea",
-          "type": "noun",
-          "phonetic": "/tiː/",
-          "meaning": "trà",
-          "audio": ""
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753695934/part2_questions/lfdsohacibeqgup5r8w5.mp3"
-    },
-    {
-      "sentence": "To ship some materials.",
-      "sentence_translation": "Để vận chuyển một số vật liệu.",
-      "words": [
-        {
-          "word": "ship",
-          "type": "verb",
-          "phonetic": "/ʃɪp/",
-          "meaning": "vận chuyển"
-        },
-        {
-          "word": "materials",
-          "type": "noun",
-          "phonetic": "/məˈtɪriəlz/",
-          "meaning": "vật liệu"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710034/part2_questions/lgxt5dndjxkhtfto3hlc.mp3"
-    },
-    {
-      "sentence": "About ten years old.",
-      "sentence_translation": "Khoảng mười năm tuổi.",
-      "words": [
-        {
-          "word": "about",
-          "type": "adverb",
-          "phonetic": "/əˈbaʊt/",
-          "meaning": "khoảng"
-        },
-        {
-          "word": "years",
-          "type": "noun",
-          "phonetic": "/jɪrz/",
-          "meaning": "năm"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710035/part2_questions/ftppaeh3z3ecvdibp37j.mp3"
-    },
-    {
-      "sentence": "Company offices I think.",
-      "sentence_translation": "Văn phòng công ty tôi nghĩ vậy.",
-      "words": [
-        {
-          "word": "company",
-          "type": "noun",
-          "phonetic": "/ˈkʌmpəni/",
-          "meaning": "công ty"
-        },
-        {
-          "word": "offices",
-          "type": "noun",
-          "phonetic": "/ˈɔːfɪsɪz/",
-          "meaning": "văn phòng"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710036/part2_questions/rx7gr5hxu8xfqb3d5byz.mp3"
-    },
-    {
-      "sentence": "I'm sorry I was late for the meeting.",
-      "sentence_translation": "Tôi xin lỗi vì đã đến muộn cuộc họp.",
-      "words": [
-        {
-          "word": "sorry",
-          "type": "adjective",
-          "phonetic": "/ˈsɑːri/",
-          "meaning": "xin lỗi"
-        },
-        {
-          "word": "meeting",
-          "type": "noun",
-          "phonetic": "/ˈmiːtɪŋ/",
-          "meaning": "cuộc họp"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710037/part2_questions/lxk6hdj4tziadbft5ahe.mp3"
-    },
-    {
-      "sentence": "Mostly just local musicians.",
-      "sentence_translation": "Chủ yếu chỉ là các nhạc sĩ địa phương.",
-      "words": [
-        {
-          "word": "local",
-          "type": "adjective",
-          "phonetic": "/ˈloʊkəl/",
-          "meaning": "địa phương"
-        },
-        {
-          "word": "musicians",
-          "type": "noun",
-          "phonetic": "/mjuˈzɪʃənz/",
-          "meaning": "nhạc sĩ"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710038/part2_questions/ej69jdespqsxtunvkn90.mp3"
-    },
-    {
-      "sentence": "Sure, I'll be there.",
-      "sentence_translation": "Chắc chắn rồi, tôi sẽ có mặt ở đó.",
-      "words": [
-        {
-          "word": "sure",
-          "type": "adverb",
-          "phonetic": "/ʃʊr/",
-          "meaning": "chắc chắn"
-        },
-        {
-          "word": "there",
-          "type": "adverb",
-          "phonetic": "/ðer/",
-          "meaning": "ở đó"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710039/part2_questions/byif4hjqysmmkicckmbb.mp3"
-    },
-    {
-      "sentence": "It's what you did for a living.",
-      "sentence_translation": "Đó là những gì bạn đã làm để kiếm sống.",
-      "words": [
-        {
-          "word": "did",
-          "type": "verb",
-          "phonetic": "/dɪd/",
-          "meaning": "đã làm"
-        },
-        {
-          "word": "living",
-          "type": "noun",
-          "phonetic": "/ˈlɪvɪŋ/",
-          "meaning": "sinh kế"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710040/part2_questions/saydwlptkhthduvtqtak.mp3"
-    },
-    {
-      "sentence": "Submit your assignment here.",
-      "sentence_translation": "Nộp bài tập của bạn ở đây.",
-      "words": [
-        {
-          "word": "submit",
-          "type": "verb",
-          "phonetic": "/səbˈmɪt/",
-          "meaning": "nộp"
-        },
-        {
-          "word": "assignment",
-          "type": "noun",
-          "phonetic": "/əˈsaɪnmənt/",
-          "meaning": "bài tập"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710041/part2_questions/kcmgk1jixnf4zywz4uri.mp3"
-    },
-    {
-      "sentence": "It came from the tenants in B23.",
-      "sentence_translation": "Nó đến từ những người thuê nhà ở B23.",
-      "words": [
-        {
-          "word": "came",
-          "type": "verb",
-          "phonetic": "/keɪm/",
-          "meaning": "đến"
-        },
-        {
-          "word": "tenants",
-          "type": "noun",
-          "phonetic": "/ˈtenənts/",
-          "meaning": "người thuê nhà"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710042/part2_questions/jqpipbuqtnlnysiiyjhq.mp3"
-    },
-    {
-      "sentence": "Of course, I'll take care of it.",
-      "sentence_translation": "Dĩ nhiên, tôi sẽ lo liệu việc đó.",
-      "words": [
-        {
-          "word": "course",
-          "type": "noun",
-          "phonetic": "/kɔːrs/",
-          "meaning": "dĩ nhiên"
-        },
-        {
-          "word": "take care",
-          "type": "phrasal verb",
-          "phonetic": "/teɪk ker/",
-          "meaning": "lo liệu"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753710043/part2_questions/iczxxggdhhulfnzlbc9y.mp3"
-    },
-    {
-      "sentence": "Why are we moving these sweaters to the back of the store?",
-      "sentence_translation": "Tại sao chúng ta lại chuyển những chiếc áo len này ra phía sau cửa hàng?",
-      "words": [
-        {
-          "word": "sweaters",
-          "type": "noun",
-          "phonetic": "/ˈswetərz/",
-          "meaning": "áo len"
-          
-        },
-        {
-          "word": "store",
-          "type": "noun",
-          "phonetic": "/stɔːr/",
-          "meaning": "cửa hàng"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712342/part2_questions/owfy12bacf9bogtj3uso.mp3"
-    },
-    {
-      "sentence": "How often do you travel for your job?",
-      "sentence_translation": "Bạn có thường xuyên đi công tác không?",
-      "words": [
-        {
-          "word": "often",
-          "type": "adverb",
-          "phonetic": "/ˈɔːfən/",
-          "meaning": "thường xuyên"
-          
-        },
-        {
-          "word": "travel",
-          "type": "verb",
-          "phonetic": "/ˈtrævəl/",
-          "meaning": "đi lại, du lịch"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712343/part2_questions/mgsfv0kzx0l4fvfw1zsg.mp3"
-    },
-    {
-      "sentence": "Would you be interested in working on some of these contracts?",
-      "sentence_translation": "Bạn có muốn làm việc với một số hợp đồng này không?",
-      "words": [
-        {
-          "word": "interested",
-          "type": "adjective",
-          "phonetic": "/ˈɪntrəstɪd/",
-          "meaning": "quan tâm, muốn"
-          
-        },
-        {
-          "word": "contracts",
-          "type": "noun",
-          "phonetic": "/ˈkɑːntræks/",
-          "meaning": "hợp đồng"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712344/part2_questions/qhztuhehrgdajgv7kces.mp3"
-    },
-    {
-      "sentence": "You've booked a hotel in London, haven't you?",
-      "sentence_translation": "Bạn đã đặt khách sạn ở London rồi, phải không?",
-      "words": [
-        {
-          "word": "booked",
-          "type": "verb",
-          "phonetic": "/bʊkt/",
-          "meaning": "đặt chỗ"
-          
-        },
-        {
-          "word": "hotel",
-          "type": "noun",
-          "phonetic": "/hoʊˈtel/",
-          "meaning": "khách sạn"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712345/part2_questions/qyvqjgiq14bysrtcm1ih.mp3"
-    },
-    {
-      "sentence": "Are there any tickets left for tonight's concert?",
-      "sentence_translation": "Còn vé nào cho buổi hòa nhạc tối nay không?",
-      "words": [
-        {
-          "word": "tickets",
-          "type": "noun",
-          "phonetic": "/ˈtɪkɪts/",
-          "meaning": "vé"
-          
-        },
-        {
-          "word": "concert",
-          "type": "noun",
-          "phonetic": "/ˈkɑːnsərt/",
-          "meaning": "buổi hòa nhạc"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712346/part2_questions/tn0uqlajwyebbebop4jx.mp3"
-    },
-    {
-      "sentence": "Haven't you used this software before?",
-      "sentence_translation": "Bạn chưa sử dụng phần mềm này trước đây sao?",
-      "words": [
-        {
-          "word": "used",
-          "type": "verb",
-          "phonetic": "/juːzd/",
-          "meaning": "sử dụng"
-          
-        },
-        {
-          "word": "software",
-          "type": "noun",
-          "phonetic": "/ˈsɔːftwer/",
-          "meaning": "phần mềm"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712347/part2_questions/gn4gdfpxxaorr4yanbjs.mp3"
-    },
-    {
-      "sentence": "When is the new blender going to be released?",
-      "sentence_translation": "Khi nào máy xay sinh tố mới sẽ được phát hành?",
-      "words": [
-        {
-          "word": "blender",
-          "type": "noun",
-          "phonetic": "/ˈblendər/",
-          "meaning": "máy xay sinh tố"
-          
-        },
-        {
-          "word": "released",
-          "type": "verb",
-          "phonetic": "/rɪˈliːst/",
-          "meaning": "phát hành"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712348/part2_questions/vkvf4dcehhhusxuxyfpp.mp3"
-    },
-    {
-      "sentence": "Who's picking up our clients at the airport?",
-      "sentence_translation": "Ai sẽ đón khách hàng của chúng ta ở sân bay?",
-      "words": [
-        {
-          "word": "picking up",
-          "type": "phrasal verb",
-          "phonetic": "/ˈpɪkɪŋ ʌp/",
-          "meaning": "đón"
-          
-        },
-        {
-          "word": "clients",
-          "type": "noun",
-          "phonetic": "/ˈklaɪənts/",
-          "meaning": "khách hàng"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712349/part2_questions/jmidm1opcqm22upyl5jj.mp3"
-    },
-    {
-      "sentence": "Where are the red roses that came in this morning?",
-      "sentence_translation": "Những bông hồng đỏ đến sáng nay ở đâu?",
-      "words": [
-        {
-          "word": "roses",
-          "type": "noun",
-          "phonetic": "/ˈroʊzɪz/",
-          "meaning": "hoa hồng"
-          
-        },
-        {
-          "word": "morning",
-          "type": "noun",
-          "phonetic": "/ˈmɔːrnɪŋ/",
-          "meaning": "buổi sáng"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712350/part2_questions/lhraav7rzrsp2cujk58m.mp3"
-    },
-    {
-      "sentence": "Who's interested in starting a carpool program?",
-      "sentence_translation": "Ai quan tâm đến việc bắt đầu chương trình đi chung xe?",
-      "words": [
-        {
-          "word": "interested",
-          "type": "adjective",
-          "phonetic": "/ˈɪntrəstɪd/",
-          "meaning": "quan tâm"
-          
-        },
-        {
-          "word": "carpool",
-          "type": "noun",
-          "phonetic": "/ˈkɑːrpuːl/",
-          "meaning": "đi chung xe"
-          
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712351/part2_questions/dhdowryri2cokmlubrcc.mp3"
-    },
-    {
-      "sentence": "Let's eat here.",
-      "sentence_translation": "Hãy ăn ở đây.",
-      "words": [
-        {
-          "word": "let's",
-          "type": "contraction",
-          "phonetic": "/lets/",
-          "meaning": "hãy"
-        },
-        {
-          "word": "eat",
-          "type": "verb",
-          "phonetic": "/iːt/",
-          "meaning": "ăn"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712850/part2_questions/ptv7crgz1kjtoc8mcjqq.mp3"
-    },
-    {
-      "sentence": "Yes, I would agree.",
-      "sentence_translation": "Vâng, tôi sẽ đồng ý.",
-      "words": [
-        {
-          "word": "would",
-          "type": "modal verb",
-          "phonetic": "/wʊd/",
-          "meaning": "sẽ"
-        },
-        {
-          "word": "agree",
-          "type": "verb",
-          "phonetic": "/əˈɡriː/",
-          "meaning": "đồng ý"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712851/part2_questions/ztjpmjbb0flzcjvpzofm.mp3"
-    },
-    {
-      "sentence": "No, I'll send it now.",
-      "sentence_translation": "Không, tôi sẽ gửi ngay bây giờ.",
-      "words": [
-        {
-          "word": "send",
-          "type": "verb",
-          "phonetic": "/send/",
-          "meaning": "gửi"
-        },
-        {
-          "word": "now",
-          "type": "adverb",
-          "phonetic": "/naʊ/",
-          "meaning": "bây giờ"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712851/part2_questions/ttxbxmcmr8znitbnvhx7.mp3"
-    },
-    {
-      "sentence": "Check the employee manual.",
-      "sentence_translation": "Kiểm tra sổ tay nhân viên.",
-      "words": [
-        {
-          "word": "employee",
-          "type": "noun",
-          "phonetic": "/ɪmˈplɔɪiː/",
-          "meaning": "nhân viên"
-        },
-        {
-          "word": "manual",
-          "type": "noun",
-          "phonetic": "/ˈmænjuəl/",
-          "meaning": "sổ tay hướng dẫn"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712852/part2_questions/lkhgejwlzxjnlvmkvkiw.mp3"
-    },
-    {
-      "sentence": "There's a lot of rain in the forecast.",
-      "sentence_translation": "Có nhiều mưa trong dự báo thời tiết.",
-      "words": [
-        {
-          "word": "rain",
-          "type": "noun",
-          "phonetic": "/reɪn/",
-          "meaning": "mưa"
-        },
-        {
-          "word": "forecast",
-          "type": "noun",
-          "phonetic": "/ˈfɔːrkæst/",
-          "meaning": "dự báo"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712853/part2_questions/kmtc5k2gen16voecsq1o.mp3"
-    },
-    {
-      "sentence": "Sure, I like salad.",
-      "sentence_translation": "Chắc chắn, tôi thích salad.",
-      "words": [
-        {
-          "word": "sure",
-          "type": "adverb",
-          "phonetic": "/ʃʊr/",
-          "meaning": "chắc chắn"
-        },
-        {
-          "word": "salad",
-          "type": "noun",
-          "phonetic": "/ˈsæləd/",
-          "meaning": "salad"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712854/part2_questions/o4nh6p51dunmg5jban7d.mp3"
-    },
-    {
-      "sentence": "At the end of this corridor.",
-      "sentence_translation": "Ở cuối hành lang này.",
-      "words": [
-        {
-          "word": "end",
-          "type": "noun",
-          "phonetic": "/end/",
-          "meaning": "cuối"
-        },
-        {
-          "word": "corridor",
-          "type": "noun",
-          "phonetic": "/ˈkɔːrɪdɔːr/",
-          "meaning": "hành lang"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712855/part2_questions/amytqqdscvktsnddzomo.mp3"
-    },
-    {
-      "sentence": "Just water please.",
-      "sentence_translation": "Chỉ nước thôi.",
-      "words": [
-        {
-          "word": "just",
-          "type": "adverb",
-          "phonetic": "/dʒʌst/",
-          "meaning": "chỉ"
-        },
-        {
-          "word": "water",
-          "type": "noun",
-          "phonetic": "/ˈwɔːtər/",
-          "meaning": "nước"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712856/part2_questions/cpiststphwsyrt00rtgu.mp3"
-    },
-    {
-      "sentence": "For a few dollars more.",
-      "sentence_translation": "Thêm vài đô la nữa.",
-      "words": [
-        {
-          "word": "few",
-          "type": "determiner",
-          "phonetic": "/fjuː/",
-          "meaning": "vài"
-        },
-        {
-          "word": "dollars",
-          "type": "noun",
-          "phonetic": "/ˈdɑːlərz/",
-          "meaning": "đô la"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712856/part2_questions/mjg9ao8yx3xzj5gbjgu4.mp3"
-    },
-    {
-      "sentence": "A fifteen-minute break.",
-      "sentence_translation": "Nghỉ giải lao mười lăm phút.",
-      "words": [
-        {
-          "word": "fifteen-minute",
-          "type": "adjective",
-          "phonetic": "/ˌfɪfˈtiːn ˈmɪnɪt/",
-          "meaning": "mười lăm phút"
-        },
-        {
-          "word": "break",
-          "type": "noun",
-          "phonetic": "/breɪk/",
-          "meaning": "nghỉ giải lao"
-        }
-      ],
-      "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753712857/part2_questions/ad8aexmjjvhukcyafwep.mp3"
-    }
-  ]
+  {
+    "sentence": "How old is this building?",
+    "sentence_translation": "Tòa nhà này bao nhiêu tuổi?",
+    "words": [
+      {
+        "word": "old",
+        "type": "adjective",
+        "phonetic": "/oʊld/",
+        "meaning": "cũ, già",
+        "audio": ""
+      },
+      {
+        "word": "building",
+        "type": "noun",
+        "phonetic": "/ˈbɪldɪŋ/",
+        "meaning": "tòa nhà",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882045/part2_questions_new/ecptqjbqrq0vgsjalxdl.mp3"
+  },
+  {
+    "sentence": "Can you come to my jazz performance tonight?",
+    "sentence_translation": "Bạn có thể đến buổi biểu diễn jazz của tôi tối nay không?",
+    "words": [
+      {
+        "word": "performance",
+        "type": "noun",
+        "phonetic": "/pərˈfɔːrməns/",
+        "meaning": "buổi biểu diễn",
+        "audio": ""
+      },
+      {
+        "word": "tonight",
+        "type": "adverb",
+        "phonetic": "/təˈnaɪt/",
+        "meaning": "tối nay",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882046/part2_questions_new/pophs3cf2mnzheaddbon.mp3"
+  },
+  {
+    "sentence": "Which apartment submitted a work order?",
+    "sentence_translation": "Căn hộ nào đã nộp đơn yêu cầu sửa chữa?",
+    "words": [
+      {
+        "word": "submitted",
+        "type": "verb",
+        "phonetic": "/səbˈmɪtɪd/",
+        "meaning": "nộp, gửi",
+        "audio": ""
+      },
+      {
+        "word": "work order",
+        "type": "noun",
+        "phonetic": "/wɜːrk ˈɔːrdər/",
+        "meaning": "đơn yêu cầu sửa chữa",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882047/part2_questions_new/ccaiqo37wykwjbtab9vk.mp3"
+  },
+  {
+    "sentence": "Will you contact the vendor about changing our delivery date?",
+    "sentence_translation": "Bạn sẽ liên hệ với nhà cung cấp về việc thay đổi ngày giao hàng của chúng ta chứ?",
+    "words": [
+      {
+        "word": "vendor",
+        "type": "noun",
+        "phonetic": "/ˈvendər/",
+        "meaning": "nhà cung cấp",
+        "audio": ""
+      },
+      {
+        "word": "delivery",
+        "type": "noun",
+        "phonetic": "/dɪˈlɪvəri/",
+        "meaning": "giao hàng",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882048/part2_questions_new/ys60bkfv26v8quiyvlrg.mp3"
+  },
+  {
+    "sentence": "Why was the maintenance worker here?",
+    "sentence_translation": "Tại sao công nhân bảo trì lại ở đây?",
+    "words": [
+      {
+        "word": "maintenance",
+        "type": "noun",
+        "phonetic": "/ˈmeɪntənəns/",
+        "meaning": "bảo trì",
+        "audio": ""
+      },
+      {
+        "word": "worker",
+        "type": "noun",
+        "phonetic": "/ˈwɜːrkər/",
+        "meaning": "công nhân",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882048/part2_questions_new/flnsm9oisxqapcdmgwhy.mp3"
+  },
+  {
+    "sentence": "Did management make a hiring decision yet?",
+    "sentence_translation": "Ban quản lý đã đưa ra quyết định tuyển dụng chưa?",
+    "words": [
+      {
+        "word": "management",
+        "type": "noun",
+        "phonetic": "/ˈmænɪdʒmənt/",
+        "meaning": "ban quản lý",
+        "audio": ""
+      },
+      {
+        "word": "hiring",
+        "type": "noun",
+        "phonetic": "/ˈhaɪərɪŋ/",
+        "meaning": "tuyển dụng",
+        "audio": ""
+      },
+      {
+        "word": "decision",
+        "type": "noun",
+        "phonetic": "/dɪˈsɪʒən/",
+        "meaning": "quyết định",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882049/part2_questions_new/gnqqccfsnrg3h09ewrdh.mp3"
+  },
+  {
+    "sentence": "Do you want to eat here in our cafeteria or go out?",
+    "sentence_translation": "Bạn muốn ăn ở căng tin của chúng ta hay đi ra ngoài?",
+    "words": [
+      {
+        "word": "cafeteria",
+        "type": "noun",
+        "phonetic": "/ˌkæfəˈtɪriə/",
+        "meaning": "căng tin",
+        "audio": ""
+      },
+      {
+        "word": "go out",
+        "type": "phrasal verb",
+        "phonetic": "/ɡoʊ aʊt/",
+        "meaning": "đi ra ngoài",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882050/part2_questions_new/asu7jtwqea8qrf5rm8ck.mp3"
+  },
+  {
+    "sentence": "Didn’t you email the employment contract to Mr. Patel yesterday?",
+    "sentence_translation": "Bạn đã không gửi email hợp đồng lao động cho ông Patel hôm qua sao?",
+    "words": [
+      {
+        "word": "email",
+        "type": "verb",
+        "phonetic": "/ˈiːmeɪl/",
+        "meaning": "gửi email",
+        "audio": ""
+      },
+      {
+        "word": "employment",
+        "type": "noun",
+        "phonetic": "/ɪmˈplɔɪmənt/",
+        "meaning": "việc làm",
+        "audio": ""
+      },
+      {
+        "word": "contract",
+        "type": "noun",
+        "phonetic": "/ˈkɑːntrækt/",
+        "meaning": "hợp đồng",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882051/part2_questions_new/q6m1icysq5ze1mimkcwu.mp3"
+  },
+  {
+    "sentence": "Our division’s picnic is this Saturday, right?",
+    "sentence_translation": "Buổi dã ngoại của bộ phận chúng ta là thứ Bảy này, đúng không?",
+    "words": [
+      {
+        "word": "division",
+        "type": "noun",
+        "phonetic": "/dɪˈvɪʒən/",
+        "meaning": "bộ phận",
+        "audio": ""
+      },
+      {
+        "word": "picnic",
+        "type": "noun",
+        "phonetic": "/ˈpɪknɪk/",
+        "meaning": "dã ngoại",
+        "audio": ""
+      },
+      {
+        "word": "Saturday",
+        "type": "noun",
+        "phonetic": "/ˈsætərdeɪ/",
+        "meaning": "thứ Bảy",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882052/part2_questions_new/siyqfkjelxmwylofpe0g.mp3"
+  },
+  {
+    "sentence": "Would you like coffee or tea?",
+    "sentence_translation": "Bạn muốn cà phê hay trà?",
+    "words": [
+      {
+        "word": "coffee",
+        "type": "noun",
+        "phonetic": "/ˈkɔːfi/",
+        "meaning": "cà phê",
+        "audio": ""
+      },
+      {
+        "word": "tea",
+        "type": "noun",
+        "phonetic": "/tiː/",
+        "meaning": "trà",
+        "audio": ""
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882053/part2_questions_new/d8u9e1ffusbwkraxpoka.mp3"
+  },
+  {
+    "sentence": "To ship some materials.",
+    "sentence_translation": "Để vận chuyển một số vật liệu.",
+    "words": [
+      {
+        "word": "ship",
+        "type": "verb",
+        "phonetic": "/ʃɪp/",
+        "meaning": "vận chuyển"
+      },
+      {
+        "word": "materials",
+        "type": "noun",
+        "phonetic": "/məˈtɪriəlz/",
+        "meaning": "vật liệu"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882054/part2_questions_new/xe74gospqijpdbx8nyxd.mp3"
+  },
+  {
+    "sentence": "About ten years old.",
+    "sentence_translation": "Khoảng mười năm tuổi.",
+    "words": [
+      {
+        "word": "about",
+        "type": "adverb",
+        "phonetic": "/əˈbaʊt/",
+        "meaning": "khoảng"
+      },
+      {
+        "word": "years",
+        "type": "noun",
+        "phonetic": "/jɪrz/",
+        "meaning": "năm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882055/part2_questions_new/qrzdkhhrierbw791htlj.mp3"
+  },
+  {
+    "sentence": "Company offices I think.",
+    "sentence_translation": "Văn phòng công ty tôi nghĩ vậy.",
+    "words": [
+      {
+        "word": "company",
+        "type": "noun",
+        "phonetic": "/ˈkʌmpəni/",
+        "meaning": "công ty"
+      },
+      {
+        "word": "offices",
+        "type": "noun",
+        "phonetic": "/ˈɔːfɪsɪz/",
+        "meaning": "văn phòng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882056/part2_questions_new/cx07nb3fi3iswltcecsz.mp3"
+  },
+  {
+    "sentence": "I’m sorry I was late for the meeting.",
+    "sentence_translation": "Tôi xin lỗi vì đã đến muộn cuộc họp.",
+    "words": [
+      {
+        "word": "sorry",
+        "type": "adjective",
+        "phonetic": "/ˈsɑːri/",
+        "meaning": "xin lỗi"
+      },
+      {
+        "word": "meeting",
+        "type": "noun",
+        "phonetic": "/ˈmiːtɪŋ/",
+        "meaning": "cuộc họp"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882058/part2_questions_new/owaugiyuxpvvon3nho7b.mp3"
+  },
+  {
+    "sentence": "Mostly just local musicians.",
+    "sentence_translation": "Chủ yếu chỉ là các nhạc sĩ địa phương.",
+    "words": [
+      {
+        "word": "local",
+        "type": "adjective",
+        "phonetic": "/ˈloʊkəl/",
+        "meaning": "địa phương"
+      },
+      {
+        "word": "musicians",
+        "type": "noun",
+        "phonetic": "/mjuˈzɪʃənz/",
+        "meaning": "nhạc sĩ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882059/part2_questions_new/gaf4uyrr8utcoanhdiaa.mp3"
+  },
+  {
+    "sentence": "Sure, I’ll be there.",
+    "sentence_translation": "Chắc chắn rồi, tôi sẽ có mặt ở đó.",
+    "words": [
+      {
+        "word": "sure",
+        "type": "adverb",
+        "phonetic": "/ʃʊr/",
+        "meaning": "chắc chắn"
+      },
+      {
+        "word": "there",
+        "type": "adverb",
+        "phonetic": "/ðer/",
+        "meaning": "ở đó"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882059/part2_questions_new/th58t1lstg8vywxxd58g.mp3"
+  },
+  {
+    "sentence": "It’s what you did for a living.",
+    "sentence_translation": "Đó là những gì bạn đã làm để kiếm sống.",
+    "words": [
+      {
+        "word": "did",
+        "type": "verb",
+        "phonetic": "/dɪd/",
+        "meaning": "đã làm"
+      },
+      {
+        "word": "living",
+        "type": "noun",
+        "phonetic": "/ˈlɪvɪŋ/",
+        "meaning": "sinh kế"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882060/part2_questions_new/be3krzafguif4bw8qq7z.mp3"
+  },
+  {
+    "sentence": "Submit your assignment here.",
+    "sentence_translation": "Nộp bài tập của bạn ở đây.",
+    "words": [
+      {
+        "word": "submit",
+        "type": "verb",
+        "phonetic": "/səbˈmɪt/",
+        "meaning": "nộp"
+      },
+      {
+        "word": "assignment",
+        "type": "noun",
+        "phonetic": "/əˈsaɪnmənt/",
+        "meaning": "bài tập"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882061/part2_questions_new/nopposf0nzogba8m4ui8.mp3"
+  },
+  {
+    "sentence": "It came from the tenants in B23.",
+    "sentence_translation": "Nó đến từ những người thuê nhà ở B23.",
+    "words": [
+      {
+        "word": "came",
+        "type": "verb",
+        "phonetic": "/keɪm/",
+        "meaning": "đến"
+      },
+      {
+        "word": "tenants",
+        "type": "noun",
+        "phonetic": "/ˈtenənts/",
+        "meaning": "người thuê nhà"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882062/part2_questions_new/i10orl8dwi6gxmwp9mkn.mp3"
+  },
+  {
+    "sentence": "Of course, I’ll take care of it.",
+    "sentence_translation": "Dĩ nhiên, tôi sẽ lo liệu việc đó.",
+    "words": [
+      {
+        "word": "course",
+        "type": "noun",
+        "phonetic": "/kɔːrs/",
+        "meaning": "dĩ nhiên"
+      },
+      {
+        "word": "take care",
+        "type": "phrasal verb",
+        "phonetic": "/teɪk ker/",
+        "meaning": "lo liệu"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882063/part2_questions_new/uyxuyxwbkwhpsg2hy3c3.mp3"
+  },
+  {
+    "sentence": "Why are we moving these sweaters to the back of the store?",
+    "sentence_translation": "Tại sao chúng ta lại chuyển những chiếc áo len này ra phía sau cửa hàng?",
+    "words": [
+      {
+        "word": "sweaters",
+        "type": "noun",
+        "phonetic": "/ˈswetərz/",
+        "meaning": "áo len"
+      },
+      {
+        "word": "store",
+        "type": "noun",
+        "phonetic": "/stɔːr/",
+        "meaning": "cửa hàng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882064/part2_questions_new/hxdlvjufjb9mjkrvkyp6.mp3"
+  },
+  {
+    "sentence": "How often do you travel for your job?",
+    "sentence_translation": "Bạn có thường xuyên đi công tác không?",
+    "words": [
+      {
+        "word": "often",
+        "type": "adverb",
+        "phonetic": "/ˈɔːfən/",
+        "meaning": "thường xuyên"
+      },
+      {
+        "word": "travel",
+        "type": "verb",
+        "phonetic": "/ˈtrævəl/",
+        "meaning": "đi lại, du lịch"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882065/part2_questions_new/qgggvziutfi2k6kugjxr.mp3"
+  },
+  {
+    "sentence": "Would you be interested in working on some of these contracts?",
+    "sentence_translation": "Bạn có muốn làm việc với một số hợp đồng này không?",
+    "words": [
+      {
+        "word": "interested",
+        "type": "adjective",
+        "phonetic": "/ˈɪntrəstɪd/",
+        "meaning": "quan tâm, muốn"
+      },
+      {
+        "word": "contracts",
+        "type": "noun",
+        "phonetic": "/ˈkɑːntræks/",
+        "meaning": "hợp đồng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882065/part2_questions_new/i1bh1dqlqyxwhcyeqwbz.mp3"
+  },
+  {
+    "sentence": "You’ve booked a hotel in London, haven’t you?",
+    "sentence_translation": "Bạn đã đặt khách sạn ở London rồi, phải không?",
+    "words": [
+      {
+        "word": "booked",
+        "type": "verb",
+        "phonetic": "/bʊkt/",
+        "meaning": "đặt chỗ"
+      },
+      {
+        "word": "hotel",
+        "type": "noun",
+        "phonetic": "/hoʊˈtel/",
+        "meaning": "khách sạn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882066/part2_questions_new/i8xus1lfb4p38c3cgptb.mp3"
+  },
+  {
+    "sentence": "Are there any tickets left for tonight’s concert?",
+    "sentence_translation": "Còn vé nào cho buổi hòa nhạc tối nay không?",
+    "words": [
+      {
+        "word": "tickets",
+        "type": "noun",
+        "phonetic": "/ˈtɪkɪts/",
+        "meaning": "vé"
+      },
+      {
+        "word": "concert",
+        "type": "noun",
+        "phonetic": "/ˈkɑːnsərt/",
+        "meaning": "buổi hòa nhạc"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882067/part2_questions_new/m0q9khcdcgbsag9zuexa.mp3"
+  },
+  {
+    "sentence": "Haven’t you used this software before?",
+    "sentence_translation": "Bạn chưa sử dụng phần mềm này trước đây sao?",
+    "words": [
+      {
+        "word": "used",
+        "type": "verb",
+        "phonetic": "/juːzd/",
+        "meaning": "sử dụng"
+      },
+      {
+        "word": "software",
+        "type": "noun",
+        "phonetic": "/ˈsɔːftwer/",
+        "meaning": "phần mềm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882068/part2_questions_new/fwpkz3omsvucremhiqgb.mp3"
+  },
+  {
+    "sentence": "When is the new blender going to be released?",
+    "sentence_translation": "Khi nào máy xay sinh tố mới sẽ được phát hành?",
+    "words": [
+      {
+        "word": "blender",
+        "type": "noun",
+        "phonetic": "/ˈblendər/",
+        "meaning": "máy xay sinh tố"
+      },
+      {
+        "word": "released",
+        "type": "verb",
+        "phonetic": "/rɪˈliːst/",
+        "meaning": "phát hành"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882069/part2_questions_new/gl7zx9zuvftom5twczgu.mp3"
+  },
+  {
+    "sentence": "Who’s picking up our clients at the airport?",
+    "sentence_translation": "Ai sẽ đón khách hàng của chúng ta ở sân bay?",
+    "words": [
+      {
+        "word": "picking up",
+        "type": "phrasal verb",
+        "phonetic": "/ˈpɪkɪŋ ʌp/",
+        "meaning": "đón"
+      },
+      {
+        "word": "clients",
+        "type": "noun",
+        "phonetic": "/ˈklaɪənts/",
+        "meaning": "khách hàng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882070/part2_questions_new/rdnobswpptfldqbc89gm.mp3"
+  },
+  {
+    "sentence": "Where are the red roses that came in this morning?",
+    "sentence_translation": "Những bông hồng đỏ đến sáng nay ở đâu?",
+    "words": [
+      {
+        "word": "roses",
+        "type": "noun",
+        "phonetic": "/ˈroʊzɪz/",
+        "meaning": "hoa hồng"
+      },
+      {
+        "word": "morning",
+        "type": "noun",
+        "phonetic": "/ˈmɔːrnɪŋ/",
+        "meaning": "buổi sáng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882071/part2_questions_new/uputcnwzxypu862kiggu.mp3"
+  },
+  {
+    "sentence": "Who’s interested in starting a carpool program?",
+    "sentence_translation": "Ai quan tâm đến việc bắt đầu chương trình đi chung xe?",
+    "words": [
+      {
+        "word": "interested",
+        "type": "adjective",
+        "phonetic": "/ˈɪntrəstɪd/",
+        "meaning": "quan tâm"
+      },
+      {
+        "word": "carpool",
+        "type": "noun",
+        "phonetic": "/ˈkɑːrpuːl/",
+        "meaning": "đi chung xe"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882072/part2_questions_new/chzb0vbiykqekhzlcekq.mp3"
+  },
+  {
+    "sentence": "Let’s eat here.",
+    "sentence_translation": "Hãy ăn ở đây.",
+    "words": [
+      {
+        "word": "let’s",
+        "type": "contraction",
+        "phonetic": "/lets/",
+        "meaning": "hãy"
+      },
+      {
+        "word": "eat",
+        "type": "verb",
+        "phonetic": "/iːt/",
+        "meaning": "ăn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882072/part2_questions_new/wipafznwuprjvdoflpzr.mp3"
+  },
+  {
+    "sentence": "Yes, I would agree.",
+    "sentence_translation": "Vâng, tôi sẽ đồng ý.",
+    "words": [
+      {
+        "word": "would",
+        "type": "modal verb",
+        "phonetic": "/wʊd/",
+        "meaning": "sẽ"
+      },
+      {
+        "word": "agree",
+        "type": "verb",
+        "phonetic": "/əˈɡriː/",
+        "meaning": "đồng ý"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882073/part2_questions_new/n8muocvzmo67on04uixj.mp3"
+  },
+  {
+    "sentence": "No, I’ll send it now.",
+    "sentence_translation": "Không, tôi sẽ gửi ngay bây giờ.",
+    "words": [
+      {
+        "word": "send",
+        "type": "verb",
+        "phonetic": "/send/",
+        "meaning": "gửi"
+      },
+      {
+        "word": "now",
+        "type": "adverb",
+        "phonetic": "/naʊ/",
+        "meaning": "bây giờ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882074/part2_questions_new/vapwivmfmei671eliqej.mp3"
+  },
+  {
+    "sentence": "Check the employee manual.",
+    "sentence_translation": "Kiểm tra sổ tay nhân viên.",
+    "words": [
+      {
+        "word": "employee",
+        "type": "noun",
+        "phonetic": "/ɪmˈplɔɪiː/",
+        "meaning": "nhân viên"
+      },
+      {
+        "word": "manual",
+        "type": "noun",
+        "phonetic": "/ˈmænjuəl/",
+        "meaning": "sổ tay hướng dẫn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882075/part2_questions_new/hrhqstowmsyoqxbja1ax.mp3"
+  },
+  {
+    "sentence": "There’s a lot of rain in the forecast.",
+    "sentence_translation": "Có nhiều mưa trong dự báo thời tiết.",
+    "words": [
+      {
+        "word": "rain",
+        "type": "noun",
+        "phonetic": "/reɪn/",
+        "meaning": "mưa"
+      },
+      {
+        "word": "forecast",
+        "type": "noun",
+        "phonetic": "/ˈfɔːrkæst/",
+        "meaning": "dự báo"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882076/part2_questions_new/plwcruiaslpsliozjsn4.mp3"
+  },
+  {
+    "sentence": "Sure, I like salad.",
+    "sentence_translation": "Chắc chắn, tôi thích salad.",
+    "words": [
+      {
+        "word": "sure",
+        "type": "adverb",
+        "phonetic": "/ʃʊr/",
+        "meaning": "chắc chắn"
+      },
+      {
+        "word": "salad",
+        "type": "noun",
+        "phonetic": "/ˈsæləd/",
+        "meaning": "salad"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882077/part2_questions_new/xa1zbm4esxmlournazok.mp3"
+  },
+  {
+    "sentence": "At the end of this corridor.",
+    "sentence_translation": "Ở cuối hành lang này.",
+    "words": [
+      {
+        "word": "end",
+        "type": "noun",
+        "phonetic": "/end/",
+        "meaning": "cuối"
+      },
+      {
+        "word": "corridor",
+        "type": "noun",
+        "phonetic": "/ˈkɔːrɪdɔːr/",
+        "meaning": "hành lang"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882078/part2_questions_new/qft3byeflw5trmxhv5jh.mp3"
+  },
+  {
+    "sentence": "Just water please.",
+    "sentence_translation": "Chỉ nước thôi.",
+    "words": [
+      {
+        "word": "just",
+        "type": "adverb",
+        "phonetic": "/dʒʌst/",
+        "meaning": "chỉ"
+      },
+      {
+        "word": "water",
+        "type": "noun",
+        "phonetic": "/ˈwɔːtər/",
+        "meaning": "nước"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882079/part2_questions_new/qkec19fw7pewuaj5ykvb.mp3"
+  },
+  {
+    "sentence": "For a few dollars more.",
+    "sentence_translation": "Thêm vài đô la nữa.",
+    "words": [
+      {
+        "word": "few",
+        "type": "determiner",
+        "phonetic": "/fjuː/",
+        "meaning": "vài"
+      },
+      {
+        "word": "dollars",
+        "type": "noun",
+        "phonetic": "/ˈdɑːlərz/",
+        "meaning": "đô la"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882080/part2_questions_new/qbet3mevzx8vwfjexcnh.mp3"
+  },
+  {
+    "sentence": "A fifteen-minute break.",
+    "sentence_translation": "Nghỉ giải lao mười lăm phút.",
+    "words": [
+      {
+        "word": "fifteen-minute",
+        "type": "adjective",
+        "phonetic": "/ˌfɪfˈtiːn ˈmɪnɪt/",
+        "meaning": "mười lăm phút"
+      },
+      {
+        "word": "break",
+        "type": "noun",
+        "phonetic": "/breɪk/",
+        "meaning": "nghỉ giải lao"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753882081/part2_questions_new/vq0k4jqq5glqyru5eyoo.mp3"
+  },
+  {
+    "sentence": "Would you be interested in working on some of these contracts?",
+    "sentence_translation": "Bạn có muốn làm việc với một số hợp đồng này không?",
+    "words": [
+      {
+        "word": "interested",
+        "type": "adjective",
+        "phonetic": "/ˈɪntrəstɪd/",
+        "meaning": "quan tâm, muốn"
+      },
+      {
+        "word": "contracts",
+        "type": "noun",
+        "phonetic": "/ˈkɑːntræks/",
+        "meaning": "hợp đồng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883943/part2_questions_new/hgumjs5plx8ovp7xrjik.mp3"
+  },
+  {
+    "sentence": "What type of job are you looking for?",
+    "sentence_translation": "Bạn đang tìm kiếm loại công việc nào?",
+    "words": [
+      {
+        "word": "type",
+        "type": "noun",
+        "phonetic": "/taɪp/",
+        "meaning": "loại"
+      },
+      {
+        "word": "job",
+        "type": "noun",
+        "phonetic": "/dʒɒb/",
+        "meaning": "công việc"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883944/part2_questions_new/jq6nb60dgutynhp0oczh.mp3"
+  },
+  {
+    "sentence": "Can I take your order?",
+    "sentence_translation": "Tôi có thể lấy đơn đặt hàng của bạn không?",
+    "words": [
+      {
+        "word": "order",
+        "type": "noun",
+        "phonetic": "/ˈɔːrdər/",
+        "meaning": "đơn đặt hàng"
+      },
+      {
+        "word": "take",
+        "type": "verb",
+        "phonetic": "/teɪk/",
+        "meaning": "lấy, nhận"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883945/part2_questions_new/jrjl5zqxclyvdyosx6sd.mp3"
+  },
+  {
+    "sentence": "That’s excellent news.",
+    "sentence_translation": "Đó là tin tuyệt vời.",
+    "words": [
+      {
+        "word": "excellent",
+        "type": "adjective",
+        "phonetic": "/ˈeksələnt/",
+        "meaning": "tuyệt vời"
+      },
+      {
+        "word": "news",
+        "type": "noun",
+        "phonetic": "/njuːz/",
+        "meaning": "tin tức"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883946/part2_questions_new/o0k4ja25zaadsfrv4sbc.mp3"
+  },
+  {
+    "sentence": "A few times a day.",
+    "sentence_translation": "Vài lần một ngày.",
+    "words": [
+      {
+        "word": "few",
+        "type": "determiner",
+        "phonetic": "/fjuː/",
+        "meaning": "vài"
+      },
+      {
+        "word": "day",
+        "type": "noun",
+        "phonetic": "/deɪ/",
+        "meaning": "ngày"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883947/part2_questions_new/qr599kehi4tcxtieayep.mp3"
+  },
+  {
+    "sentence": "To the end of April.",
+    "sentence_translation": "Đến cuối tháng Tư.",
+    "words": [
+      {
+        "word": "end",
+        "type": "noun",
+        "phonetic": "/end/",
+        "meaning": "kết thúc"
+      },
+      {
+        "word": "April",
+        "type": "noun",
+        "phonetic": "/ˈeɪprəl/",
+        "meaning": "tháng Tư"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883948/part2_questions_new/ktfo3ehqyp29pat5d2xr.mp3"
+  },
+  {
+    "sentence": "It turned out well.",
+    "sentence_translation": "Nó đã thành công tốt đẹp.",
+    "words": [
+      {
+        "word": "turned out",
+        "type": "phrasal verb",
+        "phonetic": "/tɜːrnd aʊt/",
+        "meaning": "hóa ra, thành ra"
+      },
+      {
+        "word": "well",
+        "type": "adverb",
+        "phonetic": "/wel/",
+        "meaning": "tốt"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883949/part2_questions_new/wncowbygankdzvsmdyvf.mp3"
+  },
+  {
+    "sentence": "Yes, I did find one.",
+    "sentence_translation": "Vâng, tôi đã tìm thấy một cái.",
+    "words": [
+      {
+        "word": "find",
+        "type": "verb",
+        "phonetic": "/faɪnd/",
+        "meaning": "tìm thấy"
+      },
+      {
+        "word": "one",
+        "type": "pronoun",
+        "phonetic": "/wʌn/",
+        "meaning": "một cái"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883949/part2_questions_new/l7pq0qan7swubujcgyfs.mp3"
+  },
+  {
+    "sentence": "About once a month.",
+    "sentence_translation": "Khoảng một lần một tháng.",
+    "words": [
+      {
+        "word": "once",
+        "type": "adverb",
+        "phonetic": "/wʌns/",
+        "meaning": "một lần"
+      },
+      {
+        "word": "month",
+        "type": "noun",
+        "phonetic": "/mʌnθ/",
+        "meaning": "tháng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883950/part2_questions_new/wxeebdvwh4barnlvfzkm.mp3"
+  },
+  {
+    "sentence": "This seat is available.",
+    "sentence_translation": "Chỗ ngồi này còn trống.",
+    "words": [
+      {
+        "word": "seat",
+        "type": "noun",
+        "phonetic": "/siːt/",
+        "meaning": "chỗ ngồi"
+      },
+      {
+        "word": "available",
+        "type": "adjective",
+        "phonetic": "/əˈveɪləbl/",
+        "meaning": "còn trống, có sẵn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883951/part2_questions_new/l8ql820eohboyrq2nagx.mp3"
+  },
+  {
+    "sentence": "I didn’t bring boots.",
+    "sentence_translation": "Tôi đã không mang ủng.",
+    "words": [
+      {
+        "word": "bring",
+        "type": "verb",
+        "phonetic": "/brɪŋ/",
+        "meaning": "mang theo"
+      },
+      {
+        "word": "boots",
+        "type": "noun",
+        "phonetic": "/buːts/",
+        "meaning": "ủng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883952/part2_questions_new/gbrysby0utrgunok9pbk.mp3"
+  },
+  {
+    "sentence": "At the visitor’s centre.",
+    "sentence_translation": "Tại trung tâm khách tham quan.",
+    "words": [
+      {
+        "word": "visitor",
+        "type": "noun",
+        "phonetic": "/ˈvɪzɪtər/",
+        "meaning": "khách tham quan"
+      },
+      {
+        "word": "centre",
+        "type": "noun",
+        "phonetic": "/ˈsentər/",
+        "meaning": "trung tâm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883953/part2_questions_new/sqeibqindrwh7mkytc3r.mp3"
+  },
+  {
+    "sentence": "Very enjoyable, thanks.",
+    "sentence_translation": "Rất thú vị, cảm ơn.",
+    "words": [
+      {
+        "word": "enjoyable",
+        "type": "adjective",
+        "phonetic": "/ɪnˈdʒɔɪəbl/",
+        "meaning": "thú vị"
+      },
+      {
+        "word": "thanks",
+        "type": "noun",
+        "phonetic": "/θæŋks/",
+        "meaning": "cảm ơn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883953/part2_questions_new/ndcrabcuxxwmjrj9eecj.mp3"
+  },
+  {
+    "sentence": "He usually takes the train.",
+    "sentence_translation": "Anh ấy thường đi tàu.",
+    "words": [
+      {
+        "word": "usually",
+        "type": "adverb",
+        "phonetic": "/ˈjuːʒuəli/",
+        "meaning": "thường"
+      },
+      {
+        "word": "train",
+        "type": "noun",
+        "phonetic": "/treɪn/",
+        "meaning": "tàu"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883954/part2_questions_new/bnafkoft2i3omd9hlqmm.mp3"
+  },
+  {
+    "sentence": "Yes, I made a reservation last week.",
+    "sentence_translation": "Vâng, tôi đã đặt chỗ tuần trước.",
+    "words": [
+      {
+        "word": "reservation",
+        "type": "noun",
+        "phonetic": "/ˌrezərˈveɪʃn/",
+        "meaning": "đặt chỗ"
+      },
+      {
+        "word": "week",
+        "type": "noun",
+        "phonetic": "/wiːk/",
+        "meaning": "tuần"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883955/part2_questions_new/zboosbua92lzx9nytovi.mp3"
+  },
+  {
+    "sentence": "It’s sold out.",
+    "sentence_translation": "Đã bán hết.",
+    "words": [
+      {
+        "word": "sold out",
+        "type": "phrasal verb",
+        "phonetic": "/səʊld aʊt/",
+        "meaning": "bán hết"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883956/part2_questions_new/hblwdnk3ktkvl57pevsl.mp3"
+  },
+  {
+    "sentence": "He’s a concert violinist.",
+    "sentence_translation": "Anh ấy là nghệ sĩ vĩ cầm hòa nhạc.",
+    "words": [
+      {
+        "word": "concert",
+        "type": "noun",
+        "phonetic": "/ˈkɑːnsərt/",
+        "meaning": "hòa nhạc"
+      },
+      {
+        "word": "violinist",
+        "type": "noun",
+        "phonetic": "/ˌvaɪəˈlɪnɪst/",
+        "meaning": "nghệ sĩ vĩ cầm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883957/part2_questions_new/jn9bzr8ofeht3k9hdirb.mp3"
+  },
+  {
+    "sentence": "They already left.",
+    "sentence_translation": "Họ đã rời đi rồi.",
+    "words": [
+      {
+        "word": "already",
+        "type": "adverb",
+        "phonetic": "/ɔːlˈredi/",
+        "meaning": "đã rồi"
+      },
+      {
+        "word": "left",
+        "type": "verb",
+        "phonetic": "/left/",
+        "meaning": "rời đi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883957/part2_questions_new/pwokzny538xcasbtczmz.mp3"
+  },
+  {
+    "sentence": "I haven’t had the chance.",
+    "sentence_translation": "Tôi chưa có cơ hội.",
+    "words": [
+      {
+        "word": "chance",
+        "type": "noun",
+        "phonetic": "/tʃæns/",
+        "meaning": "cơ hội"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883958/part2_questions_new/ooic0ggjgfzhbyoyhcd6.mp3"
+  },
+  {
+    "sentence": "About forty dollars.",
+    "sentence_translation": "Khoảng bốn mươi đô la.",
+    "words": [
+      {
+        "word": "forty",
+        "type": "number",
+        "phonetic": "/ˈfɔːrti/",
+        "meaning": "bốn mươi"
+      },
+      {
+        "word": "dollars",
+        "type": "noun",
+        "phonetic": "/ˈdɑːlərz/",
+        "meaning": "đô la"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883959/part2_questions_new/r90hhbetcey9oxdunkkm.mp3"
+  },
+  {
+    "sentence": "Only with fruits and vegetables.",
+    "sentence_translation": "Chỉ với trái cây và rau củ.",
+    "words": [
+      {
+        "word": "fruits",
+        "type": "noun",
+        "phonetic": "/fruːts/",
+        "meaning": "trái cây"
+      },
+      {
+        "word": "vegetables",
+        "type": "noun",
+        "phonetic": "/ˈvedʒtəblz/",
+        "meaning": "rau củ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883960/part2_questions_new/waqaxn07xgfpajafdsf3.mp3"
+  },
+  {
+    "sentence": "In the kitchen cabinet.",
+    "sentence_translation": "Trong tủ bếp.",
+    "words": [
+      {
+        "word": "kitchen",
+        "type": "noun",
+        "phonetic": "/ˈkɪtʃɪn/",
+        "meaning": "nhà bếp"
+      },
+      {
+        "word": "cabinet",
+        "type": "noun",
+        "phonetic": "/ˈkæbɪnət/",
+        "meaning": "tủ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883961/part2_questions_new/xvxbvujr908n1ya3cgd5.mp3"
+  },
+  {
+    "sentence": "The prototype is still being tested.",
+    "sentence_translation": "Nguyên mẫu vẫn đang được thử nghiệm.",
+    "words": [
+      {
+        "word": "prototype",
+        "type": "noun",
+        "phonetic": "/ˈprəʊtətaɪp/",
+        "meaning": "nguyên mẫu"
+      },
+      {
+        "word": "tested",
+        "type": "verb",
+        "phonetic": "/ˈtestɪd/",
+        "meaning": "được thử nghiệm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883962/part2_questions_new/dy0y6aavk2l0mvbwija7.mp3"
+  },
+  {
+    "sentence": "They decided to drive.",
+    "sentence_translation": "Họ quyết định lái xe.",
+    "words": [
+      {
+        "word": "decided",
+        "type": "verb",
+        "phonetic": "/dɪˈsaɪdɪd/",
+        "meaning": "quyết định"
+      },
+      {
+        "word": "drive",
+        "type": "verb",
+        "phonetic": "/draɪv/",
+        "meaning": "lái xe"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883962/part2_questions_new/vys6zpigmonle3vzc2lw.mp3"
+  },
+  {
+    "sentence": "At terminal two.",
+    "sentence_translation": "Tại nhà ga số hai.",
+    "words": [
+      {
+        "word": "terminal",
+        "type": "noun",
+        "phonetic": "/ˈtɜːrmɪnl/",
+        "meaning": "nhà ga"
+      },
+      {
+        "word": "two",
+        "type": "number",
+        "phonetic": "/tuː/",
+        "meaning": "hai"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883963/part2_questions_new/jbl2xntjlyvwnbhn40ob.mp3"
+  },
+  {
+    "sentence": "It’s a marketing position.",
+    "sentence_translation": "Đó là vị trí tiếp thị.",
+    "words": [
+      {
+        "word": "marketing",
+        "type": "noun",
+        "phonetic": "/ˈmɑːrkɪtɪŋ/",
+        "meaning": "tiếp thị"
+      },
+      {
+        "word": "position",
+        "type": "noun",
+        "phonetic": "/pəˈzɪʃn/",
+        "meaning": "vị trí"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883968/part2_questions_new/wa3pz3ch37uyqqp7xgg3.mp3"
+  },
+  {
+    "sentence": "About three litres of water.",
+    "sentence_translation": "Khoảng ba lít nước.",
+    "words": [
+      {
+        "word": "three",
+        "type": "number",
+        "phonetic": "/θriː/",
+        "meaning": "ba"
+      },
+      {
+        "word": "litres",
+        "type": "noun",
+        "phonetic": "/ˈliːtərz/",
+        "meaning": "lít"
+      },
+      {
+        "word": "water",
+        "type": "noun",
+        "phonetic": "/ˈwɔːtər/",
+        "meaning": "nước"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883969/part2_questions_new/gebcfj1m2j2p1uws1x2l.mp3"
+  },
+  {
+    "sentence": "No, I didn’t check out the sale.",
+    "sentence_translation": "Không, tôi chưa xem đợt giảm giá.",
+    "words": [
+      {
+        "word": "check out",
+        "type": "phrasal verb",
+        "phonetic": "/tʃek aʊt/",
+        "meaning": "xem, kiểm tra"
+      },
+      {
+        "word": "sale",
+        "type": "noun",
+        "phonetic": "/seɪl/",
+        "meaning": "đợt giảm giá"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883969/part2_questions_new/o7ektgl5oyijsfhvs5z3.mp3"
+  },
+  {
+    "sentence": "I needed some for a large bouquet.",
+    "sentence_translation": "Tôi cần một ít cho bó hoa lớn.",
+    "words": [
+      {
+        "word": "needed",
+        "type": "verb",
+        "phonetic": "/ˈniːdɪd/",
+        "meaning": "cần"
+      },
+      {
+        "word": "bouquet",
+        "type": "noun",
+        "phonetic": "/buˈkeɪ/",
+        "meaning": "bó hoa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883970/part2_questions_new/k93vr2vowrhfiudm6pjb.mp3"
+  },
+  {
+    "sentence": "Why don’t we go see it?",
+    "sentence_translation": "Sao chúng ta không đi xem nó?",
+    "words": [
+      {
+        "word": "go",
+        "type": "verb",
+        "phonetic": "/ɡoʊ/",
+        "meaning": "đi"
+      },
+      {
+        "word": "see",
+        "type": "verb",
+        "phonetic": "/siː/",
+        "meaning": "xem"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883971/part2_questions_new/svk2bzfzreghmouzxfqd.mp3"
+  },
+  {
+    "sentence": "After the event.",
+    "sentence_translation": "Sau sự kiện.",
+    "words": [
+      {
+        "word": "after",
+        "type": "preposition",
+        "phonetic": "/ˈæftər/",
+        "meaning": "sau"
+      },
+      {
+        "word": "event",
+        "type": "noun",
+        "phonetic": "/ɪˈvent/",
+        "meaning": "sự kiện"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883973/part2_questions_new/pcigtac7nduzpmbmyefd.mp3"
+  },
+  {
+    "sentence": "He made a great speech.",
+    "sentence_translation": "Anh ấy đã có một bài phát biểu tuyệt vời.",
+    "words": [
+      {
+        "word": "made",
+        "type": "verb",
+        "phonetic": "/meɪd/",
+        "meaning": "đã làm"
+      },
+      {
+        "word": "speech",
+        "type": "noun",
+        "phonetic": "/spiːtʃ/",
+        "meaning": "bài phát biểu"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883974/part2_questions_new/jdtbfg7qvagefs9gebmg.mp3"
+  },
+  {
+    "sentence": "Thanks, but I can’t swim.",
+    "sentence_translation": "Cảm ơn, nhưng tôi không biết bơi.",
+    "words": [
+      {
+        "word": "thanks",
+        "type": "noun",
+        "phonetic": "/θæŋks/",
+        "meaning": "cảm ơn"
+      },
+      {
+        "word": "swim",
+        "type": "verb",
+        "phonetic": "/swɪm/",
+        "meaning": "bơi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883974/part2_questions_new/vxdlumgtp0flitlidxci.mp3"
+  },
+  {
+    "sentence": "Clara’s already organizing one.",
+    "sentence_translation": "Clara đã tổ chức một cái rồi.",
+    "words": [
+      {
+        "word": "organizing",
+        "type": "verb",
+        "phonetic": "/ˈɔːrɡənaɪzɪŋ/",
+        "meaning": "tổ chức"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883975/part2_questions_new/xojmpta9bsdcvvphxnd4.mp3"
+  },
+  {
+    "sentence": "It’s a very interesting article.",
+    "sentence_translation": "Đó là một bài báo rất thú vị.",
+    "words": [
+      {
+        "word": "interesting",
+        "type": "adjective",
+        "phonetic": "/ˈɪntrəstɪŋ/",
+        "meaning": "thú vị"
+      },
+      {
+        "word": "article",
+        "type": "noun",
+        "phonetic": "/ˈɑːrtɪkl/",
+        "meaning": "bài báo"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883976/part2_questions_new/qltun2rlywpudclhibdi.mp3"
+  },
+  {
+    "sentence": "We just sent an email to all instructors.",
+    "sentence_translation": "Chúng tôi vừa gửi email cho tất cả giảng viên.",
+    "words": [
+      {
+        "word": "sent",
+        "type": "verb",
+        "phonetic": "/sent/",
+        "meaning": "đã gửi"
+      },
+      {
+        "word": "instructors",
+        "type": "noun",
+        "phonetic": "/ɪnˈstrʌktərz/",
+        "meaning": "giảng viên"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883977/part2_questions_new/x3v5zzn61gahv7wuvm2x.mp3"
+  },
+  {
+    "sentence": "Five to seven months.",
+    "sentence_translation": "Năm đến bảy tháng.",
+    "words": [
+      {
+        "word": "five",
+        "type": "number",
+        "phonetic": "/faɪv/",
+        "meaning": "năm"
+      },
+      {
+        "word": "seven",
+        "type": "number",
+        "phonetic": "/ˈsevən/",
+        "meaning": "bảy"
+      },
+      {
+        "word": "months",
+        "type": "noun",
+        "phonetic": "/mʌnθs/",
+        "meaning": "tháng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883978/part2_questions_new/pvcjp5f055nhymptck4l.mp3"
+  },
+  {
+    "sentence": "Yes, it’s a beautiful building.",
+    "sentence_translation": "Vâng, đó là một tòa nhà đẹp.",
+    "words": [
+      {
+        "word": "beautiful",
+        "type": "adjective",
+        "phonetic": "/ˈbjuːtɪfl/",
+        "meaning": "đẹp"
+      },
+      {
+        "word": "building",
+        "type": "noun",
+        "phonetic": "/ˈbɪldɪŋ/",
+        "meaning": "tòa nhà"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883978/part2_questions_new/qlbltxt7afy18pjfvm24.mp3"
+  },
+  {
+    "sentence": "In the new shopping mall.",
+    "sentence_translation": "Trong trung tâm mua sắm mới.",
+    "words": [
+      {
+        "word": "shopping mall",
+        "type": "noun",
+        "phonetic": "/ˈʃɑːpɪŋ mɔːl/",
+        "meaning": "trung tâm mua sắm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883979/part2_questions_new/nsrc4a5gtnszqlikqobn.mp3"
+  },
+  {
+    "sentence": "Yes, they come in other colours.",
+    "sentence_translation": "Vâng, chúng có các màu khác.",
+    "words": [
+      {
+        "word": "colours",
+        "type": "noun",
+        "phonetic": "/ˈkʌlərz/",
+        "meaning": "màu sắc"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883980/part2_questions_new/hpmp1o9aaphioy88x746.mp3"
+  },
+  {
+    "sentence": "Our spring merchandise is arriving soon.",
+    "sentence_translation": "Hàng hóa mùa xuân của chúng tôi sắp về.",
+    "words": [
+      {
+        "word": "spring",
+        "type": "noun",
+        "phonetic": "/sprɪŋ/",
+        "meaning": "mùa xuân"
+      },
+      {
+        "word": "merchandise",
+        "type": "noun",
+        "phonetic": "/ˈmɜːrtʃəndaɪs/",
+        "meaning": "hàng hóa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883981/part2_questions_new/bqkyohbgiw7ybofgoqrj.mp3"
+  },
+  {
+    "sentence": "Thank you for meeting me.",
+    "sentence_translation": "Cảm ơn bạn đã gặp tôi.",
+    "words": [
+      {
+        "word": "thank you",
+        "type": "expression",
+        "phonetic": "/ˈθæŋk juː/",
+        "meaning": "cảm ơn"
+      },
+      {
+        "word": "meeting",
+        "type": "noun",
+        "phonetic": "/ˈmiːtɪŋ/",
+        "meaning": "gặp gỡ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883982/part2_questions_new/avtui5cduzxlumyidcro.mp3"
+  },
+  {
+    "sentence": "A contact lens prescription.",
+    "sentence_translation": "Đơn kính áp tròng.",
+    "words": [
+      {
+        "word": "contact lens",
+        "type": "noun",
+        "phonetic": "/ˈkɒntækt lenz/",
+        "meaning": "kính áp tròng"
+      },
+      {
+        "word": "prescription",
+        "type": "noun",
+        "phonetic": "/prɪˈskrɪpʃn/",
+        "meaning": "đơn thuốc"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883983/part2_questions_new/zbwa6pjk3xbl73kh2aoj.mp3"
+  },
+  {
+    "sentence": "I have very limited time.",
+    "sentence_translation": "Tôi có rất ít thời gian.",
+    "words": [
+      {
+        "word": "limited",
+        "type": "adjective",
+        "phonetic": "/ˈlɪmɪtɪd/",
+        "meaning": "hạn chế"
+      },
+      {
+        "word": "time",
+        "type": "noun",
+        "phonetic": "/taɪm/",
+        "meaning": "thời gian"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883984/part2_questions_new/lyrhbqtirhcursfivrxy.mp3"
+  },
+  {
+    "sentence": "No, at ten a.m.",
+    "sentence_translation": "Không, lúc 10 giờ sáng.",
+    "words": [
+      {
+        "word": "ten",
+        "type": "number",
+        "phonetic": "/ten/",
+        "meaning": "mười"
+      },
+      {
+        "word": "a.m.",
+        "type": "abbreviation",
+        "phonetic": "/ˌeɪ ˈem/",
+        "meaning": "buổi sáng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883984/part2_questions_new/eu5dh2zjslotu4vbce3d.mp3"
+  },
+  {
+    "sentence": "I really like working with computers.",
+    "sentence_translation": "Tôi thực sự thích làm việc với máy tính.",
+    "words": [
+      {
+        "word": "working",
+        "type": "verb",
+        "phonetic": "/ˈwɜːrkɪŋ/",
+        "meaning": "làm việc"
+      },
+      {
+        "word": "computers",
+        "type": "noun",
+        "phonetic": "/kəmˈpjuːtərz/",
+        "meaning": "máy tính"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883985/part2_questions_new/wztrfowtxc2mnmkdq51e.mp3"
+  },
+  {
+    "sentence": "Just a resume is needed.",
+    "sentence_translation": "Chỉ cần một bản sơ yếu lý lịch.",
+    "words": [
+      {
+        "word": "resume",
+        "type": "noun",
+        "phonetic": "/ˈrezəmeɪ/",
+        "meaning": "sơ yếu lý lịch"
+      },
+      {
+        "word": "needed",
+        "type": "verb",
+        "phonetic": "/ˈniːdɪd/",
+        "meaning": "cần thiết"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753883986/part2_questions_new/udxdxznykxsb0l95bcfc.mp3"
+  },
+  {
+    "sentence": "Have the machines on the factory floor been cleaned?",
+    "sentence_translation": "Các máy móc trên sàn nhà máy đã được làm sạch chưa?",
+    "words": [
+      {
+        "word": "machines",
+        "type": "noun",
+        "phonetic": "/məˈʃiːnz/",
+        "meaning": "máy móc"
+      },
+      {
+        "word": "factory",
+        "type": "noun",
+        "phonetic": "/ˈfæktri/",
+        "meaning": "nhà máy"
+      },
+      {
+        "word": "floor",
+        "type": "noun",
+        "phonetic": "/flɔːr/",
+        "meaning": "sàn"
+      },
+      {
+        "word": "cleaned",
+        "type": "verb",
+        "phonetic": "/kliːnd/",
+        "meaning": "được làm sạch"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885677/part2_questions_new/gwd1am20onbukgd3vch4.mp3"
+  },
+  {
+    "sentence": "How much will the budget increase next year?",
+    "sentence_translation": "Ngân sách sẽ tăng bao nhiêu vào năm sau?",
+    "words": [
+      {
+        "word": "budget",
+        "type": "noun",
+        "phonetic": "/ˈbʌdʒɪt/",
+        "meaning": "ngân sách"
+      },
+      {
+        "word": "increase",
+        "type": "verb",
+        "phonetic": "/ɪnˈkriːs/",
+        "meaning": "tăng"
+      },
+      {
+        "word": "year",
+        "type": "noun",
+        "phonetic": "/jɪr/",
+        "meaning": "năm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885680/part2_questions_new/zsulks0kmpizcryd63ss.mp3"
+  },
+  {
+    "sentence": "You’re going to water the plants before you leave, aren’t you?",
+    "sentence_translation": "Bạn sẽ tưới cây trước khi rời đi, đúng không?",
+    "words": [
+      {
+        "word": "water",
+        "type": "verb",
+        "phonetic": "/ˈwɔːtər/",
+        "meaning": "tưới nước"
+      },
+      {
+        "word": "plants",
+        "type": "noun",
+        "phonetic": "/plænts/",
+        "meaning": "cây cối"
+      },
+      {
+        "word": "leave",
+        "type": "verb",
+        "phonetic": "/liːv/",
+        "meaning": "rời đi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885681/part2_questions_new/deqgnkxlqlyw6pztbn6m.mp3"
+  },
+  {
+    "sentence": "Aren’t you going to schedule an eye doctor appointment?",
+    "sentence_translation": "Bạn không định đặt lịch hẹn với bác sĩ mắt à?",
+    "words": [
+      {
+        "word": "schedule",
+        "type": "verb",
+        "phonetic": "/ˈskedʒuːl/",
+        "meaning": "đặt lịch"
+      },
+      {
+        "word": "appointment",
+        "type": "noun",
+        "phonetic": "/əˈpɔɪntmənt/",
+        "meaning": "cuộc hẹn"
+      },
+      {
+        "word": "eye",
+        "type": "noun",
+        "phonetic": "/aɪ/",
+        "meaning": "mắt"
+      },
+      {
+        "word": "doctor",
+        "type": "noun",
+        "phonetic": "/ˈdɒktər/",
+        "meaning": "bác sĩ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885681/part2_questions_new/algax4wpmaribumdi5fe.mp3"
+  },
+  {
+    "sentence": "I’m going to try to fix this printer.",
+    "sentence_translation": "Tôi sẽ cố gắng sửa cái máy in này.",
+    "words": [
+      {
+        "word": "fix",
+        "type": "verb",
+        "phonetic": "/fɪks/",
+        "meaning": "sửa chữa"
+      },
+      {
+        "word": "printer",
+        "type": "noun",
+        "phonetic": "/ˈprɪntər/",
+        "meaning": "máy in"
+      },
+      {
+        "word": "repaired",
+        "type": "verb",
+        "phonetic": "/rɪˈperd/",
+        "meaning": "được sửa chữa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885682/part2_questions_new/yqkeicn8oqkpsaxbsxha.mp3"
+  },
+  {
+    "sentence": "What should we do with these brochures?",
+    "sentence_translation": "Chúng ta nên làm gì với những tờ rơi này?",
+    "words": [
+      {
+        "word": "brochures",
+        "type": "noun",
+        "phonetic": "/broʊˈʃʊrz/",
+        "meaning": "tờ rơi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885683/part2_questions_new/jujf5yt5dwmzmxle0n4r.mp3"
+  },
+  {
+    "sentence": "Has the policy meeting been rescheduled?",
+    "sentence_translation": "Cuộc họp về chính sách đã được lên lịch lại chưa?",
+    "words": [
+      {
+        "word": "policy",
+        "type": "noun",
+        "phonetic": "/ˈpɑːləsi/",
+        "meaning": "chính sách"
+      },
+      {
+        "word": "meeting",
+        "type": "noun",
+        "phonetic": "/ˈmiːtɪŋ/",
+        "meaning": "cuộc họp"
+      },
+      {
+        "word": "rescheduled",
+        "type": "verb",
+        "phonetic": "/ˌriːˈskedʒuːld/",
+        "meaning": "lên lịch lại"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885684/part2_questions_new/hkn6mrfvbqzt5cqcxip0.mp3"
+  },
+  {
+    "sentence": "Why don’t we stop by the office cafeteria on our way to the workshop?",
+    "sentence_translation": "Sao chúng ta không ghé căng tin văn phòng trên đường đến buổi hội thảo?",
+    "words": [
+      {
+        "word": "cafeteria",
+        "type": "noun",
+        "phonetic": "/ˌkæfəˈtɪriə/",
+        "meaning": "căng tin"
+      },
+      {
+        "word": "workshop",
+        "type": "noun",
+        "phonetic": "/ˈwɜːrkʃɑːp/",
+        "meaning": "buổi hội thảo"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885686/part2_questions_new/rigjamj5of5h61xoxdae.mp3"
+  },
+  {
+    "sentence": "Have you tried our famous pasta dish?",
+    "sentence_translation": "Bạn đã thử món mì nổi tiếng của chúng tôi chưa?",
+    "words": [
+      {
+        "word": "pasta",
+        "type": "noun",
+        "phonetic": "/ˈpæstə/",
+        "meaning": "mì ống"
+      },
+      {
+        "word": "dish",
+        "type": "noun",
+        "phonetic": "/dɪʃ/",
+        "meaning": "món ăn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885687/part2_questions_new/tjlvlxhokdvms5evxfkd.mp3"
+  },
+  {
+    "sentence": "Who’s the opening act at tonight’s concert?",
+    "sentence_translation": "Ai là tiết mục mở màn cho buổi hòa nhạc tối nay?",
+    "words": [
+      {
+        "word": "opening act",
+        "type": "noun",
+        "phonetic": "/ˈoʊpənɪŋ ækt/",
+        "meaning": "tiết mục mở màn"
+      },
+      {
+        "word": "concert",
+        "type": "noun",
+        "phonetic": "/ˈkɑːnsərt/",
+        "meaning": "buổi hòa nhạc"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885688/part2_questions_new/ex2yhrtqfbdw6ia6fsnb.mp3"
+  },
+  {
+    "sentence": "When do the product demonstrations start?",
+    "sentence_translation": "Khi nào các buổi trình diễn sản phẩm bắt đầu?",
+    "words": [
+      {
+        "word": "product",
+        "type": "noun",
+        "phonetic": "/ˈprɒdʌkt/",
+        "meaning": "sản phẩm"
+      },
+      {
+        "word": "demonstrations",
+        "type": "noun",
+        "phonetic": "/ˌdemənˈstreɪʃənz/",
+        "meaning": "buổi trình diễn"
+      },
+      {
+        "word": "schedule",
+        "type": "noun",
+        "phonetic": "/ˈskedʒuːl/",
+        "meaning": "lịch trình"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885689/part2_questions_new/m1fajk6vrke8yjhlendk.mp3"
+  },
+  {
+    "sentence": "I’m updating the website, but it didn’t work.",
+    "sentence_translation": "Tôi đang cập nhật trang web, nhưng nó không hoạt động.",
+    "words": [
+      {
+        "word": "updating",
+        "type": "verb",
+        "phonetic": "/ʌpˈdeɪtɪŋ/",
+        "meaning": "cập nhật"
+      },
+      {
+        "word": "website",
+        "type": "noun",
+        "phonetic": "/ˈwebsaɪt/",
+        "meaning": "trang web"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885690/part2_questions_new/falmcxmxiia9ocl56kkn.mp3"
+  },
+  {
+    "sentence": "Did you hire a new welding specialist?",
+    "sentence_translation": "Bạn đã thuê một chuyên gia hàn mới chưa?",
+    "words": [
+      {
+        "word": "hire",
+        "type": "verb",
+        "phonetic": "/ˈhaɪər/",
+        "meaning": "thuê"
+      },
+      {
+        "word": "specialist",
+        "type": "noun",
+        "phonetic": "/ˈspeʃəlɪst/",
+        "meaning": "chuyên gia"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885690/part2_questions_new/suaoougrqecfvsyedggv.mp3"
+  },
+  {
+    "sentence": "How was the colour palette for the lobby chosen?",
+    "sentence_translation": "Bảng màu cho sảnh được chọn như thế nào?",
+    "words": [
+      {
+        "word": "colour",
+        "type": "noun",
+        "phonetic": "/ˈkʌlər/",
+        "meaning": "màu"
+      },
+      {
+        "word": "palette",
+        "type": "noun",
+        "phonetic": "/ˈpælət/",
+        "meaning": "bảng màu"
+      },
+      {
+        "word": "lobby",
+        "type": "noun",
+        "phonetic": "/ˈlɒbi/",
+        "meaning": "sảnh"
+      },
+      {
+        "word": "chosen",
+        "type": "verb",
+        "phonetic": "/ˈtʃoʊzn/",
+        "meaning": "được chọn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885691/part2_questions_new/k9ujz9p1nabcfvecz3k5.mp3"
+  },
+  {
+    "sentence": "When are we ordering most supplies for the office?",
+    "sentence_translation": "Khi nào chúng ta đặt hầu hết vật tư cho văn phòng?",
+    "words": [
+      {
+        "word": "supplies",
+        "type": "noun",
+        "phonetic": "/səˈplaɪz/",
+        "meaning": "vật tư"
+      },
+      {
+        "word": "office",
+        "type": "noun",
+        "phonetic": "/ˈɒfɪs/",
+        "meaning": "văn phòng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885693/part2_questions_new/szu3lu33ku2ivdbb0z1g.mp3"
+  },
+  {
+    "sentence": "The battery for the water pump is going to be solar powered, right?",
+    "sentence_translation": "Pin cho máy bơm nước sẽ dùng năng lượng mặt trời đúng không?",
+    "words": [
+      {
+        "word": "battery",
+        "type": "noun",
+        "phonetic": "/ˈbætəri/",
+        "meaning": "pin"
+      },
+      {
+        "word": "solar",
+        "type": "adjective",
+        "phonetic": "/ˈsəʊlər/",
+        "meaning": "mặt trời"
+      },
+      {
+        "word": "powered",
+        "type": "verb",
+        "phonetic": "/ˈpaʊərd/",
+        "meaning": "chạy"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885694/part2_questions_new/klaziykpgocfiffko4yo.mp3"
+  },
+  {
+    "sentence": "Where can I buy a charger for this laptop?",
+    "sentence_translation": "Tôi có thể mua bộ sạc cho máy tính xách tay này ở đâu?",
+    "words": [
+      {
+        "word": "charger",
+        "type": "noun",
+        "phonetic": "/ˈtʃɑːrdʒər/",
+        "meaning": "bộ sạc"
+      },
+      {
+        "word": "laptop",
+        "type": "noun",
+        "phonetic": "/ˈlæptɒp/",
+        "meaning": "máy tính xách tay"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885695/part2_questions_new/zw9vardfkvpyssjojscu.mp3"
+  },
+  {
+    "sentence": "Do I need to reserve a meeting room?",
+    "sentence_translation": "Tôi có cần đặt phòng họp không?",
+    "words": [
+      {
+        "word": "reserve",
+        "type": "verb",
+        "phonetic": "/rɪˈzɜːrv/",
+        "meaning": "đặt trước"
+      },
+      {
+        "word": "meeting",
+        "type": "noun",
+        "phonetic": "/ˈmiːtɪŋ/",
+        "meaning": "họp"
+      },
+      {
+        "word": "room",
+        "type": "noun",
+        "phonetic": "/ruːm/",
+        "meaning": "phòng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885696/part2_questions_new/b8b0ykd5k6imar4oaqdk.mp3"
+  },
+  {
+    "sentence": "When’s the new department director supposed to start?",
+    "sentence_translation": "Khi nào giám đốc bộ phận mới sẽ bắt đầu làm việc?",
+    "words": [
+      {
+        "word": "department",
+        "type": "noun",
+        "phonetic": "/dɪˈpɑːrtmənt/",
+        "meaning": "bộ phận"
+      },
+      {
+        "word": "director",
+        "type": "noun",
+        "phonetic": "/dəˈrektər/",
+        "meaning": "giám đốc"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885697/part2_questions_new/n2y8zotbbieptehjmiiq.mp3"
+  },
+  {
+    "sentence": "Should I deliver these pizzas or will you?",
+    "sentence_translation": "Tôi nên giao những chiếc pizza này hay bạn sẽ làm?",
+    "words": [
+      {
+        "word": "deliver",
+        "type": "verb",
+        "phonetic": "/dɪˈlɪvər/",
+        "meaning": "giao hàng"
+      },
+      {
+        "word": "pizzas",
+        "type": "noun",
+        "phonetic": "/ˈpiːtsəz/",
+        "meaning": "bánh pizza"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885697/part2_questions_new/he48ja0efhiu9og9jcsp.mp3"
+  },
+  {
+    "sentence": "This month’s shipment schedule has been revised.",
+    "sentence_translation": "Lịch giao hàng tháng này đã được sửa đổi.",
+    "words": [
+      {
+        "word": "shipment",
+        "type": "noun",
+        "phonetic": "/ˈʃɪpmənt/",
+        "meaning": "lô hàng"
+      },
+      {
+        "word": "schedule",
+        "type": "noun",
+        "phonetic": "/ˈskedʒuːl/",
+        "meaning": "lịch trình"
+      },
+      {
+        "word": "revised",
+        "type": "verb",
+        "phonetic": "/rɪˈvaɪzd/",
+        "meaning": "được sửa đổi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885698/part2_questions_new/nb63b8oc0eod6azm7qif.mp3"
+  },
+  {
+    "sentence": "How much will the repairs cost?",
+    "sentence_translation": "Việc sửa chữa sẽ tốn bao nhiêu?",
+    "words": [
+      {
+        "word": "repairs",
+        "type": "noun",
+        "phonetic": "/rɪˈperz/",
+        "meaning": "việc sửa chữa"
+      },
+      {
+        "word": "cost",
+        "type": "verb",
+        "phonetic": "/kɔːst/",
+        "meaning": "tốn"
+      },
+      {
+        "word": "warranty",
+        "type": "noun",
+        "phonetic": "/ˈwɔːrənti/",
+        "meaning": "bảo hành"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885699/part2_questions_new/kaxjsdhb3bh8gjyutsq3.mp3"
+  },
+  {
+    "sentence": "Why don’t we provide more samples of the wallpaper patterns?",
+    "sentence_translation": "Sao chúng ta không cung cấp thêm mẫu giấy dán tường?",
+    "words": [
+      {
+        "word": "samples",
+        "type": "noun",
+        "phonetic": "/ˈsæmplz/",
+        "meaning": "mẫu"
+      },
+      {
+        "word": "wallpaper",
+        "type": "noun",
+        "phonetic": "/ˈwɔːlˌpeɪpər/",
+        "meaning": "giấy dán tường"
+      },
+      {
+        "word": "patterns",
+        "type": "noun",
+        "phonetic": "/ˈpætərnz/",
+        "meaning": "mẫu hoa văn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885700/part2_questions_new/bl83r1n6zwbklma0vnfq.mp3"
+  },
+  {
+    "sentence": "Can you give me a tour of the property this afternoon?",
+    "sentence_translation": "Bạn có thể dẫn tôi đi tham quan bất động sản này chiều nay không?",
+    "words": [
+      {
+        "word": "tour",
+        "type": "noun",
+        "phonetic": "/tʊr/",
+        "meaning": "chuyến tham quan"
+      },
+      {
+        "word": "property",
+        "type": "noun",
+        "phonetic": "/ˈprɑːpərti/",
+        "meaning": "bất động sản"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885701/part2_questions_new/ohzbsya3bvcnwf3jb3oa.mp3"
+  },
+  {
+    "sentence": "Who’s scheduled to test the product today?",
+    "sentence_translation": "Ai được lên lịch kiểm tra sản phẩm hôm nay?",
+    "words": [
+      {
+        "word": "scheduled",
+        "type": "verb",
+        "phonetic": "/ˈskedʒuːld/",
+        "meaning": "được lên lịch"
+      },
+      {
+        "word": "test",
+        "type": "verb",
+        "phonetic": "/test/",
+        "meaning": "kiểm tra"
+      },
+      {
+        "word": "product",
+        "type": "noun",
+        "phonetic": "/ˈprɒdʌkt/",
+        "meaning": "sản phẩm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885702/part2_questions_new/bfdlzvswo29npnecplcs.mp3"
+  },
+  {
+    "sentence": "No, not yet",
+    "sentence_translation": "Không, chưa đâu",
+    "words": [
+      {
+        "word": "not",
+        "type": "adverb",
+        "phonetic": "/nɑt/",
+        "meaning": "không"
+      },
+      {
+        "word": "yet",
+        "type": "adverb",
+        "phonetic": "/jet/",
+        "meaning": "chưa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885703/part2_questions_new/hvnxrjkmzlyn2y5pqv8c.mp3"
+  },
+  {
+    "sentence": "No, not yet.",
+    "sentence_translation": "Không, chưa đâu.",
+    "words": [
+      {
+        "word": "not",
+        "type": "adverb",
+        "phonetic": "/nɑt/",
+        "meaning": "không"
+      },
+      {
+        "word": "yet",
+        "type": "adverb",
+        "phonetic": "/jet/",
+        "meaning": "chưa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885703/part2_questions_new/g1laojyzbtypsmmyhwls.mp3"
+  },
+  {
+    "sentence": "About 10%.",
+    "sentence_translation": "Khoảng 10%.",
+    "words": [
+      {
+        "word": "about",
+        "type": "preposition",
+        "phonetic": "/əˈbaʊt/",
+        "meaning": "khoảng"
+      },
+      {
+        "word": "percent",
+        "type": "noun",
+        "phonetic": "/pərˈsent/",
+        "meaning": "%"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885704/part2_questions_new/qbajpcr8lkvexza53f2r.mp3"
+  },
+  {
+    "sentence": "Yes, right after lunch.",
+    "sentence_translation": "Vâng, ngay sau bữa trưa.",
+    "words": [
+      {
+        "word": "right",
+        "type": "adverb",
+        "phonetic": "/raɪt/",
+        "meaning": "ngay"
+      },
+      {
+        "word": "after",
+        "type": "adverb",
+        "phonetic": "/ˈæftər/",
+        "meaning": "sau"
+      },
+      {
+        "word": "lunch",
+        "type": "noun",
+        "phonetic": "/lʌntʃ/",
+        "meaning": "bữa trưa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885706/part2_questions_new/tl0srapwdpnxz50txm93.mp3"
+  },
+  {
+    "sentence": "I already scheduled one.",
+    "sentence_translation": "Tôi đã đặt lịch rồi.",
+    "words": [
+      {
+        "word": "already",
+        "type": "adverb",
+        "phonetic": "/ɔːlˈredi/",
+        "meaning": "đã rồi"
+      },
+      {
+        "word": "scheduled",
+        "type": "verb",
+        "phonetic": "/ˈskedʒuːld/",
+        "meaning": "đặt lịch"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885707/part2_questions_new/qmkmdvblwjray76hfyed.mp3"
+  },
+  {
+    "sentence": "Are you sure it can be repaired?",
+    "sentence_translation": "Bạn chắc nó sửa được chứ?",
+    "words": [
+      {
+        "word": "sure",
+        "type": "adjective",
+        "phonetic": "/ʃʊr/",
+        "meaning": "chắc chắn"
+      },
+      {
+        "word": "repaired",
+        "type": "verb",
+        "phonetic": "/rɪˈperd/",
+        "meaning": "được sửa chữa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885707/part2_questions_new/xqg8nmjr2ojydtip8szc.mp3"
+  },
+  {
+    "sentence": "I’ll leave them at the front desk.",
+    "sentence_translation": "Tôi sẽ để chúng ở quầy lễ tân.",
+    "words": [
+      {
+        "word": "leave",
+        "type": "verb",
+        "phonetic": "/liːv/",
+        "meaning": "để lại"
+      },
+      {
+        "word": "front desk",
+        "type": "noun",
+        "phonetic": "/frʌnt desk/",
+        "meaning": "quầy lễ tân"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885708/part2_questions_new/xtmjpcq6l2rskk5pxpb3.mp3"
+  },
+  {
+    "sentence": "Yes, it’s happening tomorrow instead.",
+    "sentence_translation": "Vâng, nó sẽ diễn ra vào ngày mai thay vì hôm nay.",
+    "words": [
+      {
+        "word": "happening",
+        "type": "verb",
+        "phonetic": "/ˈhæpənɪŋ/",
+        "meaning": "diễn ra"
+      },
+      {
+        "word": "tomorrow",
+        "type": "noun",
+        "phonetic": "/təˈmɑːroʊ/",
+        "meaning": "ngày mai"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885709/part2_questions_new/ar7rihopoeo1uahwbzfv.mp3"
+  },
+  {
+    "sentence": "Sure, we have time for that.",
+    "sentence_translation": "Được, chúng ta có thời gian cho việc đó.",
+    "words": [
+      {
+        "word": "sure",
+        "type": "adjective",
+        "phonetic": "/ʃʊr/",
+        "meaning": "được, chắc chắn"
+      },
+      {
+        "word": "time",
+        "type": "noun",
+        "phonetic": "/taɪm/",
+        "meaning": "thời gian"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885710/part2_questions_new/bt0qxh3s7l5i0921psoz.mp3"
+  },
+  {
+    "sentence": "Yes, it was delicious.",
+    "sentence_translation": "Vâng, nó rất ngon.",
+    "words": [
+      {
+        "word": "delicious",
+        "type": "adjective",
+        "phonetic": "/dɪˈlɪʃəs/",
+        "meaning": "ngon"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885711/part2_questions_new/r1fd9lptordkweci5hl0.mp3"
+  },
+  {
+    "sentence": "A jazz singer from France.",
+    "sentence_translation": "Một ca sĩ nhạc jazz đến từ Pháp.",
+    "words": [
+      {
+        "word": "jazz singer",
+        "type": "noun",
+        "phonetic": "/dʒæz ˈsɪŋər/",
+        "meaning": "ca sĩ nhạc jazz"
+      },
+      {
+        "word": "France",
+        "type": "noun",
+        "phonetic": "/fræns/",
+        "meaning": "Pháp"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885712/part2_questions_new/xvf4dgaqvxm9jv48st6b.mp3"
+  },
+  {
+    "sentence": "The schedule was emailed last Friday.",
+    "sentence_translation": "Lịch trình đã được gửi qua email vào thứ Sáu tuần trước.",
+    "words": [
+      {
+        "word": "schedule",
+        "type": "noun",
+        "phonetic": "/ˈskedʒuːl/",
+        "meaning": "lịch trình"
+      },
+      {
+        "word": "emailed",
+        "type": "verb",
+        "phonetic": "/ˈiːmeɪld/",
+        "meaning": "gửi email"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885713/part2_questions_new/apquel9iolh28zuukjzv.mp3"
+  },
+  {
+    "sentence": "Just send me the changes you want.",
+    "sentence_translation": "Chỉ cần gửi cho tôi những thay đổi bạn muốn.",
+    "words": [
+      {
+        "word": "send",
+        "type": "verb",
+        "phonetic": "/send/",
+        "meaning": "gửi"
+      },
+      {
+        "word": "changes",
+        "type": "noun",
+        "phonetic": "/ˈtʃeɪndʒɪz/",
+        "meaning": "thay đổi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885714/part2_questions_new/yxz4drqph2yldn2wjoag.mp3"
+  },
+  {
+    "sentence": "Yes, he starts tomorrow.",
+    "sentence_translation": "Vâng, anh ấy bắt đầu làm việc vào ngày mai.",
+    "words": [
+      {
+        "word": "starts",
+        "type": "verb",
+        "phonetic": "/stɑːrts/",
+        "meaning": "bắt đầu"
+      },
+      {
+        "word": "tomorrow",
+        "type": "noun",
+        "phonetic": "/təˈmɑːroʊ/",
+        "meaning": "ngày mai"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885715/part2_questions_new/uxifxqxmffb9utthzip7.mp3"
+  },
+  {
+    "sentence": "I wasn’t involved.",
+    "sentence_translation": "Tôi không tham gia.",
+    "words": [
+      {
+        "word": "involved",
+        "type": "adjective",
+        "phonetic": "/ɪnˈvɑːlvd/",
+        "meaning": "tham gia"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885716/part2_questions_new/nriszguaes4bx59vgmka.mp3"
+  },
+  {
+    "sentence": "Next week on Monday.",
+    "sentence_translation": "Tuần sau vào thứ Hai.",
+    "words": [
+      {
+        "word": "next week",
+        "type": "noun",
+        "phonetic": "/nekst wiːk/",
+        "meaning": "tuần sau"
+      },
+      {
+        "word": "Monday",
+        "type": "noun",
+        "phonetic": "/ˈmʌndeɪ/",
+        "meaning": "thứ Hai"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885718/part2_questions_new/fnihcwqnxi5i73ultpa5.mp3"
+  },
+  {
+    "sentence": "We’re still in the planning stages.",
+    "sentence_translation": "Chúng tôi vẫn đang trong giai đoạn lên kế hoạch.",
+    "words": [
+      {
+        "word": "planning",
+        "type": "noun",
+        "phonetic": "/ˈplænɪŋ/",
+        "meaning": "lên kế hoạch"
+      },
+      {
+        "word": "stages",
+        "type": "noun",
+        "phonetic": "/ˈsteɪdʒɪz/",
+        "meaning": "giai đoạn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885718/part2_questions_new/htfqj1qt1b9ztlmvrzks.mp3"
+  },
+  {
+    "sentence": "I can order one for you.",
+    "sentence_translation": "Tôi có thể đặt một cái cho bạn.",
+    "words": [
+      {
+        "word": "order",
+        "type": "verb",
+        "phonetic": "/ˈɔːrdər/",
+        "meaning": "đặt hàng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885719/part2_questions_new/gdhobvxhvfwgmh9ztz3g.mp3"
+  },
+  {
+    "sentence": "Yes, let me show you how.",
+    "sentence_translation": "Vâng, để tôi chỉ bạn cách làm.",
+    "words": [
+      {
+        "word": "show",
+        "type": "verb",
+        "phonetic": "/ʃoʊ/",
+        "meaning": "chỉ, hướng dẫn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885720/part2_questions_new/mv5lndazlgcepvzbyo3e.mp3"
+  },
+  {
+    "sentence": "Ms. Pavlova isn’t retiring for several weeks.",
+    "sentence_translation": "Bà Pavlova chưa nghỉ hưu trong vài tuần nữa.",
+    "words": [
+      {
+        "word": "retiring",
+        "type": "verb",
+        "phonetic": "/rɪˈtaɪərɪŋ/",
+        "meaning": "nghỉ hưu"
+      },
+      {
+        "word": "weeks",
+        "type": "noun",
+        "phonetic": "/wiːks/",
+        "meaning": "tuần"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885721/part2_questions_new/zeso93nlhblsqi0utoya.mp3"
+  },
+  {
+    "sentence": "They’re being picked up.",
+    "sentence_translation": "Chúng đang được lấy đi.",
+    "words": [
+      {
+        "word": "picked up",
+        "type": "verb",
+        "phonetic": "/pɪkt ʌp/",
+        "meaning": "lấy đi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885722/part2_questions_new/okz2fsj9otxpatlgtahc.mp3"
+  },
+  {
+    "sentence": "Which dates have been changed?",
+    "sentence_translation": "Những ngày nào đã bị thay đổi?",
+    "words": [
+      {
+        "word": "dates",
+        "type": "noun",
+        "phonetic": "/deɪts/",
+        "meaning": "ngày tháng"
+      },
+      {
+        "word": "changed",
+        "type": "verb",
+        "phonetic": "/tʃeɪndʒd/",
+        "meaning": "thay đổi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885723/part2_questions_new/ouj7xxic9zldalbhtnl9.mp3"
+  },
+  {
+    "sentence": "The work is covered under the warranty plan.",
+    "sentence_translation": "Công việc này được bảo hành.",
+    "words": [
+      {
+        "word": "covered",
+        "type": "verb",
+        "phonetic": "/ˈkʌvərd/",
+        "meaning": "được bảo hành"
+      },
+      {
+        "word": "warranty",
+        "type": "noun",
+        "phonetic": "/ˈwɔːrənti/",
+        "meaning": "bảo hành"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885724/part2_questions_new/wranwkqbhe4ernx3fovi.mp3"
+  },
+  {
+    "sentence": "There are plenty in the binders.",
+    "sentence_translation": "Có rất nhiều trong các tập tài liệu.",
+    "words": [
+      {
+        "word": "plenty",
+        "type": "pronoun",
+        "phonetic": "/ˈplenti/",
+        "meaning": "nhiều"
+      },
+      {
+        "word": "binders",
+        "type": "noun",
+        "phonetic": "/ˈbaɪndərz/",
+        "meaning": "tập tài liệu"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885725/part2_questions_new/t9xewdzqtucelmditahv.mp3"
+  },
+  {
+    "sentence": "Sorry, I won’t have time until tomorrow.",
+    "sentence_translation": "Xin lỗi, tôi không có thời gian cho đến ngày mai.",
+    "words": [
+      {
+        "word": "sorry",
+        "type": "adjective",
+        "phonetic": "/ˈsɒri/",
+        "meaning": "xin lỗi"
+      },
+      {
+        "word": "tomorrow",
+        "type": "noun",
+        "phonetic": "/təˈmɑːroʊ/",
+        "meaning": "ngày mai"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885726/part2_questions_new/keggfafrdmmyf9svg1me.mp3"
+  },
+  {
+    "sentence": "We’re waiting for confirmation.",
+    "sentence_translation": "Chúng tôi đang chờ xác nhận.",
+    "words": [
+      {
+        "word": "waiting",
+        "type": "verb",
+        "phonetic": "/ˈweɪtɪŋ/",
+        "meaning": "chờ"
+      },
+      {
+        "word": "confirmation",
+        "type": "noun",
+        "phonetic": "/ˌkɒnfərˈmeɪʃən/",
+        "meaning": "xác nhận"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885727/part2_questions_new/reg4lbakzpibj7rulsoy.mp3"
+  },
+  {
+    "sentence": "It’s in the shipping container.",
+    "sentence_translation": "Nó ở trong thùng vận chuyển.",
+    "words": [
+      {
+        "word": "shipping",
+        "type": "noun",
+        "phonetic": "/ˈʃɪpɪŋ/",
+        "meaning": "vận chuyển"
+      },
+      {
+        "word": "container",
+        "type": "noun",
+        "phonetic": "/ˈkænˈteɪnər/",
+        "meaning": "thùng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885728/part2_questions_new/uboedkhrgew7vbfyxeb0.mp3"
+  },
+  {
+    "sentence": "I just put it in the trash bin.",
+    "sentence_translation": "Tôi vừa bỏ nó vào thùng rác.",
+    "words": [
+      {
+        "word": "trash",
+        "type": "noun",
+        "phonetic": "/træʃ/",
+        "meaning": "rác"
+      },
+      {
+        "word": "bin",
+        "type": "noun",
+        "phonetic": "/bɪn/",
+        "meaning": "thùng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885729/part2_questions_new/tws1zqennxyq4fvyz9uv.mp3"
+  },
+  {
+    "sentence": "Three hours, I think.",
+    "sentence_translation": "Tôi nghĩ là ba tiếng.",
+    "words": [
+      {
+        "word": "three",
+        "type": "number",
+        "phonetic": "/θriː/",
+        "meaning": "ba"
+      },
+      {
+        "word": "hours",
+        "type": "noun",
+        "phonetic": "/ˈaʊərz/",
+        "meaning": "giờ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885730/part2_questions_new/iwpslzen72flicuuxdah.mp3"
+  },
+  {
+    "sentence": "At the bank’s main branch.",
+    "sentence_translation": "Ở chi nhánh chính của ngân hàng.",
+    "words": [
+      {
+        "word": "bank",
+        "type": "noun",
+        "phonetic": "/bæŋk/",
+        "meaning": "ngân hàng"
+      },
+      {
+        "word": "main",
+        "type": "adjective",
+        "phonetic": "/meɪn/",
+        "meaning": "chính"
+      },
+      {
+        "word": "branch",
+        "type": "noun",
+        "phonetic": "/bræntʃ/",
+        "meaning": "chi nhánh"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885731/part2_questions_new/jrpsxry7o3o9jjqb9zka.mp3"
+  },
+  {
+    "sentence": "I walked the whole way.",
+    "sentence_translation": "Tôi đã đi bộ suốt quãng đường.",
+    "words": [
+      {
+        "word": "walked",
+        "type": "verb",
+        "phonetic": "/wɔːkt/",
+        "meaning": "đi bộ"
+      },
+      {
+        "word": "whole",
+        "type": "adjective",
+        "phonetic": "/hoʊl/",
+        "meaning": "toàn bộ"
+      },
+      {
+        "word": "way",
+        "type": "noun",
+        "phonetic": "/weɪ/",
+        "meaning": "quãng đường"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885732/part2_questions_new/hxxjkxkpy4lntt6vc8mf.mp3"
+  },
+  {
+    "sentence": "In the break room.",
+    "sentence_translation": "Ở trong phòng nghỉ.",
+    "words": [
+      {
+        "word": "break room",
+        "type": "noun",
+        "phonetic": "/breɪk ruːm/",
+        "meaning": "phòng nghỉ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885733/part2_questions_new/mvh7omfrlput2juiilwn.mp3"
+  },
+  {
+    "sentence": "Those glasses look nice on you.",
+    "sentence_translation": "Cặp kính đó hợp với bạn đấy.",
+    "words": [
+      {
+        "word": "glasses",
+        "type": "noun",
+        "phonetic": "/ˈɡlæsɪz/",
+        "meaning": "kính mắt"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885734/part2_questions_new/shjmubw0953rlyiqmfjq.mp3"
+  },
+  {
+    "sentence": "The seminar is three days long.",
+    "sentence_translation": "Hội thảo kéo dài ba ngày.",
+    "words": [
+      {
+        "word": "seminar",
+        "type": "noun",
+        "phonetic": "/ˈsemɪnɑːr/",
+        "meaning": "hội thảo"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885735/part2_questions_new/sqeez67eldmmmkbcb6ei.mp3"
+  },
+  {
+    "sentence": "You’re right. It doesn’t fit.",
+    "sentence_translation": "Bạn đúng, nó không vừa.",
+    "words": [
+      {
+        "word": "right",
+        "type": "adjective",
+        "phonetic": "/raɪt/",
+        "meaning": "đúng"
+      },
+      {
+        "word": "fit",
+        "type": "verb",
+        "phonetic": "/fɪt/",
+        "meaning": "vừa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885735/part2_questions_new/e2dtechncxqu0gnxejfd.mp3"
+  },
+  {
+    "sentence": "Double-sided copies.",
+    "sentence_translation": "Bản sao hai mặt.",
+    "words": [
+      {
+        "word": "double-sided",
+        "type": "adjective",
+        "phonetic": "/ˈdʌbl ˈsaɪdɪd/",
+        "meaning": "hai mặt"
+      },
+      {
+        "word": "copies",
+        "type": "noun",
+        "phonetic": "/ˈkɑːpiz/",
+        "meaning": "bản sao"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885736/part2_questions_new/zyzqh47byjrgjb8j1j2s.mp3"
+  },
+  {
+    "sentence": "A trip to the seashore.",
+    "sentence_translation": "Một chuyến đi biển.",
+    "words": [
+      {
+        "word": "trip",
+        "type": "noun",
+        "phonetic": "/trɪp/",
+        "meaning": "chuyến đi"
+      },
+      {
+        "word": "seashore",
+        "type": "noun",
+        "phonetic": "/ˈsiːʃɔːr/",
+        "meaning": "bờ biển"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885737/part2_questions_new/ehfuobk81ug2uxslqtb4.mp3"
+  },
+  {
+    "sentence": "Yes, I found it already.",
+    "sentence_translation": "Vâng, tôi đã tìm thấy nó rồi.",
+    "words": [
+      {
+        "word": "found",
+        "type": "verb",
+        "phonetic": "/faʊnd/",
+        "meaning": "tìm thấy"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885738/part2_questions_new/r4drpdrvlcpuvvux09lj.mp3"
+  },
+  {
+    "sentence": "We have lots of desk calendar designs.",
+    "sentence_translation": "Chúng tôi có nhiều mẫu lịch bàn.",
+    "words": [
+      {
+        "word": "desk",
+        "type": "noun",
+        "phonetic": "/desk/",
+        "meaning": "bàn"
+      },
+      {
+        "word": "calendar",
+        "type": "noun",
+        "phonetic": "/ˈkælɪndər/",
+        "meaning": "lịch"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885739/part2_questions_new/clfc1x7elflxj8ruisyz.mp3"
+  },
+  {
+    "sentence": "This soup I ordered is delicious.",
+    "sentence_translation": "Món súp tôi gọi rất ngon.",
+    "words": [
+      {
+        "word": "soup",
+        "type": "noun",
+        "phonetic": "/suːp/",
+        "meaning": "súp"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885740/part2_questions_new/k2tmmu4j1qjozlr7mjlr.mp3"
+  },
+  {
+    "sentence": "A full-service buffet.",
+    "sentence_translation": "Tiệc buffet đầy đủ dịch vụ.",
+    "words": [
+      {
+        "word": "buffet",
+        "type": "noun",
+        "phonetic": "/bəˈfeɪ/",
+        "meaning": "tiệc buffet"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885741/part2_questions_new/ji3savoibifn06iol4m6.mp3"
+  },
+  {
+    "sentence": "The topic is professional networking.",
+    "sentence_translation": "Chủ đề là kết nối chuyên nghiệp.",
+    "words": [
+      {
+        "word": "topic",
+        "type": "noun",
+        "phonetic": "/ˈtɑːpɪk/",
+        "meaning": "chủ đề"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885742/part2_questions_new/rua5frxoojirhjn1phrb.mp3"
+  },
+  {
+    "sentence": "We need a table for five.",
+    "sentence_translation": "Chúng tôi cần một bàn cho năm người.",
+    "words": [
+      {
+        "word": "table",
+        "type": "noun",
+        "phonetic": "/ˈteɪbl/",
+        "meaning": "bàn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885743/part2_questions_new/ga8dipctz7veiju9yybk.mp3"
+  },
+  {
+    "sentence": "I’ll try to make it on time.",
+    "sentence_translation": "Tôi sẽ cố gắng đến đúng giờ.",
+    "words": [
+      {
+        "word": "make it",
+        "type": "verb",
+        "phonetic": "/meɪk ɪt/",
+        "meaning": "đến nơi"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885744/part2_questions_new/wkglgrl4ilz2d1awoy58.mp3"
+  },
+  {
+    "sentence": "Could you turn up the volume?",
+    "sentence_translation": "Bạn có thể tăng âm lượng lên không?",
+    "words": [
+      {
+        "word": "turn up",
+        "type": "phrasal verb",
+        "phonetic": "/tɜːrn ʌp/",
+        "meaning": "tăng lên"
+      },
+      {
+        "word": "volume",
+        "type": "noun",
+        "phonetic": "/ˈvɑːljuːm/",
+        "meaning": "âm lượng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885745/part2_questions_new/xefmy8dtpniiyeibolxf.mp3"
+  },
+  {
+    "sentence": "The position has been filled.",
+    "sentence_translation": "Vị trí đó đã được tuyển xong.",
+    "words": [
+      {
+        "word": "position",
+        "type": "noun",
+        "phonetic": "/pəˈzɪʃən/",
+        "meaning": "vị trí"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885745/part2_questions_new/uaqt1hrnguo0lw9lihro.mp3"
+  },
+  {
+    "sentence": "Some innovative features.",
+    "sentence_translation": "Một số tính năng sáng tạo.",
+    "words": [
+      {
+        "word": "innovative",
+        "type": "adjective",
+        "phonetic": "/ˈɪnəveɪtɪv/",
+        "meaning": "sáng tạo"
+      },
+      {
+        "word": "features",
+        "type": "noun",
+        "phonetic": "/ˈfiːtʃərz/",
+        "meaning": "tính năng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885746/part2_questions_new/bzncbrnit0zpoz6kmcje.mp3"
+  },
+  {
+    "sentence": "In room 202, I think.",
+    "sentence_translation": "Tôi nghĩ là ở phòng 202.",
+    "words": [
+      {
+        "word": "room",
+        "type": "noun",
+        "phonetic": "/ruːm/",
+        "meaning": "phòng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885747/part2_questions_new/sjh3d8eu5w8klpis0dlv.mp3"
+  },
+  {
+    "sentence": "That date works for me.",
+    "sentence_translation": "Ngày đó phù hợp với tôi.",
+    "words": [
+      {
+        "word": "date",
+        "type": "noun",
+        "phonetic": "/deɪt/",
+        "meaning": "ngày tháng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885749/part2_questions_new/n8dr9odj27toct3wr8f6.mp3"
+  },
+  {
+    "sentence": "Usually our online reviews.",
+    "sentence_translation": "Thường là các đánh giá trực tuyến của chúng tôi.",
+    "words": [
+      {
+        "word": "online",
+        "type": "adjective",
+        "phonetic": "/ˈɒnˌlaɪn/",
+        "meaning": "trực tuyến"
+      },
+      {
+        "word": "reviews",
+        "type": "noun",
+        "phonetic": "/rɪˈvjuːz/",
+        "meaning": "đánh giá"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885750/part2_questions_new/bhfpocg9kmyeh7gowne6.mp3"
+  },
+  {
+    "sentence": "The parts back-ordered.",
+    "sentence_translation": "Các bộ phận bị đặt hàng chậm.",
+    "words": [
+      {
+        "word": "back-ordered",
+        "type": "adjective",
+        "phonetic": "/bæk ˈɔːrdərd/",
+        "meaning": "đặt hàng chậm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885751/part2_questions_new/zdxrtkkqi0mtbbyhywkl.mp3"
+  },
+  {
+    "sentence": "No, it should be hire.",
+    "sentence_translation": "Không, phải là thuê.",
+    "words": [
+      {
+        "word": "hire",
+        "type": "verb",
+        "phonetic": "/ˈhaɪər/",
+        "meaning": "thuê"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885752/part2_questions_new/tfnsazl2tmojezupy6lz.mp3"
+  },
+  {
+    "sentence": "Blue and orange.",
+    "sentence_translation": "Màu xanh và cam.",
+    "words": [
+      {
+        "word": "blue",
+        "type": "noun",
+        "phonetic": "/bluː/",
+        "meaning": "xanh"
+      },
+      {
+        "word": "orange",
+        "type": "noun",
+        "phonetic": "/ˈɔːrɪndʒ/",
+        "meaning": "cam"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885752/part2_questions_new/qbwoeadbshhrhouw3eox.mp3"
+  },
+  {
+    "sentence": "It was fine, thanks.",
+    "sentence_translation": "Nó ổn, cảm ơn.",
+    "words": [
+      {
+        "word": "fine",
+        "type": "adjective",
+        "phonetic": "/faɪn/",
+        "meaning": "ổn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885753/part2_questions_new/pry6iabxdbjo75fapzk2.mp3"
+  },
+  {
+    "sentence": "In the storage closet.",
+    "sentence_translation": "Ở trong tủ lưu trữ.",
+    "words": [
+      {
+        "word": "storage ",
+        "type": "noun",
+        "phonetic": "/ˈstɔːrɪdʒ/",
+        "meaning": "tủ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885754/part2_questions_new/v8t5rhmqmv2s65nluzuq.mp3"
+  },
+  {
+    "sentence": "The new desk looks great.",
+    "sentence_translation": "Cái bàn mới trông rất đẹp.",
+    "words": [
+      {
+        "word": "desk",
+        "type": "noun",
+        "phonetic": "/desk/",
+        "meaning": "bàn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885755/part2_questions_new/itolqnnmos49juezas1p.mp3"
+  },
+  {
+    "sentence": "Yes, I’d love a glass of water.",
+    "sentence_translation": "Vâng, tôi muốn một ly nước.",
+    "words": [
+      {
+        "word": "glass",
+        "type": "noun",
+        "phonetic": "/ɡlæs/",
+        "meaning": "ly"
+      },
+      {
+        "word": "water",
+        "type": "noun",
+        "phonetic": "/ˈwɔːtər/",
+        "meaning": "nước"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885756/part2_questions_new/dh75epdt0qgn1lmmiyg4.mp3"
+  },
+  {
+    "sentence": "Around three o’clock.",
+    "sentence_translation": "Khoảng ba giờ.",
+    "words": [
+      {
+        "word": "three",
+        "type": "number",
+        "phonetic": "/θriː/",
+        "meaning": "ba"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885757/part2_questions_new/vcwrurcwo6ucnsa5mmuw.mp3"
+  },
+  {
+    "sentence": "A limited return policy.",
+    "sentence_translation": "Chính sách hoàn trả giới hạn.",
+    "words": [
+      {
+        "word": "return",
+        "type": "noun",
+        "phonetic": "/rɪˈtɜːrn/",
+        "meaning": "hoàn trả"
+      },
+      {
+        "word": "policy",
+        "type": "noun",
+        "phonetic": "/ˈpɑːləsi/",
+        "meaning": "chính sách"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885758/part2_questions_new/huljcyuxfu6jws2djqcs.mp3"
+  },
+  {
+    "sentence": "The service is good.",
+    "sentence_translation": "Dịch vụ tốt.",
+    "words": [
+      {
+        "word": "service",
+        "type": "noun",
+        "phonetic": "/ˈsɜːrvɪs/",
+        "meaning": "dịch vụ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885759/part2_questions_new/f7tjmzwuvz4ftrq5bpp4.mp3"
+  },
+  {
+    "sentence": "My slide presentation.",
+    "sentence_translation": "Bài thuyết trình của tôi.",
+    "words": [
+      {
+        "word": "presentation",
+        "type": "noun",
+        "phonetic": "/ˌprezənˈteɪʃən/",
+        "meaning": "thuyết trình"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885760/part2_questions_new/hkt7bd9h5ie5monc6juz.mp3"
+  },
+  {
+    "sentence": "It’s an hour long.",
+    "sentence_translation": "Nó kéo dài một tiếng.",
+    "words": [
+      {
+        "word": "hour",
+        "type": "noun",
+        "phonetic": "/ˈaʊər/",
+        "meaning": "giờ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885760/part2_questions_new/jc9awqbhtfhiw4uvtby6.mp3"
+  },
+  {
+    "sentence": "No, that department’s upstairs.",
+    "sentence_translation": "Không, bộ phận đó ở trên lầu.",
+    "words": [
+      {
+        "word": "department",
+        "type": "noun",
+        "phonetic": "/dɪˈpɑːrtmənt/",
+        "meaning": "bộ phận"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885761/part2_questions_new/riovuyzhyj0ihkfblfaf.mp3"
+  },
+  {
+    "sentence": "No thanks. I’m not hungry.",
+    "sentence_translation": "Không, cảm ơn. Tôi không đói.",
+    "words": [
+      {
+        "word": "hungry",
+        "type": "adjective",
+        "phonetic": "/ˈhʌŋɡri/",
+        "meaning": "đói"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885762/part2_questions_new/h4rwaxrpvq75do6jcluo.mp3"
+  },
+  {
+    "sentence": "Ten dollars.",
+    "sentence_translation": "Mười đô la.",
+    "words": [
+      {
+        "word": "ten",
+        "type": "number",
+        "phonetic": "/ten/",
+        "meaning": "mười"
+      },
+      {
+        "word": "dollars",
+        "type": "noun",
+        "phonetic": "/ˈdɑːlərz/",
+        "meaning": "đô la"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885763/part2_questions_new/glv8iu0pt6r7smojhvzk.mp3"
+  },
+  {
+    "sentence": "I couldn’t find them either.",
+    "sentence_translation": "Tôi cũng không tìm thấy chúng.",
+    "words": [
+      {
+        "word": "find",
+        "type": "verb",
+        "phonetic": "/faɪnd/",
+        "meaning": "tìm thấy"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885764/part2_questions_new/budocp2gmtzhlwcwrzno.mp3"
+  },
+  {
+    "sentence": "Two dollars per pound.",
+    "sentence_translation": "Hai đô la một pound.",
+    "words": [
+      {
+        "word": "pound",
+        "type": "noun",
+        "phonetic": "/paʊnd/",
+        "meaning": "pound (đơn vị trọng lượng)"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885766/part2_questions_new/gqvaokdnvj2xlydyxw78.mp3"
+  },
+  {
+    "sentence": "Yes, it’s also available in red.",
+    "sentence_translation": "Vâng, nó cũng có màu đỏ.",
+    "words": [
+      {
+        "word": "available",
+        "type": "adjective",
+        "phonetic": "/əˈveɪləbl/",
+        "meaning": "có sẵn"
+      },
+      {
+        "word": "red",
+        "type": "noun",
+        "phonetic": "/red/",
+        "meaning": "màu đỏ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885767/part2_questions_new/s0ql3r0uegarsqpvdntt.mp3"
+  },
+  {
+    "sentence": "In about two weeks.",
+    "sentence_translation": "Khoảng hai tuần nữa.",
+    "words": [
+      {
+        "word": "two",
+        "type": "number",
+        "phonetic": "/tuː/",
+        "meaning": "hai"
+      },
+      {
+        "word": "weeks",
+        "type": "noun",
+        "phonetic": "/wiːks/",
+        "meaning": "tuần"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885768/part2_questions_new/js4mgeoyrpbp1nqm7gnb.mp3"
+  },
+  {
+    "sentence": "The newspaper is delivered daily.",
+    "sentence_translation": "Báo được giao hàng ngày.",
+    "words": [
+      {
+        "word": "newspaper",
+        "type": "noun",
+        "phonetic": "/ˈnjuːzˌpeɪpər/",
+        "meaning": "báo"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885769/part2_questions_new/asprfkyarcjamegvrdtp.mp3"
+  },
+  {
+    "sentence": "An interior design course.",
+    "sentence_translation": "Một khóa học thiết kế nội thất.",
+    "words": [
+      {
+        "word": "interior",
+        "type": "adjective",
+        "phonetic": "/ɪnˈtɪriər/",
+        "meaning": "nội thất"
+      },
+      {
+        "word": "design",
+        "type": "noun",
+        "phonetic": "/dɪˈzaɪn/",
+        "meaning": "thiết kế"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885770/part2_questions_new/qtfgmmdqhxtu9qlwl4x0.mp3"
+  },
+  {
+    "sentence": "It has a very modern design.",
+    "sentence_translation": "Nó có thiết kế rất hiện đại.",
+    "words": [
+      {
+        "word": "modern",
+        "type": "adjective",
+        "phonetic": "/ˈmɑːdərn/",
+        "meaning": "hiện đại"
+      },
+      {
+        "word": "design",
+        "type": "noun",
+        "phonetic": "/dɪˈzaɪn/",
+        "meaning": "thiết kế"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885772/part2_questions_new/fqs4fwozqowjhjswbhv6.mp3"
+  },
+  {
+    "sentence": "A house on Maple Street.",
+    "sentence_translation": "Một ngôi nhà trên phố Maple.",
+    "words": [
+      {
+        "word": "house",
+        "type": "noun",
+        "phonetic": "/haʊs/",
+        "meaning": "nhà"
+      },
+      {
+        "word": "street",
+        "type": "noun",
+        "phonetic": "/ˈstriːt/",
+        "meaning": "phố"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885773/part2_questions_new/r4edjvgvgh5engx6kxki.mp3"
+  },
+  {
+    "sentence": "It’s a great album, right?",
+    "sentence_translation": "Đó là một album tuyệt vời, đúng không?",
+    "words": [
+      {
+        "word": "album",
+        "type": "noun",
+        "phonetic": "/ˈælbəm/",
+        "meaning": "album"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885774/part2_questions_new/mpldagwv557viaksuru5.mp3"
+  },
+  {
+    "sentence": "About six weeks ago.",
+    "sentence_translation": "Khoảng sáu tuần trước.",
+    "words": [
+      {
+        "word": "six",
+        "type": "number",
+        "phonetic": "/sɪks/",
+        "meaning": "sáu"
+      },
+      {
+        "word": "weeks",
+        "type": "noun",
+        "phonetic": "/wiːks/",
+        "meaning": "tuần"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753885774/part2_questions_new/kxyppis635xhtzcizcfq.mp3"
+  },
+  {
+    "sentence": "Does the shop open on Sundays?",
+    "sentence_translation": "Cửa hàng có mở cửa vào Chủ nhật không?",
+    "words": [
+      {
+        "word": "shop",
+        "type": "noun",
+        "phonetic": "/ʃɒp/",
+        "meaning": "cửa hàng"
+      },
+      {
+        "word": "open",
+        "type": "verb",
+        "phonetic": "/ˈəʊpən/",
+        "meaning": "mở cửa"
+      },
+      {
+        "word": "Sundays",
+        "type": "noun",
+        "phonetic": "/ˈsʌndeɪz/",
+        "meaning": "Chủ nhật"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889033/part2_questions_new/i29jurham5kyhkyv902g.mp3"
+  },
+  {
+    "sentence": "Where did these oranges come from?",
+    "sentence_translation": "Những quả cam này đến từ đâu?",
+    "words": [
+      {
+        "word": "oranges",
+        "type": "noun",
+        "phonetic": "/ˈɒrɪndʒɪz/",
+        "meaning": "quả cam"
+      },
+      {
+        "word": "come from",
+        "type": "verb",
+        "phonetic": "/kʌm frɒm/",
+        "meaning": "đến từ"
+      },
+      {
+        "word": "where",
+        "type": "adverb",
+        "phonetic": "/weə/",
+        "meaning": "ở đâu"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889034/part2_questions_new/botemxf43x83zluszudr.mp3"
+  },
+  {
+    "sentence": "Should I make the dinner reservation for Friday or Saturday?",
+    "sentence_translation": "Tôi nên đặt chỗ ăn tối vào thứ Sáu hay thứ Bảy?",
+    "words": [
+      {
+        "word": "reservation",
+        "type": "noun",
+        "phonetic": "/ˌrezəˈveɪʃən/",
+        "meaning": "đặt chỗ"
+      },
+      {
+        "word": "Friday",
+        "type": "noun",
+        "phonetic": "/ˈfraɪdeɪ/",
+        "meaning": "thứ Sáu"
+      },
+      {
+        "word": "Saturday",
+        "type": "noun",
+        "phonetic": "/ˈsætədeɪ/",
+        "meaning": "thứ Bảy"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889035/part2_questions_new/v28ochxipmiluhfiqfgq.mp3"
+  },
+  {
+    "sentence": "Will Dr. Evenover be late today?",
+    "sentence_translation": "Bác sĩ Evenover sẽ đến muộn hôm nay phải không?",
+    "words": [
+      {
+        "word": "Dr. Evenover",
+        "type": "noun",
+        "phonetic": "",
+        "meaning": "Bác sĩ Evenover"
+      },
+      {
+        "word": "late",
+        "type": "adjective",
+        "phonetic": "/leɪt/",
+        "meaning": "muộn"
+      },
+      {
+        "word": "today",
+        "type": "noun",
+        "phonetic": "/təˈdeɪ/",
+        "meaning": "hôm nay"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889036/part2_questions_new/wk9mmcfx6hkdxsj37cml.mp3"
+  },
+  {
+    "sentence": "Aren't there locker rooms at this gym?",
+    "sentence_translation": "Ở phòng tập này không có phòng thay đồ à?",
+    "words": [
+      {
+        "word": "locker rooms",
+        "type": "noun",
+        "phonetic": "/ˈlɒkər ruːmz/",
+        "meaning": "phòng thay đồ"
+      },
+      {
+        "word": "gym",
+        "type": "noun",
+        "phonetic": "/dʒɪm/",
+        "meaning": "phòng tập"
+      },
+      {
+        "word": "there",
+        "type": "adverb",
+        "phonetic": "/ðeə/",
+        "meaning": "ở đó"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889037/part2_questions_new/glb3exiecqir2rmpniie.mp3"
+  },
+  {
+    "sentence": "Who needs a copy of my safety training certificate?",
+    "sentence_translation": "Ai cần một bản chứng chỉ đào tạo an toàn của tôi?",
+    "words": [
+      {
+        "word": "copy",
+        "type": "noun",
+        "phonetic": "/ˈkɒpi/",
+        "meaning": "bản sao"
+      },
+      {
+        "word": "safety training",
+        "type": "noun",
+        "phonetic": "",
+        "meaning": "đào tạo an toàn"
+      },
+      {
+        "word": "certificate",
+        "type": "noun",
+        "phonetic": "/sərˈtɪfɪkət/",
+        "meaning": "chứng chỉ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889038/part2_questions_new/jv72a7rclehexgvnqtau.mp3"
+  },
+  {
+    "sentence": "Could you phone Mr. Ferros and let him know we're in the hotel lobby?",
+    "sentence_translation": "Bạn có thể gọi cho ông Ferros và báo ông ấy biết chúng ta đang ở sảnh khách sạn không?",
+    "words": [
+      {
+        "word": "phone",
+        "type": "verb",
+        "phonetic": "/fəʊn/",
+        "meaning": "gọi điện"
+      },
+      {
+        "word": "Mr. Ferros",
+        "type": "noun",
+        "phonetic": "",
+        "meaning": "ông Ferros"
+      },
+      {
+        "word": "lobby",
+        "type": "noun",
+        "phonetic": "/ˈlɒbi/",
+        "meaning": "sảnh"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889039/part2_questions_new/ct5jkbfeqhbbbqysacki.mp3"
+  },
+  {
+    "sentence": "Where does she sell her handmade jewellery?",
+    "sentence_translation": "Cô ấy bán đồ trang sức thủ công của mình ở đâu?",
+    "words": [
+      {
+        "word": "sell",
+        "type": "verb",
+        "phonetic": "/sel/",
+        "meaning": "bán"
+      },
+      {
+        "word": "handmade jewellery",
+        "type": "noun",
+        "phonetic": "",
+        "meaning": "đồ trang sức thủ công"
+      },
+      {
+        "word": "where",
+        "type": "adverb",
+        "phonetic": "/weə/",
+        "meaning": "ở đâu"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889040/part2_questions_new/etmrkfspluvq2pgywiyl.mp3"
+  },
+  {
+    "sentence": "You're taking a business class in the afternoon, aren't you?",
+    "sentence_translation": "Bạn sẽ học lớp kinh doanh vào buổi chiều, đúng không?",
+    "words": [
+      {
+        "word": "business class",
+        "type": "noun",
+        "phonetic": "",
+        "meaning": "lớp kinh doanh"
+      },
+      {
+        "word": "afternoon",
+        "type": "noun",
+        "phonetic": "/ˌɑːftəˈnuːn/",
+        "meaning": "buổi chiều"
+      },
+      {
+        "word": "taking",
+        "type": "verb",
+        "phonetic": "/ˈteɪkɪŋ/",
+        "meaning": "tham gia"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889041/part2_questions_new/zcwdros3tpemjyynpkgd.mp3"
+  },
+  {
+    "sentence": "Could I see some sample floral arrangements before I order?",
+    "sentence_translation": "Tôi có thể xem một số mẫu cắm hoa trước khi đặt hàng không?",
+    "words": [
+      {
+        "word": "sample",
+        "type": "noun",
+        "phonetic": "/ˈsæmpl/",
+        "meaning": "mẫu"
+      },
+      {
+        "word": "floral arrangements",
+        "type": "noun",
+        "phonetic": "",
+        "meaning": "cắm hoa"
+      },
+      {
+        "word": "order",
+        "type": "verb",
+        "phonetic": "/ˈɔːdə/",
+        "meaning": "đặt hàng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889042/part2_questions_new/onr08u5iib8wishgvrf9.mp3"
+  },
+  {
+    "sentence": "Yes, at one o'clock.",
+    "sentence_translation": "Vâng, vào lúc một giờ.",
+    "words": [
+      {
+        "word": "yes",
+        "type": "adverb",
+        "phonetic": "/jes/",
+        "meaning": "vâng"
+      },
+      {
+        "word": "one o'clock",
+        "type": "noun",
+        "phonetic": "/wʌn əˈklɒk/",
+        "meaning": "một giờ"
+      },
+      {
+        "word": "at",
+        "type": "preposition",
+        "phonetic": "/æt/",
+        "meaning": "vào lúc"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889043/part2_questions_new/putd2wqvaiiaqs9a7cpq.mp3"
+  },
+  {
+    "sentence": "Because we drove.",
+    "sentence_translation": "Bởi vì chúng tôi lái xe.",
+    "words": [
+      {
+        "word": "because",
+        "type": "conjunction",
+        "phonetic": "/bɪˈkɒz/",
+        "meaning": "bởi vì"
+      },
+      {
+        "word": "we",
+        "type": "pronoun",
+        "phonetic": "/wiː/",
+        "meaning": "chúng tôi"
+      },
+      {
+        "word": "drove",
+        "type": "verb",
+        "phonetic": "/drəʊv/",
+        "meaning": "lái xe"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889044/part2_questions_new/wgahuyicll2iwgbf6gbz.mp3"
+  },
+  {
+    "sentence": "I'd like to return this item, please.",
+    "sentence_translation": "Tôi muốn trả lại món hàng này, làm ơn.",
+    "words": [
+      {
+        "word": "return",
+        "type": "verb",
+        "phonetic": "/rɪˈtɜːn/",
+        "meaning": "trả lại"
+      },
+      {
+        "word": "item",
+        "type": "noun",
+        "phonetic": "/ˈaɪtəm/",
+        "meaning": "món hàng"
+      },
+      {
+        "word": "please",
+        "type": "adverb",
+        "phonetic": "/pliːz/",
+        "meaning": "làm ơn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889045/part2_questions_new/orju32tlc5te2dlhkor9.mp3"
+  },
+  {
+    "sentence": "Certainly, I have some right here.",
+    "sentence_translation": "Chắc chắn rồi, tôi có một số ngay đây.",
+    "words": [
+      {
+        "word": "certainly",
+        "type": "adv.",
+        "phonetic": "/ˈsɜːtnli/",
+        "meaning": "chắc chắn"
+      },
+      {
+        "word": "have",
+        "type": "v.",
+        "phonetic": "/hæv/",
+        "meaning": "có"
+      },
+      {
+        "word": "some",
+        "type": "det.",
+        "phonetic": "/sʌm/",
+        "meaning": "một số"
+      },
+      {
+        "word": "right",
+        "type": "adv.",
+        "phonetic": "/raɪt/",
+        "meaning": "ngay"
+      },
+      {
+        "word": "here",
+        "type": "adv.",
+        "phonetic": "/hɪə(r)/",
+        "meaning": "ở đây"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889046/part2_questions_new/ymecckbq9hjldwj3jrgu.mp3"
+  },
+  {
+    "sentence": "We already have one.",
+    "sentence_translation": "Chúng tôi đã có một cái rồi.",
+    "words": [
+      {
+        "word": "we",
+        "type": "pron.",
+        "phonetic": "/wiː/",
+        "meaning": "chúng tôi"
+      },
+      {
+        "word": "already",
+        "type": "adv.",
+        "phonetic": "/ɔːlˈredi/",
+        "meaning": "đã"
+      },
+      {
+        "word": "have",
+        "type": "v.",
+        "phonetic": "/hæv/",
+        "meaning": "có"
+      },
+      {
+        "word": "one",
+        "type": "num.",
+        "phonetic": "/wʌn/",
+        "meaning": "một"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889047/part2_questions_new/qz0ppkhmrlq5dhgezjk6.mp3"
+  },
+  {
+    "sentence": "Oh, I'm not a sales associate.",
+    "sentence_translation": "Ồ, tôi không phải là nhân viên bán hàng.",
+    "words": [
+      {
+        "word": "oh",
+        "type": "intj.",
+        "phonetic": "/əʊ/",
+        "meaning": "ồ"
+      },
+      {
+        "word": "I",
+        "type": "pron.",
+        "phonetic": "/aɪ/",
+        "meaning": "tôi"
+      },
+      {
+        "word": "not",
+        "type": "adv.",
+        "phonetic": "/nɒt/",
+        "meaning": "không"
+      },
+      {
+        "word": "sales",
+        "type": "n.",
+        "phonetic": "/seɪlz/",
+        "meaning": "bán hàng"
+      },
+      {
+        "word": "associate",
+        "type": "n.",
+        "phonetic": "/əˈsəʊsiət/",
+        "meaning": "nhân viên"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889048/part2_questions_new/h2gc7s9bdt4fnnmrkfym.mp3"
+  },
+  {
+    "sentence": "I read an online newspaper every morning.",
+    "sentence_translation": "Tôi đọc báo mạng mỗi sáng.",
+    "words": [
+      {
+        "word": "read",
+        "type": "v.",
+        "phonetic": "/riːd/",
+        "meaning": "đọc"
+      },
+      {
+        "word": "online",
+        "type": "adv.",
+        "phonetic": "/ˈɒn.laɪn/",
+        "meaning": "trực tuyến"
+      },
+      {
+        "word": "newspaper",
+        "type": "n.",
+        "phonetic": "/ˈnjuːzˌpeɪ.pər/",
+        "meaning": "báo"
+      },
+      {
+        "word": "every",
+        "type": "det.",
+        "phonetic": "/ˈev.ri/",
+        "meaning": "mỗi"
+      },
+      {
+        "word": "morning",
+        "type": "n.",
+        "phonetic": "/ˈmɔː.nɪŋ/",
+        "meaning": "buổi sáng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889049/part2_questions_new/e08aojtnvrv15hh4sup3.mp3"
+  },
+  {
+    "sentence": "Do we have enough handouts?",
+    "sentence_translation": "Chúng ta có đủ tài liệu phát tay không?",
+    "words": [
+      {
+        "word": "do",
+        "type": "aux.",
+        "phonetic": "/duː/",
+        "meaning": "có"
+      },
+      {
+        "word": "we",
+        "type": "pron.",
+        "phonetic": "/wiː/",
+        "meaning": "chúng ta"
+      },
+      {
+        "word": "have",
+        "type": "v.",
+        "phonetic": "/hæv/",
+        "meaning": "có"
+      },
+      {
+        "word": "enough",
+        "type": "adj.",
+        "phonetic": "/ɪˈnʌf/",
+        "meaning": "đủ"
+      },
+      {
+        "word": "handouts",
+        "type": "n.",
+        "phonetic": "/ˈhæn.daʊts/",
+        "meaning": "tài liệu phát tay"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889051/part2_questions_new/jx64ucp6kwogtzfnj3gt.mp3"
+  },
+  {
+    "sentence": "I'd have to look at the receipt.",
+    "sentence_translation": "Tôi sẽ phải xem hóa đơn.",
+    "words": [
+      {
+        "word": "have",
+        "type": "v.",
+        "phonetic": "/hæv/",
+        "meaning": "phải"
+      },
+      {
+        "word": "look",
+        "type": "v.",
+        "phonetic": "/lʊk/",
+        "meaning": "xem"
+      },
+      {
+        "word": "receipt",
+        "type": "n.",
+        "phonetic": "/rɪˈsiːt/",
+        "meaning": "hóa đơn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889052/part2_questions_new/wocrqghmgi8myqiwtaas.mp3"
+  },
+  {
+    "sentence": "Because I have a talent for it.",
+    "sentence_translation": "Bởi vì tôi có năng khiếu với nó.",
+    "words": [
+      {
+        "word": "because",
+        "type": "conj.",
+        "phonetic": "/bɪˈkɒz/",
+        "meaning": "bởi vì"
+      },
+      {
+        "word": "have",
+        "type": "v.",
+        "phonetic": "/hæv/",
+        "meaning": "có"
+      },
+      {
+        "word": "talent",
+        "type": "n.",
+        "phonetic": "/ˈtæl.ənt/",
+        "meaning": "năng khiếu"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889053/part2_questions_new/s3whaxqv7mei5vwrl192.mp3"
+  },
+  {
+    "sentence": "Registration closed yesterday.",
+    "sentence_translation": "Đăng ký đã đóng hôm qua.",
+    "words": [
+      {
+        "word": "registration",
+        "type": "n.",
+        "phonetic": "/ˌredʒɪˈstreɪʃən/",
+        "meaning": "đăng ký"
+      },
+      {
+        "word": "closed",
+        "type": "v.",
+        "phonetic": "/kləʊzd/",
+        "meaning": "đã đóng"
+      },
+      {
+        "word": "yesterday",
+        "type": "n.",
+        "phonetic": "/ˈjes.tə.deɪ/",
+        "meaning": "hôm qua"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889055/part2_questions_new/s109mz07xbyznnf3mmgs.mp3"
+  },
+  {
+    "sentence": "I'm still waiting.",
+    "sentence_translation": "Tôi vẫn đang chờ.",
+    "words": [
+      {
+        "word": "still",
+        "type": "adv.",
+        "phonetic": "/stɪl/",
+        "meaning": "vẫn"
+      },
+      {
+        "word": "waiting",
+        "type": "v.",
+        "phonetic": "/ˈweɪ.tɪŋ/",
+        "meaning": "chờ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889057/part2_questions_new/rhp4vr64epxuc5pjttlj.mp3"
+  },
+  {
+    "sentence": "I'll buy mine at the door.",
+    "sentence_translation": "Tôi sẽ mua của mình ở cửa.",
+    "words": [
+      {
+        "word": "buy",
+        "type": "v.",
+        "phonetic": "/baɪ/",
+        "meaning": "mua"
+      },
+      {
+        "word": "mine",
+        "type": "pron.",
+        "phonetic": "/maɪn/",
+        "meaning": "của tôi"
+      },
+      {
+        "word": "door",
+        "type": "n.",
+        "phonetic": "/dɔːr/",
+        "meaning": "cửa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889058/part2_questions_new/nw9f6i1oy1v3icpry34h.mp3"
+  },
+  {
+    "sentence": "A lot of good résumés have come in.",
+    "sentence_translation": "Rất nhiều hồ sơ tốt đã được gửi đến.",
+    "words": [
+      {
+        "word": "lot",
+        "type": "n.",
+        "phonetic": "/lɒt/",
+        "meaning": "nhiều"
+      },
+      {
+        "word": "good",
+        "type": "adj.",
+        "phonetic": "/ɡʊd/",
+        "meaning": "tốt"
+      },
+      {
+        "word": "résumés",
+        "type": "n.",
+        "phonetic": "",
+        "meaning": "hồ sơ"
+      },
+      {
+        "word": "come",
+        "type": "v.",
+        "phonetic": "/kʌm/",
+        "meaning": "đến"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889059/part2_questions_new/w2tmisyabfsgrrudfirk.mp3"
+  },
+  {
+    "sentence": "What did you think of it?",
+    "sentence_translation": "Bạn nghĩ gì về nó?",
+    "words": [
+      {
+        "word": "think",
+        "type": "v.",
+        "phonetic": "/θɪŋk/",
+        "meaning": "nghĩ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889061/part2_questions_new/zog1tu7niumnaktigloh.mp3"
+  },
+  {
+    "sentence": "I've been really busy with the Williams account.",
+    "sentence_translation": "Tôi đã rất bận với tài khoản Williams.",
+    "words": [
+      {
+        "word": "busy",
+        "type": "adj.",
+        "phonetic": "/ˈbɪz.i/",
+        "meaning": "bận"
+      },
+      {
+        "word": "account",
+        "type": "n.",
+        "phonetic": "/əˈkaʊnt/",
+        "meaning": "tài khoản"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889062/part2_questions_new/pf07y3sg3gc6icxont9o.mp3"
+  },
+  {
+    "sentence": "We'll need to clear some space.",
+    "sentence_translation": "Chúng ta sẽ cần dọn chỗ.",
+    "words": [
+      {
+        "word": "need",
+        "type": "v.",
+        "phonetic": "/niːd/",
+        "meaning": "cần"
+      },
+      {
+        "word": "clear",
+        "type": "v.",
+        "phonetic": "/klɪər/",
+        "meaning": "dọn"
+      },
+      {
+        "word": "space",
+        "type": "n.",
+        "phonetic": "/speɪs/",
+        "meaning": "chỗ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889062/part2_questions_new/vqw5qmyyivluqcpjcod9.mp3"
+  },
+  {
+    "sentence": "Is there another one nearby?",
+    "sentence_translation": "Có cái nào khác gần đây không?",
+    "words": [
+      {
+        "word": "another",
+        "type": "det.",
+        "phonetic": "/əˈnʌð.ər/",
+        "meaning": "khác"
+      },
+      {
+        "word": "one",
+        "type": "num.",
+        "phonetic": "/wʌn/",
+        "meaning": "một"
+      },
+      {
+        "word": "nearby",
+        "type": "adv.",
+        "phonetic": "/ˌnɪəˈbaɪ/",
+        "meaning": "gần đây"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889063/part2_questions_new/wizo20dvv1oufdudtpyy.mp3"
+  },
+  {
+    "sentence": "We do have a significant budget surplus.",
+    "sentence_translation": "Chúng tôi thực sự có thặng dư ngân sách đáng kể.",
+    "words": [
+      {
+        "word": "significant",
+        "type": "adj.",
+        "phonetic": "/sɪɡˈnɪf.ɪ.kənt/",
+        "meaning": "đáng kể"
+      },
+      {
+        "word": "budget",
+        "type": "n.",
+        "phonetic": "/ˈbʌdʒ.ɪt/",
+        "meaning": "ngân sách"
+      },
+      {
+        "word": "surplus",
+        "type": "n.",
+        "phonetic": "/ˈsɜː.pləs/",
+        "meaning": "thặng dư"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889064/part2_questions_new/jzbiyynr1n5z2ynifd2l.mp3"
+  },
+  {
+    "sentence": "Don't you want to buy the black sofa?",
+    "sentence_translation": "Bạn không muốn mua ghế sofa đen à?",
+    "words": [
+      {
+        "word": "want",
+        "type": "v.",
+        "phonetic": "/wɒnt/",
+        "meaning": "muốn"
+      },
+      {
+        "word": "buy",
+        "type": "v.",
+        "phonetic": "/baɪ/",
+        "meaning": "mua"
+      },
+      {
+        "word": "black",
+        "type": "adj.",
+        "phonetic": "/blæk/",
+        "meaning": "đen"
+      },
+      {
+        "word": "sofa",
+        "type": "n.",
+        "phonetic": "/ˈsəʊfə/",
+        "meaning": "ghế sofa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889065/part2_questions_new/j3oawbotoceg83z6zslw.mp3"
+  },
+  {
+    "sentence": "Do you have this jacket in a larger size?",
+    "sentence_translation": "Bạn có áo khoác này với kích thước lớn hơn không?",
+    "words": [
+      {
+        "word": "jacket",
+        "type": "n.",
+        "phonetic": "/ˈdʒækɪt/",
+        "meaning": "áo khoác"
+      },
+      {
+        "word": "larger",
+        "type": "adj.",
+        "phonetic": "/ˈlɑːdʒə/",
+        "meaning": "lớn hơn"
+      },
+      {
+        "word": "size",
+        "type": "n.",
+        "phonetic": "/saɪz/",
+        "meaning": "kích thước"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889066/part2_questions_new/z3rldnnkyloigyequyy4.mp3"
+  },
+  {
+    "sentence": "Where did you first learn about the job opening?",
+    "sentence_translation": "Bạn lần đầu biết về vị trí tuyển dụng ở đâu?",
+    "words": [
+      {
+        "word": "first",
+        "type": "adv.",
+        "phonetic": "/fɜːst/",
+        "meaning": "lần đầu"
+      },
+      {
+        "word": "learn",
+        "type": "v.",
+        "phonetic": "/lɜːn/",
+        "meaning": "học"
+      },
+      {
+        "word": "job",
+        "type": "n.",
+        "phonetic": "/dʒɒb/",
+        "meaning": "công việc"
+      },
+      {
+        "word": "opening",
+        "type": "n.",
+        "phonetic": "/ˈəʊpənɪŋ/",
+        "meaning": "vị trí tuyển dụng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889067/part2_questions_new/ke6ch21gkc8ima2xwpj1.mp3"
+  },
+  {
+    "sentence": "Should I bring anything to the meeting?",
+    "sentence_translation": "Tôi có nên mang gì đến cuộc họp không?",
+    "words": [
+      {
+        "word": "bring",
+        "type": "v.",
+        "phonetic": "/brɪŋ/",
+        "meaning": "mang"
+      },
+      {
+        "word": "anything",
+        "type": "pron.",
+        "phonetic": "/ˈeniθɪŋ/",
+        "meaning": "bất cứ thứ gì"
+      },
+      {
+        "word": "meeting",
+        "type": "n.",
+        "phonetic": "/ˈmiːtɪŋ/",
+        "meaning": "cuộc họp"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889068/part2_questions_new/rilwxyrdzpj0icudyvqw.mp3"
+  },
+  {
+    "sentence": "What was the total charge for the hotel stay?",
+    "sentence_translation": "Tổng phí cho việc ở khách sạn là bao nhiêu?",
+    "words": [
+      {
+        "word": "total",
+        "type": "adj.",
+        "phonetic": "/ˈtəʊtl/",
+        "meaning": "tổng"
+      },
+      {
+        "word": "charge",
+        "type": "n.",
+        "phonetic": "/tʃɑːdʒ/",
+        "meaning": "phí"
+      },
+      {
+        "word": "hotel",
+        "type": "n.",
+        "phonetic": "/həʊˈtel/",
+        "meaning": "khách sạn"
+      },
+      {
+        "word": "stay",
+        "type": "n.",
+        "phonetic": "/steɪ/",
+        "meaning": "việc ở lại"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889069/part2_questions_new/seqzusr66kq1crzwv5xu.mp3"
+  },
+  {
+    "sentence": "Why did you pursue a career in video game design?",
+    "sentence_translation": "Tại sao bạn theo đuổi sự nghiệp thiết kế trò chơi điện tử?",
+    "words": [
+      {
+        "word": "pursue",
+        "type": "v.",
+        "phonetic": "/pəˈsjuː/",
+        "meaning": "theo đuổi"
+      },
+      {
+        "word": "career",
+        "type": "n.",
+        "phonetic": "/kəˈrɪə/",
+        "meaning": "sự nghiệp"
+      },
+      {
+        "word": "video",
+        "type": "n.",
+        "phonetic": "/ˈvɪdiəʊ/",
+        "meaning": "video"
+      },
+      {
+        "word": "game",
+        "type": "n.",
+        "phonetic": "/ɡeɪm/",
+        "meaning": "trò chơi"
+      },
+      {
+        "word": "design",
+        "type": "n.",
+        "phonetic": "/dɪˈzaɪn/",
+        "meaning": "thiết kế"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889070/part2_questions_new/hfd1jzkmmfnahn3tnart.mp3"
+  },
+  {
+    "sentence": "I'd like to attend the job fair next month.",
+    "sentence_translation": "Tôi muốn tham dự hội chợ việc làm vào tháng tới.",
+    "words": [
+      {
+        "word": "attend",
+        "type": "v.",
+        "phonetic": "/əˈtend/",
+        "meaning": "tham dự"
+      },
+      {
+        "word": "job",
+        "type": "n.",
+        "phonetic": "/dʒɒb/",
+        "meaning": "việc làm"
+      },
+      {
+        "word": "fair",
+        "type": "n.",
+        "phonetic": "/feə/",
+        "meaning": "hội chợ"
+      },
+      {
+        "word": "next",
+        "type": "adj.",
+        "phonetic": "/nekst/",
+        "meaning": "tới"
+      },
+      {
+        "word": "month",
+        "type": "n.",
+        "phonetic": "/mʌnθ/",
+        "meaning": "tháng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889071/part2_questions_new/kcrqw5rqt92gojowvcly.mp3"
+  },
+  {
+    "sentence": "Has anyone called you back for the second interview yet?",
+    "sentence_translation": "Có ai gọi lại cho bạn về cuộc phỏng vấn thứ hai chưa?",
+    "words": [
+      {
+        "word": "anyone",
+        "type": "pron.",
+        "phonetic": "/ˈeniwʌn/",
+        "meaning": "bất cứ ai"
+      },
+      {
+        "word": "called",
+        "type": "v.",
+        "phonetic": "/kɔːld/",
+        "meaning": "gọi"
+      },
+      {
+        "word": "back",
+        "type": "adv.",
+        "phonetic": "/bæk/",
+        "meaning": "lại"
+      },
+      {
+        "word": "second",
+        "type": "adj.",
+        "phonetic": "/ˈsekənd/",
+        "meaning": "thứ hai"
+      },
+      {
+        "word": "interview",
+        "type": "n.",
+        "phonetic": "/ˈɪntəvjuː/",
+        "meaning": "phỏng vấn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889072/part2_questions_new/pxdgiagslpxt1k3mtczg.mp3"
+  },
+  {
+    "sentence": "How many tickets do we need for tonight's concert?",
+    "sentence_translation": "Chúng ta cần bao nhiêu vé cho buổi hòa nhạc tối nay?",
+    "words": [
+      {
+        "word": "many",
+        "type": "adj.",
+        "phonetic": "/ˈmeni/",
+        "meaning": "nhiều"
+      },
+      {
+        "word": "tickets",
+        "type": "n.",
+        "phonetic": "/ˈtɪkɪts/",
+        "meaning": "vé"
+      },
+      {
+        "word": "need",
+        "type": "v.",
+        "phonetic": "/niːd/",
+        "meaning": "cần"
+      },
+      {
+        "word": "tonight",
+        "type": "n.",
+        "phonetic": "/təˈnaɪt/",
+        "meaning": "tối nay"
+      },
+      {
+        "word": "concert",
+        "type": "n.",
+        "phonetic": "/ˈkɒnsət/",
+        "meaning": "buổi hòa nhạc"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889073/part2_questions_new/scuossmnjvgw1kzzjwyj.mp3"
+  },
+  {
+    "sentence": "When are they going to decide who to hire?",
+    "sentence_translation": "Khi nào họ sẽ quyết định thuê ai?",
+    "words": [
+      {
+        "word": "when",
+        "type": "adv.",
+        "phonetic": "/wen/",
+        "meaning": "khi nào"
+      },
+      {
+        "word": "going",
+        "type": "v.",
+        "phonetic": "/ˈɡəʊɪŋ/",
+        "meaning": "sẽ"
+      },
+      {
+        "word": "decide",
+        "type": "v.",
+        "phonetic": "/dɪˈsaɪd/",
+        "meaning": "quyết định"
+      },
+      {
+        "word": "who",
+        "type": "pron.",
+        "phonetic": "/huː/",
+        "meaning": "ai"
+      },
+      {
+        "word": "hire",
+        "type": "v.",
+        "phonetic": "/ˈhaɪə/",
+        "meaning": "thuê"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889074/part2_questions_new/fom6etazehp7pux0fqby.mp3"
+  },
+  {
+    "sentence": "I had a chance to look over the contract this morning.",
+    "sentence_translation": "Tôi đã có cơ hội xem qua hợp đồng sáng nay.",
+    "words": [
+      {
+        "word": "chance",
+        "type": "n.",
+        "phonetic": "/tʃɑːns/",
+        "meaning": "cơ hội"
+      },
+      {
+        "word": "look",
+        "type": "v.",
+        "phonetic": "/lʊk/",
+        "meaning": "xem"
+      },
+      {
+        "word": "over",
+        "type": "prep.",
+        "phonetic": "/ˈəʊvə/",
+        "meaning": "qua"
+      },
+      {
+        "word": "contract",
+        "type": "n.",
+        "phonetic": "/ˈkɒntrækt/",
+        "meaning": "hợp đồng"
+      },
+      {
+        "word": "morning",
+        "type": "n.",
+        "phonetic": "/ˈmɔːnɪŋ/",
+        "meaning": "sáng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889075/part2_questions_new/vtet74zuusuqno2oilbi.mp3"
+  },
+  {
+    "sentence": "How are the database updates coming along?",
+    "sentence_translation": "Việc cập nhật cơ sở dữ liệu tiến triển thế nào?",
+    "words": [
+      {
+        "word": "database",
+        "type": "n.",
+        "phonetic": "/ˈdeɪtəbeɪs/",
+        "meaning": "cơ sở dữ liệu"
+      },
+      {
+        "word": "updates",
+        "type": "n.",
+        "phonetic": "/ˈʌpdeɪts/",
+        "meaning": "cập nhật"
+      },
+      {
+        "word": "coming",
+        "type": "v.",
+        "phonetic": "/ˈkʌmɪŋ/",
+        "meaning": "tiến triển"
+      },
+      {
+        "word": "along",
+        "type": "adv.",
+        "phonetic": "/əˈlɒŋ/",
+        "meaning": "dọc theo"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889076/part2_questions_new/ysntlrsbptdnxwiwxksr.mp3"
+  },
+  {
+    "sentence": "When can I bring these boxes into the warehouse?",
+    "sentence_translation": "Khi nào tôi có thể mang những hộp này vào kho?",
+    "words": [
+      {
+        "word": "when",
+        "type": "adv.",
+        "phonetic": "/wen/",
+        "meaning": "khi nào"
+      },
+      {
+        "word": "can",
+        "type": "aux.",
+        "phonetic": "/kæn/",
+        "meaning": "có thể"
+      },
+      {
+        "word": "bring",
+        "type": "v.",
+        "phonetic": "/brɪŋ/",
+        "meaning": "mang"
+      },
+      {
+        "word": "boxes",
+        "type": "n.",
+        "phonetic": "/ˈbɒksɪz/",
+        "meaning": "hộp"
+      },
+      {
+        "word": "warehouse",
+        "type": "n.",
+        "phonetic": "/ˈweəhaʊs/",
+        "meaning": "kho"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889077/part2_questions_new/cf5nieoffdamkumhe9xy.mp3"
+  },
+  {
+    "sentence": "The market on Fifth Street is closed.",
+    "sentence_translation": "Chợ trên đường Fifth đã đóng cửa.",
+    "words": [
+      {
+        "word": "market",
+        "type": "n.",
+        "phonetic": "/ˈmɑːkɪt/",
+        "meaning": "chợ"
+      },
+      {
+        "word": "Fifth",
+        "type": "n.",
+        "phonetic": "/fɪfθ/",
+        "meaning": "Fifth"
+      },
+      {
+        "word": "Street",
+        "type": "n.",
+        "phonetic": "/striːt/",
+        "meaning": "đường"
+      },
+      {
+        "word": "closed",
+        "type": "adj.",
+        "phonetic": "/kləʊzd/",
+        "meaning": "đóng cửa"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889078/part2_questions_new/vzequ4jgfzyu60c5m8ke.mp3"
+  },
+  {
+    "sentence": "Does the company pay for professional development courses?",
+    "sentence_translation": "Công ty có trả tiền cho các khóa học phát triển chuyên môn không?",
+    "words": [
+      {
+        "word": "company",
+        "type": "n.",
+        "phonetic": "/ˈkʌmpəni/",
+        "meaning": "công ty"
+      },
+      {
+        "word": "pay",
+        "type": "v.",
+        "phonetic": "/peɪ/",
+        "meaning": "trả tiền"
+      },
+      {
+        "word": "professional",
+        "type": "adj.",
+        "phonetic": "/prəˈfeʃənl/",
+        "meaning": "chuyên môn"
+      },
+      {
+        "word": "development",
+        "type": "n.",
+        "phonetic": "/dɪˈveləpmənt/",
+        "meaning": "phát triển"
+      },
+      {
+        "word": "courses",
+        "type": "n.",
+        "phonetic": "/ˈkɔːsɪz/",
+        "meaning": "khóa học"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889079/part2_questions_new/y2xfhvzsdjrgml9o4hws.mp3"
+  },
+  {
+    "sentence": "Some customer reviews.",
+    "sentence_translation": "Một số đánh giá của khách hàng.",
+    "words": [
+      {
+        "word": "some",
+        "type": "det.",
+        "phonetic": "/sʌm/",
+        "meaning": "một số"
+      },
+      {
+        "word": "customer",
+        "type": "n.",
+        "phonetic": "/ˈkʌstəmə/",
+        "meaning": "khách hàng"
+      },
+      {
+        "word": "reviews",
+        "type": "n.",
+        "phonetic": "/rɪˈvjuːz/",
+        "meaning": "đánh giá"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889080/part2_questions_new/t966prq0lye25qa2rjhl.mp3"
+  },
+  {
+    "sentence": "I take my coffee with sugar.",
+    "sentence_translation": "Tôi uống cà phê với đường.",
+    "words": [
+      {
+        "word": "take",
+        "type": "v.",
+        "phonetic": "/teɪk/",
+        "meaning": "uống"
+      },
+      {
+        "word": "coffee",
+        "type": "n.",
+        "phonetic": "/ˈkɒfi/",
+        "meaning": "cà phê"
+      },
+      {
+        "word": "sugar",
+        "type": "n.",
+        "phonetic": "/ˈʃʊɡə/",
+        "meaning": "đường"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889081/part2_questions_new/f2necjhjtoqt1q06gqts.mp3"
+  },
+  {
+    "sentence": "I've read the information packet.",
+    "sentence_translation": "Tôi đã đọc gói thông tin.",
+    "words": [
+      {
+        "word": "read",
+        "type": "v.",
+        "phonetic": "/red/",
+        "meaning": "đã đọc"
+      },
+      {
+        "word": "information",
+        "type": "n.",
+        "phonetic": "/ˌɪnfəˈmeɪʃn/",
+        "meaning": "thông tin"
+      },
+      {
+        "word": "packet",
+        "type": "n.",
+        "phonetic": "/ˈpækɪt/",
+        "meaning": "gói"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889082/part2_questions_new/ry7zbw2v0nni5ue9oxru.mp3"
+  },
+  {
+    "sentence": "A very large uniform.",
+    "sentence_translation": "Một bộ đồng phục rất lớn.",
+    "words": [
+      {
+        "word": "very",
+        "type": "adv.",
+        "phonetic": "/ˈveri/",
+        "meaning": "rất"
+      },
+      {
+        "word": "large",
+        "type": "adj.",
+        "phonetic": "/lɑːdʒ/",
+        "meaning": "lớn"
+      },
+      {
+        "word": "uniform",
+        "type": "n.",
+        "phonetic": "/ˈjuːnɪfɔːm/",
+        "meaning": "đồng phục"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889084/part2_questions_new/xjpzontykdynntr3iune.mp3"
+  },
+  {
+    "sentence": "Are there any outdoor tables available?",
+    "sentence_translation": "Có bàn ngoài trời nào có sẵn không?",
+    "words": [
+      {
+        "word": "outdoor",
+        "type": "adj.",
+        "phonetic": "/ˈaʊtdɔː/",
+        "meaning": "ngoài trời"
+      },
+      {
+        "word": "tables",
+        "type": "n.",
+        "phonetic": "/ˈteɪblz/",
+        "meaning": "bàn"
+      },
+      {
+        "word": "available",
+        "type": "adj.",
+        "phonetic": "/əˈveɪləbl/",
+        "meaning": "có sẵn"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889085/part2_questions_new/fprvanga50mngvzojxop.mp3"
+  },
+  {
+    "sentence": "The door to the building is still open.",
+    "sentence_translation": "Cửa vào tòa nhà vẫn mở.",
+    "words": [
+      {
+        "word": "door",
+        "type": "n.",
+        "phonetic": "/dɔː/",
+        "meaning": "cửa"
+      },
+      {
+        "word": "building",
+        "type": "n.",
+        "phonetic": "/ˈbɪldɪŋ/",
+        "meaning": "tòa nhà"
+      },
+      {
+        "word": "still",
+        "type": "adv.",
+        "phonetic": "/stɪl/",
+        "meaning": "vẫn"
+      },
+      {
+        "word": "open",
+        "type": "adj.",
+        "phonetic": "/ˈəʊpən/",
+        "meaning": "mở"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889086/part2_questions_new/d5lcmwycg3dnzxx5vbba.mp3"
+  },
+  {
+    "sentence": "Probably in the conference room.",
+    "sentence_translation": "Có lẽ trong phòng họp.",
+    "words": [
+      {
+        "word": "probably",
+        "type": "adv.",
+        "phonetic": "/ˈprɒbəbli/",
+        "meaning": "có lẽ"
+      },
+      {
+        "word": "conference",
+        "type": "n.",
+        "phonetic": "/ˈkɒnfərəns/",
+        "meaning": "hội nghị"
+      },
+      {
+        "word": "room",
+        "type": "n.",
+        "phonetic": "/ruːm/",
+        "meaning": "phòng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889091/part2_questions_new/xcsq0ew0jhpcwbzjdpvg.mp3"
+  },
+  {
+    "sentence": "They were hired by our manager.",
+    "sentence_translation": "Họ được thuê bởi quản lý của chúng ta.",
+    "words": [
+      {
+        "word": "hired",
+        "type": "v.",
+        "phonetic": "/ˈhaɪəd/",
+        "meaning": "được thuê"
+      },
+      {
+        "word": "manager",
+        "type": "n.",
+        "phonetic": "/ˈmænɪdʒə/",
+        "meaning": "quản lý"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889092/part2_questions_new/qix3m5puaurlsm1lq84b.mp3"
+  },
+  {
+    "sentence": "The fitness center is across from the reception desk.",
+    "sentence_translation": "Trung tâm thể dục ở đối diện quầy lễ tân.",
+    "words": [
+      {
+        "word": "fitness",
+        "type": "n.",
+        "phonetic": "/ˈfɪtnəs/",
+        "meaning": "thể dục"
+      },
+      {
+        "word": "center",
+        "type": "n.",
+        "phonetic": "/ˈsentə/",
+        "meaning": "trung tâm"
+      },
+      {
+        "word": "across",
+        "type": "prep.",
+        "phonetic": "/əˈkrɒs/",
+        "meaning": "đối diện"
+      },
+      {
+        "word": "reception",
+        "type": "n.",
+        "phonetic": "/rɪˈsepʃn/",
+        "meaning": "lễ tân"
+      },
+      {
+        "word": "desk",
+        "type": "n.",
+        "phonetic": "/desk/",
+        "meaning": "quầy"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889093/part2_questions_new/s3upn6pakdxjfyqbx7kc.mp3"
+  },
+  {
+    "sentence": "I'll be eating breakfast in my room.",
+    "sentence_translation": "Tôi sẽ ăn sáng trong phòng của mình.",
+    "words": [
+      {
+        "word": "eating",
+        "type": "v.",
+        "phonetic": "/ˈiːtɪŋ/",
+        "meaning": "ăn"
+      },
+      {
+        "word": "breakfast",
+        "type": "n.",
+        "phonetic": "/ˈbrekfəst/",
+        "meaning": "bữa sáng"
+      },
+      {
+        "word": "room",
+        "type": "n.",
+        "phonetic": "/ruːm/",
+        "meaning": "phòng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889094/part2_questions_new/qc5tkti063g2oalnnfi1.mp3"
+  },
+  {
+    "sentence": "This is my new laptop.",
+    "sentence_translation": "Đây là laptop mới của tôi.",
+    "words": [
+      {
+        "word": "new",
+        "type": "adj.",
+        "phonetic": "/njuː/",
+        "meaning": "mới"
+      },
+      {
+        "word": "laptop",
+        "type": "n.",
+        "phonetic": "/ˈlæptɒp/",
+        "meaning": "laptop"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889095/part2_questions_new/yvibllvrd9d9kbiegk4c.mp3"
+  },
+  {
+    "sentence": "It's on the other shelf.",
+    "sentence_translation": "Nó ở trên kệ khác.",
+    "words": [
+      {
+        "word": "other",
+        "type": "adj.",
+        "phonetic": "/ˈʌðə/",
+        "meaning": "khác"
+      },
+      {
+        "word": "shelf",
+        "type": "n.",
+        "phonetic": "/ʃelf/",
+        "meaning": "kệ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889096/part2_questions_new/x4ydea7x5sdnaz3aquud.mp3"
+  },
+  {
+    "sentence": "The speech was inspiring.",
+    "sentence_translation": "Bài phát biểu rất truyền cảm hứng.",
+    "words": [
+      {
+        "word": "speech",
+        "type": "n.",
+        "phonetic": "/spiːtʃ/",
+        "meaning": "bài phát biểu"
+      },
+      {
+        "word": "inspiring",
+        "type": "adj.",
+        "phonetic": "/ɪnˈspaɪərɪŋ/",
+        "meaning": "truyền cảm hứng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889097/part2_questions_new/aoya8mj0wjdpv99rnb6r.mp3"
+  },
+  {
+    "sentence": "Toongee updated the memo.",
+    "sentence_translation": "Toongee đã cập nhật bản ghi nhớ.",
+    "words": [
+      {
+        "word": "updated",
+        "type": "v.",
+        "phonetic": "/ˈʌpdeɪtɪd/",
+        "meaning": "cập nhật"
+      },
+      {
+        "word": "memo",
+        "type": "n.",
+        "phonetic": "/ˈmeməʊ/",
+        "meaning": "bản ghi nhớ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889098/part2_questions_new/eozx4nwm8yhsgo8mxoco.mp3"
+  },
+  {
+    "sentence": "A new phone number.",
+    "sentence_translation": "Một số điện thoại mới.",
+    "words": [
+      {
+        "word": "new",
+        "type": "adj.",
+        "phonetic": "/njuː/",
+        "meaning": "mới"
+      },
+      {
+        "word": "phone",
+        "type": "n.",
+        "phonetic": "/fəʊn/",
+        "meaning": "điện thoại"
+      },
+      {
+        "word": "number",
+        "type": "n.",
+        "phonetic": "/ˈnʌmbə/",
+        "meaning": "số"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889099/part2_questions_new/wmxtuik9f3qaurt7lqm1.mp3"
+  },
+  {
+    "sentence": "Yes, any available position?",
+    "sentence_translation": "Vâng, có vị trí nào có sẵn không?",
+    "words": [
+      {
+        "word": "available",
+        "type": "adj.",
+        "phonetic": "/əˈveɪləbl/",
+        "meaning": "có sẵn"
+      },
+      {
+        "word": "position",
+        "type": "n.",
+        "phonetic": "/pəˈzɪʃn/",
+        "meaning": "vị trí"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889100/part2_questions_new/gl1up1onhdf9w4h3phzh.mp3"
+  },
+  {
+    "sentence": "The theater is on Johnson Avenue.",
+    "sentence_translation": "Nhà hát ở trên đại lộ Johnson.",
+    "words": [
+      {
+        "word": "theater",
+        "type": "n.",
+        "phonetic": "/ˈθɪətə/",
+        "meaning": "nhà hát"
+      },
+      {
+        "word": "avenue",
+        "type": "n.",
+        "phonetic": "/ˈævənjuː/",
+        "meaning": "đại lộ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889101/part2_questions_new/vmesy20a2s3ggciwh5ws.mp3"
+  },
+  {
+    "sentence": "At 7:30 sharp.",
+    "sentence_translation": "Đúng 7:30.",
+    "words": [
+      {
+        "word": "sharp",
+        "type": "adv.",
+        "phonetic": "/ʃɑːp/",
+        "meaning": "đúng"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889102/part2_questions_new/dsb0f8cwum7akoahdnit.mp3"
+  },
+  {
+    "sentence": "A much higher salary.",
+    "sentence_translation": "Mức lương cao hơn nhiều.",
+    "words": [
+      {
+        "word": "much",
+        "type": "adv.",
+        "phonetic": "/mʌtʃ/",
+        "meaning": "nhiều"
+      },
+      {
+        "word": "higher",
+        "type": "adj.",
+        "phonetic": "/ˈhaɪə/",
+        "meaning": "cao hơn"
+      },
+      {
+        "word": "salary",
+        "type": "n.",
+        "phonetic": "/ˈsæləri/",
+        "meaning": "lương"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889103/part2_questions_new/uoozdwcbividrbkwlq7k.mp3"
+  },
+  {
+    "sentence": "In the building across the street.",
+    "sentence_translation": "Trong tòa nhà đối diện đường.",
+    "words": [
+      {
+        "word": "building",
+        "type": "n.",
+        "phonetic": "/ˈbɪldɪŋ/",
+        "meaning": "tòa nhà"
+      },
+      {
+        "word": "across",
+        "type": "prep.",
+        "phonetic": "/əˈkrɒs/",
+        "meaning": "đối diện"
+      },
+      {
+        "word": "street",
+        "type": "n.",
+        "phonetic": "/striːt/",
+        "meaning": "đường"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889104/part2_questions_new/mhwc7jo6akzif9msq0np.mp3"
+  },
+  {
+    "sentence": "Their contact information.",
+    "sentence_translation": "Thông tin liên lạc của họ.",
+    "words": [
+      {
+        "word": "contact",
+        "type": "n.",
+        "phonetic": "/ˈkɒntækt/",
+        "meaning": "liên lạc"
+      },
+      {
+        "word": "information",
+        "type": "n.",
+        "phonetic": "/ˌɪnfəˈmeɪʃn/",
+        "meaning": "thông tin"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889105/part2_questions_new/eiualgy4wfuil7we6cqm.mp3"
+  },
+  {
+    "sentence": "Early next week.",
+    "sentence_translation": "Đầu tuần tới.",
+    "words": [
+      {
+        "word": "early",
+        "type": "adv.",
+        "phonetic": "/ˈɜːli/",
+        "meaning": "đầu"
+      },
+      {
+        "word": "next",
+        "type": "adj.",
+        "phonetic": "/nekst/",
+        "meaning": "tới"
+      },
+      {
+        "word": "week",
+        "type": "n.",
+        "phonetic": "/wiːk/",
+        "meaning": "tuần"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889106/part2_questions_new/wd8tna78e4loygtou7ql.mp3"
+  },
+  {
+    "sentence": "Some customer addresses.",
+    "sentence_translation": "Một số địa chỉ khách hàng.",
+    "words": [
+      {
+        "word": "customer",
+        "type": "n.",
+        "phonetic": "/ˈkʌstəmə/",
+        "meaning": "khách hàng"
+      },
+      {
+        "word": "addresses",
+        "type": "n.",
+        "phonetic": "/əˈdresɪz/",
+        "meaning": "địa chỉ"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889106/part2_questions_new/quduefquevvqu4razfpk.mp3"
+  },
+  {
+    "sentence": "She arrives on Wednesday.",
+    "sentence_translation": "Cô ấy đến vào thứ Tư.",
+    "words": [
+      {
+        "word": "arrives",
+        "type": "v.",
+        "phonetic": "/əˈraɪvz/",
+        "meaning": "đến"
+      },
+      {
+        "word": "Wednesday",
+        "type": "n.",
+        "phonetic": "/ˈwenzdeɪ/",
+        "meaning": "thứ Tư"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889107/part2_questions_new/jecryqgv2ssmeb6kixkw.mp3"
+  },
+  {
+    "sentence": "Ten in a package.",
+    "sentence_translation": "Mười trong một gói.",
+    "words": [
+      {
+        "word": "ten",
+        "type": "num.",
+        "phonetic": "/ten/",
+        "meaning": "mười"
+      },
+      {
+        "word": "package",
+        "type": "n.",
+        "phonetic": "/ˈpækɪdʒ/",
+        "meaning": "gói"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889108/part2_questions_new/at9wzb9ubqjyxdma1pho.mp3"
+  },
+  {
+    "sentence": "Thanks. I just bought it.",
+    "sentence_translation": "Cảm ơn. Tôi vừa mua nó.",
+    "words": [
+      {
+        "word": "thanks",
+        "type": "intj.",
+        "phonetic": "/θæŋks/",
+        "meaning": "cảm ơn"
+      },
+      {
+        "word": "just",
+        "type": "adv.",
+        "phonetic": "/dʒʌst/",
+        "meaning": "vừa"
+      },
+      {
+        "word": "bought",
+        "type": "v.",
+        "phonetic": "/bɔːt/",
+        "meaning": "mua"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889110/part2_questions_new/bctvitiyxtmjr9rwzyhw.mp3"
+  },
+  {
+    "sentence": "Some new clothes.",
+    "sentence_translation": "Một số quần áo mới.",
+    "words": [
+      {
+        "word": "new",
+        "type": "adj.",
+        "phonetic": "/njuː/",
+        "meaning": "mới"
+      },
+      {
+        "word": "clothes",
+        "type": "n.",
+        "phonetic": "/kləʊðz/",
+        "meaning": "quần áo"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889111/part2_questions_new/uptai1ugeqvfaspnpijn.mp3"
+  },
+  {
+    "sentence": "The price has been marked down.",
+    "sentence_translation": "Giá đã được giảm.",
+    "words": [
+      {
+        "word": "price",
+        "type": "n.",
+        "phonetic": "/praɪs/",
+        "meaning": "giá"
+      },
+      {
+        "word": "marked",
+        "type": "v.",
+        "phonetic": "/mɑːkt/",
+        "meaning": "được đánh dấu"
+      },
+      {
+        "word": "down",
+        "type": "adv.",
+        "phonetic": "/daʊn/",
+        "meaning": "xuống"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889112/part2_questions_new/ddhicapukuzhlsbo8wbg.mp3"
+  },
+  {
+    "sentence": "INSOC helped develop a new product.",
+    "sentence_translation": "INSOC đã giúp phát triển một sản phẩm mới.",
+    "words": [
+      {
+        "word": "helped",
+        "type": "v.",
+        "phonetic": "/helpt/",
+        "meaning": "giúp"
+      },
+      {
+        "word": "develop",
+        "type": "v.",
+        "phonetic": "/dɪˈveləp/",
+        "meaning": "phát triển"
+      },
+      {
+        "word": "new",
+        "type": "adj.",
+        "phonetic": "/njuː/",
+        "meaning": "mới"
+      },
+      {
+        "word": "product",
+        "type": "n.",
+        "phonetic": "/ˈprɒdʌkt/",
+        "meaning": "sản phẩm"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889113/part2_questions_new/vwu9qxqfwxavwuo9yiy7.mp3"
+  },
+  {
+    "sentence": "He's always so professional.",
+    "sentence_translation": "Anh ấy luôn rất chuyên nghiệp.",
+    "words": [
+      {
+        "word": "always",
+        "type": "adv.",
+        "phonetic": "/ˈɔːlweɪz/",
+        "meaning": "luôn"
+      },
+      {
+        "word": "professional",
+        "type": "adj.",
+        "phonetic": "/prəˈfeʃənl/",
+        "meaning": "chuyên nghiệp"
+      }
+    ],
+    "sentence_audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1753889114/part2_questions_new/xahykp3ffj80f7bxzmc2.mp3"
+  }
+]

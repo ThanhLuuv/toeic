@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import vocabData from '../data/data_question.json';
+import vocabData from '../data/vocabulary.json';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   useAudioManager,
@@ -152,6 +152,8 @@ const DictationPractice: React.FC = () => {
     if (idx * NUM_WORDS < 160) return 'Stores';
     if (idx * NUM_WORDS < 200) return 'Purchase & Warranty';
     if (idx * NUM_WORDS < 240) return 'Performance';
+    if (idx * NUM_WORDS < 280) return 'Exhibition & Museums';
+    if (idx * NUM_WORDS < 320) return 'Media';
     return 'Other';
   }
   const topic = getSetTopic(setIdx);
@@ -211,7 +213,7 @@ const DictationPractice: React.FC = () => {
       background: '#f7f9fb',
       position: 'relative',
     }}>
-      <BackButton onClick={() => navigate('/dictation-list/?tab=vocab')} />
+      <BackButton onClick={() => navigate('/')} />
       
       <HelpPanel 
         showHelp={showHelp}
@@ -359,13 +361,23 @@ const DictationPractice: React.FC = () => {
               </div>
             )}
             <button
-              onClick={() => navigate('/dictation-list/?tab=vocab')}
+              onClick={() => navigate('/')}
               style={{
-                background: '#14B24C', color: 'white', border: 'none', borderRadius: 8, padding: '10px 32px', fontWeight: 700, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #e0e0e0', marginTop: 8
+                background: '#14B24C', color: 'white', border: 'none', borderRadius: 8, padding: '10px 32px', fontWeight: 700, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #e0e0e0', marginTop: 8, marginRight: 12
               }}
             >
               ← Back to List
             </button>
+            {setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1 && (
+              <button
+                onClick={() => navigate(`/dictation-practice/${setIdx + 1}`)}
+                style={{
+                  background: '#0284c7', color: 'white', border: 'none', borderRadius: 8, padding: '10px 32px', fontWeight: 700, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #e0e0e0', marginTop: 8
+                }}
+              >
+                Next Set →
+              </button>
+            )}
           </div>
         )}
 

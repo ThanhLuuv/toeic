@@ -4,7 +4,7 @@ import part1Data from '../data/part1.json';
 import part2Data from '../data/part2.json';
 
 // Mock data for demonstration
-const vocabData = Array.from({ length: 280 }, (_, i) => ({
+const vocabData = Array.from({ length: 320 }, (_, i) => ({
   word: i % 7 === 0 ? `phrase ${i + 1} example` : `word${i + 1}`,
   meaning: `Meaning ${i + 1}`
 }));
@@ -38,10 +38,10 @@ const TABS = [
 
 function getSetType(set: any[], isPart1: boolean = false, isPart2: boolean = false) {
   if (isPart1) {
-    return '2 words / sentence';
+    return '2 words or more';
   }
   if (isPart2) {
-    return '2-3 words / sentence';
+    return '2 words or more';
   }
   const hasPhrase = set.some(item => item.word.includes(' '));
   return hasPhrase ? '1 words or more' : '1 word';
@@ -61,6 +61,7 @@ function getSetTopic(idx: number, isPart1: boolean = false, isPart2: boolean = f
   if (idx * WORDS_PER_SET < 200) return 'Purchase & Warranty';
   if (idx * WORDS_PER_SET < 240) return 'Performance';
   if (idx * WORDS_PER_SET < 280) return 'Exhibition & Museums';
+  if (idx * WORDS_PER_SET < 320) return 'Media';
   return 'Other';
 }
 
@@ -141,99 +142,120 @@ const DictationList: React.FC = () => {
         ...part2Sets.map((set, idx) => ({ set, idx: idx + vocabSets.length + part1Sets.length, type: 'part2', originalIdx: idx }))
       ];
 
-      return allSets.map(({ set, idx, type, originalIdx }) => (
-        <div
-          key={`${type}-${originalIdx}`}
-          className={`
-            relative rounded-xl p-5 cursor-pointer transition-all duration-300 transform bg-white shadow-lg
-            ${hoverIdx === idx 
-              ? 'shadow-xl scale-105 -translate-y-1' 
-              : 'hover:shadow-xl'
-            }
-          `}
-          onClick={() => {
-            if (type === 'part1') {
-              navigate(`/dictation-practice/part1/${originalIdx}`);
-            } else if (type === 'part2') {
-              navigate(`/dictation-practice/part2/${originalIdx}`);
-            } else {
-              navigate(`/dictation-practice/${originalIdx}`);
-            }
-          }}
-          onMouseEnter={() => setHoverIdx(idx)}
-          onMouseLeave={() => setHoverIdx(null)}
-        >
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                <h3 className="text-lg font-bold text-slate-800">
-                  {type === 'vocab' ? 'Vocabulary' : type === 'part1' ? 'Part 1' : 'Part 2'} - Set {originalIdx + 1}
-                </h3>
-              </div>
-              {(type === 'vocab' && vocabCompletedSets.has(originalIdx)) ||
-               (type === 'part1' && completedSets.has(originalIdx)) ||
-               (type === 'part2' && part2CompletedSets.has(originalIdx)) ? (
-                <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full font-bold">
-                  ✓
-                </span>
-              ) : null}
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                </svg>
-                <span className="text-slate-700 font-medium">
-                  {type === 'vocab' ? getSetTopic(originalIdx) : 
-                   type === 'part1' ? getSetTopic(originalIdx, true) : 
-                   getSetTopic(originalIdx, false, true)}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-slate-600">
-                  {type === 'vocab' ? getSetType(set) : 
-                   type === 'part1' ? getSetType(set, true) : 
-                   getSetType(set, false, true)}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-slate-600">
-                  {type === 'vocab' ? `${WORDS_PER_SET} words` : 
-                   type === 'part1' ? `${set.length} sentences (20 words)` : 
-                   `${set.length} sentences (20-30 words)`}
-                </span>
-              </div>
-            </div>
-
-            <div className="pt-2">
-              <div className="w-full bg-slate-100 rounded-full h-1">
-                <div 
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    (type === 'vocab' && vocabCompletedSets.has(originalIdx)) ||
-                    (type === 'part1' && completedSets.has(originalIdx)) ||
-                    (type === 'part2' && part2CompletedSets.has(originalIdx)) ? 'bg-green-600 w-full' : 'bg-green-600 w-0'
-                  }`}
-                ></div>
-              </div>
-              <p className="text-xs text-slate-500 mt-1 text-center">
+      const elements = [];
+      for (let i = 0; i < allSets.length; i++) {
+        const { set, idx, type, originalIdx } = allSets[i];
+        elements.push(
+          <div
+            key={`${type}-${originalIdx}`}
+            className={`
+              relative rounded-xl p-5 cursor-pointer transition-all duration-300 transform bg-white shadow-lg
+              ${hoverIdx === idx 
+                ? 'shadow-xl scale-105 -translate-y-1' 
+                : 'hover:shadow-xl'
+              }
+            `}
+            onClick={() => {
+              if (type === 'part1') {
+                navigate(`/dictation-practice/part1/${originalIdx}`);
+              } else if (type === 'part2') {
+                navigate(`/dictation-practice/part2/${originalIdx}`);
+              } else {
+                navigate(`/dictation-practice/${originalIdx}`);
+              }
+            }}
+            onMouseEnter={() => setHoverIdx(idx)}
+            onMouseLeave={() => setHoverIdx(null)}
+          >
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{
+                      background: type === 'vocab' ? '#0284c7' : type === 'part1' ? '#eab308' : '#7c3aed',
+                    }}
+                  ></div>
+                  <h3 className="text-lg font-bold text-slate-800">
+                    {type === 'vocab' ? 'Vocabulary' : type === 'part1' ? 'Part 1' : 'Part 2'} - Set {originalIdx + 1}
+                  </h3>
+                </div>
                 {(type === 'vocab' && vocabCompletedSets.has(originalIdx)) ||
                  (type === 'part1' && completedSets.has(originalIdx)) ||
-                 (type === 'part2' && part2CompletedSets.has(originalIdx)) ? 'Completed' : 'Start'}
-              </p>
+                 (type === 'part2' && part2CompletedSets.has(originalIdx)) ? (
+                  <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full font-bold">
+                    ✓
+                  </span>
+                ) : null}
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-700 font-medium">
+                    {type === 'vocab' ? getSetTopic(originalIdx) : 
+                     type === 'part1' ? getSetTopic(originalIdx, true) : 
+                     getSetTopic(originalIdx, false, true)}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-slate-600">
+                    {type === 'vocab' ? getSetType(set) : 
+                     type === 'part1' ? getSetType(set, true) : 
+                     getSetType(set, false, true)}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-slate-600">
+                    {type === 'vocab' ? `${WORDS_PER_SET} words` : 
+                     type === 'part1' ? `${set.length} sentences` : 
+                     `${set.length} sentences`}
+                  </span>
+                </div>
+              </div>
+              <div className="pt-2">
+                <div className="w-full bg-slate-100 rounded-full h-1">
+                  <div 
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      (type === 'vocab' && vocabCompletedSets.has(originalIdx)) ||
+                      (type === 'part1' && completedSets.has(originalIdx)) ||
+                      (type === 'part2' && part2CompletedSets.has(originalIdx)) ? 'bg-green-600 w-full' : 'bg-green-600 w-0'
+                    }`}
+                  ></div>
+                </div>
+                <p className="text-xs text-slate-500 mt-1 text-center">
+                  {(type === 'vocab' && vocabCompletedSets.has(originalIdx)) ||
+                   (type === 'part1' && completedSets.has(originalIdx)) ||
+                   (type === 'part2' && part2CompletedSets.has(originalIdx)) ? 'Completed' : 'Start'}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      ));
+        );
+        // Sau nhóm Vocabulary
+        if (i === vocabSets.length - 1 || i === vocabSets.length + part1Sets.length - 1) {
+          elements.push(
+            <div
+              key={`break-line-${i}`}
+              style={{
+                gridColumn: '1/-1',
+                height: '3px',
+                background: '#14B24C',
+                borderRadius: '2px',
+                margin: '16px 0',
+              }}
+            ></div>
+          );
+        }
+      }
+      return elements;
     } else if (tab === 'vocab') {
       return vocabSets.map((set, idx) => (
         <div
@@ -252,7 +274,10 @@ const DictationList: React.FC = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ background: '#0284c7' }}
+                ></div>
                 <h3 className="text-lg font-bold text-slate-800">
                   Set {idx + 1}
                 </h3>
@@ -320,7 +345,10 @@ const DictationList: React.FC = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ background: '#eab308' }}
+                ></div>
                 <h3 className="text-lg font-bold text-slate-800">
                   Set {idx + 1}
                 </h3>
@@ -388,7 +416,10 @@ const DictationList: React.FC = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ background: '#7c3aed' }}
+                ></div>
                 <h3 className="text-lg font-bold text-slate-800">
                   Set {idx + 1}
                 </h3>
@@ -448,8 +479,7 @@ const DictationList: React.FC = () => {
       {/* Main Content */}
       <div className="container mx-auto px-6 py-12 max-w-6xl">
         {/* Title Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-slate-800 mb-4">Dictation Practice</h1>
+        <div className="text-center mb-4">
           <p className="text-slate-600 text-lg">Practice dictation with vocabulary and sentences</p>
           <div className="mt-4 flex justify-center items-center gap-4 text-sm text-slate-500">
             <div className="flex items-center gap-2">

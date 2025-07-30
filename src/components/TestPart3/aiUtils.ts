@@ -124,8 +124,25 @@ export async function generateAudioBase64Part3(practiceQuestion: any): Promise<s
     "W2": "en-US-Wavenet-E"
   };
 
+  // Hàm thêm ngắt nghỉ tự nhiên vào text
+  const addNaturalPauses = (text: string): string => {
+    return text
+      // Thêm ngắt nghỉ ở dấu chấm
+      .replace(/\./g, '.<break time="0.8s"/>')
+      // Thêm ngắt nghỉ ở dấu phẩy
+      .replace(/,/g, ',<break time="0.4s"/>')
+      // Thêm ngắt nghỉ ở dấu chấm hỏi
+      .replace(/\?/g, '?<break time="1s"/>')
+      // Thêm ngắt nghỉ ở dấu chấm than
+      .replace(/!/g, '!<break time="0.8s"/>')
+      // Thêm ngắt nghỉ ở dấu hai chấm
+      .replace(/:/g, ':<break time="0.5s"/>')
+      // Thêm ngắt nghỉ ở dấu chấm phẩy
+      .replace(/;/g, ';<break time="0.6s"/>');
+  };
+
   // Tạo SSML script cho đoạn hội thoại
-  let ssmlContent = `<speak><prosody rate="slow">Conversation ${questionNumber}.</prosody><break time="1s"/>`;
+  let ssmlContent = `<speak><prosody rate="slow">Conversation ${questionNumber}.</prosody><break time="1.5s"/>`;
 
   // Sử dụng hàm tách thoại thông minh (đã sửa)
   const lines = splitAudioScriptToLines(audioScript);
@@ -143,27 +160,33 @@ export async function generateAudioBase64Part3(practiceQuestion: any): Promise<s
     const text = match[2];
     const voice = voiceMap[speaker] || "en-US-Wavenet-D";
     
+    // Thêm ngắt nghỉ tự nhiên vào text
+    const textWithPauses = addNaturalPauses(text);
+    
     ssmlContent += `
       <voice name="${voice}">
-        <prosody rate="medium">${text}</prosody>
+        <prosody rate="0.85" pitch="medium">${textWithPauses}</prosody>
       </voice>
-      <break time="0.6s"/>
+      <break time="1s"/>
     `;
   }
 
   // Thêm phần đọc câu hỏi
-  ssmlContent += `<break time="3s"/><voice name="en-US-Wavenet-D"><prosody rate="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2s"/>`;
+  ssmlContent += `<break time="3s"/><voice name="en-US-Wavenet-D"><prosody rate="0.9" pitch="medium">Now you will hear three questions about the conversation.</prosody></voice><break time="2.5s"/>`;
 
   questions.forEach((question: any, qIndex: number) => {
     // Đọc số câu hỏi với giọng cố định
-    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">Question ${qIndex + 1}.</prosody></voice><break time="1s"/>`;
-    // Đọc câu hỏi với giọng cố định
-    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="medium">${question.question}</prosody></voice>`;
-    // Nghỉ 4 giây giữa các câu hỏi, câu cuối nghỉ 2s
+    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="0.9" pitch="medium">Question ${qIndex + 1}.</prosody></voice><break time="1.5s"/>`;
+    
+    // Đọc câu hỏi với ngắt nghỉ tự nhiên
+    const questionWithPauses = addNaturalPauses(question.question);
+    ssmlContent += `<voice name="en-US-Wavenet-D"><prosody rate="0.85" pitch="medium">${questionWithPauses}</prosody></voice>`;
+    
+    // Nghỉ 5 giây giữa các câu hỏi, câu cuối nghỉ 3s
     if (qIndex < questions.length - 1) {
-      ssmlContent += `<break time="4s"/>`;
+      ssmlContent += `<break time="5s"/>`;
     } else {
-      ssmlContent += `<break time="2s"/>`;
+      ssmlContent += `<break time="3s"/>`;
     }
   });
 
@@ -179,8 +202,10 @@ export async function generateAudioBase64Part3(practiceQuestion: any): Promise<s
       voice: { languageCode: 'en-US' },
       audioConfig: {
         audioEncoding: 'MP3',
-        speakingRate: 0.75,
-        pitch: 0.0
+        speakingRate: 0.8, // Giảm tốc độ nói tổng thể
+        pitch: 0.0,
+        volumeGainDb: 0.0,
+        effectsProfileId: ['headphone-class-device'] // Tối ưu cho headphone
       }
     })
   });
