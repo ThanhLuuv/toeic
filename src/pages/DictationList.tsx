@@ -4,7 +4,7 @@ import part1Data from '../data/part1.json';
 import part2Data from '../data/part2.json';
 
 // Mock data for demonstration
-const vocabData = Array.from({ length: 240 }, (_, i) => ({
+const vocabData = Array.from({ length: 280 }, (_, i) => ({
   word: i % 7 === 0 ? `phrase ${i + 1} example` : `word${i + 1}`,
   meaning: `Meaning ${i + 1}`
 }));
@@ -60,6 +60,7 @@ function getSetTopic(idx: number, isPart1: boolean = false, isPart2: boolean = f
   if (idx * WORDS_PER_SET < 160) return 'Stores';
   if (idx * WORDS_PER_SET < 200) return 'Purchase & Warranty';
   if (idx * WORDS_PER_SET < 240) return 'Performance';
+  if (idx * WORDS_PER_SET < 280) return 'Exhibition & Museums';
   return 'Other';
 }
 
@@ -448,7 +449,7 @@ const DictationList: React.FC = () => {
       <div className="container mx-auto px-6 py-12 max-w-6xl">
         {/* Title Section */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-slate-800 mb-4">Chép chính tả</h1>
+          <h1 className="text-3xl font-bold text-slate-800 mb-4">Dictation Practice</h1>
           <p className="text-slate-600 text-lg">Practice dictation with vocabulary and sentences</p>
           <div className="mt-4 flex justify-center items-center gap-4 text-sm text-slate-500">
             <div className="flex items-center gap-2">

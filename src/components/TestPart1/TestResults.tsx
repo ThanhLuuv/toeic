@@ -195,8 +195,8 @@ const TestResults: React.FC<TestResultsProps> = ({
           {/* Header okkk*/}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-4">
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 text-center">
-              <h1 className="text-3xl font-bold mb-2">Kết quả chi tiết</h1>
-              <p className="text-blue-100">Thống kê toàn bộ bài kiểm tra</p>
+              <h1 className="text-3xl font-bold mb-2">Detailed results</h1>
+              <p className="text-blue-100">Overall test statistics</p>
             </div>
             
             <div className="p-8">
@@ -204,17 +204,17 @@ const TestResults: React.FC<TestResultsProps> = ({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-blue-50 rounded-xl p-6 text-center">
                   <div className="text-4xl font-bold text-blue-600 mb-2">{testResults.score}%</div>
-                  <div className="text-lg font-semibold text-blue-800 mb-1">Điểm chính</div>
+                  <div className="text-lg font-semibold text-blue-800 mb-1">Main score</div>
                   <div className="text-sm text-blue-600">
-                    {testResults.correct}/{testResults.total} câu đúng
+                    {testResults.correct}/{testResults.total} correct
                   </div>
                 </div>
                 
                 <div className="bg-green-50 rounded-xl p-6 text-center">
                   <div className="text-4xl font-bold text-green-600 mb-2">{testResults.vocabScore}%</div>
-                  <div className="text-lg font-semibold text-green-800 mb-1">Điểm từ vựng</div>
+                  <div className="text-lg font-semibold text-green-800 mb-1">Vocabulary score</div>
                   <div className="text-sm text-green-600">
-                    {testResults.vocabCorrect}/{testResults.vocabTotal} từ đúng
+                    {testResults.vocabCorrect}/{testResults.vocabTotal} correct
                   </div>
                 </div>
               </div>
@@ -222,7 +222,7 @@ const TestResults: React.FC<TestResultsProps> = ({
               {/* Performance Bar */}
               <div className="">
                 <div className="flex items-center justify-between text-sm mb-2">
-                  <span className="text-gray-600">Hiệu suất tổng thể</span>
+                  <span className="text-gray-600">Overall performance</span>
                   <span className="font-medium">
                     {testResults.score >= 80 ? 'Xuất sắc' : 
                      testResults.score >= 60 ? 'Tốt' : 
@@ -257,7 +257,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                         }
                       }}
                     >
-                      Phân tích cùng AI
+                      Analyze with AI
                     </button>
                   </div>
                 )}
@@ -321,19 +321,19 @@ const TestResults: React.FC<TestResultsProps> = ({
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-gray-800">
-                            Câu {index + 1}
+                            Question {index + 1}
                           </h3>
                           <p className="text-sm text-gray-600">
-                            {answer?.isCorrect ? 'Đúng' : 'Sai'} • 
-                            Đáp án: {answer?.selected} • 
-                            Đúng: {question.correctAnswer}
+                            {answer?.isCorrect ? 'Correct' : 'Wrong'} • 
+                            Answer: {answer?.selected} • 
+                            Correct: {question.correctAnswer}
                           </p>
                         </div>
                       </div>
                       <div className="flex items-center space-x-2">
                         {vocabStats && (
                           <div className="text-xs text-gray-500">
-                            Từ vựng: {vocabStats.subject.correct.length + vocabStats.descriptive.correct.length}/
+                            Vocabulary: {vocabStats.subject.correct.length + vocabStats.descriptive.correct.length}/
                             {vocabStats.subject.correct.length + vocabStats.subject.incorrect.length + vocabStats.subject.missing.length + 
                              vocabStats.descriptive.correct.length + vocabStats.descriptive.incorrect.length + vocabStats.descriptive.missing.length}
 
@@ -365,7 +365,7 @@ const TestResults: React.FC<TestResultsProps> = ({
 
                       {/* Choices */}
                       <div className="bg-gray-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-gray-800 mb-3">Các lựa chọn:</h4>
+                        <h4 className="font-semibold text-gray-800 mb-3">Choices:</h4>
                         <div className="space-y-2">
                           {(['A', 'B', 'C'] as const).map((key) => (
                             <div 
@@ -409,19 +409,19 @@ const TestResults: React.FC<TestResultsProps> = ({
 
                       {/* Explanation */}
                       <div className="bg-green-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-green-800 mb-2">Giải thích:</h4>
+                        <h4 className="font-semibold text-green-800 mb-2">Explanation:</h4>
                         <p className="text-green-900">{question.explanation}</p>
-                        <h4 className="font-semibold text-green-800 mb-2 mt-4">Bẫy:</h4>
+                        <h4 className="font-semibold text-green-800 mb-2 mt-4">Traps:</h4>
                         <p className="text-green-900">{question.traps}</p>
                       </div>
 
                       {/* Vocabulary Results */}
                       <div className="space-y-4">
-                        <h4 className="font-semibold text-gray-800">Từ vựng:</h4>
+                        <h4 className="font-semibold text-gray-800">Vocabulary:</h4>
                         
                         {/* Subject Vocabulary */}
                         <div className="bg-blue-50 rounded-lg p-4">
-                          <h5 className="font-semibold text-blue-800 mb-3">Từ vựng chủ thể:</h5>
+                          <h5 className="font-semibold text-blue-800 mb-3">Subject vocabulary:</h5>
                           
                           {/* Kết quả từ vựng đã chọn */}
                           {vocabStats && (
@@ -469,7 +469,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                           
                           {/* Hiển thị tất cả từ vựng có sẵn */}
                           <div className="mt-4 pt-3 border-t border-blue-200">
-                            <div className="text-sm font-medium text-blue-700 mb-2">Tất cả từ vựng có sẵn:</div>
+                            <div className="text-sm font-medium text-blue-700 mb-2">All available vocabulary:</div>
                             <div className="flex flex-wrap gap-2">
                               {(question.subjectVocabulary || []).map((word, idx) => (
                                 <span key={idx} className={`px-2 py-1 rounded text-sm ${
@@ -487,7 +487,7 @@ const TestResults: React.FC<TestResultsProps> = ({
 
                         {/* Descriptive Vocabulary */}
                         <div className="bg-purple-50 rounded-lg p-4">
-                          <h5 className="font-semibold text-purple-800 mb-3">Từ vựng mô tả:</h5>
+                          <h5 className="font-semibold text-purple-800 mb-3">Descriptive vocabulary:</h5>
                           
                           {/* Kết quả từ vựng đã chọn */}
                           {vocabStats && (
@@ -535,7 +535,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                           
                           {/* Hiển thị tất cả từ vựng có sẵn */}
                           <div className="mt-4 pt-3 border-t border-purple-200">
-                            <div className="text-sm font-medium text-purple-700 mb-2">Tất cả từ vựng có sẵn:</div>
+                              <div className="text-sm font-medium text-purple-700 mb-2">All available vocabulary:</div>
                             <div className="flex flex-wrap gap-2">
                               {(question.descriptiveVocabulary || []).map((word, idx) => (
                                 <span key={idx} className={`px-2 py-1 rounded text-sm ${
@@ -601,7 +601,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                                 Đang phân tích...
                               </div>
                             ) : (
-                              '🤖 Phân tích cùng AI'
+                              '🤖 Analyze with AI'
                             )}
                           </button>
                         </div>
@@ -609,24 +609,24 @@ const TestResults: React.FC<TestResultsProps> = ({
                       {/* Kết quả AI */}
                       {practiceData[index] && (
                         <div className="border-t border-gray-200 pt-4 space-y-4">
-                          <h4 className="font-semibold text-gray-700">📊 Phân tích lỗi:</h4>
+                          <h4 className="font-semibold text-gray-700">📊 Analyze error:</h4>
                           <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                            <h5 className="font-medium text-red-800 mb-2">❌ Lỗi chính:</h5>
+                            <h5 className="font-medium text-red-800 mb-2">❌ Main error:</h5>
                             <p className="text-red-700">{practiceData[index].analysis.mainError}</p>
                           </div>
                           <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-                            <h5 className="font-medium text-orange-800 mb-2">🔍 Nguyên nhân:</h5>
+                            <h5 className="font-medium text-orange-800 mb-2">🔍 Reasons:</h5>
                             <ul className="list-disc list-inside text-orange-700 space-y-1">
                               {practiceData[index].analysis.reasons.map((r: string, i: number) => <li key={i}>{r}</li>)}
                             </ul>
                           </div>
                           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                            <h5 className="font-medium text-green-800 mb-2">💡 Giải pháp:</h5>
+                            <h5 className="font-medium text-green-800 mb-2">💡 Solutions:</h5>
                             <ul className="list-disc list-inside text-green-700 space-y-1">
                               {practiceData[index].analysis.solutions.map((s: string, i: number) => <li key={i}>{s}</li>)}
                             </ul>
                           </div>
-                          <h4 className="font-semibold text-gray-700">🎯 Bài luyện tập tương tự:</h4>
+                          <h4 className="font-semibold text-gray-700">🎯 Similar practice:</h4>
                           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                             {practiceImage[index] && <img src={practiceImage[index]} alt="practice" className="max-w-xs rounded-lg mb-3" />}
                             {practiceAudio[index] && <audio controls className="w-full mb-3" src={practiceAudio[index]} />}
@@ -637,7 +637,7 @@ const TestResults: React.FC<TestResultsProps> = ({
                                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
-                                <span className="text-blue-700 font-medium">Đang tải ảnh và audio luyện tập...</span>
+                                <span className="text-blue-700 font-medium">Loading practice image and audio...</span>
                               </div>
                             )}
                             <div className="space-y-2">
@@ -730,10 +730,10 @@ const TestResults: React.FC<TestResultsProps> = ({
                                   </div>
                                 </div>
                                 <div className="p-3 rounded-lg bg-gray-50">
-                                  <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
+                                  <h6 className="font-medium text-gray-800 mb-2">💡 Explanation:</h6>
                                   <p className="text-gray-700 text-sm">{practiceData[index].practiceQuestion.explanation}</p>
                                   <div className="mt-2">
-                                    <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
+                                    <h6 className="font-medium text-gray-800 mb-1">🎯 Traps:</h6>
                                     <p className="text-gray-700 text-sm">{practiceData[index].practiceQuestion.traps}</p>
                                   </div>
                                 </div>
@@ -755,13 +755,13 @@ const TestResults: React.FC<TestResultsProps> = ({
               onClick={() => navigate('/part1')}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors"
             >
-              Quay lại Part 1
+              Back to Part 1
             </button>
             <button
               onClick={onClose}
               className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-6 rounded-xl transition-colors"
             >
-              Đóng
+              Close
             </button>
           </div>
         </div>

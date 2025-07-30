@@ -398,10 +398,30 @@ const TestPart1: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               <button
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-                onClick={() => setShowExitModal(true)}
+                className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+                onClick={() => navigate('/part1')}
               >
-                Thoát
+                Back
+              </button>
+              <button
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+                onClick={() => {
+                  // Lưu selection hiện tại trước khi finish
+                  if (currentVocabularySelection.subjectSelected.length > 0 || currentVocabularySelection.descriptiveSelected.length > 0) {
+                    setAllVocabularySelections(prev => ({
+                      ...prev,
+                      [currentQuestionIndex]: { 
+                        subjectSelected: currentVocabularySelection.subjectSelected, 
+                        descriptiveSelected: currentVocabularySelection.descriptiveSelected 
+                      }
+                    }));
+                  }
+                  // Force stop audio
+                  setForceStopAudio(true);
+                  finishTest();
+                }}
+              >
+                Finish Test
               </button>
             </div>
           </div>
@@ -574,14 +594,14 @@ const TestPart1: React.FC = () => {
       {showExitModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
-            <h2 className="text-lg font-semibold mb-4">Xác nhận thoát</h2>
-            <p className="mb-6">Bạn có chắc chắn muốn thoát bài kiểm tra? Tiến độ sẽ không được lưu.</p>
+            <h2 className="text-lg font-semibold mb-4">Confirm Exit</h2>
+            <p className="mb-6">Are you sure you want to exit the test? Your progress will not be saved.</p>
             <div className="flex justify-end space-x-2">
               <button
                 className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 text-gray-700"
                 onClick={() => setShowExitModal(false)}
               >
-                Huỷ
+                Cancel
               </button>
               <button
                 className="px-4 py-2 rounded bg-red-500 hover:bg-red-600 text-white"
@@ -602,7 +622,7 @@ const TestPart1: React.FC = () => {
                   navigate('/');
                 }}
               >
-                Thoát
+                Exit
               </button>
             </div>
           </div>
@@ -611,21 +631,21 @@ const TestPart1: React.FC = () => {
       {!hasInteracted && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
           <button
-  className="flex items-center gap-2 px-6 py-3 rounded-lg text-base font-medium text-indigo-600 border border-indigo-300 bg-white hover:bg-indigo-50 transition-all duration-200"
-  onClick={() => {
-    setHasInteracted(true);
-    setShouldAutoPlay(true);
-    setVocabularyResetKey(prev => prev + 1);
-    if (audioRef.current && testQuestions[currentQuestionIndex]?.audio) {
-      audioRef.current.load();
-    }
-  }}
->
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-4.586-2.65A1 1 0 009 9.36v5.28a1 1 0 001.166.982l4.586-2.65a1 1 0 000-1.764z" />
-  </svg>
-  Bắt đầu làm bài
-</button>
+            className="flex items-center gap-2 px-6 py-3 rounded-full text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition-all duration-200"
+            onClick={() => {
+              setHasInteracted(true);
+              setShouldAutoPlay(true);
+              setVocabularyResetKey(prev => prev + 1);
+              if (audioRef.current && testQuestions[currentQuestionIndex]?.audio) {
+                audioRef.current.load();
+              }
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-4.586-2.65A1 1 0 009 9.36v5.28a1 1 0 001.166.982l4.586-2.65a1 1 0 000-1.764z" />
+            </svg>
+            Start Test
+          </button>
 
         </div>
       )}
@@ -635,8 +655,8 @@ const TestPart1: React.FC = () => {
             {/* Header with gradient */}
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 text-center">
               <div className="text-4xl mb-2">🎉</div>
-              <h2 className="text-2xl font-bold mb-1">Hoàn thành!</h2>
-              <p className="text-blue-100">Bạn đã hoàn thành bài kiểm tra</p>
+              <h2 className="text-2xl font-bold mb-1">Finished!</h2>
+              <p className="text-blue-100">You have completed the test</p>
             </div>
             
             {/* Score content */}
@@ -644,9 +664,9 @@ const TestPart1: React.FC = () => {
               {/* Main score */}
               <div className="text-center mb-6">
                 <div className="text-5xl font-bold text-gray-800 mb-2">{testResults.score}%</div>
-                <div className="text-lg text-gray-600">Điểm số chính</div>
+                <div className="text-lg text-gray-600">Main score</div>
                 <div className="text-sm text-gray-500 mt-1">
-                  {testResults.correct}/{testResults.total} câu đúng
+                  {testResults.correct}/{testResults.total} correct
                 </div>
               </div>
               
@@ -655,9 +675,9 @@ const TestPart1: React.FC = () => {
                 <div className="bg-gray-50 rounded-xl p-4 mb-6">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-blue-600 mb-1">{testResults.vocabScore}%</div>
-                    <div className="text-sm text-gray-600">Điểm từ vựng</div>
+                    <div className="text-sm text-gray-600">Vocabulary score</div>
                     <div className="text-xs text-gray-500 mt-1">
-                      {testResults.vocabCorrect}/{testResults.vocabTotal} từ đúng
+                      {testResults.vocabCorrect}/{testResults.vocabTotal} correct
                     </div>
                   </div>
                 </div>
@@ -666,7 +686,7 @@ const TestPart1: React.FC = () => {
               {/* Performance indicator */}
               <div className="mb-6">
                 <div className="flex items-center justify-between text-sm mb-2">
-                  <span className="text-gray-600">Hiệu suất</span>
+                  <span className="text-gray-600">Performance</span>
                   <span className="font-medium">
                     {testResults.score >= 80 ? 'Xuất sắc' : 
                      testResults.score >= 60 ? 'Tốt' : 
@@ -694,7 +714,7 @@ const TestPart1: React.FC = () => {
                     setShowDetailedResults(true);
                   }}
                 >
-                  Xem kết quả chi tiết
+                  View detailed results
                 </button>
                 <button
                   className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-xl transition-colors duration-200"
@@ -703,7 +723,7 @@ const TestPart1: React.FC = () => {
                     navigate('/part1');
                   }}
                 >
-                  Quay lại trang Part 1
+                  Back to Part 1
                 </button>
               </div>
             </div>
