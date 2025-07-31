@@ -6,17 +6,34 @@
     <title>Antoree TOEIC</title>
     <link rel="shortcut icon" href="/logo.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-91RX7SDKEC"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-91RX7SDKEC');
-    </script>
+    <!-- Google Analytics will be loaded dynamically after cookie consent -->
 </head>
 <body>
     <div id="root"></div>
+    
+    <script>
+        // Function to load Google Analytics after cookie consent
+        window.loadGoogleAnalytics = function() {
+            // Load gtag script
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-91RX7SDKEC';
+            document.head.appendChild(script);
+            
+            // Initialize gtag
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-91RX7SDKEC');
+            
+            // Make gtag available globally
+            window.gtag = gtag;
+        };
+        
+        // Check if user has already consented
+        if (localStorage.getItem('cookie-consent') === 'accepted') {
+            window.loadGoogleAnalytics();
+        }
+    </script>
 </body>
 </html>

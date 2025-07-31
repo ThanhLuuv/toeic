@@ -1,50 +1,49 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Home/Header';
-import Footer from './components/Home/Footer';
-import FloatingFeedback from './components/FloatingFeedback';
+import './App.css';
 import DictationPractice from './components/DictationPractice';
-import DictationList from './pages/DictationList';
 import Part1DictationPractice from './components/Part1DictationPractice';
 import Part2DictationPractice from './components/Part2DictationPractice';
-import Chatbot from './components/Chatbot';
+import DictationList from './pages/DictationList';
+import { CookieConsent } from './components/common';
 
+declare global {
+  interface Window {
+    loadGoogleAnalytics?: () => void;
+  }
+}
 
-const App: React.FC = () => {
+function App() {
+  const handleCookieAccept = () => {
+    // Load Google Analytics when user accepts cookies
+    if (window.loadGoogleAnalytics) {
+      window.loadGoogleAnalytics();
+    }
+  };
+
+  const handleCookieDecline = () => {
+    // Do nothing when user declines cookies
+    console.log('User declined cookies');
+  };
+
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/dictation-practice/:setIndex"
-          element={<DictationPractice />}
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<DictationList />} />
+          <Route path="/dictation/:setIndex" element={<DictationPractice />} />
+          <Route path="/part1/:setIndex" element={<Part1DictationPractice />} />
+          <Route path="/part2/:setIndex" element={<Part2DictationPractice />} />
+          <Route path="/dictation-list" element={<DictationList />} />
+        </Routes>
+        
+        <CookieConsent 
+          onAccept={handleCookieAccept}
+          onDecline={handleCookieDecline}
         />
-        <Route
-          path="/dictation-practice/part1/:setIndex"
-          element={<Part1DictationPractice />}
-        />
-        <Route
-          path="/dictation-practice/part2/:setIndex"
-          element={<Part2DictationPractice />}
-        />
-        <Route
-          path="*"
-          element={
-            <div className="bg-gray-50 min-h-screen">
-              <Header />
-              <Routes>
-                <Route path="/" element={<DictationList />} />
-              </Routes>
-              <Footer />
-              <Chatbot />
-              <FloatingFeedback />
-            </div>
-          }
-        />
-      </Routes>
-      <Chatbot />
-      <FloatingFeedback />
+      </div>
     </Router>
   );
-};
+}
 
 export default App;

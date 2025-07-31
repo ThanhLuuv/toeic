@@ -371,7 +371,7 @@ const DictationPractice: React.FC = () => {
             </button>
             {setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1 && (
               <button
-                onClick={() => navigate(`/dictation-practice/${setIdx + 1}`)}
+                onClick={() => navigate(`/dictation/${setIdx + 1}`)}
                 style={{
                   background: '#0284c7', color: 'white', border: 'none', borderRadius: 8, padding: '10px 32px', fontWeight: 700, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #e0e0e0', marginTop: 8
                 }}

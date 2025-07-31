@@ -222,7 +222,7 @@ const Part2DictationPractice: React.FC = () => {
       show: showNextButton
     },
     {
-      text: '⏭',
+      text: 'Skip',
       onClick: handleNext,
       variant: 'warning' as const,
       show: currentIndex !== sentences.length - 1
@@ -520,16 +520,16 @@ const Part2DictationPractice: React.FC = () => {
             >
               ← Back to List
             </button>
-            {setIdx < Math.ceil(part2Data.length / 10) - 1 && (
-              <button
-                onClick={() => navigate(`/dictation-practice/part2/${setIdx + 1}`)}
-                style={{
-                  background: '#0284c7', color: 'white', border: 'none', borderRadius: 8, padding: '10px 32px', fontWeight: 700, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #e0e0e0', marginTop: 8
-                }}
-              >
-                Next Set →
-              </button>
-            )}
+                         {setIdx < Math.ceil(part2Data.length / 10) - 1 && (
+               <button
+                 onClick={() => navigate(`/part2/${setIdx + 1}`)}
+                 style={{
+                   background: '#0284c7', color: 'white', border: 'none', borderRadius: 8, padding: '10px 32px', fontWeight: 700, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #e0e0e0', marginTop: 8
+                 }}
+               >
+                 Next Set →
+               </button>
+             )}
           </div>
         )}
 

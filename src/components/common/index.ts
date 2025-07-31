@@ -5,4 +5,5 @@ export { SoundToggle } from './SoundToggle';
 export { BackButton } from './BackButton';
 export { AudioButton } from './AudioButton';
 export { ActionButtons } from './ActionButtons';
-export { AnswerDisplay } from './AnswerDisplay'; 
+export { AnswerDisplay } from './AnswerDisplay';
+export { default as CookieConsent } from './CookieConsent'; 

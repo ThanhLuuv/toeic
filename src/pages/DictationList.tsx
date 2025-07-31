@@ -119,11 +119,11 @@ const DictationList: React.FC = () => {
 
   const handleSetClick = (idx: number) => {
     if (tab === 'part1') {
-      navigate(`/dictation-practice/part1/${idx}`);
+      navigate(`/part1/${idx}`);
     } else if (tab === 'part2') {
-      navigate(`/dictation-practice/part2/${idx}`);
+      navigate(`/part2/${idx}`);
     } else {
-      navigate(`/dictation-practice/${idx}`);
+      navigate(`/dictation/${idx}`);
     }
   };
 

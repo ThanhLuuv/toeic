@@ -479,7 +479,7 @@ const Part1DictationPractice: React.FC = () => {
             </button>
             {setIdx < Math.ceil(part1Data.length / 10) - 1 && (
               <button
-                onClick={() => navigate(`/dictation-practice/part1/${setIdx + 1}`)}
+                onClick={() => navigate(`/part1/${setIdx + 1}`)}
                 style={{
                   background: '#0284c7', color: 'white', border: 'none', borderRadius: 8, padding: '10px 32px', fontWeight: 700, fontSize: 16, cursor: 'pointer', boxShadow: '0 2px 8px #e0e0e0', marginTop: 8
                 }}
