@@ -61,7 +61,7 @@ export const AnswerDisplay: React.FC<AnswerDisplayProps> = ({
         padding: '20px',
         display: 'inline-block',
         minWidth: '280px',
-        textAlign: 'left'
+        textAlign: 'center'
       }}>
         <div style={{ 
           fontSize: '15px', 

@@ -3,7 +3,6 @@ import vocabData from '../data/vocabulary.json';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   useAudioManager,
-  HelpPanel,
   ProgressBar,
   SoundToggle,
   BackButton,
@@ -31,6 +30,7 @@ const DictationPractice: React.FC = () => {
   const [result, setResult] = useState<(boolean | null)[]>(Array(NUM_WORDS).fill(null));
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [userRevealedAnswers, setUserRevealedAnswers] = useState<boolean[]>(Array(NUM_WORDS).fill(false));
+  const [showModal, setShowModal] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const justCheckedRef = useRef(false);
@@ -70,6 +70,7 @@ const DictationPractice: React.FC = () => {
       console.log('Playing success sound...');
       await playSuccessSound();
       setShowAnswer(true);
+      setShowModal(true);
     } else {
       console.log('Playing error sound...');
       await playErrorSound();
@@ -78,6 +79,7 @@ const DictationPractice: React.FC = () => {
 
   const handleNext = () => {
     setCurrentIndex(currentIndex + 1);
+    setShowModal(false);
   };
 
   const handleReset = () => {
@@ -85,6 +87,7 @@ const DictationPractice: React.FC = () => {
     setResult(Array(vocabList.length).fill(null));
     setShowAnswer(false);
     setCurrentIndex(0);
+    setShowModal(false);
   };
 
   const handlePrev = () => {
@@ -97,6 +100,7 @@ const DictationPractice: React.FC = () => {
       handlePlayAudio(item.audio, item.word);
     }
     setShowAnswer(false);
+    setShowModal(false);
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -111,9 +115,14 @@ const DictationPractice: React.FC = () => {
     }
   }, []);
 
-  // When moving to a new set, reset userRevealedAnswers
+  // When moving to a new set, reset all state
   useEffect(() => {
+    setCurrentIndex(0);
+    setUserInputs(Array(NUM_WORDS).fill(''));
+    setResult(Array(NUM_WORDS).fill(null));
+    setShowAnswer(false);
     setUserRevealedAnswers(Array(NUM_WORDS).fill(false));
+    setShowModal(false);
   }, [setIndex]);
 
   const item = vocabList[currentIndex];
@@ -200,9 +209,9 @@ const DictationPractice: React.FC = () => {
   // Answer display configuration
   const answerItems = showAnswer ? [{
     word: item.word,
-    phonetic: item.phonetic,
+    phonetic: '',
     type: item.type,
-    meaning: item.meaning
+    meaning: ''
   }] : [];
 
   return (
@@ -215,12 +224,104 @@ const DictationPractice: React.FC = () => {
       position: 'relative',
     }}>
       <BackButton onClick={() => navigate('/')} />
-      
-      <HelpPanel 
-        showHelp={showHelp}
-        onToggleHelp={() => setShowHelp(!showHelp)}
-        shortcuts={shortcuts}
-      />
+
+      {/* Success Modal */}
+      {showModal && isCorrect && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+        }}>
+          <div style={{
+            background: 'white',
+            borderRadius: '16px',
+            padding: '32px',
+            maxWidth: '400px',
+            width: '90%',
+            textAlign: 'center',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
+            animation: 'modalSlideIn 0.3s ease-out',
+          }}>
+            <div style={{
+              fontSize: '48px',
+              marginBottom: '16px',
+            }}>
+              🎉
+            </div>
+            <h2 style={{
+              color: '#14B24C',
+              margin: '0 0 16px 0',
+              fontSize: '24px',
+              fontWeight: 'bold',
+            }}>
+              Correct!
+            </h2>
+            <div style={{
+              background: '#f0fdf4',
+              border: '2px solid #14B24C',
+              borderRadius: '12px',
+              padding: '20px',
+              marginBottom: '24px',
+            }}>
+              <div style={{
+                fontSize: '28px',
+                fontWeight: 'bold',
+                color: '#14B24C',
+                marginBottom: '8px',
+              }}>
+                {item.meaning}
+              </div>
+              <div style={{
+                fontSize: '14px',
+                color: '#059669',
+                marginBottom: '12px',
+                fontStyle: 'italic',
+              }}>
+                {item.phonetic}
+              </div>
+              <div style={{
+                fontSize: '16px',
+                color: '#374151',
+                lineHeight: '1.5',
+              }}>
+                {item.word}
+              </div>
+            </div>
+            <button
+              onClick={handleNext}
+              style={{
+                background: '#14B24C',
+                color: 'white',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '12px 32px',
+                fontSize: '16px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                boxShadow: '0 4px 12px rgba(20, 178, 76, 0.3)',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(20, 178, 76, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(20, 178, 76, 0.3)';
+              }}
+            >
+              Next Word →
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Main Practice Card */}
       <div style={{
@@ -334,6 +435,42 @@ const DictationPractice: React.FC = () => {
         
         <ActionButtons buttons={actionButtons} />
 
+        {/* Keyboard Shortcuts Hints */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '20px',
+          marginBottom: '16px',
+          fontSize: '11px',
+          color: '#888',
+          fontFamily: 'monospace'
+        }}>
+          <span style={{
+            background: '#f8f9fa',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            border: '1px solid #e9ecef'
+          }}>
+            <kbd style={{ background: '#fff', border: '1px solid #ccc', borderRadius: '3px', padding: '1px 4px', fontSize: '10px' }}>Enter</kbd> Check/Next
+          </span>
+          <span style={{
+            background: '#f8f9fa',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            border: '1px solid #e9ecef'
+          }}>
+            <kbd style={{ background: '#fff', border: '1px solid #ccc', borderRadius: '3px', padding: '1px 4px', fontSize: '10px' }}>Shift</kbd> Audio
+          </span>
+          <span style={{
+            background: '#f8f9fa',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            border: '1px solid #e9ecef'
+          }}>
+            <kbd style={{ background: '#fff', border: '1px solid #ccc', borderRadius: '3px', padding: '1px 4px', fontSize: '10px' }}>Ctrl</kbd> Show Answer
+          </span>
+        </div>
+
         <AnswerDisplay
           showAnswer={showAnswer}
           onToggleAnswer={() => {
@@ -384,6 +521,17 @@ const DictationPractice: React.FC = () => {
 
         {/* Responsive style */}
         <style>{`
+          @keyframes modalSlideIn {
+            from {
+              opacity: 0;
+              transform: scale(0.9) translateY(-20px);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1) translateY(0);
+            }
+          }
+          
           @media (max-width: 600px) {
             div[style*='max-width: 400px'] {
               max-width: 98vw !important;
@@ -393,6 +541,31 @@ const DictationPractice: React.FC = () => {
               width: 90vw !important;
               min-width: 0 !important;
               font-size: 16px !important;
+            }
+            div[style*='gap: 20px'] {
+              gap: 8px !important;
+              flex-wrap: wrap !important;
+            }
+            div[style*='gap: 20px'] span {
+              font-size: 10px !important;
+              padding: 1px 4px !important;
+            }
+            div[style*='gap: 20px'] kbd {
+              font-size: 9px !important;
+              padding: 1px 3px !important;
+            }
+            div[style*='max-width: 400px'][style*='padding: 32px'] {
+              padding: 20px !important;
+              margin: 10px !important;
+            }
+            div[style*='max-width: 400px'][style*='padding: 32px'] h2 {
+              font-size: 20px !important;
+            }
+            div[style*='max-width: 400px'][style*='padding: 32px'] div[style*='font-size: 28px'] {
+              font-size: 24px !important;
+            }
+            div[style*='max-width: 400px'][style*='padding: 32px'] div[style*='font-size: 16px'] {
+              font-size: 14px !important;
             }
           }
         `}</style>

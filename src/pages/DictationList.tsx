@@ -158,11 +158,11 @@ const DictationList: React.FC = () => {
             `}
             onClick={() => {
               if (type === 'part1') {
-                navigate(`/dictation-practice/part1/${originalIdx}`);
+                navigate(`/part1/${originalIdx}`);
               } else if (type === 'part2') {
-                navigate(`/dictation-practice/part2/${originalIdx}`);
+                navigate(`/part2/${originalIdx}`);
               } else {
-                navigate(`/dictation-practice/${originalIdx}`);
+                navigate(`/dictation/${originalIdx}`);
               }
             }}
             onMouseEnter={() => setHoverIdx(idx)}

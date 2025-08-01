@@ -3,7 +3,6 @@ import part2Data from '../data/part2.json';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   useAudioManager,
-  HelpPanel,
   ProgressBar,
   SoundToggle,
   BackButton,
@@ -46,7 +45,6 @@ const Part2DictationPractice: React.FC = () => {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const navigate = useNavigate();
   const justCheckedRef = useRef(false);
-  const [showHelp, setShowHelp] = useState(true);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [completedSets, setCompletedSets] = useState<Set<number>>(new Set());
 
@@ -72,6 +70,15 @@ const Part2DictationPractice: React.FC = () => {
     originalHandlePlayAudio(audioUrl, text);
   }, [originalHandlePlayAudio, stopCurrentAudio]);
 
+  // When moving to a new set, reset all state first
+  useEffect(() => {
+    setCurrentIndex(0);
+    setUserInputs([]);
+    setResult([]);
+    setShowAnswer(false);
+    setUserRevealedAnswers([]);
+  }, [setIndex]);
+
   // Initialize user inputs and results when current sentence changes
   useEffect(() => {
     if (sentences[currentIndex]) {
@@ -81,7 +88,7 @@ const Part2DictationPractice: React.FC = () => {
       setUserRevealedAnswers(Array(missingWords.length).fill(false));
       setShowAnswer(false);
     }
-  }, [currentIndex, setIdx]);
+  }, [currentIndex, sentences]);
 
   const handleInputChange = (value: string, inputIndex: number) => {
     const newInputs = [...userInputs];
@@ -190,15 +197,6 @@ const Part2DictationPractice: React.FC = () => {
 
   if (!currentSentence) return <div style={{ textAlign: 'center', marginTop: 40 }}>No data available!</div>;
 
-  // Help panel shortcuts
-  const shortcuts = [
-    { key: 'Enter', description: 'Check answer' },
-    { key: 'Enter', description: 'Next sentence (after Check)' },
-    { key: 'Shift', description: 'Replay audio' },
-    { key: 'Ctrl', description: 'Show/hide answer' },
-    { key: 'Tab', description: 'Next input field' }
-  ];
-
   // Action buttons configuration
   const actionButtons = [
     {
@@ -213,7 +211,7 @@ const Part2DictationPractice: React.FC = () => {
       onClick: handleCheck,
       variant: 'success' as const,
       disabled: userInputs.some(input => !input.trim()),
-      show: !allChecked
+      show: !allChecked && userInputs.some(input => input.trim())
     },
     {
       text: 'Next',
@@ -248,12 +246,7 @@ const Part2DictationPractice: React.FC = () => {
     }}>
       <BackButton onClick={() => navigate('/')} />
       
-      <HelpPanel 
-        showHelp={showHelp}
-        onToggleHelp={() => setShowHelp(!showHelp)}
-        shortcuts={shortcuts}
-        position="top"
-      />
+
 
       {/* Main Practice Card */}
       <div style={{
@@ -436,11 +429,11 @@ const Part2DictationPractice: React.FC = () => {
                         autoComplete="off"
                         placeholder={wordCount > 1 ? '...' : '...'}
                       />
-                      {isChecked && (
-                        isCorrect ? 
-                          <span style={{ color: '#4caf50', fontSize: 16, marginLeft: 2 }}>✔️</span> : 
-                          <span style={{ color: '#f44336', fontSize: 16, marginLeft: 2 }}>❌</span>
-                      )}
+                                             {isChecked && result[inputIndex] !== null && (
+                         isCorrect ? 
+                           <span style={{ color: '#4caf50', fontSize: 16, marginLeft: 2 }}>✔️</span> : 
+                           <span style={{ color: '#f44336', fontSize: 16, marginLeft: 2 }}>❌</span>
+                       )}
                     </span>
                   );
                   
@@ -475,6 +468,42 @@ const Part2DictationPractice: React.FC = () => {
         </div>
 
         <ActionButtons buttons={actionButtons} />
+
+        {/* Keyboard Shortcuts Hints */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '20px',
+          marginBottom: '16px',
+          fontSize: '11px',
+          color: '#888',
+          fontFamily: 'monospace'
+        }}>
+          <span style={{
+            background: '#f8f9fa',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            border: '1px solid #e9ecef'
+          }}>
+            <kbd style={{ background: '#fff', border: '1px solid #ccc', borderRadius: '3px', padding: '1px 4px', fontSize: '10px' }}>Enter</kbd> Check/Next
+          </span>
+          <span style={{
+            background: '#f8f9fa',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            border: '1px solid #e9ecef'
+          }}>
+            <kbd style={{ background: '#fff', border: '1px solid #ccc', borderRadius: '3px', padding: '1px 4px', fontSize: '10px' }}>Shift</kbd> Audio
+          </span>
+          <span style={{
+            background: '#f8f9fa',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            border: '1px solid #e9ecef'
+          }}>
+            <kbd style={{ background: '#fff', border: '1px solid #ccc', borderRadius: '3px', padding: '1px 4px', fontSize: '10px' }}>Ctrl</kbd> Show Answer
+          </span>
+        </div>
 
         <AnswerDisplay
           showAnswer={showAnswer}
@@ -544,6 +573,18 @@ const Part2DictationPractice: React.FC = () => {
               width: 60px !important;
               min-width: 0 !important;
               font-size: 14px !important;
+            }
+            div[style*='gap: 20px'] {
+              gap: 8px !important;
+              flex-wrap: wrap !important;
+            }
+            div[style*='gap: 20px'] span {
+              font-size: 10px !important;
+              padding: 1px 4px !important;
+            }
+            div[style*='gap: 20px'] kbd {
+              font-size: 9px !important;
+              padding: 1px 3px !important;
             }
           }
         `}</style>
