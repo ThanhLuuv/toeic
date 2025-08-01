@@ -78,7 +78,19 @@ const DictationPractice: React.FC = () => {
   };
 
   const handleNext = () => {
-    setCurrentIndex(currentIndex + 1);
+    // If this is the last word in the current set
+    if (currentIndex === vocabList.length - 1) {
+      // Navigate to next set if available
+      if (setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1) {
+        navigate(`/dictation/${setIdx + 1}`);
+      } else {
+        // If no more sets, go back to list
+        navigate('/');
+      }
+    } else {
+      // Move to next word in current set
+      setCurrentIndex(currentIndex + 1);
+    }
     setShowModal(false);
   };
 
@@ -129,7 +141,7 @@ const DictationPractice: React.FC = () => {
   const isChecked = result[currentIndex] !== null;
   const isCorrect = result[currentIndex] === true;
   const progress = Math.round(((currentIndex + 1) / vocabList.length) * 100);
-  const showNextButton = isChecked && isCorrect && currentIndex < vocabList.length - 1;
+  const showNextButton = isChecked && isCorrect;
   const isSetCompleted = isCorrect && currentIndex === vocabList.length - 1;
 
   // Save completed set to localStorage
@@ -193,7 +205,9 @@ const DictationPractice: React.FC = () => {
       show: !isChecked
     },
     {
-      text: 'Next',
+      text: currentIndex === vocabList.length - 1 
+        ? (setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1 ? 'Next Set' : 'Finish')
+        : 'Next',
       onClick: handleNext,
       variant: 'primary' as const,
       show: showNextButton
@@ -202,7 +216,7 @@ const DictationPractice: React.FC = () => {
       text: '⏭',
       onClick: handleNext,
       variant: 'warning' as const,
-      show: currentIndex !== vocabList.length - 1
+      show: currentIndex !== vocabList.length - 1 && !isChecked
     }
   ];
 
@@ -226,7 +240,7 @@ const DictationPractice: React.FC = () => {
       <BackButton onClick={() => navigate('/')} />
 
       {/* Success Modal */}
-      {showModal && isCorrect && (
+      {showModal && isCorrect && showNextButton && (
         <div style={{
           position: 'fixed',
           top: 0,
@@ -317,7 +331,10 @@ const DictationPractice: React.FC = () => {
                 e.currentTarget.style.boxShadow = '0 4px 12px rgba(20, 178, 76, 0.3)';
               }}
             >
-              Next Word →
+              {currentIndex === vocabList.length - 1 
+                ? (setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1 ? 'Next Set →' : 'Finish →')
+                : 'Next Word →'
+              }
             </button>
           </div>
         </div>
@@ -483,7 +500,7 @@ const DictationPractice: React.FC = () => {
           title="Word:"
         />
 
-        {currentIndex === vocabList.length - 1 && isCorrect && (
+        {currentIndex === vocabList.length - 1 && isCorrect && !showModal && (
           <div style={{ textAlign: 'center', marginTop: 28 }}>
             {!completedSets.has(setIdx) && (
               <div style={{ 

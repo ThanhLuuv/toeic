@@ -123,7 +123,7 @@ export async function generateToeicPracticeQuestionPart2(userRequest: string): P
   const messages = [
     {
       role: "system",
-      content: `Bạn là giáo viên TOEIC, chuyên tạo bài luyện tập TOEIC Part 2 (Question & Response) theo yêu cầu. Hãy sinh ra 1 câu hỏi luyện tập TOEIC Part 2 phù hợp với yêu cầu sau của người dùng.
+      content: `Bạn là sẽ là người ra đề Toeic của ETS, chuyên tạo bài luyện tập TOEIC Part 2 (Question & Response) theo yêu cầu. Hãy sinh ra 1 câu hỏi luyện tập TOEIC Part 2 phù hợp với yêu cầu sau của người dùng.
 
 == HƯỚNG DẪN PHÂN TÍCH LEVEL ==
 Tự động nhận diện mức độ khó từ yêu cầu người dùng:

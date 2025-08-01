@@ -110,6 +110,7 @@ type ChatMessage =
 
 const Chatbot: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
@@ -407,7 +408,37 @@ const Chatbot: React.FC = () => {
   return (
     <>
       {/* CSS Animation cho typing indicator */}
-      <style>{typingAnimation}</style>
+      <style>{`
+        ${typingAnimation}
+        
+        @media (max-width: 768px) {
+          .chatbot-expanded {
+            width: calc(100vw - 24px) !important;
+            height: calc(100vh - 24px) !important;
+            max-width: none !important;
+            bottom: 12px !important;
+            right: 12px !important;
+          }
+          
+          .chatbot-input-expanded {
+            padding: 12px !important;
+            gap: 8px !important;
+          }
+          
+          .chatbot-textarea-expanded {
+            font-size: 16px !important;
+            padding: 10px 12px !important;
+            min-height: 44px !important;
+          }
+          
+          .chatbot-button-expanded {
+            padding: 0 16px !important;
+            font-size: 16px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+          }
+        }
+      `}</style>
       
       {/* Nút nổi mở chat */}
       {!open && (
@@ -446,19 +477,22 @@ const Chatbot: React.FC = () => {
       {/* Khung chat */}
       {open && (
         <div
+          className={isExpanded ? 'chatbot-expanded' : ''}
           style={{
             position: 'fixed',
             bottom: 24,
             right: 24,
-            width: 340,
-            height: 480,
+            width: isExpanded ? 'calc(100vw - 48px)' : 340,
+            height: isExpanded ? 'calc(100vh - 48px)' : 480,
+            maxWidth: isExpanded ? 800 : 340,
             background: '#fff',
             borderRadius: 12,
             boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
             zIndex: 3001,
             display: 'flex',
             flexDirection: 'column',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            transition: 'all 0.3s ease-in-out'
           }}
         >
           {/* Hướng dẫn tạo bài luyện tập */}
@@ -515,6 +549,38 @@ const Chatbot: React.FC = () => {
                 <line x1="14" y1="11" x2="14" y2="17"></line>
               </svg>
             </button>
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)}
+              style={{ 
+                background: 'none', 
+                border: 'none', 
+                color: '#fff', 
+                cursor: 'pointer', 
+                padding: '6px 8px',
+                borderRadius: '4px',
+                transition: 'background-color 0.2s ease',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              onMouseOver={(e: any) => e.target.style.backgroundColor = 'rgba(255,255,255,0.1)'}
+              onMouseOut={(e: any) => e.target.style.backgroundColor = 'transparent'}
+              title={isExpanded ? "Thu nhỏ" : "Mở to"}
+            >
+              {isExpanded ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                  <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+                  <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+                  <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                </svg>
+              )}
+            </button>
               <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', color: '#fff', fontSize: 20, cursor: 'pointer' }}>&times;</button>
             </div>
           </div>
@@ -565,7 +631,14 @@ const Chatbot: React.FC = () => {
               </button>
             </div>
           )}
-          <div style={{ flex: 1, padding: 12, overflowY: 'auto', background: '#f7f7f7' }}>
+          <div style={{ 
+            flex: 1, 
+            padding: isExpanded ? '20px' : '12px', 
+            overflowY: 'auto', 
+            background: '#f7f7f7',
+            maxWidth: isExpanded ? '800px' : 'none',
+            margin: isExpanded ? '0 auto' : '0'
+          }}>
             {/* Nếu đang tạo bài luyện tập */}
             {practiceLoading && (
                               <div className="flex items-center justify-center py-4 text-green-700 font-medium">Đang tạo bài luyện tập TOEIC...</div>
@@ -596,11 +669,27 @@ const Chatbot: React.FC = () => {
 
                 // Part 3: render hội thoại + 3 câu hỏi riêng biệt
                 if (partType === 'part3' && practice.questions && Array.isArray(practice.questions)) {
-                  return (
-                    <div key={idx} className="mb-4 p-3 rounded-lg border border-blue-200">
-                      <div className="flex justify-between items-center mb-2">
-                        <div className="font-semibold text-green-800">📝 TOEIC Practice PART 3</div>
-                      </div>
+                                  return (
+                  <div key={idx} style={{
+                    marginBottom: '16px',
+                    padding: isExpanded ? '20px' : '12px',
+                    borderRadius: '12px',
+                    border: '1px solid #bfdbfe',
+                    background: '#fff',
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                  }}>
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '8px'
+                    }}>
+                      <div style={{
+                        fontWeight: '600',
+                        color: '#166534',
+                        fontSize: isExpanded ? '18px' : '16px'
+                      }}>📝 TOEIC Practice PART 3</div>
+                    </div>
                       {/* Hiển thị audio nếu có */}
                       {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
                       {/* Render từng câu hỏi */}
@@ -629,83 +718,77 @@ const Chatbot: React.FC = () => {
                                   }
                                   const disabled = qShowResult;
                                   return (
-                                    <button
-                                      key={opt}
-                                      className={choiceClass}
-                                      onClick={() => {
-                                        setPart3Answers(prev => ({
-                                          ...prev,
-                                          [idx]: { ...(prev[idx] || {}), [qIdx]: opt }
-                                        }));
-                                      }}
-                                      disabled={disabled}
-                                    >
-                                      <div className="flex items-center space-x-2">
-                                        <span className="font-semibold text-gray-600">{opt}.</span>
-                                        {/* Hiển thị text đáp án */}
-                                        <span className="text-gray-800">{q.choices?.[opt] || ''}</span>
-                                        {qShowResult && isCorrect && (
-                                          <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                          </svg>
-                                        )}
-                                        {isSelected && !isCorrect && (
-                                          <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                          </svg>
-                                        )}
-                                      </div>
-                                    </button>
+                                    <div key={opt} className="relative">
+                                      <button
+                                        className={choiceClass}
+                                        onClick={() => {
+                                          setPart3Answers(prev => ({
+                                            ...prev,
+                                            [idx]: { ...(prev[idx] || {}), [qIdx]: opt }
+                                          }));
+                                        }}
+                                        disabled={disabled}
+                                      >
+                                        <div className="flex items-center space-x-2">
+                                          <span className="font-semibold text-gray-600">{opt}.</span>
+                                          {/* Hiển thị text đáp án */}
+                                          <span className="text-gray-800">
+                                            {part3ShowTranslation[idx]?.[qIdx]?.[opt] && q.choicesVi && q.choicesVi[opt]
+                                              ? q.choicesVi[opt]
+                                              : q.choices?.[opt] || ''
+                                            }
+                                          </span>
+                                          {qShowResult && isCorrect && (
+                                            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                          )}
+                                          {isSelected && !isCorrect && (
+                                            <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                          )}
+                                        </div>
+                                      </button>
+                                      {/* Translate button positioned absolutely on top of answer button */}
+                                      {qShowResult && q.choicesVi && q.choicesVi[opt] && (
+                                        <button
+                                          className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
+                                          onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            setPart3ShowTranslation(prev => ({
+                                              ...prev,
+                                              [idx]: {
+                                                ...(prev[idx] || {}),
+                                                [qIdx]: {
+                                                  ...(prev[idx]?.[qIdx] || {}),
+                                                  [opt]: !prev[idx]?.[qIdx]?.[opt]
+                                                }
+                                              }
+                                            }));
+                                          }}
+                                          type="button"
+                                        >
+                                          {part3ShowTranslation[idx]?.[qIdx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                        </button>
+                                      )}
+                                    </div>
                                   );
                                 })}
                               </div>
-                              {/* Sau khi chọn đáp án, transcript, giải thích, mẹo, bẫy, loại câu hỏi */}
+                              {/* Sau khi chọn đáp án, giải thích, mẹo, bẫy, loại câu hỏi */}
                               {qShowResult && (
                                 <div className="mt-4 space-y-4">
-                                  {/* Transcript đáp án */}
-                                  {(q.choices && q.choicesVi) && (
-                                    <div className="p-3 rounded-lg border border-green-200">
-                                      <h6 className="font-medium text-green-800 mb-2">📝 Transcript:</h6>
-                                      <div className="space-y-2">
-                                        {['A','B','C'].map(opt => (
-                                          <div key={opt} className="flex items-center space-x-2">
-                                            <span className="font-semibold min-w-[20px]">{opt}.</span>
-                                            {part3ShowTranslation[idx]?.[qIdx]?.[opt]
-                                              ? <span className="text-green-700">{q.choicesVi?.[opt]}</span>
-                                              : <span>{q.choices[opt]}</span>
-                                            }
-                                            <button
-                                              className="ml-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300"
-                                              onClick={() => {
-                                                setPart3ShowTranslation(prev => ({
-                                                  ...prev,
-                                                  [idx]: {
-                                                    ...(prev[idx] || {}),
-                                                    [qIdx]: {
-                                                      ...(prev[idx]?.[qIdx] || {}),
-                                                      [opt]: !prev[idx]?.[qIdx]?.[opt]
-                                                    }
-                                                  }
-                                                }));
-                                              }}
-                                              type="button"
-                                            >
-                                              Dịch
-                                            </button>
-                                          </div>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  )}
                                   {/* Giải thích cho từng câu hỏi */}
                                   <div className="p-3 rounded-lg border border-gray-200">
                                     <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
-                                    <p className="text-gray-700 text-sm">{q.explanation}</p>
+                                    <p className="text-gray-700 text-sm text-left">{q.explanation}</p>
                                     {/* Bẫy */}
                                     {q.traps && (
                                       <div className="mt-2">
                                         <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
-                                        <p className="text-gray-700 text-sm">{q.traps}</p>
+                                        <p className="text-gray-700 text-sm text-left">{q.traps}</p>
                                       </div>
                                     )}
                                     {/* Tips */}
@@ -733,9 +816,25 @@ const Chatbot: React.FC = () => {
                   );
                 }
                 return (
-                  <div key={idx} className="mb-4 p-3 rounded-lg border border-green-200">
-                    <div className="flex justify-between items-center mb-2">
-                      <div className="font-semibold text-green-800">
+                  <div key={idx} style={{
+                    marginBottom: '16px',
+                    padding: isExpanded ? '20px' : '12px',
+                    borderRadius: '12px',
+                    border: '1px solid #bbf7d0',
+                    background: '#fff',
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                  }}>
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '8px'
+                    }}>
+                      <div style={{
+                        fontWeight: '600',
+                        color: '#166534',
+                        fontSize: isExpanded ? '18px' : '16px'
+                      }}>
                         📝 TOEIC Practice {partType.toUpperCase()}
                       </div>
                     </div>
@@ -766,77 +865,87 @@ const Chatbot: React.FC = () => {
                         }
                         const disabled = showResult;
                         return (
-                          <button
-                            key={opt}
-                            className={choiceClass}
-                            onClick={() => handlePracticeAnswer(idx, opt)}
-                            disabled={disabled}
-                          >
-                            <div className="flex items-center space-x-2">
-                              <span className="font-semibold text-gray-600">{opt}.</span>
-                              {/* KHÔNG render text đáp án */}
-                              {showResult && isCorrect && (
-                                <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                              )}
-                              {isSelected && !isCorrect && (
-                                <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
+                          <div key={opt} className="space-y-1">
+                            <div className="relative">
+                              <button
+                                className={choiceClass}
+                                onClick={() => handlePracticeAnswer(idx, opt)}
+                                disabled={disabled}
+                              >
+                                <div className="flex items-center space-x-2">
+                                  <span className="font-semibold text-gray-600">{opt}.</span>
+                                  {/* Chỉ hiển thị text khi đã trả lời */}
+                                  {showResult && practice.choices && practice.choices[opt] ? (
+                                    <div className="flex-1 text-left">
+                                      <div className="text-gray-800">
+                                        {showTranslation[idx]?.[opt] && practice.choicesVi && practice.choicesVi[opt] 
+                                          ? practice.choicesVi[opt] 
+                                          : practice.choices[opt]
+                                        }
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <div className="flex-1 text-left text-gray-600">
+                                      {/* Không hiển thị text trước khi trả lời */}
+                                    </div>
+                                  )}
+                                  {showResult && isCorrect && (
+                                    <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                  )}
+                                  {isSelected && !isCorrect && (
+                                    <svg className="w-4 h-4 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                  )}
+                                </div>
+                              </button>
+                              {/* Translate button positioned absolutely on top of answer button */}
+                              {showResult && practice.choices && practice.choices[opt] && practice.choicesVi && practice.choicesVi[opt] && (
+                                <button
+                                  className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    toggleTranslation(idx, opt);
+                                  }}
+                                  type="button"
+                                >
+                                  {showTranslation[idx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                </button>
                               )}
                             </div>
-                          </button>
+                          </div>
                         );
                       })}
                     </div>
-                    {/* Sau khi chọn đáp án, render lại transcript, giải thích, mẹo, bẫy, loại câu hỏi */}
+                    {/* Sau khi chọn đáp án, render lại giải thích, mẹo, bẫy, loại câu hỏi */}
                     {showResult && (
                       <div className="mt-4 space-y-4">
-                        {/* Transcript cho Part 1, 2 */}
-                        {(practice.choices && practice.choicesVi) && (
+                        {/* Hiển thị câu hỏi cho Part 2 nếu có */}
+                        {practice.partType === 'part2' && practice.question && (
                           <div className="p-3 rounded-lg border border-green-200">
-                            <h6 className="font-medium text-green-800 mb-2">📝 Transcript:</h6>
-                            {/* Nếu là Part 2, hiển thị câu hỏi tiếng Anh */}
-                            {practice.partType === 'part2' && practice.question && (
-                              <div className="mb-2 font-semibold text-green-900">{practice.question}</div>
-                            )}
-                            <div className="space-y-2">
-                              {['A','B','C'].map(opt => (
-                                <div key={opt} className="flex items-center space-x-2">
-                                  <span className="font-semibold min-w-[20px]">{opt}.</span>
-                                  {showTranslation[idx]?.[opt]
-                                    ? <span className="text-green-700">{practice.choicesVi?.[opt]}</span>
-                                    : <span>{practice.choices[opt]}</span>
-                                  }
-                                  <button
-                                    className="ml-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300"
-                                    onClick={() => toggleTranslation(idx, opt)}
-                                    type="button"
-                                  >
-                                    Dịch
-                                  </button>
-                                </div>
-                              ))}
-                            </div>
+                            <h6 className="font-medium text-green-800 mb-2">📝 Câu hỏi:</h6>
+                            <div className="font-semibold text-green-900">{practice.question}</div>
                           </div>
                         )}
                         {/* Giải thích cho tất cả parts */}
                         <div className="p-3 rounded-lg border border-gray-200">
                           <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
-                          <p className="text-gray-700 text-sm">{practice.explanation}</p>
+                          <p className="text-gray-700 text-sm text-left">{practice.explanation}</p>
                           {/* Bẫy cho Part 1 */}
                           {practice.traps && (
                             <div className="mt-2">
                               <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
-                              <p className="text-gray-700 text-sm">{practice.traps}</p>
+                              <p className="text-gray-700 text-sm text-left">{practice.traps}</p>
                             </div>
                           )}
                           {/* Tips cho Part 2 */}
                           {practice.tips && (
                             <div className="mt-2">
                               <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
-                              <p className="text-gray-700 text-sm">{practice.tips}</p>
+                              <p className="text-gray-700 text-sm text-left">{practice.tips}</p>
                             </div>
                           )}
                           {/* Thông tin loại câu hỏi cho Part 2 */}
@@ -906,25 +1015,55 @@ const Chatbot: React.FC = () => {
               }
               if (msg.role === 'user' && msg.image) {
                 return (
-                  <div key={idx} style={{ margin: '8px 0', textAlign: 'right' }}>
-                    <img src={msg.image} alt="uploaded" style={{ maxWidth: 120, maxHeight: 120, borderRadius: 8, marginBottom: 4, border: '1px solid #eee' }} />
-                    <span style={{ display: 'inline-block', background: '#14B24C', color: '#fff', borderRadius: 16, padding: '8px 14px', maxWidth: '80%', fontSize: 15 }}>{msg.text}</span>
+                  <div key={idx} style={{ 
+                    margin: isExpanded ? '12px 0' : '8px 0', 
+                    textAlign: 'right' 
+                  }}>
+                    <img src={msg.image} alt="uploaded" style={{ 
+                      maxWidth: isExpanded ? 200 : 120, 
+                      maxHeight: isExpanded ? 200 : 120, 
+                      borderRadius: 8, 
+                      marginBottom: 4, 
+                      border: '1px solid #eee' 
+                    }} />
+                    <span style={{ 
+                      display: 'inline-block', 
+                      background: '#14B24C', 
+                      color: '#fff', 
+                      borderRadius: 16, 
+                      padding: isExpanded ? '12px 18px' : '8px 14px', 
+                      maxWidth: '80%', 
+                      fontSize: isExpanded ? '16px' : '15px',
+                      boxShadow: '0 2px 4px rgba(20, 178, 76, 0.2)'
+                    }}>{msg.text}</span>
                   </div>
                 );
               }
               // Render user không có image:
               if (msg.role === 'user' && !msg.image) {
                 return (
-                  <div key={idx} style={{ margin: '8px 0', textAlign: 'right' }}>
-                    <span style={{ display: 'inline-block', background: '#14B24C', color: '#fff', borderRadius: 16, padding: '8px 14px', maxWidth: '80%', fontSize: 15 }}>{msg.text}</span>
+                  <div key={idx} style={{ 
+                    margin: isExpanded ? '12px 0' : '8px 0', 
+                    textAlign: 'right' 
+                  }}>
+                    <span style={{ 
+                      display: 'inline-block', 
+                      background: '#14B24C', 
+                      color: '#fff', 
+                      borderRadius: 16, 
+                      padding: isExpanded ? '12px 18px' : '8px 14px', 
+                      maxWidth: '80%', 
+                      fontSize: isExpanded ? '16px' : '15px',
+                      boxShadow: '0 2px 4px rgba(20, 178, 76, 0.2)'
+                    }}>{msg.text}</span>
                   </div>
                 );
               }
-              // render user/bot như cũ
+              // render bot messages
               if (msg.role === 'bot') {
                 return (
                   <div key={idx} style={{
-                    margin: '8px 0',
+                    margin: isExpanded ? '12px 0' : '8px 0',
                     textAlign: 'left'
                   }}>
                     <span
@@ -933,19 +1072,21 @@ const Chatbot: React.FC = () => {
                         background: '#e3eafc',
                         color: '#222',
                         borderRadius: 16,
-                        padding: '8px 14px',
+                        padding: isExpanded ? '12px 18px' : '8px 14px',
                         maxWidth: '80%',
-                        fontSize: 15
+                        fontSize: isExpanded ? '16px' : '15px',
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                        lineHeight: '1.5'
                       }}
                       dangerouslySetInnerHTML={{ __html: simpleMarkdownToHtml(msg.text) }}
                     />
                   </div>
                 );
               }
-              // user
+              // user fallback
               return (
                 <div key={idx} style={{
-                  margin: '8px 0',
+                  margin: isExpanded ? '12px 0' : '8px 0',
                   textAlign: 'right'
                 }}>
                   <span style={{
@@ -953,16 +1094,26 @@ const Chatbot: React.FC = () => {
                     background: '#14B24C',
                     color: '#fff',
                     borderRadius: 16,
-                    padding: '8px 14px',
+                    padding: isExpanded ? '12px 18px' : '8px 14px',
                     maxWidth: '80%',
-                    fontSize: 15
+                    fontSize: isExpanded ? '16px' : '15px',
+                    boxShadow: '0 2px 4px rgba(20, 178, 76, 0.2)'
                   }}>{msg.text}</span>
                 </div>
               );
             })}
             <div ref={chatEndRef} />
           </div>
-          <div style={{ display: 'flex', borderTop: '1px solid #e5e7eb', padding: 8, background: '#f9fafb' }}>
+          <div 
+            className={isExpanded ? 'chatbot-input-expanded' : ''}
+            style={{ 
+              display: 'flex', 
+              borderTop: '1px solid #e5e7eb', 
+              padding: isExpanded ? '16px' : '8px', 
+              background: '#f9fafb',
+              gap: isExpanded ? '12px' : '8px'
+            }}
+          >
             <textarea
               ref={inputRef}
               value={input}
@@ -974,30 +1125,56 @@ const Chatbot: React.FC = () => {
                 }
               }}
               placeholder="Nhập câu hỏi về TOEIC..."
-              style={{ flex: 1, border: 'none', outline: 'none', fontSize: 15, padding: 8, borderRadius: 8, resize: 'none', minHeight: 38, maxHeight: 90 }}
+              className={isExpanded ? 'chatbot-textarea-expanded' : ''}
+              style={{ 
+                flex: 1, 
+                border: '1px solid #e5e7eb', 
+                outline: 'none', 
+                fontSize: isExpanded ? '16px' : '15px', 
+                padding: isExpanded ? '12px 16px' : '8px', 
+                borderRadius: 8, 
+                resize: 'none', 
+                minHeight: isExpanded ? '50px' : '38px', 
+                maxHeight: isExpanded ? '120px' : '90px',
+                fontFamily: 'inherit',
+                transition: 'border-color 0.2s ease'
+              }}
               rows={1}
             />
             <button
               onClick={handleSend}
               disabled={loading || !input.trim()}
+              className={isExpanded ? 'chatbot-button-expanded' : ''}
               style={{
-                marginLeft: 8,
                 background: 'linear-gradient(135deg, #14B24C 0%, #16a34a 100%)',
                 color: '#fff',
                 border: 'none',
                 borderRadius: 8,
-                padding: '0 12px',
-                fontSize: 16,
+                padding: isExpanded ? '0 20px' : '0 12px',
+                fontSize: isExpanded ? '18px' : '16px',
                 cursor: loading ? 'not-allowed' : 'pointer',
-                height: 38,
+                height: isExpanded ? '50px' : '38px',
+                minWidth: isExpanded ? '50px' : '38px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 2px 4px rgba(20, 178, 76, 0.2)'
+              }}
+              onMouseEnter={(e) => {
+                if (!loading && input.trim()) {
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  e.currentTarget.style.boxShadow = '0 4px 8px rgba(20, 178, 76, 0.3)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 2px 4px rgba(20, 178, 76, 0.2)';
               }}
             >
               <svg
-                width="18"
-                height="18"
+                width={isExpanded ? "20" : "18"}
+                height={isExpanded ? "20" : "18"}
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"

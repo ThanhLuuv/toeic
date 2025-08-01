@@ -6,7 +6,7 @@ export async function analyzeWithAI(logText: string): Promise<any> {
   const messages = [
     {
       role: "system",
-      content: "Bạn là một giáo viên TOEIC Part 1 thông minh, chuyên phân tích lỗi học viên và đưa ra bài luyện tập chính xác theo từng lỗi."
+      content: "Bạn là một giáo viên TOEIC Part 1 thông minh của ETS, chuyên phân tích lỗi học viên và đưa ra bài luyện tập chính xác theo từng lỗi."
     },
     {
       role: "user",
@@ -81,28 +81,92 @@ export async function analyzeWithAI(logText: string): Promise<any> {
 
                         == EXAMPLE ==
                         {
-                            "questionNumber": 1,
-                            "imageDescription": "A black-and-white photo shows a man holding a pen beside a closed laptop on a bare table.",
-                            "choices": {
-                                "A": "A man is holding a pen beside a closed laptop.",
-                                "B": "A man is typing on a laptop.",
-                                "C": "A book is on the table."
+                          "questionNumber": 1,
+                          "level": "Basic",
+                          "type": "people",
+                          "imageDescription": "A woman is eating alone at a stone picnic table near a parked car in a rest area.",
+                          "subjectVocabulary": [
+                            {
+                              "word": "woman",
+                              "meaning": "người phụ nữ",
+                              "pronunciation": "/ˈwʊmən/",
+                              "isCorrect": true
                             },
-                            "choices": {
-                                "A": "A man is holding a pen beside a closed laptop.",
-                                "B": "A man is typing on a laptop.",
-                                "C": "A book is on the table."
+                            {
+                              "word": "table",
+                              "meaning": "cái bàn",
+                              "pronunciation": "/ˈteɪbl/",
+                              "isCorrect": true
                             },
-                            "choicesVi": {
-                                "A": "Một người đàn ông đang cầm cây bút bên cạnh máy tính xách tay đã đóng.",
-                                "B": "Một người đàn ông đang gõ phím trên máy tính xách tay.",
-                                "C": "Một quyển sách nằm trên bàn."
+                            {
+                              "word": "car",
+                              "meaning": "xe hơi",
+                              "pronunciation": "/kɑːr/",
+                              "isCorrect": true
                             },
-                            "correctAnswer": "A",
-                            "explanation": "Đáp án A đúng vì mô tả chính xác hành động và vị trí các vật. B sai về hành động (typing thay vì holding), C sai về vật thể (book thay vì pen).",
-                            "traps": "Dùng từ đúng (laptop) nhưng hành động sai (typing thay vì holding pen), Tập trung sai vào vật không có (book) thay vì vật chính (pen)"
+                            {
+                              "word": "rabbit",
+                              "meaning": "con thỏ",
+                              "pronunciation": "/ˈræbɪt/",
+                              "isCorrect": false
+                            },
+                            {
+                              "word": "man",
+                              "meaning": "người đàn ông",
+                              "pronunciation": "/mæn/",
+                              "isCorrect": false
+                            }
+                          ],
+                          "descriptiveVocabulary": [
+                            {
+                              "word": "eating",
+                              "meaning": "đang ăn",
+                              "pronunciation": "/ˈiːtɪŋ/",
+                              "isCorrect": true
+                            },
+                            {
+                              "word": "sitting",
+                              "meaning": "đang ngồi",
+                              "pronunciation": "/ˈsɪtɪŋ/",
+                              "isCorrect": true
+                            },
+                            {
+                              "word": "parked",
+                              "meaning": "đậu (xe)",
+                              "pronunciation": "/pɑːrkt/",
+                              "isCorrect": true
+                            },
+                            {
+                              "word": "barking",
+                              "meaning": "sủa (chó)",
+                              "pronunciation": "/ˈbɑːrkɪŋ/",
+                              "isCorrect": false
+                            },
+                            {
+                              "word": "flying",
+                              "meaning": "đang bay",
+                              "pronunciation": "/ˈflaɪɪŋ/",
+                              "isCorrect": false
+                            }
+                          ],
+                          "choices": {
+                            "A": "She's eating in a picnic area.",
+                            "B": "She's waiting in line at a food truck.",
+                            "C": "She's wiping off a bench.",
+                            "D": "She's throwing away a plate."
+                          },
+                          "choicesVi": {
+                            "A": "Cô ấy đang ăn trong khu vực picnic.",
+                            "B": "Cô ấy đang chờ xếp hàng tại xe bán thức ăn.",
+                            "C": "Cô ấy đang lau ghế.",
+                            "D": "Cô ấy đang vứt một cái đĩa."
+                          },
+                          "correctAnswer": "A",
+                          "explanation": "A đúng vì mô tả chính xác người phụ nữ đang ăn tại bàn picnic.",
+                          "traps": "B: Sai hành động (không xếp hàng). C: Sai hành động (không vứt đĩa).",
+                          "image": "https://res.cloudinary.com/deroljhou/image/upload/v1753772923/755a2e8c-6508-4162-8bb4-4afa5b6450ec.png",
+                          "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1753773361/PART_1_-_TEST_1__cut_22sec_etkr57.mp3"
                         }
-
                         == QUY TRÌNH KIỂM TRA NHANH ==
                         - Đánh dấu chủ thể – hành động – vị trí – số lượng trong imageDescription.
                         - Đối chiếu từng lựa chọn: chỉ cần đúng với ảnh, không cần đầy đủ so với ảnh; Câu sai lệch ≥ 1 yếu tố.
@@ -287,7 +351,7 @@ export async function generateToeicPracticeQuestion(userRequest: string): Promis
   const messages = [
     {
       role: "system",
-      content: `Bạn là giáo viên TOEIC, chuyên tạo bài luyện tập TOEIC Part 1 theo yêu cầu. Hãy sinh ra 1 câu hỏi luyện tập TOEIC phù hợp với yêu cầu sau của người dùng.
+      content: `Bạn là sẽ là người ra đề Toeic của ETS, chuyên tạo bài luyện tập TOEIC Part 1 theo yêu cầu. Hãy sinh ra 1 câu hỏi luyện tập TOEIC phù hợp với yêu cầu sau của người dùng.
 
 == HƯỚNG DẪN PHÂN TÍCH LEVEL ==
 Tự động nhận diện mức độ khó từ yêu cầu người dùng:
