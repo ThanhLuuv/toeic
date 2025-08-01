@@ -6,6 +6,10 @@ import Part1DictationPractice from './components/Part1DictationPractice';
 import Part2DictationPractice from './components/Part2DictationPractice';
 import DictationList from './pages/DictationList';
 import { CookieConsent } from './components/common';
+import FloatingFeedback from './components/FloatingFeedback';
+import Chatbot from './components/Chatbot';
+import Footer from './components/Home/Footer';
+import Header from './components/Home/Header';
 
 declare global {
   interface Window {
@@ -29,6 +33,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Header />
         <Routes>
           <Route path="/" element={<DictationList />} />
           <Route path="/dictation/:setIndex" element={<DictationPractice />} />
@@ -41,6 +46,9 @@ function App() {
           onAccept={handleCookieAccept}
           onDecline={handleCookieDecline}
         />
+        <FloatingFeedback />
+        <Chatbot />
+        <Footer />
       </div>
     </Router>
   );

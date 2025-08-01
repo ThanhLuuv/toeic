@@ -273,7 +273,7 @@ const DictationPractice: React.FC = () => {
               <div style={{
                 fontSize: '28px',
                 fontWeight: 'bold',
-                color: '#14B24C',
+                color: 'red',
                 marginBottom: '8px',
               }}>
                 {item.meaning}
