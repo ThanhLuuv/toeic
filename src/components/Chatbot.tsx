@@ -2,6 +2,10 @@ import React, { useState, useRef } from 'react';
 import { generateToeicPracticeQuestion, generateImageBase64, generateAudioBase64,} from './TestPart1/aiUtils';
 import { generateToeicPracticeQuestionPart2, generateAudioBase64Part2 } from './TestPart2/aiUtils';
 import { generateToeicPracticeQuestionPart3, generateAudioBase64Part3 } from './TestPart3/aiUtils';
+import { generateToeicPracticeQuestionPart4, generateAudioBase64Part4 } from './TestPart4/aiUtils';
+import { generateToeicPracticeQuestionPart5 } from './TestPart5/aiUtils';
+import { generateToeicPracticeQuestionPart6 } from './TestPart6/aiUtils';
+import { generateToeicPracticeQuestionPart7 } from './TestPart7/aiUtils';
 
 // Hàm gọi OpenAI API đơn giản cho hỏi đáp TOEIC
 async function askToeicAI(question: string, chatHistory: {role: 'user'|'bot', text: string}[] = []): Promise<string> {
@@ -74,25 +78,37 @@ function simpleMarkdownToHtml(text: string): string {
 
 // Nhận diện yêu cầu tạo bài tập TOEIC (câu hỏi luyện tập)
 function isPracticeRequest(text: string) {
-  // Nhận diện mẫu cũ hoặc cú pháp @part1, @part2, @part3
+  // Nhận diện mẫu cũ hoặc cú pháp @part1, @part2, @part3, @part4, @part5, @part6, @part7
   return (
-    /tạo cho tôi ((1|một) câu|câu hỏi).*(part ?[123]|ảnh|photograph|question ?response|hội ?thoại)/i.test(text)
-    || /^@part[123]\b/i.test(text.trim())
+    /tạo cho tôi ((1|một) câu|câu hỏi).*(part ?[1234567]|ảnh|photograph|question ?response|hội ?thoại|short ?talks|incomplete ?sentences|text ?completion|reading ?comprehension)/i.test(text)
+    || /^@part[1234567]\b/i.test(text.trim())
   );
 }
 
 // Nhận diện loại part từ yêu cầu
-function detectPartType(text: string): 'part1' | 'part2' | 'part3' {
+function detectPartType(text: string): 'part1' | 'part2' | 'part3' | 'part4' | 'part5' | 'part6' | 'part7' {
   const trimmed = text.trim();
   if (/^@part1\b/i.test(trimmed)) return 'part1';
   if (/^@part2\b/i.test(trimmed)) return 'part2';
   if (/^@part3\b/i.test(trimmed)) return 'part3';
+  if (/^@part4\b/i.test(trimmed)) return 'part4';
+  if (/^@part5\b/i.test(trimmed)) return 'part5';
+  if (/^@part6\b/i.test(trimmed)) return 'part6';
+  if (/^@part7\b/i.test(trimmed)) return 'part7';
   if (/\bpart\s*1\b|\bphotograph|\bảnh|\bimage/i.test(text)) {
     return 'part1';
   } else if (/\bpart\s*2\b|\bquestion\s*response|\bcâu\s*hỏi\s*đáp/i.test(text)) {
     return 'part2';
   } else if (/\bpart\s*3\b|\bconversation|\bhội\s*thoại/i.test(text)) {
     return 'part3';
+  } else if (/\bpart\s*4\b|\bshort\s*talks|\bbài\s*nói\s*ngắn/i.test(text)) {
+    return 'part4';
+  } else if (/\bpart\s*5\b|\bincomplete\s*sentences|\bcâu\s*chưa\s*hoàn\s*chỉnh/i.test(text)) {
+    return 'part5';
+  } else if (/\bpart\s*6\b|\btext\s*completion|\bđiền\s*từ\s*vào\s*đoạn/i.test(text)) {
+    return 'part6';
+  } else if (/\bpart\s*7\b|\breading\s*comprehension|\bđọc\s*hiểu/i.test(text)) {
+    return 'part7';
   }
   return 'part1'; // Mặc định là part 1
 }
@@ -122,6 +138,10 @@ const Chatbot: React.FC = () => {
   const [showTranslation, setShowTranslation] = useState<{ [msgIdx: number]: { [opt: string]: boolean } }>({});
   const [part3Answers, setPart3Answers] = useState<{ [msgIdx: number]: { [qIdx: number]: string } }>({});
   const [part3ShowTranslation, setPart3ShowTranslation] = useState<{ [msgIdx: number]: { [qIdx: number]: { [opt: string]: boolean } } }>({});
+  const [part6Answers, setPart6Answers] = useState<{ [msgIdx: number]: { [qIdx: number]: string } }>({});
+  const [part6ShowTranslation, setPart6ShowTranslation] = useState<{ [msgIdx: number]: { [qIdx: number]: { [opt: string]: boolean } } }>({});
+  const [part7Answers, setPart7Answers] = useState<{ [msgIdx: number]: { [qIdx: number]: string } }>({});
+  const [part7ShowTranslation, setPart7ShowTranslation] = useState<{ [msgIdx: number]: { [qIdx: number]: { [opt: string]: boolean } } }>({});
   const [showGuide, setShowGuide] = useState(true);
 
   // Toggle dịch cho từng đáp án
@@ -222,8 +242,8 @@ const Chatbot: React.FC = () => {
     
     // Nếu là yêu cầu tạo bài tập TOEIC
     if (isPracticeRequest(input)) {
-      // Nếu là cú pháp @part1/@part2/@part3 thì tạo luôn, không xác nhận
-      if (/^@part[123]\b/i.test(input.trim())) {
+              // Nếu là cú pháp @part1/@part2/@part3/@part4/@part5/@part6/@part7 thì tạo luôn, không xác nhận
+              if (/^@part[1234567]\b/i.test(input.trim())) {
         // Gọi luôn handleConfirmPractice logic với confirmed=true
         setMessages(msgs => [...msgs, { role: 'practice-loading' }]);
         setPracticeLoading(true);
@@ -242,6 +262,13 @@ const Chatbot: React.FC = () => {
           } else if (partType === 'part3') {
             result = await generateToeicPracticeQuestionPart3(input);
             try { audioBase64 = await generateAudioBase64Part3(result.practiceQuestion); } catch {}
+          } else if (partType === 'part4') {
+            result = await generateToeicPracticeQuestionPart4(input);
+            try { audioBase64 = await generateAudioBase64Part4(result.practiceQuestion); } catch {}
+          } else if (partType === 'part5') {
+            result = await generateToeicPracticeQuestionPart5(input);
+          } else if (partType === 'part6') {
+            result = await generateToeicPracticeQuestionPart6(input);
           }
           const practiceMsg: ChatMessage = {
             role: 'practice',
@@ -346,6 +373,15 @@ const Chatbot: React.FC = () => {
       } else if (partType === 'part3') {
         result = await generateToeicPracticeQuestionPart3(msg.original);
         try { audioBase64 = await generateAudioBase64Part3(result.practiceQuestion); } catch {}
+      } else if (partType === 'part4') {
+        result = await generateToeicPracticeQuestionPart4(msg.original);
+        try { audioBase64 = await generateAudioBase64Part4(result.practiceQuestion); } catch {}
+      } else if (partType === 'part5') {
+        result = await generateToeicPracticeQuestionPart5(msg.original);
+      } else if (partType === 'part6') {
+        result = await generateToeicPracticeQuestionPart6(msg.original);
+      } else if (partType === 'part7') {
+        result = await generateToeicPracticeQuestionPart7(msg.original);
       }
       
       const practiceMsg: ChatMessage = {
@@ -378,8 +414,16 @@ const Chatbot: React.FC = () => {
       // Part 3 có nhiều câu hỏi, cần xác định câu hỏi nào đang được trả lời
       // Tạm thời chỉ xử lý câu hỏi đầu tiên
       correct = answer === msg.data.questions?.[0]?.correctAnswer;
+    } else if (partType === 'part6') {
+      // Part 6 có nhiều câu hỏi, cần xác định câu hỏi nào đang được trả lời
+      // Tạm thời chỉ xử lý câu hỏi đầu tiên
+      correct = answer === msg.data.questions?.[0]?.correctAnswer;
+    } else if (partType === 'part7') {
+      // Part 7 có nhiều câu hỏi, cần xác định câu hỏi nào đang được trả lời
+      // Tạm thời chỉ xử lý câu hỏi đầu tiên
+      correct = answer === msg.data.questions?.[0]?.correctAnswer;
     } else {
-      // Part 1 và Part 2 có 1 câu hỏi duy nhất
+      // Part 1, 2, 4, 5 có 1 câu hỏi duy nhất
       correct = answer === msg.data.correctAnswer;
     }
     
@@ -570,14 +614,14 @@ const Chatbot: React.FC = () => {
               {isExpanded ? (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-                  <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
-                  <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
-                  <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
-                  <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
                 </svg>
               ) : (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                  <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+                  <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+                  <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+                  <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
                 </svg>
               )}
             </button>
@@ -598,9 +642,9 @@ const Chatbot: React.FC = () => {
               position: 'relative'
             }}>
               <div>
-                <span style={{ fontWeight: '600', color: '#78350f' }}>💡 Hướng dẫn:</span> Để tạo bài luyện tập, gõ <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part1</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part2</span>, hoặc <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part3</span> kèm yêu cầu
+                <span style={{ fontWeight: '600', color: '#78350f' }}>💡 Hướng dẫn:</span> Để tạo bài luyện tập, gõ <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part1</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part2</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part3</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part4</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part5</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part6</span>, hoặc <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part7</span> kèm yêu cầu
                 <br/>
-                <span style={{ fontSize: '11px', color: '#92400e', fontStyle: 'italic' }}>Ví dụ: @part2 với level 2, @part1 về công việc văn phòng</span>
+                <span style={{ fontSize: '11px', color: '#92400e', fontStyle: 'italic' }}>Ví dụ: @part2 với level 2, @part1 về công việc văn phòng, @part5 về ngữ pháp, @part7 về đọc hiểu</span>
               </div>
               <button 
                 onClick={() => setShowGuide(false)}
@@ -669,39 +713,481 @@ const Chatbot: React.FC = () => {
 
                 // Part 3: render hội thoại + 3 câu hỏi riêng biệt
                 if (partType === 'part3' && practice.questions && Array.isArray(practice.questions)) {
-                                  return (
-                  <div key={idx} style={{
-                    marginBottom: '16px',
-                    padding: isExpanded ? '20px' : '12px',
-                    borderRadius: '12px',
-                    border: '1px solid #bfdbfe',
-                    background: '#fff',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-                  }}>
-                    <div style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      marginBottom: '8px'
+                  return (
+                    <div key={idx} style={{
+                      marginBottom: '16px',
+                      padding: isExpanded ? '20px' : '12px',
+                      borderRadius: '12px',
+                      border: '1px solid #bfdbfe',
+                      background: '#fff',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
                     }}>
                       <div style={{
-                        fontWeight: '600',
-                        color: '#166534',
-                        fontSize: isExpanded ? '18px' : '16px'
-                      }}>📝 TOEIC Practice PART 3</div>
-                    </div>
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '8px'
+                      }}>
+                        <div style={{
+                          fontWeight: '600',
+                          color: '#166534',
+                          fontSize: isExpanded ? '18px' : '16px'
+                        }}>📝 TOEIC Practice PART 3</div>
+                      </div>
+                        {/* Hiển thị audio nếu có */}
+                        {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
+                        {/* Render từng câu hỏi */}
+                        <div className="space-y-6">
+                          {practice.questions.map((q: any, qIdx: number) => {
+                            const qAnswer = part3Answers[idx]?.[qIdx] || '';
+                            const qShowResult = qAnswer !== '';
+                            return (
+                              <div key={qIdx} className="p-3 rounded-lg border border-gray-200">
+                                <div className="font-semibold text-green-900 mb-2">Câu {qIdx + 1}: {q.question}</div>
+                                <div className="space-y-2">
+                                  {['A','B','C'].map(opt => {
+                                    const isSelected = qAnswer === opt;
+                                    const isCorrect = opt === q.correctAnswer;
+                                    let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                                    if (isSelected) {
+                                      if (isCorrect) {
+                                        choiceClass += "border-green-500 bg-green-50";
+                                      } else {
+                                        choiceClass += "border-red-500 bg-red-50";
+                                      }
+                                    } else if (qShowResult && isCorrect) {
+                                      choiceClass += "border-green-500 bg-green-50";
+                                    } else {
+                                      choiceClass += "border-gray-200 hover:border-gray-300";
+                                    }
+                                    const disabled = qShowResult;
+                                    return (
+                                      <div key={opt} className="relative">
+                                        <button
+                                          className={choiceClass}
+                                          onClick={() => {
+                                            setPart3Answers(prev => ({
+                                              ...prev,
+                                              [idx]: { ...(prev[idx] || {}), [qIdx]: opt }
+                                            }));
+                                          }}
+                                          disabled={disabled}
+                                        >
+                                          <div className="flex items-center space-x-2">
+                                            <span className="font-semibold text-gray-600">{opt}.</span>
+                                            {/* Hiển thị text đáp án */}
+                                            <span className="text-gray-800">
+                                              {part3ShowTranslation[idx]?.[qIdx]?.[opt] && q.choicesVi && q.choicesVi[opt]
+                                                ? q.choicesVi[opt]
+                                                : q.choices?.[opt] || ''
+                                              }
+                                            </span>
+                                            {qShowResult && isCorrect && (
+                                              <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                              </svg>
+                                            )}
+                                            {isSelected && !isCorrect && (
+                                              <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                              </svg>
+                                            )}
+                                          </div>
+                                        </button>
+                                        {/* Translate button positioned absolutely on top of answer button */}
+                                        {qShowResult && q.choicesVi && q.choicesVi[opt] && (
+                                          <button
+                                            className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
+                                            onClick={(e) => {
+                                              e.preventDefault();
+                                              e.stopPropagation();
+                                              setPart3ShowTranslation(prev => ({
+                                                ...prev,
+                                                [idx]: {
+                                                  ...(prev[idx] || {}),
+                                                  [qIdx]: {
+                                                    ...(prev[idx]?.[qIdx] || {}),
+                                                    [opt]: !prev[idx]?.[qIdx]?.[opt]
+                                                  }
+                                                }
+                                              }));
+                                            }}
+                                            type="button"
+                                          >
+                                            {part3ShowTranslation[idx]?.[qIdx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                          </button>
+                                        )}
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                                {/* Sau khi chọn đáp án, giải thích, mẹo, bẫy, loại câu hỏi */}
+                                {qShowResult && (
+                                  <div className="mt-4 space-y-4">
+                                    {/* Giải thích cho từng câu hỏi */}
+                                    <div className="p-3 rounded-lg border border-gray-200">
+                                      <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
+                                      <p className="text-gray-700 text-sm text-left">{q.explanation}</p>
+                                      {/* Bẫy */}
+                                      {q.traps && (
+                                        <div className="mt-2">
+                                          <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
+                                          <p className="text-gray-700 text-sm text-left">{q.traps}</p>
+                                        </div>
+                                      )}
+                                      {/* Tips */}
+                                      {q.tips && (
+                                        <div className="mt-2">
+                                          <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
+                                          <p className="text-gray-700 text-sm">{q.tips}</p>
+                                        </div>
+                                      )}
+                                      {/* Thông tin loại câu hỏi */}
+                                      {q.type && (
+                                        <div className="mt-2">
+                                          <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
+                                          <p className="text-gray-700 text-sm">{q.type} - {q.answerType}</p>
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                }
+                
+                // Part 4: render bài nói ngắn + câu hỏi
+                if (partType === 'part4') {
+                  return (
+                    <div key={idx} style={{
+                      marginBottom: '16px',
+                      padding: isExpanded ? '20px' : '12px',
+                      borderRadius: '12px',
+                      border: '1px solid #fbbf24',
+                      background: '#fff',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '8px'
+                      }}>
+                        <div style={{
+                          fontWeight: '600',
+                          color: '#92400e',
+                          fontSize: isExpanded ? '18px' : '16px'
+                        }}>📝 TOEIC Practice PART 4</div>
+                      </div>
+                      
                       {/* Hiển thị audio nếu có */}
                       {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
+                      
+                      {/* Hiển thị transcript nếu có */}
+                      {practice.transcript && (
+                        <div className="p-3 rounded-lg border border-yellow-200 mb-3">
+                          <h6 className="font-medium text-yellow-800 mb-2">📝 Transcript:</h6>
+                          <p className="text-gray-700 text-sm">{practice.transcript}</p>
+                        </div>
+                      )}
+                      
+                      {/* Hiển thị câu hỏi nếu có */}
+                      {practice.question && (
+                        <div className="p-3 rounded-lg border border-yellow-200 mb-3">
+                          <h6 className="font-medium text-yellow-800 mb-2">❓ Câu hỏi:</h6>
+                          <div className="font-semibold text-yellow-900">{practice.question}</div>
+                        </div>
+                      )}
+                      
+                      <div className="space-y-2">
+                        {['A','B','C'].map(opt => {
+                          const isSelected = answer === opt;
+                          const isCorrect = opt === practice.correctAnswer;
+                          let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                          if (isSelected) {
+                            if (isCorrect) {
+                              choiceClass += "border-green-500 bg-green-50";
+                            } else {
+                              choiceClass += "border-red-500 bg-red-50";
+                            }
+                          } else if (showResult && isCorrect) {
+                            choiceClass += "border-green-500 bg-green-50";
+                          } else {
+                            choiceClass += "border-gray-200 hover:border-gray-300";
+                          }
+                          const disabled = showResult;
+                          return (
+                            <div key={opt} className="space-y-1">
+                              <div className="relative">
+                                <button
+                                  className={choiceClass}
+                                  onClick={() => handlePracticeAnswer(idx, opt)}
+                                  disabled={disabled}
+                                >
+                                  <div className="flex items-center space-x-2">
+                                    <span className="font-semibold text-gray-600">{opt}.</span>
+                                    {/* Hiển thị text đáp án */}
+                                    <div className="flex-1 text-left">
+                                      <div className="text-gray-800">
+                                        {showTranslation[idx]?.[opt] && practice.choicesVi && practice.choicesVi[opt] 
+                                          ? practice.choicesVi[opt] 
+                                          : practice.choices?.[opt] || ''
+                                        }
+                                      </div>
+                                    </div>
+                                    {showResult && isCorrect && (
+                                      <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    )}
+                                    {isSelected && !isCorrect && (
+                                      <svg className="w-4 h-4 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                      </svg>
+                                    )}
+                                  </div>
+                                </button>
+                                {/* Translate button positioned absolutely on top of answer button */}
+                                {showResult && practice.choices && practice.choices[opt] && practice.choicesVi && practice.choicesVi[opt] && (
+                                  <button
+                                    className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      toggleTranslation(idx, opt);
+                                    }}
+                                    type="button"
+                                  >
+                                    {showTranslation[idx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      
+                      {/* Sau khi chọn đáp án, render lại giải thích, mẹo, bẫy, loại câu hỏi */}
+                      {showResult && (
+                        <div className="mt-4 space-y-4">
+                          {/* Giải thích cho Part 4 */}
+                          <div className="p-3 rounded-lg border border-gray-200">
+                            <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
+                            <p className="text-gray-700 text-sm text-left">{practice.explanation}</p>
+                            {/* Bẫy */}
+                            {practice.traps && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
+                                <p className="text-gray-700 text-sm text-left">{practice.traps}</p>
+                              </div>
+                            )}
+                            {/* Tips */}
+                            {practice.tips && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
+                                <p className="text-gray-700 text-sm text-left">{practice.tips}</p>
+                              </div>
+                            )}
+                            {/* Thông tin loại câu hỏi */}
+                            {practice.type && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
+                                <p className="text-gray-700 text-sm">{practice.type} - {practice.answerType}</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+                
+                // Part 5: render câu chưa hoàn chỉnh
+                if (partType === 'part5') {
+                  return (
+                    <div key={idx} style={{
+                      marginBottom: '16px',
+                      padding: isExpanded ? '20px' : '12px',
+                      borderRadius: '12px',
+                      border: '1px solid #a78bfa',
+                      background: '#fff',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '8px'
+                      }}>
+                        <div style={{
+                          fontWeight: '600',
+                          color: '#5b21b6',
+                          fontSize: isExpanded ? '18px' : '16px'
+                        }}>📝 TOEIC Practice PART 5</div>
+                      </div>
+                      
+                      {/* Hiển thị audio nếu có */}
+                      {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
+                      
+                      {/* Hiển thị câu chưa hoàn chỉnh nếu có */}
+                      {practice.sentence && (
+                        <div className="p-3 rounded-lg border border-purple-200 mb-3">
+                          <div className="font-semibold text-purple-900">{practice.sentence}</div>
+                        </div>
+                      )}
+                      
+                      <div className="space-y-2">
+                        {['A','B','C','D'].map(opt => {
+                          const isSelected = answer === opt;
+                          const isCorrect = opt === practice.correctAnswer;
+                          let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                          if (isSelected) {
+                            if (isCorrect) {
+                              choiceClass += "border-green-500 bg-green-50";
+                            } else {
+                              choiceClass += "border-red-500 bg-red-50";
+                            }
+                          } else if (showResult && isCorrect) {
+                            choiceClass += "border-green-500 bg-green-50";
+                          } else {
+                            choiceClass += "border-gray-200 hover:border-gray-300";
+                          }
+                          const disabled = showResult;
+                          return (
+                            <div key={opt} className="space-y-1">
+                              <div className="relative">
+                                <button
+                                  className={choiceClass}
+                                  onClick={() => handlePracticeAnswer(idx, opt)}
+                                  disabled={disabled}
+                                >
+                                  <div className="flex items-center space-x-2">
+                                    <span className="font-semibold text-gray-600">{opt}.</span>
+                                    {/* Hiển thị text đáp án */}
+                                    <div className="flex-1 text-left">
+                                      <div className="text-gray-800">
+                                        {showTranslation[idx]?.[opt] && practice.choicesVi && practice.choicesVi[opt] 
+                                          ? practice.choicesVi[opt] 
+                                          : practice.choices?.[opt] || ''
+                                        }
+                                      </div>
+                                    </div>
+                                    {showResult && isCorrect && (
+                                      <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    )}
+                                    {isSelected && !isCorrect && (
+                                      <svg className="w-4 h-4 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                      </svg>
+                                    )}
+                                  </div>
+                                </button>
+                                {/* Translate button positioned absolutely on top of answer button */}
+                                {showResult && practice.choices && practice.choices[opt] && practice.choicesVi && practice.choicesVi[opt] && (
+                                  <button
+                                    className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      toggleTranslation(idx, opt);
+                                    }}
+                                    type="button"
+                                  >
+                                    {showTranslation[idx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      
+                      {/* Sau khi chọn đáp án, render lại giải thích, mẹo, bẫy, loại câu hỏi */}
+                      {showResult && (
+                        <div className="mt-4 space-y-4">
+                          {/* Giải thích cho Part 5 */}
+                          <div className="p-3 rounded-lg border border-gray-200">
+                            <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
+                            <p className="text-gray-700 text-sm text-left">{practice.explanation}</p>
+                            {/* Bẫy */}
+                            {practice.traps && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
+                                <p className="text-gray-700 text-sm text-left">{practice.traps}</p>
+                              </div>
+                            )}
+                            {/* Tips */}
+                            {practice.tips && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
+                                <p className="text-gray-700 text-sm text-left">{practice.tips}</p>
+                              </div>
+                            )}
+                            {/* Thông tin loại câu hỏi */}
+                            {practice.type && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
+                                <p className="text-gray-700 text-sm">{practice.type} - {practice.answerType}</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+                
+                // Part 6: render đoạn văn + nhiều câu hỏi
+                if (partType === 'part6' && practice.questions && Array.isArray(practice.questions)) {
+                  return (
+                    <div key={idx} style={{
+                      marginBottom: '16px',
+                      padding: isExpanded ? '20px' : '12px',
+                      borderRadius: '12px',
+                      border: '1px solid #f87171',
+                      background: '#fff',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '8px'
+                      }}>
+                        <div style={{
+                          fontWeight: '600',
+                          color: '#991b1b',
+                          fontSize: isExpanded ? '18px' : '16px'
+                        }}>📝 TOEIC Practice PART 6</div>
+                      </div>
+                      
+                      {/* Hiển thị audio nếu có */}
+                      {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
+                      
+                      {/* Hiển thị đoạn văn nếu có */}
+                      {practice.passage && (
+                        <div className="p-3 rounded-lg border border-red-200 mb-3">
+                          <h6 className="font-medium text-red-800 mb-2">📝 Đoạn văn:</h6>
+                          <p className="text-gray-700 text-sm">{practice.passage}</p>
+                        </div>
+                      )}
+                      
                       {/* Render từng câu hỏi */}
                       <div className="space-y-6">
                         {practice.questions.map((q: any, qIdx: number) => {
-                          const qAnswer = part3Answers[idx]?.[qIdx] || '';
+                          const qAnswer = part6Answers[idx]?.[qIdx] || '';
                           const qShowResult = qAnswer !== '';
                           return (
                             <div key={qIdx} className="p-3 rounded-lg border border-gray-200">
-                              <div className="font-semibold text-green-900 mb-2">Câu {qIdx + 1}: {q.question}</div>
+                              <div className="font-semibold text-red-900 mb-2">Câu {qIdx + 1}: {q.question}</div>
                               <div className="space-y-2">
-                                {['A','B','C'].map(opt => {
+                                {['A','B','C','D'].map(opt => {
                                   const isSelected = qAnswer === opt;
                                   const isCorrect = opt === q.correctAnswer;
                                   let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
@@ -722,7 +1208,7 @@ const Chatbot: React.FC = () => {
                                       <button
                                         className={choiceClass}
                                         onClick={() => {
-                                          setPart3Answers(prev => ({
+                                          setPart6Answers(prev => ({
                                             ...prev,
                                             [idx]: { ...(prev[idx] || {}), [qIdx]: opt }
                                           }));
@@ -733,7 +1219,7 @@ const Chatbot: React.FC = () => {
                                           <span className="font-semibold text-gray-600">{opt}.</span>
                                           {/* Hiển thị text đáp án */}
                                           <span className="text-gray-800">
-                                            {part3ShowTranslation[idx]?.[qIdx]?.[opt] && q.choicesVi && q.choicesVi[opt]
+                                            {part6ShowTranslation[idx]?.[qIdx]?.[opt] && q.choicesVi && q.choicesVi[opt]
                                               ? q.choicesVi[opt]
                                               : q.choices?.[opt] || ''
                                             }
@@ -757,7 +1243,7 @@ const Chatbot: React.FC = () => {
                                           onClick={(e) => {
                                             e.preventDefault();
                                             e.stopPropagation();
-                                            setPart3ShowTranslation(prev => ({
+                                            setPart6ShowTranslation(prev => ({
                                               ...prev,
                                               [idx]: {
                                                 ...(prev[idx] || {}),
@@ -770,7 +1256,166 @@ const Chatbot: React.FC = () => {
                                           }}
                                           type="button"
                                         >
-                                          {part3ShowTranslation[idx]?.[qIdx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                          {part6ShowTranslation[idx]?.[qIdx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                        </button>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                              {/* Sau khi chọn đáp án, giải thích, mẹo, bẫy, loại câu hỏi */}
+                              {qShowResult && (
+                                <div className="mt-4 space-y-4">
+                                  {/* Giải thích cho từng câu hỏi */}
+                                  <div className="p-3 rounded-lg border border-gray-200">
+                                    <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
+                                    <p className="text-gray-700 text-sm text-left">{q.explanation}</p>
+                                    {/* Bẫy */}
+                                    {q.traps && (
+                                      <div className="mt-2">
+                                        <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
+                                        <p className="text-gray-700 text-sm text-left">{q.traps}</p>
+                                      </div>
+                                    )}
+                                    {/* Tips */}
+                                    {q.tips && (
+                                      <div className="mt-2">
+                                        <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
+                                        <p className="text-gray-700 text-sm">{q.tips}</p>
+                                      </div>
+                                    )}
+                                    {/* Thông tin loại câu hỏi */}
+                                    {q.type && (
+                                      <div className="mt-2">
+                                        <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
+                                        <p className="text-gray-700 text-sm">{q.type} - {q.answerType}</p>
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                }
+                
+                // Part 7: render đoạn văn + nhiều câu hỏi (tương tự Part 6)
+                if (partType === 'part7' && practice.questions && Array.isArray(practice.questions)) {
+                  return (
+                    <div key={idx} style={{
+                      marginBottom: '16px',
+                      padding: isExpanded ? '20px' : '12px',
+                      borderRadius: '12px',
+                      border: '1px solid #7c3aed',
+                      background: '#fff',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '8px'
+                      }}>
+                        <div style={{
+                          fontWeight: '600',
+                          color: '#5b21b6',
+                          fontSize: isExpanded ? '18px' : '16px'
+                        }}>📖 TOEIC Practice PART 7</div>
+                      </div>
+                      
+                      {/* Hiển thị audio nếu có */}
+                      {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
+                      
+                      {/* Hiển thị đoạn văn nếu có */}
+                      {practice.passage && (
+                        <div className="p-3 rounded-lg border border-purple-200 mb-3">
+                          <h6 className="font-medium text-purple-800 mb-2">📖 Đoạn văn:</h6>
+                          <p className="text-gray-700 text-sm">{practice.passage}</p>
+                        </div>
+                      )}
+                      
+                      {/* Render từng câu hỏi */}
+                      <div className="space-y-6">
+                        {practice.questions.map((q: any, qIdx: number) => {
+                          const qAnswer = part7Answers[idx]?.[qIdx] || '';
+                          const qShowResult = qAnswer !== '';
+                          return (
+                            <div key={qIdx} className="p-3 rounded-lg border border-gray-200">
+                              <div className="font-semibold text-purple-900 mb-2">Câu {qIdx + 1}: {q.question}</div>
+                              <div className="space-y-2">
+                                {['A','B','C','D'].map(opt => {
+                                  const isSelected = qAnswer === opt;
+                                  const isCorrect = opt === q.correctAnswer;
+                                  let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                                  if (isSelected) {
+                                    if (isCorrect) {
+                                      choiceClass += "border-green-500 bg-green-50";
+                                    } else {
+                                      choiceClass += "border-red-500 bg-red-50";
+                                    }
+                                  } else if (qShowResult && isCorrect) {
+                                    choiceClass += "border-green-500 bg-green-50";
+                                  } else {
+                                    choiceClass += "border-gray-200 hover:border-gray-300";
+                                  }
+                                  const disabled = qShowResult;
+                                  return (
+                                    <div key={opt} className="relative">
+                                      <button
+                                        className={choiceClass}
+                                        onClick={() => {
+                                          setPart7Answers(prev => ({
+                                            ...prev,
+                                            [idx]: { ...(prev[idx] || {}), [qIdx]: opt }
+                                          }));
+                                        }}
+                                        disabled={disabled}
+                                      >
+                                        <div className="flex items-center space-x-2">
+                                          <span className="font-semibold text-gray-600">{opt}.</span>
+                                          {/* Hiển thị text đáp án */}
+                                          <span className="text-gray-800">
+                                            {part7ShowTranslation[idx]?.[qIdx]?.[opt] && q.choicesVi && q.choicesVi[opt]
+                                              ? q.choicesVi[opt]
+                                              : q.choices?.[opt] || ''
+                                            }
+                                          </span>
+                                          {qShowResult && isCorrect && (
+                                            <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                          )}
+                                          {isSelected && !isCorrect && (
+                                            <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                          )}
+                                        </div>
+                                      </button>
+                                      {/* Translate button positioned absolutely on top of answer button */}
+                                      {qShowResult && q.choicesVi && q.choicesVi[opt] && (
+                                        <button
+                                          className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
+                                          onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            setPart7ShowTranslation(prev => ({
+                                              ...prev,
+                                              [idx]: {
+                                                ...(prev[idx] || {}),
+                                                [qIdx]: {
+                                                  ...(prev[idx]?.[qIdx] || {}),
+                                                  [opt]: !prev[idx]?.[qIdx]?.[opt]
+                                                }
+                                              }
+                                            }));
+                                          }}
+                                          type="button"
+                                        >
+                                          {part7ShowTranslation[idx]?.[qIdx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
                                         </button>
                                       )}
                                     </div>
@@ -848,47 +1493,44 @@ const Chatbot: React.FC = () => {
                     {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
                     
                     <div className="space-y-2">
-                      {['A','B','C'].map(opt => {
-                        const isSelected = answer === opt;
-                        const isCorrect = opt === practice.correctAnswer;
-                        let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
-                        if (isSelected) {
-                          if (isCorrect) {
+                        {['A','B','C'].map(opt => {
+                          const isSelected = answer === opt;
+                          const isCorrect = opt === practice.correctAnswer;
+                          let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                          if (isSelected) {
+                            if (isCorrect) {
+                              choiceClass += "border-green-500 bg-green-50";
+                            } else {
+                              choiceClass += "border-red-500 bg-red-50";
+                            }
+                          } else if (showResult && isCorrect) {
                             choiceClass += "border-green-500 bg-green-50";
                           } else {
-                            choiceClass += "border-red-500 bg-red-50";
+                            choiceClass += "border-gray-200 hover:border-gray-300";
                           }
-                        } else if (showResult && isCorrect) {
-                          choiceClass += "border-green-500 bg-green-50";
-                        } else {
-                          choiceClass += "border-gray-200 hover:border-gray-300";
-                        }
-                        const disabled = showResult;
-                        return (
-                          <div key={opt} className="space-y-1">
-                            <div className="relative">
-                              <button
-                                className={choiceClass}
-                                onClick={() => handlePracticeAnswer(idx, opt)}
-                                disabled={disabled}
-                              >
-                                <div className="flex items-center space-x-2">
-                                  <span className="font-semibold text-gray-600">{opt}.</span>
-                                  {/* Chỉ hiển thị text khi đã trả lời */}
-                                  {showResult && practice.choices && practice.choices[opt] ? (
+                          const disabled = showResult;
+                          return (
+                            <div key={opt} className="space-y-1">
+                              <div className="relative">
+                                <button
+                                  className={choiceClass}
+                                  onClick={() => handlePracticeAnswer(idx, opt)}
+                                  disabled={disabled}
+                                >
+                                  <div className="flex items-center space-x-2">
+                                    <span className="font-semibold text-gray-600">{opt}.</span>
+                                    {/* Hiển thị text đáp án chỉ khi đã trả lời hoặc không phải part1/part2 */}
                                     <div className="flex-1 text-left">
                                       <div className="text-gray-800">
-                                        {showTranslation[idx]?.[opt] && practice.choicesVi && practice.choicesVi[opt] 
-                                          ? practice.choicesVi[opt] 
-                                          : practice.choices[opt]
-                                        }
+                                        {(showResult || (partType !== 'part1' && partType !== 'part2')) ? (
+                                          showTranslation[idx]?.[opt] && practice.choicesVi && practice.choicesVi[opt] 
+                                            ? practice.choicesVi[opt] 
+                                            : practice.choices?.[opt] || ''
+                                        ) : (
+                                          <span style={{ color: '#9ca3af', fontStyle: 'italic' }}>Chọn để xem đáp án</span>
+                                        )}
                                       </div>
                                     </div>
-                                  ) : (
-                                    <div className="flex-1 text-left text-gray-600">
-                                      {/* Không hiển thị text trước khi trả lời */}
-                                    </div>
-                                  )}
                                   {showResult && isCorrect && (
                                     <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
