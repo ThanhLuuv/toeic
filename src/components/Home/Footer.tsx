@@ -133,6 +133,9 @@ const Footer = () => {
                 </svg>
               </button>
             </div>
+            <div className="text-xs text-gray-400">
+              Phát triển bởi thanhlaptrinh
+            </div>
           </div>
         </div>
       </div>

@@ -1330,10 +1330,17 @@ const Chatbot: React.FC = () => {
                       {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
                       
                       {/* Hiển thị đoạn văn nếu có */}
-                      {practice.passage && (
+                      {practice.passages && Array.isArray(practice.passages) && practice.passages.length > 0 && (
                         <div className="p-3 rounded-lg border border-purple-200 mb-3">
                           <h6 className="font-medium text-purple-800 mb-2">📖 Đoạn văn:</h6>
-                          <p className="text-gray-700 text-sm">{practice.passage}</p>
+                          {practice.passages.map((passage: string, passageIdx: number) => (
+                            <div key={passageIdx} className="mb-3">
+                              {practice.passages.length > 1 && (
+                                <div className="font-medium text-purple-700 mb-1">Đoạn {passageIdx + 1}:</div>
+                              )}
+                              <p className="text-gray-700 text-sm">{passage}</p>
+                            </div>
+                          ))}
                         </div>
                       )}
                       
