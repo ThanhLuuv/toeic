@@ -120,9 +120,9 @@ const DictationList: React.FC = () => {
 
   const handleSetClick = (idx: number) => {
     if (tab === 'part1') {
-      navigate(`/part1/${idx}`);
+      navigate(`/dictation/part1/${idx}`);
     } else if (tab === 'part2') {
-      navigate(`/part2/${idx}`);
+      navigate(`/dictation/part2/${idx}`);
     } else {
       navigate(`/dictation/${idx}`);
     }
