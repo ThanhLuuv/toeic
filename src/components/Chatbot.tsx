@@ -1177,7 +1177,7 @@ const Chatbot: React.FC = () => {
                           const qShowResult = qAnswer !== '';
                           return (
                             <div key={qIdx} className="p-3 rounded-lg border border-gray-200">
-                              <div className="font-semibold text-red-900 mb-2">Câu {qIdx + 1}: {q.question}</div>
+                              <div className="font-semibold text-red-900 mb-2">{q.question}</div>
                               <div className="space-y-2">
                                 {['A','B','C','D'].map(opt => {
                                   const isSelected = qAnswer === opt;
@@ -1336,7 +1336,7 @@ const Chatbot: React.FC = () => {
                           const qShowResult = qAnswer !== '';
                           return (
                             <div key={qIdx} className="p-3 rounded-lg border border-gray-200">
-                              <div className="font-semibold text-purple-900 mb-2">Câu {qIdx + 1}: {q.question}</div>
+                              <div className="font-semibold text-purple-900 mb-2">{q.question}</div>
                               <div className="space-y-2">
                                 {['A','B','C','D'].map(opt => {
                                   const isSelected = qAnswer === opt;
