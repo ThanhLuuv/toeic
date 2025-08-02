@@ -887,14 +887,6 @@ const Chatbot: React.FC = () => {
                       {/* Hiển thị audio nếu có */}
                       {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
                       
-                      {/* Hiển thị transcript nếu có */}
-                      {practice.transcript && (
-                        <div className="p-3 rounded-lg border border-yellow-200 mb-3">
-                          <h6 className="font-medium text-yellow-800 mb-2">📝 Transcript:</h6>
-                          <p className="text-gray-700 text-sm">{practice.transcript}</p>
-                        </div>
-                      )}
-                      
                       {/* Hiển thị câu hỏi nếu có */}
                       {practice.question && (
                         <div className="p-3 rounded-lg border border-yellow-200 mb-3">
@@ -992,11 +984,11 @@ const Chatbot: React.FC = () => {
                                 <p className="text-gray-700 text-sm text-left">{practice.tips}</p>
                               </div>
                             )}
-                            {/* Thông tin loại câu hỏi */}
-                            {practice.type && (
-                              <div className="mt-2">
-                                <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
-                                <p className="text-gray-700 text-sm">{practice.type} - {practice.answerType}</p>
+                            {/* Hiển thị transcript nếu có */}
+                            {practice.transcript && (
+                              <div className="p-3 rounded-lg border border-yellow-200 mb-3">
+                                <h6 className="font-medium text-yellow-800 mb-2">📝 Transcript:</h6>
+                                <p className="text-gray-700 text-sm">{practice.transcript}</p>
                               </div>
                             )}
                           </div>
@@ -1284,13 +1276,6 @@ const Chatbot: React.FC = () => {
                                         <p className="text-gray-700 text-sm">{q.tips}</p>
                                       </div>
                                     )}
-                                    {/* Thông tin loại câu hỏi */}
-                                    {q.type && (
-                                      <div className="mt-2">
-                                        <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
-                                        <p className="text-gray-700 text-sm">{q.type} - {q.answerType}</p>
-                                      </div>
-                                    )}
                                   </div>
                                 </div>
                               )}
@@ -1448,13 +1433,6 @@ const Chatbot: React.FC = () => {
                                       <div className="mt-2">
                                         <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
                                         <p className="text-gray-700 text-sm">{q.tips}</p>
-                                      </div>
-                                    )}
-                                    {/* Thông tin loại câu hỏi */}
-                                    {q.type && (
-                                      <div className="mt-2">
-                                        <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
-                                        <p className="text-gray-700 text-sm">{q.type} - {q.answerType}</p>
                                       </div>
                                     )}
                                   </div>

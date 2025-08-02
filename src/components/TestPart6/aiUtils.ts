@@ -21,8 +21,8 @@ export async function analyzeWithAI(logText: string): Promise<any> {
                         - solutions: mảng gồm 2–3 giải pháp rõ ràng, đơn giản để cải thiện
 
                         2. Sinh một câu luyện tập mới tương tự (giống cấu trúc đề TOEIC Part 6) với level tương tự, gồm:
-                        - passage: đoạn văn với chỗ trống
-                        - questions: mảng các câu hỏi về đoạn văn
+                        - passage: đoạn văn với 4 chỗ trống (_____) - BẮT BUỘC PHẢI CÓ ĐÚNG 4 CHỖ TRỐNG
+                        - questions: mảng gồm ĐÚNG 4 câu hỏi tương ứng với 4 chỗ trống
                         - choices: A/B/C/D là các đáp án cho từng câu hỏi
                         - choicesVi: bản dịch tiếng Việt cho mỗi đáp án
                         - correctAnswers: mảng đáp án đúng cho từng câu hỏi
@@ -82,6 +82,8 @@ export async function analyzeWithAI(logText: string): Promise<any> {
                         similarWord       | Similar Word      | Từ tương tự nhưng sai nghĩa  
 
                         == QUY TẮC BẮT BUỘC ==
+                        - Đoạn văn PHẢI CÓ ĐÚNG 4 CHỖ TRỐNG (_____) - KHÔNG ĐƯỢC THIẾU HOẶC THỪA
+                        - Số lượng câu hỏi PHẢI BẰNG ĐÚNG số chỗ trống (4 câu hỏi cho 4 chỗ trống)
                         - Đáp án đúng phải phù hợp với ngữ cảnh và ngữ pháp
                         - Đáp án sai là đáp án có các lỗi sai như:
                         + Sai ngữ cảnh
@@ -117,7 +119,32 @@ export async function analyzeWithAI(logText: string): Promise<any> {
   }
 
   const data = await response.json();
-  return data.choices[0].message.content;
+  const content = data.choices[0].message.content;
+  
+  // Validate the generated content if it's JSON
+  try {
+    const result = JSON.parse(content);
+    if (result.practiceQuestion) {
+      const passage = result.practiceQuestion.passage;
+      const questions = result.practiceQuestion.questions;
+      
+      // Count blanks in passage
+      const blankCount = (passage.match(/_____/g) || []).length;
+      
+      // Validate number of questions matches number of blanks
+      if (blankCount !== 4) {
+        console.warn(`Warning: Số chỗ trống không đúng: ${blankCount} (cần 4 chỗ trống)`);
+      }
+      
+      if (!questions || questions.length !== 4) {
+        console.warn(`Warning: Số câu hỏi không đúng: ${questions?.length || 0} (cần 4 câu hỏi)`);
+      }
+    }
+  } catch (e) {
+    // If not JSON, return as is
+  }
+  
+  return content;
 }
 
 // Hàm sinh 1 câu luyện tập TOEIC Part 6 theo yêu cầu người dùng
@@ -132,7 +159,8 @@ export async function generateToeicPracticeQuestionPart6(userRequest: string): P
 
 == CẤU TRÚC TOEIC PART 6 ==
 - 16 câu hỏi (4 đoạn văn, mỗi đoạn 4 câu hỏi)
-- Mỗi đoạn văn có 4 chỗ trống cần điền từ
+- Mỗi đoạn văn có ĐÚNG 4 chỗ trống cần điền từ (_____)
+- Số lượng câu hỏi PHẢI BẰNG ĐÚNG số chỗ trống (4 câu hỏi cho 4 chỗ trống)
 - 4 lựa chọn A, B, C, D cho mỗi chỗ trống
 - Tập trung vào: ngữ pháp, từ vựng, ngữ cảnh, cụm từ
 - Loại văn bản: email, thư, memo, thông báo, quảng cáo, bài báo
@@ -175,6 +203,7 @@ Schema:
 - Advanced: Ngữ pháp phức tạp, từ vựng nâng cao, bẫy tinh vi
 - Đoạn văn phải là tiếng Anh, không dùng tiếng Việt
 - Chỗ trống được đánh dấu bằng "_____"
+- BẮT BUỘC: Đoạn văn phải có ĐÚNG 4 chỗ trống và ĐÚNG 4 câu hỏi tương ứng
 - Không được ra những bài đã ra trước đó
 
 == LOẠI CÂU HỎI PART 6 ==
@@ -219,7 +248,27 @@ Schema:
   
   // Trả về object JSON duy nhất
   try {
-    return JSON.parse(data.choices[0].message.content);
+    const result = JSON.parse(data.choices[0].message.content);
+    
+    // Validate the generated content
+    if (result.practiceQuestion) {
+      const passage = result.practiceQuestion.passage;
+      const questions = result.practiceQuestion.questions;
+      
+      // Count blanks in passage
+      const blankCount = (passage.match(/_____/g) || []).length;
+      
+      // Validate number of questions matches number of blanks
+      if (blankCount !== 4) {
+        throw new Error(`Số chỗ trống không đúng: ${blankCount} (cần 4 chỗ trống)`);
+      }
+      
+      if (!questions || questions.length !== 4) {
+        throw new Error(`Số câu hỏi không đúng: ${questions?.length || 0} (cần 4 câu hỏi)`);
+      }
+    }
+    
+    return result;
   } catch (e) {
     throw new Error("Lỗi parse JSON từ AI: " + data.choices[0].message.content);
   }
