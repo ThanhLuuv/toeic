@@ -159,9 +159,9 @@ const DictationList: React.FC = () => {
             `}
             onClick={() => {
               if (type === 'part1') {
-                navigate(`/part1/${originalIdx}`);
+                navigate(`/dictation/part1/${originalIdx}`);
               } else if (type === 'part2') {
-                navigate(`/part2/${originalIdx}`);
+                navigate(`/dictation/part2/${originalIdx}`);
               } else {
                 navigate(`/dictation/${originalIdx}`);
               }
