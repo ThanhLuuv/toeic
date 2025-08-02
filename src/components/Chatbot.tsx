@@ -5,7 +5,7 @@ import { generateToeicPracticeQuestionPart3, generateAudioBase64Part3 } from './
 import { generateToeicPracticeQuestionPart4, generateAudioBase64Part4 } from './TestPart4/aiUtils';
 import { generateToeicPracticeQuestionPart5 } from './TestPart5/aiUtils';
 import { generateToeicPracticeQuestionPart6 } from './TestPart6/aiUtils';
-import { generateToeicPracticeQuestionPart7 } from './TestPart7/aiUtils';
+import { generateToeicPracticeQuestionPart7, generateAudioBase64Part7 } from './TestPart7/aiUtils';
 
 // Hàm gọi OpenAI API đơn giản cho hỏi đáp TOEIC
 async function askToeicAI(question: string, chatHistory: {role: 'user'|'bot', text: string}[] = []): Promise<string> {
@@ -269,6 +269,9 @@ const Chatbot: React.FC = () => {
             result = await generateToeicPracticeQuestionPart5(input);
           } else if (partType === 'part6') {
             result = await generateToeicPracticeQuestionPart6(input);
+          } else if (partType === 'part7') {
+            result = await generateToeicPracticeQuestionPart7(input);
+            try { audioBase64 = await generateAudioBase64Part7(result.practiceQuestion); } catch {}
           }
           const practiceMsg: ChatMessage = {
             role: 'practice',
@@ -282,7 +285,8 @@ const Chatbot: React.FC = () => {
           setPracticeSessions(newSessions);
           savePracticeHistory(newSessions);
         } catch (e) {
-          setMessages(msgs => msgs.map((m, i) => i === msgs.length - 1 ? { role: 'bot' as 'bot', text: 'Xin lỗi, không tạo được bài luyện tập. Vui lòng thử lại.' } : m));
+          console.error('Error generating practice question:', e);
+          setMessages(msgs => msgs.map((m, i) => i === msgs.length - 1 ? { role: 'bot' as 'bot', text: `Xin lỗi, không tạo được bài luyện tập. Lỗi: ${e instanceof Error ? e.message : 'Unknown error'}. Vui lòng thử lại.` } : m));
           setPracticeLoading(false);
         }
         setLoading(false);
@@ -382,6 +386,7 @@ const Chatbot: React.FC = () => {
         result = await generateToeicPracticeQuestionPart6(msg.original);
       } else if (partType === 'part7') {
         result = await generateToeicPracticeQuestionPart7(msg.original);
+        try { audioBase64 = await generateAudioBase64Part7(result.practiceQuestion); } catch {}
       }
       
       const practiceMsg: ChatMessage = {
@@ -396,7 +401,8 @@ const Chatbot: React.FC = () => {
       setPracticeSessions(newSessions);
       savePracticeHistory(newSessions);
     } catch (e) {
-      setMessages(msgs => msgs.map((m, i) => i === msgIdx ? { role: 'bot' as 'bot', text: 'Xin lỗi, không tạo được bài luyện tập. Vui lòng thử lại.' } : m));
+      console.error('Error generating practice question:', e);
+      setMessages(msgs => msgs.map((m, i) => i === msgIdx ? { role: 'bot' as 'bot', text: `Xin lỗi, không tạo được bài luyện tập. Lỗi: ${e instanceof Error ? e.message : 'Unknown error'}. Vui lòng thử lại.` } : m));
       setPracticeLoading(false);
     }
   };

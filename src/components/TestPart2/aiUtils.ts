@@ -1,3 +1,172 @@
+export async function analyzeWithAI(logText: string): Promise<any> {
+  const apiKey = process.env.REACT_APP_API_KEY_OPENAI;
+  const endpoint = "https://api.openai.com/v1/chat/completions";
+
+  const messages = [
+    {
+      role: "system",
+      content: "Bạn là một giáo viên TOEIC Part 2 thông minh, chuyên phân tích lỗi học viên và đưa ra bài luyện tập chính xác theo từng lỗi."
+    },
+    {
+      role: "user",
+      content: `Đây là câu mà học viên ${logText}
+
+                        == YÊU CẦU XỬ LÝ ==
+                        Bạn thực hiện 2 việc:
+
+                        1. Phân tích lỗi học viên, trả về các mục sau bằng tiếng việt:
+                        - mainError: lỗi chính người học mắc phải (ngắn gọn)
+                        - reasons: mảng gồm 2–3 nguyên nhân cụ thể
+                        - solutions: mảng gồm 2–3 giải pháp rõ ràng, đơn giản để cải thiện
+
+                        2. Sinh một câu luyện tập mới tương tự (giống cấu trúc đề TOEIC Part 2) với level tương tự, gồm:
+                        - question: câu hỏi bằng tiếng Anh
+                        - choices: A/B/C là các câu trả lời (chỉ 1 câu đúng)
+                        - choicesVi: A/B/C là các câu trả lời bằng tiếng Việt
+                        - correctAnswer: "A" / "B" / "C"
+                        - explanation: giải thích vì sao đáp án đúng
+                        - tips: mẹo làm bài tương tự
+                        - type: loại câu hỏi (WH-question, Yes/No, Statement-Response, Choice)
+                        - answerType: loại đáp án (location, time, person, reason, yes_no, agreement, solution, choice)
+
+                        == YÊU CẦU ĐẦU RA ==
+                        Trả về duy nhất 1 object JSON với schema sau:
+
+                        {
+                        "questionNumber": 6,
+                        "analysis": {
+                            "correctAnswer": "...",
+                            "chosenAnswer": "...",
+                            "mainError": "...",
+                            "reasons": ["...", "..."],
+                            "solutions": ["...", "..."]
+                        },
+                        "practiceQuestion": {
+                            "question": "...",
+                            "choices": {
+                            "A": "...",
+                            "B": "...",
+                            "C": "..."
+                            },
+                            "choicesVi": {
+                            "A": "...",
+                            "B": "...",
+                            "C": "..."
+                            },
+                            "correctAnswer": "A" | "B" | "C",
+                            "explanation": "...",
+                            "tips": "...",
+                            "type": "WH-question" | "Yes/No" | "Statement-Response" | "Choice",
+                            "answerType": "location" | "time" | "person" | "reason" | "yes_no" | "agreement" | "solution" | "choice"
+                        }
+                        }
+
+                        == LOẠI CÂU HỎI PART 2 ==
+                        type                | Mô tả  
+                        --------------------|--------------------------------------  
+                        WH-question         | What, Where, When, Who, Why, How  
+                        Yes/No              | Câu hỏi Yes/No  
+                        Statement-Response  | Câu phát biểu + phản hồi  
+                        Choice              | Câu hỏi lựa chọn  
+
+                        == LOẠI ĐÁP ÁN ==
+                        answerType          | Mô tả  
+                        --------------------|--------------------------------------  
+                        location            | Địa điểm, nơi chốn  
+                        time                | Thời gian, thời điểm  
+                        person              | Người, chủ thể  
+                        reason              | Lý do, nguyên nhân  
+                        yes_no              | Xác nhận/phủ định  
+                        agreement           | Đồng ý/hỗ trợ  
+                        solution            | Giải pháp/hành động  
+                        choice              | Lựa chọn cụ thể  
+
+                        == QUY TẮC BẮT BUỘC ==
+                        - Câu hỏi phải tự nhiên, phù hợp với ngữ cảnh công việc/đời sống hàng ngày
+                        - Đáp án đúng phải trả lời trực tiếp hoặc gián tiếp câu hỏi
+                        - Đáp án sai phải có vẻ hợp lý nhưng không đúng với câu hỏi
+                        - Tránh đáp án quá hiển nhiên sai hoặc không liên quan
+                        - Câu hỏi và đáp án phải có độ khó tương đương với TOEIC Part 2
+                        - Sử dụng từ vựng và ngữ pháp phù hợp với trình độ TOEIC
+
+                        == EXAMPLE ==
+                        {
+                            "questionNumber": 1,
+                            "analysis": {
+                                "correctAnswer": "B. Because the conference room was double-booked.",
+                                "chosenAnswer": "A. There wasn't a projector available in the room.",
+                                "mainError": "Không hiểu đúng loại câu hỏi Why",
+                                "reasons": [
+                                    "Tập trung vào chi tiết phụ thay vì lý do chính",
+                                    "Không nhận diện được từ khóa 'because' chỉ lý do"
+                                ],
+                                "solutions": [
+                                    "Lắng nghe từ khóa chỉ lý do như 'because', 'due to', 'since'",
+                                    "Tập trung vào câu trả lời có cấu trúc giải thích"
+                                ]
+                            },
+                            "practiceQuestion": {
+                                "question": "Why did the meeting get postponed?",
+                                "choices": {
+                                    "A": "The meeting room is on the third floor.",
+                                    "B": "Because the presenter was stuck in traffic.",
+                                    "C": "Yes, it was rescheduled for tomorrow."
+                                },
+                                "choicesVi": {
+                                    "A": "Phòng họp ở tầng 3.",
+                                    "B": "Vì người diễn thuyết bị tắc đường.",
+                                    "C": "Vâng, nó đã được hoàn lại cho ngày mai."
+                                },
+                                "correctAnswer": "B",
+                                "explanation": "Câu hỏi 'Why' cần lý do, chỉ có B đưa ra lý do cụ thể với 'because'.",
+                                "tips": "Tập trung vào các câu chứa 'because', 'due to'.",
+                                "type": "WH-question",
+                                "answerType": "reason"
+                            }
+                        }
+
+                        == QUY TRÌNH KIỂM TRA NHANH ==
+                        - Xác định loại câu hỏi (WH/Yes-No/Statement/Choice)
+                        - Đối chiếu đáp án: đáp án đúng phải phù hợp với loại câu hỏi
+                        - Kiểm tra:
+                        + Câu hỏi tự nhiên, không quá dài
+                        + Đáp án có độ khó phù hợp
+                        + Giải thích rõ ràng, dễ hiểu
+                        + Mẹo làm bài hữu ích
+                        - Đảm bảo output là JSON hợp lệ
+                        - Đáp án đúng phải random ngẫu nhiên về A hoặc B hoặc C
+                        - 👉 CHỈ TRẢ VỀ JSON, KHÔNG GIẢI THÍCH, KHÔNG MARKDOWN.
+                        `
+    }
+  ];
+
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model: "gpt-4o",
+      messages,
+      temperature: 1.0,
+      max_tokens: 2048,
+      top_p: 1.0
+    })
+  });
+
+  if (!response.ok) {
+    if (response.status === 401) {
+      throw new Error("OpenAI API key is invalid or expired. Please check your REACT_APP_OPENAI_API_KEY environment variable.");
+    }
+    throw new Error("OpenAI API error: " + response.statusText);
+  }
+
+  const data = await response.json();
+  console.log(data.choices[0].message.content);
+  return data.choices[0].message.content;
+}
+
 // Hàm tạo audio base64 từ Google TTS cho Part 2 (dùng cho TestResults)
 export async function generateAudioBase64(practiceQuestion: any): Promise<string> {
   const GOOGLE_TTS_KEY = process.env.REACT_APP_GOOGLE_TTS_KEY || 'AIzaSyAqO6_hgidkr_qandEMZUJlBcAhF3xOsUk';
