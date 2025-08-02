@@ -4,7 +4,7 @@ import part1Data from '../data/part1.json';
 import part2Data from '../data/part2.json';
 
 // Mock data for demonstration
-const vocabData = Array.from({ length: 360 }, (_, i) => ({
+const vocabData = Array.from({ length: 400 }, (_, i) => ({
   word: i % 7 === 0 ? `phrase ${i + 1} example` : `word${i + 1}`,
   meaning: `Meaning ${i + 1}`
 }));
@@ -63,6 +63,7 @@ function getSetTopic(idx: number, isPart1: boolean = false, isPart2: boolean = f
   if (idx * WORDS_PER_SET < 280) return 'Exhibition & Museums';
   if (idx * WORDS_PER_SET < 320) return 'Media';
   if (idx * WORDS_PER_SET < 360) return 'Real Estate';
+  if (idx * WORDS_PER_SET < 400) return 'Arts';
   return 'Other';
 }
 

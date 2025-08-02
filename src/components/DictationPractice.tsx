@@ -176,6 +176,7 @@ const DictationPractice: React.FC = () => {
     if (idx * NUM_WORDS < 280) return 'Exhibition & Museums';
     if (idx * NUM_WORDS < 320) return 'Media';
     if (idx * NUM_WORDS < 360) return 'Real Estate';
+    if (idx * NUM_WORDS < 400) return 'Arts';
     return 'Other';
   }
   const topic = getSetTopic(setIdx);
