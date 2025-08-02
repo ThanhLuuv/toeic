@@ -100,7 +100,7 @@ const Home: React.FC = () => {
           />
         ))}
       </div>
-      <div className="mt-16">
+      {/* <div className="mt-16">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Bắt đầu luyện tập</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {quickActions.map((action, index) => (
@@ -118,7 +118,7 @@ const Home: React.FC = () => {
           ))}
         </div>
       </div>
-      <StatisticsSection />
+      <StatisticsSection /> */}
     </main>
   );
 };
