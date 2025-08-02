@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const navItems = ['Luyện đề', 'Chép chính tả'];
+  const navItems = ['Luyện đề', 'Chép chính tả', 'Luyện ngữ pháp'];
 
   // Xác định menu active dựa trên current location
   React.useEffect(() => {
@@ -15,6 +15,8 @@ const Header: React.FC = () => {
       setActiveNav('Luyện đề');
     } else if (location.pathname === '/dictation-list' || location.pathname.startsWith('/dictation-practice')) {
       setActiveNav('Chép chính tả');
+    } else if (location.pathname === '/grammar') {
+      setActiveNav('Luyện ngữ pháp');
     }
   }, [location.pathname]);
 
@@ -64,7 +66,7 @@ const Header: React.FC = () => {
                 {navItems.map((item) => (
                   <a
                     key={item}
-                    href={item === 'Luyện đề' ? '/' : item === 'Chép chính tả' ? '/dictation-list' : '/'}
+                    href={item === 'Luyện đề' ? '/' : item === 'Chép chính tả' ? '/dictation-list' : '/grammar'}
                     className={`nav-item text-black font-medium px-4 py-2 transition-all duration-300 ${activeNav === item ? 'border-b-2 border-green-600' : ''}`}
                     onClick={() => handleNavClick(item)}
                   >

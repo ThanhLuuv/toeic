@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cho phép đọc và ghi tất cả documents trong grammar_topics collection
+    match /grammar_topics/{document} {
+      allow read, write: if true;
+    }
+    
+    // Cho phép đọc và ghi tất cả documents trong grammar_questions collection
+    match /grammar_questions/{document} {
+      allow read, write: if true;
+    }
+    
+    // Cho phép đọc và ghi tất cả documents trong vocabulary collection
+    match /vocabulary/{document} {
+      allow read, write: if true;
+    }
+    
+    // Cho phép đọc và ghi tất cả documents trong toeic_questions collection
+    match /toeic_questions/{document} {
+      allow read, write: if true;
+    }
+    
+    // Chặn tất cả các collection khác
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+} 

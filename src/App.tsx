@@ -16,6 +16,10 @@ import DictationList from './pages/DictationList';
 import Part1DictationPractice from './components/Part1DictationPractice';
 import Part2DictationPractice from './components/Part2DictationPractice';
 import Chatbot from './components/Chatbot';
+import GrammarTopics from './pages/GrammarTopics';
+import GrammarPractice from './pages/GrammarPractice';
+import GrammarDataInsert from './pages/GrammarDataInsert';
+import VocabularyDataInsert from './pages/VocabularyDataInsert';
 
 
 const App: React.FC = () => {
@@ -45,6 +49,22 @@ const App: React.FC = () => {
         <Route
           path="/dictation/part2/:setIndex"
           element={<Part2DictationPractice />}
+        />
+        <Route
+          path="/grammar"
+          element={<GrammarTopics />}
+        />
+        <Route
+          path="/grammar/practice/:topicName"
+          element={<GrammarPractice />}
+        />
+        <Route
+          path="/grammar/insert"
+          element={<GrammarDataInsert />}
+        />
+        <Route
+          path="/vocabulary/insert"
+          element={<VocabularyDataInsert />}
         />
         <Route
           path="*"

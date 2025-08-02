@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import vocabData from '../data/vocabulary.json';
+import { vocabularyService, Vocabulary } from '../services/vocabularyService';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   useAudioManager,
@@ -17,6 +17,7 @@ interface VocabItem {
   phonetic: string;
   meaning: string;
   audio?: string;
+  topic?: string;
 }
 
 const NUM_WORDS = 20;
@@ -24,7 +25,10 @@ const NUM_WORDS = 20;
 const DictationPractice: React.FC = () => {
   const { setIndex } = useParams<{ setIndex?: string }>();
   const setIdx = Number(setIndex) || 0;
-  const vocabList: VocabItem[] = vocabData.slice(setIdx * NUM_WORDS, (setIdx + 1) * NUM_WORDS);
+  const [vocabList, setVocabList] = useState<VocabItem[]>([]);
+  const [allVocabulary, setAllVocabulary] = useState<VocabItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userInputs, setUserInputs] = useState<string[]>(Array(NUM_WORDS).fill(''));
   const [result, setResult] = useState<(boolean | null)[]>(Array(NUM_WORDS).fill(null));
@@ -40,6 +44,55 @@ const DictationPractice: React.FC = () => {
 
   // Use common audio manager
   const { playSuccessSound, playErrorSound, handlePlayAudio } = useAudioManager(soundEnabled);
+
+  // Load vocabulary data from Firebase
+  useEffect(() => {
+    const loadVocabulary = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        
+        // Get all vocabulary from Firebase
+        const allVocabulary = await vocabularyService.getAllVocabulary(1000);
+        
+        // Convert to VocabItem format
+        const vocabItems: VocabItem[] = allVocabulary.map((vocab: Vocabulary) => ({
+          word: vocab.word,
+          type: vocab.type,
+          phonetic: vocab.phonetic,
+          meaning: vocab.meaning,
+          audio: vocab.audio,
+          topic: vocab.topic
+        }));
+        
+        setAllVocabulary(vocabItems);
+        
+        // Slice for current set
+        const startIndex = setIdx * NUM_WORDS;
+        const endIndex = startIndex + NUM_WORDS;
+        const currentSetVocab = vocabItems.slice(startIndex, endIndex);
+        
+        setVocabList(currentSetVocab);
+        
+        // Reset user inputs and results for the new set
+        setUserInputs(Array(currentSetVocab.length).fill(''));
+        setResult(Array(currentSetVocab.length).fill(null));
+        setCurrentIndex(0);
+        setShowAnswer(false);
+        setUserRevealedAnswers(Array(currentSetVocab.length).fill(false));
+        setShowModal(false);
+        
+      } catch (err) {
+        console.error('Error loading vocabulary:', err);
+        setError('Failed to load vocabulary data. Please try again.');
+        setVocabList([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadVocabulary();
+  }, [setIdx]);
 
   const handleInputChange = (value: string) => {
     const newInputs = [...userInputs];
@@ -81,11 +134,11 @@ const DictationPractice: React.FC = () => {
     // If this is the last word in the current set
     if (currentIndex === vocabList.length - 1) {
       // Navigate to next set if available
-      if (setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1) {
+      if (setIdx < Math.ceil(allVocabulary.length / NUM_WORDS) - 1) {
         navigate(`/dictation/${setIdx + 1}`);
       } else {
         // If no more sets, go back to list
-        navigate('/');
+        navigate('/dictation-list');
       }
     } else {
       // Move to next word in current set
@@ -164,20 +217,17 @@ const DictationPractice: React.FC = () => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [showNextButton]);
 
+  if (isLoading) return <div style={{ textAlign: 'center', marginTop: 40 }}>Loading...</div>;
+  if (error) return <div style={{ textAlign: 'center', marginTop: 40, color: 'red' }}>{error}</div>;
   if (vocabList.length === 0) return <div style={{ textAlign: 'center', marginTop: 40 }}>No data available!</div>;
 
   function getSetTopic(idx: number) {
-    if (idx * NUM_WORDS < 40) return 'Tourism';
-    if (idx * NUM_WORDS < 80) return 'Accommodations & Food';
-    if (idx * NUM_WORDS < 120) return 'Transportation';
-    if (idx * NUM_WORDS < 160) return 'Stores';
-    if (idx * NUM_WORDS < 200) return 'Purchase & Warranty';
-    if (idx * NUM_WORDS < 240) return 'Performance';
-    if (idx * NUM_WORDS < 280) return 'Exhibition & Museums';
-    if (idx * NUM_WORDS < 320) return 'Media';
-    if (idx * NUM_WORDS < 360) return 'Real Estate';
-    if (idx * NUM_WORDS < 400) return 'Arts';
-    return 'Other';
+    // Get topic from the first word in the current set
+    const startIndex = idx * NUM_WORDS;
+    if (allVocabulary[startIndex]) {
+      return allVocabulary[startIndex].topic || 'General';
+    }
+    return 'General';
   }
   const topic = getSetTopic(setIdx);
 
@@ -207,7 +257,7 @@ const DictationPractice: React.FC = () => {
     },
     {
       text: currentIndex === vocabList.length - 1 
-        ? (setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1 ? 'Next Set' : 'Finish')
+        ? (setIdx < Math.ceil(allVocabulary.length / NUM_WORDS) - 1 ? 'Next Set' : 'Finish')
         : 'Next',
       onClick: handleNext,
       variant: 'primary' as const,
@@ -331,12 +381,12 @@ const DictationPractice: React.FC = () => {
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = '0 4px 12px rgba(20, 178, 76, 0.3)';
               }}
-            >
-              {currentIndex === vocabList.length - 1 
-                ? (setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1 ? 'Next Set →' : 'Finish →')
-                : 'Next Word →'
-              }
-            </button>
+                          >
+                {currentIndex === vocabList.length - 1 
+                  ? (setIdx < Math.ceil(allVocabulary.length / NUM_WORDS) - 1 ? 'Next Set →' : 'Finish →')
+                  : 'Next Word →'
+                }
+              </button>
           </div>
         </div>
       )}
@@ -524,7 +574,7 @@ const DictationPractice: React.FC = () => {
             >
               ← Back to List
             </button>
-            {setIdx < Math.ceil(vocabData.length / NUM_WORDS) - 1 && (
+            {setIdx < Math.ceil(allVocabulary.length / NUM_WORDS) - 1 && (
               <button
                 onClick={() => navigate(`/dictation/${setIdx + 1}`)}
                 style={{

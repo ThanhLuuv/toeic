@@ -1,33 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import part1Data from '../data/part1.json';
-import part2Data from '../data/part2.json';
-
-// Mock data for demonstration
-const vocabData = Array.from({ length: 400 }, (_, i) => ({
-  word: i % 7 === 0 ? `phrase ${i + 1} example` : `word${i + 1}`,
-  meaning: `Meaning ${i + 1}`
-}));
+import { vocabularyService, Vocabulary } from '../services/vocabularyService';
+import { toeicService, ToeicQuestion } from '../services/toeicService';
 
 const WORDS_PER_SET = 20;
 const SENTENCES_PER_SET = 10;
 
-// Create sets for vocabulary
-const vocabSets = Array.from({ length: Math.ceil(vocabData.length / WORDS_PER_SET) }, (_, i) =>
-  vocabData.slice(i * WORDS_PER_SET, (i + 1) * WORDS_PER_SET)
-);
-
-// Create sets for Part 1 sentences (10 sentences per set)
-const part1Sets: any[] = [];
-for (let i = 0; i < part1Data.length; i += SENTENCES_PER_SET) {
-  part1Sets.push(part1Data.slice(i, i + SENTENCES_PER_SET));
-}
-
-// Create sets for Part 2 sentences (10 sentences per set)
-const part2Sets: any[] = [];
-for (let i = 0; i < part2Data.length; i += SENTENCES_PER_SET) {
-  part2Sets.push(part2Data.slice(i, i + SENTENCES_PER_SET));
-}
+// Placeholder for Part 1 and Part 2 sets - will be loaded from Firebase
+const part1Sets: ToeicQuestion[][] = [];
+const part2Sets: ToeicQuestion[][] = [];
 
 const TABS = [
   { key: 'all', label: 'All Categories' },
@@ -73,11 +54,57 @@ const DictationList: React.FC = () => {
   const [completedSets, setCompletedSets] = useState<Set<number>>(new Set());
   const [vocabCompletedSets, setVocabCompletedSets] = useState<Set<number>>(new Set());
   const [part2CompletedSets, setPart2CompletedSets] = useState<Set<number>>(new Set());
+  const [vocabSets, setVocabSets] = useState<Vocabulary[][]>([]);
+  const [part1Sets, setPart1Sets] = useState<ToeicQuestion[][]>([]);
+  const [part2Sets, setPart2Sets] = useState<ToeicQuestion[][]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Load completed sets from localStorage
+  // Load data from Firebase and completed sets from localStorage
   useEffect(() => {
+    const loadData = async () => {
+      try {
+        setIsLoading(true);
+        
+        // Load vocabulary
+        const allVocabulary = await vocabularyService.getAllVocabulary(1000);
+        const vocabSets: Vocabulary[][] = [];
+        for (let i = 0; i < allVocabulary.length; i += WORDS_PER_SET) {
+          vocabSets.push(allVocabulary.slice(i, i + WORDS_PER_SET));
+        }
+        setVocabSets(vocabSets);
+        
+        // Load Part 1 questions
+        const part1Questions = await toeicService.getQuestionsByPart('part1', 1000);
+        const part1SetsData: ToeicQuestion[][] = [];
+        for (let i = 0; i < part1Questions.length; i += SENTENCES_PER_SET) {
+          part1SetsData.push(part1Questions.slice(i, i + SENTENCES_PER_SET));
+        }
+        setPart1Sets(part1SetsData);
+        
+        // Load Part 2 questions
+        const part2Questions = await toeicService.getQuestionsByPart('part2', 1000);
+        const part2SetsData: ToeicQuestion[][] = [];
+        for (let i = 0; i < part2Questions.length; i += SENTENCES_PER_SET) {
+          part2SetsData.push(part2Questions.slice(i, i + SENTENCES_PER_SET));
+        }
+        setPart2Sets(part2SetsData);
+        
+      } catch (error) {
+        console.error('Error loading data:', error);
+        // Fallback to empty sets if Firebase fails
+        setVocabSets([]);
+        setPart1Sets([]);
+        setPart2Sets([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
+
+    // Load completed sets from localStorage
     const savedCompletedSets = localStorage.getItem('part1-completed-sets');
     if (savedCompletedSets) {
       try {
@@ -216,9 +243,9 @@ const DictationList: React.FC = () => {
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="text-slate-600">
-                    {type === 'vocab' ? `${WORDS_PER_SET} words` : 
-                     type === 'part1' ? `${set.length} sentences` : 
-                     `${set.length} sentences`}
+                    {type === 'vocab' ? `${set.length} words` : 
+                     type === 'part1' ? `${set.length} questions` : 
+                     `${set.length} questions`}
                   </span>
                 </div>
               </div>
@@ -310,7 +337,7 @@ const DictationList: React.FC = () => {
                 <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-slate-600">{WORDS_PER_SET} words</span>
+                <span className="text-slate-600">{set.length} words</span>
               </div>
             </div>
 
@@ -381,7 +408,7 @@ const DictationList: React.FC = () => {
                 <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-slate-600">{set.length} sentences (20 words)</span>
+                <span className="text-slate-600">{set.length} questions</span>
               </div>
             </div>
 
@@ -452,7 +479,7 @@ const DictationList: React.FC = () => {
                 <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-slate-600">{set.length} sentences (20-30 words)</span>
+                <span className="text-slate-600">{set.length} questions</span>
               </div>
             </div>
 
@@ -522,7 +549,18 @@ const DictationList: React.FC = () => {
         </div>
 
         {/* Content */}
-        {(tab === 'all' || tab === 'vocab' || tab === 'part1' || tab === 'part2') ? (
+        {isLoading ? (
+          <div className="text-center py-20">
+            <div className="bg-white rounded-2xl p-12 shadow-lg max-w-md mx-auto">
+              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-blue-600 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">Đang tải...</h3>
+            </div>
+          </div>
+        ) : (tab === 'all' || tab === 'vocab' || tab === 'part1' || tab === 'part2') ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {renderSets()}
           </div>

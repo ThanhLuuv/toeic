@@ -53,14 +53,14 @@ const Home: React.FC = () => {
 
   const quickActions = [
     {
-      title: 'Luyện đề nhanh',
-      description: 'Thực hành từng part một cách linh hoạt',
+      title: 'Luyện Ngữ Pháp',
+      description: 'Thực hành ngữ pháp theo chủ đề với Firebase',
       buttonText: 'Bắt đầu ngay',
       svgPath: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
       bgColor: 'bg-green-100',
       textColor: 'text-green-600',
       animationDelay: '0s',
-      onClick: () => window.location.href = '/not-found',
+      onClick: () => window.location.href = '/grammar',
     },
     {
       title: 'Thi thử đầy đủ',
