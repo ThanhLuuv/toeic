@@ -6,4 +6,5 @@ export { BackButton } from './BackButton';
 export { AudioButton } from './AudioButton';
 export { ActionButtons } from './ActionButtons';
 export { AnswerDisplay } from './AnswerDisplay';
-export { default as CookieConsent } from './CookieConsent'; 
+export { default as CookieConsent } from './CookieConsent';
+export { default as UniversalQuestionCard } from '../TestPart1/Part1QuestionCard'; 

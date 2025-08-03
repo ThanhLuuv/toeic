@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 // @ts-ignore
 import part1Questions from '../data/toeic_part1.json';
 import AudioPlayer from '../components/AudioPlayer';
-import QuestionCard from '../components/TestPart1/QuestionCard';
+import Part1QuestionCard from '../components/TestPart1/Part1QuestionCard';
 import StatsBar from '../components/TestPart1/StatsBar';
 // import NotesPanel from '../components/NotesPanel';
 import VocabularyPanel from '../components/TestPart1/VocabularyPanel';
@@ -431,14 +431,7 @@ const TestPart1: React.FC = () => {
       {/* <FloatingTimer timeRemaining={timeRemaining} /> */}
       <main className="max-w-3xl mx-auto mb-6 px-4 py-6">
         {currentQuestionIndex < testQuestions.length && (
-          <>
-            {/* Question Number Header */}
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold text-gray-800 text-center">
-                Câu {currentQuestionIndex + 1} / {testQuestions.length}
-              </h2>
-            </div>
-            
+          <>            
             <div className="relative">
               {/* Nếu chưa hoàn thành từ vựng, chỉ hiện ảnh (nếu có) và VocabularyPanel ngay dưới ảnh */}
               {testQuestions[currentQuestionIndex]?.subjectVocabulary && !vocabularyCompleted && (
@@ -470,28 +463,71 @@ const TestPart1: React.FC = () => {
               {/* Khi đã hoàn thành từ vựng, mới hiện QuestionCard và AudioPlayer */}
               {vocabularyCompleted && (
                 <>
-                  {testQuestions[currentQuestionIndex]?.audio && (
+                  {/* {testQuestions[currentQuestionIndex]?.audio && (
                     <AudioPlayer
                       audioSrc={testQuestions[currentQuestionIndex].audio}
                       audioRef={audioRef as React.RefObject<HTMLAudioElement>}
                       forceStop={forceStopAudio}
                     />
-                  )}
-                  <QuestionCard
+                  )} */}
+                  <Part1QuestionCard
                     question={testQuestions[currentQuestionIndex]}
+                    onAnswer={(selectedAnswer, isCorrect) => {
+                      setSelectedAnswer(selectedAnswer);
+                      const newAnswers = [...answers];
+                      newAnswers[currentQuestionIndex] = {
+                        selected: selectedAnswer,
+                        correct: testQuestions[currentQuestionIndex].correctAnswer,
+                        isCorrect,
+                        skipped: false,
+                      };
+                      setAnswers(newAnswers);
+                      setIsAnswered(true);
+                      if (isCorrect) {
+                        showConfetti();
+                      }
+                    }}
+                    onNext={nextQuestion}
+                    userAnswer={selectedAnswer || undefined}
+                    isLastQuestion={currentQuestionIndex === testQuestions.length - 1}
+                    testType="part1"
                     currentQuestionIndex={currentQuestionIndex}
                     totalQuestions={testQuestions.length}
-                    selectedAnswer={selectedAnswer}
-                    isAnswered={isAnswered}
-                    setSelectedAnswer={setSelectedAnswer}
-                    nextQuestion={nextQuestion}
-                    playCount={playCount}
-                    maxPlays={maxPlays}
-                    setPlayCount={setPlayCount}
-                    showTranscript={showTranscript}
-                    setShowTranscript={setShowTranscript}
-                    hideImage={false}
-                    onShowVocabularyPanel={undefined}
+                    showOptionsBeforeAnswer={false}
+                    audioComponent={
+                      testQuestions[currentQuestionIndex]?.audio ? (
+                        <AudioPlayer
+                          audioSrc={testQuestions[currentQuestionIndex].audio}
+                          audioRef={audioRef as React.RefObject<HTMLAudioElement>}
+                          forceStop={forceStopAudio}
+                        />
+                      ) : undefined
+                    }
+                    imageComponent={
+                      testQuestions[currentQuestionIndex]?.image ? (
+                        <div className="flex justify-center">
+                          <img
+                            src={testQuestions[currentQuestionIndex].image}
+                            alt={testQuestions[currentQuestionIndex].imageDescription || 'Question image'}
+                            className="max-h-96 w-full rounded-xl object-contain"
+                          />
+                        </div>
+                      ) : undefined
+                    }
+                    vocabularyComponent={
+                      <VocabularyPanel
+                        subjectVocabulary={testQuestions[currentQuestionIndex].subjectVocabulary}
+                        descriptiveVocabulary={testQuestions[currentQuestionIndex].descriptiveVocabulary || []}
+                        onVocabularyComplete={handleVocabularyComplete}
+                        onVocabularySelection={handleVocabularySelection}
+                        isCompleted={vocabularyCompleted}
+                        isAnswered={isAnswered}
+                        imageUrl={testQuestions[currentQuestionIndex].image}
+                        imageDescription={testQuestions[currentQuestionIndex].imageDescription}
+                        resetKey={vocabularyResetKey}
+                      />
+                    }
+                    vocabularyCompleted={vocabularyCompleted}
                   />
                   {/* Hiển thị bảng kết quả từ vựng sau khi đã trả lời xong */}
                   {isAnswered && (

@@ -28,24 +28,10 @@ function getSetType(set: any[], isPart1: boolean = false, isPart2: boolean = fal
   return hasPhrase ? '1 words or more' : '1 word';
 }
 
-function getSetTopic(idx: number, isPart1: boolean = false, isPart2: boolean = false) {
-  if (isPart1) {
-    return 'TOEIC Part 1';
-  }
-  if (isPart2) {
-    return 'TOEIC Part 2';
-  }
-  if (idx * WORDS_PER_SET < 40) return 'Tourism';
-  if (idx * WORDS_PER_SET < 80) return 'Accommodations & Food';
-  if (idx * WORDS_PER_SET < 120) return 'Transportation';
-  if (idx * WORDS_PER_SET < 160) return 'Stores';
-  if (idx * WORDS_PER_SET < 200) return 'Purchase & Warranty';
-  if (idx * WORDS_PER_SET < 240) return 'Performance';
-  if (idx * WORDS_PER_SET < 280) return 'Exhibition & Museums';
-  if (idx * WORDS_PER_SET < 320) return 'Media';
-  if (idx * WORDS_PER_SET < 360) return 'Real Estate';
-  if (idx * WORDS_PER_SET < 400) return 'Arts';
-  return 'Other';
+// Interface for vocabulary sets grouped by topic
+interface VocabSetByTopic {
+  topic: string;
+  sets: Vocabulary[][];
 }
 
 const DictationList: React.FC = () => {
@@ -54,7 +40,7 @@ const DictationList: React.FC = () => {
   const [completedSets, setCompletedSets] = useState<Set<number>>(new Set());
   const [vocabCompletedSets, setVocabCompletedSets] = useState<Set<number>>(new Set());
   const [part2CompletedSets, setPart2CompletedSets] = useState<Set<number>>(new Set());
-  const [vocabSets, setVocabSets] = useState<Vocabulary[][]>([]);
+  const [vocabSetsByTopic, setVocabSetsByTopic] = useState<VocabSetByTopic[]>([]);
   const [part1Sets, setPart1Sets] = useState<ToeicQuestion[][]>([]);
   const [part2Sets, setPart2Sets] = useState<ToeicQuestion[][]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -67,13 +53,77 @@ const DictationList: React.FC = () => {
       try {
         setIsLoading(true);
         
-        // Load vocabulary
-        const allVocabulary = await vocabularyService.getAllVocabulary(1000);
-        const vocabSets: Vocabulary[][] = [];
-        for (let i = 0; i < allVocabulary.length; i += WORDS_PER_SET) {
-          vocabSets.push(allVocabulary.slice(i, i + WORDS_PER_SET));
+        // Load vocabulary and group by topic
+        const topics = await vocabularyService.getAllTopics();
+        console.log('Available topics:', topics);
+        
+        const vocabSetsByTopicData: VocabSetByTopic[] = [];
+        
+        // Process each topic using getVocabularyByTopic for better filtering
+        for (const topic of topics) {
+          try {
+            // Get vocabulary by topic directly from database
+            const topicVocabulary = await vocabularyService.getVocabularyByTopic(topic, 1000);
+            console.log(`Topic "${topic}" has ${topicVocabulary.length} words:`, topicVocabulary.slice(0, 5));
+            
+            if (topicVocabulary.length > 0) {
+              // Remove duplicates (case-insensitive)
+              const uniqueVocabulary = topicVocabulary.filter((vocab, index, self) => 
+                index === self.findIndex(v => v.word.toLowerCase() === vocab.word.toLowerCase())
+              );
+              
+              console.log(`Topic "${topic}" has ${uniqueVocabulary.length} unique words after deduplication`);
+              
+              const sets: Vocabulary[][] = [];
+              
+              // Create sets of WORDS_PER_SET words
+              for (let i = 0; i < uniqueVocabulary.length; i += WORDS_PER_SET) {
+                const set = uniqueVocabulary.slice(i, i + WORDS_PER_SET);
+                if (set.length > 0) {
+                  sets.push(set);
+                  console.log(`Set ${sets.length} for topic "${topic}":`, set.map(v => v.word));
+                }
+              }
+              
+              if (sets.length > 0) {
+                vocabSetsByTopicData.push({ topic, sets });
+              }
+            }
+          } catch (error) {
+            console.error(`Error loading vocabulary for topic "${topic}":`, error);
+          }
         }
-        setVocabSets(vocabSets);
+        
+        // Add vocabulary without topic to "Other" category
+        try {
+          const allVocabulary = await vocabularyService.getAllVocabulary(1000);
+          const vocabWithoutTopic = allVocabulary
+            .filter(vocab => !vocab.topic)
+            .filter((vocab, index, self) => 
+              index === self.findIndex(v => v.word.toLowerCase() === vocab.word.toLowerCase())
+            );
+          
+          console.log(`Found ${vocabWithoutTopic.length} words without topic`);
+          
+          if (vocabWithoutTopic.length > 0) {
+            const otherSets: Vocabulary[][] = [];
+            for (let i = 0; i < vocabWithoutTopic.length; i += WORDS_PER_SET) {
+              const set = vocabWithoutTopic.slice(i, i + WORDS_PER_SET);
+              if (set.length > 0) {
+                otherSets.push(set);
+                console.log(`Other set ${otherSets.length}:`, set.map(v => v.word));
+              }
+            }
+            if (otherSets.length > 0) {
+              vocabSetsByTopicData.push({ topic: 'Other', sets: otherSets });
+            }
+          }
+        } catch (error) {
+          console.error('Error loading vocabulary without topic:', error);
+        }
+        
+        console.log('Final vocabulary sets by topic:', vocabSetsByTopicData);
+        setVocabSetsByTopic(vocabSetsByTopicData);
         
         // Load Part 1 questions
         const part1Questions = await toeicService.getQuestionsByPart('part1', 1000);
@@ -94,7 +144,7 @@ const DictationList: React.FC = () => {
       } catch (error) {
         console.error('Error loading data:', error);
         // Fallback to empty sets if Firebase fails
-        setVocabSets([]);
+        setVocabSetsByTopic([]);
         setPart1Sets([]);
         setPart2Sets([]);
       } finally {
@@ -145,11 +195,18 @@ const DictationList: React.FC = () => {
     }
   }, [location.search]);
 
-  const handleSetClick = (idx: number) => {
+  const handleSetClick = (idx: number, topicIndex?: number, setIndex?: number) => {
+    console.log(`handleSetClick: tab=${tab}, idx=${idx}, topicIndex=${topicIndex}, setIndex=${setIndex}`);
+    
     if (tab === 'part1') {
       navigate(`/dictation/part1/${idx}`);
     } else if (tab === 'part2') {
       navigate(`/dictation/part2/${idx}`);
+    } else if (tab === 'vocab' && topicIndex !== undefined && setIndex !== undefined) {
+      // For vocabulary tab, use the global index calculated from topic and set
+      const globalIdx = getGlobalVocabIndex(topicIndex, setIndex);
+      console.log(`Navigating to vocabulary set: /dictation/${globalIdx}`);
+      navigate(`/dictation/${globalIdx}`);
     } else {
       navigate(`/dictation/${idx}`);
     }
@@ -162,18 +219,69 @@ const DictationList: React.FC = () => {
     navigate({ search: params.toString() });
   };
 
+  // Helper function to get global index for vocabulary sets
+  const getGlobalVocabIndex = (topicIndex: number, setIndex: number): number => {
+    let globalIndex = 0;
+    for (let i = 0; i < topicIndex; i++) {
+      globalIndex += vocabSetsByTopic[i].sets.length;
+    }
+    const result = globalIndex + setIndex;
+    console.log(`getGlobalVocabIndex: topicIndex=${topicIndex}, setIndex=${setIndex}, result=${result}`);
+    console.log(`Topic "${vocabSetsByTopic[topicIndex]?.topic}" set ${setIndex + 1} -> global index ${result}`);
+    return result;
+  };
+
   const renderSets = () => {
     if (tab === 'all') {
       // Render all categories
-      const allSets = [
-        ...vocabSets.map((set, idx) => ({ set, idx, type: 'vocab', originalIdx: idx })),
-        ...part1Sets.map((set, idx) => ({ set, idx: idx + vocabSets.length, type: 'part1', originalIdx: idx })),
-        ...part2Sets.map((set, idx) => ({ set, idx: idx + vocabSets.length + part1Sets.length, type: 'part2', originalIdx: idx }))
-      ];
+      const allSets: Array<{
+        set: Vocabulary[] | ToeicQuestion[];
+        idx: number;
+        type: 'vocab' | 'part1' | 'part2';
+        originalIdx: number;
+        topic?: string;
+      }> = [];
+      let globalVocabIndex = 0;
+      
+      // Add vocabulary sets by topic
+      vocabSetsByTopic.forEach((topicData, topicIndex) => {
+        topicData.sets.forEach((set, setIndex) => {
+          const globalIdx = getGlobalVocabIndex(topicIndex, setIndex);
+          console.log(`Adding to allSets: topic="${topicData.topic}" set ${setIndex + 1} -> globalIdx=${globalIdx}`);
+          allSets.push({
+            set,
+            idx: globalVocabIndex,
+            type: 'vocab',
+            originalIdx: globalIdx,
+            topic: topicData.topic
+          });
+          globalVocabIndex++;
+        });
+      });
+      
+      // Add Part 1 sets
+      part1Sets.forEach((set, idx) => {
+        allSets.push({
+          set,
+          idx: globalVocabIndex + idx,
+          type: 'part1',
+          originalIdx: idx
+        });
+      });
+      
+      // Add Part 2 sets
+      part2Sets.forEach((set, idx) => {
+        allSets.push({
+          set,
+          idx: globalVocabIndex + part1Sets.length + idx,
+          type: 'part2',
+          originalIdx: idx
+        });
+      });
 
-      const elements = [];
+      const elements: React.ReactElement[] = [];
       for (let i = 0; i < allSets.length; i++) {
-        const { set, idx, type, originalIdx } = allSets[i];
+        const { set, idx, type, originalIdx, topic } = allSets[i];
         elements.push(
           <div
             key={`${type}-${originalIdx}`}
@@ -184,15 +292,18 @@ const DictationList: React.FC = () => {
                 : 'hover:shadow-xl'
               }
             `}
-            onClick={() => {
-              if (type === 'part1') {
-                navigate(`/dictation/part1/${originalIdx}`);
-              } else if (type === 'part2') {
-                navigate(`/dictation/part2/${originalIdx}`);
-              } else {
-                navigate(`/dictation/${originalIdx}`);
-              }
-            }}
+                         onClick={() => {
+               console.log(`Clicking on ${type} set: topic="${topic}", originalIdx=${originalIdx}`);
+               if (type === 'part1') {
+                 navigate(`/dictation/part1/${originalIdx}`);
+               } else if (type === 'part2') {
+                 navigate(`/dictation/part2/${originalIdx}`);
+               } else {
+                 // For vocabulary in 'all' tab, use the global index
+                 console.log(`Navigating to vocabulary: /dictation/${originalIdx}`);
+                 navigate(`/dictation/${originalIdx}`);
+               }
+             }}
             onMouseEnter={() => setHoverIdx(idx)}
             onMouseLeave={() => setHoverIdx(null)}
           >
@@ -223,9 +334,9 @@ const DictationList: React.FC = () => {
                     <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                   </svg>
                   <span className="text-slate-700 font-medium">
-                    {type === 'vocab' ? getSetTopic(originalIdx) : 
-                     type === 'part1' ? getSetTopic(originalIdx, true) : 
-                     getSetTopic(originalIdx, false, true)}
+                    {type === 'vocab' ? topic : 
+                     type === 'part1' ? 'TOEIC Part 1' : 
+                     'TOEIC Part 2'}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -268,8 +379,8 @@ const DictationList: React.FC = () => {
             </div>
           </div>
         );
-        // Sau nhóm Vocabulary
-        if (i === vocabSets.length - 1 || i === vocabSets.length + part1Sets.length - 1) {
+        // Add break lines after vocabulary topics
+        if (type === 'vocab' && i < allSets.length - 1 && allSets[i + 1].type !== 'vocab') {
           elements.push(
             <div
               key={`break-line-${i}`}
@@ -285,77 +396,106 @@ const DictationList: React.FC = () => {
         }
       }
       return elements;
-    } else if (tab === 'vocab') {
-      return vocabSets.map((set, idx) => (
-        <div
-          key={idx}
-          className={`
-            relative rounded-xl p-5 cursor-pointer transition-all duration-300 transform bg-white shadow-lg
-            ${hoverIdx === idx 
-              ? 'shadow-xl scale-105 -translate-y-1' 
-              : 'hover:shadow-xl'
-            }
-          `}
-          onClick={() => handleSetClick(idx)}
-          onMouseEnter={() => setHoverIdx(idx)}
-          onMouseLeave={() => setHoverIdx(null)}
-        >
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div
-                  className="w-2 h-2 rounded-full"
-                  style={{ background: '#0284c7' }}
-                ></div>
-                <h3 className="text-lg font-bold text-slate-800">
-                  Set {idx + 1}
-                </h3>
-              </div>
-              {vocabCompletedSets.has(idx) && (
-                <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full font-bold">
-                  ✓
-                </span>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                </svg>
-                <span className="text-slate-700 font-medium">{getSetTopic(idx)}</span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-slate-600">{getSetType(set)}</span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="text-slate-600">{set.length} words</span>
-              </div>
-            </div>
-
-            <div className="pt-2">
-              <div className="w-full bg-slate-100 rounded-full h-1">
-                <div 
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    vocabCompletedSets.has(idx) ? 'bg-green-600 w-full' : 'bg-green-600 w-0'
-                  }`}
-                ></div>
-              </div>
-              <p className="text-xs text-slate-500 mt-1 text-center">
-                {vocabCompletedSets.has(idx) ? 'Completed' : 'Start'}
-              </p>
-            </div>
+         } else if (tab === 'vocab') {
+       const elements: React.ReactElement[] = [];
+      
+      vocabSetsByTopic.forEach((topicData, topicIndex) => {
+        // Add topic header
+        elements.push(
+          <div
+            key={`topic-header-${topicIndex}`}
+            style={{
+              gridColumn: '1/-1',
+              margin: '20px 0 10px 0',
+            }}
+          >
+            <h2 className="text-xl font-bold text-slate-800 mb-4">{topicData.topic}</h2>
           </div>
-        </div>
-      ));
+        );
+        
+                 // Add sets for this topic
+         topicData.sets.forEach((set, setIndex) => {
+           const globalIdx = getGlobalVocabIndex(topicIndex, setIndex);
+           elements.push(
+            <div
+              key={`${topicIndex}-${setIndex}`}
+                             className={`
+                 relative rounded-xl p-5 cursor-pointer transition-all duration-300 transform bg-white shadow-lg
+                 ${hoverIdx === globalIdx 
+                   ? 'shadow-xl scale-105 -translate-y-1' 
+                   : 'hover:shadow-xl'
+                 }
+               `}
+               onClick={() => handleSetClick(globalIdx, topicIndex, setIndex)}
+               onMouseEnter={() => setHoverIdx(globalIdx)}
+               onMouseLeave={() => setHoverIdx(null)}
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div
+                      className="w-2 h-2 rounded-full"
+                      style={{ background: '#0284c7' }}
+                    ></div>
+                                       <h3 className="text-lg font-bold text-slate-800">
+                     {topicData.topic} - Set {setIndex + 1}
+                   </h3>
+                  </div>
+                                     {vocabCompletedSets.has(globalIdx) && (
+                     <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full font-bold">
+                       ✓
+                     </span>
+                   )}
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-slate-700 font-medium">{topicData.topic}</span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-slate-600">{getSetType(set)}</span>
+                  </div>
+
+                                     <div className="flex items-center gap-2">
+                     <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
+                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                     </svg>
+                     <span className="text-slate-600">{set.length} words</span>
+                   </div>
+                   
+                   {/* Show sample words for debugging */}
+                   <div className="text-xs text-slate-500 mt-2">
+                     <span className="font-medium">Sample words:</span> {set.slice(0, 3).map(v => v.word).join(', ')}
+                     {set.length > 3 && '...'}
+                   </div>
+                </div>
+
+                <div className="pt-2">
+                  <div className="w-full bg-slate-100 rounded-full h-1">
+                                       <div 
+                     className={`h-1 rounded-full transition-all duration-300 ${
+                       vocabCompletedSets.has(globalIdx) ? 'bg-green-600 w-full' : 'bg-green-600 w-0'
+                     }`}
+                   ></div>
+                 </div>
+                 <p className="text-xs text-slate-500 mt-1 text-center">
+                   {vocabCompletedSets.has(globalIdx) ? 'Completed' : 'Start'}
+                 </p>
+                </div>
+              </div>
+            </div>
+                     );
+         });
+      });
+      
+      return elements;
     } else if (tab === 'part1') {
       return part1Sets.map((set, idx) => (
         <div
@@ -394,7 +534,7 @@ const DictationList: React.FC = () => {
                 <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                 </svg>
-                <span className="text-slate-700 font-medium">{getSetTopic(idx, true)}</span>
+                <span className="text-slate-700 font-medium">TOEIC Part 1</span>
               </div>
 
               <div className="flex items-center gap-2">
@@ -465,7 +605,7 @@ const DictationList: React.FC = () => {
                 <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                 </svg>
-                <span className="text-slate-700 font-medium">{getSetTopic(idx, false, true)}</span>
+                <span className="text-slate-700 font-medium">TOEIC Part 2</span>
               </div>
 
               <div className="flex items-center gap-2">

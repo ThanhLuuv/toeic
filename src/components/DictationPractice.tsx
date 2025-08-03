@@ -41,6 +41,7 @@ const DictationPractice: React.FC = () => {
   const [showHelp, setShowHelp] = useState(true);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [completedSets, setCompletedSets] = useState<Set<number>>(new Set());
+  const [isSetLoaded, setIsSetLoaded] = useState(false);
 
   // Use common audio manager
   const { playSuccessSound, playErrorSound, handlePlayAudio } = useAudioManager(soundEnabled);
@@ -50,9 +51,11 @@ const DictationPractice: React.FC = () => {
     const loadVocabulary = async () => {
       try {
         setIsLoading(true);
+        setIsSetLoaded(false);
         setError(null);
         
-        // Get all vocabulary from Firebase
+        // Get all topics and vocabulary grouped by topic
+        const topics = await vocabularyService.getAllTopics();
         const allVocabulary = await vocabularyService.getAllVocabulary(1000);
         
         // Convert to VocabItem format
@@ -67,20 +70,63 @@ const DictationPractice: React.FC = () => {
         
         setAllVocabulary(vocabItems);
         
-        // Slice for current set
-        const startIndex = setIdx * NUM_WORDS;
-        const endIndex = startIndex + NUM_WORDS;
-        const currentSetVocab = vocabItems.slice(startIndex, endIndex);
+        // Group vocabulary by topic and create sets
+        const vocabSetsByTopic: VocabItem[][] = [];
         
-        setVocabList(currentSetVocab);
+        for (const topic of topics) {
+          const topicVocabulary = vocabItems.filter(vocab => vocab.topic === topic);
+          
+          // Remove duplicates (case-insensitive)
+          const uniqueVocabulary = topicVocabulary.filter((vocab, index, self) => 
+            index === self.findIndex(v => v.word.toLowerCase() === vocab.word.toLowerCase())
+          );
+          
+          // Create sets of NUM_WORDS words per topic
+          for (let i = 0; i < uniqueVocabulary.length; i += NUM_WORDS) {
+            const set = uniqueVocabulary.slice(i, i + NUM_WORDS);
+            if (set.length > 0) {
+              vocabSetsByTopic.push(set);
+            }
+          }
+        }
         
-        // Reset user inputs and results for the new set
-        setUserInputs(Array(currentSetVocab.length).fill(''));
-        setResult(Array(currentSetVocab.length).fill(null));
-        setCurrentIndex(0);
-        setShowAnswer(false);
-        setUserRevealedAnswers(Array(currentSetVocab.length).fill(false));
-        setShowModal(false);
+        // Add vocabulary without topic to "Other" category
+        const vocabWithoutTopic = vocabItems.filter(vocab => !vocab.topic);
+        const uniqueVocabWithoutTopic = vocabWithoutTopic.filter((vocab, index, self) => 
+          index === self.findIndex(v => v.word.toLowerCase() === vocab.word.toLowerCase())
+        );
+        
+        for (let i = 0; i < uniqueVocabWithoutTopic.length; i += NUM_WORDS) {
+          const set = uniqueVocabWithoutTopic.slice(i, i + NUM_WORDS);
+          if (set.length > 0) {
+            vocabSetsByTopic.push(set);
+          }
+        }
+        
+        console.log(`Total vocabulary sets: ${vocabSetsByTopic.length}, requested set index: ${setIdx}`);
+        
+        // Get the vocabulary set for the requested index
+        if (setIdx >= 0 && setIdx < vocabSetsByTopic.length) {
+          const currentSetVocab = vocabSetsByTopic[setIdx];
+          console.log(`Loading set ${setIdx}: ${currentSetVocab.length} words, topic: ${currentSetVocab[0]?.topic || 'Other'}`);
+          setVocabList(currentSetVocab);
+          
+          // Reset user inputs and results for the new set
+          setUserInputs(Array(currentSetVocab.length).fill(''));
+          setResult(Array(currentSetVocab.length).fill(null));
+          setCurrentIndex(0);
+          setShowAnswer(false);
+          setUserRevealedAnswers(Array(currentSetVocab.length).fill(false));
+          setShowModal(false);
+          
+          // Mark set as loaded
+          setIsSetLoaded(true);
+        } else {
+          console.error(`Set index ${setIdx} is out of range. Available sets: ${vocabSetsByTopic.length}`);
+          setError(`Set ${setIdx + 1} not found. Please try a different set.`);
+          setVocabList([]);
+          setIsSetLoaded(false);
+        }
         
       } catch (err) {
         console.error('Error loading vocabulary:', err);
@@ -160,7 +206,7 @@ const DictationPractice: React.FC = () => {
   };
 
   useEffect(() => {
-    if (vocabList.length > 0) {
+    if (vocabList.length > 0 && !isLoading && isSetLoaded && currentIndex > 0) {
       const item = vocabList[currentIndex];
       handlePlayAudio(item.audio, item.word);
     }
@@ -170,7 +216,7 @@ const DictationPractice: React.FC = () => {
       inputRef.current.focus();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex]);
+  }, [currentIndex, isLoading, isSetLoaded]);
 
   // Load completed sets from localStorage
   useEffect(() => {
@@ -180,15 +226,18 @@ const DictationPractice: React.FC = () => {
     }
   }, []);
 
-  // When moving to a new set, reset all state
+  // Reset isSetLoaded when setIndex changes
   useEffect(() => {
-    setCurrentIndex(0);
-    setUserInputs(Array(NUM_WORDS).fill(''));
-    setResult(Array(NUM_WORDS).fill(null));
-    setShowAnswer(false);
-    setUserRevealedAnswers(Array(NUM_WORDS).fill(false));
-    setShowModal(false);
+    setIsSetLoaded(false);
   }, [setIndex]);
+
+  // Handle audio when vocabList changes (new set loaded)
+  useEffect(() => {
+    if (vocabList.length > 0 && !isLoading && isSetLoaded && currentIndex === 0) {
+      const item = vocabList[currentIndex];
+      handlePlayAudio(item.audio, item.word);
+    }
+  }, [vocabList, isLoading, isSetLoaded, currentIndex]);
 
   const item = vocabList[currentIndex];
   const isChecked = result[currentIndex] !== null;
@@ -221,15 +270,14 @@ const DictationPractice: React.FC = () => {
   if (error) return <div style={{ textAlign: 'center', marginTop: 40, color: 'red' }}>{error}</div>;
   if (vocabList.length === 0) return <div style={{ textAlign: 'center', marginTop: 40 }}>No data available!</div>;
 
-  function getSetTopic(idx: number) {
-    // Get topic from the first word in the current set
-    const startIndex = idx * NUM_WORDS;
-    if (allVocabulary[startIndex]) {
-      return allVocabulary[startIndex].topic || 'General';
+  function getSetTopic() {
+    // Get topic from the first word in the current vocabulary list
+    if (vocabList.length > 0 && vocabList[0]) {
+      return vocabList[0].topic || 'Other';
     }
-    return 'General';
+    return 'Other';
   }
-  const topic = getSetTopic(setIdx);
+  const topic = getSetTopic();
 
   // Help panel shortcuts
   const shortcuts = [
@@ -288,7 +336,7 @@ const DictationPractice: React.FC = () => {
       background: '#f7f9fb',
       position: 'relative',
     }}>
-      <BackButton onClick={() => navigate('/')} />
+      <BackButton onClick={() => navigate('/dictation-list')} />
 
       {/* Success Modal */}
       {showModal && isCorrect && showNextButton && (
