@@ -315,16 +315,16 @@ const DictationPractice: React.FC = () => {
       text: '⏭',
       onClick: handleNext,
       variant: 'warning' as const,
-      show: currentIndex !== vocabList.length - 1 && !isChecked
+      show: currentIndex !== vocabList.length - 1
     }
   ];
 
   // Answer display configuration
   const answerItems = showAnswer ? [{
     word: item.word,
-    phonetic: '',
+    phonetic: item.phonetic,
     type: item.type,
-    meaning: ''
+    meaning: item.meaning
   }] : [];
 
   return (

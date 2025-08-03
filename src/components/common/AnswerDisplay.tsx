@@ -72,19 +72,30 @@ export const AnswerDisplay: React.FC<AnswerDisplayProps> = ({
             <strong style={{ color: '#1f2937' }}>{title}</strong>
           </div>
           {answers.map((answer, index) => (
-            <div key={index} style={{ marginBottom: '8px' }}>
-              <strong style={{ color: '#14B24C', marginRight: '8px' }}>
-                {answer.word}
-              </strong>
-              <span style={{ color: '#059669', marginRight: '8px' }}>
+            <div key={index}>
+              <div style={{ 
+                fontSize: '18px', 
+                fontWeight: 'bold',
+                color: '#14B24C', 
+                marginBottom: '4px' 
+              }}>
+                {answer.word} ({answer.type})
+              </div>
+              <div style={{ 
+                fontSize: '14px',
+                color: '#059669', 
+                marginBottom: '4px',
+                fontStyle: 'italic'
+              }}>
                 {answer.phonetic}
-              </span>
-              <span style={{ color: '#dc2626', fontSize: '13px', marginRight: '8px' }}>
-                ({answer.type})
-              </span>
-              <span style={{ color: '#dc2626' }}>
+              </div>
+              <div style={{ 
+                fontSize: '14px',
+                color: '#dc2626',
+                fontWeight: '500'
+              }}>
                 {answer.meaning}
-              </span>
+              </div>
             </div>
           ))}
         </div>
