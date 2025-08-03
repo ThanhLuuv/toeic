@@ -50,10 +50,10 @@ const App: React.FC = () => {
           path="/dictation/part2/:setIndex"
           element={<Part2DictationPractice />}
         />
-        <Route
+        {/* <Route
           path="/grammar"
           element={<GrammarTopics />}
-        />
+        /> */}
         <Route
           path="/grammar/practice/:topicName"
           element={<GrammarPractice />}
@@ -72,7 +72,7 @@ const App: React.FC = () => {
             <div className="bg-gray-50 min-h-screen">
               <Header />
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<DictationList />} />
                 <Route path="/part1" element={<Part1 />} />
                 <Route path="/part2" element={<Part2 />} />
                 <Route path="/part3" element={<Part3 />} />
