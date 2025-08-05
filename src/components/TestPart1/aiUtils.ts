@@ -883,3 +883,84 @@ Trả về JSON với format:
     throw new Error('Lỗi phân tích response từ AI');
   }
 } 
+
+// Hàm tạo câu mẫu sử dụng từ vựng
+export async function generateExampleSentence(word: string, meaning: string, type: string): Promise<any> {
+  const apiKey = process.env.REACT_APP_API_KEY_OPENAI;
+  
+  if (!apiKey) {
+    throw new Error('API key không được cấu hình. Vui lòng thêm REACT_APP_API_KEY_OPENAI vào file .env và restart ứng dụng');
+  }
+  
+  const endpoint = 'https://api.openai.com/v1/chat/completions';
+  
+  const prompt = `Tạo một câu mẫu sử dụng từ "${word}" (${meaning}) - loại từ: ${type}.
+
+Yêu cầu:
+1. Tạo một câu tiếng Anh tự nhiên, đúng ngữ pháp ngắn và đơn giản
+2. Sử dụng từ "${word}" trong ngữ cảnh phù hợp
+3. Cung cấp bản dịch tiếng Việt
+4. Câu phải dễ hiểu và thực tế
+
+Trả về JSON với format:
+{
+  "exampleSentence": {
+    "english": "Câu tiếng Anh mẫu",
+    "vietnamese": "Bản dịch tiếng Việt",
+    "wordHighlight": "${word}",
+    "context": "Giải thích ngắn về cách sử dụng từ này bằng tiếng Việt"
+  }
+}`;
+
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model: 'gpt-4o',
+      messages: [
+        {
+          role: 'system',
+          content: 'Bạn là giáo viên tiếng Anh chuyên tạo câu mẫu để giúp học sinh hiểu cách sử dụng từ vựng trong ngữ cảnh thực tế.'
+        },
+        {
+          role: 'user',
+          content: prompt
+        }
+      ],
+      max_tokens: 500,
+      temperature: 0.7
+    })
+  });
+
+  if (!response.ok) {
+    if (response.status === 429) {
+      throw new Error('Rate limit exceeded. Vui lòng thử lại sau vài phút.');
+    } else if (response.status === 401) {
+      throw new Error('API key không hợp lệ hoặc đã hết hạn.');
+    } else if (response.status === 403) {
+      throw new Error('Tài khoản không có quyền truy cập hoặc đã hết credit.');
+    } else {
+      throw new Error(`OpenAI API error: ${response.status} ${response.statusText}`);
+    }
+  }
+
+  const data = await response.json();
+  const content = data.choices[0].message.content;
+  
+  try {
+    // Tìm JSON trong response
+    const jsonMatch = content.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      return JSON.parse(jsonMatch[0]);
+    } else {
+      throw new Error('Không tìm thấy JSON trong response');
+    }
+  } catch (parseError) {
+    console.error('Error parsing JSON:', parseError);
+    console.log('Raw response:', content);
+    throw new Error('Lỗi phân tích response từ AI');
+  }
+} 

@@ -40,7 +40,7 @@ Schema:
 
 == QUY TẮC TẠO HỘI THOẠI ==
 - Hội thoại phải tự nhiên, phù hợp với ngữ cảnh công việc/đời sống hàng ngày
-- Mỗi đoạn hội thoại có 3 câu hỏi liên quan
+- Mỗi đoạn hội thoại có 3 câu hỏi liên quan câu hỏi phải ra như đề của ETS nó không ra thẳng trong đoạn hội thoại, mà đáp án nó sẽ là các câu tổng hơn hơn hoặc tương tự thôi chứ không phải lấy nguyên trong đoạn hội thoại
 - Câu hỏi phải đa dạng: chi tiết, ý chính, suy luận
 - Đáp án phải có vẻ hợp lý nhưng chỉ 1 đáp án đúng
 - Sử dụng từ vựng và ngữ pháp phù hợp với trình độ TOEIC

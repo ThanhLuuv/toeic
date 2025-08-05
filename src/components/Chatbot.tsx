@@ -838,7 +838,7 @@ const Chatbot: React.FC = () => {
               <div>
                 <span style={{ fontWeight: '600', color: '#78350f' }}>💡 Hướng dẫn:</span> 
                 <br/>• Tạo bài luyện tập: Gõ <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part1</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part2</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part3</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part4</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part5</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part6</span>, hoặc <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part7</span> kèm yêu cầu
-                <br/>• <span style={{ fontWeight: '700', color: '#8b5cf6', backgroundColor: '#f3f4f6', padding: '2px 4px', borderRadius: '4px' }}>📸 Tải ảnh</span> để AI phân tích và tạo bài tập TOEIC Part 5
+                <br/>• <span style={{ fontWeight: '700', color: '#8b5cf6', backgroundColor: '#f3f4f6', padding: '2px 4px', borderRadius: '4px' }}>📸 Tải ảnh</span> để AI phân tích và tạo bài tập ngữ pháp
                 <br/>
                 <span style={{ fontSize: '11px', color: '#92400e', fontStyle: 'italic' }}>Ví dụ: @part2 với level 2, @part1 về công việc văn phòng, @part5 về ngữ pháp, @part7 về đọc hiểu</span>
               </div>
@@ -1028,18 +1028,11 @@ const Chatbot: React.FC = () => {
                                 <p className="text-gray-700 text-sm text-left">{practice.traps}</p>
                               </div>
                             )}
-                            {/* Tips */}
-                            {practice.tips && (
-                              <div className="mt-2">
-                                <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
-                                <p className="text-gray-700 text-sm text-left">{practice.tips}</p>
-                              </div>
-                            )}
                             {/* Thông tin loại câu hỏi */}
                             {practice.type && (
                               <div className="mt-2">
                                 <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
-                                <p className="text-gray-700 text-sm">{practice.type} - {practice.answerType}</p>
+                                <p className="text-gray-700 text-sm">{practice.type}</p>
                               </div>
                             )}
                           </div>
@@ -2245,9 +2238,7 @@ const Chatbot: React.FC = () => {
             <label
               htmlFor="image-upload-input"
               style={{
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
                 color: '#fff',
-                border: 'none',
                 borderRadius: 8,
                 padding: isExpanded ? '0 16px' : '0 12px',
                 fontSize: isExpanded ? '16px' : '14px',
@@ -2257,6 +2248,7 @@ const Chatbot: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                border: '1px solid rgb(245, 245, 245)',
                 transition: 'all 0.2s ease',
                 boxShadow: '0 2px 4px rgba(139, 92, 246, 0.2)',
                 userSelect: 'none'

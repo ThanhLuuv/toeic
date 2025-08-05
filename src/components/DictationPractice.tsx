@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { vocabularyService, Vocabulary } from '../services/vocabularyService';
 import { useParams, useNavigate } from 'react-router-dom';
+import { generateExampleSentence } from './TestPart1/aiUtils';
 import {
   useAudioManager,
   ProgressBar,
@@ -42,6 +43,8 @@ const DictationPractice: React.FC = () => {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [completedSets, setCompletedSets] = useState<Set<number>>(new Set());
   const [isSetLoaded, setIsSetLoaded] = useState(false);
+  const [exampleSentence, setExampleSentence] = useState<any>(null);
+  const [isGeneratingExample, setIsGeneratingExample] = useState(false);
 
   // Use common audio manager
   const { playSuccessSound, playErrorSound, handlePlayAudio } = useAudioManager(soundEnabled);
@@ -205,6 +208,28 @@ const DictationPractice: React.FC = () => {
     if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
   };
 
+  const handleGenerateExample = async () => {
+    if (!item) return;
+    
+    try {
+      setIsGeneratingExample(true);
+      setExampleSentence(null);
+      
+      const example = await generateExampleSentence(
+        item.word, 
+        item.meaning, 
+        item.type
+      );
+      
+      setExampleSentence(example);
+    } catch (error) {
+      console.error('Error generating example sentence:', error);
+      // Có thể hiển thị thông báo lỗi cho người dùng
+    } finally {
+      setIsGeneratingExample(false);
+    }
+  };
+
   useEffect(() => {
     if (vocabList.length > 0 && !isLoading && isSetLoaded && currentIndex > 0) {
       const item = vocabList[currentIndex];
@@ -212,6 +237,7 @@ const DictationPractice: React.FC = () => {
     }
     setShowAnswer(false);
     setShowModal(false);
+    setExampleSentence(null); // Reset example sentence when moving to next word
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -362,12 +388,6 @@ const DictationPractice: React.FC = () => {
             boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
             animation: 'modalSlideIn 0.3s ease-out',
           }}>
-            <div style={{
-              fontSize: '48px',
-              marginBottom: '16px',
-            }}>
-              🎉
-            </div>
             <h2 style={{
               color: '#14B24C',
               margin: '0 0 16px 0',
@@ -407,6 +427,101 @@ const DictationPractice: React.FC = () => {
                 {item.word}
               </div>
             </div>
+            {/* Nút tạo câu mẫu */}
+            <button
+              onClick={handleGenerateExample}
+              disabled={isGeneratingExample}
+              style={{
+                background: isGeneratingExample ? '#9ca3af' : 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '6px 12px',
+                fontSize: '14px',
+                fontWeight: '600',
+                cursor: isGeneratingExample ? 'not-allowed' : 'pointer',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 4px 12px rgba(139, 92, 246, 0.3)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                margin: '0 auto 16px auto'
+              }}
+              onMouseEnter={(e) => {
+                if (!isGeneratingExample) {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(139, 92, 246, 0.4)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isGeneratingExample) {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(139, 92, 246, 0.3)';
+                }
+              }}
+            >
+              {isGeneratingExample ? (
+                <>
+                  <div style={{
+                    width: '16px',
+                    height: '16px',
+                    border: '2px solid #ffffff',
+                    borderTop: '2px solid transparent',
+                    borderRadius: '50%',
+                    animation: 'spin 1s linear infinite'
+                  }}></div>
+                  Creating
+                </>
+              ) : (
+                <>
+                  Create example
+                </>
+              )}
+            </button>
+
+            {/* Hiển thị câu mẫu trong modal */}
+            {exampleSentence && exampleSentence.exampleSentence && (
+              <div style={{
+                marginBottom: '20px',
+                padding: '16px',
+                background: '#ffffff',
+                borderRadius: '12px',
+                border: '2px solid #8b5cf6',
+                boxShadow: '0 2px 8px rgba(139, 92, 246, 0.1)'
+              }}>
+                <div style={{
+                  fontSize: '16px',
+                  color: '#1f2937',
+                  marginBottom: '8px',
+                  lineHeight: '1.5',
+                  fontWeight: '500'
+                }}>
+                  {exampleSentence.exampleSentence.english}
+                </div>
+                <div style={{
+                  fontSize: '14px',
+                  color: '#6b7280',
+                  fontStyle: 'italic',
+                  lineHeight: '1.4',
+                  marginBottom: '8px'
+                }}>
+                  {exampleSentence.exampleSentence.vietnamese}
+                </div>
+                {exampleSentence.exampleSentence.context && (
+                  <div style={{
+                    fontSize: '12px',
+                    color: '#059669',
+                    padding: '8px 12px',
+                    background: '#f0fdf4',
+                    borderRadius: '6px',
+                    border: '1px solid #d1fae5'
+                  }}>
+                    💡 {exampleSentence.exampleSentence.context}
+                  </div>
+                )}
+              </div>
+            )}
+
             <button
               onClick={handleNext}
               style={{
@@ -429,12 +544,12 @@ const DictationPractice: React.FC = () => {
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = '0 4px 12px rgba(20, 178, 76, 0.3)';
               }}
-                          >
-                {currentIndex === vocabList.length - 1 
-                  ? (setIdx < Math.ceil(allVocabulary.length / NUM_WORDS) - 1 ? 'Next Set →' : 'Finish →')
-                  : 'Next Word →'
-                }
-              </button>
+            >
+              {currentIndex === vocabList.length - 1 
+                ? (setIdx < Math.ceil(allVocabulary.length / NUM_WORDS) - 1 ? 'Next Set →' : 'Finish →')
+                : 'Next Word →'
+              }
+            </button>
           </div>
         </div>
       )}
@@ -645,6 +760,15 @@ const DictationPractice: React.FC = () => {
             to {
               opacity: 1;
               transform: scale(1) translateY(0);
+            }
+          }
+          
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
             }
           }
           

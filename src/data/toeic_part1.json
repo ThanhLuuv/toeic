@@ -485,10 +485,10 @@
             "isCorrect": false
           },
           {
-            "value": "market",
-            "text": "market",
-            "pronunciation": "/ˈmɑːkɪt/",
-            "meaning": "chợ",
+            "value": "tent",
+            "text": "tent",
+            "pronunciation": "/tent/",
+            "meaning": "lều, mái che",
             "isCorrect": true
           },
           {
