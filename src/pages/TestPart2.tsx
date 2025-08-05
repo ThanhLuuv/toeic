@@ -5,10 +5,13 @@ import TestResults from '../components/TestPart2/TestResults';
 import { BackButton } from '../components/common/BackButton';
 import part2Data from '../data/toeic_part2.json';
 
-interface Question {
+interface Part2Question {
   id: number;
   type: string;
+  level?: string;
   question: string;
+  questionAudio?: string;
+  audio?: string; // Fallback for old format
   choices: {
     A: string;
     B: string;
@@ -20,10 +23,10 @@ interface Question {
     C: string;
   };
   correctAnswer: string;
+  typeAnswer: string;
   explanation: string;
   tips: string;
-  audio: string;
-  typeAnswer: string; // Correct field name from JSON data
+  choicesAudio?: string;
 }
 
 
@@ -31,7 +34,7 @@ interface Question {
 const TestPart2: React.FC = () => {
   const { testId } = useParams<{ testId: string }>();
   const navigate = useNavigate();
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<Part2Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
   const [showResults, setShowResults] = useState(false);
@@ -39,6 +42,7 @@ const TestPart2: React.FC = () => {
   const [questionTypeSelected, setQuestionTypeSelected] = useState<string>('');
   const [answerTypeSelected, setAnswerTypeSelected] = useState<string>('');
   const [showAnswerChoices, setShowAnswerChoices] = useState(false);
+  const [showQuestionTypeSelection, setShowQuestionTypeSelection] = useState(false);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
   const [hasUserInteracted, setHasUserInteracted] = useState(true);
   // State for draggable navigation position
@@ -46,25 +50,36 @@ const TestPart2: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
-  // Các type câu hỏi và đáp án có sẵn (tiếng Anh)
   const questionTypes = [
-    { key: 'WH-question', label: 'WH-question (What, Where, When, Who, Why, How)' },
-    { key: 'Yes/No-question', label: 'Yes/No question' },
-    { key: 'Statement-Response', label: 'Statement-Response' },
-    { key: 'Choice', label: 'Choice question' },
-  ];
-
-  const answerTypes = [
-    { key: 'location', label: 'Location (office, store, at, in)' },
-    { key: 'time', label: 'Time (next week, at 3 p.m., tomorrow, last year)' },
-    { key: 'person', label: 'Person (Mr., Mrs., Ms., manager, customer, receptionist, he, she,...)' },
-    { key: 'reason', label: 'Reason (because, due to, the reason is...)' },
-    { key: 'yes_no', label: 'Yes/No response (Yes, I did. / No, I haven’t./ Not yet)' },
-    { key: 'agreement', label: 'Agreement/Disagreement (I agree, Sure, I don’t think so)' },
-    { key: 'solution', label: 'Solution/Suggestion (Let’s..., Why don’t we..., How about...)' },
-    { key: 'choice', label: 'Choice (A or B? / I’ll take the first one / I prefer...)' },
-    { key: 'other', label: 'Other (General information not fitting above categories)' },
+    { key: 'what-time', label: 'What time question' },
+    { key: 'which', label: 'Which question' },
+    { key: 'who', label: 'Who question' },
+    { key: 'when', label: 'When question' },
+    { key: 'where', label: 'Where question' },
+    { key: 'why', label: 'Why question' },
+    { key: 'how', label: 'How question' },
+    { key: 'yes-no', label: 'Yes/No question' },
+    { key: 'statement-response', label: 'Statement response' },
+    { key: 'agreement-response', label: 'Agreement response' },
+    { key: 'solution-response', label: 'Solution response' },
+    { key: 'choice', label: 'Choice question (A or B)' }
   ];  
+  
+  const answerTypes = [
+    { key: 'time', label: 'Time (e.g., at 3 p.m., tomorrow, next week)' }, // → What time
+    { key: 'object', label: 'Object or option (e.g., the report, option A, the red one)' }, // → Which
+    { key: 'person', label: 'Person (e.g., Mr. Lee, the technician, he/she)' }, // → Who
+    { key: 'time-general', label: 'General time (e.g., soon, later, by Friday)' }, // → When
+    { key: 'location', label: 'Location (e.g., in the office, at the station)' }, // → Where
+    { key: 'reason', label: 'Reason (e.g., because, due to, to fix something)' }, // → Why
+    { key: 'manner', label: 'Manner/Method (e.g., by car, very well, with a partner)' }, // → How
+    { key: 'yes-no', label: 'Yes/No (e.g., Yes, I did / No, not yet / I haven’t)' }, // → Yes/No
+    { key: 'reaction', label: 'Reaction (e.g., That’s great / Oh no / Let me check)' }, // → Statement response
+    { key: 'agreement', label: 'Agreement (e.g., I agree, Sure, Definitely)' }, // → Agreement response
+    { key: 'solution', label: 'Suggestion/Solution (e.g., Let’s try..., Why don’t we...)' }, // → Solution response
+    { key: 'choice', label: 'Choice (e.g., I’d prefer..., Either is fine)' } // → Choice question
+  ];
+  
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -77,17 +92,18 @@ const TestPart2: React.FC = () => {
     setQuestionTypeSelected(typeKey);
   };
 
-  // Bấm Continue khi đã chọn cả hai loại
-  const handleTypeSelection = () => {
-    if (questionTypeSelected && answerTypeSelected) {
-      setShowAnswerChoices(true);
-    }
-  };
+
 
   const resetTypeSelection = () => {
     setQuestionTypeSelected('');
     setAnswerTypeSelected('');
     setShowAnswerChoices(false);
+    setShowQuestionTypeSelection(false);
+  };
+
+  // Bắt đầu với việc phát audio câu hỏi
+  const startQuestionAudio = () => {
+    setShowQuestionTypeSelection(true);
   };
 
   const handleAnswerSelect = (questionId: number, answer: string) => {
@@ -201,7 +217,7 @@ const TestPart2: React.FC = () => {
 
   // Tự động phát audio khi chuyển câu hỏi
   useEffect(() => {
-    if (currentQuestion && isTestStarted && autoPlayEnabled && hasUserInteracted) {
+    if (currentQuestion && isTestStarted && autoPlayEnabled && hasUserInteracted && (showQuestionTypeSelection || showAnswerChoices)) {
       // Delay nhỏ để đảm bảo audio element đã được render
       const timer = setTimeout(() => {
         const audioElement = document.querySelector('audio') as HTMLAudioElement;
@@ -210,7 +226,6 @@ const TestPart2: React.FC = () => {
           audioElement.currentTime = 0;
           // Phát audio
           audioElement.play().catch(error => {
-            console.log('Auto-play failed:', error);
             // Disable auto-play if it fails
             setAutoPlayEnabled(false);
           });
@@ -219,97 +234,79 @@ const TestPart2: React.FC = () => {
 
       return () => clearTimeout(timer);
     }
-  }, [currentQuestionIndex, currentQuestion, isTestStarted, autoPlayEnabled, hasUserInteracted]);
+  }, [currentQuestionIndex, currentQuestion, isTestStarted, autoPlayEnabled, hasUserInteracted, showQuestionTypeSelection, showAnswerChoices]);
 
-  // Debug: Kiểm tra khi nào nút dịch được render
+  // Auto-transition to Phase 2 when both types are selected
   useEffect(() => {
-    if (userAnswers[currentQuestion?.id]) {
-      console.log('Answer selected, Dịch buttons should be visible');
-      console.log('Current question has choicesVi:', !!currentQuestion?.choicesVi);
+    if (questionTypeSelected && answerTypeSelected && showQuestionTypeSelection && !showAnswerChoices) {
+      const timer = setTimeout(() => {
+        setShowAnswerChoices(true);
+      }, 1500); // 1.5 second delay to show the transition message
+
+      return () => clearTimeout(timer);
     }
-  }, [userAnswers, currentQuestion]);
-
-
+  }, [questionTypeSelected, answerTypeSelected, showQuestionTypeSelection, showAnswerChoices]);
 
   useEffect(() => {
-    console.log('TestPart2 useEffect - testId:', testId);
     
     if (!testId) {
-      console.log('No testId, redirecting to /part2');
       navigate('/part2');
       return;
     }
     
     // Tách testId: part2-test1
     const match = testId.match(/^part2-test([0-9]+)$/);
-    console.log('Match result:', match);
     
     if (!match) {
-      console.log('Invalid testId format:', testId, 'redirecting to /part2');
       navigate('/part2');
       return;
     }
     
     const testIndex = parseInt(match[1], 10) - 1;
-    console.log('Test index:', testIndex, 'Test number:', match[1]);
     
     // Lấy tất cả questions từ tất cả levels
     let allQuestions: any[] = [];
     const allKeys = Object.keys(part2Data);
-    console.log('All keys in part2Data:', allKeys);
     
     for (let level = 1; level <= 3; level++) {
       const levelKey = `level${level}`;
       // Tìm key có thể có dấu cách ở cuối
       const foundKey = allKeys.find(k => k.trim() === levelKey);
-      console.log('Looking for key:', levelKey, 'Found:', foundKey);
       
       if (foundKey) {
         const questions = (part2Data as any)[foundKey] || [];
-        console.log('Questions found for level:', level, 'Count:', questions.length);
         allQuestions = allQuestions.concat(questions);
       } else {
         // Thử tìm key với dấu cách ở cuối
         const foundKeyWithSpace = allKeys.find(k => k === `${levelKey} `);
-        console.log('Looking for key with space:', `${levelKey} `, 'Found:', foundKeyWithSpace);
         
         if (foundKeyWithSpace) {
           const questions = (part2Data as any)[foundKeyWithSpace] || [];
-          console.log('Questions found for level:', level, 'Count:', questions.length);
           allQuestions = allQuestions.concat(questions);
         } else {
-          console.log('Key not found for level:', levelKey);
-          console.log('Available keys:', allKeys);
         }
       }
     }
     
-    console.log('Total questions:', allQuestions.length);
     
     const QUESTIONS_PER_TEST = 10; // Giảm xuống 10 câu mỗi bài test
     const startIndex = testIndex * QUESTIONS_PER_TEST;
     const endIndex = (testIndex + 1) * QUESTIONS_PER_TEST;
-    console.log('Start index:', startIndex, 'End index:', endIndex);
     
     const testQuestions = allQuestions.slice(startIndex, endIndex);
-    console.log('Test questions loaded:', testQuestions.length);
-    console.log('Test questions:', testQuestions);
     
-    if (testQuestions.length === 0) {
-      console.log('No questions found for this test, redirecting to /part2');
-      console.log('Start index:', startIndex, 'End index:', endIndex, 'Total questions:', allQuestions.length);
+    if (testQuestions.length === 0) {   
       navigate('/part2');
       return;
     }
     
     // Đảm bảo có ít nhất 1 question
     if (testQuestions.length < 1) {
-      console.log('Not enough questions for this test, redirecting to /part2');
       navigate('/part2');
       return;
     }
     
-    setQuestions(testQuestions);
+    setQuestions(testQuestions as Part2Question[]);
     setIsTestStarted(true);
   }, [testId, navigate]);
 
@@ -330,19 +327,9 @@ const TestPart2: React.FC = () => {
     );
   }
 
-  console.log('Render - questions length:', questions.length);
-  console.log('Render - currentQuestionIndex:', currentQuestionIndex);
-  console.log('Render - currentQuestion:', currentQuestion);
-  console.log('Render - questions array:', questions);
-
   if (!currentQuestion || questions.length === 0) {
-    console.log('No currentQuestion or questions, showing loading...');
     return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
   }
-
-
-
-
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -379,161 +366,199 @@ const TestPart2: React.FC = () => {
                 
                 {/* Audio Player */}
                 <div className="mb-6">
-                  <AudioPlayer audioSrc={currentQuestion.audio} />
+                  <AudioPlayer audioSrc={
+                    showAnswerChoices 
+                      ? (currentQuestion.choicesAudio || currentQuestion.questionAudio || currentQuestion.audio || '')
+                      : (currentQuestion.questionAudio || currentQuestion.audio || '')
+                  } />
                 </div>
 
-                {/* Type Selection Section */}
-                {!showAnswerChoices && (
-                  <div className="mb-6 relative min-h-[320px] pb-20">
-                    <h3 className="text-base font-semibold text-gray-800 mb-3 flex items-center">
-                      <span className="bg-blue-100 text-blue-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-2">1</span>
-                      Choose the question type:
-                    </h3>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {questionTypes.map((type) => {
-                        let buttonClass = "px-3 py-1 rounded-full border transition-all duration-200 text-sm whitespace-nowrap ";
-                        if (questionTypeSelected === type.key) {
-                          buttonClass += "border-blue-300 bg-blue-50 text-blue-600 shadow-sm";
-                        } else {
-                          buttonClass += "border-gray-200 hover:border-blue-200 hover:bg-blue-50/30";
-                        }
-                        return (
-                          <button
-                            key={type.key}
-                            onClick={() => handleQuestionTypeSelect(type.key)}
-                            className={buttonClass}
-                          >
-                            {type.label}
-                          </button>
-                        );
-                      })}
+                {/* Question Audio Start Section */}
+                {!showQuestionTypeSelection && !showAnswerChoices && (
+                  <div className="mb-6 relative min-h-[200px] pb-20">
+                    <div className="text-center">
+                      <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                        Listen to the question audio first
+                      </h3>
+                      <p className="text-gray-600 mb-6">
+                        Click the button below to start listening to the question
+                      </p>
+                      <button
+                        onClick={startQuestionAudio}
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-colors shadow-lg"
+                      >
+                        Start Listening
+                      </button>
                     </div>
-                    <h3 className="text-base font-semibold text-gray-800 mb-3 mt-6 flex items-center">
-                      <span className="bg-green-100 text-green-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-2">2</span>
-                      Choose the appropriate answer type:
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {answerTypes.map((type) => {
-                        let buttonClass = "px-3 py-1 rounded-full border transition-all duration-200 text-sm whitespace-nowrap ";
-                        if (answerTypeSelected === type.key) {
-                          buttonClass += "border-blue-300 bg-blue-50 text-blue-600 shadow-sm";
-                        } else {
-                          buttonClass += "border-gray-200 hover:border-blue-200 hover:bg-blue-50/30";
-                        }
-                        return (
-                          <button
-                            key={type.key}
-                            onClick={() => handleAnswerTypeSelect(type.key)}
-                            className={buttonClass}
-                          >
-                            {type.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    
-                    {/* Nút Continue sticky dưới card */}
-                    {questionTypeSelected && answerTypeSelected && (
-                      <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, padding: 16, background: 'linear-gradient(to top, #fff 95%, transparent)'}} className="flex justify-center">
-                        <button
-                          onClick={handleTypeSelection}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 rounded-full font-medium transition-colors shadow-lg"
-                        >
-                          Continue
-                        </button>
-                      </div>
-                    )}
-
                   </div>
                 )}
 
-                {/* Answer Choices - Only show after type selection */}
+                {/* Type Selection Section */}
+                {showQuestionTypeSelection && !showAnswerChoices && (
+                  <div className="mb-6 relative min-h-[320px] pb-20">
+                    <div className="grid grid-cols-2 gap-6">
+                      {/* Question Type Column */}
+                      <div>
+                        <h3 className="text-base font-semibold text-gray-800 mb-3 flex items-center">
+                          <span className="bg-blue-100 text-blue-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-2">1</span>
+                          Question Type:
+                        </h3>
+                        <div className="space-y-2">
+                          {questionTypes.map((type) => {
+                            let buttonClass = "w-full text-left px-3 py-2 rounded-lg border transition-all duration-200 text-sm ";
+                            if (questionTypeSelected === type.key) {
+                              buttonClass += "border-blue-300 bg-blue-50 text-blue-600 shadow-sm";
+                            } else {
+                              buttonClass += "border-gray-200 hover:border-blue-200 hover:bg-blue-50/30";
+                            }
+                            return (
+                              <button
+                                key={type.key}
+                                onClick={() => handleQuestionTypeSelect(type.key)}
+                                className={buttonClass}
+                              >
+                                {type.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Answer Type Column */}
+                      <div>
+                        <h3 className="text-base font-semibold text-gray-800 mb-3 flex items-center">
+                          <span className="bg-green-100 text-green-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-2">2</span>
+                          Answer Type:
+                        </h3>
+                        <div className="space-y-2">
+                          {answerTypes.map((type) => {
+                            let buttonClass = "w-full text-left px-3 py-2 rounded-lg border transition-all duration-200 text-sm ";
+                            if (answerTypeSelected === type.key) {
+                              buttonClass += "border-green-300 bg-green-50 text-green-600 shadow-sm";
+                            } else {
+                              buttonClass += "border-gray-200 hover:border-green-200 hover:bg-green-50/30";
+                            }
+                            return (
+                              <button
+                                key={type.key}
+                                onClick={() => handleAnswerTypeSelect(type.key)}
+                                className={buttonClass}
+                              >
+                                {type.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Auto-transition to Phase 2 when both are selected */}
+                    {questionTypeSelected && answerTypeSelected && (
+                      <div className="mt-6 text-center">
+                        <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-lg">
+                          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                          <span className="text-sm font-medium">Moving to answer selection...</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Answer Choices - Phase 2 */}
                 {showAnswerChoices && (
-                  <div className="space-y-4">
-                    {['A', 'B', 'C'].map((choice) => {
-                      const isSelected = userAnswers[currentQuestion.id] === choice;
-                      const isCorrect = currentQuestion.correctAnswer === choice;
-                      const showResult = userAnswers[currentQuestion.id] !== undefined;
-                      
-                      let buttonClass = "w-full text-left px-4 py-2 rounded-lg border transition-all ";
-                      if (isSelected) {
-                        if (isCorrect) {
+                  <div className="mb-6">
+                    <h3 className="text-base font-semibold text-gray-800 mb-4 flex items-center">
+                      <span className="bg-orange-100 text-orange-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mr-2">3</span>
+                      Select the correct answer:
+                    </h3>
+                    
+                    <div className="space-y-4">
+                      {['A', 'B', 'C'].map((choice) => {
+                        const isSelected = userAnswers[currentQuestion.id] === choice;
+                        const isCorrect = currentQuestion.correctAnswer === choice;
+                        const showResult = userAnswers[currentQuestion.id] !== undefined;
+                        
+                        let buttonClass = "w-full text-left px-4 py-2 rounded-lg border transition-all ";
+                        if (isSelected) {
+                          if (isCorrect) {
+                            buttonClass += "border-green-400 bg-green-100 text-green-800 font-semibold";
+                          } else {
+                            buttonClass += "border-red-400 bg-red-100 text-red-800";
+                          }
+                        } else if (showResult && isCorrect) {
                           buttonClass += "border-green-400 bg-green-100 text-green-800 font-semibold";
                         } else {
-                          buttonClass += "border-red-400 bg-red-100 text-red-800";
+                          buttonClass += "border-gray-200 hover:bg-blue-50";
                         }
-                      } else if (showResult && isCorrect) {
-                        buttonClass += "border-green-400 bg-green-100 text-green-800 font-semibold";
-                      } else {
-                        buttonClass += "border-gray-200 hover:bg-blue-50";
-                      }
 
-                      return (
-                        <div key={choice}>
-                          <div className={buttonClass}>
-                            <div className="flex items-start">
-                              <span className="font-semibold text-gray-600 mr-3 min-w-[20px]">
-                                {choice}.
-                              </span>
-                              <div className="flex-1">
-                                {/* Ẩn text đáp án sau khi đã chọn, chỉ hiển thị khi chưa chọn */}
-                                {userAnswers[currentQuestion.id] === undefined ? (
-                                  <button
-                                    className="w-full text-left"
-                                    onClick={() => handleAnswerSelect(currentQuestion.id, choice)}
-                                  >
-                                    <p className="text-gray-400 italic">Click để chọn đáp án</p>
-                                  </button>
-                                ) : (
-                                  <div className="flex items-center">
-                                    <span className="option-text">{currentQuestion.choices[choice as keyof typeof currentQuestion.choices]}</span>
+                        return (
+                          <div key={choice}>
+                            <div className={buttonClass}>
+                              <div className="flex items-start">
+                                <span className="font-semibold text-gray-600 mr-3 min-w-[20px]">
+                                  {choice}.
+                                </span>
+                                <div className="flex-1">
+                                  {/* Ẩn text đáp án sau khi đã chọn, chỉ hiển thị khi chưa chọn */}
+                                  {userAnswers[currentQuestion.id] === undefined ? (
                                     <button
-                                      className="translate-option-btn bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs hover:bg-blue-200 ml-1 flex-shrink-0"
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        console.log('Dịch button clicked for choice:', choice);
-                                        console.log('Button element:', e.currentTarget);
-                                        console.log('Previous element:', e.currentTarget.previousElementSibling);
-                                        handleTranslateOption(
-                                          choice,
-                                          e.currentTarget.previousElementSibling as HTMLSpanElement,
-                                          e.currentTarget as HTMLButtonElement
-                                        );
-                                      }}
-                                      type="button"
+                                      className="w-full text-left"
+                                      onClick={() => handleAnswerSelect(currentQuestion.id, choice)}
                                     >
-                                      Dịch
+                                      <p className="text-gray-400 italic">Click để chọn đáp án</p>
                                     </button>
+                                  ) : (
+                                    <div className="flex items-center">
+                                      <span className="option-text">{currentQuestion.choices[choice as keyof typeof currentQuestion.choices]}</span>
+                                      <button
+                                        className="translate-option-btn bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs hover:bg-blue-200 ml-1 flex-shrink-0"
+                                        onClick={(e) => {
+                                          e.preventDefault();
+                                          e.stopPropagation();
+                                          console.log('Dịch button clicked for choice:', choice);
+                                          console.log('Button element:', e.currentTarget);
+                                          console.log('Previous element:', e.currentTarget.previousElementSibling);
+                                          handleTranslateOption(
+                                            choice,
+                                            e.currentTarget.previousElementSibling as HTMLSpanElement,
+                                            e.currentTarget as HTMLButtonElement
+                                          );
+                                        }}
+                                        type="button"
+                                      >
+                                        Dịch
+                                      </button>
+                                    </div>
+                                  )}
+                                </div>
+                                {/* Icon đúng/sai */}
+                                {showResult && (
+                                  <div className="ml-2">
+                                    {isSelected && isCorrect && (
+                                      <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    )}
+                                    {isSelected && !isCorrect && (
+                                      <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                      </svg>
+                                    )}
+                                    {!isSelected && isCorrect && (
+                                      <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    )}
                                   </div>
                                 )}
                               </div>
-                              {/* Icon đúng/sai */}
-                              {showResult && (
-                                <div className="ml-2">
-                                  {isSelected && isCorrect && (
-                                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                  )}
-                                  {isSelected && !isCorrect && (
-                                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                  )}
-                                  {!isSelected && isCorrect && (
-                                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                  )}
-                                </div>
-                              )}
                             </div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
 

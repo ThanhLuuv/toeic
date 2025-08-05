@@ -1,78 +1,133 @@
-# Scripts Import Data vào Firebase
+# Part 1 Data Import Scripts
 
-Các script này được sử dụng để import dữ liệu từ file JSON vào Firebase Firestore.
+This directory contains scripts to import Part 1 data from `toeic_part1.json` into the Firebase `ai_practice_questions` collection.
 
-## Cài đặt
+## Files
 
-1. Cài đặt dependencies:
-```bash
-npm install
+### 1. `importPart1Data.js`
+Main import script with functions that can be imported and used in React components.
+
+**Functions:**
+- `importPart1Data()` - Imports all Part 1 questions
+- `checkExistingData()` - Checks for existing Part 1 data
+- `clearPart1Data()` - Removes existing Part 1 data
+- `main()` - Main execution function with user prompts
+
+### 2. `consoleImport.js`
+Self-contained script that can be copied and pasted into the browser console.
+
+### 3. `DataImportPanel.tsx`
+React component providing a UI for data import operations.
+
+### 4. `DataImport.tsx`
+Page component that includes the DataImportPanel.
+
+## Usage Methods
+
+### Method 1: Browser Console (Recommended)
+1. Open your browser's developer console (F12)
+2. Copy the entire content of `consoleImport.js`
+3. Paste and execute in the console
+4. Follow the prompts to import data
+
+### Method 2: React Component
+1. Navigate to `/data-import` in your app
+2. Use the UI buttons to:
+   - Check existing data
+   - Clear existing data
+   - Import Part 1 data
+
+### Method 3: Programmatic Import
+```javascript
+import { importPart1Data } from '../scripts/importPart1Data';
+
+// Import all Part 1 data
+await importPart1Data();
 ```
 
-## Các script có sẵn
+## Data Structure
 
-### 1. Import Vocabulary
-```bash
-node importVocabulary.js
+The script transforms the Part 1 data to match the `ai_practice_questions` collection structure:
+
+```javascript
+{
+  questionNumber: number,
+  level: string,
+  type: string,
+  imageDescription: string,
+  image: string, // Cloudinary URL
+  audio: string, // Cloudinary URL
+  mcqSteps: [...],
+  audioQuestion: {...},
+  originalQuestionIndex: number,
+  createdAt: serverTimestamp(),
+  status: 'active',
+  source: 'part1_import',
+  part: 'part1',
+  testId: 'test1'
+}
 ```
-Import dữ liệu vocabulary từ `src/data/vocabulary.json` vào collection `vocabulary` với phân loại theo chủ đề.
 
-### 2. Import TOEIC Part 1
-```bash
-node importToeicPart1.js
+## Features
+
+- ✅ **Duplicate Prevention**: Checks for existing data before importing
+- ✅ **Batch Import**: Processes all 6 questions from the JSON file
+- ✅ **Error Handling**: Continues import even if individual questions fail
+- ✅ **Progress Tracking**: Shows import progress in console
+- ✅ **Data Validation**: Ensures all required fields are present
+- ✅ **Safe Deletion**: Confirms before clearing existing data
+
+## Data Source
+
+- **File**: `src/data/toeic_part1.json`
+- **Questions**: 6 questions with MCQ steps and audio questions
+- **Media**: Images and audio already hosted on Cloudinary
+- **Target Collection**: `ai_practice_questions`
+
+## Console Output Example
+
 ```
-Import dữ liệu TOEIC Part 1 từ `src/data/toeic_part1.json` vào collection `toeic_questions`.
-
-### 3. Import TOEIC Part 2
-```bash
-node importToeicPart2.js
+🚀 Starting Part 1 Data Import...
+📊 Total questions to import: 6
+🔍 Found 0 existing Part 1 questions
+📤 Starting import process...
+✅ Imported question 1 with ID: abc123...
+✅ Imported question 2 with ID: def456...
+...
+=== Import Summary ===
+✅ Successfully imported: 6 questions
+❌ Failed imports: 0 questions
+📊 Total processed: 6 questions
+🎉 Import process completed!
 ```
-Import dữ liệu TOEIC Part 2 từ `src/data/toeic_part2.json` vào collection `toeic_questions`.
-
-### 4. Import TOEIC Part 3
-```bash
-node importToeicPart3.js
-```
-Import dữ liệu TOEIC Part 3 từ `src/data/toeic_part3.json` vào collection `toeic_questions`.
-
-### 5. Import tất cả dữ liệu
-```bash
-node importAll.js
-```
-Import tất cả dữ liệu (vocabulary + TOEIC Part 1, 2, 3) vào Firebase.
-
-## Cấu trúc dữ liệu
-
-### Vocabulary Collection
-- `word`: Từ vựng
-- `type`: Loại từ
-- `phonetic`: Phiên âm
-- `meaning`: Nghĩa
-- `audio`: Link audio
-- `topic`: Chủ đề (Tourism, Accommodations & Food, etc.)
-
-### TOEIC Questions Collection
-- `questionNumber`: Số thứ tự câu hỏi
-- `level`: Cấp độ (Basic, Intermediate, Advanced)
-- `type`: Loại câu hỏi
-- `part`: Phần thi (part1, part2, part3)
-- `choices`: Các lựa chọn
-- `correctAnswer`: Đáp án đúng
-- `explanation`: Giải thích
-- `audio`: Link audio
-
-## Lưu ý
-
-1. **Firebase Rules**: Đảm bảo đã cập nhật Firestore rules để cho phép đọc/ghi vào các collection:
-   - `vocabulary`
-   - `toeic_questions`
-
-2. **Rate Limiting**: Scripts có delay giữa các lần ghi để tránh quá tải Firebase.
-
-3. **Error Handling**: Scripts sẽ hiển thị lỗi nếu có và tiếp tục với các item khác.
 
 ## Troubleshooting
 
-- **Permission Denied**: Kiểm tra Firebase rules
-- **Module not found**: Chạy `npm install` để cài đặt dependencies
-- **File not found**: Đảm bảo các file JSON tồn tại trong thư mục `src/data/` 
+### Common Issues
+
+1. **Firebase Permission Error**
+   - Ensure your Firebase rules allow write access to `ai_practice_questions`
+   - Check if you're authenticated
+
+2. **Import Fails**
+   - Check browser console for specific error messages
+   - Verify Firebase configuration is correct
+   - Ensure network connection is stable
+
+3. **Duplicate Data**
+   - Use the "Clear Existing Data" option before importing
+   - Check existing data count before proceeding
+
+### Error Recovery
+
+If import fails partway through:
+1. Check how many questions were successfully imported
+2. Clear existing data if needed
+3. Re-run the import script
+4. The script will skip already imported questions
+
+## Security Notes
+
+- The script includes confirmation prompts for destructive operations
+- All imported data is marked with `source: 'part1_import'` for easy identification
+- Use the clear function with caution as it permanently deletes data 

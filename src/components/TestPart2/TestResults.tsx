@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { analyzeWithAI, generateAudioBase64 } from './aiUtils';
 
-interface Question {
+interface Part2Question {
   id: number;
   type: string;
+  level?: string;
   question: string;
+  questionAudio?: string;
+  audio?: string;
   choices: {
     A: string;
     B: string;
@@ -16,14 +19,15 @@ interface Question {
     C: string;
   };
   correctAnswer: string;
+  typeAnswer?: string;
   answerType?: string;
   explanation: string;
   tips: string;
-  audio: string;
+  choicesAudio?: string;
 }
 
 interface TestResultsProps {
-  questions: Question[];
+  questions: Part2Question[];
   userAnswers: { [key: number]: string };
   score: number;
   onRetry: () => void;
@@ -68,7 +72,7 @@ const TestResults: React.FC<TestResultsProps> = ({
     }));
   };
 
-  const getQuestionStatus = (question: Question) => {
+  const getQuestionStatus = (question: Part2Question) => {
     const userAnswer = userAnswers[question.id];
     if (!userAnswer) return 'skipped';
     return userAnswer === question.correctAnswer ? 'correct' : 'incorrect';

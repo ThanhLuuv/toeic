@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "type": "vocabulary",
+        "question": "When filling out the order form, please _____ your address clearly to prevent delays.",
+        "choices": {
+            "A": {
+                "english": "fix",
+                "vietnamese": "sửa"
+            },
+            "B": {
+                "english": "write",
+                "vietnamese": "viết"
+            },
+            "C": {
+                "english": "send",
+                "vietnamese": "gửi"
+            },
+            "D": {
+                "english": "direct",
+                "vietnamese": "trực tiếp"
+            }
+        },
+        "correctAnswer": "B",
+        "explanation": "Các phương án đều là động từ, nhưng chỉ có một từ “write” phù hợp về ngữ nghĩa với ngữ cảnh là “ghi rõ địa chỉ để tránh chậm trễ”."
+    }
+]

@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const navItems = ['Chép chính tả'];
+  const navItems = ['Luyện đề', 'Chép chính tả'];
 
   // Xác định menu active dựa trên current location
   React.useEffect(() => {
@@ -28,7 +28,7 @@ const Header: React.FC = () => {
     navigate('/');
   };
 
-  const isPart1Page = location.pathname === '/part1' || location.pathname === '/part2' || location.pathname === '/part3' || location.pathname.includes('/dictation-list') || location.pathname.includes('/dictation-practice/');
+  const isPart1Page = location.pathname === '/part1' || location.pathname === '/part2' || location.pathname === '/part3' || location.pathname === '/part5' || location.pathname === '/part6' || location.pathname.includes('/dictation-list') || location.pathname.includes('/dictation-practice/');
 
   return (
     <header className="gradient-bg-header shadow-lg sticky top-0 z-50">
@@ -52,6 +52,8 @@ const Header: React.FC = () => {
                   {location.pathname === '/part1' ? 'Part 1 - Photographs' :
                    location.pathname === '/part2' ? 'Part 2 - Question-Response' :
                    location.pathname === '/part3' ? 'Part 3 - Conversations' :
+                   location.pathname === '/part5' ? 'Part 5 - Incomplete Sentences' :
+                   location.pathname === '/part6' ? 'Part 6 - Reading Comprehension' :
                    location.pathname === '/dictation-list' ? 'Dictation' :
                    location.pathname.startsWith('/dictation-practice') ? 'Dictation' :
                    'Antoeic '}
@@ -66,7 +68,7 @@ const Header: React.FC = () => {
                 {navItems.map((item) => (
                   <a
                     key={item}
-                    href={item === 'Chép chính tả' ? '/' : item === 'Chép chính tả' ? '/dictation-list' : '/grammar'}
+                    href={item === 'Luyện đề' ? '/' : item === 'Chép chính tả' ? '/dictation-list' : '/grammar'}
                     className={`nav-item text-black font-medium px-4 py-2 transition-all duration-300 ${activeNav === item ? 'border-b-2 border-green-600' : ''}`}
                     onClick={() => handleNavClick(item)}
                   >

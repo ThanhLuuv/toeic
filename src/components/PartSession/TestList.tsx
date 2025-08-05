@@ -8,6 +8,7 @@ interface TestListProps {
   startTest: (testId: string) => void;
   loadingTests: Set<string>;
   loadingProgress: {[testId: string]: {loaded: number, total: number}};
+  filterType?: 'part1' | 'part5';
 }
 
 const TestList: React.FC<TestListProps> = ({ 
@@ -16,7 +17,8 @@ const TestList: React.FC<TestListProps> = ({
   setCurrentTab, 
   startTest, 
   loadingTests, 
-  loadingProgress 
+  loadingProgress,
+  filterType = 'part1'
 }) => {
   const filteredTests = currentTab === 'all' ? tests : tests.filter((test) => test.category === currentTab);
 
@@ -29,11 +31,14 @@ const TestList: React.FC<TestListProps> = ({
             onChange={(e) => setCurrentTab(e.target.value)}
             className="appearance-none bg-white border border-slate-200 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-slate-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 cursor-pointer"
           >
-            {[
+            {(filterType === 'part5' ? [
+              { key: 'vocabulary', label: 'Từ vựng' },
+              { key: 'grammar', label: 'Ngữ pháp' }
+            ] : [
               { key: 'all', label: 'All Categories' },
               { key: 'people', label: 'People' },
               { key: 'objects', label: 'Objects' }
-            ].map((tab) => (
+            ]).map((tab) => (
               <option key={tab.key} value={tab.key}>
                 {tab.label}
               </option>
@@ -77,7 +82,9 @@ const TestList: React.FC<TestListProps> = ({
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
                     <span className="text-slate-700 font-medium">
-                      {test.category === 'people' ? 'People' : 
+                      {test.category === 'vocabulary' ? 'Từ vựng' : 
+                       test.category === 'grammar' ? 'Ngữ pháp' : 
+                       test.category === 'people' ? 'People' : 
                        test.category === 'objects' ? 'Objects' : 
                        test.category === 'all' ? 'All Categories' : 'Topic'}
                     </span>

@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read/write access to grammar topics and questions
+    match /grammar_topics/{document} {
+      allow read, write: if true;
+    }
+    
+    match /grammar_questions/{document} {
+      allow read, write: if true;
+    }
+    
+    // Allow read/write access to AI practice questions
+    match /ai_practice_questions/{document} {
+      allow read, write: if true;
+    }
+    
+    // Allow read/write access to user practice questions
+    match /users/{userId}/practice_questions/{document} {
+      allow read, write: if true;
+    }
+    
+    // Allow read access to TOEIC Part 1 questions
+    match /toeic_part1_questions/{document} {
+      allow read: if true;
+    }
+    
+    // Default rule - deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+} 

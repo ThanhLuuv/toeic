@@ -6,6 +6,8 @@
   "scripts": {
     "import-vocabulary": "node importVocabulary.js",
     "import-part1": "node importToeicPart1.js",
+    "import-part1-firebase": "node importToeicPart1ToFirebase.js",
+    "import-part5-firebase": "node importToeicPart5ToFirebase.js",
     "import-parts": "node importToeicParts.js",
     "start": "node importToeicParts.js"
   },

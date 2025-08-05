@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOEIC Part 1 - Test Question</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+             background: white;
+             border-radius: 20px;
+             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+             max-width: 1200px;
+             width: 100%;
+             overflow: hidden;
+         }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+        }
+
+                 .header h1 {
+             font-size: 28px;
+             font-weight: 600;
+             margin-bottom: 5px;
+         }
+
+         .header .subtitle {
+             font-size: 16px;
+             opacity: 0.8;
+         }
+
+        .content {
+            padding: 30px;
+        }
+
+        .phase {
+            display: none;
+        }
+
+        .phase.active {
+            display: block;
+        }
+
+                          /* Phase 1: Image and Vocabulary */
+         .image-vocabulary-container {
+             display: flex;
+             align-items: center;
+             gap: 20px;
+             margin-bottom: 30px;
+         }
+
+         .image-section {
+             flex: 2.5;
+             text-align: center;
+             margin-bottom: 12px;
+         }
+
+         .image-container {
+             position: relative;
+             display: inline-block;
+             border-radius: 15px;
+             overflow: hidden;
+             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+             max-width: 700px;
+             width: 100%;
+         }
+
+         .test-image {
+             width: 100%;
+             height: auto;
+             display: block;
+         }
+
+                 .timer-overlay {
+             position: absolute;
+             top: 20px;
+             right: 20px;
+             background: rgba(231, 76, 60, 0.9);
+             color: white;
+             padding: 10px 15px;
+             border-radius: 25px;
+             font-size: 22px;
+             font-weight: bold;
+             min-width: 60px;
+             text-align: center;
+         }
+
+                 .vocabulary-section {
+             background: #f8f9fa;
+             border-radius: 15px;
+             padding: 20px;
+             flex: 0.7;
+             flex-shrink: 0;
+         }
+
+         .vocabulary-title {
+             font-size: 18px;
+             font-weight: 600;
+             color: #2c3e50;
+             margin-bottom: 15px;
+             text-align: center;
+         }
+
+         .vocab-category {
+             margin-bottom: 20px;
+         }
+
+        .vocab-category-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+                 .vocabulary-grid {
+             display: flex;
+             flex-direction: column;
+             gap: 8px;
+         }
+
+         .vocab-item {
+             background: white;
+             border: 2px solid #e9ecef;
+             border-radius: 15px;
+             padding: 6px 10px;
+             cursor: pointer;
+             transition: all 0.2s ease;
+             display: flex;
+             align-items: center;
+             gap: 6px;
+             position: relative;
+         }
+
+        .vocab-item:hover {
+            border-color: #3498db;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+        }
+
+        .vocab-item.selected {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            color: #1976d2;
+        }
+
+        .vocab-item.correct {
+            background: #e8f5e8;
+            border-color: #4caf50;
+            color: #2e7d32;
+        }
+
+        .vocab-item.incorrect {
+            background: #ffebee;
+            border-color: #f44336;
+            color: #c62828;
+        }
+
+        .vocab-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+                 .vocab-word {
+              font-weight: 600;
+              font-size: 15px;
+              color: inherit;
+          }
+
+                   .vocab-pronunciation {
+             color: #666;
+             font-size: 12px;
+             font-style: italic;
+         }
+
+         .vocab-subject {
+             color: #3498db;
+             font-size: 11px;
+             font-weight: 500;
+             margin-top: 2px;
+         }
+
+         .mcq-container {
+             display: flex;
+             flex-direction: column;
+             gap: 15px;
+         }
+
+         .mcq-step {
+             display: none;
+             background: #f8f9fa;
+             border-radius: 12px;
+             padding: 15px;
+         }
+
+         .mcq-step.active {
+             display: block;
+         }
+
+         .step-title {
+             font-size: 16px;
+             font-weight: 600;
+             color: #2c3e50;
+             margin-bottom: 15px;
+             text-align: center;
+         }
+
+         .mcq-options {
+             display: flex;
+             flex-direction: column;
+             gap: 10px;
+         }
+
+         .mcq-option {
+             background: white;
+             text-align: center;
+             border: 2px solid #e9ecef;
+             border-radius: 50px;
+             padding: 12px 15px;
+             cursor: pointer;
+             transition: all 0.2s ease;
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+             position: relative;
+         }
+
+         .mcq-option:hover {
+             border-color: #3498db;
+             transform: translateY(-1px);
+             box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+         }
+
+         .mcq-option.selected {
+             background: #e3f2fd;
+             border-color: #2196f3;
+             color: #1976d2;
+         }
+
+         .mcq-option.correct {
+             background: #e8f5e8;
+             border-color: #4caf50;
+             color: #2e7d32;
+         }
+
+         .mcq-option.incorrect {
+             background: #ffebee;
+             border-color: #f44336;
+             color: #c62828;
+         }
+
+         .option-content {
+             display: flex;
+             flex-direction: column;
+             flex: 1;
+         }
+
+         .option-text {
+             font-size: 14px;
+             font-weight: 500;
+             color: inherit;
+         }
+
+         .option-pronunciation {
+             color: #666;
+             font-size: 12px;
+             font-style: italic;
+             margin-top: 2px;
+         }
+
+         .progress-container {
+             margin-top: 15px;
+             text-align: center;
+         }
+
+         .progress-bar-mcq {
+             width: 100%;
+             height: 6px;
+             background: #e9ecef;
+             border-radius: 3px;
+             overflow: hidden;
+             margin-bottom: 8px;
+         }
+
+         .progress-bar-mcq::before {
+             content: '';
+             display: block;
+             height: 100%;
+             background: #3498db;
+             width: var(--progress, 33.33%);
+             transition: width 0.3s ease;
+         }
+
+         .progress-text {
+             font-size: 12px;
+             color: #666;
+             font-weight: 500;
+         }
+
+         .continue-container {
+             margin-top: 15px;
+             text-align: center;
+         }
+
+         .continue-btn {
+             background: #3498db;
+             color: white;
+             border: none;
+             padding: 10px 20px;
+             border-radius: 8px;
+             font-size: 14px;
+             font-weight: 600;
+             cursor: pointer;
+             transition: all 0.2s ease;
+         }
+
+         .continue-btn:hover {
+             background: #2980b9;
+             transform: translateY(-1px);
+         }
+
+         .continue-btn:disabled {
+             background: #95a5a6;
+             cursor: not-allowed;
+             transform: none;
+         }
+
+         .object-section {
+             background: #f8f9fa;
+             border-radius: 10px;
+             padding: 12px;
+             margin-bottom: 10px;
+         }
+
+         .object-title {
+             font-size: 14px;
+             font-weight: 600;
+             color: #2c3e50;
+             margin-bottom: 10px;
+             text-align: center;
+         }
+
+        .translate-btn {
+            background: none;
+            border: none;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 2px;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .translate-btn:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .meaning-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1000;
+            margin-bottom: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .meaning-tooltip.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .meaning-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid transparent;
+            border-top-color: #333;
+        }
+
+        .vocabulary-stats {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            border: 2px solid #e9ecef;
+        }
+
+        .stats-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .stats-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-label {
+            font-weight: 500;
+            color: #34495e;
+            font-size: 13px;
+        }
+
+        .stat-value {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .instruction {
+            border-radius: 10px;
+            padding: 4px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .instruction h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+                 .instruction p {
+             color: #34495e;
+             font-size: 18px;
+         }
+
+        /* Phase 2: Audio Question */
+        .audio-section {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .audio-player {
+            border-radius: 15px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .audio-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+                 .audio-controls {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             gap: 20px;
+             width: 60%;
+             margin: 0 auto;
+         }
+
+                  .play-btn {
+              background: #e74c3c;
+              color: white;
+              border: none;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              font-size: 16px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-shrink: 0;
+          }
+
+         .play-btn:hover {
+             background: #c0392b;
+             transform: scale(1.1);
+         }
+
+         .play-btn:disabled {
+             background: #95a5a6;
+             cursor: not-allowed;
+             transform: none;
+         }
+
+                 .audio-progress {
+             flex: 1;
+             height: 6px;
+             background: #34495e;
+             border-radius: 3px;
+             overflow: hidden;
+         }
+
+        .progress-bar {
+            height: 100%;
+            background: #e74c3c;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+                 .question-section {
+             background: #f8f9fa;
+             border-radius: 15px;
+             padding: 25px;
+             max-width: 600px;
+             margin: 0 auto;
+         }
+
+        .question-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .choices {
+            display: grid;
+            gap: 15px;
+        }
+
+        .choice {
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 50px;
+            padding: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .choice:hover {
+            border-color: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+
+        .choice.selected {
+            border-color: #3498db;
+            background: #e8f4fd;
+        }
+
+        .choice.correct {
+            border-color: #27ae60;
+            background: #d5f4e6;
+        }
+
+        .choice.incorrect {
+            border-color: #e74c3c;
+            background: #fadbd8;
+        }
+
+        .choice-label {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .choice.selected .choice-label {
+            background: #2980b9;
+        }
+
+        .choice.correct .choice-label {
+            background: #27ae60;
+        }
+
+        .choice.incorrect .choice-label {
+            background: #e74c3c;
+        }
+
+        .choice-text {
+            flex: 1;
+        }
+
+                 .choice-english {
+             font-size: 18px;
+             color: #2c3e50;
+             margin-bottom: 5px;
+         }
+
+         .choice-vietnamese {
+             font-size: 16px;
+             color: #7f8c8d;
+         }
+
+         .choice-placeholder {
+             font-size: 18px;
+             color: #95a5a6;
+             font-style: italic;
+         }
+
+        .translate-toggle-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+
+        .translate-toggle-btn:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            transform: scale(1.1);
+        }
+
+        
+
+                 .result-section {
+             margin: auto;
+             max-width: 600px;
+             background: #f8f9fa;
+             border-radius: 15px;
+             padding: 25px;
+             margin-top: 20px;
+         }
+
+         .vocabulary-summary {
+             background: white;
+             border-radius: 15px;
+             padding: 20px;
+             margin-top: 20px;
+             border: 2px solid #e9ecef;
+         }
+
+         .summary-title {
+             font-size: 16px;
+             font-weight: 600;
+             color: #2c3e50;
+             margin-bottom: 15px;
+             text-align: center;
+         }
+
+         .summary-category {
+             margin-bottom: 20px;
+         }
+
+         .category-title {
+             font-size: 14px;
+             font-weight: 600;
+             color: #34495e;
+             margin-bottom: 10px;
+             padding-bottom: 5px;
+             border-bottom: 1px solid #e9ecef;
+         }
+
+         .summary-vocab-list {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 8px;
+         }
+
+         .summary-vocab-item {
+             padding: 6px 12px;
+             border-radius: 20px;
+             font-size: 14px;
+             font-weight: 500;
+             display: flex;
+             align-items: center;
+             gap: 5px;
+         }
+
+         .summary-vocab-item.correct {
+             background: #e8f5e8;
+             color: #2e7d32;
+             border: 1px solid #4caf50;
+         }
+
+         .summary-vocab-item.incorrect {
+             background: #ffebee;
+             color: #c62828;
+             border: 1px solid #f44336;
+         }
+
+                   .summary-vocab-item.missing {
+              background: #fff3e0;
+              color: #ef6c00;
+              border: 1px solid #ff9800;
+          }
+
+          .summary-vocab-item.unselected {
+              background: #f8f9fa;
+              color: #6c757d;
+              border: 1px solid #dee2e6;
+          }
+
+         .vocab-status-icon {
+             font-size: 10px;
+         }
+
+                 .result-title {
+             font-size: 20px;
+             font-weight: 600;
+             margin-bottom: 15px;
+             text-align: center;
+         }
+
+        .result-correct {
+            color: #27ae60;
+        }
+
+        .result-incorrect {
+            color: #e74c3c;
+        }
+
+        .explanation {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .explanation h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .explanation p {
+            color: #34495e;
+            line-height: 1.6;
+        }
+
+                 @media (max-width: 768px) {
+             .container {
+                 margin: 10px;
+                 border-radius: 15px;
+             }
+
+             .content {
+                 padding: 20px;
+             }
+
+             .image-vocabulary-container {
+                 flex-direction: column;
+                 gap: 15px;
+             }
+
+             .vocabulary-section {
+                 width: 100%;
+             }
+
+             .vocabulary-grid {
+                 flex-direction: row;
+                 flex-wrap: wrap;
+             }
+
+             .audio-controls {
+                 flex-direction: column;
+                 gap: 10px;
+             }
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TOEIC Part 1 - Listening</h1>
+            <div class="subtitle">Question 1 • Basic Level • People</div>
+        </div>
+
+        <div class="content">
+                         <!-- Phase 1: Image and Vocabulary -->
+             <div class="phase active" id="phase1">
+                 <div class="image-vocabulary-container">
+                                                                                       <!-- Multiple Choice Questions (Left) -->
+                        <div class="vocabulary-section">
+                            <div class="mcq-container">
+                                                                 <!-- Step 1: Main Subject -->
+                                 <div class="mcq-step active" id="step1">
+                                     <div class="step-title">Bước 1: Chủ thể chính trong ảnh là gì?</div>
+                                     <div class="mcq-options">
+                                         <div class="mcq-option" data-value="woman" data-correct="true" data-pronunciation="/ˈwʊmən/" data-meaning="người phụ nữ">
+                                             <div class="option-content">
+                                                 <span class="option-text">woman</span>
+                                                 <span class="option-pronunciation">/ˈwʊmən/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="man" data-correct="false" data-pronunciation="/mæn/" data-meaning="người đàn ông">
+                                             <div class="option-content">
+                                                 <span class="option-text">man</span>
+                                                 <span class="option-pronunciation">/mæn/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="child" data-correct="false" data-pronunciation="/tʃaɪld/" data-meaning="trẻ em">
+                                             <div class="option-content">
+                                                 <span class="option-text">child</span>
+                                                 <span class="option-pronunciation">/tʃaɪld/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="group" data-correct="false" data-pronunciation="/ɡruːp/" data-meaning="nhóm người">
+                                             <div class="option-content">
+                                                 <span class="option-text">group</span>
+                                                 <span class="option-pronunciation">/ɡruːp/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                                 <!-- Step 2: Main Subject's Action -->
+                                 <div class="mcq-step" id="step2">
+                                     <div class="step-title">Bước 2: Chủ thể chính đang làm gì?</div>
+                                     <div class="mcq-options">
+                                         <div class="mcq-option" data-value="eating" data-correct="true" data-pronunciation="/ˈiːtɪŋ/" data-meaning="đang ăn">
+                                             <div class="option-content">
+                                                 <span class="option-text">eating</span>
+                                                 <span class="option-pronunciation">/ˈiːtɪŋ/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="waiting" data-correct="false" data-pronunciation="/ˈweɪtɪŋ/" data-meaning="đang chờ">
+                                             <div class="option-content">
+                                                 <span class="option-text">waiting</span>
+                                                 <span class="option-pronunciation">/ˈweɪtɪŋ/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="reading" data-correct="false" data-pronunciation="/ˈriːdɪŋ/" data-meaning="đang đọc">
+                                             <div class="option-content">
+                                                 <span class="option-text">reading</span>
+                                                 <span class="option-pronunciation">/ˈriːdɪŋ/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="talking" data-correct="false" data-pronunciation="/ˈtɔːkɪŋ/" data-meaning="đang nói chuyện">
+                                             <div class="option-content">
+                                                 <span class="option-text">talking</span>
+                                                 <span class="option-pronunciation">/ˈtɔːkɪŋ/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                                 <!-- Step 3: Main Subject's Location -->
+                                 <div class="mcq-step" id="step3">
+                                     <div class="step-title">Bước 3: Chủ thể chính đang ở đâu?</div>
+                                     <div class="mcq-options">
+                                         <div class="mcq-option" data-value="picnic area" data-correct="true" data-pronunciation="/ˈpɪknɪk ˈeəriə/" data-meaning="khu vực picnic">
+                                             <div class="option-content">
+                                                 <span class="option-text">picnic area</span>
+                                                 <span class="option-pronunciation">/ˈpɪknɪk ˈeəriə/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="restaurant" data-correct="false" data-pronunciation="/ˈrestrɒnt/" data-meaning="nhà hàng">
+                                             <div class="option-content">
+                                                 <span class="option-text">restaurant</span>
+                                                 <span class="option-pronunciation">/ˈrestrɒnt/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="office" data-correct="false" data-pronunciation="/ˈɒfɪs/" data-meaning="văn phòng">
+                                             <div class="option-content">
+                                                 <span class="option-text">office</span>
+                                                 <span class="option-pronunciation">/ˈɒfɪs/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                         <div class="mcq-option" data-value="home" data-correct="false" data-pronunciation="/həʊm/" data-meaning="nhà">
+                                             <div class="option-content">
+                                                 <span class="option-text">home</span>
+                                                 <span class="option-pronunciation">/həʊm/</span>
+                                             </div>
+                                             <button class="translate-btn" title="View meaning">📖</button>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                                                                 <!-- Progress Bar -->
+                                 <div class="progress-container">
+                                     <div class="progress-bar-mcq" id="progressBarMCQ"></div>
+                                     <div class="progress-text">Bước <span id="currentStep">1</span>/3</div>
+                                 </div>
+                                 
+
+                            </div>
+                        </div>
+
+                     
+
+                     <!-- Image (Center) -->
+                     <div class="image-section">
+                         <div class="image-container">
+                             <img src="https://res.cloudinary.com/deroljhou/image/upload/v1753772923/755a2e8c-6508-4162-8bb4-4afa5b6450ec.png" 
+                                  alt="TOEIC Part 1 Image" class="test-image">
+                             <div class="timer-overlay" id="timer">10</div>
+                         </div>
+                     </div>
+
+                 </div>                
+            </div>
+
+            <!-- Phase 2: Audio Question -->
+             <div class="phase" id="phase2">
+                <div class="audio-section">
+                    <div class="audio-player">
+                        <div class="audio-controls">
+                            <button class="play-btn" id="playBtn">▶</button>
+                            <div class="audio-progress">
+                                <div class="progress-bar" id="progressBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="image-section">
+                     <div class="image-container">
+                         <img src="https://res.cloudinary.com/deroljhou/image/upload/v1753772923/755a2e8c-6508-4162-8bb4-4afa5b6450ec.png" 
+                              alt="TOEIC Part 1 Image" class="test-image">
+                     </div>
+                 </div>
+
+                 <div class="question-section">
+                    <div class="choices">
+                        <div class="choice" data-choice="A">
+                            <div class="choice-label">A</div>
+                            <div class="choice-text">
+                                <div class="choice-english" style="display: none;">She's eating in a picnic area.</div>
+                                <div class="choice-vietnamese" style="display: none;">Cô ấy đang ăn trong khu vực picnic.</div>
+                                <div class="choice-placeholder">Click to select</div>
+                            </div>
+                            <button class="translate-toggle-btn" style="display: none;" title="Toggle language"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="choice" data-choice="B">
+                            <div class="choice-label">B</div>
+                            <div class="choice-text">
+                                <div class="choice-english" style="display: none;">She's waiting in line at a food truck.</div>
+                                <div class="choice-vietnamese" style="display: none;">Cô ấy đang chờ xếp hàng tại xe bán thức ăn.</div>
+                                <div class="choice-placeholder">Click to select</div>
+                            </div>
+                            <button class="translate-toggle-btn" style="display: none;" title="Toggle language"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="choice" data-choice="C">
+                            <div class="choice-label">C</div>
+                            <div class="choice-text">
+                                <div class="choice-english" style="display: none;">She's wiping off a bench.</div>
+                                <div class="choice-vietnamese" style="display: none;">Cô ấy đang lau ghế.</div>
+                                <div class="choice-placeholder">Click to select</div>
+                            </div>
+                            <button class="translate-toggle-btn" style="display: none;" title="Toggle language"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="choice" data-choice="D">
+                            <div class="choice-label">D</div>
+                            <div class="choice-text">
+                                <div class="choice-english" style="display: none;">She's throwing away a plate.</div>
+                                <div class="choice-vietnamese" style="display: none;">Cô ấy đang vứt một cái đĩa.</div>
+                                <div class="choice-placeholder">Click to select</div>
+                            </div>
+                            <button class="translate-toggle-btn" style="display: none;" title="Toggle language"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                 </div>
+
+                    <div class="result-section" id="resultSection" style="display: none;">
+                     <div class="result-title" id="resultTitle"></div>
+                     <div class="explanation">
+                         <h4>Traps</h4>
+                         <p id="explanationText"></p>
+                     </div>
+                     
+                     <div class="vocabulary-summary" id="vocabularySummary">
+                                                         <div class="summary-category">
+                                 <div class="category-title">Multiple Choice Questions</div>
+                                 <div class="summary-vocab-list" id="subjectSummary"></div>
+                             </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test data
+        const testData = {
+            questionNumber: 1,
+            level: "Basic",
+            type: "people",
+            imageDescription: "A woman is eating alone from a plate of food placed on a table, sitting on a bench at a stone picnic table near a parked car in a rest area.",
+            correctAnswer: "A",
+            traps: "Trong ảnh có hình chiếc xe nên sẽ bị nhầm qua câu B là food truck, câu C có từ bench nên sẽ bị nhầm vì trong ảnh người phụ nữ đang ngồi trên bench, còn câu D có hình ảnh chiếc đĩa (plate) nên nếu không nghe kĩ hành động thì sẽ bị lừa cả 3 câu",
+            image: "https://res.cloudinary.com/deroljhou/image/upload/v1753772923/755a2e8c-6508-4162-8bb4-4afa5b6450ec.png",
+            audio: "https://res.cloudinary.com/deroljhou/video/upload/v1753773361/PART_1_-_TEST_1__cut_22sec_etkr57.mp3"
+        };
+
+        // DOM elements
+        const timerElement = document.getElementById('timer');
+        const phase1 = document.getElementById('phase1');
+        const phase2 = document.getElementById('phase2');
+                 const playBtn = document.getElementById('playBtn');
+         const audioStatus = document.getElementById('audioStatus');
+         const progressBar = document.getElementById('progressBar');
+                  const resultSection = document.getElementById('resultSection');
+         const resultTitle = document.getElementById('resultTitle');
+         const explanationText = document.getElementById('explanationText');
+         const vocabularyStats = document.getElementById('vocabularyStats');
+         const subjectStats = document.getElementById('subjectStats');
+         const descriptiveStats = document.getElementById('descriptiveStats');
+         const vocabularySummary = document.getElementById('vocabularySummary');
+         const subjectSummary = document.getElementById('subjectSummary');
+         const descriptiveSummary = document.getElementById('descriptiveSummary');
+
+        // Audio setup
+        const audio = new Audio(testData.audio);
+        let isPlaying = false;
+        let selectedChoice = null;
+                          let selectedVocabulary = {
+             subject: [],
+             object: []
+         };
+         let vocabularyCompleted = false;
+         
+         // MCQ variables
+         let currentStep = 1;
+         let mcqAnswers = {
+             step1: null,
+             step2: null,
+             step3: null
+         };
+         let mcqCompleted = false;
+
+        // Timer functionality
+        let timeLeft = 10;
+        let timerInterval;
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+                
+                // Play ticking sound
+                playTickingSound();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    switchToPhase2();
+                }
+            }, 1000);
+        }
+
+        function playTickingSound() {
+            // Create a simple ticking sound using Web Audio API
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        function switchToPhase2() {
+            // Stop the timer and ticking sound
+            clearInterval(timerInterval);
+            
+            // Show vocabulary results before switching
+            showVocabularyResults();
+            phase1.classList.remove('active');
+            phase2.classList.add('active');
+            
+            // Auto play audio after a short delay
+            setTimeout(() => {
+                playAudio();
+            }, 1000);
+        }
+
+        // Vocabulary selection functionality
+        function initializeVocabularySelection() {
+            const vocabItems = document.querySelectorAll('.vocab-item');
+            
+            vocabItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('translate-btn')) {
+                        return; // Don't select when clicking translate button
+                    }
+                    
+                    if (vocabularyCompleted) return;
+                    
+                    const word = this.dataset.word;
+                    const isCorrect = this.dataset.correct === 'true';
+                                         const category = this.closest('.vocabulary-section').querySelector('.vocabulary-title').textContent.includes('Câu hỏi') ? 'subject' : 'object';
+                    
+                    // Toggle selection
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        if (category === 'subject') {
+                            selectedVocabulary.subject = selectedVocabulary.subject.filter(w => w !== word);
+                                                 } else {
+                             selectedVocabulary.object = selectedVocabulary.object.filter(w => w !== word);
+                         }
+                    } else {
+                        this.classList.add('selected');
+                        if (category === 'subject') {
+                            selectedVocabulary.subject.push(word);
+                                                 } else {
+                             selectedVocabulary.object.push(word);
+                         }
+                    }
+                    
+                    // Speak the word
+                    speakWord(word);
+                });
+                
+                // Translate button functionality
+                const translateBtn = item.querySelector('.translate-btn');
+                translateBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const meaning = item.dataset.meaning;
+                    showMeaningTooltip(item, meaning);
+                });
+            });
+        }
+
+        function showMeaningTooltip(element, meaning) {
+            // Remove existing tooltips
+            document.querySelectorAll('.meaning-tooltip').forEach(tooltip => tooltip.remove());
+            
+            // Create new tooltip
+            const tooltip = document.createElement('div');
+            tooltip.className = 'meaning-tooltip';
+            tooltip.textContent = meaning;
+            element.appendChild(tooltip);
+            
+            // Show tooltip
+            setTimeout(() => tooltip.classList.add('show'), 10);
+            
+            // Hide tooltip after 3 seconds
+            setTimeout(() => {
+                tooltip.classList.remove('show');
+                setTimeout(() => tooltip.remove(), 200);
+            }, 3000);
+        }
+
+                 function showVocabularyResults() {
+             vocabularyCompleted = true;
+             
+             // Calculate MCQ statistics
+             let step1Correct = mcqAnswers.step1 && mcqAnswers.step1.isCorrect;
+             let step2Correct = mcqAnswers.step2 && mcqAnswers.step2.isCorrect;
+             let step3Correct = mcqAnswers.step3 && mcqAnswers.step3.isCorrect;
+             
+             let totalCorrect = 0;
+             let totalSteps = 0;
+             
+             if (mcqAnswers.step1 !== null) {
+                 totalSteps++;
+                 if (step1Correct) totalCorrect++;
+             }
+             if (mcqAnswers.step2 !== null) {
+                 totalSteps++;
+                 if (step2Correct) totalCorrect++;
+             }
+             if (mcqAnswers.step3 !== null) {
+                 totalSteps++;
+                 if (step3Correct) totalCorrect++;
+             }
+             
+             // Log results to console for debugging
+             console.log(`MCQ Results: Step 1: ${step1Correct ? '✅' : '❌'} | Step 2: ${step2Correct ? '✅' : '❌'} | Step 3: ${step3Correct ? '✅' : '❌'} | Total: ${totalCorrect}/${totalSteps} correct`);
+         }
+
+        function speakWord(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.7;
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                
+                const voices = window.speechSynthesis.getVoices();
+                const preferredVoice = voices.find(voice =>
+                    (voice.lang.startsWith('en-') || voice.lang.startsWith('en_') || voice.name.toLowerCase().includes('english')) &&
+                    (voice.name.includes('Google') || voice.name.includes('Microsoft'))
+                );
+                const englishVoice = preferredVoice || voices.find(voice => 
+                    voice.lang.startsWith('en-') || 
+                    voice.lang.startsWith('en_') ||
+                    voice.name.toLowerCase().includes('english')
+                );
+                
+                if (englishVoice) {
+                    utterance.voice = englishVoice;
+                }
+                
+                if (voices.length === 0) {
+                    window.speechSynthesis.onvoiceschanged = () => {
+                        const newVoices = window.speechSynthesis.getVoices();
+                        const newPreferredVoice = newVoices.find(voice =>
+                            (voice.lang.startsWith('en-') || voice.lang.startsWith('en_') || voice.name.toLowerCase().includes('english')) &&
+                            (voice.name.includes('Google') || voice.name.includes('Microsoft'))
+                        );
+                        const newEnglishVoice = newPreferredVoice || newVoices.find(voice =>
+                            voice.lang.startsWith('en-') ||
+                            voice.lang.startsWith('en_') ||
+                            voice.name.toLowerCase().includes('english')
+                        );
+                        if (newEnglishVoice) {
+                            utterance.voice = newEnglishVoice;
+                        }
+                        window.speechSynthesis.speak(utterance);
+                    };
+                } else {
+                    window.speechSynthesis.speak(utterance);
+                }
+            }
+        }
+
+                 // Audio functionality
+         audio.addEventListener('loadedmetadata', () => {
+             // Audio ready
+         });
+
+         audio.addEventListener('timeupdate', () => {
+             const progress = (audio.currentTime / audio.duration) * 100;
+             progressBar.style.width = progress + '%';
+         });
+
+         audio.addEventListener('ended', () => {
+             isPlaying = false;
+             playBtn.textContent = '▶';
+             playBtn.disabled = false;
+         });
+
+         // Audio play function
+         function playAudio() {
+             if (!isPlaying) {
+                 audio.play();
+                 isPlaying = true;
+                 playBtn.textContent = '⏸';
+             }
+         }
+
+         playBtn.addEventListener('click', () => {
+             if (isPlaying) {
+                 audio.pause();
+                 isPlaying = false;
+                 playBtn.textContent = '▶';
+             } else {
+                 playAudio();
+             }
+         });
+
+                 // Choice selection
+         document.querySelectorAll('.choice').forEach(choice => {
+             choice.addEventListener('click', () => {
+                 // Don't allow selection if already answered
+                 if (selectedChoice !== null) return;
+                 
+                 // Remove previous selection
+                 document.querySelectorAll('.choice').forEach(c => c.classList.remove('selected'));
+                 
+                 // Select current choice
+                 choice.classList.add('selected');
+                 selectedChoice = choice.dataset.choice;
+                 
+                 // Show all choice texts and toggle buttons immediately
+                 document.querySelectorAll('.choice').forEach(c => {
+                     const placeholder = c.querySelector('.choice-placeholder');
+                     const englishText = c.querySelector('.choice-english');
+                     const vietnameseText = c.querySelector('.choice-vietnamese');
+                     const toggleBtn = c.querySelector('.translate-toggle-btn');
+                     
+                     // Hide placeholder and show English text by default
+                     placeholder.style.display = 'none';
+                     englishText.style.display = 'block';
+                     vietnameseText.style.display = 'none';
+                     toggleBtn.style.display = 'block';
+                 });
+                 
+                 // Show result immediately
+                 showResult();
+             });
+         });
+
+        // Toggle language functionality
+        document.querySelectorAll('.translate-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const choice = btn.closest('.choice');
+                const englishText = choice.querySelector('.choice-english');
+                const vietnameseText = choice.querySelector('.choice-vietnamese');
+                
+                if (englishText.style.display === 'block') {
+                    englishText.style.display = 'none';
+                    vietnameseText.style.display = 'block';
+                } else {
+                    englishText.style.display = 'block';
+                    vietnameseText.style.display = 'none';
+                }
+            });
+        });
+
+                 // Show result function
+         function showResult() {
+             if (!selectedChoice) return;
+
+             // Show result
+             const isCorrect = selectedChoice === testData.correctAnswer;
+             
+             // Update choice styling
+             document.querySelectorAll('.choice').forEach(choice => {
+                 const choiceLetter = choice.dataset.choice;
+                 if (choiceLetter === testData.correctAnswer) {
+                     choice.classList.add('correct');
+                 } else if (choiceLetter === selectedChoice && !isCorrect) {
+                     choice.classList.add('incorrect');
+                 }
+             });
+             resultTitle.className = 'result-title ' + (isCorrect ? 'result-correct' : 'result-incorrect');
+             
+             explanationText.textContent = testData.traps;
+             resultSection.style.display = 'block';
+
+             // Show vocabulary summary
+             showVocabularySummary();
+
+             // Scroll to result
+             resultSection.scrollIntoView({ behavior: 'smooth' });
+         }
+
+                   // Show vocabulary summary function
+          function showVocabularySummary() {
+              // Clear previous summaries
+              subjectSummary.innerHTML = '';
+
+              // Process MCQ results
+              const mcqSteps = [
+                  { step: 1, title: 'Chủ thể chính', answer: mcqAnswers.step1 },
+                  { step: 2, title: 'Hành động', answer: mcqAnswers.step2 },
+                  { step: 3, title: 'Địa điểm', answer: mcqAnswers.step3 }
+              ];
+
+              mcqSteps.forEach(stepData => {
+                  if (stepData.answer) {
+                      const summaryItem = createMCQSummaryItem(stepData.title, stepData.answer);
+                      if (summaryItem) {
+                          subjectSummary.appendChild(summaryItem);
+                      }
+                  }
+              });
+          }
+
+                   // Create MCQ summary item function
+          function createMCQSummaryItem(title, answer) {
+              const item = document.createElement('div');
+              item.className = 'summary-vocab-item';
+              
+              const statusClass = answer.isCorrect ? 'correct' : 'incorrect';
+              const icon = answer.isCorrect ? '✅' : '❌';
+              const text = `${title}: ${answer.value}`;
+              
+              item.classList.add(statusClass);
+              item.innerHTML = `
+                  <span class="vocab-status-icon">${icon}</span>
+                  <span>${text}</span>
+              `;
+              
+              return item;
+          }
+
+                 // Initialize MCQ functionality
+         function initializeMCQ() {
+             const mcqOptions = document.querySelectorAll('.mcq-option');
+             
+             mcqOptions.forEach(option => {
+                 // Main click handler
+                 option.addEventListener('click', function(e) {
+                     if (e.target.classList.contains('translate-btn')) {
+                         return; // Don't select when clicking translate button
+                     }
+                     
+                     if (mcqCompleted) return;
+                     
+                     const step = this.closest('.mcq-step') || this.closest('.object-section');
+                     const stepId = step.id || 'object';
+                     const value = this.dataset.value;
+                     const isCorrect = this.dataset.correct === 'true';
+                     
+                     // Remove previous selection in this step
+                     const stepOptions = step.querySelectorAll('.mcq-option');
+                     stepOptions.forEach(opt => opt.classList.remove('selected'));
+                     
+                     // Select current option
+                     this.classList.add('selected');
+                     
+                     // Speak the word
+                     speakWord(value);
+                     
+                     // Store answer
+                     if (stepId.startsWith('step')) {
+                         if (stepId === 'step1') {
+                             // Step 1: Single choice
+                             mcqAnswers.step1 = { value, isCorrect };
+                             
+                             if (isCorrect) {
+                                 // Correct answer - advance to next step after 1 second
+                                 setTimeout(() => {
+                                     showStep(2);
+                                 }, 1000);
+                             } else {
+                                 // Wrong answer - go to Phase 2 immediately
+                                 setTimeout(() => {
+                                     switchToPhase2();
+                                 }, 500);
+                             }
+                         } else if (stepId === 'step2') {
+                             // Step 2: Single choice
+                             mcqAnswers.step2 = { value, isCorrect };
+                             
+                             if (isCorrect) {
+                                 // Correct answer - advance to next step after 1 second
+                                 setTimeout(() => {
+                                     showStep(3);
+                                 }, 1000);
+                             } else {
+                                 // Wrong answer - go to Phase 2 immediately
+                                 setTimeout(() => {
+                                     switchToPhase2();
+                                 }, 500);
+                             }
+                         } else if (stepId === 'step3') {
+                             // Step 3: Single choice
+                             mcqAnswers.step3 = { value, isCorrect };
+                             
+                             if (isCorrect) {
+                                 // Correct answer - complete MCQ after 1 second
+                                 setTimeout(() => {
+                                     completeMCQ();
+                                 }, 1000);
+                             } else {
+                                 // Wrong answer - go to Phase 2 immediately
+                                 setTimeout(() => {
+                                     switchToPhase2();
+                                 }, 500);
+                             }
+                         }
+                     } else {
+                         // Object section - show immediate feedback
+                         if (isCorrect) {
+                             this.classList.add('correct');
+                         } else {
+                             this.classList.add('incorrect');
+                             // Show correct answer
+                             stepOptions.forEach(opt => {
+                                 if (opt.dataset.correct === 'true') {
+                                     opt.classList.add('correct');
+                                 }
+                             });
+                         }
+                     }
+                 });
+                 
+                 // Translate button functionality
+                 const translateBtn = option.querySelector('.translate-btn');
+                 if (translateBtn) {
+                     translateBtn.addEventListener('click', function(e) {
+                         e.stopPropagation();
+                         const meaning = option.dataset.meaning;
+                         showMeaningTooltip(option, meaning);
+                     });
+                 }
+             });
+         }
+         
+         function showStep(stepNumber) {
+             // Hide all steps
+             document.querySelectorAll('.mcq-step').forEach(step => {
+                 step.classList.remove('active');
+             });
+             
+             // Show current step
+             const currentStepElement = document.getElementById(`step${stepNumber}`);
+             if (currentStepElement) {
+                 currentStepElement.classList.add('active');
+                 currentStep = stepNumber;
+                 
+                 // Update progress bar
+                 const progressBar = document.getElementById('progressBarMCQ');
+                 const progressText = document.getElementById('currentStep');
+                 
+                 if (progressBar) {
+                     progressBar.style.setProperty('--progress', `${(stepNumber / 3) * 100}%`);
+                 }
+                 
+                 if (progressText) {
+                     progressText.textContent = stepNumber;
+                 }
+             }
+         }
+         
+         function completeMCQ() {
+             mcqCompleted = true;
+             
+             // Show all correct answers
+             document.querySelectorAll('.mcq-option').forEach(option => {
+                 const isCorrect = option.dataset.correct === 'true';
+                 const isSelected = option.classList.contains('selected');
+                 
+                 if (isSelected && isCorrect) {
+                     option.classList.add('correct');
+                 } else if (isSelected && !isCorrect) {
+                     option.classList.add('incorrect');
+                 } else if (!isSelected && isCorrect) {
+                     option.classList.add('correct');
+                 }
+             });
+             
+             // Auto transition to Phase 2 after showing results for 2 seconds
+             setTimeout(() => {
+                 switchToPhase2();
+             }, 2000);
+         }
+
+         // Start the timer when page loads
+         window.addEventListener('load', () => {
+             initializeVocabularySelection();
+             initializeMCQ();
+             startTimer();
+         });
+    </script>
+</body>
+</html> 

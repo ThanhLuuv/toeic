@@ -176,27 +176,86 @@ ${userRequest}
 
 == ĐẦU RA PHẢI LÀ OBJECT JSON DUY NHẤT, KHÔNG GIẢI THÍCH, KHÔNG MARKDOWN ==
 
-Schema:
+Schema mẫu:
 {
   "practiceQuestion": {
     "questionNumber": 1,
-    "level": "beginner|intermediate|advanced",
-    "passage": "...", // Đoạn văn với 4 chỗ trống (_____)
+    "level": "intermediate",
+    "passage": "To: Kitchen staff, office employees\nFrom: Manager, Larry Park\nDate: March 23\nSubject: Renovations\n\nTo all kitchen staff and Harmon employees,\n\nFrom Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment _____(143) to replace the old ones. _____(144). Instead, the convenience shops will carry more sandwiches, prepared lunch boxes, and snacks for the employees during this time. The renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided _____(145) the lunch and dinner rushes. We apologize for the inconvenience but we hope that the changes will _____(146) the services in the cafeteria.",
     "questions": [
       {
-        "question": "Question 1", // Số thứ tự câu hỏi
-        "choices": { "A": "...", "B": "...", "C": "...", "D": "..." },
-        "choicesVi": { "A": "...", "B": "...", "C": "...", "D": "..." },
-        "correctAnswer": "A" | "B" | "C" | "D",
-        "explanation": "...", // Giải thích bằng tiếng Việt
-        "type": "grammar|vocabulary|context|collocation|tense|preposition|article|conjunction|pronoun"
+        "choices": {
+          "A": "are bringing in",
+          "B": "have brought in",
+          "C": "bring in",
+          "D": "are brought in"
+        },
+        "choicesVi": {
+          "A": "đang mang vào",
+          "B": "đã mang vào",
+          "C": "mang vào",
+          "D": "được mang vào"
+        },
+        "correctAnswer": "D",
+        "explanation": "Câu bị động là cấu trúc phù hợp nhất trong ngữ cảnh này ('are brought in' – được mang vào), vì không nói rõ ai là người thực hiện hành động.",
+        "type": "grammar"
+      },
+      {
+        "choices": {
+          "A": "This will take a lot of work.",
+          "B": "As a result, the convenience shops will be closed.",
+          "C": "Because of this, hot meals will not be available for the patrons.",
+          "D": "There will be noise and chaos as a result."
+        },
+        "choicesVi": {
+          "A": "Việc này sẽ tốn nhiều công sức.",
+          "B": "Do đó, các cửa hàng tiện lợi sẽ bị đóng cửa.",
+          "C": "Vì lý do đó, sẽ không có món nóng cho khách.",
+          "D": "Sẽ có tiếng ồn và sự hỗn loạn xảy ra."
+        },
+        "correctAnswer": "C",
+        "explanation": "Dòng sau cho biết: 'Instead, the convenience shops will carry more sandwiches...', nghĩa là bình thường có món nóng, nhưng do cải tạo nên không có món nóng. Vì vậy, C là lựa chọn hợp lý nhất.",
+        "type": "context"
+      },
+      {
+        "choices": {
+          "A": "before",
+          "B": "after",
+          "C": "during",
+          "D": "within"
+        },
+        "choicesVi": {
+          "A": "trước",
+          "B": "sau",
+          "C": "trong lúc",
+          "D": "trong vòng"
+        },
+        "correctAnswer": "C",
+        "explanation": "'during the lunch and dinner rushes' – là thời điểm cần phục vụ nhiều, nên cần tăng thiết bị để phục vụ **trong lúc** cao điểm.",
+        "type": "preposition"
+      },
+      {
+        "choices": {
+          "A": "develop",
+          "B": "improve",
+          "C": "rectify",
+          "D": "recover"
+        },
+        "choicesVi": {
+          "A": "phát triển",
+          "B": "cải thiện",
+          "C": "sửa chữa",
+          "D": "phục hồi"
+        },
+        "correctAnswer": "B",
+        "explanation": "'improve' là từ phù hợp nhất về nghĩa – cải thiện chất lượng dịch vụ trong nhà ăn. Các từ khác không đúng về ngữ cảnh.",
+        "type": "vocabulary"
       }
     ],
-    "traps": "...", // Mô tả bẫy bằng tiếng Việt
-    "type": "email|letter|memo|notice|advertisement|article|report" // Loại văn bản
+    "traps": "Câu 143 đánh lừa người học ở cấu trúc bị động, câu 144 kiểm tra khả năng hiểu ngữ cảnh, câu 145 về giới từ, câu 146 về từ vựng tương đồng.",
+    "type": "memo"
   }
 }
-
 == QUY TẮC TẠO BÀI TẬP THEO LEVEL ==
 - Beginner: Ngữ pháp cơ bản, từ vựng đơn giản, bẫy dễ nhận biết
 - Intermediate: Ngữ pháp vừa phải, từ vựng phổ thông, bẫy thông minh  

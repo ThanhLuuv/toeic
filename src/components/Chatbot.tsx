@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { generateToeicPracticeQuestion, generateImageBase64, generateAudioBase64,} from './TestPart1/aiUtils';
+import { generateToeicPracticeQuestion, generateImageBase64, generateAudioBase64, analyzeImageAndCreatePractice } from './TestPart1/aiUtils';
 import { generateToeicPracticeQuestionPart2, generateAudioBase64Part2 } from './TestPart2/aiUtils';
 import { generateToeicPracticeQuestionPart3, generateAudioBase64Part3 } from './TestPart3/aiUtils';
 import { generateToeicPracticeQuestionPart4, generateAudioBase64Part4 } from './TestPart4/aiUtils';
 import { generateToeicPracticeQuestionPart5 } from './TestPart5/aiUtils';
 import { generateToeicPracticeQuestionPart6 } from './TestPart6/aiUtils';
 import { generateToeicPracticeQuestionPart7, generateAudioBase64Part7 } from './TestPart7/aiUtils';
+import { imagePracticeService, ImagePractice } from '../services/imagePracticeService';
+import { practiceService } from '../services/practiceService';
 
 // Hàm gọi OpenAI API đơn giản cho hỏi đáp TOEIC
 async function askToeicAI(question: string, chatHistory: {role: 'user'|'bot', text: string}[] = []): Promise<string> {
@@ -122,7 +124,9 @@ type ChatMessage =
   | { role: 'practice'; data: any; answer?: string }
   | { role: 'confirm-practice'; original: string }
   | { role: 'practice-loading' }
-  | { role: 'typing' };
+  | { role: 'typing' }
+  | { role: 'image-practice'; data: any; answer?: string; saved?: boolean }
+  | { role: 'image-analysis-loading' };
 
 const Chatbot: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -143,6 +147,8 @@ const Chatbot: React.FC = () => {
   const [part7Answers, setPart7Answers] = useState<{ [msgIdx: number]: { [qIdx: number]: string } }>({});
   const [part7ShowTranslation, setPart7ShowTranslation] = useState<{ [msgIdx: number]: { [qIdx: number]: { [opt: string]: boolean } } }>({});
   const [showGuide, setShowGuide] = useState(true);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   // Toggle dịch cho từng đáp án
   const toggleTranslation = (msgIdx: number, opt: string) => {
@@ -229,6 +235,89 @@ const Chatbot: React.FC = () => {
   // Xử lý gửi tin nhắn
   const handleSend = async () => {
     if (!input.trim()) return;
+    
+    // Kiểm tra nếu có ảnh được upload thì thực hiện phân tích ảnh
+    if (selectedImage) {
+      const userMsg: ChatMessage = { role: 'user', text: input, image: selectedImage };
+      const newMessages = [...messages, userMsg];
+      setMessages(newMessages);
+      setInput('');
+      setLoading(true);
+      
+      // Thêm message loading
+      setMessages(msgs => [...msgs, { role: 'image-analysis-loading' }]);
+      
+      try {
+        console.log('=== STARTING IMAGE ANALYSIS ===');
+        console.log('User request:', input);
+        
+        // Upload ảnh lên Cloudinary trước
+        const timestamp = Date.now();
+        const fileName = `chatbot_img_${timestamp}`;
+        console.log('Uploading image to Cloudinary:', fileName);
+        
+        const cloudinaryUrl = await practiceService.uploadToCloudinary(selectedImage, fileName, 'image');
+        console.log('Cloudinary upload successful, URL:', cloudinaryUrl);
+        
+        // Gọi AI để phân tích ảnh với Cloudinary URL
+        console.log('Calling AI with Cloudinary URL...');
+        const result = await analyzeImageAndCreatePractice(cloudinaryUrl, input);
+        
+        // Thay thế message loading bằng kết quả
+        const practiceMsg: ChatMessage = {
+          role: 'image-practice',
+          data: { ...result.practiceQuestion, userQuestion: input },
+          answer: '',
+          saved: false
+        };
+        
+        setMessages(msgs => msgs.map((m, i) => 
+          i === msgs.length - 1 ? practiceMsg : m
+        ));
+        
+        // Xóa ảnh đã upload
+        setSelectedImage('');
+        setImageFile(null);
+        
+      } catch (error) {
+        console.error('=== ERROR IN IMAGE ANALYSIS ===');
+        console.error('Error analyzing image:', error);
+        console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+        let errorMessage = error instanceof Error ? error.message : String(error);
+        
+        // Cung cấp thông báo lỗi cụ thể hơn
+        if (errorMessage.includes('API key không được cấu hình')) {
+          errorMessage = '❌ API key chưa được cấu hình. Vui lòng kiểm tra file .env và restart ứng dụng.';
+        } else if (errorMessage.includes('Rate limit exceeded')) {
+          errorMessage = '⚠️ Đã vượt quá giới hạn API. Vui lòng thử lại sau vài phút hoặc nâng cấp tài khoản OpenAI.';
+        } else if (errorMessage.includes('401') || errorMessage.includes('Unauthorized')) {
+          errorMessage = '❌ API key không hợp lệ hoặc đã hết hạn. Vui lòng kiểm tra lại API key.';
+        } else if (errorMessage.includes('403') || errorMessage.includes('credit')) {
+          errorMessage = '❌ Tài khoản không có quyền truy cập hoặc đã hết credit. Vui lòng kiểm tra tài khoản OpenAI.';
+        } else if (errorMessage.includes('OpenAI API error')) {
+          errorMessage = '❌ Lỗi kết nối với OpenAI API. Vui lòng thử lại sau.';
+        } else if (errorMessage.includes('Cloudinary')) {
+          errorMessage = '❌ Lỗi upload ảnh lên Cloudinary. Vui lòng thử lại sau.';
+        }
+        
+        setMessages(msgs => msgs.map((m, i) => 
+          i === msgs.length - 1 ? { 
+            role: 'bot', 
+            text: errorMessage 
+          } : m
+        ));
+      }
+      
+      setLoading(false);
+      setTimeout(() => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      }, 100);
+      return;
+    }
+    
+    // Xử lý tin nhắn thường (không có ảnh)
     const userMsg: ChatMessage = { role: 'user', text: input };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
@@ -367,10 +456,8 @@ const Chatbot: React.FC = () => {
         try { audioBase64 = await generateAudioBase64(result.practiceQuestion); } catch {}
       } else if (partType === 'part2') {
         result = await generateToeicPracticeQuestionPart2(msg.original);
-        console.log('Part 2 result:', result);
         try { 
           audioBase64 = await generateAudioBase64Part2(result.practiceQuestion); 
-          console.log('Part 2 audio generated:', !!audioBase64);
         } catch (error) {
           console.error('Part 2 audio generation failed:', error);
         }
@@ -430,7 +517,7 @@ const Chatbot: React.FC = () => {
       correct = answer === msg.data.questions?.[0]?.correctAnswer;
     } else {
       // Part 1, 2, 4, 5 có 1 câu hỏi duy nhất
-      correct = answer === msg.data.correctAnswer;
+      correct = answer === msg.data.audioQuestion?.correctAnswer || answer === msg.data.correctAnswer;
     }
     
     // Cập nhật message answer
@@ -447,7 +534,108 @@ const Chatbot: React.FC = () => {
     savePracticeHistory(newSessions);
   };
 
+  // Xử lý chọn đáp án cho bài tập từ ảnh
+  const handleImagePracticeAnswer = (msgIdx: number, answer: string) => {
+    const msg = messages[msgIdx];
+    if (msg.role !== 'image-practice') return;
+    
+    const correct = answer === msg.data.correctAnswer;
+    
+    // Cập nhật message answer
+    const newMessages = messages.map((m, i) =>
+      i === msgIdx ? { ...m, answer } : m
+    );
+    setMessages(newMessages);
+  };
 
+  // Xử lý lưu bài tập từ ảnh vào Firebase
+  const handleSaveImagePractice = async (msgIdx: number) => {
+    const msg = messages[msgIdx];
+    if (msg.role !== 'image-practice') return;
+    
+    try {
+      const practiceData: Omit<ImagePractice, 'id'> = {
+        imageUrl: msg.data.imageUrl,
+        question: msg.data.question,
+        choices: msg.data.choices,
+        choicesVi: msg.data.choicesVi,
+        correctAnswer: msg.data.correctAnswer,
+        explanation: msg.data.explanation,
+        type: msg.data.type,
+        userQuestion: msg.data.userQuestion
+      };
+      
+      await imagePracticeService.addImagePractice(practiceData);
+      
+      // Cập nhật trạng thái đã lưu
+      const newMessages = messages.map((m, i) =>
+        i === msgIdx ? { ...m, saved: true } : m
+      );
+      setMessages(newMessages);
+      
+      // Thêm thông báo thành công
+      setMessages(msgs => [...msgs, { 
+        role: 'bot', 
+        text: '✅ Bài tập đã được lưu thành công vào kho tài liệu của bạn!' 
+      }]);
+      
+    } catch (error) {
+      console.error('Error saving image practice:', error);
+      setMessages(msgs => [...msgs, { 
+        role: 'bot', 
+        text: '❌ Có lỗi khi lưu bài tập. Vui lòng thử lại.' 
+      }]);
+    }
+  };
+
+  // Xử lý tải ảnh và phân tích
+  const handleImageUpload = async (file: File) => {
+    if (!file) return;
+    
+    // Kiểm tra loại file
+    if (!file.type.startsWith('image/')) {
+      setMessages(msgs => [...msgs, { 
+        role: 'bot', 
+        text: '❌ Vui lòng chọn file ảnh hợp lệ (JPG, PNG, GIF).' 
+      }]);
+      return;
+    }
+    
+    // Kiểm tra kích thước file (giới hạn 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      setMessages(msgs => [...msgs, { 
+        role: 'bot', 
+        text: '❌ File ảnh quá lớn. Vui lòng chọn ảnh nhỏ hơn 5MB.' 
+      }]);
+      return;
+    }
+    
+    try {
+      // Chuyển file thành base64 để hiển thị preview
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64 = e.target?.result as string;
+        
+        setImageFile(file);
+        setSelectedImage(base64);
+        
+        // Thêm message thông báo ảnh đã được upload
+        setMessages(msgs => [...msgs, { 
+          role: 'bot', 
+          text: '📸 Ảnh đã được tải lên! Bạn có thể nhập yêu cầu phân tích ảnh vào ô chat bên dưới và nhấn gửi.' 
+        }]);
+      };
+      
+      reader.readAsDataURL(file);
+      
+    } catch (error) {
+      console.error('Error reading file:', error);
+      setMessages(msgs => [...msgs, { 
+        role: 'bot', 
+        text: '❌ Có lỗi khi đọc file ảnh.' 
+      }]);
+    }
+  };
 
   React.useEffect(() => {
     if (open && chatEndRef.current) {
@@ -648,7 +836,9 @@ const Chatbot: React.FC = () => {
               position: 'relative'
             }}>
               <div>
-                <span style={{ fontWeight: '600', color: '#78350f' }}>💡 Hướng dẫn:</span> Để tạo bài luyện tập, gõ <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part1</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part2</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part3</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part4</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part5</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part6</span>, hoặc <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part7</span> kèm yêu cầu
+                <span style={{ fontWeight: '600', color: '#78350f' }}>💡 Hướng dẫn:</span> 
+                <br/>• Tạo bài luyện tập: Gõ <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part1</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part2</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part3</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part4</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part5</span>, <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part6</span>, hoặc <span style={{ fontWeight: '700', color: '#dc2626', backgroundColor: '#fef2f2', padding: '2px 4px', borderRadius: '4px' }}>@part7</span> kèm yêu cầu
+                <br/>• <span style={{ fontWeight: '700', color: '#8b5cf6', backgroundColor: '#f3f4f6', padding: '2px 4px', borderRadius: '4px' }}>📸 Tải ảnh</span> để AI phân tích và tạo bài tập TOEIC Part 5
                 <br/>
                 <span style={{ fontSize: '11px', color: '#92400e', fontStyle: 'italic' }}>Ví dụ: @part2 với level 2, @part1 về công việc văn phòng, @part5 về ngữ pháp, @part7 về đọc hiểu</span>
               </div>
@@ -717,6 +907,148 @@ const Chatbot: React.FC = () => {
                 const showResult = answer !== '';
                 const partType = practice.partType || 'part1';
 
+                // Part 2: render câu hỏi đáp
+                if (partType === 'part2') {
+                  return (
+                    <div key={idx} style={{
+                      marginBottom: '16px',
+                      padding: isExpanded ? '20px' : '12px',
+                      borderRadius: '12px',
+                      border: '1px solid #34d399',
+                      background: '#fff',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '8px'
+                      }}>
+                        <div style={{
+                          fontWeight: '600',
+                          color: '#065f46',
+                          fontSize: isExpanded ? '18px' : '16px'
+                        }}>📝 TOEIC Practice PART 2</div>
+                      </div>
+                      
+                      {/* Hiển thị audio nếu có */}
+                      {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
+                      
+                      
+                      
+                      <div className="space-y-2">
+                        {['A','B','C'].map(opt => {
+                          const isSelected = answer === opt;
+                          const isCorrect = opt === practice.correctAnswer;
+                          let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                          if (isSelected) {
+                            if (isCorrect) {
+                              choiceClass += "border-green-500 bg-green-50";
+                            } else {
+                              choiceClass += "border-red-500 bg-red-50";
+                            }
+                          } else if (showResult && isCorrect) {
+                            choiceClass += "border-green-500 bg-green-50";
+                          } else {
+                            choiceClass += "border-gray-200 hover:border-gray-300";
+                          }
+                          const disabled = showResult;
+                          return (
+                            <div key={opt} className="space-y-1">
+                              <div className="relative">
+                                <button
+                                  className={choiceClass}
+                                  onClick={() => handlePracticeAnswer(idx, opt)}
+                                  disabled={disabled}
+                                >
+                                  <div className="flex items-center space-x-2">
+                                    <span className="font-semibold text-gray-600">{opt}.</span>
+                                    {/* Hiển thị text đáp án - chỉ hiển thị khi đã chọn đáp án */}
+                                    <div className="flex-1 text-left">
+                                      <div className="text-gray-800">
+                                        {showResult ? (
+                                          showTranslation[idx]?.[opt] && practice.choicesVi && practice.choicesVi[opt] 
+                                            ? practice.choicesVi[opt] 
+                                            : practice.choices?.[opt] || ''
+                                        ) : (
+                                          <span className="text-gray-500 italic">Click to select</span>
+                                        )}
+                                      </div>
+                                    </div>
+                                    {showResult && isCorrect && (
+                                      <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    )}
+                                    {isSelected && !isCorrect && (
+                                      <svg className="w-4 h-4 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                      </svg>
+                                    )}
+                                  </div>
+                                </button>
+                                {/* Translate button positioned absolutely on top of answer button */}
+                                {showResult && practice.choices && practice.choices[opt] && practice.choicesVi && practice.choicesVi[opt] && (
+                                  <button
+                                    className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      toggleTranslation(idx, opt);
+                                    }}
+                                    type="button"
+                                  >
+                                    {showTranslation[idx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      
+                      {/* Sau khi chọn đáp án, render lại giải thích, mẹo, bẫy, loại câu hỏi */}
+                      {showResult && (
+                        <div className="mt-4 space-y-4">
+                          {/* Hiển thị câu hỏi nếu có */}
+                          {practice.question && (
+                            <div className="p-3 rounded-lg border border-green-200 mb-3">
+                              <h6 className="font-medium text-green-800 mb-2">❓ Câu hỏi:</h6>
+                              <div className="font-semibold text-green-900">{practice.question}</div>
+                            </div>
+                          )}
+                          {/* Giải thích cho Part 2 */}
+                          <div className="p-3 rounded-lg border border-gray-200">
+                            <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
+                            <p className="text-gray-700 text-sm text-left">{practice.explanation}</p>
+                            {/* Bẫy */}
+                            {practice.traps && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
+                                <p className="text-gray-700 text-sm text-left">{practice.traps}</p>
+                              </div>
+                            )}
+                            {/* Tips */}
+                            {practice.tips && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
+                                <p className="text-gray-700 text-sm text-left">{practice.tips}</p>
+                              </div>
+                            )}
+                            {/* Thông tin loại câu hỏi */}
+                            {practice.type && (
+                              <div className="mt-2">
+                                <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
+                                <p className="text-gray-700 text-sm">{practice.type} - {practice.answerType}</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+                
                 // Part 3: render hội thoại + 3 câu hỏi riêng biệt
                 if (partType === 'part3' && practice.questions && Array.isArray(practice.questions)) {
                   return (
@@ -1482,12 +1814,14 @@ const Chatbot: React.FC = () => {
                     
                     {/* Hiển thị audio cho tất cả parts */}
                     {practice.audio && <audio controls className="w-full mb-3" src={practice.audio} />}
-                    
-                    <div className="space-y-2">
-                        {['A','B','C'].map(opt => {
-                          const isSelected = answer === opt;
-                          const isCorrect = opt === practice.correctAnswer;
-                          let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                    {/* Đáp án cho part1 kiểu nút tròn lớn, giống TestResults */}
+                    {practice.audioQuestion && (
+                      <div className="grid gap-4">
+                        {['A','B','C','D'].map(opt => {
+                                                  const isSelected = answer === opt;
+                        const isCorrect = opt === practice.audioQuestion.correctAnswer;
+                        const showResult = answer !== undefined && answer !== '';
+                        let choiceClass = "bg-white border-2 border-gray-200 rounded-[50px] p-1 transition-all duration-300 ";
                           if (isSelected) {
                             if (isCorrect) {
                               choiceClass += "border-green-500 bg-green-50";
@@ -1497,97 +1831,56 @@ const Chatbot: React.FC = () => {
                           } else if (showResult && isCorrect) {
                             choiceClass += "border-green-500 bg-green-50";
                           } else {
-                            choiceClass += "border-gray-200 hover:border-gray-300";
+                            choiceClass += "border-gray-200 cursor-pointer hover:border-blue-500 hover:shadow-lg hover:-translate-y-0.5";
                           }
                           const disabled = showResult;
                           return (
-                            <div key={opt} className="space-y-1">
-                              <div className="relative">
-                                <button
-                                  className={choiceClass}
-                                  onClick={() => handlePracticeAnswer(idx, opt)}
-                                  disabled={disabled}
-                                >
-                                  <div className="flex items-center space-x-2">
-                                    <span className="font-semibold text-gray-600">{opt}.</span>
-                                    {/* Hiển thị text đáp án chỉ khi đã trả lời hoặc không phải part1/part2 */}
-                                    <div className="flex-1 text-left">
-                                      <div className="text-gray-800">
-                                        {(showResult || (partType !== 'part1' && partType !== 'part2')) ? (
-                                          showTranslation[idx]?.[opt] && practice.choicesVi && practice.choicesVi[opt] 
-                                            ? practice.choicesVi[opt] 
-                                            : practice.choices?.[opt] || ''
-                                        ) : (
-                                          <span style={{ color: '#9ca3af', fontStyle: 'italic' }}>Chọn để xem đáp án</span>
-                                        )}
-                                      </div>
+                            <div
+                              key={opt}
+                              className={choiceClass}
+                              onClick={() => !disabled && handlePracticeAnswer(idx, opt)}
+                            >
+                              <div className="flex items-center">
+                                <div className="bg-blue-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                                  {opt}
+                                </div>
+                                <div className="flex-1">
+                                  {showResult ? (
+                                    <div className="text-lg text-gray-800">
+                                      {showTranslation[idx]?.[opt] && practice.audioQuestion.choices[opt]?.vietnamese
+                                        ? practice.audioQuestion.choices[opt].vietnamese
+                                        : practice.audioQuestion.choices[opt]?.english || 'N/A'
+                                      }
                                     </div>
-                                  {showResult && isCorrect && (
-                                    <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                  )}
-                                  {isSelected && !isCorrect && (
-                                    <svg className="w-4 h-4 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
+                                  ) : (
+                                    <div className="text-lg text-gray-500 italic">Click to select</div>
                                   )}
                                 </div>
-                              </button>
-                              {/* Translate button positioned absolutely on top of answer button */}
-                              {showResult && practice.choices && practice.choices[opt] && practice.choicesVi && practice.choicesVi[opt] && (
-                                <button
-                                  className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    toggleTranslation(idx, opt);
-                                  }}
-                                  type="button"
-                                >
-                                  {showTranslation[idx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
-                                </button>
-                              )}
+                                {showResult && practice.audioQuestion.choices[opt]?.english && practice.audioQuestion.choices[opt]?.vietnamese && (
+                                  <button
+                                    className="text-gray-400 hover:text-blue-500 text-base cursor-pointer p-2 rounded-full transition-all duration-200 ml-3 flex-shrink-0 hover:bg-blue-50"
+                                    onClick={e => {
+                                      e.stopPropagation();
+                                      toggleTranslation(idx, opt);
+                                    }}
+                                    title={showTranslation[idx]?.[opt] ? "Hiện tiếng Anh" : "Hiện tiếng Việt"}
+                                  >
+                                    📖
+                                  </button>
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                          );
+                        })}
+                      </div>
+                    )}
                     {/* Sau khi chọn đáp án, render lại giải thích, mẹo, bẫy, loại câu hỏi */}
                     {showResult && (
                       <div className="mt-4 space-y-4">
-                        {/* Hiển thị câu hỏi cho Part 2 nếu có */}
-                        {practice.partType === 'part2' && practice.question && (
-                          <div className="p-3 rounded-lg border border-green-200">
-                            <h6 className="font-medium text-green-800 mb-2">📝 Câu hỏi:</h6>
-                            <div className="font-semibold text-green-900">{practice.question}</div>
-                          </div>
-                        )}
                         {/* Giải thích cho tất cả parts */}
-                        <div className="p-3 rounded-lg border border-gray-200">
-                          <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
-                          <p className="text-gray-700 text-sm text-left">{practice.explanation}</p>
-                          {/* Bẫy cho Part 1 */}
-                          {practice.traps && (
-                            <div className="mt-2">
-                              <h6 className="font-medium text-gray-800 mb-1">🎯 Bẫy:</h6>
-                              <p className="text-gray-700 text-sm text-left">{practice.traps}</p>
-                            </div>
-                          )}
-                          {/* Tips cho Part 2 */}
-                          {practice.tips && (
-                            <div className="mt-2">
-                              <h6 className="font-medium text-gray-800 mb-1">💡 Mẹo làm bài:</h6>
-                              <p className="text-gray-700 text-sm text-left">{practice.tips}</p>
-                            </div>
-                          )}
-                          {/* Thông tin loại câu hỏi cho Part 2 */}
-                          {practice.type && (
-                            <div className="mt-2">
-                              <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
-                              <p className="text-gray-700 text-sm">{practice.type} - {practice.answerType}</p>
-                            </div>
-                          )}
+                        <div className="p-3 rounded-lg bg-gray-50">
+                          <h6 className="font-medium text-green-500 mb-2">Explanation:</h6>
+                          <p className="text-gray-700 text-sm">{practice.audioQuestion.traps}</p>
                         </div>
                       </div>
                     )}
@@ -1646,13 +1939,201 @@ const Chatbot: React.FC = () => {
                   </div>
                 );
               }
-              if (msg.role === 'user' && msg.image) {
+              if (msg.role === 'image-analysis-loading') {
+                return (
+                  <div key={idx} style={{
+                    margin: '8px 0',
+                    textAlign: 'left'
+                  }}>
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        background: '#fef3c7',
+                        color: '#92400e',
+                        borderRadius: 16,
+                        padding: '8px 14px',
+                        maxWidth: '80%',
+                        fontSize: 15
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <span>Đang phân tích ảnh và tạo bài tập...</span>
+                        <div style={{ display: 'flex', gap: 2 }}>
+                          <div style={{ width: 4, height: 4, borderRadius: '50%', background: '#92400e', animation: 'typing 1.4s infinite ease-in-out' }}></div>
+                          <div style={{ width: 4, height: 4, borderRadius: '50%', background: '#92400e', animation: 'typing 1.4s infinite ease-in-out 0.2s' }}></div>
+                          <div style={{ width: 4, height: 4, borderRadius: '50%', background: '#92400e', animation: 'typing 1.4s infinite ease-in-out 0.4s' }}></div>
+                        </div>
+                      </div>
+                    </span>
+                  </div>
+                );
+              }
+
+              if (msg.role === 'image-practice') {
+                const practice = (msg as any).data;
+                const answer = (msg as any).answer || '';
+                const showResult = answer !== '';
+                const saved = (msg as any).saved || false;
+
+                return (
+                  <div key={idx} style={{
+                    marginBottom: '16px',
+                    padding: isExpanded ? '20px' : '12px',
+                    borderRadius: '12px',
+                    border: '1px solid #8b5cf6',
+                    background: '#fff',
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                  }}>
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '8px'
+                    }}>
+                      <div style={{
+                        fontWeight: '600',
+                        color: '#5b21b6',
+                        fontSize: isExpanded ? '18px' : '16px'
+                      }}>📸 TOEIC Practice từ ảnh</div>
+                      {saved && (
+                        <div style={{
+                          background: '#10b981',
+                          color: '#fff',
+                          padding: '4px 8px',
+                          borderRadius: '4px',
+                          fontSize: '12px',
+                          fontWeight: '600'
+                        }}>
+                          ✅ Đã lưu
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Hiển thị ảnh */}
+                    {practice.imageUrl && (
+                      <div style={{ marginBottom: '12px' }}>
+                        <img 
+                          src={practice.imageUrl} 
+                          alt="Practice" 
+                          style={{
+                            maxWidth: '100%',
+                            borderRadius: '8px',
+                            border: '1px solid #e5e7eb'
+                          }}
+                        />
+                      </div>
+                    )}
+                    
+                    {/* Hiển thị câu hỏi */}
+                    {practice.question && (
+                      <div className="p-3 rounded-lg border border-purple-200 mb-3">
+                        <div className="font-semibold text-purple-900">{practice.question}</div>
+                      </div>
+                    )}
+                    
+                    {/* Đáp án */}
+                    <div className="space-y-2">
+                      {['A','B','C','D'].map(opt => {
+                        const isSelected = answer === opt;
+                        const isCorrect = opt === practice.correctAnswer;
+                        let choiceClass = "w-full text-left p-3 rounded-lg border-2 transition-all ";
+                        if (isSelected) {
+                          if (isCorrect) {
+                            choiceClass += "border-green-500 bg-green-50";
+                          } else {
+                            choiceClass += "border-red-500 bg-red-50";
+                          }
+                        } else if (showResult && isCorrect) {
+                          choiceClass += "border-green-500 bg-green-50";
+                        } else {
+                          choiceClass += "border-gray-200 hover:border-gray-300";
+                        }
+                        const disabled = showResult;
+                        return (
+                          <div key={opt} className="space-y-1">
+                            <div className="relative">
+                              <button
+                                className={choiceClass}
+                                onClick={() => handleImagePracticeAnswer(idx, opt)}
+                                disabled={disabled}
+                              >
+                                <div className="flex items-center space-x-2">
+                                  <span className="font-semibold text-gray-600">{opt}.</span>
+                                  <div className="flex-1 text-left">
+                                    <div className="text-gray-800">
+                                      {showTranslation[idx]?.[opt] && practice.choicesVi && practice.choicesVi[opt] 
+                                        ? practice.choicesVi[opt] 
+                                        : practice.choices?.[opt] || ''
+                                      }
+                                    </div>
+                                  </div>
+                                  {showResult && isCorrect && (
+                                    <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                  )}
+                                  {isSelected && !isCorrect && (
+                                    <svg className="w-4 h-4 text-red-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                  )}
+                                </div>
+                              </button>
+                              {showResult && practice.choices && practice.choices[opt] && practice.choicesVi && practice.choicesVi[opt] && (
+                                <button
+                                  className="absolute top-2 right-2 px-2 py-1 text-xs bg-gray-200 rounded hover:bg-gray-300 transition-colors z-10"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    toggleTranslation(idx, opt);
+                                  }}
+                                  type="button"
+                                >
+                                  {showTranslation[idx]?.[opt] ? 'Ẩn dịch' : 'Dịch'}
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    
+                    {/* Sau khi chọn đáp án */}
+                    {showResult && (
+                      <div className="mt-4 space-y-4">
+                        <div className="p-3 rounded-lg border border-gray-200">
+                          <h6 className="font-medium text-gray-800 mb-2">💡 Giải thích:</h6>
+                          <p className="text-gray-700 text-sm text-left">{practice.explanation}</p>
+                          {practice.type && (
+                            <div className="mt-2">
+                              <h6 className="font-medium text-gray-800 mb-1">📋 Loại câu hỏi:</h6>
+                              <p className="text-gray-700 text-sm">{practice.type}</p>
+                            </div>
+                          )}
+                        </div>
+                        
+                        {/* Nút lưu bài tập */}
+                        {!saved && (
+                          <div className="flex justify-center">
+                            <button
+                              onClick={() => handleSaveImagePractice(idx)}
+                              className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                            >Lưu vào kho tài liệu
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              if (msg.role === 'user' && (msg as any).image) {
                 return (
                   <div key={idx} style={{ 
                     margin: isExpanded ? '12px 0' : '8px 0', 
                     textAlign: 'right' 
                   }}>
-                    <img src={msg.image} alt="uploaded" style={{ 
+                    <img src={(msg as any).image} alt="uploaded" style={{ 
                       maxWidth: isExpanded ? 200 : 120, 
                       maxHeight: isExpanded ? 200 : 120, 
                       borderRadius: 8, 
@@ -1668,12 +2149,12 @@ const Chatbot: React.FC = () => {
                       maxWidth: '80%', 
                       fontSize: isExpanded ? '16px' : '15px',
                       boxShadow: '0 2px 4px rgba(20, 178, 76, 0.2)'
-                    }}>{msg.text}</span>
+                    }}>{(msg as any).text}</span>
                   </div>
                 );
               }
               // Render user không có image:
-              if (msg.role === 'user' && !msg.image) {
+              if (msg.role === 'user' && !(msg as any).image) {
                 return (
                   <div key={idx} style={{ 
                     margin: isExpanded ? '12px 0' : '8px 0', 
@@ -1688,7 +2169,7 @@ const Chatbot: React.FC = () => {
                       maxWidth: '80%', 
                       fontSize: isExpanded ? '16px' : '15px',
                       boxShadow: '0 2px 4px rgba(20, 178, 76, 0.2)'
-                    }}>{msg.text}</span>
+                    }}>{(msg as any).text}</span>
                   </div>
                 );
               }
@@ -1711,7 +2192,7 @@ const Chatbot: React.FC = () => {
                         boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
                         lineHeight: '1.5'
                       }}
-                      dangerouslySetInnerHTML={{ __html: simpleMarkdownToHtml(msg.text) }}
+                      dangerouslySetInnerHTML={{ __html: simpleMarkdownToHtml((msg as any).text) }}
                     />
                   </div>
                 );
@@ -1731,7 +2212,7 @@ const Chatbot: React.FC = () => {
                     maxWidth: '80%',
                     fontSize: isExpanded ? '16px' : '15px',
                     boxShadow: '0 2px 4px rgba(20, 178, 76, 0.2)'
-                  }}>{msg.text}</span>
+                  }}>{'text' in msg ? (msg as any).text : 'Unknown message type'}</span>
                 </div>
               );
             })}
@@ -1747,6 +2228,100 @@ const Chatbot: React.FC = () => {
               gap: isExpanded ? '12px' : '8px'
             }}
           >
+            {/* Nút tải ảnh */}
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  handleImageUpload(file);
+                  e.target.value = ''; // Reset input
+                }
+              }}
+              style={{ display: 'none' }}
+              id="image-upload-input"
+            />
+            <label
+              htmlFor="image-upload-input"
+              style={{
+                background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                color: '#fff',
+                border: 'none',
+                borderRadius: 8,
+                padding: isExpanded ? '0 16px' : '0 12px',
+                fontSize: isExpanded ? '16px' : '14px',
+                cursor: 'pointer',
+                height: isExpanded ? '50px' : '38px',
+                minWidth: isExpanded ? '50px' : '38px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 2px 4px rgba(139, 92, 246, 0.2)',
+                userSelect: 'none'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.boxShadow = '0 4px 8px rgba(139, 92, 246, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 2px 4px rgba(139, 92, 246, 0.2)';
+              }}
+              title="Tải ảnh để tạo bài tập TOEIC"
+            >
+              📸
+            </label>
+            
+            {/* Hiển thị ảnh preview nếu có */}
+            {selectedImage && (
+              <div style={{
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '4px',
+                borderRadius: '8px',
+                border: '2px solid #8b5cf6',
+                background: '#f8f9ff'
+              }}>
+                <img 
+                  src={selectedImage} 
+                  alt="Preview" 
+                  style={{
+                    width: isExpanded ? '40px' : '32px',
+                    height: isExpanded ? '40px' : '32px',
+                    borderRadius: '4px',
+                    objectFit: 'cover'
+                  }}
+                />
+                <button
+                  onClick={() => {
+                    setSelectedImage('');
+                    setImageFile(null);
+                  }}
+                  style={{
+                    background: '#ef4444',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: isExpanded ? '20px' : '16px',
+                    height: isExpanded ? '20px' : '16px',
+                    fontSize: isExpanded ? '12px' : '10px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    lineHeight: 1
+                  }}
+                  title="Xóa ảnh"
+                >
+                  ×
+                </button>
+              </div>
+            )}
+            
             <textarea
               ref={inputRef}
               value={input}
@@ -1757,7 +2332,7 @@ const Chatbot: React.FC = () => {
                   if (!loading && input.trim()) handleSend();
                 }
               }}
-              placeholder="Nhập câu hỏi về TOEIC..."
+              placeholder={selectedImage ? "Nhập yêu cầu phân tích ảnh và nhấn gửi..." : "Nhập câu hỏi về TOEIC hoặc tải ảnh để tạo bài tập..."}
               className={isExpanded ? 'chatbot-textarea-expanded' : ''}
               style={{ 
                 flex: 1, 
@@ -1776,7 +2351,7 @@ const Chatbot: React.FC = () => {
             />
             <button
               onClick={handleSend}
-              disabled={loading || !input.trim()}
+              disabled={loading || (!input.trim() && !selectedImage)}
               className={isExpanded ? 'chatbot-button-expanded' : ''}
               style={{
                 background: 'linear-gradient(135deg, #14B24C 0%, #16a34a 100%)',

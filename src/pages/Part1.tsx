@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import part1Questions from '../data/toeic_part1.json';
-
+import { part1Service, Part1Question } from '../services/part1Service';
 import TestList from '../components/PartSession/TestList';
 import { preloadImages, getImageUrlsFromQuestions } from '../utils/imagePreloader';
 
@@ -9,30 +8,25 @@ const QUESTIONS_PER_TEST = 6;
 
 const Part1: React.FC = () => {
   const navigate = useNavigate();
-  const [currentTab, setCurrentTab] = useState<string>('all');
   const [loadingTests, setLoadingTests] = useState<Set<string>>(new Set());
   const [loadingProgress, setLoadingProgress] = useState<{[testId: string]: {loaded: number, total: number}}>({});
+  const [part1Questions, setPart1Questions] = useState<Part1Question[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Hàm lấy danh sách bài test theo tab
-  const getTestsByTab = (tab: string) => {
-    let filteredQuestions: any[] = [];
+  // Hàm lấy danh sách bài test - không lọc theo chủ đề nữa
+  const getTests = () => {
+    const totalQuestions = part1Questions.length;
+    const numberOfTests = Math.ceil(totalQuestions / QUESTIONS_PER_TEST);
     
-    if (tab === 'all') {
-      // Tab "Tất cả" - hiển thị tất cả questions
-      filteredQuestions = part1Questions;
-    } else {
-      // Các tab khác - lọc theo type
-      filteredQuestions = part1Questions.filter(q => q.type === tab);
-    }
+    console.log(`Total Questions: ${totalQuestions}, Number of Tests: ${numberOfTests}`);
     
-    console.log(`Tab: ${tab}, Total Questions: ${filteredQuestions.length}`);
-    
-    const tests = Array.from({ length: Math.ceil(filteredQuestions.length / QUESTIONS_PER_TEST) }, (_, i) => ({
-      id: `${tab}-test${i + 1}`,
-      title: `# ${i + 1} (${tab === 'people' ? 'People' : tab === 'objects' ? 'Objects' : 'All'})`,
-      category: tab,
+    const tests = Array.from({ length: numberOfTests }, (_, i) => ({
+      id: `test${i + 1}`,
+      title: `Test #${i + 1}`,
+      category: 'all',
       level: 1,
-      questions: filteredQuestions.slice(i * QUESTIONS_PER_TEST, (i + 1) * QUESTIONS_PER_TEST).length,
+      questions: Math.min(QUESTIONS_PER_TEST, totalQuestions - i * QUESTIONS_PER_TEST),
       completed: false,
       score: 0,
     }));
@@ -40,11 +34,29 @@ const Part1: React.FC = () => {
     return tests;
   };
 
-  // Lấy danh sách bài test theo tab hiện tại
-  const tests = getTestsByTab(currentTab);
+  // Load questions from Firebase
+  useEffect(() => {
+    const loadQuestions = async () => {
+      try {
+        setLoading(true);
+        const questions = await part1Service.getAllQuestions();
+        setPart1Questions(questions);
+      } catch (err) {
+        setError('Không thể tải dữ liệu câu hỏi. Vui lòng thử lại sau.');
+        console.error('Error loading questions:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadQuestions();
+  }, []);
+
+  // Lấy danh sách bài test
+  const tests = getTests();
 
   const startTest = async (testId: string) => {
-    const [category, testNumber] = testId.split('-');
+    const testNumber = parseInt(testId.replace('test', ''), 10);
     
     // Bắt đầu loading
     setLoadingTests(prev => new Set(prev).add(testId));
@@ -54,23 +66,16 @@ const Part1: React.FC = () => {
     }));
 
     try {
-      // Lọc questions theo category
-      let filteredQuestions: any[] = [];
-      if (category === 'all') {
-        filteredQuestions = part1Questions;
-      } else {
-        filteredQuestions = part1Questions.filter(q => q.type === category);
-      }
-      
-      const testIndex = parseInt(testNumber.replace('test', ''), 10) - 1;
-      const testQuestions = filteredQuestions.slice(testIndex * QUESTIONS_PER_TEST, (testIndex + 1) * QUESTIONS_PER_TEST);
+      // Lấy questions cho test này
+      const testIndex = testNumber - 1;
+      const testQuestions = part1Questions.slice(testIndex * QUESTIONS_PER_TEST, (testIndex + 1) * QUESTIONS_PER_TEST);
       
       // Lấy tất cả URL ảnh
       const imageUrls = getImageUrlsFromQuestions(testQuestions);
       
       if (imageUrls.length === 0) {
         // Nếu không có ảnh nào, navigate luôn
-        navigate('/test-part1', { state: { testId, category, level: 'level1' } });
+        navigate('/test-part1', { state: { testId, category: 'all', level: 'level1' } });
         return;
       }
 
@@ -83,12 +88,12 @@ const Part1: React.FC = () => {
       });
 
       // Khi đã preload xong, navigate tới trang test
-      navigate('/test-part1', { state: { testId, category, level: 'level1' } });
+      navigate('/test-part1', { state: { testId, category: 'all', level: 'level1' } });
       
     } catch (error) {
       console.error('Error preloading images:', error);
       // Nếu có lỗi, vẫn navigate để user có thể làm bài
-      navigate('/test-part1', { state: { testId, category, level: 'level1' } });
+      navigate('/test-part1', { state: { testId, category: 'all', level: 'level1' } });
     } finally {
       // Cleanup loading state
       setLoadingTests(prev => {
@@ -103,6 +108,34 @@ const Part1: React.FC = () => {
       });
     }
   };
+
+  if (loading) {
+    return (
+      <div className="container mx-auto py-8 max-w-6xl">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Đang tải dữ liệu...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto py-8 max-w-6xl">
+        <div className="text-center">
+          <div className="text-red-600 mb-4">❌</div>
+          <p className="text-gray-600">{error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+          >
+            Thử lại
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto py-8 max-w-6xl">
@@ -128,8 +161,8 @@ const Part1: React.FC = () => {
       
       <TestList
         tests={tests}
-        currentTab={currentTab}
-        setCurrentTab={setCurrentTab}
+        currentTab="all"
+        setCurrentTab={() => {}} // No-op since we don't need tab switching
         startTest={startTest}
         loadingTests={loadingTests}
         loadingProgress={loadingProgress}

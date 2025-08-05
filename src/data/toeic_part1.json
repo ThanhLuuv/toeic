@@ -1,525 +1,789 @@
-
 [
   {
     "questionNumber": 1,
     "level": "Basic",
     "type": "people",
-    "imageDescription": "A woman is eating alone at a stone picnic table near a parked car in a rest area.",
-    "subjectVocabulary": [
-      {
-        "word": "woman",
-        "meaning": "người phụ nữ",
-        "pronunciation": "/ˈwʊmən/",
-        "isCorrect": true
-      },
-      {
-        "word": "table",
-        "meaning": "cái bàn",
-        "pronunciation": "/ˈteɪbl/",
-        "isCorrect": true
-      },
-      {
-        "word": "car",
-        "meaning": "xe hơi",
-        "pronunciation": "/kɑːr/",
-        "isCorrect": true
-      },
-      {
-        "word": "rabbit",
-        "meaning": "con thỏ",
-        "pronunciation": "/ˈræbɪt/",
-        "isCorrect": false
-      },
-      {
-        "word": "man",
-        "meaning": "người đàn ông",
-        "pronunciation": "/mæn/",
-        "isCorrect": false
-      }
-    ],
-    "descriptiveVocabulary": [
-      {
-        "word": "eating",
-        "meaning": "đang ăn",
-        "pronunciation": "/ˈiːtɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "sitting",
-        "meaning": "đang ngồi",
-        "pronunciation": "/ˈsɪtɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "parked",
-        "meaning": "đậu (xe)",
-        "pronunciation": "/pɑːrkt/",
-        "isCorrect": true
-      },
-      {
-        "word": "barking",
-        "meaning": "sủa (chó)",
-        "pronunciation": "/ˈbɑːrkɪŋ/",
-        "isCorrect": false
-      },
-      {
-        "word": "flying",
-        "meaning": "đang bay",
-        "pronunciation": "/ˈflaɪɪŋ/",
-        "isCorrect": false
-      }
-    ],
-    "choices": {
-      "A": "She's eating in a picnic area.",
-      "B": "She's waiting in line at a food truck.",
-      "C": "She's wiping off a bench.",
-      "D": "She's throwing away a plate."
-    },
-    "choicesVi": {
-      "A": "Cô ấy đang ăn trong khu vực picnic.",
-      "B": "Cô ấy đang chờ xếp hàng tại xe bán thức ăn.",
-      "C": "Cô ấy đang lau ghế.",
-      "D": "Cô ấy đang vứt một cái đĩa."
-    },
-    "correctAnswer": "A",
-    "explanation": "A đúng vì mô tả chính xác người phụ nữ đang ăn tại bàn picnic.",
-    "traps": "B: Sai hành động (không xếp hàng). C: Sai hành động (không vứt đĩa).",
+    "imageDescription": "A woman is eating alone from a plate of food placed on a table, sitting on a bench at a stone picnic table near a parked car in a rest area.",
     "image": "https://res.cloudinary.com/deroljhou/image/upload/v1753772923/755a2e8c-6508-4162-8bb4-4afa5b6450ec.png",
-    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1753773361/PART_1_-_TEST_1__cut_22sec_etkr57.mp3"
+    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1753773361/PART_1_-_TEST_1__cut_22sec_etkr57.mp3",
+    "mcqSteps": [
+      {
+        "stepNumber": 1,
+        "options": [
+          {
+            "value": "woman",
+            "text": "woman",
+            "pronunciation": "/ˈwʊmən/",
+            "meaning": "người phụ nữ",
+            "isCorrect": true
+          },
+          {
+            "value": "man",
+            "text": "man",
+            "pronunciation": "/mæn/",
+            "meaning": "người đàn ông",
+            "isCorrect": false
+          },
+          {
+            "value": "food truck",
+            "text": "food truck",
+            "pronunciation": "/ˈfʊd ˈtrʌk/",
+            "meaning": "xe bán thức ăn",
+            "isCorrect": false
+          },
+          {
+            "value": "table",
+            "text": "table",
+            "pronunciation": "/ˈtɛbl/",
+            "meaning": "bàn",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 2,
+        "options": [
+          {
+            "value": "eating",
+            "text": "eating",
+            "pronunciation": "/ˈiːtɪŋ/",
+            "meaning": "đang ăn",
+            "isCorrect": true
+          },
+          {
+            "value": "waiting",
+            "text": "waiting",
+            "pronunciation": "/ˈweɪtɪŋ/",
+            "meaning": "đang chờ",
+            "isCorrect": false
+          },
+          {
+            "value": "reading",
+            "text": "reading",
+            "pronunciation": "/ˈriːdɪŋ/",
+            "meaning": "đang đọc",
+            "isCorrect": false
+          },
+          {
+            "value": "talking",
+            "text": "talking",
+            "pronunciation": "/ˈtɔːkɪŋ/",
+            "meaning": "đang nói chuyện",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 3,
+        "options": [
+          {
+            "value": "picnic area",
+            "text": "picnic area",
+            "pronunciation": "/ˈpɪknɪk ˈeəriə/",
+            "meaning": "khu vực picnic",
+            "isCorrect": true
+          },
+          {
+            "value": "restaurant",
+            "text": "restaurant",
+            "pronunciation": "/ˈrestrɒnt/",
+            "meaning": "nhà hàng",
+            "isCorrect": false
+          },
+          {
+            "value": "office",
+            "text": "office",
+            "pronunciation": "/ˈɒfɪs/",
+            "meaning": "văn phòng",
+            "isCorrect": false
+          },
+          {
+            "value": "home",
+            "text": "home",
+            "pronunciation": "/həʊm/",
+            "meaning": "nhà",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    
+    "audioQuestion": {
+      "choices": {
+        "A": {
+          "english": "She's eating in a picnic area.",
+          "vietnamese": "Cô ấy đang ăn trong khu vực picnic."
+        },
+        "B": {
+          "english": "She's waiting in line at a food truck.",
+          "vietnamese": "Cô ấy đang chờ xếp hàng tại xe bán thức ăn."
+        },
+        "C": {
+          "english": "She's wiping off a bench.",
+          "vietnamese": "Cô ấy đang lau ghế."
+        },
+        "D": {
+          "english": "She's throwing away a plate.",
+          "vietnamese": "Cô ấy đang vứt một cái đĩa."
+        }
+      },
+      "correctAnswer": "A",
+      "traps": "Trong ảnh có hình chiếc xe nên sẽ bị nhầm qua câu B là food truck, câu C có từ bench nên sẽ bị nhầm vì trong ảnh người phụ nữ đang ngồi trên bench, còn câu D có hình ảnh chiếc đĩa (plate) nên nếu không nghe kĩ hành động thì sẽ bị lừa cả 3 câu"
+    }
   },
   {
     "questionNumber": 2,
     "level": "Basic",
     "type": "people",
     "imageDescription": "A man is opening a snow-covered car door while standing in deep snow.",
-    "subjectVocabulary": [
-      {
-        "word": "man",
-        "meaning": "người đàn ông",
-        "pronunciation": "/mæn/",
-        "isCorrect": true
-      },
-      {
-        "word": "car",
-        "meaning": "xe hơi",
-        "pronunciation": "/kɑːr/",
-        "isCorrect": true
-      },
-      {
-        "word": "snow",
-        "meaning": "tuyết",
-        "pronunciation": "/snəʊ/",
-        "isCorrect": true
-      },
-      {
-        "word": "dog",
-        "meaning": "con chó",
-        "pronunciation": "/dɒɡ/",
-        "isCorrect": false
-      },
-      {
-        "word": "bench",
-        "meaning": "ghế dài",
-        "pronunciation": "/bɛntʃ/",
-        "isCorrect": false
-      }
-    ],
-    "descriptiveVocabulary": [
-      {
-        "word": "standing",
-        "meaning": "đang đứng",
-        "pronunciation": "/ˈstændɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "opening",
-        "meaning": "đang mở",
-        "pronunciation": "/ˈəʊpənɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "covered",
-        "meaning": "bị bao phủ",
-        "pronunciation": "/ˈkʌvərd/",
-        "isCorrect": true
-      },
-      {
-        "word": "flying",
-        "meaning": "đang bay",
-        "pronunciation": "/ˈflaɪɪŋ/",
-        "isCorrect": false
-      },
-      {
-        "word": "painting",
-        "meaning": "đang vẽ tranh",
-        "pronunciation": "/ˈpeɪntɪŋ/",
-        "isCorrect": false
-      }
-    ],
-    "choices": {
-      "A": "The man is brushing snow off the roof of a car.",
-      "B": "The man is standing in the snow beside a car.",
-      "C": "The man is shoveling snow from a walkway.",
-      "D": "The man is running through the snow."
-    },
-    "choicesVi": {
-      "A": "Người đàn ông đang phủi tuyết khỏi nóc ô tô.",
-      "B": "Người đàn ông đang đứng trong tuyết bên cạnh ô tô.",
-      "C": "Người đàn ông đang xúc tuyết khỏi lối đi.",
-      "D": "Người đàn ông đang chạy qua tuyết."
-    },
-    "correctAnswer": "B",
-    "explanation": "B mô tả đúng người đàn ông đang đứng trong tuyết bên cạnh chiếc xe phủ đầy tuyết.",
-    "traps": "A: Sai hành động (không thấy đang phủi tuyết). C: Sai hành động và địa điểm (không có xúc tuyết, không phải lối đi).",
     "image": "https://res.cloudinary.com/deroljhou/image/upload/v1753795518/026e72c5-16b2-4a9e-b560-5fd386b39617.png",
-    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1753795758/PART_1_-_TEST_1__cut_22sec_1_ptk8he.mp3"
+    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1753795758/PART_1_-_TEST_1__cut_22sec_1_ptk8he.mp3",
+    "mcqSteps": [
+      {
+        "stepNumber": 1,
+        "options": [
+          {
+            "value": "man",
+            "text": "man",
+            "pronunciation": "/mæn/",
+            "meaning": "người đàn ông",
+            "isCorrect": true
+          },
+          {
+            "value": "dog",
+            "text": "dog",
+            "pronunciation": "/dɒɡ/",
+            "meaning": "con chó",
+            "isCorrect": false
+          },
+          {
+            "value": "bench",
+            "text": "bench",
+            "pronunciation": "/bɛntʃ/",
+            "meaning": "ghế dài",
+            "isCorrect": false
+          },
+          {
+            "value": "car",
+            "text": "car",
+            "pronunciation": "/kɑːr/",
+            "meaning": "xe hơi",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 2,
+        "options": [
+          {
+            "value": "opening",
+            "text": "opening",
+            "pronunciation": "/ˈəʊpənɪŋ/",
+            "meaning": "đang mở",
+            "isCorrect": false
+          },
+          {
+            "value": "flying",
+            "text": "flying",
+            "pronunciation": "/ˈflaɪɪŋ/",
+            "meaning": "đang bay",
+            "isCorrect": false
+          },
+          {
+            "value": "painting",
+            "text": "painting",
+            "pronunciation": "/ˈpeɪntɪŋ/",
+            "meaning": "đang vẽ tranh",
+            "isCorrect": false
+          },
+          {
+            "value": "standing",
+            "text": "standing",
+            "pronunciation": "/ˈstændɪŋ/",
+            "meaning": "đang đứng",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "stepNumber": 3,
+        "options": [
+          {
+            "value": "snow",
+            "text": "snow",
+            "pronunciation": "/snəʊ/",
+            "meaning": "tuyết",
+            "isCorrect": true
+          },
+          {
+            "value": "home",
+            "text": "home",
+            "pronunciation": "/həʊm/",
+            "meaning": "nhà",
+            "isCorrect": false
+          },
+          {
+            "value": "office",
+            "text": "office",
+            "pronunciation": "/ˈɒfɪs/",
+            "meaning": "văn phòng",
+            "isCorrect": false
+          },
+          {
+            "value": "restaurant",
+            "text": "restaurant",
+            "pronunciation": "/ˈrestrɒnt/",
+            "meaning": "nhà hàng",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "audioQuestion": {
+      "choices": {
+        "A": {
+          "english": "The man is brushing snow off the roof of a car.",
+          "vietnamese": "Người đàn ông đang phủi tuyết khỏi nóc ô tô."
+        },
+        "B": {
+          "english": "The man is standing in the snow beside a car.",
+          "vietnamese": "Người đàn ông đang đứng trong tuyết bên cạnh ô tô."
+        },
+        "C": {
+          "english": "The man is shoveling snow from a walkway.",
+          "vietnamese": "Người đàn ông đang xúc tuyết khỏi lối đi."
+        },
+        "D": {
+          "english": "The man is running through the snow.",
+          "vietnamese": "Người đàn ông đang chạy qua tuyết."
+        }
+      },
+      "correctAnswer": "B",
+      "traps": "A: Sai hành động (không thấy đang phủi tuyết). C: Sai hành động và địa điểm (không có xúc tuyết, không phải lối đi). D: Sai hành động (không phải đang chạy)."
+    }
   },
   {
     "questionNumber": 3,
     "level": "Basic",
     "type": "people",
     "imageDescription": "Several people are looking at artwork in a gallery, and one person is sitting on a sofa reading.",
-    "subjectVocabulary": [
-      {
-        "word": "man",
-        "meaning": "người đàn ông",
-        "pronunciation": "/mæn/",
-        "isCorrect": true
-      },
-      {
-        "word": "woman",
-        "meaning": "người phụ nữ",
-        "pronunciation": "/ˈwʊmən/",
-        "isCorrect": true
-      },
-      {
-        "word": "sofa",
-        "meaning": "ghế sofa",
-        "pronunciation": "/ˈsəʊfə/",
-        "isCorrect": true
-      },
-      {
-        "word": "painting",
-        "meaning": "bức tranh",
-        "pronunciation": "/ˈpeɪntɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "ladder",
-        "meaning": "cái thang",
-        "pronunciation": "/ˈlædər/",
-        "isCorrect": false
-      }
-    ],
-    "descriptiveVocabulary": [
-      {
-        "word": "looking",
-        "meaning": "đang nhìn",
-        "pronunciation": "/ˈlʊkɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "standing",
-        "meaning": "đang đứng",
-        "pronunciation": "/ˈstændɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "sitting",
-        "meaning": "đang ngồi",
-        "pronunciation": "/ˈsɪtɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "rearranging",
-        "meaning": "sắp xếp lại",
-        "pronunciation": "/ˌriːəˈreɪndʒɪŋ/",
-        "isCorrect": false
-      },
-      {
-        "word": "painting",
-        "meaning": "đang vẽ tranh",
-        "pronunciation": "/ˈpeɪntɪŋ/",
-        "isCorrect": false
-      }
-    ],
-    "choices": {
-      "A": "Some workers are hanging art in a gallery.",
-      "B": "Two of the people are having a conversation.",
-      "C": "One of the men is rearranging cushions on a sofa.",
-      "D": "One of the men is painting a picture."
-    },
-    "choicesVi": {
-      "A": "Một số công nhân đang treo tranh trong phòng triển lãm.",
-      "B": "Hai người đang trò chuyện với nhau.",
-      "C": "Một người đàn ông đang sắp xếp lại gối trên ghế sofa.",
-      "D": "Một người đàn ông đang vẽ tranh."
-    },
-    "correctAnswer": "B",
-    "explanation": "B là đáp án đúng vì có hai người đang đối diện và dường như đang trò chuyện trong khi xem tranh. Các phương án khác mô tả hành động không xảy ra trong ảnh.",
-    "traps": "A: Không có ai đang treo tranh. C: Người trên ghế chỉ đang đọc, không sắp xếp gối. D: Không ai đang vẽ tranh, họ đang ngắm tranh.",
     "image": "https://res.cloudinary.com/deroljhou/image/upload/v1754117933/0e17ffbe-c655-4f86-9e7b-c252d6f16dbe.png",
-    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1754118020/PART_1_-_TEST_1__cut_23sec_kkuhxq.mp3"
+    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1754118020/PART_1_-_TEST_1__cut_23sec_kkuhxq.mp3",
+    "mcqSteps": [
+      {
+        "stepNumber": 1,
+        "options": [
+          {
+            "value": "man",
+            "text": "man",
+            "pronunciation": "/mæn/",
+            "meaning": "người đàn ông",
+            "isCorrect": false
+          },
+          {
+            "value": "woman",
+            "text": "woman",
+            "pronunciation": "/ˈwʊmən/",
+            "meaning": "người phụ nữ",
+            "isCorrect": false
+          },
+          {
+            "value": "ladder",
+            "text": "ladder",
+            "pronunciation": "/ˈlædər/",
+            "meaning": "cái thang",
+            "isCorrect": false
+          },
+          {
+            "value": "people",
+            "text": "people",
+            "pronunciation": "/ˈpəːpl/",
+            "meaning": "người",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "stepNumber": 2,
+        "options": [
+          {
+            "value": "looking",
+            "text": "looking",
+            "pronunciation": "/ˈlʊkɪŋ/",
+            "meaning": "đang nhìn",
+            "isCorrect": false
+          },
+          {
+            "value": "standing",
+            "text": "standing",
+            "pronunciation": "/ˈstændɪŋ/",
+            "meaning": "đang đứng",
+            "isCorrect": false
+          },
+          {
+            "value": "conversation",
+            "text": "conversation",
+            "pronunciation": "/ˈkɒnvəːsən/",
+            "meaning": "trò chuyện",
+            "isCorrect": true
+          },
+          {
+            "value": "painting",
+            "text": "painting",
+            "pronunciation": "/ˈpeɪntɪŋ/",
+            "meaning": "đang vẽ tranh",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 3,
+        "options": [
+          {
+            "value": "painting",
+            "text": "painting",
+            "pronunciation": "/ˈpeɪntɪŋ/",
+            "meaning": "bức tranh",
+            "isCorrect": false
+          },
+          {
+            "value": "gallery",
+            "text": "gallery",
+            "pronunciation": "/ˈɡæləri/",
+            "meaning": "phòng triển lãm",
+            "isCorrect": true
+          },
+          {
+            "value": "kitchen",
+            "text": "kitchen",
+            "pronunciation": "/ˈkɪtʃɪn/",
+            "meaning": "nhà bếp",
+            "isCorrect": false
+          },
+          {
+            "value": "bedroom",
+            "text": "bedroom",
+            "pronunciation": "/ˈbedruːm/",
+            "meaning": "phòng ngủ",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "audioQuestion": {
+      "choices": {
+        "A": {
+          "english": "Some workers are hanging art in a gallery.",
+          "vietnamese": "Một số công nhân đang treo tranh trong phòng triển lãm."
+        },
+        "B": {
+          "english": "Two of the people are having a conversation.",
+          "vietnamese": "Hai người đang trò chuyện với nhau."
+        },
+        "C": {
+          "english": "One of the men is rearranging cushions on a sofa.",
+          "vietnamese": "Một người đàn ông đang sắp xếp lại gối trên ghế sofa."
+        },
+        "D": {
+          "english": "One of the men is painting a picture.",
+          "vietnamese": "Một người đàn ông đang vẽ tranh."
+        }
+      },
+      "correctAnswer": "B",
+      "traps": "A: Không có ai đang treo tranh. C: Người trên ghế chỉ đang đọc, không sắp xếp gối. D: Không ai đang vẽ tranh, họ đang ngắm tranh."
+    }
   },
   {
     "questionNumber": 4,
     "level": "Basic",
     "type": "objects",
     "imageDescription": "Clothing is displayed on racks under a tent at an outdoor market.",
-    "subjectVocabulary": [
-      {
-        "word": "clothing",
-        "meaning": "quần áo",
-        "pronunciation": "/ˈkləʊðɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "tent",
-        "meaning": "lều, mái che",
-        "pronunciation": "/tent/",
-        "isCorrect": true
-      },
-      {
-        "word": "rack",
-        "meaning": "giá treo",
-        "pronunciation": "/ræk/",
-        "isCorrect": true
-      },
-      {
-        "word": "garage",
-        "meaning": "nhà để xe",
-        "pronunciation": "/ˈɡærɑːʒ/",
-        "isCorrect": false
-      },
-      {
-        "word": "hanger",
-        "meaning": "móc áo",
-        "pronunciation": "/ˈhæŋər/",
-        "isCorrect": false
-      }
-    ],
-    "descriptiveVocabulary": [
-      {
-        "word": "displayed",
-        "meaning": "được trưng bày",
-        "pronunciation": "/dɪˈspleɪd/",
-        "isCorrect": true
-      },
-      {
-        "word": "lined up",
-        "meaning": "xếp thành hàng",
-        "pronunciation": "/laɪnd ʌp/",
-        "isCorrect": true
-      },
-      {
-        "word": "scattered",
-        "meaning": "bị vương vãi",
-        "pronunciation": "/ˈskætərd/",
-        "isCorrect": false
-      },
-      {
-        "word": "entering",
-        "meaning": "đang đi vào",
-        "pronunciation": "/ˈentərɪŋ/",
-        "isCorrect": false
-      },
-      {
-        "word": "folded",
-        "meaning": "được gấp lại",
-        "pronunciation": "/ˈfəʊldɪd/",
-        "isCorrect": false
-      }
-    ],
-    "choices": {
-      "A": "Vehicles are entering a parking garage.",
-      "B": "Clothes hangers are scattered on the ground.",
-      "C": "Empty racks are lined up next to a building.",
-      "D": "Clothing is being displayed under a tent."
-    },
-    "choicesVi": {
-      "A": "Xe đang đi vào nhà để xe.",
-      "B": "Móc áo bị vương vãi trên mặt đất.",
-      "C": "Các giá treo trống được xếp cạnh một tòa nhà.",
-      "D": "Quần áo đang được trưng bày dưới một mái che."
-    },
-    "correctAnswer": "D",
-    "explanation": "D là mô tả đúng: Quần áo được treo trên các giá và đặt dưới mái che ở khu chợ ngoài trời. Các phương án còn lại mô tả sai hoàn toàn.",
-    "traps": "A: Không có xe nào đang đi vào nhà để xe. B: Móc áo không rơi vãi. C: Giá không trống và không cạnh tòa nhà.",
     "image": "https://res.cloudinary.com/deroljhou/image/upload/v1754118433/3b0689df-9c47-4afc-bed7-76f3103dcd64.png",
-    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1754118486/PART_1_-_TEST_1__cut_25sec_dzvkt3.mp3"
+    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1754118486/PART_1_-_TEST_1__cut_25sec_dzvkt3.mp3",
+    "mcqSteps": [
+      {
+        "stepNumber": 1,
+        "options": [
+          {
+            "value": "clothing",
+            "text": "clothing",
+            "pronunciation": "/ˈkləʊðɪŋ/",
+            "meaning": "quần áo",
+            "isCorrect": true
+          },
+          {
+            "value": "tent",
+            "text": "tent",
+            "pronunciation": "/tent/",
+            "meaning": "lều, mái che",
+            "isCorrect": false
+          },
+          {
+            "value": "garage",
+            "text": "garage",
+            "pronunciation": "/ˈɡærɑːʒ/",
+            "meaning": "nhà để xe",
+            "isCorrect": false
+          },
+          {
+            "value": "rack",
+            "text": "rack",
+            "pronunciation": "/ræk/",
+            "meaning": "giá treo",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 2,
+        "options": [
+          {
+            "value": "displayed",
+            "text": "displayed",
+            "pronunciation": "/dɪˈspleɪd/",
+            "meaning": "được trưng bày",
+            "isCorrect": true
+          },
+          {
+            "value": "lined up",
+            "text": "lined up",
+            "pronunciation": "/laɪnd ʌp/",
+            "meaning": "xếp thành hàng",
+            "isCorrect": false
+          },
+          {
+            "value": "scattered",
+            "text": "scattered",
+            "pronunciation": "/ˈskætərd/",
+            "meaning": "bị vương vãi",
+            "isCorrect": false
+          },
+          {
+            "value": "folded",
+            "text": "folded",
+            "pronunciation": "/ˈfəʊldɪd/",
+            "meaning": "được gấp lại",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 3,
+        "options": [
+          {
+            "value": "hanger",
+            "text": "hanger",
+            "pronunciation": "/ˈhæŋər/",
+            "meaning": "móc áo",
+            "isCorrect": false
+          },
+          {
+            "value": "building",
+            "text": "building",
+            "pronunciation": "/ˈbɪldɪŋ/",
+            "meaning": "tòa nhà",
+            "isCorrect": false
+          },
+          {
+            "value": "market",
+            "text": "market",
+            "pronunciation": "/ˈmɑːkɪt/",
+            "meaning": "chợ",
+            "isCorrect": true
+          },
+          {
+            "value": "parking lot",
+            "text": "parking lot",
+            "pronunciation": "/ˈpɑːkɪŋ lɒt/",
+            "meaning": "bãi đậu xe",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "audioQuestion": {
+      "choices": {
+        "A": {
+          "english": "Vehicles are entering a parking garage.",
+          "vietnamese": "Xe đang đi vào nhà để xe."
+        },
+        "B": {
+          "english": "Clothes hangers are scattered on the ground.",
+          "vietnamese": "Móc áo bị vương vãi trên mặt đất."
+        },
+        "C": {
+          "english": "Empty racks are lined up next to a building.",
+          "vietnamese": "Các giá treo trống được xếp cạnh một tòa nhà."
+        },
+        "D": {
+          "english": "Clothing is being displayed under a tent.",
+          "vietnamese": "Quần áo đang được trưng bày dưới một mái che."
+        }
+      },
+      "correctAnswer": "D",
+      "traps": "A: Không có xe nào đang đi vào nhà để xe. B: Móc áo không rơi vãi. C: Giá không trống và không cạnh tòa nhà."
+    }
   },
   {
     "questionNumber": 5,
     "level": "Basic",
     "type": "objects",
     "imageDescription": "A computer station with a monitor, keyboard, and printer is set up on a desk in a lobby.",
-    "subjectVocabulary": [
-      {
-        "word": "computer",
-        "meaning": "máy tính",
-        "pronunciation": "/kəmˈpjuːtər/",
-        "isCorrect": true
-      },
-      {
-        "word": "printer",
-        "meaning": "máy in",
-        "pronunciation": "/ˈprɪntər/",
-        "isCorrect": true
-      },
-      {
-        "word": "desk",
-        "meaning": "bàn làm việc",
-        "pronunciation": "/desk/",
-        "isCorrect": true
-      },
-      {
-        "word": "rug",
-        "meaning": "tấm thảm",
-        "pronunciation": "/rʌɡ/",
-        "isCorrect": false
-      },
-      {
-        "word": "ceiling",
-        "meaning": "trần nhà",
-        "pronunciation": "/ˈsiːlɪŋ/",
-        "isCorrect": false
-      }
-    ],
-    "descriptiveVocabulary": [
-      {
-        "word": "set up",
-        "meaning": "được thiết lập",
-        "pronunciation": "/set ʌp/",
-        "isCorrect": true
-      },
-      {
-        "word": "stacked",
-        "meaning": "được xếp chồng",
-        "pronunciation": "/stækt/",
-        "isCorrect": false
-      },
-      {
-        "word": "suspended",
-        "meaning": "được treo lên",
-        "pronunciation": "/səˈspendɪd/",
-        "isCorrect": false
-      },
-      {
-        "word": "rolled up",
-        "meaning": "cuộn lại",
-        "pronunciation": "/rəʊld ʌp/",
-        "isCorrect": false
-      },
-      {
-        "word": "placed",
-        "meaning": "được đặt",
-        "pronunciation": "/pleɪst/",
-        "isCorrect": true
-      }
-    ],
-    "choices": {
-      "A": "Potted plants have been suspended from a ceiling.",
-      "B": "Chairs have been stacked in front of an entryway.",
-      "C": "A computer station has been set up on a desk.",
-      "D": "A rug has been rolled up against a wall."
-    },
-    "choicesVi": {
-      "A": "Cây trồng trong chậu đã được treo từ trần nhà.",
-      "B": "Ghế đã được xếp chồng trước lối vào.",
-      "C": "Một trạm máy tính đã được thiết lập trên bàn.",
-      "D": "Một tấm thảm đã được cuộn lại dựa vào tường."
-    },
-    "correctAnswer": "C",
-    "explanation": "C là đáp án đúng vì ảnh cho thấy một bàn có máy tính, bàn phím và máy in đã được thiết lập. Các phương án khác không xuất hiện trong ảnh.",
-    "traps": "A: Cây không được treo từ trần. B: Không có ghế xếp chồng. D: Không có thảm cuộn dựa tường.",
     "image": "https://res.cloudinary.com/deroljhou/image/upload/v1754118637/82c895f3-b8bf-4242-85af-f9e1f1ad1fae.png",
-    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1754118684/PART_1_-_TEST_1__cut_23sec_1_t2b0nc.mp3"
+    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1754118684/PART_1_-_TEST_1__cut_23sec_1_t2b0nc.mp3",
+    "mcqSteps": [
+      {
+        "stepNumber": 1,
+        "options": [
+          {
+            "value": "computer",
+            "text": "computer",
+            "pronunciation": "/kəmˈpjuːtər/",
+            "meaning": "máy tính",
+            "isCorrect": true
+          },
+          {
+            "value": "printer",
+            "text": "printer",
+            "pronunciation": "/ˈprɪntər/",
+            "meaning": "máy in",
+            "isCorrect": false
+          },
+          {
+            "value": "rug",
+            "text": "rug",
+            "pronunciation": "/rʌɡ/",
+            "meaning": "tấm thảm",
+            "isCorrect": false
+          },
+          {
+            "value": "desk",
+            "text": "desk",
+            "pronunciation": "/desk/",
+            "meaning": "bàn làm việc",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 2,
+        "options": [
+          {
+            "value": "set up",
+            "text": "set up",
+            "pronunciation": "/set ʌp/",
+            "meaning": "được thiết lập",
+            "isCorrect": true
+          },
+          {
+            "value": "stacked",
+            "text": "stacked",
+            "pronunciation": "/stækt/",
+            "meaning": "được xếp chồng",
+            "isCorrect": false
+          },
+          {
+            "value": "suspended",
+            "text": "suspended",
+            "pronunciation": "/səˈspendɪd/",
+            "meaning": "được treo lên",
+            "isCorrect": false
+          },
+          {
+            "value": "placed",
+            "text": "placed",
+            "pronunciation": "/pleɪst/",
+            "meaning": "được đặt",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 3,
+        "options": [
+          {
+            "value": "ceiling",
+            "text": "ceiling",
+            "pronunciation": "/ˈsiːlɪŋ/",
+            "meaning": "trần nhà",
+            "isCorrect": false
+          },
+          {
+            "value": "keyboard",
+            "text": "keyboard",
+            "pronunciation": "/ˈkiːbɔːd/",
+            "meaning": "bàn phím",
+            "isCorrect": false
+          },
+          {
+            "value": "entryway",
+            "text": "entryway",
+            "pronunciation": "/ˈentriweɪ/",
+            "meaning": "lối vào",
+            "isCorrect": false
+          },
+          {
+            "value": "desk",
+            "text": "desk",
+            "pronunciation": "/desk/",
+            "meaning": "bàn làm việc",
+            "isCorrect": true
+          }
+        ]
+      }
+    ],
+    "audioQuestion": {
+      "choices": {
+        "A": {
+          "english": "Potted plants have been suspended from a ceiling.",
+          "vietnamese": "Cây trồng trong chậu đã được treo từ trần nhà."
+        },
+        "B": {
+          "english": "Chairs have been stacked in front of an entryway.",
+          "vietnamese": "Ghế đã được xếp chồng trước lối vào."
+        },
+        "C": {
+          "english": "A computer station has been set up on a desk.",
+          "vietnamese": "Một trạm máy tính đã được thiết lập trên bàn."
+        },
+        "D": {
+          "english": "A rug has been rolled up against a wall.",
+          "vietnamese": "Một tấm thảm đã được cuộn lại dựa vào tường."
+        }
+      },
+      "correctAnswer": "C",
+      "traps": "A: Cây không được treo từ trần. B: Không có ghế xếp chồng. D: Không có thảm cuộn dựa tường."
+    }
   },
   {
-    "questionNumber": 7,
+    "questionNumber": 6,
     "level": "Basic",
     "type": "people",
     "imageDescription": "One man is installing a ceiling light while another is sweeping the floor inside a room.",
-    "subjectVocabulary": [
-      {
-        "word": "man",
-        "meaning": "người đàn ông",
-        "pronunciation": "/mæn/",
-        "isCorrect": true
-      },
-      {
-        "word": "light",
-        "meaning": "đèn",
-        "pronunciation": "/laɪt/",
-        "isCorrect": true
-      },
-      {
-        "word": "broom",
-        "meaning": "chổi",
-        "pronunciation": "/bruːm/",
-        "isCorrect": true
-      },
-      {
-        "word": "door",
-        "meaning": "cánh cửa",
-        "pronunciation": "/dɔːr/",
-        "isCorrect": false
-      },
-      {
-        "word": "ground",
-        "meaning": "mặt đất",
-        "pronunciation": "/ɡraʊnd/",
-        "isCorrect": false
-      }
-    ],
-    "descriptiveVocabulary": [
-      {
-        "word": "sweeping",
-        "meaning": "đang quét",
-        "pronunciation": "/ˈswiːpɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "installing",
-        "meaning": "đang lắp đặt",
-        "pronunciation": "/ɪnˈstɔːlɪŋ/",
-        "isCorrect": true
-      },
-      {
-        "word": "replacing",
-        "meaning": "đang thay thế",
-        "pronunciation": "/rɪˈpleɪsɪŋ/",
-        "isCorrect": false
-      },
-      {
-        "word": "taken off",
-        "meaning": "được tháo ra",
-        "pronunciation": "/ˈteɪkən ɒf/",
-        "isCorrect": false
-      },
-      {
-        "word": "left",
-        "meaning": "để lại",
-        "pronunciation": "/left/",
-        "isCorrect": false
-      }
-    ],
-    "choices": {
-      "A": "One of the men is sweeping a patio.",
-      "B": "One of the men is replacing some flooring.",
-      "C": "A door has been taken off its frame.",
-      "D": "A light fixture is being installed on the ceiling."
-    },
-    "choicesVi": {
-      "A": "Một người đàn ông đang quét sân.",
-      "B": "Một người đàn ông đang thay sàn nhà.",
-      "C": "Một cánh cửa đã bị tháo ra khỏi khung.",
-      "D": "Một thiết bị chiếu sáng đang được lắp trên trần nhà."
-    },
-    "correctAnswer": "D",
-    "explanation": "D là đáp án đúng vì một người đàn ông đang giơ tay lắp thiết bị đèn trần. A sai vì không phải sân mà là trong phòng, B sai vì không thay sàn, C sai vì cửa chỉ đang dựa vào tường chứ không chắc chắn bị tháo.",
-    "traps": "A: Sai ngữ cảnh, không phải sân ngoài trời. B: Không có hành động thay sàn. C: Cửa không bị tháo rõ ràng, chỉ dựng lên.",
     "image": "https://res.cloudinary.com/deroljhou/image/upload/v1754118900/ChatGPT_Image_Aug_2_2025_02_14_49_PM_nvlx6n.png",
-    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1754118731/PART_1_-_TEST_1__cut_23sec_2_d4pbtj.mp3"
+    "audio": "https://res.cloudinary.com/deroljhou/video/upload/v1754118731/PART_1_-_TEST_1__cut_23sec_2_d4pbtj.mp3",
+    "mcqSteps": [
+      {
+        "stepNumber": 1,
+        "options": [
+          {
+            "value": "man",
+            "text": "man",
+            "pronunciation": "/mæn/",
+            "meaning": "người đàn ông",
+            "isCorrect": true
+          },
+          {
+            "value": "light",
+            "text": "light",
+            "pronunciation": "/laɪt/",
+            "meaning": "đèn",
+            "isCorrect": false
+          },
+          {
+            "value": "door",
+            "text": "door",
+            "pronunciation": "/dɔːr/",
+            "meaning": "cánh cửa",
+            "isCorrect": false
+          },
+          {
+            "value": "broom",
+            "text": "broom",
+            "pronunciation": "/bruːm/",
+            "meaning": "chổi",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 2,
+        "options": [
+          {
+            "value": "sweeping",
+            "text": "sweeping",
+            "pronunciation": "/ˈswiːpɪŋ/",
+            "meaning": "đang quét",
+            "isCorrect": false
+          },
+          {
+            "value": "installing",
+            "text": "installing",
+            "pronunciation": "/ɪnˈstɔːlɪŋ/",
+            "meaning": "đang lắp đặt",
+            "isCorrect": true
+          },
+          {
+            "value": "replacing",
+            "text": "replacing",
+            "pronunciation": "/rɪˈpleɪsɪŋ/",
+            "meaning": "đang thay thế",
+            "isCorrect": false
+          },
+          {
+            "value": "taken off",
+            "text": "taken off",
+            "pronunciation": "/ˈteɪkən ɒf/",
+            "meaning": "được tháo ra",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "stepNumber": 3,
+        "options": [
+          {
+            "value": "ceiling",
+            "text": "ceiling",
+            "pronunciation": "/ˈsiːlɪŋ/",
+            "meaning": "trần nhà",
+            "isCorrect": false
+          },
+          {
+            "value": "floor",
+            "text": "floor",
+            "pronunciation": "/flɔːr/",
+            "meaning": "sàn nhà",
+            "isCorrect": false
+          },
+          {
+            "value": "ground",
+            "text": "ground",
+            "pronunciation": "/ɡraʊnd/",
+            "meaning": "mặt đất",
+            "isCorrect": false
+          },
+          {
+            "value": "room",
+            "text": "room",
+            "pronunciation": "/ruːm/",
+            "meaning": "phòng",
+            "isCorrect": true
+          }
+        ]
+      }
+    ],
+    "audioQuestion": {
+      "choices": {
+        "A": {
+          "english": "One of the men is sweeping a patio.",
+          "vietnamese": "Một người đàn ông đang quét sân."
+        },
+        "B": {
+          "english": "One of the men is replacing some flooring.",
+          "vietnamese": "Một người đàn ông đang thay sàn nhà."
+        },
+        "C": {
+          "english": "A door has been taken off its frame.",
+          "vietnamese": "Một cánh cửa đã bị tháo ra khỏi khung."
+        },
+        "D": {
+          "english": "A light fixture is being installed on the ceiling.",
+          "vietnamese": "Một thiết bị chiếu sáng đang được lắp trên trần nhà."
+        }
+      },
+      "correctAnswer": "D",
+      "traps": "A: Sai ngữ cảnh, không phải sân ngoài trời. B: Không có hành động thay sàn. C: Cửa không bị tháo rõ ràng, chỉ dựng lên."
+    }
   }
 ]

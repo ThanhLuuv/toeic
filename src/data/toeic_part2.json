@@ -2,9 +2,10 @@
   "level1 ":[
     {
       "id": 1,
-      "type": "WH-question",
+      "type": "Where-question",
       "level": "Basic",
       "question": "Where will the training session be held?",
+      "questionAudio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1754375219/ag4pbqqy4izhods6valn__cut_5sec_owsulx.mp3",
       "choices": {
         "A": "Yes, it's mandatory.",
         "B": "It will take place in Room 204.",
@@ -14,7 +15,7 @@
       "typeAnswer": "location",
       "explanation": "B cung cấp địa điểm cụ thể, phù hợp câu hỏi 'Where'.",
       "tips": "Chọn câu có giới từ chỉ nơi như in, at, on.",
-      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457165/ag4pbqqy4izhods6valn.mp3",
+      "choicesAudio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457165/ag4pbqqy4izhods6valn.mp3",
       "choicesVi": {
         "A": "Vâng, nó là bắt buộc.",
         "B": "Nó sẽ diễn ra ở Phòng 204.",
@@ -25,6 +26,7 @@
       "id": 2,
       "type": "Yes/No-question",
       "question": "Did they approve the budget proposal?",
+      "questionAudio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1754375524/kqzerfkvngxhe0vujoml__cut_4sec_hp39fa.mp3",
       "choices": {
         "A": "Yes, just this morning.",
         "B": "Because the deadline was today.",
@@ -34,7 +36,7 @@
       "typeAnswer": "yes_no",
       "explanation": "A là câu Yes/No rõ ràng, kèm thời gian cụ thể.",
       "tips": "Luôn chọn câu khẳng định hoặc phủ định rõ ràng trong dạng câu hỏi này.",
-      "audio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457167/kqzerfkvngxhe0vujoml.mp3",
+      "choicesAudio": "https://res.cloudinary.com/dlysxsbkj/video/upload/v1752457167/kqzerfkvngxhe0vujoml.mp3",
       "choicesVi": {
         "A": "Vâng, sáng nay.",
         "B": "Vì hạn chót là hôm nay.",

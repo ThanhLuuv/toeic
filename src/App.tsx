@@ -10,7 +10,9 @@ import Part2 from './pages/Part2';
 import TestPart2 from './pages/TestPart2';
 import FloatingFeedback from './components/FloatingFeedback';
 import Part3 from './pages/Part3';
+import Part5 from './pages/Part5';
 import TestPart3 from './pages/TestPart3';
+import TestPart5 from './pages/TestPart5';
 import DictationPractice from './components/DictationPractice';
 import DictationList from './pages/DictationList';
 import Part1DictationPractice from './components/Part1DictationPractice';
@@ -37,6 +39,10 @@ const App: React.FC = () => {
         <Route
           path="/test-part3/:testId"
           element={<TestPart3 />}
+        />
+        <Route
+          path="/test-part5"
+          element={<TestPart5 />}
         />
         <Route
           path="/dictation/:setIndex"
@@ -72,12 +78,12 @@ const App: React.FC = () => {
             <div className="bg-gray-50 min-h-screen">
               <Header />
               <Routes>
-                <Route path="/" element={<DictationList />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/part1" element={<Part1 />} />
                 <Route path="/part2" element={<Part2 />} />
                 <Route path="/part3" element={<Part3 />} />
                 <Route path="/part4" element={<NotFound />} />
-                <Route path="/part5" element={<NotFound />} />
+                <Route path="/part5" element={<Part5 />} />
                 <Route path="/part6" element={<NotFound />} />
                 <Route path="/part7" element={<NotFound />} />
                 <Route path="/dictation-list" element={<DictationList />} />
