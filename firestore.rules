@@ -20,9 +20,29 @@ service cloud.firestore {
       allow read, write: if true;
     }
     
+    // Allow read/write access to image practice questions
+    match /imagePractice/{document} {
+      allow read, write: if true;
+    }
+    
+    // Allow read/write access to vocabulary
+    match /vocabulary/{document} {
+      allow read, write: if true;
+    }
+    
+    // Allow read/write access to TOEIC questions
+    match /toeic_questions/{document} {
+      allow read, write: if true;
+    }
+    
     // Allow read access to TOEIC Part 1 questions
     match /toeic_part1_questions/{document} {
       allow read: if true;
+    }
+    
+    // Allow read/write access to TOEIC Part 5 questions
+    match /toeic_part5_questions/{document} {
+      allow read, write: if true;
     }
     
     // Default rule - deny all other access

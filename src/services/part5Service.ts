@@ -35,8 +35,7 @@ export const part5Service = {
   async getAllQuestions(): Promise<Part5Question[]> {
     try {
       const questionsQuery = query(
-        collection(db, 'toeic_questions'),
-        where('part', '==', 'part5'),
+        collection(db, 'toeic_part5_questions'),
         orderBy('questionNumber', 'asc')
       );
       const querySnapshot = await getDocs(questionsQuery);
@@ -55,8 +54,7 @@ export const part5Service = {
   async getQuestionsByType(type: string): Promise<Part5Question[]> {
     try {
       const questionsQuery = query(
-        collection(db, 'toeic_questions'),
-        where('part', '==', 'part5'),
+        collection(db, 'toeic_part5_questions'),
         where('type', '==', type),
         orderBy('questionNumber', 'asc')
       );
@@ -76,8 +74,7 @@ export const part5Service = {
   async getQuestionsByLevel(level: string): Promise<Part5Question[]> {
     try {
       const questionsQuery = query(
-        collection(db, 'toeic_questions'),
-        where('part', '==', 'part5'),
+        collection(db, 'toeic_part5_questions'),
         where('level', '==', level),
         orderBy('questionNumber', 'asc')
       );
@@ -97,8 +94,7 @@ export const part5Service = {
   async getQuestionsByTypeAndLevel(type: string, level: string): Promise<Part5Question[]> {
     try {
       const questionsQuery = query(
-        collection(db, 'toeic_questions'),
-        where('part', '==', 'part5'),
+        collection(db, 'toeic_part5_questions'),
         where('type', '==', type),
         where('level', '==', level),
         orderBy('questionNumber', 'asc')

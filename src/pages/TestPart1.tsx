@@ -53,15 +53,22 @@ const TestPart1: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   // Lấy testId, category, level từ state
-  const testIdRaw = location.state?.testId || 'people-test1';
-  let category = location.state?.category || 'people';
+  const testIdRaw = location.state?.testId || 'test1';
+  let category = location.state?.category || 'all';
   let level = location.state?.level || 'level1';
   let testNumber = 1;
 
-  if (typeof testIdRaw === 'string' && testIdRaw.includes('-test')) {
-    const parts = testIdRaw.split('-');
-    category = parts[0];
-    testNumber = parseInt(parts[1].replace('test', ''), 10);
+  // Parse testId từ format "test1", "test2", etc.
+  if (typeof testIdRaw === 'string') {
+    if (testIdRaw.startsWith('test')) {
+      testNumber = parseInt(testIdRaw.replace('test', ''), 10);
+    } else if (testIdRaw.includes('-test')) {
+      const parts = testIdRaw.split('-');
+      category = parts[0];
+      testNumber = parseInt(parts[1].replace('test', ''), 10);
+    } else {
+      testNumber = parseInt(testIdRaw, 10) || 1;
+    }
   } else {
     testNumber = typeof testIdRaw === 'number' ? testIdRaw : 1;
   }
@@ -99,6 +106,18 @@ const TestPart1: React.FC = () => {
   const filteredQuestions = part1Questions;
   const sortedQuestions = filteredQuestions.sort((a, b) => a.questionNumber - b.questionNumber);
   const testQuestions = sortedQuestions.slice((testNumber - 1) * QUESTIONS_PER_TEST, testNumber * QUESTIONS_PER_TEST);
+  
+  // Debug logging
+  console.log('TestPart1 Debug:', {
+    testIdRaw,
+    category,
+    testNumber,
+    totalQuestions: part1Questions.length,
+    sortedQuestionsLength: sortedQuestions.length,
+    testQuestionsLength: testQuestions.length,
+    startIndex: (testNumber - 1) * QUESTIONS_PER_TEST,
+    endIndex: testNumber * QUESTIONS_PER_TEST
+  });
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<(Answer | null)[]>(Array(testQuestions.length).fill(null));

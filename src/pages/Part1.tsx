@@ -19,17 +19,24 @@ const Part1: React.FC = () => {
     const totalQuestions = part1Questions.length;
     const numberOfTests = Math.ceil(totalQuestions / QUESTIONS_PER_TEST);
     
-    console.log(`Total Questions: ${totalQuestions}, Number of Tests: ${numberOfTests}`);
+    console.log(`Part1 Debug - Total Questions: ${totalQuestions}, Number of Tests: ${numberOfTests}`);
     
-    const tests = Array.from({ length: numberOfTests }, (_, i) => ({
-      id: `test${i + 1}`,
-      title: `Test #${i + 1}`,
-      category: 'all',
-      level: 1,
-      questions: Math.min(QUESTIONS_PER_TEST, totalQuestions - i * QUESTIONS_PER_TEST),
-      completed: false,
-      score: 0,
-    }));
+    const tests = Array.from({ length: numberOfTests }, (_, i) => {
+      const testId = `test${i + 1}`;
+      const questionsInTest = Math.min(QUESTIONS_PER_TEST, totalQuestions - i * QUESTIONS_PER_TEST);
+      
+      console.log(`Part1 Debug - Test ${testId}: questions ${i * QUESTIONS_PER_TEST + 1} to ${i * QUESTIONS_PER_TEST + questionsInTest}`);
+      
+      return {
+        id: testId,
+        title: `Test #${i + 1}`,
+        category: 'all',
+        level: 1,
+        questions: questionsInTest,
+        completed: false,
+        score: 0,
+      };
+    });
     
     return tests;
   };
@@ -68,7 +75,19 @@ const Part1: React.FC = () => {
     try {
       // Lấy questions cho test này
       const testIndex = testNumber - 1;
-      const testQuestions = part1Questions.slice(testIndex * QUESTIONS_PER_TEST, (testIndex + 1) * QUESTIONS_PER_TEST);
+      const startIndex = testIndex * QUESTIONS_PER_TEST;
+      const endIndex = (testIndex + 1) * QUESTIONS_PER_TEST;
+      const testQuestions = part1Questions.slice(startIndex, endIndex);
+      
+      console.log(`Part1 startTest Debug - Test ${testId}:`, {
+        testNumber,
+        testIndex,
+        startIndex,
+        endIndex,
+        totalQuestions: part1Questions.length,
+        testQuestionsLength: testQuestions.length,
+        testQuestions: testQuestions.map(q => q.questionNumber)
+      });
       
       // Lấy tất cả URL ảnh
       const imageUrls = getImageUrlsFromQuestions(testQuestions);
