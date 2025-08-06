@@ -45,6 +45,7 @@ const DictationPractice: React.FC = () => {
   const [isSetLoaded, setIsSetLoaded] = useState(false);
   const [exampleSentence, setExampleSentence] = useState<any>(null);
   const [isGeneratingExample, setIsGeneratingExample] = useState(false);
+  const [generatedExamples, setGeneratedExamples] = useState<string[]>([]);
 
   // Use common audio manager
   const { playSuccessSound, playErrorSound, handlePlayAudio } = useAudioManager(soundEnabled);
@@ -215,11 +216,58 @@ const DictationPractice: React.FC = () => {
       setIsGeneratingExample(true);
       setExampleSentence(null);
       
-      const example = await generateExampleSentence(
-        item.word, 
-        item.meaning, 
-        item.type
-      );
+      let example;
+      let attempts = 0;
+      const maxAttempts = 5; // Giới hạn số lần thử để tránh vòng lặp vô hạn
+      
+      do {
+        // Đảm bảo generatedExamples là array trước khi truyền lên AI
+        const examplesForAI = Array.isArray(generatedExamples) ? generatedExamples : [];
+        
+        example = await generateExampleSentence(
+          item.word, 
+          item.meaning, 
+          item.type,
+          examplesForAI // Truyền danh sách các câu đã tạo
+        );
+        
+        attempts++;
+        
+        // Kiểm tra xem câu mẫu đã được tạo trước đó chưa
+        const exampleKey = example?.exampleSentence?.english?.toLowerCase().trim();
+        
+        if (!exampleKey) {
+          // Nếu không có câu mẫu, thoát khỏi vòng lặp
+          break;
+        }
+        
+        // Đảm bảo generatedExamples là array
+        const currentExamples = Array.isArray(generatedExamples) ? generatedExamples : [];
+        
+        if (!currentExamples.includes(exampleKey)) {
+          // Nếu câu mẫu chưa được tạo, thêm vào danh sách và thoát khỏi vòng lặp
+          setGeneratedExamples(prev => {
+            const prevArray = Array.isArray(prev) ? prev : [];
+            return [...prevArray, exampleKey];
+          });
+          break;
+        }
+        
+        // Nếu đã thử quá nhiều lần, thoát khỏi vòng lặp
+        if (attempts >= maxAttempts) {
+          console.warn('Đã thử tạo câu mẫu quá nhiều lần, có thể đã hết câu mẫu mới');
+          // Hiển thị thông báo cho người dùng
+          setExampleSentence({
+            exampleSentence: {
+              english: "Không thể tạo thêm câu mẫu mới cho từ này.",
+              vietnamese: "Đã tạo đủ số lượng câu mẫu có thể.",
+              context: "Thử lại sau hoặc chuyển sang từ khác."
+            }
+          });
+          return;
+        }
+        
+      } while (true);
       
       setExampleSentence(example);
     } catch (error) {
@@ -238,6 +286,7 @@ const DictationPractice: React.FC = () => {
     setShowAnswer(false);
     setShowModal(false);
     setExampleSentence(null); // Reset example sentence when moving to next word
+    setGeneratedExamples([]); // Reset generated examples for new word
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -474,7 +523,7 @@ const DictationPractice: React.FC = () => {
                 </>
               ) : (
                 <>
-                  Create example
+                  Create example {generatedExamples.length > 0 && `(${generatedExamples.length})`}
                 </>
               )}
             </button>

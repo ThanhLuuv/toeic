@@ -885,7 +885,7 @@ Trả về JSON với format:
 } 
 
 // Hàm tạo câu mẫu sử dụng từ vựng
-export async function generateExampleSentence(word: string, meaning: string, type: string): Promise<any> {
+export async function generateExampleSentence(word: string, meaning: string, type: string, existingExamples: string[] = []): Promise<any> {
   const apiKey = process.env.REACT_APP_API_KEY_OPENAI;
   
   if (!apiKey) {
@@ -894,6 +894,11 @@ export async function generateExampleSentence(word: string, meaning: string, typ
   
   const endpoint = 'https://api.openai.com/v1/chat/completions';
   
+  // Tạo danh sách các câu đã tồn tại để tránh trùng lặp
+  const existingExamplesText = existingExamples.length > 0 
+    ? `\n\nCÁC CÂU ĐÃ TẠO TRƯỚC ĐÓ (KHÔNG ĐƯỢC TẠO LẠI):\n${existingExamples.map((example, index) => `${index + 1}. ${example}`).join('\n')}`
+    : '';
+  
   const prompt = `Tạo một câu mẫu sử dụng từ "${word}" (${meaning}) - loại từ: ${type}.
 
 Yêu cầu:
@@ -901,6 +906,7 @@ Yêu cầu:
 2. Sử dụng từ "${word}" trong ngữ cảnh phù hợp
 3. Cung cấp bản dịch tiếng Việt
 4. Câu phải dễ hiểu và thực tế
+5. QUAN TRỌNG: KHÔNG được tạo câu giống với các câu đã tạo trước đó${existingExamplesText}
 
 Trả về JSON với format:
 {
